@@ -91,10 +91,10 @@
         <state id="ACCEPT">
           <transition label="Ready" target="READY"/>
           <onentry>
-            <assign expr="true" location="On_In.CardAccept" iumlb:refinement="2"/>
+            <assign expr="true" location="On_In.CardAccept"/>
           </onentry>
           <onexit>
-            <assign expr="true" location="On_In.Reset" iumlb:refinement="2"/>
+            <assign expr="true" location="On_In.Reset"/>
           </onexit>
         </state>
       </state>
