@@ -14,7 +14,7 @@
     <data expr="Gate_In.Block \in BOOL" id="typeof_Gate_In.Block"/>
     <data expr="Gate_In.Unblock \in BOOL" id="typeof_Gate_In.Unblock"/>
   </datamodel>
-  
+
   <state id="OFF" iumlb:refinement="1">
     <transition label="OnOff_whileOFF" target="ON"/>
     <onentry>
@@ -26,8 +26,8 @@
   <state id="ON" iumlb:refinement="1">     
     <parallel id="ON_Gate_CardReader">
       <datamodel iumlb:refinement="2">
-        <data expr="false" id="On_In.Reset"/>
-        <data expr="false" id="On_In.CardAccept"/>
+        <data expr="On_In.Reset \in BOOL" id="typeof_On_In.Reset"/>
+        <data expr="On_In.CardAccept \in BOOL" id="typeof_On_In.CardAccept"/>
       </datamodel>
       <state id="Gate" iumlb:refinement="2">
         <initial>
