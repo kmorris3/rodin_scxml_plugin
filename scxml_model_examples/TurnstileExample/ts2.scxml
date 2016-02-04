@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scxml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.w3.org/2005/07/scxml" xmlns:iumlb="urn:xmlns:ac.soton.uk:iumlb" initial="OFF" name="main3" version="1.0">
+  <annotations source="">
+    <details key="Refinement" value="1"/>
+  </annotations>
+  <attributes key="Refinement">
+    <value type="String"/>
+  </attributes>
+  <extensions xsi:type="Extension" extensionId="">
+    <annotations source=""/>
+    <attributes/>
+  </extensions>
+  <datamodel iumlb:Refinement="2">
+    <data expr="0" id="Refinement" src=""/>
+    <data expr="false" id="Gate_In.Block"/>
+    <data expr="false" id="Gate_In.Unblock" src="M0"/>
+  </datamodel>
+  <state id="OFF">
+    <transition cond="" target="ON">
+      <log label="OnOff_whileOFF"/>
+      <assign iumlb:Refinement="2"><datamodel>
+          <data expr="0" id="Refinement"/>
+        </datamodel></assign>
+    </transition>
+    <onentry>
+      <assign expr="false" location="Gate_In.Block"/>
+      <assign expr="false" location="Gate_In.Unblock"/>
+    </onentry>
+  </state>
+  <state id="ON">
+    <parallel id="ON_Gate_CardReader">
+      <state id="Gate" iumlb:Refinement="2">
+        <initial>
+          <transition target="BLOCKED"/>
+        </initial>
+        <state id="BLOCKED">
+          <transition cond="[On_In.CardAccept==true]" target="UNBLOCKED">
+            <iumlb:guard name="gd1" predicate="On_In.CardAccept==true" refinement="2"/>
+          </transition>
+          <onentry>
+            <assign expr="true" location="Gate_In.Block"/>
+            <assign expr="false" location="On_In.Reset"/>
+          </onentry>
+          <onexit>
+            <assign expr="false" location="Gate_In.Block"/>
+          </onexit>
+          <datamodel>
+            <data expr="Gate_In.Block == TRUE" id="Inv1" src=""/>
+          </datamodel>
+        </state>
+        <state id="UNBLOCKED">
+          <transition cond="[On_In.Reset ==true]" target="BLOCKED"/>
+          <onentry>
+            <assign expr="true" location="Gate_In.Unblock"/>
+            <assign expr="false" location="On_In.CardAccept"/>
+          </onentry>
+          <onexit>
+            <assign expr="false" location="Gate_In.Unblock"/>
+          </onexit>
+        </state>
+        <datamodel>
+          <data expr="1" id="Refinement" src=""/>
+        </datamodel>
+      </state>
+      <state id="CardReader">
+        <initial>
+          <transition target="READY"/>
+        </initial>
+        <state id="READY">
+          <initial>
+            <transition target="CLEAR"/>
+          </initial>
+          <state id="CLEAR">
+            <transition event="timed_CLEAR" target="COMPLETE_SET_UP"/>
+          </state>
+          <state id="COMPLETE_SET_UP">
+            <transition event="timed_COMPLETE_SET_UP" target="READY_FINAL"/>
+          </state>
+          <final id="READY_FINAL"/>
+          <transition event="CardIn" target="READING"/>
+          <datamodel>
+            <data expr="3" id="Refinement"/>
+          </datamodel>
+        </state>
+        <state id="READING">
+          <transition event="CardError" target="READY"/>
+          <transition event="CardOk" target="ACCEPT"/>
+        </state>
+        <state id="ACCEPT">
+          <transition event="Ready" target="READY"/>
+          <onentry>
+            <assign expr="true" location="On_In.CardAccept"/>
+          </onentry>
+          <onexit>
+            <assign expr="true" location="On_In.Reset"/>
+          </onexit>
+        </state>
+        <datamodel>
+          <data expr="2" id="Refinement"/>
+        </datamodel>
+      </state>
+      <datamodel>
+        <data expr="false" id="On_In.Reset" src=""/>
+        <data expr="false" id="On_In.CardAccept"/>
+        <data expr="1" id="Refinement" src=""/>
+      </datamodel>
+    </parallel>
+    <transition target="OFF">
+      <log label="OnOff_whileON"/>
+    </transition>
+  </state>
+</scxml>
