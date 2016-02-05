@@ -16,7 +16,7 @@
   </datamodel>
 
   <state id="OFF" iumlb:refinement="1">
-    <transition label="OnOff_whileOFF" target="ON"/>
+    <transition iumlb:label="OnOff_whileOFF" target="ON"/>
     <onentry>
       <assign expr="false" location="Gate_In.Block" iumlb:refinement="2"/>
       <assign expr="false" location="Gate_In.Unblock" iumlb:refinement="2"/>
@@ -80,16 +80,16 @@
             <transition event="timed_COMPLETE_SET_UP" target="READY_FINAL"/>
           </state>
           <final id="READY_FINAL" />
-          <transition label="CardIn" target="READING"/>
+          <transition iumlb:label="CardIn" target="READING"/>
         </state>
 
         <state id="READING">
-          <transition label="CardError" target="READY"/>
-          <transition label="CardOk" target="ACCEPT"/>
+          <transition iumlb:label="CardError" target="READY"/>
+          <transition iumlb:label="CardOk" target="ACCEPT"/>
         </state>
 
         <state id="ACCEPT">
-          <transition label="Ready" target="READY"/>
+          <transition iumlb:label="Ready" target="READY"/>
           <onentry>
             <assign expr="true" location="On_In.CardAccept"/>
           </onentry>
@@ -99,6 +99,6 @@
         </state>
       </state>
     </parallel>
-    <transition label="OnOff_whileON" target="OFF"/>
+    <transition iumlb:label="OnOff_whileON" target="OFF"/>
   </state>
 </scxml>
