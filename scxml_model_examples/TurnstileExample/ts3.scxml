@@ -17,8 +17,8 @@
   <state id="ON" iumlb:refinement="1">     
     <parallel id="ON_Gate_CardReader">
       <datamodel iumlb:refinement="2"> 
-        <data expr="false" id="On_In.Reset" iumlb:type="BOOL" \>
-        <data expr="false" id="On_In.CardAccept" iumlb:type="BOOL"\>
+        <data expr="false" id="On_In.Reset" iumlb:type="BOOL"/>
+        <data expr="false" id="On_In.CardAccept" iumlb:type="BOOL"/>
       </datamodel>
       <state id="Gate" iumlb:refinement="2">
         <initial>
