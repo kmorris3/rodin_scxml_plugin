@@ -36,7 +36,7 @@
           <onexit>
             <assign expr="false" location="Gate_In.Block"/>
           </onexit>
-          <iulmb:invariant expr="Gate_In.Block == TRUE" label="GateCondition"/>
+          <iumlb:invariant expr="Gate_In.Block == TRUE" label="GateCondition"/>
         </state>
 
         <state id="UNBLOCKED">
