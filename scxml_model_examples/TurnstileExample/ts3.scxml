@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scxml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.w3.org/2005/07/scxml" xmlns:iumlb="urn:xmlns:ac.soton.uk:iumlb" initial="OFF" name="main3" version="1.0">
+<scxml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.w3.org/2005/07/scxml" xmlns:iumlb="urn:xmlns:ac.soton.uk:iumlb" initial="OFF" name="main3" version="1.0" iumlb:refinement="0">
 
   <datamodel iumlb:refinement="2"> 
     <data  expr="false" id="Gate_In.Block" iumlb:type="BOOL"  />
@@ -36,7 +36,7 @@
           <onexit>
             <assign expr="false" location="Gate_In.Block"/>
           </onexit>
-          <iumlb:invariant expr="Gate_In.Block == TRUE" label="GateCondition"/>
+          <iumlb:invariant predicate="Gate_In.Block == TRUE" name="GateCondition"/>
         </state>
 
         <state id="UNBLOCKED">
