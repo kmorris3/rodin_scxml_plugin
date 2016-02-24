@@ -1,0 +1,55 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}  
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{fancyvrb,relsize}
+\usepackage{relsize}
+\usepackage{verbatim}
+\usepackage{pdfpages}
+\usepackage{wrapfig}
+\usepackage{fancyvrb,relsize}
+\usepackage{subfigure}
+\usepackage{color}
+% \usepackage{lipsum}
+\usepackage[showframe=false]{geometry}
+\geometry{verbose,tmargin=90pt,bmargin=90pt,lmargin=90pt,
+rmargin=90pt}
+
+\title{Outline} 
+
+\begin{document}
+
+
+\maketitle
+
+\section{Brainstorming Ideas for possible manuscript submission to Jackson \& Michael Workshop}
+
+\begin{itemize}
+\item Motivation behind pursuing a scxml representation of our models, what are the benefits? 
+\item Reconciling scxml semantics for event-b code generation.  (Important, people will be interested)
+\item Differences in semantics between scxml and event-b
+\item Event Triggers ideas
+	\begin{itemize}
+		\item Run to completions 
+		\item Order of execution
+		\item Sequential nature of actions as opposed to atomic actions
+	\end{itemize}	
+\item Elude to the reason for ignoring some of the scxml feature when it comes to the translation.
+\item List the difference in the syntax of each representation (Short section)
+\item Methodology for adding required information to allow refinement, invariants,
+guards, variable type declaration.
+\item 
+\item Find a system that we can model and some how describe the benefits (e.g. model simplification) of using a specific syntax over the other.
+	\begin{itemize}
+		\item What model behavior can you capture with each semantic?
+		\item What properties of the model are easier to simulate?
+		\item Where do we introduce unnecessary complexity?
+	\end{itemize}	
+\item Summary of the translation rules that we have implemented, including some
+\item of the limitations we have incorporated.
+\item Tools development problems due to the lack of scxml extensibilities. How to address the features that we need to add in order to capture things like refinement information, model invariants, etc.
+\item Provide examples of desire extended features, and check backward compatibility with other scxml editors, simulators, etc
+\end{itemize}
+
+\end{document}
