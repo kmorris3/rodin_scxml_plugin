@@ -11,6 +11,12 @@
 
 \usepackage{doc}
 
+%use packages added by karla
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{color}
+%use packages added by karla
+
 % use this if you have a long article and want to create an index
 % \usepackage{makeidx}
 
@@ -124,50 +130,157 @@ Colin Snook\inst{2}
 % 	\end{centering}
 % \end{figure}
 
-This section should focus on the motivation behind pursuing a scxml 
-representation of our models, what are the benefits?
+\textcolor{red}{This section should focus on the motivation behind pursuing a scxml 
+representation of our models, what are the benefits?}
+
+SCXML is a general-purpose event-based state machine 
+language that combines concepts from CCXML and Harel 
+State Tables. Harel State Tables are included in UML. 
+The concrete syntax for SCXML\footnote{http://www.w3.org/TR/scxml/} is based on XML. Hence, 
+SCXML is an XML notation for UML style state-machines 
+extended with an action language that is intended for 
+call control features in voice applications.
 
 %------------------------------------------------------------------------------
 
 \section{Differences in Semantics}
 \label{sect:diff}
 
-Differences in semantics between scxml and event-b
+\textcolor{red}{Differences in semantics between scxml and event-b}
 
-Elude to the reason for ignoring some of the scxml feature 
-when it comes to the translation.
+\textcolor{red}{Elude to the reason for ignoring some of the scxml feature 
+when it comes to the translation.}
 
-List the difference in the syntax of each representation (Short section)
+\textcolor{red}{List the difference in the syntax of each representation (Short section)}
+
+\begin{description}
+\item [Refinement:]
+Refinement is a central concept in iUML-B, detail is 
+added in refinements by progressive hierarchical 
+nesting. There is no refinement in SCXML.
+
+\item [Transition firing:]
+SCXML has equivalent hierarchical state constructs to 
+iUML-B but differs significantly in the transition 
+firing mechanism. In iUML-B transitions fire 
+spontaneously when their guard (including source state) 
+is true. In SCXML, transitions are triggered by the 
+occurrence of some other event, which may be external 
+or induced by the actions of another transition. 
+In iUML-B if several transitions are simultaneously 
+enabled one of the enabled transitions is non-
+deterministically chosen for firing whereas SCXML has 
+ordering rules to determine which transitions to fire 
+next.
+
+\item [Transition execution:]
+When a particular SCXML transition fires it carries out 
+a sequence of actions in particular order. For example 
+a hierarchy of nested source states are exited (
+performing exit actions) starting from the innermost 
+one and working outwards. Presumably the order of 
+taking actions is significant in SCXML (perhaps some of 
+these actions could write to the same variable). In 
+
+Event-B all actions of a transition are executed 
+simultaneously in parallel by the elaborated event. It 
+is not possible (i.e. not well-formed) for two of these 
+actions to write to the same variable.
+SCXML transitions can be designated ‘internal’, which 
+prevents exiting and re-entering its source state in 
+some cases. In SCXML target state can be omitted which 
+results in a transition that does not change state (
+this is different from a transition that exits a state 
+and then re-enters the same state).
+Neither of these features is supported in iUML-B since 
+
+\item [Events:]
+The meaning of event is very different between iUML-B 
+and SCXML. In iUML-B transitions are sub-parts of 
+events. In order for an event to be enabled for firing, 
+all of its sub-parts (transitions) must be 
+simultaneously enabled. This means that two different 
+transitions with the same event can only fire at the 
+same time and hence will never fire if they are sourced 
+from different states of the same parent state-machine. 
+In SCXML, events are triggers that enable transitions 
+to fire. If two different transitions from different 
+source states are both triggered by the same event, one 
+may fire without the other if one source state is not 
+active.
+
+\item [Final States:]
+The concept of a final state differs between iUML-B and 
+SCXML. In SCXML a state machine (or parent state) may 
+reside in a final state indicating that it is done and 
+waiting for another transition to exit the parent 
+state.  In iUML-B a final state is not a proper state 
+of the parent state-machine. It is merely a notation 
+for indicating that the state-machine is becoming non-
+active. I.e. that the parent state is exiting. Hence 
+any transitions that target a final state are part of a 
+transition that leaves the parent state. For a ‘root’ 
+state-machine the final state means that the state-
+machine has been left completely and no state is active.
+
+\item [Initial States:]
+Initial states are similar to iUML-B. The transition 
+from the initial state forms part of the actions to 
+enter the parent state. However, the correspondence 
+between incoming transitions to the parent state and 
+initial transitions is more explicit in iUML-B. 
+SCXML has another way to specify an initial state using 
+an attribute of the state. In this case there is no way 
+to add extra transition actions.
+If no initial state is specified, the default is the 
+first one in the document.
+iUML-B allows different intial states for different 
+incoming transitions. In SCXML this would be done by 
+extending the transition into the substate.
+
+\item [Entry/Exit Actions:]
+SCXML includes the concept of entry and exit actions 
+which are executed whenever a transition enters, resp. 
+exits, the containing state. 
+iUML-B does not current implement entry/exit actions,
+but it is has been planned to add them.  This could be 
+done as part of the work to support the iUMLB\_SCXML 
+plugin, however, due to the extensive semantic 
+differences between iUML-B and SCXML, it may be found 
+that iUML-B entry/exit actions are not useful for 
+supporting SCXML and a different solution is necessary.
+
+\end{description}
 
 %------------------------------------------------------------------------------
 
 \section{Reconciling Semantics}
 \label{sect:recon}
 
-Reconciling scxml semantics for event-b code generation.  
-(Important, people will be interested
+\textcolor{red}{Reconciling scxml semantics for event-b code generation.  
+(Important, people will be interested)}
 
 %------------------------------------------------------------------------------
 
 \section{Extending SCXML}
 \label{sect:extension}
 
-Methodology for adding required information to allow refinement, invariants,
-guards, variable type declaration.
+\textcolor{red}{Methodology for adding required information to allow refinement, invariants,
+guards, variable type declaration.}
 
 %------------------------------------------------------------------------------
 
 \section{Case Study}
 \label{sect:caseS}
 
-Find a system that we can model and some how describe the benefits 
+\textcolor{red}{Find a system that we can model and some how describe the benefits 
 (e.g. model simplification) of using a specific syntax over the other.
 	\begin{itemize}
 		\item What model behavior can you capture with each semantic?
 		\item What properties of the model are easier to simulate?
 		\item Where do we introduce unnecessary complexity?
 	\end{itemize}	
-
+}
 
 %------------------------------------------------------------------------------
 \section{Conclusion}
