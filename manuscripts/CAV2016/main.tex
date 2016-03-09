@@ -17,6 +17,11 @@
 \usepackage{color}
 %use packages added by karla
 
+%use packages added by Colin
+ \usepackage{multirow}
+ \usepackage{graphicx}
+ %use packages added by Colin
+
 % use this if you have a long article and want to create an index
 % \usepackage{makeidx}
 
@@ -361,6 +366,8 @@ to be adopted and used by the modeller in order to
 construct guards that refer to the current value of the 
 state-machine.
 
+\subsection{Extensions to SCXML}
+
 The following syntax extensions are added to SCXML models 
 to support modelling features needed in iUML-B/Event-B. 
 These extensions are prefixed with ‘iumlb:’ in order to 
@@ -368,6 +375,68 @@ distinguish them from the scxml XML parser. (So that they
 are ignored by SCXML simulation tools). They are loaded by 
 EMF as generic feature maps (‘Any’ for contained elements 
 and ‘AnyAttribute’ for attributes).
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[tbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{iumlb Element}           & \textbf{Meaning}                                             & \textbf{Legal Attributes} \\ \hline
+\multirow{5}{*}{iumlb:invariant} & \multirow{5}{*}{generates an invariant in Event-B or iUML-B} & iumlb:name,               \\
+                                 &                                                              & iumlb:derived,            \\
+                                 &                                                              & iumlb:predicate,          \\
+                                 &                                                              & iumlb:comment,            \\
+                                 &                                                              & iuml:refinement           \\ \hline
+\multirow{5}{*}{iumlb:guard}     & \multirow{5}{*}{generates a guard in Event-B or iUML-B}      & iumlb:name,               \\
+                                 &                                                              & iumlb:derived,            \\
+                                 &                                                              & iumlb:predicate,          \\
+                                 &                                                              & iumlb:comment,            \\
+                                 &                                                              & iuml:refinement           \\ \hline
+\end{tabular}%
+}
+\caption{My caption}
+\label{my-label}
+\end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage{graphicx}
+\begin{table}[tbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{iumlb Attribute}           & \textbf{Meaning}                                                                                                           & \textbf{Legal Parents}   \\ \hline
+iumlb:label                        & string used as the name of an Event-B event elaborated by the generated i-UML-B transition                                 & scxml:transition         \\ \hline
+\multirow{11}{*}{iumlb:refinement} & \multirow{11}{*}{non-negative integer representing the refinement level at which the parent element should be introduced.} & scxml:scxml,             \\
+                                   &                                                                                                                            & scxml:datamodel,         \\
+                                   &                                                                                                                            & scxml:data,              \\
+                                   &                                                                                                                            & scxml:state,             \\
+                                   &                                                                                                                            & scxml:parallel,          \\
+                                   &                                                                                                                            & scxml:transition,        \\
+                                   &                                                                                                                            & scxml:onEntry,           \\
+                                   &                                                                                                                            & scxml:onExit,            \\
+                                   &                                                                                                                            & scxml:assign             \\
+                                   &                                                                                                                            & iumlb:invariant,         \\
+                                   &                                                                                                                            & iumlb:guard              \\ \hline
+\multirow{3}{*}{iumlb:comment}     & \multirow{3}{*}{string used as a comment on the generated iUML-B element}                                                  & iumlb:invariant,         \\
+                                   &                                                                                                                            & iumlb:guard,             \\
+                                   &                                                                                                                            & (could be added to more) \\ \hline
+iumlb:type                         & string used as the membership set for the Event-B variable generated from the parent data element                          & scxml:data               \\ \hline
+\multirow{2}{*}{iumlb:name}        & \multirow{2}{*}{string used for the name or label of a generated iUML-B element}                                           & iumlb:invariant,         \\
+                                   &                                                                                                                            & iumlb:guard              \\ \hline
+\multirow{2}{*}{iumlb:predicate}   & \multirow{2}{*}{string used for the predicate of a guard or invariant}                                                     & iumlb:invariant,         \\
+                                   &                                                                                                                            & iumlb:guard              \\ \hline
+\multirow{2}{*}{iumlb:derived}     & \multirow{2}{*}{boolean indicating that the guard is a theorem (default to false)}                                         & iumlb:invariant,         \\
+                                   &                                                                                                                            & iumlb:guard              \\ \hline
+\end{tabular}%
+}
+\caption{My caption}
+\label{my-label}
+\end{table}
 
 
 \subsection{Refinement Levels}
@@ -417,6 +486,8 @@ format into Event-B mathematical language). The variable is
 introduced at the same refinement level as the parent 
 element that contains it.
 %------------------------------------------------------------------------------
+
+
 
 \section{Case Study}
 \label{sect:caseS}
