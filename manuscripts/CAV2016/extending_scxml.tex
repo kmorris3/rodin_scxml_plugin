@@ -1,4 +1,4 @@
-% !TEX root = HDMachine.tex
+% !TEX root = main.tex
 
 \section{Extending SCXML}
 \label{sect:extension}
@@ -6,35 +6,13 @@
 \textcolor{red}{Methodology for adding required information to allow refinement, invariants,
 guards, variable type declaration.}
 
-An EMF meta-model for SCXML is available from the Sirius 
-project. It is used by the Sirius project as a test sample 
-so has not been released to users but is available in the 
-github source code repository and will be copied and built 
-for release with the iUML-B-SCXML tools. It supports SCXML 
-functionality including data modelling and action/
-expression language. 
-Running this code in a debug environment enables us to 
-produce the following SCXML model using the EMF sample 
-editor. The serialised XMI is shown to the left. 
+To facilitate Event-B formal verification, extensions to the SCXML modelling notation are necessary so that additional modelling features required by Event-B can be integrated with the SCXML model.
+The SCXML schema allows extension elements and attributes belonging to a different namespace to be added. The tooling (both XML and EMF) provides fallback mechanisms so that these extensions are supported without the need for syntactic definition. We define a new namespace,  \emph{iumlb} and add two new elements, \emph{iumlb:invariant} and \emph{iumlb:guard} (Table \ref{iumlb_elements_table}) as well as a number of new attributes which are shown in Table \ref{iumlb_attributes_table}.
+ Invariants are not supported at all in SCXML but are needed to describe verifiable properties of a model. SCXML Transitions only have a single \emph{cond} attribute whereas we need to introduce conjuncts of a transition condition at various refinement steps and may also need to designate some invariants or guards as theorems that can be derived from the preceding conjuncts. 
+New attributes are introduced to support the predicate (string) and the derived (boolean) theorem property of invariants and guards.
 
-The serialisation shown above is the default produced for a 
-newly created model. It contains the prefix tag ‘scxml:’ on 
-each element, which is not standard scxml syntax. However, 
-the serialisation is flexible and is able to load/update 
-models without this prefix being introduced.
+The concept of refinement is not supported in SCXML. We introduce a new integer valued attribute, \emph{iumlb:refinement}, which may be attached to any element of either namespace. This indicates the first refinement level at which that element should be introduced in the generated Event-B model. Elements with no refinement attribute adopt that of their parent. Note that this approach largely restricts us to superposition refinement where entirely new details are introduced at each refinement level.  It may be possible to support ranges in the refinement attribute enabling a model element to be replaced by some other element in a true data refinement. We plan to investigate this in future work, although, clearly, several coexisting alternative representations of the same concept may be problematic for the SCXML semantics.
 
-Hierarchical nested state charts are translated to similar 
-corresponding state-machine structures in iUML-B according 
-to the rules described in 5.2.1. There are two alternative 
-styles of Event-B representation for iUML-B state-machines. 
-Currently the state-variables style is adopted because it 
-is simpler to translate from the Scxml model. However, the 
-alternative state-enumeration style has benefits in user-
-readability and may be supported in future. This would 
-require conventions regarding the name of the state-machine 
-to be adopted and used by the modeller in order to 
-construct guards that refer to the current value of the 
-state-machine.
 
 \subsection{Extensions to SCXML}
 \label{sect:extension-to-SCXML}
@@ -68,8 +46,8 @@ and ‘AnyAttribute’ for attributes).
                                  &                                                              & iuml:refinement           \\ \hline
 \end{tabular}%
 }
-\caption{My caption}
-\label{my-label}
+\caption{New Elements}
+\label{iumlb_elements_table}
 \end{table}
 
 % Please add the following required packages to your document preamble:
@@ -105,57 +83,10 @@ iumlb:type                         & string used as the membership set for the E
                                    &                                                                                                                            & iumlb:guard              \\ \hline
 \end{tabular}%
 }
-\caption{My caption}
-\label{my-label}
+\caption{New Attributes}
+\label{iumlb_attributes_table}
 \end{table}
 
-
-\subsection{Refinement Levels}
-For scxml:State the refinement level refers to any state 
-machines generated from the children nested in the state (i.
-e. generated iUML-B states must be all based on the 
-refinement level of the containing statemachine).
-For iumlb:invariants the generated invariant is only 
-generated at the specified refinement level, not in 
-subsequent refinements.
-
-\subsection{Constructing event elaborated by transitions}
-The Event-B events that are elaborated by an iUML-B 
-transition are constructed as follows:
-
-The event names are obtained (cumulatively) by the 
-following methods:
-a)  the transition has iumlb:label attributes,
-b) the transition's source is an initial state (see below), 
-or,
-c) if none of the above provide any labels, a default 
-'source\_target' format is used.
-
-Note that trigger events are deliberately not used for 
-transition events because we want to keep them as a 
-separate concept from transition firing in line with scxml 
-semantics.
-
-If the transition is in an initial state at the outer state 
-chart level the name is INITIALISATION. 
-If the transition is in an initial state of a nested state 
-chart the names of all the events that are associated with 
-incoming transitions to the parent state are used.
-
-\subsection{Data elements}
-Data elements (which are collated in Datamodel elements) 
-are used to model ancillary variables as part of the model 
-in the way that SCXML intends them to be used.
-
-Data elements are interpreted as a variable. The type of 
-the variable is given in an iumlb:type attribute. 
-The id attribute is interpreted as the name of the 
-variable. The value is used as the right hand side of an 
-assignment action to initialise the variable.  (Some syntax 
-conversion is performed to convert the predicate from SCXML 
-format into Event-B mathematical language). The variable is 
-introduced at the same refinement level as the parent 
-element that contains it.
 %------------------------------------------------------------------------------
 
 %%% Local Variables: 
