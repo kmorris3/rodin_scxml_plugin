@@ -3,27 +3,12 @@
 \section{Extending SCXML}
 \label{sect:extension}
 
-\textcolor{red}{Methodology for adding required information to allow refinement, invariants,
-guards, variable type declaration.}
 
 To facilitate Event-B formal verification, extensions to the SCXML modelling notation are necessary so that additional modelling features required by Event-B can be integrated with the SCXML model.
 The SCXML schema allows extension elements and attributes belonging to a different namespace to be added. The tooling (both XML and EMF) provides fallback mechanisms so that these extensions are supported without the need for syntactic definition. We define a new namespace,  \emph{iumlb} and add two new elements, \emph{iumlb:invariant} and \emph{iumlb:guard} (Table \ref{iumlb_elements_table}) as well as a number of new attributes which are shown in Table \ref{iumlb_attributes_table}.
- Invariants are not supported at all in SCXML but are needed to describe verifiable properties of a model. SCXML Transitions only have a single \emph{cond} attribute whereas we need to introduce conjuncts of a transition condition at various refinement steps and may also need to designate some invariants or guards as theorems that can be derived from the preceding conjuncts. 
-New attributes are introduced to support the predicate (string) and the derived (boolean) theorem property of invariants and guards.
+ Invariants are not supported in SCXML but are needed to describe verifiable properties of a model. SCXML Transitions only have a single \emph{cond} attribute whereas we need to introduce conjuncts of a transition condition at various refinement steps and may also need to designate some invariants or guards as theorems that can be derived from the preceding conjuncts. 
+New attributes are introduced to support the predicate (string) and the derived (boolean) theorem property of invariants and guards. The concept of refinement is not supported in SCXML. We introduce a new integer valued attribute, \emph{iumlb:refinement}, which may be attached to any element of either namespace in order to specify the refinement level of that element. 
 
-The concept of refinement is not supported in SCXML. We introduce a new integer valued attribute, \emph{iumlb:refinement}, which may be attached to any element of either namespace. This indicates the first refinement level at which that element should be introduced in the generated Event-B model. Elements with no refinement attribute adopt that of their parent. Note that this approach largely restricts us to superposition refinement where entirely new details are introduced at each refinement level.  It may be possible to support ranges in the refinement attribute enabling a model element to be replaced by some other element in a true data refinement. We plan to investigate this in future work, although, clearly, several coexisting alternative representations of the same concept may be problematic for the SCXML semantics.
-
-
-\subsection{Extensions to SCXML}
-\label{sect:extension-to-SCXML}
-
-The following syntax extensions are added to SCXML models 
-to support modelling features needed in iUML-B/Event-B. 
-These extensions are prefixed with ‘iumlb:’ in order to 
-distinguish them from the scxml XML parser. (So that they 
-are ignored by SCXML simulation tools). They are loaded by 
-EMF as generic feature maps (‘Any’ for contained elements 
-and ‘AnyAttribute’ for attributes).
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}

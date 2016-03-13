@@ -2,82 +2,39 @@
 
 \section{Translation Tool}
 
-An EMF meta-model for SCXML is available from the Sirius 
-project. It is used by the Sirius project as a test sample 
-so has not been released to users but is available in the 
-github source code repository and will be copied and built 
-for release with the iUML-B-SCXML tools. It supports SCXML 
-functionality including data modelling and action/
-expression language. 
-Running this code in a debug environment enables us to 
-produce the following SCXML model using the EMF sample 
-editor. The serialised XMI is shown to the left. 
+The iUML-B tooling is based on the Eclipse Modelling Framework (EMF). It is therefore beneficial to load the SCXML model into EMF so that our existing model to model 
+transformation technology can be used to define the new SCXML to iUML-B translation. An EMF meta-model for SCXML is available from the Sirius \cite{??}
+project. It supports SCXML functionality as well as providing generic model loading facilities for new namespace extensions such as those we introduce in \ref{sect:extension}.
 
-The serialisation shown above is the default produced for a 
-newly created model. It contains the prefix tag ‘scxml:’ on 
-each element, which is not standard scxml syntax. However, 
-the serialisation is flexible and is able to load/update 
-models without this prefix being introduced.
-
-Hierarchical nested state charts are translated to similar 
-corresponding state-machine structures in iUML-B according 
-to the rules described in 5.2.1. There are two alternative 
-styles of Event-B representation for iUML-B state-machines. 
-Currently the state-variables style is adopted because it 
-is simpler to translate from the Scxml model. However, the 
-alternative state-enumeration style has benefits in user-
-readability and may be supported in future. This would 
-require conventions regarding the name of the state-machine 
-to be adopted and used by the modeller in order to 
-construct guards that refer to the current value of the 
-state-machine.
+Hierarchical nested state charts are translated to similar  corresponding state-machine structures in iUML-B. 
+There are two alternative styles of Event-B representation for iUML-B state-machines.  
+Currently the state-variables style is adopted because it is simpler to translate from the Scxml model. 
+However, the alternative state-enumeration style has benefits in user readability and may be supported in future.
+This would  require conventions regarding the name of the state-machine  to be adopted and used by the modeller in order to construct guards that refer to the current value of the state-machine.
+SCXML features, such as initial states, entry/exit actions, and transition actions have corresponding similar features in iUML-B and their translation is relatively straightforward. Since SCXML `final' states, unlike iUML-B final states, are more akin to real states, their translation is less straightforward. An iUML-B state, final state and transition from the former to the latter are added to the corresponding iUML-B state-machine. The transition elaborates all Event-B events that are elaborated by transitions that exit the parent iUML-B state. 
 
 \subsection{Refinement Levels}
-For scxml:State the refinement level refers to any state 
-machines generated from the children nested in the state (i.
-e. generated iUML-B states must be all based on the 
-refinement level of the containing statemachine).
-For iumlb:invariants the generated invariant is only 
-generated at the specified refinement level, not in 
-subsequent refinements.
+An \emph{iumlb:refinement} attribute is used to indicate the first refinement level at which an element should be introduced in the generated iUML-B/Event-B model. In general, elements with no refinement attribute adopt that of their parent.  However, for \emph{iscxml:State elements}, the refinement level refers to any state 
+machines generated from the children nested in that state irrespective of whether those children specify a different refinement level. This is because generated iUML-B states cannot be added to an existing state-machine in later refinements.
+For \emph{iumlb:invariants} the generated invariant is only  generated at the specified refinement level, not in  subsequent refinements. This is because Event-B invariants are visible through all subsequent refinements.
+
+Note that our approach to refinement in SCXML largely restricts us to superposition refinement where entirely new details are introduced at each refinement level.  It may be possible to support ranges in the refinement attribute enabling a model element to be replaced by some other element in a true data refinement. We plan to investigate this in future work, although, clearly, several coexisting alternative representations of the same concept may be problematic for the SCXML semantics.
 
 \subsection{Constructing event elaborated by transitions}
-The Event-B events that are elaborated by an iUML-B 
-transition are constructed as follows:
+The Event-B events that are elaborated by an iUML-B  transition are named as follows. 
 
-The event names are obtained (cumulatively) by the 
-following methods:
-a)  the transition has iumlb:label attributes,
-b) the transition's source is an initial state (see below), 
-or,
-c) if none of the above provide any labels, a default 
-'source\_target' format is used.
+\begin{enumerate}
+\item If the transition has \emph{iumlb:label} attributes, events are generated and named according to the label attributes.
+\item If the transition's source is an initial state at the outer state  chart level the transition elaborates the special Event-B INITIALISATION event. 
+\item If the transition's source is an initial state of a nested state  chart the names of all the events that are associated with  incoming transitions to the parent state are used.
+\item if none of the above provide any labels, a default  `source\_target' format is used.
+\end{enumerate}
 
-Note that trigger events are deliberately not used for 
-transition events because we want to keep them as a 
-separate concept from transition firing in line with scxml 
-semantics.
-
-If the transition is in an initial state at the outer state 
-chart level the name is INITIALISATION. 
-If the transition is in an initial state of a nested state 
-chart the names of all the events that are associated with 
-incoming transitions to the parent state are used.
+Trigger events are deliberately not used for  transition events because we want to keep them as a 
+separate concept from transition firing in line with SCXML semantics.
 
 \subsection{Data elements}
-Data elements (which are collated in Datamodel elements) 
-are used to model ancillary variables as part of the model 
-in the way that SCXML intends them to be used.
-
-Data elements are interpreted as a variable. The type of 
-the variable is given in an iumlb:type attribute. 
-The id attribute is interpreted as the name of the 
-variable. The value is used as the right hand side of an 
-assignment action to initialise the variable.  (Some syntax 
-conversion is performed to convert the predicate from SCXML 
-format into Event-B mathematical language). The variable is 
-introduced at the same refinement level as the parent 
-element that contains it.
+Data elements, collated in Datamodel elements, model ancillary variables in the way usual SCXML style. Data elements are translated to Event-B variables of type given in an \emph{iumlb:type} attribute translated into an Event-B subset invariant.  The id attribute of the data element is interpreted as the name of the variable and the value is used as the right hand side of an assignment action to initialise the variable.  Some syntax conversion is performed to convert the predicate from SCXML  format into the Event-B mathematical language. The variable is introduced at the same refinement level as the parent element that contains it.
 
 
 %------------------------------------------------------------------------------
