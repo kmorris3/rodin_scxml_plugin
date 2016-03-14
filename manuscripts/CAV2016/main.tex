@@ -187,12 +187,15 @@ in voice applications.
 \section{Differences in Semantics}
 \label{sect:diff}
 
-\textcolor{red}{Differences in semantics between scxml and event-b}
+% \textcolor{red}{Differences in semantics between scxml and event-b}
 
-\textcolor{red}{Elude to the reason for ignoring some of the scxml feature 
-when it comes to the translation.}
+% \textcolor{red}{Elude to the reason for ignoring some of the scxml feature 
+% when it comes to the translation.}
 
-\textcolor{red}{List the difference in the syntax of each representation (Short section)}
+% \textcolor{red}{List the difference in the syntax of each representation (Short section)}
+
+This sections provides a description of the main differences 
+between SCXML and Event-B. 
 
 \begin{description}
 \item [Refinement:]
@@ -201,31 +204,28 @@ added in refinements by progressive hierarchical
 nesting. There is no refinement in SCXML.
 
 \item [Transition firing:]
-SCXML has equivalent hierarchical state constructs to 
-iUML-B but differs significantly in the transition 
-firing mechanism. In iUML-B transitions fire 
-spontaneously when their guard (including source state) 
-is true. In SCXML, transitions are triggered by the 
+The hierarchical state constructs of both SCXML and
+iUML-B are equivalent, but their transition 
+firing mechanism differs significantly. In iUML-B 
+transitions fire spontaneously when their guard and source 
+state are true. In SCXML, transitions are triggered by the 
 occurrence of some other event, which may be external 
-or induced by the actions of another transition. 
+or internal (induced by the actions of another transition). 
 In iUML-B if several transitions are simultaneously 
-enabled one of the enabled transitions is non-
-deterministically chosen for firing whereas SCXML has 
-ordering rules to determine which transitions to fire 
-next.
+enabled one of the enabled transitions is non-deterministically 
+chosen for firing whereas SCXML has ordering rules to 
+determine which transitions to fire next.
 
 \item [Transition execution:]
 When a particular SCXML transition fires it carries out 
-a sequence of actions in particular order. For example 
-a hierarchy of nested source states are exited (
-performing exit actions) starting from the innermost 
-one and working outwards. Presumably the order of 
-taking actions is significant in SCXML (perhaps some of 
-these actions could write to the same variable). In 
-
-Event-B all actions of a transition are executed 
-simultaneously in parallel by the elaborated event. It 
-is not possible (i.e. not well-formed) for two of these 
+a sequence of actions in particular order. For example, 
+a hierarchy of nested source states exit,
+performing exit actions starting from the innermost 
+one and working outwards. The order of the actions 
+is significant in SCXML as these actions could 
+write to the same variable. In Event-B all actions of a 
+transition are executed simultaneouslly within the elaborated 
+event. It is not possible (i.e. not well-formed) for two of these 
 actions to write to the same variable.
 SCXML transitions can be designated ‘internal’, which 
 prevents exiting and re-entering its source state in 
