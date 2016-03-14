@@ -140,15 +140,29 @@ representation of our models, what are the benefits?}
 
 The formal verification of high consequence systems 
 requires the analysis of formal models that capture 
-the properties of the system of interest. Proving the 
-safisfaction of systems' properties or requirements
-can be made more tracktable by the abstraction made
-to create the model, as properties are expressed in 
-term of variables that are relevant at different 
-abstraction levels.  
+the properties and functionality of the system of 
+interest. Discharging proof obligations for systems' 
+properties or requirements can be made more tracktable 
+depending on the abstraction use to create the model, 
+as properties are expressed in term of variables that 
+are relevant at different abstraction levels.  
 
-The graphical representation of a model address some of 
-the compl ...
+The herarchical development of a system model makes 
+use of refinement concepts to link the different levels
+of abstraction. Each subsequent level increases model 
+complexity by adding implementation details to the 
+model in the form of functionality, capabilities and 
+finner requirements. As the model complexity increases 
+in each refinement level tractability of the model 
+can be improve by the use of a graphical representation, 
+with semantic reach enough to support an infrastructure 
+for formal verification.
+
+The Event-B language provides the logic, and refinement
+theory require to formaly analyze a system model. The 
+open source Rodin tool auments the event-B language by 
+providing a graphical interphace in the form of 
+iUML-B.  
 
 SCXML is a general-purpose event-based state machine 
 language that combines concepts from CCXML and Harel 
