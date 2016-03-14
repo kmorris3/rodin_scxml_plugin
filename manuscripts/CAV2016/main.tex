@@ -278,7 +278,10 @@ supporting SCXML and a different solution is necessary.
 \textcolor{red}{Reconciling scxml semantics for event-b code generation.  
 (Important, people will be interested)}
 
-While the basic structure of states with nested Statemachines and transitions is the same as that in iUML-B, there are several semantic differences that make translation into iUML-B difficult. We note some features with possible solutions to the problem.
+While the basic structure of states with nested Statemachines and 
+transitions is the same as that in iUML-B, there are several semantic 
+differences that make translation into iUML-B difficult. We note some 
+features with possible solutions to the problem.
 
 \begin{description}
 \item [Entry and Exit Actions] These can be added to iUML-B 
@@ -324,7 +327,13 @@ modelled by a similar mechanism except that the interface
 event is not needed since the flag is set directly by 
 another transition.
 
-\item [Run to completion semantics] SCXML has a run-to-completion (or big-step/little-step) semantics. This means that an external trigger is only consumed when no transition can be taken without doing so. This is quite cumbersome to implement in iUML-B since it requires constructing the conjunction of the negated guards of all the transitions that are internally triggered (including when transitions) and adding this to all externally triggered transitions.
+\item [Run to completion semantics] SCXML has a run-to-completion 
+(or big-step/little-step) semantics. This means that an external 
+trigger is only consumed when no transition can be taken without 
+doing so. This is quite cumbersome to implement in iUML-B since 
+it requires constructing the conjunction of the negated guards of
+all the transitions that are internally triggered (including when 
+transitions) and adding this to all externally triggered transitions.
 
 \end{description}
 
