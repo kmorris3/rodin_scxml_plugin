@@ -135,22 +135,45 @@ Colin Snook\inst{2}
 % 	\end{centering}
 % \end{figure}
 
-\textcolor{red}{This section should focus on the motivation behind pursuing a scxml 
-representation of our models, what are the benefits?}
+% \textcolor{red}{This section should focus on the motivation behind pursuing a scxml 
+% representation of our models, what are the benefits?}
 
 The formal verification of high consequence systems 
 requires the analysis of formal models that capture 
-the properties of the system of interest. Proving the 
-safisfaction of systems' properties or requirements
-can be made more tracktable by the abstraction made
-to create the model, as properties are expressed in 
-term of variables that are relevant at different 
-abstraction levels.  
+the properties and functionality of the system of 
+interest. Discharging proof obligations for systems' 
+properties or requirements can be made more tracktable 
+depending on the abstraction use to create the model, 
+as properties are expressed in term of variables that 
+are relevant at different abstraction levels.  
 
-The graphical representation of a model address some of 
-the compl ...
+A herarchical development of a system model makes 
+use of refinement concepts to link the different levels
+of abstraction. Each subsequent level increases model 
+complexity by adding implementation details to the 
+model in the form of functionality, capabilities and 
+finner requirements. As the model complexity increases 
+in each refinement level tractability of the model 
+can be improve by the use of a graphical representation, 
+with rich semantics that can support an infrastructure 
+for formal verification.
 
-SCXML is a general-purpose event-based state machine 
+The Event-B language provides the logic, and refinement
+theory require to formaly analyze a system model. The 
+open-source Rodin tool auments the Event-B language by 
+providing a graphical interphace in the form of
+iUML-B. The goal of this work is to create a model 
+representation capable of leveraging the structure and 
+herarchy that is inherently part of a state-machine 
+diagram, which will serve to enable the formal verification
+of requirements from two different  perspective. First, 
+the translation of the unified representation to Event-B. Second,
+the analysis of requirements related to the structure of 
+the state-machine it self, the higher level representation 
+of the model. 
+
+We base this unified state-machine model representaiton 
+on SCXML.  This is a general-purpose event-based state machine 
 language that combines concepts from CCXML and Harel 
 State Tables. Harel State Tables are included in UML. 
 The concrete syntax for SCXML\footnote{http://www.w3.org/TR/scxml/} 
