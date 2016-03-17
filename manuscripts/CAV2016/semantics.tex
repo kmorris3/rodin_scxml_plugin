@@ -1,0 +1,155 @@
+% !TEX root = main.tex
+
+\section{Semantic Differences and their Reconciliation}
+\label{sect:diff}
+
+\textcolor{red}{Differences in semantics between scxml and event-b}
+\textcolor{red}{Elude to the reason for ignoring some of the scxml feature 
+when it comes to the translation.}
+
+\textcolor{red}{List the difference in the syntax of each representation (Short section)}
+
+SCXML and iUML-B have syntactic similarities in their use of a state-transition notation with conditional transitions applying actions upon ancillary variables.
+However, their semantics have significant differences. SCXML is based on Harel state-charts with so called, `run to completion' semantics, whereas iUML-B is designed upon the `guarded action' semantics of Event-B.
+In this section we discuss the implications of this semantic difference with respect to translation between the 2 notations.
+
+\begin{description}
+
+\item [Transition firing:]
+
+There are three methods of initiating transitions in SCXML:
+\begin{itemize}
+\item `When' transitions are considered for execution if their source state is active and their \emph{cond} attribute evaluates to true. 
+This is similar to iUML-B transitions, which fire spontaneously when their guard (including source state) is true.
+In iUML-B if several transitions are simultaneously enabled one of the enabled transitions is non-deterministically chosen for firing whereas 
+SCXML has ordering rules to determine which transitions to fire next.
+\item A transition may be `Triggered' by the occurrence an external interface event. 
+This could be simulated in iUML-B by generating a flag to represent the trigger and adding a guard on the trigger flag to the transitions that are triggered by it. 
+The flag should then be reset by whichever transition is triggered by it in order to `consume' that trigger event.
+ A special interface event that sets the flag would be generated to represent the external interface receiving a trigger.
+\item Transitions may also trigger each other within their actions. 
+This could be modelled by a similar mechanism to the trigger events except that the interface event is not needed since the flag is set directly by another transition.
+\end{itemize}
+
+\item [Run to completion semantics:] 
+SCXML has a run-to-completion (aka big-step/little-step) semantics.
+ This means that an external trigger is only consumed when no transition can be taken without doing so. 
+This is quite cumbersome to implement in iUML-B since it requires constructing the conjunction of the negated guards of all the transitions that are internally triggered (including when transitions) and adding this to all externally triggered transitions.
+
+\item [Composition of execution actions:]
+When a particular SCXML transition fires it carries out a sequence of actions in a well-defined predictable order. 
+For example, a hierarchy of nested source states are exited (performing their exit actions sequentially) starting from the innermost one and working outwards.
+The order of execution is significant when some of these actions write to, or use the value of, a previously written variable. 
+In Event-B, all actions of a transition are executed simultaneously in parallel by the elaborated event. 
+It  is not possible (i.e. not well-formed) for two of these actions to write to the same variable.
+If any actions use the value of a variable that is being written, the value is the value before the transition started being executed.
+
+SCXML transitions can be designated `internal' which prevents exiting and re-entering its source state in some cases.
+ In SCXML, target state can be omitted which results in a transition that does not change state (this is different from a transition that exits a state and then re-enters the same state).
+Neither of these features are supported in iUML-B. A transition must have a target state and if it is the same as the source state the transition performs any exit and entry actions of its source/target state when it fires.
+
+\item [Events:]
+The meaning of event is very different between iUML-B and SCXML.
+ In iUML-B transitions are sub-parts of events. 
+ In order for an event to be enabled for firing, all of its sub-parts (transitions) must be simultaneously enabled. 
+ This means that two different transitions with the same event can only fire at the same time and hence will never fire if they are sourced from different states of the same parent state-machine. 
+In SCXML, events are triggers that enable transitions to fire. 
+If two different transitions from different source states are both triggered by the same event, one may fire without the other if one source state is not active.
+
+\item [Final States:]
+The concept of a final state differs between iUML-B and SCXML. 
+In SCXML a state machine (or parent state) may reside in a final state indicating that it is done and waiting for another transition to exit the parent state. 
+ In iUML-B a final state is not a proper state of the parent state-machine. 
+ It is merely a notation for indicating that the state-machine is becoming non-active. I.e. that the parent state is exiting. 
+ Hence any transitions that target a final state are part of a transition that leaves the parent state. 
+ For a `root'  state-machine, the final state means that the state-machine has been left completely and no state is active.
+
+\item [Initial States:]
+Initial states are similar in both notations. 
+The transition from the initial state forms part of the actions to enter the parent state. 
+However, the correspondence between incoming transitions to the parent state and initial transitions is more explicit in iUML-B. 
+SCXML has another way to specify an initial state using an attribute of the state.
+ In this case there is no way to add extra transition actions.
+If no initial state is specified, the default is the first state in the document.
+iUML-B allows different initial states for different incoming transitions. 
+In SCXML this would be done by extending the transition into the substate which, in iUML-B is also an optional alternative to the multiple initial states method .
+
+\item [Entry/Exit Actions:]
+SCXML and iUML-B both include the concept of entry and exit actions which are executed whenever a transition enters, resp. exits, the containing state. 
+However, their use in iUML-B is restricted by the lack of sequential composition in Event-B. 
+For example, if an exit action of a state, s, assigns a to a variable, v, then no transitions from s are allowed to assign to v either directly or via entry actions of their target state.
+We restrict the SCXML models that can be translated so that executing the actions in parallel is equivalent to executing them in sequence.
+Effectively this means that the same variable cannot be assigned more than once in any set of actions that will be taken when a transition fires. 
+The Event-B static checker will raise an error if this restriction is violated.
+
+Another difficulty arises when a transition exits a parent state without specifying any particular nested sub-state. 
+Strictly, only the exit actions of the currently active sub-state should be executed. However, this would be difficult in iUML-B due to the lack of any conditional execution.
+\textcolor{red} {How do we deal with this problem? }
+
+\item [Refinement:]
+Refinement is a central concept of Event-B where detail is built up in stages facilitating validation of abstract concepts before introducing complexity. 
+In iUML-B state-machines, refinement is achieved by adding nested state-machines to existing states.
+There is no refinement in SCXML. The entire system is introduced in one hierarchical state-chart. We provide an extension to SCXML (Section \ref{sect:extension}) so that the target refinement level of an element can be specified.
+
+\end{description}
+
+%------------------------------------------------------------------------------
+
+%\section{Reconciling Semantics}
+%\label{sect:recon}
+%
+%\textcolor{red}{Reconciling scxml semantics for event-b code generation.  
+%(Important, people will be interested)}
+%
+%In this section we describe how we have reconcile the disparity between SCXML and iUML-B semantics.
+%%While the basic structure of states with nested Statemachines and transitions is the same as that in iUML-B, there are several semantic differences that make translation into iUML-B difficult. We note some features with possible solutions to the problem.
+
+%\begin{description}
+%
+%\item [Transition triggers:] There are two kinds of transitions in SCXML. 
+%`When' transitions can fire spontaneously as soon as their guard becomes true. 
+%This is the same as iUML-B transitions  and we have no problem translating these.
+%
+%The other kind of transition is `Triggered' by an interface event. 
+%This could be simulated by generating a flag to represent the trigger and adding a guard on the trigger flag to the transitions that are triggered by it. 
+%The flag should then be reset by whichever transition is triggered by it in order to `consume' that trigger event.
+% A special interface event that sets the flag would be generated to represent the external interface receiving a trigger.
+%
+%Transitions may also trigger each other. This could be modelled by a similar mechanism except that the interface event is not needed since the flag is set directly by another transition.
+%
+%\item [Run to completion semantics:] 
+%SCXML has a run-to-completion (aka big-step/little-step) semantics.
+% This means that an external trigger is only consumed when no transition can be taken without doing so. 
+%This is quite cumbersome to implement in iUML-B since it requires constructing the conjunction of the negated guards of all the transitions that are internally triggered (including when transitions) and adding this to all externally triggered transitions.
+
+%\item [Transition firing:]
+%
+%\item [Composition of execution actions:]
+%
+%\item [Events:]
+%
+%\item [Final States:]
+%
+%\item [Initial States:]
+%
+%\item [Entry and Exit Actions] 
+%These can be added to iUML-B 
+%quite easily however, the lack of sequential composition in 
+%Event-B (hence iUML-B) means that the semantics of entry/
+%exit actions will differ in some scenarios. That is, in 
+%SCXML the source state’s exit actions are taken before the 
+%transition’s actions, which are before the target state’s 
+%entry actions. In iUML-B all the actions are taken in 
+%parallel, as there is no concept of execution order within 
+%an event. 
+%We restrict the SCXML models that can be translated so that executing the actions in parallel is equivalent to executing them in sequence.
+%Effectively this means that the same variable cannot be assigned more than once in any set of actions that will be taken when a transition fires. 
+%The Event-B static checker will raise an error if this restriction is violated.
+%
+%\textcolor{red} {How do we deal with the other problem -  nested states with exit actions and a non-specific exit transition.}
+
+%
+%\item [Refinement:]
+%We provide an extension to SCXML (Section \ref{sect:extension}) so that the refinement level of an element can be specified.
+
+%\end{description}
