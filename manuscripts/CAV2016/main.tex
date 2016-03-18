@@ -17,6 +17,18 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{color}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{fancyvrb,relsize}
+\usepackage{aeguill}
+\usepackage{rotating}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{amsbsy}
+\usepackage{psfrag}
+\usepackage{soul}
+\usepackage{relsize}
+\usepackage{verbatim}
 %use packages added by karla
 
 %use packages added by Colin
@@ -190,9 +202,34 @@ in voice applications.
 
 %------------------------------------------------------------------------------
 
-\input{reconciling_semantics}
+% \input{reconciling_semantics}
 \input{semantics}
 
+% \begin{figure}[tbp!]
+%   \VerbatimInput[samepage=false]{caseStudy/BlockState.scxml}
+%   \begin{center}(a)\end{center}
+%   \VerbatimInput[samepage=false]{caseStudy/Invariant.scxml}
+%   \begin{center}(b)\end{center}
+%   \caption{The RCA abstract classes: (a) SCXML representation (b) Event-B translation} 
+%   \label{fig:scxml_event-b}
+% \end{figure}
+
+\fvset{frame=single,numbers=left,fontsize=\relsize{-2},numbersep=8pt}
+\begin{figure}[tbp!]
+  \VerbatimInput[samepage=false]{caseStudy/Invariant.scxml}
+  \begin{center}(a)\end{center}
+  \VerbatimInput[samepage=false]{caseStudy/BlockState.scxml}
+  \begin{center}(b)\end{center}
+  \caption{SCXML model representation: (a) invariant declaration (b) state and related transitions } 
+  \label{fig:scxml}
+\end{figure}
+
+\fvset{frame=single,numbers=left,fontsize=\relsize{-2},numbersep=8pt}
+\begin{figure}[tbp!]
+  \VerbatimInput[samepage=false]{caseStudy/BlockState.txt}
+  \caption{Event-B translation} 
+  \label{fig:event-b}
+\end{figure}
 %------------------------------------------------------------------------------
 
 \input{extending_scxml}
@@ -208,13 +245,21 @@ in voice applications.
 \label{sect:caseS}
 
 \textcolor{red}{Find a system that we can model and some how describe the benefits 
-(e.g. model simplification) of using a specific syntax over the other.
+(e.g. model simplification) of using a specific syntax over the other.}
 	\begin{itemize}
 		\item What model behavior can you capture with each semantic?
 		\item What properties of the model are easier to simulate?
 		\item Where do we introduce unnecessary complexity?
 	\end{itemize}	
-}
+
+\begin{figure}[]
+  \begin{centering}
+  \includegraphics[width=0.75\textwidth]{caseStudy/TurnstileSimpleModel}
+  \caption{Statemachine diagram}
+  \label{fig:Statemachine}
+  \end{centering}
+\end{figure} 
+
 
 %------------------------------------------------------------------------------
 \section{Conclusion}
