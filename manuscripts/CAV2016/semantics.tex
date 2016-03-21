@@ -3,13 +3,13 @@
 \section{Semantic Differences and their Reconciliation}
 \label{sect:diff}
 
-\textcolor{red}{Differences in semantics between scxml and event-b}
-\textcolor{red}{Elude to the reason for ignoring some of the scxml feature 
-when it comes to the translation.}
+%\textcolor{red}{Differences in semantics between scxml and event-b}
+%\textcolor{red}{Elude to the reason for ignoring some of the scxml feature 
+%when it comes to the translation.}
+%\textcolor{red}{List the difference in the syntax of each representation (Short section)}
 
-\textcolor{red}{List the difference in the syntax of each representation (Short section)}
-
-SCXML and iUML-B have syntactic similarities in their use of a state-transition notation with conditional transitions applying actions upon ancillary variables.
+SCXML and iUML-B have syntactic similarities in their use of a hierarchical state-transition notation with conditional transitions applying actions upon ancillary variables.
+Figures \ref{fig:StatemachineSCXML} and \ref{fig:StatemachineiUML-B} illustrate this correspondence between diagrammatic elements. 
 However, their semantics have significant differences. SCXML is based on Harel state-charts with so called, `run to completion' semantics, whereas iUML-B is designed upon the `guarded action' semantics of Event-B.
 In this section we discuss the implications of this semantic difference with respect to translation between the 2 notations.
 
@@ -23,7 +23,7 @@ There are three methods of initiating transitions in SCXML:
 This is similar to iUML-B transitions, which fire spontaneously when their guard (including source state) is true.
 In iUML-B if several transitions are simultaneously enabled one of the enabled transitions is non-deterministically chosen for firing whereas 
 SCXML has ordering rules to determine which transitions to fire next.
-\item A transition may be `Triggered' by the occurrence an external interface event. 
+\item A transition may be `Triggered' by the occurrence of an external interface event. 
 This could be simulated in iUML-B by generating a flag to represent the trigger and adding a guard on the trigger flag to the transitions that are triggered by it. 
 The flag should then be reset by whichever transition is triggered by it in order to `consume' that trigger event.
  A special interface event that sets the flag would be generated to represent the external interface receiving a trigger.
