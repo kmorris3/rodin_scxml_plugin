@@ -120,7 +120,12 @@ Colin Snook\inst{2}
 \maketitle
 
 \begin{abstract}
-  BLA BLA 
+High consequence systems benefit from verification by formal proof. 
+However, to facilitate efficient automatic proof, notations are often limited in certain respects to simplify the verification of state changes.
+ Engineers that are used to more complex sequential semantics may find these restrictions difficult to accept. 
+ Here we investigate the reconciliation of a Harel style state-chart semantics with a declarative substitution based notation design to facilitate proof. 
+ We provide a translation from SCXML state-charts into the Event-B formalism via the iUML-B state-machine notation.
+
 \end{abstract}
 
 % The table of contents below is added for your convenience. Please do not use
@@ -180,7 +185,7 @@ The Event-B language \cite{abrial10:_model_event_b} provides the logic, and refi
 theory require to formaly analyze a system model. The 
 open-source Rodin tool \cite{abrial10:_rodin} augments the Event-B language by 
 providing a graphical interface in the form of
-iUML-B. The goal of this work is to create a unified model 
+iUML-B \cite{snook14:_b_statem}. The goal of this work is to create a unified model 
 representation capable of leveraging the structure and 
 hierarchy that is inherently part of a statechart 
 diagram, which will serve to enable the formal verification
@@ -191,10 +196,10 @@ the statechart it self, which is a higher level representation
 of the model. 
 
 We base this unified statechart model representation 
-on SCXML.  This is a general-purpose event-based state machine 
+on SCXML  \cite{scxmlwebsite}.  This is a general-purpose event-based state machine 
 language that combines concepts from CCXML and Harel 
 State Tables. Harel State Tables are included in UML. 
-The concrete syntax for SCXML\footnote{http://www.w3.org/TR/scxml/} 
+The concrete syntax for SCXML
 is based on XML. Hence, SCXML is an XML notation for 
 UML style state-machines extended with an action 
 language that is intended for call control features 
@@ -244,18 +249,6 @@ We use this example to illustrate points throughout the paper.
 
 %------------------------------------------------------------------------------
 
-
-\section{Case Study}
-\label{sect:caseS}
-
-\textcolor{red}{Find a system that we can model and some how describe the benefits 
-(e.g. model simplification) of using a specific syntax over the other.}
-	\begin{itemize}
-		\item What model behaviour can you capture with each semantic?
-		\item What properties of the model are easier to simulate?
-		\item Where do we introduce unnecessary complexity?
-	\end{itemize}	
-
 \begin{figure}[]
   \begin{centering}
   \includegraphics[width=0.75\textwidth]{caseStudy/TurnstileSimpleModel}
@@ -267,7 +260,7 @@ We use this example to illustrate points throughout the paper.
 \begin{figure}[]
   \begin{centering}
   \includegraphics[width=0.75\textwidth]{caseStudy/TurnstileSimpleModel_iumlb}
-  \caption{Part of State-machine diagram in iUML-B}
+  \caption{State-machine diagram in iUML-B at refinement level 3 (partially annotated with guards and actions)}
   \label{fig:StatemachineiUML-B}
   \end{centering}
 \end{figure} 
@@ -275,12 +268,11 @@ We use this example to illustrate points throughout the paper.
 %------------------------------------------------------------------------------
 \section{Conclusion}
 \label{sect:concl}
-
-Just to have a reference ~\cite{texniccenter}
-
-%------------------------------------------------------------------------------
-\section{Future Work}
-\label{sect:future-work}
+We have imported SCXML models into Event-B to bring the strong verification methods of Event-B to SCXML models. 
+However, the significant semantic differences between SCXML and Event-B meant that we were forced to restrict the kinds of SCXML models we can support.
+ In particular the run to completion semantics of SCXML are difficult to support in Event-B without an explosion of artefacts to model the necessary sequentiality. 
+  In future work we will investigate the impact of the restrictions we have imposed on SCXML and whether additional support can be provided so theat the restrictions can be lifted or eased.
+   We will implement a return translation from iUML-B to SCXML to support round trip model development. 
 
 
 % \begin{figure}[tb]
@@ -294,8 +286,8 @@ Just to have a reference ~\cite{texniccenter}
 % \end{figure}
 
 %------------------------------------------------------------------------------
-\section{Acknowledgments}
-\label{sect:acks}
+%\section{Acknowledgments}
+%\label{sect:acks}
 
 
 \bibliographystyle{plain}
