@@ -25,7 +25,10 @@ of refinement is not supported in SCXML. We introduce a new integer valued
 attribute, \emph{iumlb:refinement}, which may be attached to any element of 
 either namespace in order to specify the refinement level of that element. 
 
-Examples of iumlb extensions can be found in Figure \ref{fig:scxml}.
+
+ The example in Figure \ref{fig:scxml} shows a state, \emph{BLOCKED}, containing a transition that owns an \emph{iumlb:guard}.
+  The guard reflects the \emph{cond} attribute of the transition and is introduced at refinement level 2. 
+The state also owns an \emph{iumlb:invariant} with the predicate \emph{Gate\_In.Block == TRUE}.
 
 
 
