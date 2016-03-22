@@ -4,7 +4,7 @@
 \label{sect:recon}
 
 The SCXML basic structure of states with nested 
-statemachines and transitions is the same as that 
+state-machines and transitions is the same as that 
 in iUML-B, but there are several semantic 
 differences that make translation into iUML-B difficult. 
 This sections provides a description of some of the
@@ -19,7 +19,7 @@ nesting. There is no refinement in SCXML. Features
 in the diagrams have to be restricted to guarantee
 that the models are correct refinements. An example,
 of such a restriction is not allowing for actions in 
-both parent and nested states to change the same varaible.
+both parent and nested states to change the same varable.
 
 \item [Events:]
 The meaning of event is very different between iUML-B 
@@ -47,8 +47,8 @@ The addition of these feature is straight forward,
 however, the lack of sequential composition in 
 Event-B (hence iUML-B) means that the semantics of entry/
 exit actions will differ in some scenarios. That is, in 
-SCXML the source state’s exit actions are taken before the 
-transition’s actions, which are before the target state’s 
+SCXML the source state's exit actions are taken before the 
+transition's actions, which are before the target state's 
 entry actions. In iUML-B all the actions are taken in 
 parallel, as there is no concept of execution order within 
 an event. 
@@ -74,7 +74,7 @@ iUML-B are equivalent, but their transition
 firing mechanism differs significantly. In iUML-B 
 transitions fire spontaneously when their guard and source 
 state are true. In SCXML, there are two kinds of transitions, 
-‘When’ transitions can fire spontaneously as soon as their 
+`when' transitions can fire spontaneously as soon as their 
 guard becomes true. This is the same as iUML-B transitions 
 and we have no problem translating these. Other SCXML
 transitions are triggered by the 
@@ -85,11 +85,11 @@ enabled one of the enabled transitions is non-deterministically
 chosen for firing whereas SCXML has ordering rules to 
 determine which transitions to fire next.
 
-Thigger events could be simulated by generating a flag to 
+Trigger events could be simulated by generating a flag to 
 represent the trigger and adding a guard on the trigger 
 flag to the transitions that are triggered by it. The flag 
 should then be reset by whichever transition is triggered 
-by it in order to ‘consume’ that trigger event. A special 
+by it in order to `consume' that trigger event. A special 
 interface event that sets the flag would be generated to 
 represent the external interface receiving a trigger.
 
@@ -109,7 +109,7 @@ another transition.
 % transition are executed simultaneouslly within the elaborated 
 % event. It is not possible (i.e. not well-formed) for two of these 
 % actions to write to the same variable.
-% SCXML transitions can be designated ‘internal’, which 
+% SCXML transitions can be designated `internal', which 
 % prevents exiting and re-entering its source state in 
 % some cases. In SCXML target state can be omitted which 
 % results in a transition that does not change state (
@@ -135,7 +135,7 @@ of the parent state-machine. It is merely a notation
 for indicating that the state-machine is becoming non-
 active. I.e. that the parent state is exiting. Hence 
 any transitions that target a final state are part of a 
-transition that leaves the parent state. For a ‘root’ 
+transition that leaves the parent state. For a `root' 
 state-machine the final state means that the state-
 machine has been left completely and no state is active.
 
@@ -150,7 +150,7 @@ an attribute of the state. In this case there is no way
 to add extra transition actions.
 If no initial state is specified, the default is the 
 first one in the document.
-iUML-B allows different intial states for different 
+iUML-B allows different initial states for different 
 incoming transitions. In SCXML this would be done by 
 extending the transition into the substate.
 

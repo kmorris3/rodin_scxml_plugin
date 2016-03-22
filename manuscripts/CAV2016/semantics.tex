@@ -42,7 +42,7 @@ For example, a hierarchy of nested source states are exited (performing their ex
 The order of execution is significant when some of these actions write to, or use the value of, a previously written variable. 
 In Event-B, all actions of a transition are executed simultaneously in parallel by the elaborated event. 
 It  is not possible (i.e. not well-formed) for two of these actions to write to the same variable.
-If any actions use the value of a variable that is being written, the value is the value before the transition started being executed.
+If any actions read the value of a variable, the value is the value before the transition started being executed.
 
 SCXML transitions can be designated `internal' which prevents exiting and re-entering its source state in some cases.
  In SCXML, target state can be omitted which results in a transition that does not change state (this is different from a transition that exits a state and then re-enters the same state).
@@ -137,8 +137,8 @@ There is no refinement in SCXML. The entire system is introduced in one hierarch
 %quite easily however, the lack of sequential composition in 
 %Event-B (hence iUML-B) means that the semantics of entry/
 %exit actions will differ in some scenarios. That is, in 
-%SCXML the source state’s exit actions are taken before the 
-%transition’s actions, which are before the target state’s 
+%SCXML the source state's exit actions are taken before the 
+%transition's actions, which are before the target state's 
 %entry actions. In iUML-B all the actions are taken in 
 %parallel, as there is no concept of execution order within 
 %an event. 
