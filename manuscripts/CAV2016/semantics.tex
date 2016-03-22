@@ -68,7 +68,7 @@ If two different transitions from different source states are both triggered by 
 The concept of a final state differs between iUML-B and SCXML. 
 In SCXML a state machine (or parent state) may reside in a final state indicating that it is done and waiting for another transition to exit the parent state. 
  In iUML-B a final state is not a proper state of the parent state-machine. 
- It is merely a notation for indicating that the state-machine is becoming non-active. I.e. that the parent state is exiting. 
+ It is merely a notation for indicating that the state-machine is becoming non-active, i.e. the parent state is exiting. 
  % Hence any transitions that target a final state are part of a transition that leaves the parent state. 
  % For a `root'  state-machine, the final state means that the state-machine has been left completely and no state is active.
 
@@ -80,7 +80,7 @@ SCXML has another way to specify an initial state using an attribute of the stat
  In this case there is no way to add extra transition actions.
 If no initial state is specified, the default is the first state in the document.
 iUML-B allows different initial states for different incoming transitions. 
-In SCXML this would be done by extending the transition into the substate which, in iUML-B is also an optional alternative to the multiple initial states method .
+In SCXML this would be done by extending the transition into the substate which, in iUML-B is also an optional alternative to the multiple initial states method.
 
 \item [Entry/Exit Actions:]
 SCXML and iUML-B both include the concept of entry and exit actions which are executed whenever a transition enters or exits the containing state. 
@@ -90,9 +90,9 @@ We restrict the SCXML models that can be translated so that executing the action
 Effectively this means that the same variable cannot be assigned more than once in any set of actions that will be taken when a transition fires. 
 The Event-B static checker will raise an error if this restriction is violated.
 
-Another difficulty arises when a transition exits a parent state without specifying any particular nested sub-state. 
-Strictly, only the exit actions of the currently active sub-state should be executed. However, this would be difficult in iUML-B due to the lack of any conditional execution.
-\textcolor{red} {How do we deal with this problem? }
+% Another difficulty arises when a transition exits a parent state without specifying any particular nested sub-state. 
+% Strictly, only the exit actions of the currently active sub-state should be executed. However, this would be difficult in iUML-B due to the lack of any conditional execution.
+% \textcolor{red} {How do we deal with this problem? }
 
 \item [Refinement:]
 Refinement is a central concept of Event-B where detail is built up in stages facilitating validation of abstract concepts before introducing complexity. 

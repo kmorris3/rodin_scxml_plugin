@@ -12,7 +12,8 @@ to a different namespace to be added. The tooling (both XML and EMF)
 provides fallback mechanisms so that these extensions are supported 
 without the need for syntactic definition. We define a new namespace,  
 \emph{iumlb} and add two new elements, \emph{iumlb:invariant} and 
-\emph{iumlb:guard} (Table \ref{iumlb_elements_table}) as well as a 
+\emph{iumlb:guard} as well as a 
+% \emph{iumlb:guard} (Table \ref{iumlb_elements_table}) as well as a 
 number of new attributes which are shown in Table \ref{iumlb_attributes_table}.
 Invariants are not supported in SCXML but are needed to describe 
 verifiable properties of a model. SCXML transitions only have a single 
@@ -26,48 +27,51 @@ attribute, \emph{iumlb:refinement}, which may be attached to any element of
 either namespace in order to specify the refinement level of that element. 
 
 
- The example in Figure \ref{fig:scxml} shows a state, \emph{BLOCKED}, containing a transition that owns an \emph{iumlb:guard}.
-  The guard reflects the \emph{cond} attribute of the transition and is introduced at refinement level 2. 
-The state also owns an \emph{iumlb:invariant} with the predicate \emph{Gate\_In.Block == TRUE}.
+The example in Figure \ref{fig:scxml} shows a state, \emph{BLOCKED}, 
+containing a transition that owns an \emph{iumlb:guard}.
+The guard reflects the \emph{cond} attribute of the transition 
+and is introduced at refinement level 2. 
+The state also owns an \emph{iumlb:invariant} with the predicate
+ \emph{Gate\_In.Block == TRUE}.
 
 
 
-\begin{table}
-\centering
-\caption{New Elements}
-\label{iumlb_elements_table}
-  \begin{tabular}{|c|c|c|}
-  \hline
-          \multicolumn{1}{c}{Element in iumlb:} \vline
-        & \multicolumn{1}{c}{Meaning} \vline
-        & \multicolumn{1}{c}{Legal Attributes in iumlb:} 
-        \\ \hline 
+% \begin{table}
+% \centering
+% \caption{New Elements}
+% \label{iumlb_elements_table}
+%   \begin{tabular}{|c|c|c|}
+%   \hline
+%           \multicolumn{1}{c}{Element in iumlb:} \vline
+%         & \multicolumn{1}{c}{Meaning} \vline
+%         & \multicolumn{1}{c}{Legal Attributes in iumlb:} 
+%         \\ \hline 
 
-    invariant
-        & \begin{tabular}[c]{@{}c@{}} 
-              generates an invariant \\ in Event-B or iUML-B 
-          \end{tabular}     
-        & \begin{tabular}[c]{@{}c@{}}
-              % name, derived, \\ refinement,
-              % predicate, \\ comment
-              name, refinement, \\
-              predicate, derived
-          \end{tabular} 
-        \\ \hline 
+%     invariant
+%         & \begin{tabular}[c]{@{}c@{}} 
+%               generates an invariant \\ in Event-B or iUML-B 
+%           \end{tabular}     
+%         & \begin{tabular}[c]{@{}c@{}}
+%               % name, derived, \\ refinement,
+%               % predicate, \\ comment
+%               name, refinement, \\
+%               predicate, derived
+%           \end{tabular} 
+%         \\ \hline 
 
-    guard 
-        & \begin{tabular}[c]{@{}c@{}} 
-              generates a guard  \\ in Event-B or iUML-B
-          \end{tabular}    
-        & \begin{tabular}[c]{@{}c@{}}
-              % name, derived, \\ refinement, 
-              % predicate, \\ comment
-              name, refinement, \\
-              predicate, derived
-          \end{tabular} 
-        \\ \hline     
-\end{tabular}%
-\end{table}
+%     guard 
+%         & \begin{tabular}[c]{@{}c@{}} 
+%               generates a guard  \\ in Event-B or iUML-B
+%           \end{tabular}    
+%         & \begin{tabular}[c]{@{}c@{}}
+%               % name, derived, \\ refinement, 
+%               % predicate, \\ comment
+%               name, refinement, \\
+%               predicate, derived
+%           \end{tabular} 
+%         \\ \hline     
+% \end{tabular}%
+% \end{table}
 
 \begin{table}
 \centering
