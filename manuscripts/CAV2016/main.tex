@@ -196,21 +196,20 @@ UML style state-machines extended with an action
 language that is intended for call control features 
 in voice applications.
 
-An example of SCXML syntax is shown in Figure \ref{fig:scxml}. 
-A graphical representation of this example is shown in Figure  \ref{fig:StatemachineSCXML}. 
-We use this example to illustrate points throughout the paper.
+An example statechart model is shown in Figure  \ref{fig:StatemachineSCXML}, and a section of the SCXML syntax is shown in Figure \ref{fig:scxml}. We use this example to illustrate points throughout the paper.
+
+\begin{figure}[]
+  \begin{centering}
+  \includegraphics[width=0.6\textwidth]{caseStudy/TurnstileSimpleModel}
+  \caption{SCXML Statechart diagram}
+  \label{fig:StatemachineSCXML}
+  \end{centering}
+\end{figure} 
 
 %------------------------------------------------------------------------------
 
 % \input{reconciling_semantics}
 \input{semantics}
-
-\fvset{frame=single,numbers=left,fontsize=\relsize{-2},numbersep=8pt}
-\begin{figure}[tbp!]
-  \VerbatimInput[samepage=false]{caseStudy/BlockState_Invariant.scxml}
-  \caption{Snippet of SCXML model representation showing: invariant declaration, a state with its related transitions} 
-  \label{fig:scxml}
-\end{figure}
 
 % \fvset{frame=single,numbers=left,fontsize=\relsize{-2},numbersep=8pt}
 % \begin{figure}[tbp!]
@@ -218,9 +217,18 @@ We use this example to illustrate points throughout the paper.
 %   \caption{Event-B translation} 
 %   \label{fig:event-b}
 % \end{figure}
+
 %------------------------------------------------------------------------------
 
 \input{extending_scxml}
+
+\begin{figure}[]
+  \begin{centering}
+  \includegraphics[width=0.6\textwidth]{caseStudy/TurnstileSimpleModel_iumlb}
+  \caption{State-machine diagram in iUML-B at refinement level 3 (partially annotated with guards and actions)}
+  \label{fig:StatemachineiUML-B}
+  \end{centering}
+\end{figure} 
 
 %------------------------------------------------------------------------------
 
@@ -240,21 +248,9 @@ We use this example to illustrate points throughout the paper.
 % 		\item Where do we introduce unnecessary complexity?
 % 	\end{itemize}	
 
-\begin{figure}[]
-  \begin{centering}
-  \includegraphics[width=0.6\textwidth]{caseStudy/TurnstileSimpleModel}
-  \caption{SCXML Statechart diagram}
-  \label{fig:StatemachineSCXML}
-  \end{centering}
-\end{figure} 
 
-\begin{figure}[]
-  \begin{centering}
-  \includegraphics[width=0.6\textwidth]{caseStudy/TurnstileSimpleModel_iumlb}
-  \caption{State-machine diagram in iUML-B at refinement level 3 (partially annotated with guards and actions)}
-  \label{fig:StatemachineiUML-B}
-  \end{centering}
-\end{figure} 
+
+
 
 % %------------------------------------------------------------------------------
 % \section{Conclusion}

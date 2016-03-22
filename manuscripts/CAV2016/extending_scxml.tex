@@ -48,8 +48,10 @@ The state also owns an \emph{iumlb:invariant} with the predicate \emph{Gate\_In.
               generates an invariant \\ in Event-B or iUML-B 
           \end{tabular}     
         & \begin{tabular}[c]{@{}c@{}}
-              name, derived, \\ refinement,
-              predicate, \\ comment
+              % name, derived, \\ refinement,
+              % predicate, \\ comment
+              name, refinement, \\
+              predicate, derived
           \end{tabular} 
         \\ \hline 
 
@@ -58,8 +60,10 @@ The state also owns an \emph{iumlb:invariant} with the predicate \emph{Gate\_In.
               generates a guard  \\ in Event-B or iUML-B
           \end{tabular}    
         & \begin{tabular}[c]{@{}c@{}}
-              name, derived, \\ refinement, 
-              predicate, \\ comment
+              % name, derived, \\ refinement, 
+              % predicate, \\ comment
+              name, refinement, \\
+              predicate, derived
           \end{tabular} 
         \\ \hline     
 \end{tabular}%
@@ -71,12 +75,12 @@ The state also owns an \emph{iumlb:invariant} with the predicate \emph{Gate\_In.
 \label{iumlb_attributes_table}
   \begin{tabular}{|c|c|c|}
   \hline
-      \multicolumn{1}{c}{iumlb Element} \vline
+      \multicolumn{1}{c}{Element in iumlb:} \vline
     & \multicolumn{1}{c}{Meaning} \vline
-    & \multicolumn{1}{c}{scxml Legal Parent} 
+    & \multicolumn{1}{c}{Legal Parent} 
    \\ \hline 
 
-    iumlb:label
+    label
         & \begin{tabular}[c]{@{}c@{}} 
               string used as the name of an \\
               Event-B event elaborated by \\
@@ -87,7 +91,7 @@ The state also owns an \emph{iumlb:invariant} with the predicate \emph{Gate\_In.
           \end{tabular} 
    \\ \hline 
 
-    iumlb:refinement
+    refinement
         & \begin{tabular}[c]{@{}c@{}} 
               non-negative integer representing \\
               the refinement level at which \\
@@ -104,19 +108,19 @@ The state also owns an \emph{iumlb:invariant} with the predicate \emph{Gate\_In.
           \end{tabular} 
    \\ \hline 
 
-    iumlb:comment
-        & \begin{tabular}[c]{@{}c@{}} 
-              string used as a comment \\
-              on the generated \\
-              iUML-B element
-          \end{tabular}    
-        & \begin{tabular}[c]{@{}c@{}}
-              iumlb:invariant, iumlb:guard, \\
-              (could be added to more)
-          \end{tabular} 
-   \\ \hline 
+   %  iumlb:comment
+   %      & \begin{tabular}[c]{@{}c@{}} 
+   %            string used as a comment \\
+   %            on the generated \\
+   %            iUML-B element
+   %        \end{tabular}    
+   %      & \begin{tabular}[c]{@{}c@{}}
+   %            iumlb:invariant, iumlb:guard, \\
+   %            (could be added to more)
+   %        \end{tabular} 
+   % \\ \hline 
 
-    iumlb:type
+    type
         & \begin{tabular}[c]{@{}c@{}} 
               string used as the membership \\
               set for the Event-B variable \\
@@ -128,7 +132,7 @@ The state also owns an \emph{iumlb:invariant} with the predicate \emph{Gate\_In.
           \end{tabular} 
    \\ \hline 
 
-    iumlb:name
+    name
         & \begin{tabular}[c]{@{}c@{}} 
               string used for the name \\
               or label of a generated \\
@@ -139,7 +143,7 @@ The state also owns an \emph{iumlb:invariant} with the predicate \emph{Gate\_In.
           \end{tabular} 
    \\ \hline 
 
-    iumlb:predicate
+    predicate
         & \begin{tabular}[c]{@{}c@{}} 
               string used for the predicate \\
               of a guard or invariant
@@ -149,7 +153,7 @@ The state also owns an \emph{iumlb:invariant} with the predicate \emph{Gate\_In.
           \end{tabular} 
    \\ \hline 
 
-   iumlb:derived
+   derived
         & \begin{tabular}[c]{@{}c@{}} 
               boolean indicating that \\
               the guard is a theorem \\

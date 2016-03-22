@@ -7,8 +7,8 @@ It is therefore beneficial to load the SCXML model into EMF so that
 our existing model transformation technology can be used to 
 implement the SCXML to iUML-B translation. An EMF meta-model for SCXML 
 is available from the Sirius \cite{siriuswebsite}
-project. It supports SCXML functionality as well as providing generic model
-loading facilities for new namespace extensions such as those we 
+project. It supports SCXML functionality, and provides generic model
+loading capabilities for new namespace extensions such as those we 
 introduced in section \ref{sect:extension}.
 
 Hierarchical nested state charts are translated to similar corresponding  state-machine structures in iUML-B.  
@@ -51,7 +51,10 @@ representations of the same concept may be problematic for the SCXML semantics.
 \subsection{Constructing events elaborated by transitions}
 The Event-B events that are elaborated by an iUML-B  transition are named as follows. 
 
+\vspace{-\topsep}
 \begin{enumerate}
+  \setlength{\parskip}{0pt}
+  \setlength{\itemsep}{0pt plus 1pt}
 \item If the transition has \emph{iumlb:label} attributes, events are generated 
 and named according to the label attributes.
 \item If the transition's source is an initial state at the outer state chart 
@@ -61,6 +64,7 @@ the names of all the events that are associated with incoming transitions to
 the parent state are used.
 \item If none of the above provide any labels, a default  `source\_target' format is used.
 \end{enumerate}
+\vspace{-\topsep}
 
 Trigger events are deliberately not used for transition events because we 
 want to keep them as a separate concept from transition firing in line 

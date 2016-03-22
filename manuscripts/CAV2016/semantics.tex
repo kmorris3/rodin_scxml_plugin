@@ -12,6 +12,15 @@ SCXML and iUML-B have syntactic similarities in their use of a hierarchical stat
 However, their semantics have significant differences. SCXML is based on Harel state-charts with so called, `run to completion' semantics, whereas iUML-B is designed upon the `guarded action' semantics of Event-B.
 In this section we discuss the implications of this semantic difference with respect to translation between the 2 notations.
 
+
+\fvset{frame=single,numbers=left,fontsize=\relsize{-2},numbersep=8pt}
+\begin{figure}[tbp!]
+  \VerbatimInput[samepage=false]{caseStudy/BlockState_Invariant.scxml}
+  \caption{Snippet of SCXML model representation showing: 
+  invariant declaration, a state with its related transitions} 
+  \label{fig:scxml}
+\end{figure}
+
 \begin{description}
 
 \item [Transition firing:]
@@ -43,9 +52,9 @@ In Event-B, all actions of a transition are executed simultaneously in parallel 
 It  is not possible (i.e. not well-formed) for two of these actions to write to the same variable.
 If any actions read the value of a variable, the value is the value before the transition started being executed.
 
-SCXML transitions can be designated `internal' which prevents exiting and re-entering its source state in some cases.
- In SCXML, target state can be omitted which results in a transition that does not change state (this is different from a transition that exits a state and then re-enters the same state).
-Neither of these features are supported in iUML-B. A transition must have a target state and if it is the same as the source state the transition performs any exit and entry actions of its source/target state when it fires.
+% SCXML transitions can be designated `internal' which prevents exiting and re-entering its source state in some cases.
+%  In SCXML, target state can be omitted which results in a transition that does not change state (this is different from a transition that exits a state and then re-enters the same state).
+% Neither of these features are supported in iUML-B. A transition must have a target state and if it is the same as the source state the transition performs any exit and entry actions of its source/target state when it fires.
 
 \item [Events:]
 The meaning of event is very different between iUML-B and SCXML.
@@ -60,8 +69,8 @@ The concept of a final state differs between iUML-B and SCXML.
 In SCXML a state machine (or parent state) may reside in a final state indicating that it is done and waiting for another transition to exit the parent state. 
  In iUML-B a final state is not a proper state of the parent state-machine. 
  It is merely a notation for indicating that the state-machine is becoming non-active. I.e. that the parent state is exiting. 
- Hence any transitions that target a final state are part of a transition that leaves the parent state. 
- For a `root'  state-machine, the final state means that the state-machine has been left completely and no state is active.
+ % Hence any transitions that target a final state are part of a transition that leaves the parent state. 
+ % For a `root'  state-machine, the final state means that the state-machine has been left completely and no state is active.
 
 \item [Initial States:]
 Initial states are similar in both notations. 
@@ -74,7 +83,7 @@ iUML-B allows different initial states for different incoming transitions.
 In SCXML this would be done by extending the transition into the substate which, in iUML-B is also an optional alternative to the multiple initial states method .
 
 \item [Entry/Exit Actions:]
-SCXML and iUML-B both include the concept of entry and exit actions which are executed whenever a transition enters, resp. exits, the containing state. 
+SCXML and iUML-B both include the concept of entry and exit actions which are executed whenever a transition enters or exits the containing state. 
 However, their use in iUML-B is restricted by the lack of sequential composition in Event-B. 
 For example, if an exit action of a state, s, assigns a to a variable, v, then no transitions from s are allowed to assign to v either directly or via entry actions of their target state.
 We restrict the SCXML models that can be translated so that executing the actions in parallel is equivalent to executing them in sequence.
