@@ -207,20 +207,17 @@ We use this example to illustrate points throughout the paper.
 
 \fvset{frame=single,numbers=left,fontsize=\relsize{-2},numbersep=8pt}
 \begin{figure}[tbp!]
-  \VerbatimInput[samepage=false]{caseStudy/Invariant.scxml}
-  \begin{center}(a)\end{center}
-  \VerbatimInput[samepage=false]{caseStudy/BlockState.scxml}
-  \begin{center}(b)\end{center}
-  \caption{SCXML model representation: (a) invariant declaration (b) state and related transitions } 
+  \VerbatimInput[samepage=false]{caseStudy/BlockState_Invariant.scxml}
+  \caption{Snipet of SCXML model representation showing: invariant declaration (lines 1-4) and state with related transitions (lines 6-19)} 
   \label{fig:scxml}
 \end{figure}
 
-\fvset{frame=single,numbers=left,fontsize=\relsize{-2},numbersep=8pt}
-\begin{figure}[tbp!]
-  \VerbatimInput[samepage=false]{caseStudy/BlockState.txt}
-  \caption{Event-B translation} 
-  \label{fig:event-b}
-\end{figure}
+% \fvset{frame=single,numbers=left,fontsize=\relsize{-2},numbersep=8pt}
+% \begin{figure}[tbp!]
+%   \VerbatimInput[samepage=false]{caseStudy/BlockState.txt}
+%   \caption{Event-B translation} 
+%   \label{fig:event-b}
+% \end{figure}
 %------------------------------------------------------------------------------
 
 \input{extending_scxml}
@@ -245,32 +242,41 @@ We use this example to illustrate points throughout the paper.
 
 \begin{figure}[]
   \begin{centering}
-  \includegraphics[width=0.75\textwidth]{caseStudy/TurnstileSimpleModel}
-  \caption{SCXML Statemachine diagram}
+  \includegraphics[width=0.6\textwidth]{caseStudy/TurnstileSimpleModel}
+  \caption{SCXML Statechart diagram}
   \label{fig:StatemachineSCXML}
   \end{centering}
 \end{figure} 
 
 \begin{figure}[]
   \begin{centering}
-  \includegraphics[width=0.75\textwidth]{caseStudy/TurnstileSimpleModel_iumlb}
+  \includegraphics[width=0.6\textwidth]{caseStudy/TurnstileSimpleModel_iumlb}
   \caption{State-machine diagram in iUML-B at refinement level 3 (partially annotated with guards and actions)}
   \label{fig:StatemachineiUML-B}
   \end{centering}
 \end{figure} 
 
-%------------------------------------------------------------------------------
-\section{Conclusion}
-\label{sect:concl}
+% %------------------------------------------------------------------------------
+% \section{Conclusion}
+% \label{sect:concl}
 
 %------------------------------------------------------------------------------
 \section{Future Work}
 \label{sect:future-work}
-We have imported SCXML models into Event-B to bring the strong verification methods of Event-B to SCXML models. 
-However, the significant semantic differences between SCXML and Event-B meant that we were forced to restrict the kinds of SCXML models we can support.
- In particular the run to completion semantics of SCXML are difficult to support in Event-B without an explosion of artefacts to model the necessary sequentiality. 
-  In future work we will investigate the impact of the restrictions we have imposed on SCXML and whether additional support can be provided so theat the restrictions can be lifted or eased.
-   We will implement a return translation from iUML-B to SCXML to support round trip model development. 
+We have imported SCXML models into Event-B to bring the 
+strong verification methods of Event-B to SCXML models. 
+However, the significant semantic differences between SCXML 
+and Event-B meant that we were forced to restrict the kinds 
+of SCXML models we can support.
+In particular the run to completion semantics of SCXML are 
+difficult to support in Event-B without an explosion of 
+artefacts to model the necessary sequentiality. 
+In future work we will investigate the impact of the 
+restrictions we have imposed on SCXML and whether 
+additional support can be provided to lift or ease
+such restrictions.
+We will implement a return translation from iUML-B to SCXML 
+to support round trip model development. 
 
 %------------------------------------------------------------------------------
 %\section{Acknowledgments}
