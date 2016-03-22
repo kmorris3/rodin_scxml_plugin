@@ -144,35 +144,26 @@ Colin Snook\inst{2}
 \section{Introduction}
 \label{sect:introduction}
 
-
-% \begin{figure}[tb]
-% 	\begin{centering}
-% 	\includegraphics[width=0.5\textwidth]{logoEC}
-% 	\caption{EasyChair logo}
-% 	\label{fig:easychair-logo}
-% 	\end{centering}
-% \end{figure}
-
 % \textcolor{red}{This section should focus on the motivation behind pursuing a scxml 
 % representation of our models, what are the benefits?}
 
-The formal verification of high consequence systems 
-requires the analysis of formal models that capture 
+Formal verification of high consequence systems 
+requires the analysis of formal models that capture  
 the properties and functionality of the system of 
-interest. Discharging proof obligations for systems' 
+interest. Proof obligations for systems' 
 properties or requirements can be made more tractable 
 depending on the abstraction use to create the model, 
 as properties are expressed in term of variables that 
 are relevant at different abstraction levels.  
 
-A hierarchical development of a system model makes 
-use of refinement concepts to link the different levels
+A hierarchical development of a system model uses 
+refinement concepts to link the different levels
 of abstraction. Each subsequent level increases model 
 complexity by adding implementation details to the 
 model in the form of functionality, capabilities and 
 finer requirements. As the model complexity increases 
-in each refinement level tractability of the model 
-can be improve by the use of a graphical representation, 
+in each refinement level, tractability of the detailed 
+model can be improved by the use of a graphical representation, 
 with rich semantics that can support an infrastructure 
 for formal verification.
 
@@ -184,7 +175,7 @@ iUML-B. The goal of this work is to create a unified model
 representation capable of leveraging the structure and 
 hierarchy that is inherently part of a statechart 
 diagram, which will serve to enable the formal verification
-of requirements from two different  perspective. First, 
+of requirements from two different perspectives. First, 
 the translation of the unified representation to Event-B. Second,
 the analysis of requirements related to the structure of 
 the statechart it self, which is a higher level representation 
@@ -208,15 +199,6 @@ We use this example to illustrate points throughout the paper.
 
 % \input{reconciling_semantics}
 \input{semantics}
-
-% \begin{figure}[tbp!]
-%   \VerbatimInput[samepage=false]{caseStudy/BlockState.scxml}
-%   \begin{center}(a)\end{center}
-%   \VerbatimInput[samepage=false]{caseStudy/Invariant.scxml}
-%   \begin{center}(b)\end{center}
-%   \caption{The RCA abstract classes: (a) SCXML representation (b) Event-B translation} 
-%   \label{fig:scxml_event-b}
-% \end{figure}
 
 \fvset{frame=single,numbers=left,fontsize=\relsize{-2},numbersep=8pt}
 \begin{figure}[tbp!]
@@ -245,16 +227,16 @@ We use this example to illustrate points throughout the paper.
 %------------------------------------------------------------------------------
 
 
-\section{Case Study}
-\label{sect:caseS}
+% \section{Case Study}
+% \label{sect:caseS}
 
-\textcolor{red}{Find a system that we can model and some how describe the benefits 
-(e.g. model simplification) of using a specific syntax over the other.}
-	\begin{itemize}
-		\item What model behaviour can you capture with each semantic?
-		\item What properties of the model are easier to simulate?
-		\item Where do we introduce unnecessary complexity?
-	\end{itemize}	
+% \textcolor{red}{Find a system that we can model and some how describe the benefits 
+% (e.g. model simplification) of using a specific syntax over the other.}
+% 	\begin{itemize}
+% 		\item What model behaviour can you capture with each semantic?
+% 		\item What properties of the model are easier to simulate?
+% 		\item Where do we introduce unnecessary complexity?
+% 	\end{itemize}	
 
 \begin{figure}[]
   \begin{centering}
@@ -276,22 +258,9 @@ We use this example to illustrate points throughout the paper.
 \section{Conclusion}
 \label{sect:concl}
 
-Just to have a reference ~\cite{texniccenter}
-
 %------------------------------------------------------------------------------
 \section{Future Work}
 \label{sect:future-work}
-
-
-% \begin{figure}[tb]
-%   \begin{centering}
-%     \includegraphics[width=0.5\textwidth]{throneEC.jpg}
-%     \includegraphics[width=0.3\textwidth]{throneEC.jpg}
-%     \includegraphics[width=0.15\textwidth]{throneEC.jpg}
-%   \end{centering}
-%   \caption{Why one should use EasyChair}
-%   \label{fig:easythrone}
-% \end{figure}
 
 %------------------------------------------------------------------------------
 \section{Acknowledgments}
