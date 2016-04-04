@@ -3,16 +3,17 @@
 \section{Translation Tool}
 
 The iUML-B tooling is based on the Eclipse Modelling Framework (EMF) \cite{steinberg2009emf}. 
-It is therefore beneficial to load the SCXML model into EMF so that 
-our existing model transformation technology can be used to 
-implement the SCXML to iUML-B translation. An EMF meta-model for SCXML 
-is available from the Sirius \cite{siriuswebsite}
-project. It supports SCXML functionality, and provides generic model
+It is therefore beneficial to load the SCXML model into EMF so that our existing model transformation technology can be used to 
+implement the SCXML to iUML-B translation. 
+An EMF meta-model for SCXML is available from the Sirius \cite{siriuswebsite} project. 
+It supports SCXML functionality, and provides generic model
 loading capabilities for new namespace extensions such as those we 
-introduced in section \ref{sect:extension}.
+describe in section \ref{sect:extension}.
 
 Hierarchical nested state charts are translated to similar corresponding  state-machine structures in iUML-B.  
-Figures \ref{fig:StatemachineSCXML} and \ref{fig:StatemachineiUML-B} illustrate this correspondence between diagrammatic elements. Final states translation requires reconciling the SCXML and iUML-B features.
+Figures \ref{fig:StatemachineSCXML} and \ref{fig:StatemachineiUML-B} illustrate this correspondence between diagrammatic elements. 
+
+The translation of final states involves reconciling the SCXML and iUML-B features as follows.
 An iUML-B state, final state and transition from the former to the latter are  added to the corresponding iUML-B state-machine. 
 The transition elaborates  all Event-B events that are elaborated by transitions that exit the parent  iUML-B state. 
 An example can be seen in figure \ref{fig:StatemachineiUML-B} where state \emph{READY\_FINAL} reflects the final state of state \emph{READY} in figure \ref{fig:StatemachineSCXML}.
@@ -39,8 +40,8 @@ An example can be seen in figure \ref{fig:StatemachineiUML-B} where state \emph{
 An \emph{iumlb:refinement} attribute is used to indicate the first refinement 
 level at which an element should be introduced in the generated iUML-B/Event-B model. 
 In general, elements with no refinement attribute adopt that of their parent.  
-However, for \emph{scxml:state} elements, the refinement level refers to any state 
-machines generated from the children nested in that state irrespective of whether 
+However, for \emph{scxml:state} elements, the refinement level refers to the complete state 
+machine(s) generated from any nested child states irrespective of whether 
 those children specify a different refinement level. This is because generated 
 iUML-B states cannot be added to an existing state-machine in later refinements.
 For \emph{iumlb:invariants} the generated invariant is only  generated at the 
@@ -49,9 +50,9 @@ invariants are visible through all subsequent refinements.
 
 Note that our approach to refinement in SCXML largely restricts us to superposition 
 refinement where entirely new details are introduced at each refinement level.  
-It may be possible to support ranges in the refinement attribute enabling a model 
+It may be possible to support `ranges' in the refinement attribute, enabling a model 
 element to be replaced by some other element in a true data refinement. We plan to 
-investigate this in future work, although, clearly, several coexisting alternative 
+investigate this in future work, although several coexisting alternative 
 representations of the same concept may be problematic for the SCXML semantics.
 
 \subsection{Constructing events elaborated by transitions}
@@ -78,7 +79,7 @@ with SCXML semantics.
 
 \subsection{Data elements}
 Data elements, collated in \emph{scxml:datamodel} elements, model ancillary 
-variables in the way usual SCXML style. Data elements are translated to 
+variables in the usual SCXML style. Data elements are translated to 
 Event-B variables of type given in an \emph{iumlb:type} attribute translated 
 into an Event-B subset invariant.  The \emph{scxml:id} attribute of the 
 \emph{scxml:data} element is interpreted as the name of the variable and 

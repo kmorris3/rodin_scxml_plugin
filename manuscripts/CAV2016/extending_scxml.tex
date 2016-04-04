@@ -8,17 +8,18 @@ To facilitate Event-B formal verification, extensions to the SCXML
 modelling notation are necessary so that additional modelling features 
 required by Event-B can be integrated with the SCXML model.
 The SCXML schema allows extension elements and attributes belonging 
-to a different namespace to be added. The tooling (both XML and EMF) 
-provides fallback mechanisms so that these extensions are supported 
+to a different namespace to be added. 
+The SCXML tooling provides fallback mechanisms so that these extensions are supported 
 without the need for syntactic definition. We define a new namespace,  
 \emph{iumlb} and add two new elements, \emph{iumlb:invariant} and 
 \emph{iumlb:guard} as well as a 
 % \emph{iumlb:guard} (Table \ref{iumlb_elements_table}) as well as a 
 number of new attributes which are shown in Table \ref{iumlb_attributes_table}.
 Invariants are not supported in SCXML but are needed to describe 
-verifiable properties of a model. SCXML transitions only have a single 
-\emph{cond} attribute whereas we need to introduce conjuncts of a transition
-condition at various refinement steps and may also need to designate some 
+verifiable properties of a model. 
+SCXML transitions only have a single \emph{cond} attribute whereas we need to introduce conjuncts of a transition
+condition at various refinement steps. 
+We also need to be able to designate some 
 invariants or guards as theorems that can be derived from the preceding conjuncts. 
 New attributes are introduced to support the predicate (string) and the 
 derived (boolean) theorem property of invariants and guards. The concept 
@@ -27,7 +28,7 @@ attribute, \emph{iumlb:refinement}, which may be attached to any element of
 either namespace in order to specify the refinement level of that element. 
 
 
-The example in Figure \ref{fig:scxml} shows a state, \emph{BLOCKED}, 
+The example in figure \ref{fig:scxml} shows a state, \emph{BLOCKED}, 
 containing a transition that owns an \emph{iumlb:guard}.
 The guard reflects the \emph{cond} attribute of the transition 
 and is introduced at refinement level 2. 
@@ -75,13 +76,13 @@ The state also owns an \emph{iumlb:invariant} with the predicate
 
 \begin{table}
 \centering
-\caption{New Attributes}
+\caption{SCXML Extension Attributes}
 \label{iumlb_attributes_table}
   \begin{tabular}{|c|c|c|}
   \hline
-      \multicolumn{1}{c}{Element in iumlb:} \vline
+      \multicolumn{1}{c}{Attribute name:} \vline
     & \multicolumn{1}{c}{Meaning} \vline
-    & \multicolumn{1}{c}{Legal Parent} 
+    & \multicolumn{1}{c}{Allowed Parents} 
    \\ \hline 
 
     label
