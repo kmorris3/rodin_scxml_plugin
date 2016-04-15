@@ -1,0 +1,22 @@
+variables
+  GateIn_Block
+
+invariants
+  @typeof_Block GateIn_Block \in BOOL
+  @GateCondition gate = BLOCK => GateIn_Block = TRUE
+
+events
+  event INITIALISATION  extends INITIALIZATION 
+    then
+      @init_Block GateIn_Block = false
+  end
+  
+  event BLOCKED_OUT_TRANS 
+    where
+      @isin_BLOCKED gate = BLOCKED
+      @check_CardAccept OnIn_CardAccept=TRUE
+    then
+      @enter_UNBLOCKED gate := UNBLOCKED
+      @set_CardAccept OnIn_CardAccept := FALSE
+      @set_Block GateIn_Block := FALSE
+  end      
