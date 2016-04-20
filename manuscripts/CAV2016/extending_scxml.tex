@@ -3,10 +3,6 @@
 \section{Extending SCXML}
 \label{sect:extension}
 
-An example statechart model is shown in figure \ref{fig:StatemachineSCXML}, 
-and a section of the corresponding SCXML syntax is shown in figure \ref{fig:scxml}. 
-We use this example to illustrate points.
-
 \begin{figure*}
 % \centering
 \begin{minipage}[]{.5\textwidth}
@@ -33,6 +29,8 @@ We use this example to illustrate points.
 To facilitate Event-B formal verification, extensions to the SCXML 
 modelling notation are necessary so that additional modelling features 
 required by Event-B can be integrated with the SCXML model.
+An example statechart model is shown in figure \ref{fig:StatemachineSCXML}, and a section of the corresponding SCXML syntax is shown in figure \ref{fig:scxml}. The iUML-B representation of the model is shown in figure \ref{fig:StatemachineiUML-B}. 
+We use this example to illustrate different points throughout the manuscript.
 The SCXML schema allows extension elements and attributes belonging 
 to a different namespace to be added. 
 The SCXML tooling provides fallback mechanisms so that these extensions are supported 
@@ -54,7 +52,7 @@ attribute, \emph{iumlb:refinement}, which may be attached to any element of
 either namespace in order to specify the refinement level of that element. 
 
 
-The example in figure \ref{fig:scxml} shows a state, \emph{BLOCKED}, 
+Figure \ref{fig:scxml} shows a state, \emph{BLOCKED}, 
 containing a transition that owns an \emph{iumlb:guard}.
 The guard reflects the \emph{cond} attribute of the transition 
 and is introduced at refinement level 2. 

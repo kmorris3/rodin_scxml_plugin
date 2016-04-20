@@ -23,7 +23,7 @@ In this section we discuss the implications of this semantic difference with res
 
 % \begin{description}
 
-\paragraph{Transition firing}
+\paragraph{Transition firing:}
 There are three methods of initiating transitions in SCXML:
 \begin{itemize}
 \item `When' transitions are considered for execution if their source state is active and their \emph{cond} attribute evaluates to true. 
@@ -36,46 +36,46 @@ The flag should then be reset by the transition that is triggered in order to `c
  A special interface event that sets the flag would be generated to represent the external interface receiving a trigger.
 \item Transitions may also trigger each other within their actions. 
 This could be simulated in iUML-B by a similar mechanism to the trigger events except that the interface event is not needed since the flag is set directly by another transition.
-\vspace{-0.25cm}
+\vspace{-0.10cm}
 \end{itemize}
 
-\paragraph{Run-to-completion semantics} 
+\paragraph{Run-to-completion semantics:} 
 SCXML has a run-to-completion (aka big-step/little-step) semantics.
  This means that an external trigger is only consumed when no transition can be taken without doing so. 
 This is quite cumbersome to implement in iUML-B since it requires constructing the conjunction of the negated guards of all the transitions that are internally triggered (including `when' transitions) and adding this to all externally triggered transitions.
-\vspace{-0.25cm}
+\vspace{-0.10cm}
 
-\paragraph{Composition of execution actions}
+\paragraph{Composition of execution actions:}
 When a particular SCXML transition fires it carries out a sequence of actions in a well-defined predictable order. 
 For example, a hierarchy of nested source states are exited (performing their exit actions sequentially) starting from the innermost one and working outwards.
 The order of execution is significant when some of these actions write to, or use the value of, a previously written variable. 
 In Event-B, all actions of a transition are executed simultaneously in parallel by the elaborated event. 
 It  is not possible (i.e. not well-formed) for two of these actions to write to the same variable.
 If any actions read the value of a variable, the value is the value before the transition started being executed.
-\vspace{-0.25cm}
+\vspace{-0.10cm}
 
 % SCXML transitions can be designated `internal' which prevents exiting and re-entering its source state in some cases.
 %  In SCXML, target state can be omitted which results in a transition that does not change state (this is different from a transition that exits a state and then re-enters the same state).
 % Neither of these features are supported in iUML-B. A transition must have a target state and if it is the same as the source state the transition performs any exit and entry actions of its source/target state when it fires.
 
-\paragraph{Events}
+\paragraph{Events:}
 The meaning of event is different between iUML-B and SCXML.
  In iUML-B, transitions are sub-parts of events. 
  In order for an event to be enabled for firing, all of its sub-parts (transitions) must be simultaneously enabled. 
  This means that two different transitions with the same event can only fire at the same time and hence will never fire if they are sourced from different states of the same parent state-machine. 
 In SCXML, events are triggers that enable transitions to fire. 
 If two different transitions from different source states are both triggered by the same event, one may fire without the other if one source state is not active.
-\vspace{-0.25cm}
+\vspace{-0.10cm}
 
-\paragraph{Final States}
+\paragraph{Final States:}
 The concept of a final state differs between iUML-B and SCXML. 
 In SCXML a state machine (or parent state) may reside in a final state indicating that it is done and waiting for another transition to exit the parent state. In iUML-B a final state is not a proper state of the parent state-machine. 
 It is merely a notation for indicating that the state-machine is becoming non-active, i.e. the parent state is exiting. 
  % Hence any transitions that target a final state are part of a transition that leaves the parent state. 
  % For a `root'  state-machine, the final state means that the state-machine has been left completely and no state is active.
-\vspace{-0.25cm}
+\vspace{-0.10cm}
 
-\paragraph{Initial States}
+\paragraph{Initial States:}
 Initial states are similar in both notations. 
 The transition from the initial state forms part of the actions to enter the parent state. 
 However, the correspondence between incoming transitions to the parent state and initial transitions is more explicit in iUML-B. 
@@ -83,22 +83,22 @@ SCXML has another way to specify an initial state using an attribute of the stat
  In this case there is no way to add extra transition actions.
 iUML-B allows different initial states for different incoming transitions. 
 In SCXML this would be done by extending the transition into the substate which, in iUML-B is also an optional alternative to the multiple initial states method.
-\vspace{-0.25cm}
+\vspace{-0.10cm}
 
-\paragraph{Entry/Exit Actions}
+\paragraph{Entry/Exit Actions:}
 SCXML and iUML-B both include the concept of entry and exit actions which are executed whenever a transition enters or exits the containing state. 
 However, their use in iUML-B is restricted by the lack of sequential composition in Event-B. 
 For example, if an exit action of a state, \textbf{S}, assigns to a variable, \textbf{V}, then no transitions from \textbf{S} are allowed to assign to \textbf{V} either directly or via entry actions of their target state.
 We restrict the SCXML models that can be translated so that executing the actions in parallel is equivalent to executing them in sequence.
 Effectively this means that the same variable cannot be assigned more than once in any set of actions that will be taken when a transition fires. 
 The Event-B static checker will raise an error if this restriction is violated.
-\vspace{-0.25cm}
+\vspace{-0.10cm}
 
 % Another difficulty arises when a transition exits a parent state without specifying any particular nested sub-state. 
 % Strictly, only the exit actions of the currently active sub-state should be executed. However, this would be difficult in iUML-B due to the lack of any conditional execution.
 % \textcolor{red} {How do we deal with this problem? }
 
-\paragraph{Refinement}
+\paragraph{Refinement:}
 Refinement is a central concept of Event-B where detail is built up in stages facilitating validation of abstract concepts before introducing complexity. 
 In iUML-B state-machines, refinement is achieved by adding nested state-machines to existing states.
 There is no refinement in SCXML. The entire system is introduced in one hierarchical statechart. We provide an extension to SCXML (section \ref{sect:extension}) so that the target refinement level of a translated SCXML element can be specified.
