@@ -14,8 +14,8 @@ Hierarchical nested state charts are translated to similar corresponding  state-
 Figures \ref{fig:StatemachineSCXML} and \ref{fig:StatemachineiUML-B} illustrate this correspondence between diagrammatic elements. 
 
 The translation of final states involves reconciling the SCXML and iUML-B features as follows.
-An iUML-B state, final state and transition from the former to the latter are  added to the corresponding iUML-B state-machine. 
-The transition elaborates  all Event-B events that are elaborated by transitions that exit the parent  iUML-B state. 
+An iUML-B state, final state and transition from the former to the latter are added to the corresponding iUML-B state-machine. 
+The transition elaborates all Event-B events that are elaborated by transitions exiting the parent iUML-B state. 
 An example can be seen in figure \ref{fig:StatemachineiUML-B} where state \emph{READY\_FINAL} reflects the final state of state \emph{READY} in figure \ref{fig:StatemachineSCXML}.
 
 % There are two alternative styles of 
@@ -44,7 +44,7 @@ However, for \emph{scxml:state} elements, the refinement level refers to the com
 machine(s) generated from any nested child states irrespective of whether 
 those children specify a different refinement level. This is because generated 
 iUML-B states cannot be added to an existing state-machine in later refinements.
-For \emph{iumlb:invariants} the generated invariant is only  generated at the 
+For \emph{iumlb:invariants} the corresponding Event-B invariant is only  generated at the 
 specified refinement level, not in  subsequent refinements. This is because Event-B 
 invariants are visible through all subsequent refinements.
 
@@ -78,7 +78,7 @@ want to keep them as a separate concept from transition firing in line
 with SCXML semantics.
 
 \subsection{Data elements}
-Data elements, collated in \emph{scxml:datamodel} elements, model ancillary 
+Data elements collated in \emph{scxml:datamodel} elements model the ancillary 
 variables in the usual SCXML style. Data elements are translated to 
 Event-B variables of type given in an \emph{iumlb:type} attribute translated 
 into an Event-B subset invariant.  The \emph{scxml:id} attribute of the 

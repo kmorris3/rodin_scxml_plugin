@@ -9,7 +9,7 @@
 %\textcolor{red}{List the difference in the syntax of each representation (Short section)}
 
 SCXML and iUML-B have syntactic similarities in their use of a hierarchical state-transition notation with conditional transitions applying actions upon ancillary variables.
-However, their semantics have significant differences. SCXML, based on Harel state-charts, has, so called, `run to completion' semantics, whereas iUML-B follows the `guarded action' semantics of Event-B.
+However, their semantics have significant differences. SCXML, based on Harel statecharts, has so-called `run-to-completion' semantics, whereas iUML-B follows the `guarded action' semantics of Event-B.
 In this section we discuss the implications of this semantic difference with respect to translation between the two notations.
 
 
@@ -39,7 +39,7 @@ The flag should then be reset by the transition that is triggered in order to `c
 This could be simulated in iUML-B by a similar mechanism to the trigger events except that the interface event is not needed since the flag is set directly by another transition.
 \end{itemize}
 
-\item [Run to completion semantics:] 
+\item [Run-to-completion semantics:] 
 SCXML has a run-to-completion (aka big-step/little-step) semantics.
  This means that an external trigger is only consumed when no transition can be taken without doing so. 
 This is quite cumbersome to implement in iUML-B since it requires constructing the conjunction of the negated guards of all the transitions that are internally triggered (including `when' transitions) and adding this to all externally triggered transitions.
@@ -96,7 +96,7 @@ The Event-B static checker will raise an error if this restriction is violated.
 \item [Refinement:]
 Refinement is a central concept of Event-B where detail is built up in stages facilitating validation of abstract concepts before introducing complexity. 
 In iUML-B state-machines, refinement is achieved by adding nested state-machines to existing states.
-There is no refinement in SCXML. The entire system is introduced in one hierarchical state-chart. We provide an extension to SCXML (section \ref{sect:extension}) so that the target refinement level of a translated SCXML element can be specified.
+There is no refinement in SCXML. The entire system is introduced in one hierarchical statechart. We provide an extension to SCXML (section \ref{sect:extension}) so that the target refinement level of a translated SCXML element can be specified.
 
 \end{description}
 
