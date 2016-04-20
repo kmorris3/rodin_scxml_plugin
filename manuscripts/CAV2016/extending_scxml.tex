@@ -10,7 +10,7 @@ We use this example to illustrate points.
 \begin{figure*}
 % \centering
 \begin{minipage}[]{.5\textwidth}
-  \includegraphics[width=1\textwidth]{caseStudy/TurnstileSimpleModel}
+  \includegraphics[width=1\textwidth]{caseStudy/TurnstileSimpleModel2.png}
   \caption{SCXML Statechart diagram}
   \label{fig:StatemachineSCXML}
 \end{minipage}
@@ -21,6 +21,14 @@ We use this example to illustrate points.
 \end{minipage}
 % \caption{ and }
 \end{figure*}
+
+\fvset{frame=single,numbers=left,fontsize=\relsize{-2},numbersep=8pt}
+\begin{figure}[tbp!]
+  \VerbatimInput[samepage=false]{caseStudy/BlockState_Invariant.scxml}
+  \caption{Part of SCXML model corresponding to figure \ref{fig:StatemachineSCXML} 
+   (including iumlb extension elements explained in section \ref{sect:extension}) } 
+  \label{fig:scxml}
+\end{figure}
 
 To facilitate Event-B formal verification, extensions to the SCXML 
 modelling notation are necessary so that additional modelling features 
