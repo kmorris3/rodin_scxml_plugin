@@ -123,8 +123,8 @@ Colin Snook\inst{2}
 High consequence systems benefit from verification by formal proof. 
 However, to facilitate efficient automatic proof, notations are often restricted to simplify the verification of state changes.
  Engineers that are used to richer semantics may find these restrictions difficult to accept. 
- Here we investigate the reconciliation of a Harel style state-chart semantics with a declarative, substitution based notation designed to facilitate proof. 
- We provide a translation from SCXML state-charts into the Event-B formalism via the iUML-B state-machine notation.
+ Here we investigate the reconciliation of a Harel style statechart semantics with a declarative, substitution-based notation designed to facilitate proof. 
+ We provide a translation from SCXML statecharts into the Event-B formalism via the iUML-B state-machine notation.
 
 \end{abstract}
 
@@ -170,9 +170,9 @@ model can be improved by the use of a graphical representation,
 with rich semantics that can support an infrastructure 
 for formal verification.
 
-The Event-B language \cite{abrial10:_model_event_b} provides the logic, and refinement
+The Event-B language \cite{abrial10:_model_event_b} provides the logic and refinement
 theory required to formally analyze a system model. 
-The  open-source Rodin tool \cite{abrial10:_rodin} provides tool support for Event-B including automatic theorem provers.
+The open-source Rodin tool \cite{abrial10:_rodin} provides support for Event-B including automatic theorem provers.
 iUML-B \cite{snook14:_b_statem} augments the Event-B language with a graphical interface including state-machines.
  
  The goal of this work is to create a unified model 
@@ -195,22 +195,27 @@ UML style state-machines extended with an action
 language that is intended for call control features 
 in voice applications.
 
-An example statechart model is shown in figure  \ref{fig:StatemachineSCXML}, and a section of the corresponding SCXML syntax is shown in figure \ref{fig:scxml}. We use this example to illustrate points throughout the paper.
+In \S~\ref{sect:diff} we describe the semantics differences between SCXML and iUML-B 
+and discuss their reconciliation. \S~\ref{sect:extension} presents the extensions 
+made to SCXML for required Event-B  features, and \S~\ref{sect:future-work} provides some details 
+regarding the development of the translation tool, finally \S~\ref{sect:future-work} list some of our future work. 
 
-\begin{figure*}
-% \centering
-\begin{minipage}[]{.5\textwidth}
-  \includegraphics[width=1\textwidth]{caseStudy/TurnstileSimpleModel}
-  \caption{SCXML Statechart diagram}
-  \label{fig:StatemachineSCXML}
-\end{minipage}
-\begin{minipage}[]{.5\textwidth}
-  \includegraphics[width=1\textwidth]{caseStudy/TurnstileSimpleModel_iumlb}
-  \caption{State-machine diagram in iUML-B at refinement level 3 (partially annotated with guards and actions)}
-  \label{fig:StatemachineiUML-B}
-\end{minipage}
-% \caption{ and }
-\end{figure*}
+% An example statechart model is shown in figure  \ref{fig:StatemachineSCXML}, and a section of the corresponding SCXML syntax is shown in figure \ref{fig:scxml}. We use this example to illustrate points throughout the paper.
+
+% \begin{figure*}
+% % \centering
+% \begin{minipage}[]{.5\textwidth}
+%   \includegraphics[width=1\textwidth]{caseStudy/TurnstileSimpleModel}
+%   \caption{SCXML Statechart diagram}
+%   \label{fig:StatemachineSCXML}
+% \end{minipage}
+% \begin{minipage}[]{.5\textwidth}
+%   \includegraphics[width=1\textwidth]{caseStudy/TurnstileSimpleModel_iumlb}
+%   \caption{State-machine diagram in iUML-B at refinement level 3 (partially annotated with guards and actions)}
+%   \label{fig:StatemachineiUML-B}
+% \end{minipage}
+% % \caption{ and }
+% \end{figure*}
 
 % \begin{figure}[]
 %   \begin{centering}
@@ -280,7 +285,7 @@ strong verification methods of Event-B to SCXML models.
 However, the significant semantic differences between SCXML 
 and Event-B meant that we were forced to restrict the kinds 
 of SCXML models we can support.
-In particular the run to completion semantics of SCXML are 
+In particular the run-to-completion semantics of SCXML are 
 difficult to support in Event-B without an explosion of 
 artefacts to model the necessary sequentiality. 
 In future work we will investigate the impact of the 
