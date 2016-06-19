@@ -121,10 +121,14 @@ Colin Snook\inst{2}
 
 \begin{abstract}
 High consequence systems benefit from verification by formal proof. 
-However, to facilitate efficient automatic proof, notations are often restricted to simplify the verification of state changes.
- Engineers that are used to richer semantics may find these restrictions difficult to accept. 
- Here we investigate the reconciliation of a Harel style statechart semantics with a declarative, substitution-based notation designed to facilitate proof. 
- We provide a translation from SCXML statecharts into the Event-B formalism via the iUML-B state-machine notation.
+However, to facilitate efficient automatic proof, notations are often restricted to 
+simplify the verification of state changes. Engineers that are used to richer semantics 
+may find these restrictions difficult to accept. 
+Here we investigate the reconciliation of a Harel style statechart semantics with a 
+declarative, substitution-based notation designed to facilitate proof. 
+We provide a translation of State Chart eXtensible Markup 
+Language (SCXML) statecharts into the Event-B formalism via the 
+iUML-B state-machine notation.
 
 \end{abstract}
 
@@ -157,7 +161,7 @@ requires the analysis of formal models that capture
 the properties and functionality of the system of 
 interest. Proof obligations for systems' 
 properties or requirements can be made more tractable 
-using refinement, where properties are expressed in term of variables that 
+using refinement, where properties are expressed in terms of variables that 
 are introduced at different abstraction levels.  
 
 A hierarchical development of a system model uses 
@@ -186,8 +190,12 @@ the statechart itself, which is a higher level representation
 of the model than the Event-B provides. 
 
 We base this unified statechart model representation 
-on SCXML  \cite{scxmlwebsite}.  This is a general-purpose event-based state machine 
-language that combines concepts from CCXML and Harel 
+on the State Chart eXtensible Markup 
+Language (SCXML)  \cite{scxmlwebsite}.  
+This is a general-purpose event-based state machine 
+language that combines concepts from Call Control 
+eXtensible Markup Language
+(CCXML) and Harel 
 State Tables. Harel State Tables are included in UML. 
 The concrete syntax for SCXML
 is based on XML. Hence, SCXML is an XML notation for 
