@@ -5,12 +5,12 @@
 
 \begin{figure*}
 % \centering
-\begin{minipage}[]{.5\textwidth}
-  \includegraphics[width=1\textwidth]{caseStudy/TurnstileSimpleModel2.png}
+\begin{minipage}[]{.53\textwidth}
+  \includegraphics[width=1\textwidth]{caseStudy/TurnstileSimpleModel_ManualChart}
   \caption{SCXML Statechart diagram}
   \label{fig:StatemachineSCXML}
 \end{minipage}
-\begin{minipage}[]{.5\textwidth}
+\begin{minipage}[]{.53\textwidth}
   \includegraphics[width=1\textwidth]{caseStudy/TurnstileSimpleModel_iumlb}
   \caption{State-machine diagram in iUML-B at refinement level 3 (partially annotated with guards and actions)}
   \label{fig:StatemachineiUML-B}
@@ -18,13 +18,14 @@
 % \caption{ and }
 \end{figure*}
 
-\fvset{frame=single,numbers=left,fontsize=\relsize{-2},numbersep=8pt}
+\fvset{frame=single,numbers=left,fontsize=\relsize{-1},numbersep=8pt}
 \begin{figure}[tbp!]
   \VerbatimInput[samepage=false]{caseStudy/BlockState_Invariant.scxml}
   \caption{Part of SCXML model corresponding to figure \ref{fig:StatemachineSCXML} 
    (including iumlb extension elements explained in section \ref{sect:extension}) } 
   \label{fig:scxml}
 \end{figure}
+
 
 To facilitate Event-B formal verification, extensions to the SCXML 
 modelling notation are necessary so that additional modelling features 
@@ -50,7 +51,6 @@ derived (boolean) theorem property of invariants and guards. The concept
 of refinement is not supported in SCXML. We introduce a new integer valued 
 attribute, \emph{iumlb:refinement}, which may be attached to any element of 
 either namespace in order to specify the refinement level of that element. 
-
 
 Figure \ref{fig:scxml} shows a state, \emph{BLOCKED}, 
 containing a transition that owns an \emph{iumlb:guard}.
