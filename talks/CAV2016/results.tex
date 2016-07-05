@@ -1,0 +1,384 @@
+
+
+
+\begin{frame}
+
+\vspace{0.5cm}
+\centering
+\begin{block}{}
+\centering
+\textbf{\Large{{\it {Resilience Results}}}}
+\end{block}
+%
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Test Problem}
+%
+\vspace{-0.05cm}
+
+\begin{columns}
+\begin{column}{0.65\textwidth}
+\bi
+\item 2D linear elliptic equation.
+\item $201^2$ grid, $3x3$ subdomains.
+\item Nominally: $3249$ sampling and $2136$ regression tasks. 
+\item 1 {\bf \textcolor{green}{server}}, 
+14 {\bf \textcolor{pink}{clients}} size 2. 
+\item Faults affect clients only.
+\ei
+\end{column}
+\begin{column}{0.4\textwidth}
+\vspace{-0.35cm}
+\begin{center}
+\includegraphics[width=1\textwidth]{pdeSC15Solution.png}\\
+{\small True Solution}
+\end{center}
+\end{column}
+\end{columns}
+%
+\vspace{0.2cm}
+%
+\begin{columns}
+\begin{column}{0.55\textwidth}
+\begin{center}
+\vspace{-0.4cm}
+\includegraphics[width=0.6\textwidth]{/layout/layout.png}\\
+{\small Partitioning}
+\end{center}
+\end{column}
+\begin{column}{0.55\textwidth}
+\begin{center}
+\vspace{-0.5cm}
+\includegraphics[width=0.5\textwidth]{SCresil.pdf}\\
+{\small SC configuration}
+\end{center}
+\end{column}
+\end{columns}
+%
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Injecting SDC and Hard Faults}
+%
+\begin{columns}
+\begin{column}{1.1\textwidth}
+
+\begin{block}{Selective reliability}
+Inject/perturb applications at target points and evaluate how it behaves. 
+Some parts of the algorithm are assumed to be handled in a 
+more reliable manner than others. \footnotesize{M.Hoemmen,M.Heroux,2012}
+\end{block}
+
+\pause
+\begin{block}{Silent Data Corruptions (SDC)}
+\bi
+% \item SDC: transient and do not cause the termination of the application.
+\item Selective reliability: only affect sampling stage.
+\item Injection at random; $\# faults = 0.25, 0.5, 1 \%$ of tasks.
+\item Corrupt all boundary conditions data of a task.
+\item Bit-flip model: random bit-flip in binary representation. 
+\ei
+\end{block}
+%
+\pause
+\begin{block}{Hard Faults}
+\bi
+% \item Permanent, cause the termination of the application.
+\item Selective reliability: can affect sampling and regression.
+\item Injection at random; $2, 4, 6$ clients crashing.
+\item Actually kill the processes associated with those ranks.
+\ei
+\end{block}
+\end{column}
+\end{columns}
+%
+\end{frame}
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Details}
+%
+\begin{columns}
+\begin{column}{1.1\textwidth}
+\begin{block}{Silent Data Corruptions (SDC)}
+\bi
+\item Resilience condition: out of the samples used in the regression, 
+the number of uncorrupted samples has to be greater than 
+the minimum set needed to have a well-posed 
+regression problem. 
+% \item Filter $(-100,100)$ to eliminate outrageous data (expert opinion).
+\ei
+\end{block}
+%
+\begin{block}{Hard Faults}
+\bi
+\item Server continues the execution using 
+only the clients that are alive.
+\item No need for ULFM collectives to rebuild broken communicators.
+\ei
+\end{block}
+\begin{block}{Oversampling}
+\bi
+\item Oversampling: $\rho >1$, such that $N = \rho N_{nom}^{s}$.
+\item $N_{nom}^{s}$: number of samples for the fault-free scenario.
+\ei
+\end{block}
+
+\end{column}
+\end{columns}
+%
+
+\begin{columns}
+\begin{column}{1.1\textwidth}
+\bi
+\item Analyze hard faults only.
+\item Hard and soft faults together.
+\ei
+\end{column}
+\end{columns}
+%
+\end{frame}
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Hard Faults Only}
+%
+\begin{columns}
+\begin{column}{0.6\textwidth}
+\bi
+% \item clients workload
+% \item Hard faults randomly happening during the sampling. 
+\item Angular direction $=$ client name. 
+\item Data $=$ total number of tasks being handled during the simulation.
+\item No-fault case: \\workload is fairly uniform 
+% \item Asymmetry becomes increasingly more evident. 
+\item As expected, increasing the number of faults causes 
+the clients that are alive to handle more and more 
+tasks to compensate for those that are dead.
+\ei
+\end{column}
+%
+\begin{column}{0.5\textwidth}
+\begin{center}
+\includegraphics[width=1\textwidth]{clients_load-crop.pdf}\\
+{Clients Workload.}
+\end{center}
+\end{column}
+\end{columns}
+%
+\end{frame}
+
+
+
+
+
+
+\begin{frame}
+\frametitle{Hard Faults (HF) Only}
+%
+\begin{columns}
+\hspace{-1cm}
+\begin{column}{0.33\textwidth}
+\begin{center}
+{\bf HF Sampling Only}\\
+\vspace{0.15cm}
+\includegraphics[width=1.28\textwidth]{H_sampling-crop.pdf}
+\end{center}
+\end{column}
+%
+\begin{column}{0.33\textwidth}
+\begin{center}
+{\bf HF Regression Only }\\
+\vspace{0.15cm}
+\includegraphics[width=1.3\textwidth]{H_regression-crop.pdf}
+\end{center}
+\end{column}
+%
+\begin{column}{0.33\textwidth}
+\begin{center}
+{\bf HF Samp/Regress}\\
+\vspace{0.15cm}
+\includegraphics[width=1.3\textwidth]{H_both-crop.pdf}
+\end{center}
+\end{column}
+\end{columns}
+%
+\vspace{0.1cm}
+%
+\begin{columns}
+\begin{column}{1.1\textwidth}
+\bi
+\item the best case scenario is when all faults affect regression 
+because full computational power is available for a longer part of the simulation
+\item HF for both: losing $14 \%$, $28 \%$ and $42 \%$ 
+of the clients yields, respectively, a total overhead 
+of $8 \%$, $19 \%$ and $30 \%$. 
+\ei
+\end{column}
+\end{columns}
+%
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Hard Faults and SDC}
+%
+\begin{columns}
+\hspace{-1cm}
+
+\begin{column}{0.33\textwidth}
+\begin{center}
+{\bf 0.25 \%~SDC}\\
+\vspace{0.15cm}
+\includegraphics[width=1.26\textwidth]{H+Ssoft025-crop.pdf}
+\end{center}
+\end{column}
+%
+\begin{column}{0.33\textwidth}
+\begin{center}
+{\bf 0.5 \%~SDC}\\
+\vspace{0.15cm}
+\includegraphics[width=1.26\textwidth]{H+Ssoft050-crop.pdf}
+\end{center}
+\end{column}
+%
+\begin{column}{0.33\textwidth}
+\begin{center}
+{\bf 1.0~\%~SDC}\\
+\vspace{0.15cm}
+\includegraphics[width=1.26\textwidth]{H+Ssoft100-crop.pdf}
+\end{center}
+\end{column}
+\end{columns}
+%
+\vspace{0.1cm}
+%
+\begin{columns}
+\begin{column}{1.1\textwidth}
+\bi
+\item Consider $4$ hard faults; \textit{four-fold} increase in 
+SDC from $9$ to $33$ causes 
+the sampling overhead to only increase from $9 \%$ to about $15 \%$. 
+\item Regression overhead only increases from $30 \%$ to about $38 \%$. 
+\item This yields the total overhead to 
+only increase from $21 \%$ to $28 \%$. 
+\ei
+\end{column}
+\end{columns}
+%
+\end{frame}
+
+
+
+
+
+% \begin{frame}
+% \frametitle{Results: $7 \%$ Oversampling}
+% %
+% \begin{columns}
+% \begin{column}{0.55\textwidth}
+% \begin{center}
+% {\bf All-Data Corruption}\\
+% \vspace{0.15cm}
+% \includegraphics[width=1\textwidth]
+% {SamplingFaultsOnly_corruptAllDataSmallRegTol_7percentOversampling-crop.png}
+% \end{center}
+% \end{column}
+% \begin{column}{0.55\textwidth}
+% \begin{center}
+% {\bf Single Corruption}\\
+% \vspace{0.15cm}
+% \includegraphics[width=1\textwidth]
+% {SamplingFaultsOnly_corruptSingleDataSmallRegTol_7percentOversampling-crop.png}
+% \end{center}
+% \end{column}
+% \end{columns}
+% %
+% \vspace{0.1cm}
+% %
+% \begin{columns}
+% \begin{column}{1.1\textwidth}
+% \bi
+% \item Less oversampling yields smaller overehead. 
+% \item Overhead is smaller when all the data in a sampling task is corrupted. 
+% \item Note: four-fold faults increase $\Rightarrow$ minimal change in the overhead.
+% \ei
+% \end{column}
+% \end{columns}
+% %
+% % %
+% \end{frame}
+
+
+
+
+
+
+
+% \begin{frame}
+% \frametitle{Scaling}
+% %
+% \begin{columns}
+% \begin{column}{1.0\textwidth}
+% \bi
+% \item Edison (NERSC), using native Cray-MPICH.
+% \item Elliptic PDE on unit square. 
+% \item Fix the number of clients per server and 
+% the amount of data owned by each server, while 
+% increasing the problem size 
+% by adding increasingly more clusters. 
+
+% %N subdomains: $12^2,24^2,48^2,96^2$.
+% % \item N cores: $144$, $576$, $2304$, $9216$.
+% % \item Grid/subdomain: $\sim 100^2$.
+% \ei
+% \end{column}
+% \end{columns}
+% %
+% \begin{columns}
+% \begin{column}{0.55\textwidth}
+% \bi
+% \item Subdomains: $12^2,18^2,24^2,30^2,36^2,42^2$.
+% \item Sub grid size: $180^2$.
+% \item N servers: $16,36,64,100,144,196$.
+% \item Num clients/server: $64$.
+% \item Size of client: $4$ MPI ranks.
+% \ei
+% % \begin{center}
+% % \includegraphics[width=1\textwidth]{weak}\\
+% % {\bf Weak Scaling}
+% % \end{center}
+% \end{column}
+% %
+% \begin{column}{0.55\textwidth}
+% % \bi
+% % \item N subdomains: $12^2,24^2,48^2,96^2$.
+% % \item N cores: $144$, $576$, $2304$, $9216$.
+% % \item Full Grid: $2501^2$.
+% % \ei
+% \begin{center}
+% \includegraphics[width=1\textwidth]{weak-eps-converted-to.pdf}\\
+% {\bf Weak Scaling}
+% \end{center}
+% \end{column}
+% \end{columns}
+% %
+% \end{frame}
+
+

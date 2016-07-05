@@ -1,0 +1,128 @@
+
+
+\input{header}
+\input{def}
+
+\usepackage{soul}
+
+
+\graphicspath{{./figs/}}
+
+% compiles for final build all stuff needed 
+% if undefined, then build more rapidly
+\def\finalbuild{1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[Resilient Approach for PDE \ \qquad 
+Min:~\factorclockfont{1.45} \cronominutes] 
+{\fontsize{0.415cm}{0.5cm}\selectfont 
+ULFM-MPI Implementation of a Resilient Task-Based Partial Differential Equations Preconditioner}
+
+\author[F.~Rizzi]
+% {\small Francesco Rizzi\\ ($8953$)
+% \vspace*{-2.5ex}
+% }
+{\small {\it F.Rizzi}$^\dag$, K.Morris$^\dag$, 
+K.Sargsyan$^\dag$, P.Mycek$^\ddag$, C.Safta$^\dag$,\\
+O.LeMaitre$^\ddag$, O.Knio$^\ddag$, 
+B.Debusschere$^\dag$ 
+\vspace*{-2ex}
+}
+
+\institute[] % (optional, but mostly needed)
+{%{\texttt{\bf fnrizzi@sandia.gov}}\\
+$^\dag$Sandia National Laboratories, Livermore, CA\\
+$^\ddag$Duke University, Durham, NC
+\vspace*{-1ex}
+}
+% - Use the \inst command only if there are several affiliations.
+
+\date{\scriptsize {\bf FTXS16 Workshop - HPDC16} \\ 
+-- May 2016 --
+\vspace{-0.25cm} }
+
+% \logo{\includegraphics[height=0.035\textwidth]
+% {figs/SNL_Stacked_Black_Blue.pdf}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+
+%\tikzstyle{na} = [baseline=-.5ex]
+% \tikzstyle{every picture}+=[remember picture]
+%
+\begin{frame}
+\vspace{-0.5cm}
+\titlepage
+
+\vspace*{-5mm}
+\begin{center}
+{\scriptsize
+Supported by the US Department of Energy (DOE)\\ 
+Advanced Scientific Computing Research (ASCR)\par
+}
+\end{center}
+
+%\vspace*{1ex}
+
+\vspace{-0.4cm}
+\begin{columns}%[c,totalwidth=\textwidth]
+\begin{column}{0.7\textwidth}
+{\center {\tiny
+Sandia National Laboratories is a multi-program 
+laboratory managed and operated by
+Sandia Corporation, a wholly owned subsidiary 
+of Lockheed Martin Corporation, for the
+U.S. Department of Energy's National Nuclear 
+Security Administration under contract
+DE-AC04-94AL85000.\par}}
+\end{column}
+\end{columns}
+
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{Outline}
+% % \begin{multicols}{2}
+% %  \tableofcontents [hideallsubsections]      % [pausesections]
+%   \tableofcontents
+% %   \end{multicols}
+% \end{frame}
+% \section{Outline}
+% \begin{frame}
+% \tableofcontents
+% \end{frame}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Motivation}
+\graphicspath{{./figs/}}
+\input{intro.tex}
+
+\section{Algorithm}
+\graphicspath{{./figsAlgo/}}
+\input{algorithm.tex}
+
+\section{Implementation}
+\graphicspath{{./figsImpl/}}
+\input{impl.tex}
+
+\section{Results}
+\graphicspath{{./figsResults/}}
+\input{results.tex}
+
+\section{Conclusions}
+\input{conclu.tex}
+
+\input{ack.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
