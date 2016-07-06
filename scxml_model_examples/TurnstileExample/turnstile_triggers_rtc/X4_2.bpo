@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="5">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="2">
+<org.eventb.core.poIdentifier name="TRIGGER" org.eventb.core.type="ℙ(TRIGGER)"/>
+<org.eventb.core.poIdentifier name="FutureTriggers" org.eventb.core.type="ℙ(TRIGGER)"/>
+<org.eventb.core.poIdentifier name="OnOff" org.eventb.core.type="TRIGGER"/>
+<org.eventb.core.poPredicate name="FutureTriggert" org.eventb.core.predicate="partition(TRIGGER,FutureTriggers,{OnOff})" org.eventb.core.source="/turnstile_triggers_rtc/X4_0.buc|org.eventb.core.contextFile#X4_0|org.eventb.core.axiom#)"/>
+<org.eventb.core.poIdentifier name="CardError" org.eventb.core.type="TRIGGER"/>
+<org.eventb.core.poIdentifier name="CardIn" org.eventb.core.type="TRIGGER"/>
+<org.eventb.core.poIdentifier name="CardOk" org.eventb.core.type="TRIGGER"/>
+<org.eventb.core.poIdentifier name="FutureTriggers2" org.eventb.core.type="ℙ(TRIGGER)"/>
+<org.eventb.core.poIdentifier name="Ready" org.eventb.core.type="TRIGGER"/>
+<org.eventb.core.poIdentifier name="Reset" org.eventb.core.type="TRIGGER"/>
+<org.eventb.core.poIdentifier name="timed_CLEAR" org.eventb.core.type="TRIGGER"/>
+<org.eventb.core.poIdentifier name="timed_COMPLETE_SET_UP" org.eventb.core.type="TRIGGER"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poSequent name="axm2/THM" org.eventb.core.accurate="true" org.eventb.core.poDesc="Theorem" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_2"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Reset∈TRIGGER ∖ FutureTriggers2" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#-"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#-"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_2"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="axm3/THM" org.eventb.core.accurate="true" org.eventb.core.poDesc="Theorem" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_3"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="CardError∈TRIGGER ∖ FutureTriggers2" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#*"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#*"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_3"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="axm4/THM" org.eventb.core.accurate="true" org.eventb.core.poDesc="Theorem" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_4"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Ready∈TRIGGER ∖ FutureTriggers2" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#\/"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#\/"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_4"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="axm5/THM" org.eventb.core.accurate="true" org.eventb.core.poDesc="Theorem" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_5"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="CardIn∈TRIGGER ∖ FutureTriggers2" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#1"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#1"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_5"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="axm6/THM" org.eventb.core.accurate="true" org.eventb.core.poDesc="Theorem" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_6"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="timed_CLEAR∈TRIGGER ∖ FutureTriggers2" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#3"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#3"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_6"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="axm7/THM" org.eventb.core.accurate="true" org.eventb.core.poDesc="Theorem" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_7"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="CardOk∈TRIGGER ∖ FutureTriggers2" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#5"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#5"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_7"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="axm8/THM" org.eventb.core.accurate="true" org.eventb.core.poDesc="Theorem" org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_8"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="timed_COMPLETE_SET_UP∈TRIGGER ∖ FutureTriggers2" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#7"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#7"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_8"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="HYPX4_2" org.eventb.core.parentSet="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="FutureTriggers2⊆FutureTriggers" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#,"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="partition(TRIGGER,FutureTriggers2,{OnOff},{Reset},{CardError},{Ready},{CardIn},{timed_CLEAR},{CardOk},{timed_COMPLETE_SET_UP})" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#8"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="HYPX4_3" org.eventb.core.parentSet="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_2" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="Reset∈TRIGGER ∖ FutureTriggers2" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#-"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="HYPX4_4" org.eventb.core.parentSet="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_3" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="CardError∈TRIGGER ∖ FutureTriggers2" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#*"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="HYPX4_5" org.eventb.core.parentSet="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_4" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="Ready∈TRIGGER ∖ FutureTriggers2" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#\/"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="HYPX4_6" org.eventb.core.parentSet="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_5" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="CardIn∈TRIGGER ∖ FutureTriggers2" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#1"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="HYPX4_7" org.eventb.core.parentSet="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_6" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="timed_CLEAR∈TRIGGER ∖ FutureTriggers2" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#3"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="HYPX4_8" org.eventb.core.parentSet="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_7" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD7" org.eventb.core.predicate="CardOk∈TRIGGER ∖ FutureTriggers2" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#5"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/X4_2.bpo|org.eventb.core.poFile#X4_2|org.eventb.core.poPredicateSet#HYPX4_8" org.eventb.core.poStamp="5">
+<org.eventb.core.poPredicate name="PRD8" org.eventb.core.predicate="timed_COMPLETE_SET_UP∈TRIGGER ∖ FutureTriggers2" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#7"/>
+<org.eventb.core.poPredicate name="PRD9" org.eventb.core.predicate="FutureTriggers2≠(∅ ⦂ ℙ(TRIGGER))" org.eventb.core.source="/turnstile_triggers_rtc/X4_2.buc|org.eventb.core.contextFile#X4_2|org.eventb.core.axiom#9"/>
+</org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

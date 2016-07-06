@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.psFile>
+<org.eventb.core.psStatus name="INITIALISATION/distinct_states_in_Gate_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/distinct_states_in_CardReader_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/distinct_states_in_READY_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/BLOCKED_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/UNBLOCKED_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/READY_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/CLEAR_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/COMPLETE_SET_UP_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/READY_FINAL_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/READING_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/ACCEPT_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/GateCondition/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="UNBLOCKED_BLOCKED/distinct_states_in_Gate_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="UNBLOCKED_BLOCKED/BLOCKED_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="UNBLOCKED_BLOCKED/UNBLOCKED_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="UNBLOCKED_BLOCKED/GateCondition/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="UNBLOCKED_BLOCKED/NEXT/EQL" org.eventb.core.confidence="0" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="UNBLOCKED_BLOCKED/NOW/EQL" org.eventb.core.confidence="0" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardIn/distinct_states_in_CardReader_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardIn/distinct_states_in_READY_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardIn/READY_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardIn/CLEAR_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardIn/COMPLETE_SET_UP_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardIn/READY_FINAL_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardIn/READING_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardIn/NOW/EQL" org.eventb.core.confidence="0" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardError/distinct_states_in_CardReader_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardError/distinct_states_in_READY_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardError/READY_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardError/CLEAR_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardError/COMPLETE_SET_UP_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardError/READY_FINAL_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardError/READING_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardError/NOW/EQL" org.eventb.core.confidence="0" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="scxmlTriggerEvent_CardError/grd1/GRD" org.eventb.core.confidence="-99" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="scxmlTriggerEvent_CardError/act1/SIM" org.eventb.core.confidence="-99" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Ready/distinct_states_in_CardReader_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Ready/distinct_states_in_READY_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Ready/READY_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Ready/CLEAR_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Ready/COMPLETE_SET_UP_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Ready/READY_FINAL_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Ready/ACCEPT_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Ready/NOW/EQL" org.eventb.core.confidence="0" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="scxmlTriggerEvent_Ready/grd1/GRD" org.eventb.core.confidence="-99" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="scxmlTriggerEvent_Ready/act1/SIM" org.eventb.core.confidence="-99" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileON/distinct_states_in_Gate_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileON/distinct_states_in_CardReader_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileON/distinct_states_in_READY_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileON/BLOCKED_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileON/UNBLOCKED_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileON/READY_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileON/CLEAR_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileON/COMPLETE_SET_UP_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileON/READY_FINAL_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileON/READING_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileON/ACCEPT_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileON/GateCondition/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileON/scxmlTrigger_OnOff_reset/SIM" org.eventb.core.confidence="0" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileON/NEXT/EQL" org.eventb.core.confidence="0" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="scxmlTriggerEvent_CardIn/grd1/GRD" org.eventb.core.confidence="-99" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="scxmlTriggerEvent_CardIn/act1/SIM" org.eventb.core.confidence="-99" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileOFF/distinct_states_in_Gate_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileOFF/distinct_states_in_CardReader_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileOFF/distinct_states_in_READY_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileOFF/BLOCKED_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileOFF/UNBLOCKED_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileOFF/READY_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileOFF/CLEAR_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileOFF/COMPLETE_SET_UP_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileOFF/READY_FINAL_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileOFF/READING_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileOFF/ACCEPT_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="OnOff_whileOFF/GateCondition/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CLEAR_COMPLETE_SET_UP/distinct_states_in_READY_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CLEAR_COMPLETE_SET_UP/CLEAR_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CLEAR_COMPLETE_SET_UP/COMPLETE_SET_UP_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="scxmlTriggerEvent_timed_CLEAR/grd1/GRD" org.eventb.core.confidence="-99" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="scxmlTriggerEvent_timed_CLEAR/act1/SIM" org.eventb.core.confidence="-99" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="BLOCKED_UNBLOCKED/distinct_states_in_Gate_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="BLOCKED_UNBLOCKED/BLOCKED_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="BLOCKED_UNBLOCKED/UNBLOCKED_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="BLOCKED_UNBLOCKED/GateCondition/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardOk/distinct_states_in_CardReader_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardOk/READING_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardOk/ACCEPT_substateof_ON/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="CardOk/NOW/EQL" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="scxmlTriggerEvent_CardOk/grd1/GRD" org.eventb.core.confidence="-99" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="scxmlTriggerEvent_CardOk/act1/SIM" org.eventb.core.confidence="-99" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="COMPLETE_SET_UP_READY_FINAL/distinct_states_in_READY_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="COMPLETE_SET_UP_READY_FINAL/COMPLETE_SET_UP_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="COMPLETE_SET_UP_READY_FINAL/READY_FINAL_substateof_READY/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="COMPLETE_SET_UP_READY_FINAL/NOW/EQL" org.eventb.core.confidence="0" org.eventb.core.poStamp="51" org.eventb.core.psManual="false"/>
+</org.eventb.core.psFile>
