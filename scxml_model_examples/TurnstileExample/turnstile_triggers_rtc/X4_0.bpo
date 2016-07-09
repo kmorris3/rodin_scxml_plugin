@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="1">
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="TRIGGER" org.eventb.core.type="ℙ(TRIGGER)"/>
 <org.eventb.core.poIdentifier name="FutureTriggers" org.eventb.core.type="ℙ(TRIGGER)"/>
+<org.eventb.core.poPredicate name="FutureTriggert" org.eventb.core.predicate="partition(TRIGGER,FutureTriggers)" org.eventb.core.source="/turnstile_triggers_rtc/basis.buc|org.eventb.core.contextFile#basis|org.eventb.core.axiom#)"/>
+<org.eventb.core.poIdentifier name="FutureTriggers0" org.eventb.core.type="ℙ(TRIGGER)"/>
 <org.eventb.core.poIdentifier name="OnOff" org.eventb.core.type="TRIGGER"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/X4_0.bpo|org.eventb.core.poFile#X4_0|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="1">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="partition(TRIGGER,FutureTriggers,{OnOff})" org.eventb.core.source="/turnstile_triggers_rtc/X4_0.buc|org.eventb.core.contextFile#X4_0|org.eventb.core.axiom#)"/>
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/X4_0.bpo|org.eventb.core.poFile#X4_0|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="partition(FutureTriggers,FutureTriggers0,{OnOff})" org.eventb.core.source="/turnstile_triggers_rtc/X4_0.buc|org.eventb.core.contextFile#X4_0|org.eventb.core.axiom#)"/>
 </org.eventb.core.poPredicateSet>
 </org.eventb.core.poFile>

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0"/>
-<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/basis.bpo|org.eventb.core.poFile#basis|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0"/>
-<org.eventb.core.poPredicateSet name="EVTALLHYP'" org.eventb.core.parentSet="/turnstile_triggers_rtc/basis.bpo|org.eventb.core.poFile#basis|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0"/>
-<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/basis.bpo|org.eventb.core.poFile#basis|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0"/>
+<org.eventb.core.poFile org.eventb.core.poStamp="5">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="5">
+<org.eventb.core.poIdentifier name="TRIGGER" org.eventb.core.type="ℙ(TRIGGER)"/>
+<org.eventb.core.poIdentifier name="FutureTriggers" org.eventb.core.type="ℙ(TRIGGER)"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/basis.bpo|org.eventb.core.poFile#basis|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="5">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="partition(TRIGGER,FutureTriggers)" org.eventb.core.source="/turnstile_triggers_rtc/basis.buc|org.eventb.core.contextFile#basis|org.eventb.core.axiom#)"/>
+</org.eventb.core.poPredicateSet>
 </org.eventb.core.poFile>

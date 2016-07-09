@@ -194,4 +194,22 @@
 <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
 </org.eventb.core.prProof>
+<org.eventb.core.prProof name="step/NEXT/EQL"/>
+<org.eventb.core.prProof name="step/NOW/EQL"/>
+<org.eventb.core.prProof name="futureTrigger/NEXT/EQL"/>
+<org.eventb.core.prProof name="futureTransition/NEXT/EQL"/>
+<org.eventb.core.prProof name="futureTransition/NOW/EQL"/>
+<org.eventb.core.prProof name="OnOff_whileON/NOW/EQL"/>
+<org.eventb.core.prProof name="scxmlTriggerEvent_OnOff/NEXT/EQL"/>
+<org.eventb.core.prProof name="OnOff_whileOFF/NOW/EQL"/>
+<org.eventb.core.prProof name="OnOff_whileON/grd0/GRD"/>
+<org.eventb.core.prProof name="OnOff_whileON/grd1/GRD"/>
+<org.eventb.core.prProof name="OnOff_whileON/grd2/GRD"/>
+<org.eventb.core.prProof name="OnOff_whileON/act1/SIM"/>
+<org.eventb.core.prProof name="OnOff_whileON/act2/SIM"/>
+<org.eventb.core.prProof name="OnOff_whileOFF/grd0/GRD"/>
+<org.eventb.core.prProof name="OnOff_whileOFF/grd1/GRD"/>
+<org.eventb.core.prProof name="OnOff_whileOFF/grd2/GRD"/>
+<org.eventb.core.prProof name="OnOff_whileOFF/act1/SIM"/>
+<org.eventb.core.prProof name="OnOff_whileOFF/act2/SIM"/>
 </org.eventb.core.prFile>

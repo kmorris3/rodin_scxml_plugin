@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd">
-<org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(TRIGGER,FutureTriggers,{OnOff})" org.eventb.core.source="/turnstile_triggers_rtc/X4_0.buc|org.eventb.core.contextFile#X4_0|org.eventb.core.axiom#)" org.eventb.core.theorem="false"/>
-<org.eventb.core.scConstant name="FutureTriggers" org.eventb.core.source="/turnstile_triggers_rtc/X4_0.buc|org.eventb.core.contextFile#X4_0|org.eventb.core.constant#*" org.eventb.core.type="ℙ(TRIGGER)"/>
+<org.eventb.core.scExtendsContext name="'" org.eventb.core.scTarget="/turnstile_triggers_rtc/basis.bcc|org.eventb.core.scContextFile#basis" org.eventb.core.source="/turnstile_triggers_rtc/X4_0.buc|org.eventb.core.contextFile#X4_0|org.eventb.core.extendsContext#+"/>
+<org.eventb.core.scInternalContext name="basis">
+<org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(TRIGGER,FutureTriggers)" org.eventb.core.source="/turnstile_triggers_rtc/basis.buc|org.eventb.core.contextFile#basis|org.eventb.core.axiom#)" org.eventb.core.theorem="false"/>
+<org.eventb.core.scConstant name="FutureTriggers" org.eventb.core.source="/turnstile_triggers_rtc/basis.buc|org.eventb.core.contextFile#basis|org.eventb.core.constant#*" org.eventb.core.type="ℙ(TRIGGER)"/>
+<org.eventb.core.scCarrierSet name="TRIGGER" org.eventb.core.source="/turnstile_triggers_rtc/basis.buc|org.eventb.core.contextFile#basis|org.eventb.core.carrierSet#'" org.eventb.core.type="ℙ(TRIGGER)"/>
+</org.eventb.core.scInternalContext>
+<org.eventb.core.scAxiom name="basit" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(FutureTriggers,FutureTriggers0,{OnOff})" org.eventb.core.source="/turnstile_triggers_rtc/X4_0.buc|org.eventb.core.contextFile#X4_0|org.eventb.core.axiom#)" org.eventb.core.theorem="false"/>
+<org.eventb.core.scConstant name="FutureTriggers0" org.eventb.core.source="/turnstile_triggers_rtc/X4_0.buc|org.eventb.core.contextFile#X4_0|org.eventb.core.constant#*" org.eventb.core.type="ℙ(TRIGGER)"/>
 <org.eventb.core.scConstant name="OnOff" org.eventb.core.source="/turnstile_triggers_rtc/X4_0.buc|org.eventb.core.contextFile#X4_0|org.eventb.core.constant#(" org.eventb.core.type="TRIGGER"/>
-<org.eventb.core.scCarrierSet name="TRIGGER" org.eventb.core.source="/turnstile_triggers_rtc/X4_0.buc|org.eventb.core.contextFile#X4_0|org.eventb.core.carrierSet#'" org.eventb.core.type="ℙ(TRIGGER)"/>
 </org.eventb.core.scContextFile>

@@ -1,101 +1,127 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="3">
-<org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="TRIGGER" org.eventb.core.type="ℙ(TRIGGER)"/>
 <org.eventb.core.poIdentifier name="FutureTriggers" org.eventb.core.type="ℙ(TRIGGER)"/>
+<org.eventb.core.poPredicate name="FutureTriggert" org.eventb.core.predicate="partition(TRIGGER,FutureTriggers)" org.eventb.core.source="/turnstile_triggers_rtc/basis.buc|org.eventb.core.contextFile#basis|org.eventb.core.axiom#)"/>
+<org.eventb.core.poIdentifier name="FutureTriggers0" org.eventb.core.type="ℙ(TRIGGER)"/>
 <org.eventb.core.poIdentifier name="OnOff" org.eventb.core.type="TRIGGER"/>
-<org.eventb.core.poPredicate name="FutureTriggert" org.eventb.core.predicate="partition(TRIGGER,FutureTriggers,{OnOff})" org.eventb.core.source="/turnstile_triggers_rtc/X4_0.buc|org.eventb.core.contextFile#X4_0|org.eventb.core.axiom#)"/>
+<org.eventb.core.poPredicate name="FutureTriggers1" org.eventb.core.predicate="partition(FutureTriggers,FutureTriggers0,{OnOff})" org.eventb.core.source="/turnstile_triggers_rtc/X4_0.buc|org.eventb.core.contextFile#X4_0|org.eventb.core.axiom#)"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="NEXT" org.eventb.core.type="ℙ(TRIGGER)"/>
 <org.eventb.core.poIdentifier name="NOW" org.eventb.core.type="ℙ(TRIGGER)"/>
 <org.eventb.core.poIdentifier name="OFF" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="ON" org.eventb.core.type="BOOL"/>
+<org.eventb.core.poPredicate name="NEXU" org.eventb.core.predicate="NOW⊆TRIGGER" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.invariant#_uw4joEKiEeaoWLLW6iH2dU"/>
+<org.eventb.core.poPredicate name="NEXV" org.eventb.core.predicate="NEXT⊆TRIGGER" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.invariant#_uw4joEKiEeaoWLLW6iH2dV"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="INITIALISATION/distinct_states_in_ts4_sm/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="1">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTALLHYPX4_6"/>
+<org.eventb.core.poSequent name="INITIALISATION/distinct_states_in_ts4_sm/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTALLHYPbasiy"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="partition({TRUE},{TRUE}∩{TRUE},{FALSE}∩{TRUE})" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.invariant#_uw4joEKiEeaoWLLW6iH2dQ"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_tDEW8EKiEeaoWLLW6iH2dQ"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.invariant#_uw4joEKiEeaoWLLW6iH2dQ"/>
-<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poSequent#INITIALISATION\/distinct_states_in_ts4_sm\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.event#'"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_tDEW8EKiEeaoWLLW6iH2dQ"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.invariant#_uw4joEKiEeaoWLLW6iH2dQ"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poSequent#INITIALISATION\/distinct_states_in_ts4_sm\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poPredicateSet name="EVTIDENTX4_6" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTbasiy" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="NEXT'" org.eventb.core.type="ℙ(TRIGGER)"/>
 <org.eventb.core.poIdentifier name="NOW'" org.eventb.core.type="ℙ(TRIGGER)"/>
 <org.eventb.core.poIdentifier name="ON'" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="OFF'" org.eventb.core.type="BOOL"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPX4_6" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTIDENTX4_6" org.eventb.core.poStamp="1"/>
-<org.eventb.core.poSequent name="OnOff_whileON/distinct_states_in_ts4_sm/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="1">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTALLHYPX4_7"/>
+<org.eventb.core.poPredicateSet name="EVTALLHYPbasiy" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTIDENTbasiy" org.eventb.core.poStamp="0"/>
+<org.eventb.core.poSequent name="OnOff_whileON/distinct_states_in_ts4_sm/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTALLHYPbasiz"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="partition({TRUE},{TRUE}∩{TRUE},{FALSE}∩{TRUE})" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.invariant#_uw4joEKiEeaoWLLW6iH2dQ"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_tDFlEEKiEeaoWLLW6iH2dQ"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.invariant#_uw4joEKiEeaoWLLW6iH2dQ"/>
-<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poSequent#OnOff_whileON\/distinct_states_in_ts4_sm\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dY"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_tDFlEEKiEeaoWLLW6iH2dQ"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.invariant#_uw4joEKiEeaoWLLW6iH2dQ"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poSequent#OnOff_whileON\/distinct_states_in_ts4_sm\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poPredicateSet name="EVTIDENTX4_7" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTbasiz" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="T" org.eventb.core.type="ℙ(TRIGGER)"/>
+<org.eventb.core.poIdentifier name="NEXT'" org.eventb.core.type="ℙ(TRIGGER)"/>
 <org.eventb.core.poIdentifier name="NOW'" org.eventb.core.type="ℙ(TRIGGER)"/>
 <org.eventb.core.poIdentifier name="ON'" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="OFF'" org.eventb.core.type="BOOL"/>
+<org.eventb.core.poIdentifier name="R" org.eventb.core.type="ℙ(TRIGGER)"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPX4_7" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTIDENTX4_7" org.eventb.core.poStamp="1">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="ON=TRUE" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_tDFlEEKiEeaoWLLW6iH2dQ|org.eventb.core.guard#_uw81EEKiEeaoWLLW6iH2dQ"/>
-<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="OnOff∈NOW" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_tDFlEEKiEeaoWLLW6iH2dQ|org.eventb.core.guard#_uw9cIEKiEeaoWLLW6iH2dQ"/>
+<org.eventb.core.poPredicateSet name="EVTALLHYPbasiz" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTIDENTbasiz" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="T⊆NOW" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dY|org.eventb.core.guard#-"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="T⊆FutureTriggers" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dY|org.eventb.core.guard#*"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="R⊆FutureTriggers" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dY|org.eventb.core.guard#+"/>
+<org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="ON=TRUE" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_tDFlEEKiEeaoWLLW6iH2dQ|org.eventb.core.guard#_uw81EEKiEeaoWLLW6iH2dQ"/>
+<org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="T={OnOff}" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_tDFlEEKiEeaoWLLW6iH2dQ|org.eventb.core.guard#_uw9cIEKiEeaoWLLW6iH2dQ"/>
+<org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="R=(∅ ⦂ ℙ(TRIGGER))" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_tDFlEEKiEeaoWLLW6iH2dQ|org.eventb.core.guard#_7imF0EQGEeaCWfqGHXNJRQ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTX4_8" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
-<org.eventb.core.poIdentifier name="NEXT'" org.eventb.core.type="ℙ(TRIGGER)"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPX4_8" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTIDENTX4_8" org.eventb.core.poStamp="1"/>
-<org.eventb.core.poSequent name="OnOff_whileOFF/distinct_states_in_ts4_sm/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="1">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTALLHYPX4_9"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="partition({TRUE},{FALSE}∩{TRUE},{TRUE}∩{TRUE})" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.invariant#_uw4joEKiEeaoWLLW6iH2dQ"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_tDHaQEKiEeaoWLLW6iH2dQ"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.invariant#_uw4joEKiEeaoWLLW6iH2dQ"/>
-<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poSequent#OnOff_whileOFF\/distinct_states_in_ts4_sm\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
-</org.eventb.core.poSequent>
-<org.eventb.core.poPredicateSet name="EVTIDENTX4_9" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
-<org.eventb.core.poIdentifier name="NOW'" org.eventb.core.type="ℙ(TRIGGER)"/>
-<org.eventb.core.poIdentifier name="ON'" org.eventb.core.type="BOOL"/>
-<org.eventb.core.poIdentifier name="OFF'" org.eventb.core.type="BOOL"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPX4_9" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTIDENTX4_9" org.eventb.core.poStamp="1">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="OFF=TRUE" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_tDHaQEKiEeaoWLLW6iH2dQ|org.eventb.core.guard#_uxBGgEKiEeaoWLLW6iH2dQ"/>
-<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="OnOff∈NOW" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_tDHaQEKiEeaoWLLW6iH2dQ|org.eventb.core.guard#_uxBtkEKiEeaoWLLW6iH2dQ"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTX4_:" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
-<org.eventb.core.poIdentifier name="NOW'" org.eventb.core.type="ℙ(TRIGGER)"/>
-<org.eventb.core.poIdentifier name="NEXT'" org.eventb.core.type="ℙ(TRIGGER)"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPX4_:" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTIDENTX4_:" org.eventb.core.poStamp="1">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="¬(ON=TRUE∧OnOff∈NOW)" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dR|org.eventb.core.guard#)"/>
-<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="¬(OFF=TRUE∧OnOff∈NOW)" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dR|org.eventb.core.guard#*"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTX4_;" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTbasi{" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="t" org.eventb.core.type="TRIGGER"/>
 <org.eventb.core.poIdentifier name="NEXT'" org.eventb.core.type="ℙ(TRIGGER)"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPX4_;" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTIDENTX4_;" org.eventb.core.poStamp="1">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="t∈FutureTriggers" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dX|org.eventb.core.guard#)"/>
+<org.eventb.core.poPredicateSet name="EVTALLHYPbasi{" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTIDENTbasi{" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="t∈FutureTriggers" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dX|org.eventb.core.guard#)"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="t=OnOff" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_tDGMIEKiEeaoWLLW6iH2dQ|org.eventb.core.guard#_tDGzMUKiEeaoWLLW6iH2dS"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTX4_=" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poSequent name="OnOff_whileOFF/distinct_states_in_ts4_sm/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTALLHYPbasi\|"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="partition({TRUE},{FALSE}∩{TRUE},{TRUE}∩{TRUE})" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.invariant#_uw4joEKiEeaoWLLW6iH2dQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dY"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_tDHaQEKiEeaoWLLW6iH2dQ"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.invariant#_uw4joEKiEeaoWLLW6iH2dQ"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poSequent#OnOff_whileOFF\/distinct_states_in_ts4_sm\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="EVTIDENTbasi|" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="T" org.eventb.core.type="ℙ(TRIGGER)"/>
+<org.eventb.core.poIdentifier name="NEXT'" org.eventb.core.type="ℙ(TRIGGER)"/>
+<org.eventb.core.poIdentifier name="NOW'" org.eventb.core.type="ℙ(TRIGGER)"/>
+<org.eventb.core.poIdentifier name="ON'" org.eventb.core.type="BOOL"/>
+<org.eventb.core.poIdentifier name="OFF'" org.eventb.core.type="BOOL"/>
+<org.eventb.core.poIdentifier name="R" org.eventb.core.type="ℙ(TRIGGER)"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPbasi|" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTIDENTbasi\|" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="T⊆NOW" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dY|org.eventb.core.guard#-"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="T⊆FutureTriggers" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dY|org.eventb.core.guard#*"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="R⊆FutureTriggers" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dY|org.eventb.core.guard#+"/>
+<org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="OFF=TRUE" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_tDHaQEKiEeaoWLLW6iH2dQ|org.eventb.core.guard#_uxBGgEKiEeaoWLLW6iH2dQ"/>
+<org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="T={OnOff}" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_tDHaQEKiEeaoWLLW6iH2dQ|org.eventb.core.guard#_uxBtkEKiEeaoWLLW6iH2dQ"/>
+<org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="R=(∅ ⦂ ℙ(TRIGGER))" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_tDHaQEKiEeaoWLLW6iH2dQ|org.eventb.core.guard#_oPOiQEQHEeaCWfqGHXNJRQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTIDENTbasi}" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="NOW'" org.eventb.core.type="ℙ(TRIGGER)"/>
+<org.eventb.core.poIdentifier name="NEXT'" org.eventb.core.type="ℙ(TRIGGER)"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPbasi}" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTIDENTbasi}" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="¬(ON=TRUE∧OnOff∈NOW)" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dR|org.eventb.core.guard#)"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="¬(OFF=TRUE∧OnOff∈NOW)" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dR|org.eventb.core.guard#*"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTIDENTbasi~" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="t" org.eventb.core.type="TRIGGER"/>
+<org.eventb.core.poIdentifier name="NEXT'" org.eventb.core.type="ℙ(TRIGGER)"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPbasi~" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTIDENTbasi~" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="t∈FutureTriggers" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dX|org.eventb.core.guard#)"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="t∈FutureTriggers0" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dX|org.eventb.core.guard#_5a52AEQFEeaCWfqGHXNJRQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTIDENTbasj'" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="T" org.eventb.core.type="ℙ(TRIGGER)"/>
 <org.eventb.core.poIdentifier name="NOW'" org.eventb.core.type="ℙ(TRIGGER)"/>
 <org.eventb.core.poIdentifier name="NEXT'" org.eventb.core.type="ℙ(TRIGGER)"/>
 <org.eventb.core.poIdentifier name="R" org.eventb.core.type="ℙ(TRIGGER)"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPX4_=" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTIDENTX4_=" org.eventb.core.poStamp="3">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="T⊆FutureTriggers" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dY|org.eventb.core.guard#*"/>
-<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="R⊆FutureTriggers" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dY|org.eventb.core.guard#+"/>
-<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="T⊆NOW" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dY|org.eventb.core.guard#-"/>
+<org.eventb.core.poPredicateSet name="EVTALLHYPbasj'" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#EVTIDENTbasj'" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="T⊆NOW" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dY|org.eventb.core.guard#-"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="T⊆FutureTriggers" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dY|org.eventb.core.guard#*"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="R⊆FutureTriggers" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dY|org.eventb.core.guard#+"/>
+<org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="T⊆FutureTriggers0" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dY|org.eventb.core.guard#_fLFIkEQEEeaCWfqGHXNJRR"/>
+<org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="R⊆FutureTriggers0" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dY|org.eventb.core.guard#_fLFIkEQEEeaCWfqGHXNJRS"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/ts4_0.bpo|org.eventb.core.poFile#ts4_0|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="OFF∈BOOL" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.invariant#_uw3VgEKiEeaoWLLW6iH2dQ"/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="ON∈BOOL" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.invariant#_uw38kEKiEeaoWLLW6iH2dQ"/>
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="partition({TRUE},{OFF}∩{TRUE},{ON}∩{TRUE})" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.invariant#_uw4joEKiEeaoWLLW6iH2dQ"/>
-<org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="NOW⊆TRIGGER" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.invariant#_uw4joEKiEeaoWLLW6iH2dU"/>
-<org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="NEXT⊆TRIGGER" org.eventb.core.source="/turnstile_triggers_rtc/ts4_0.bum|org.eventb.core.machineFile#ts4_0|org.eventb.core.invariant#_uw4joEKiEeaoWLLW6iH2dV"/>
 </org.eventb.core.poPredicateSet>
 </org.eventb.core.poFile>

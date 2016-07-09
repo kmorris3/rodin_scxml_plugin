@@ -21208,4 +21208,21 @@
 <org.eventb.core.prProof name="CLEAR_COMPLETE_SET_UP/act1/SIM"/>
 <org.eventb.core.prProof name="CLEAR_COMPLETE_SET_UP/act2/SIM"/>
 <org.eventb.core.prProof name="CLEAR_COMPLETE_SET_UP/grd3/GRD"/>
+<org.eventb.core.prProof name="scxmlTriggerEvent_CardError/grd_0_1/GRD"/>
+<org.eventb.core.prProof name="scxmlTriggerEvent_Ready/grd_0_1/GRD"/>
+<org.eventb.core.prProof name="scxmlTriggerEvent_CardIn/grd_0_1/GRD"/>
+<org.eventb.core.prProof name="scxmlTriggerEvent_timed_CLEAR/grd_0_1/GRD"/>
+<org.eventb.core.prProof name="scxmlTriggerEvent_CardOk/grd_0_1/GRD"/>
+<org.eventb.core.prProof name="OnOff_whileON/grd0/GRD"/>
+<org.eventb.core.prProof name="OnOff_whileON/grd1/GRD"/>
+<org.eventb.core.prProof name="OnOff_whileON/grd2/GRD"/>
+<org.eventb.core.prProof name="OnOff_whileON/act1/SIM"/>
+<org.eventb.core.prProof name="OnOff_whileON/act2/SIM"/>
+<org.eventb.core.prProof name="OnOff_whileON/grd_noRaise/GRD"/>
+<org.eventb.core.prProof name="OnOff_whileOFF/grd0/GRD"/>
+<org.eventb.core.prProof name="OnOff_whileOFF/grd1/GRD"/>
+<org.eventb.core.prProof name="OnOff_whileOFF/grd2/GRD"/>
+<org.eventb.core.prProof name="OnOff_whileOFF/act1/SIM"/>
+<org.eventb.core.prProof name="OnOff_whileOFF/act2/SIM"/>
+<org.eventb.core.prProof name="OnOff_whileOFF/grd_noRaise/GRD"/>
 </org.eventb.core.prFile>
