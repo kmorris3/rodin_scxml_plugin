@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:statemachines="http://soton.ac.uk/models/eventb/statemachines/2014" xmi:id="_UV-zEDJEEea-2vNgB_GxDw" type="Statemachines" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_Ul3pMDJEEea-2vNgB_GxDw" type="2008">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Ul6sgDJEEea-2vNgB_GxDw" type="5009"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Ul8hsDJEEea-2vNgB_GxDw" type="7012">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Ul8hsTJEEea-2vNgB_GxDw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Ul8hsjJEEea-2vNgB_GxDw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Ul9IwDJEEea-2vNgB_GxDw" type="7013">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Ul9IwTJEEea-2vNgB_GxDw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Ul9IwjJEEea-2vNgB_GxDw"/>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_Ul3pMTJEEea-2vNgB_GxDw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Ul3pMjJEEea-2vNgB_GxDw" fontName=".SF NS Text"/>
+    <element xmi:type="statemachines:State" href="ts4_0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::State::ts4_0.ts4_sm.OFF"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ul3pMzJEEea-2vNgB_GxDw" x="162" y="18"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_Ul9IwzJEEea-2vNgB_GxDw" type="2008">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Ul9v0DJEEea-2vNgB_GxDw" type="5009"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Ul9v0TJEEea-2vNgB_GxDw" type="7012">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Ul9v0jJEEea-2vNgB_GxDw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Ul9v0zJEEea-2vNgB_GxDw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Ul9v1DJEEea-2vNgB_GxDw" type="7013">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Ul9v1TJEEea-2vNgB_GxDw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Ul-W4DJEEea-2vNgB_GxDw"/>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_Ul9IxDJEEea-2vNgB_GxDw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Ul9IxTJEEea-2vNgB_GxDw" fontName=".SF NS Text"/>
+    <element xmi:type="statemachines:State" href="ts4_0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::State::ts4_0.ts4_sm.ON"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ul9IxjJEEea-2vNgB_GxDw" x="342" y="27"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_Ul-98DJEEea-2vNgB_GxDw" type="2006">
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_Ul-98TJEEea-2vNgB_GxDw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Ul-98jJEEea-2vNgB_GxDw" fontName=".SF NS Text"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_Ul-98zJEEea-2vNgB_GxDw"/>
+    <element xmi:type="statemachines:Initial" href="ts4_0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Initial::ts4_0.ts4_sm.ts4_initialState"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ul-99DJEEea-2vNgB_GxDw" x="27" y="27"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_UV-zETJEEea-2vNgB_GxDw"/>
+  <element xmi:type="statemachines:Statemachine" href="ts4_0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Statemachine::ts4_0.ts4_sm"/>
+  <edges xmi:type="notation:Edge" xmi:id="_t-_MoEKiEeaoWLLW6iH2dQ" type="4001" source="_Ul9IwzJEEea-2vNgB_GxDw" target="_Ul3pMDJEEea-2vNgB_GxDw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_t-_zskKiEeaoWLLW6iH2dQ" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_t-_zs0KiEeaoWLLW6iH2dQ" x="-8" y="-8"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_t-_MoUKiEeaoWLLW6iH2dQ" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_t-_zsEKiEeaoWLLW6iH2dQ" fontName=".SF NS Text"/>
+    <element xmi:type="statemachines:Transition" href="ts4_0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::ts4_0.ts4_sm._tDAskEKiEeaoWLLW6iH2dQ"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_t-_zsUKiEeaoWLLW6iH2dQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_t_dGsEKiEeaoWLLW6iH2dQ" type="4001" source="_Ul3pMDJEEea-2vNgB_GxDw" target="_Ul9IwzJEEea-2vNgB_GxDw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_t_dGtEKiEeaoWLLW6iH2dQ" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_t_dGtUKiEeaoWLLW6iH2dQ" x="-8" y="-8"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_t_dGsUKiEeaoWLLW6iH2dQ" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_t_dGskKiEeaoWLLW6iH2dQ" fontName=".SF NS Text"/>
+    <element xmi:type="statemachines:Transition" href="ts4_0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::ts4_0.ts4_sm._tDAskUKiEeaoWLLW6iH2dQ"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_t_dGs0KiEeaoWLLW6iH2dQ" points="[0, 20, -180, 11]$[0, 43, -180, 34]$[180, 43, 0, 34]$[180, 29, 0, 20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_t_fi8EKiEeaoWLLW6iH2dQ" type="4001" source="_Ul-98DJEEea-2vNgB_GxDw" target="_Ul3pMDJEEea-2vNgB_GxDw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_t_gKAEKiEeaoWLLW6iH2dQ" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_t_gKAUKiEeaoWLLW6iH2dQ" x="-8" y="-8"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_t_fi8UKiEeaoWLLW6iH2dQ" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_t_fi8kKiEeaoWLLW6iH2dQ" fontName=".SF NS Text"/>
+    <element xmi:type="statemachines:Transition" href="ts4_0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::ts4_0.ts4_sm._tDAskkKiEeaoWLLW6iH2dQ"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_t_fi80KiEeaoWLLW6iH2dQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+  </edges>
+</notation:Diagram>

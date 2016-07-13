@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.extendsContext name="'" org.eventb.core.target="X4_0"/>
+<org.eventb.core.constant name="+" org.eventb.core.identifier="FutureTriggers2"/>
+<org.eventb.core.constant name="(" org.eventb.core.identifier="Reset"/>
+<org.eventb.core.constant name=")" org.eventb.core.identifier="CardError"/>
+<org.eventb.core.axiom name="," org.eventb.core.label="axm1" org.eventb.core.predicate="FutureTriggers2 ⊆ FutureTriggers"/>
+<org.eventb.core.axiom name="8" org.eventb.core.label="axm9" org.eventb.core.predicate="partition(TRIGGER, FutureTriggers2, {OnOff}, {Reset}, {CardError}, {Ready}, {CardIn}, {timed_CLEAR}, {CardOk}, {timed_COMPLETE_SET_UP})"/>
+<org.eventb.core.constant name="." org.eventb.core.identifier="Ready"/>
+<org.eventb.core.constant name="0" org.eventb.core.identifier="CardIn"/>
+<org.eventb.core.constant name="2" org.eventb.core.identifier="timed_CLEAR"/>
+<org.eventb.core.constant name="4" org.eventb.core.identifier="CardOk"/>
+<org.eventb.core.constant name="6" org.eventb.core.identifier="timed_COMPLETE_SET_UP"/>
+<org.eventb.core.axiom name="9" org.eventb.core.comment="stop ProB using {}" org.eventb.core.label="axm10" org.eventb.core.predicate="FutureTriggers2 ≠ ∅"/>
+</org.eventb.core.contextFile>

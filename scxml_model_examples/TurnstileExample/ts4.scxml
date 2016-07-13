@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml" xmlns:iumlb="urn:xmlns:ac.soton.uk:iumlb" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" initial="OFF" name="ts4" version="1.0" iumlb:refinement="0">
+  <iumlb:invariant iumlb:refinement="1" predicate="TRUE = TRUE" name="inv_top_level"/>
+  <datamodel iumlb:refinement="2">
+    <data expr="false" id="Gate_In.Block" iumlb:type="BOOL"/>
+    <data expr="false" id="Gate_In.Unblock" iumlb:type="BOOL"/>
+  </datamodel>
+  <state id="OFF" iumlb:refinement="1">
+    <transition event="OnOff" target="ON" iumlb:label="OnOff_whileOFF"/>
+    <onentry>
+      <assign expr="false" location="Gate_In.Block" iumlb:refinement="2"/>
+      <assign expr="false" location="Gate_In.Unblock" iumlb:refinement="2"/>
+    </onentry>
+  </state>
+  <state id="ON" iumlb:refinement="1">
+    <parallel id="ON_Gate_CardReader">
+      <datamodel iumlb:refinement="2">
+        <data expr="false" id="On_In.CardAccept" iumlb:type="BOOL"/>
+      </datamodel>
+      <state id="Gate" iumlb:refinement="2">
+        <initial>
+          <transition target="BLOCKED"/>
+        </initial>
+        <state id="BLOCKED">
+          <transition cond="[On_In.CardAccept==true]" target="UNBLOCKED">
+            <iumlb:guard predicate="On_In.CardAccept == TRUE" name="CardAccepted"/>
+          </transition>
+          <onentry>
+            <assign expr="true" location="Gate_In.Block"/>
+          </onentry>
+          <onexit>
+            <assign expr="false" location="Gate_In.Block"/>
+          </onexit>
+          <iumlb:invariant predicate="Gate_In.Block == TRUE" name="GateCondition"/>
+        </state>
+        <state id="UNBLOCKED">
+          <transition cond="" event="Reset" target="BLOCKED">
+            <raise event="Ready"/>
+          </transition>
+          <onentry>
+            <assign expr="true" location="Gate_In.Unblock"/>
+            <assign expr="false" location="On_In.CardAccept"/>
+          </onentry>
+          <onexit>
+            <assign expr="false" location="Gate_In.Unblock"/>
+          </onexit>
+        </state>
+      </state>
+      <state id="CardReader" iumlb:refinement="2">
+        <initial>
+          <transition target="READY"/>
+        </initial>
+        <state id="READY">
+          <initial>
+            <transition target="CLEAR"/>
+          </initial>
+          <state id="CLEAR">
+            <transition event="timed_CLEAR" target="COMPLETE_SET_UP"/>
+          </state>
+          <state id="COMPLETE_SET_UP">
+            <transition event="timed_COMPLETE_SET_UP" target="READY_FINAL"/>
+          </state>
+          <final id="READY_FINAL"/>
+          <transition event="CardIn" target="READING" iumlb:label="CardIn"/>
+        </state>
+        <state id="READING">
+          <transition event="CardError" target="READY" iumlb:label="CardError"/>
+          <transition event="CardOk" target="ACCEPT" iumlb:label="CardOk"/>
+        </state>
+        <state id="ACCEPT">
+          <transition event="Ready" target="READY" iumlb:label="Ready"/>
+          <onentry>
+            <assign expr="true" location="On_In.CardAccept"/>
+          </onentry>
+        </state>
+      </state>
+    </parallel>
+    <transition event="OnOff" target="OFF" iumlb:label="OnOff_whileON"/>
+  </state>
+</scxml>
