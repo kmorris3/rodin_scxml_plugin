@@ -1,0 +1,30 @@
+<scxml initial="off" version="0.9" xmlns="http://www.w3.org/2005/07/scxml"><!--   node-size-and-position x=0 y=0 w=550 h=360  -->
+ <datamodel>
+  <data expr="5" id="cook_time"></data>
+  <data expr="true" id="door_closed"></data>
+  <data expr="0" id="timer"></data>
+ </datamodel>
+<!-- trivial 5 second microwave oven example -->
+ <state id="off"><!--   node-size-and-position x=40 y=120 w=75 h=75  --><!-- off state -->
+  <transition event="turn.on" target="on"><!--   edge-path [on]  x=173.5 y=120 pointx=0 pointy=19 offsetx=3 offsety=3  --></transition>
+ </state>
+ <state id="on" initial="idle"><!--   node-size-and-position x=250 y=50 w=280 h=280  --><!-- on/pause state -->
+  <transition event="turn.off" target="off"><!--   edge-path [off]  x=170 y=230 pointx=0 pointy=4 offsetx=-36 offsety=7  --></transition>
+  <transition cond="timer &gt;= cook_time" target="off"><!--   edge-path [off]  x=130.5 y=160  --></transition>
+  <state id="idle"><!--   node-size-and-position x=100.5 y=40 w=75 h=75  --><!-- default immediate transition if door is shut -->
+   <transition cond="door_closed" target="cooking"><!--   edge-path [cooking]  x=158 y=144  --></transition>
+   <transition event="door.close" target="cooking">
+    <assign expr="true" location="door_closed"></assign>
+<!--  start cooking  --><!--   edge-path [cooking]  x=205 y=137 pointx=0 pointy=21 offsetx=6 offsety=-26  --></transition>
+  </state>
+  <state id="cooking"><!--   node-size-and-position x=100.5 y=165 w=75 h=75  -->
+   <transition event="door.open" target="idle">
+    <assign expr="false" location="door_closed"></assign>
+<!--   edge-path [idle]  x=90 y=140 pointx=0 pointy=10 offsetx=-12 offsety=-16  --></transition>
+<!-- a 'time' event is seen once a second -->
+   <transition event="time">
+    <assign expr="timer + 1" location="timer"></assign>
+<!--   edge-path [cooking]  pointx=0 pointy=15 offsetx=0 offsety=8  --></transition>
+  </state>
+ </state>
+</scxml>
