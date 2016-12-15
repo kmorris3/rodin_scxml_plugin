@@ -13,19 +13,19 @@
 </org.eventb.core.event>
 <org.eventb.core.event name="_eQ64YMIyEeacao5Tip5p3C" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="futureIntenalTrigger">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="futureIntenalTrigger"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="SCXML_it ∈ SCXML_FutureInternalTrigger0"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="_eQ64YMIyEeacao5Tip5p3D" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="futureExternalTrigger">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="futureExternalTrigger"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="SCXML_et ∈ SCXML_FutureExternalTrigger0"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="_eQ64YMIyEeacao5Tip5p3E" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SCXML_enableExternal">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="SCXML_enableExternal"/>
-<org.eventb.core.action name="(" org.eventb.core.assignment="SCXML_e1_enabled ≔ bool(SCXML_et=spiDone ∧ ASIC_state = InitialiseBuzzer)" org.eventb.core.label="act1"/>
-<org.eventb.core.action name=")" org.eventb.core.assignment="SCXML_e2_enabled ≔ bool(SCXML_et=spiDone ∧ ASIC_state = InitialiseSensor)" org.eventb.core.label="act2"/>
-<org.eventb.core.action name="*" org.eventb.core.assignment="SCXML_e3_enabled ≔ bool(SCXML_et=time50ms ∧ ASIC_state = Wait50ms)" org.eventb.core.label="act3"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="_eQ64YMIyEeacao5Tip5p3F" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SCXML_enableInternal">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="SCXML_enableInternal"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="SCXML_e1_enabled ≔ bool(SCXML_it=spiDone ∧ ASIC_state = InitialiseBuzzer)" org.eventb.core.label="act1"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="SCXML_e2_enabled ≔ bool(SCXML_it=spiDone ∧ ASIC_state = InitialiseSensor)" org.eventb.core.label="act2"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="SCXML_e3_enabled ≔ bool(SCXML_it=time50ms ∧ ASIC_state = Wait50ms)" org.eventb.core.label="act3"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="_eQ64YMIyEeacao5Tip5p3G" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SCXML_enableUntriggered">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="SCXML_enableUntriggered"/>
@@ -61,11 +61,11 @@
 <org.eventb.core.variable name="_eQ64YMIyEeacao5Tip5p3R" org.eventb.core.identifier="ASIC_state"/>
 <org.eventb.core.invariant name="_eQ64YMIyEeacao5Tip5p3S" org.eventb.core.label="inv4" org.eventb.core.predicate="ASIC_state ∈ ASIC_state_STATES"/>
 <org.eventb.core.event name="_eQ64YMIyEeacao5Tip5p3T" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="scxml_trigggerEvent_spiDone">
-<org.eventb.core.refinesEvent name="'" org.eventb.core.target="futureExternalTrigger"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="SCXML_et = spiDone"/>
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="futureIntenalTrigger"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="SCXML_it = spiDone"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="_eQ64YMIyEeacao5Tip5p3U" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="scxml_triggerEvent_wait50ms">
-<org.eventb.core.refinesEvent name="(" org.eventb.core.target="futureExternalTrigger"/>
-<org.eventb.core.guard name="'" org.eventb.core.label="grd2" org.eventb.core.predicate="SCXML_et = time50ms"/>
+<org.eventb.core.refinesEvent name="(" org.eventb.core.target="futureIntenalTrigger"/>
+<org.eventb.core.guard name="'" org.eventb.core.label="grd2" org.eventb.core.predicate="SCXML_it = time50ms"/>
 </org.eventb.core.event>
 </org.eventb.core.machineFile>
