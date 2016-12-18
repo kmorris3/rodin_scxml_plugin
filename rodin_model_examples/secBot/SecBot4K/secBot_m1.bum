@@ -12,7 +12,6 @@
 <org.eventb.core.event name="_eQ64YMIyEeacao5Tip5p3S" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
 <org.eventb.core.action name="(" org.eventb.core.assignment="SPI_state ≔ Idle" org.eventb.core.label="act8"/>
 <org.eventb.core.action name=")" org.eventb.core.assignment="SCXML_sendMessage_enabled ≔ FALSE" org.eventb.core.label="act9"/>
-<org.eventb.core.action name="*" org.eventb.core.assignment="SCXML_sendByte_enabled ≔ FALSE" org.eventb.core.label="act10"/>
 <org.eventb.core.action name="+" org.eventb.core.assignment="SCXML_lastByteSent_enabled ≔ FALSE" org.eventb.core.label="act11"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="_eQ64YMIyEeacao5Tip5p3T" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SCXML_futureInternalTrigger">
@@ -66,8 +65,6 @@
 <org.eventb.core.invariant name="_eQ64YMIyEeacao5Tip5p3e" org.eventb.core.label="inv2" org.eventb.core.predicate="SPI_state ∈ SPI_state_STATES"/>
 <org.eventb.core.variable name="_eQ64YMIyEeacao5Tip5p3f" org.eventb.core.identifier="SCXML_sendMessage_enabled"/>
 <org.eventb.core.invariant name="_eQ64YMIyEeacao5Tip5p3g" org.eventb.core.label="inv3" org.eventb.core.predicate="SCXML_sendMessage_enabled ∈ BOOL"/>
-<org.eventb.core.variable name="_eQ64YMIyEeacao5Tip5p3h" org.eventb.core.identifier="SCXML_sendByte_enabled"/>
-<org.eventb.core.invariant name="_eQ64YMIyEeacao5Tip5p3i" org.eventb.core.label="inv4" org.eventb.core.predicate="SCXML_sendByte_enabled ∈ BOOL"/>
 <org.eventb.core.variable name="_eQ64YMIyEeacao5Tip5p3j" org.eventb.core.identifier="SCXML_lastByteSent_enabled"/>
 <org.eventb.core.invariant name="_eQ64YMIyEeacao5Tip5p3k" org.eventb.core.label="inv5" org.eventb.core.predicate="SCXML_lastByteSent_enabled ∈ BOOL"/>
 <org.eventb.core.event name="_eQ64YMIyEeacao5Tip5p3l" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="raiseInternalTrigger_sendMessage">

@@ -1,2 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<org.eventb.core.prFile version="1"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+<org.eventb.core.prProof name="axm9/THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8" org.eventb.core.prSets="INITBUZZER_state_STATES,INITSENSOR_state_STATES,MESSAGE,SENDINGMESSAGE_state_STATES,WAIT50MS_state_STATES">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p6,p3,p1,p5,p2,p7,p4,p8">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="IBConstructMessage" org.eventb.core.type="INITBUZZER_state_STATES"/>
+<org.eventb.core.prIdent name="IBWait" org.eventb.core.type="INITBUZZER_state_STATES"/>
+<org.eventb.core.prIdent name="ISConstructMessage" org.eventb.core.type="INITSENSOR_state_STATES"/>
+<org.eventb.core.prIdent name="ISWait" org.eventb.core.type="INITSENSOR_state_STATES"/>
+<org.eventb.core.prIdent name="Increment" org.eventb.core.type="WAIT50MS_state_STATES"/>
+<org.eventb.core.prIdent name="SendByte" org.eventb.core.type="SENDINGMESSAGE_state_STATES"/>
+<org.eventb.core.prIdent name="init_buzzer" org.eventb.core.type="MESSAGE"/>
+<org.eventb.core.prIdent name="init_sensor" org.eventb.core.type="MESSAGE"/>
+<org.eventb.core.prIdent name="max_" org.eventb.core.type="ℤ"/>
+<org.eventb.core.prIdent name="messageSize" org.eventb.core.type="ℙ(MESSAGE×ℤ)"/>
+<org.eventb.core.prIdent name="nullMessage" org.eventb.core.type="MESSAGE"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(WAIT50MS_state_STATES,{Increment})"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(MESSAGE,{nullMessage},{init_buzzer},{init_sensor})"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="messageSize∈MESSAGE → ℕ"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(INITSENSOR_state_STATES,{ISConstructMessage},{ISWait})"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="max_=5"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(SENDINGMESSAGE_state_STATES,{SendByte})"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="partition(INITBUZZER_state_STATES,{IBConstructMessage},{IBWait})"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="max_∈ℕ"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="messageSize={nullMessage ↦ 1,init_buzzer ↦ 3,init_sensor ↦ 2}"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+</org.eventb.core.prFile>
