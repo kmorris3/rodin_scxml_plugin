@@ -1,0 +1,14 @@
+
+
+initially i modelled sending bytes without any internal events... just data and guards
+this raises some intersting questions: 
+1) can a sequence of un-triggered transitions progress
+2) can the invariant concerning byte counter be proved - i added an invariant to do so
+
+The sandia version does it by internal events. I started converting the model but maybe 
+it is better to leave the illustration my way.
+
+need to complete the use of sendmessage internal event (non-det setting at this level).
+
+
+ 

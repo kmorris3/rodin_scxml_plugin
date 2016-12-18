@@ -2,13 +2,15 @@
 <org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
 <org.eventb.core.extendsContext name="'" org.eventb.core.target="basis"/>
 <org.eventb.core.constant name=")" org.eventb.core.identifier="SCXML_FutureInternalTrigger0"/>
-<org.eventb.core.axiom name="*" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger, SCXML_FutureInternalTrigger0, {spiDone}, {time50ms})"/>
+<org.eventb.core.axiom name="*" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger, SCXML_FutureInternalTrigger0, {spi_done})"/>
 <org.eventb.core.carrierSet name="+" org.eventb.core.identifier="ASIC_state_STATES"/>
+<org.eventb.core.constant name="3" org.eventb.core.identifier="SCXML_FutureExternalTrigger0"/>
+<org.eventb.core.constant name="(" org.eventb.core.identifier="spi_done"/>
+<org.eventb.core.constant name="1" org.eventb.core.identifier="timer_50ms"/>
 <org.eventb.core.constant name="," org.eventb.core.identifier="InitialiseBuzzer"/>
 <org.eventb.core.constant name="-" org.eventb.core.identifier="InitialiseSensor"/>
 <org.eventb.core.constant name="." org.eventb.core.identifier="Wait50ms"/>
 <org.eventb.core.constant name="/" org.eventb.core.identifier="Go"/>
-<org.eventb.core.axiom name="0" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(ASIC_state_STATES, {InitialiseBuzzer}, {InitialiseSensor}, {Wait50ms}, {Go})"/>
-<org.eventb.core.constant name="(" org.eventb.core.identifier="spiDone"/>
-<org.eventb.core.constant name="1" org.eventb.core.identifier="time50ms"/>
+<org.eventb.core.axiom name="2" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger, SCXML_FutureExternalTrigger0, {timer_50ms})"/>
+<org.eventb.core.axiom name="0" org.eventb.core.label="axm3" org.eventb.core.predicate="partition(ASIC_state_STATES, {InitialiseBuzzer}, {InitialiseSensor}, {Wait50ms}, {Go})"/>
 </org.eventb.core.contextFile>
