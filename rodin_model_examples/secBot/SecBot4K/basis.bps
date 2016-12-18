@@ -1,2 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<org.eventb.core.psFile/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.psFile>
+<org.eventb.core.psStatus name="inv3/THM" org.eventb.core.confidence="1000" org.eventb.core.poStamp="4" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="5" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="5" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="SCXML_futureInternalTrigger/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="4" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="SCXML_futureExternalTrigger/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="4" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="SCXML_enableExternal/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="4" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="SCXML_enableInternal/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="4" org.eventb.core.psManual="false"/>
+</org.eventb.core.psFile>

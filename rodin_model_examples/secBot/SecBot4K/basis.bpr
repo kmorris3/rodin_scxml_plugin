@@ -3445,133 +3445,43 @@
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
 </org.eventb.core.prProof>
-<org.eventb.core.prProof name="INITIALISATION/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="TRIGGER">
+<org.eventb.core.prProof name="INITIALISATION/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
-<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(scxmlEngine_STATES,{SCXML1},{SCXML2},{SCXML3}))" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2,p3,p4,p5"/>
-<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p2,p3,p4,p5"/>
-<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TRIGGER,InternalTrigger,ExternalTrigger))" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7,p8"/>
-<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p7,p8"/>
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
-<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps=""/>
-</org.eventb.core.prAnte>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
-<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
 </org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
-</org.eventb.core.prRule>
-<org.eventb.core.prIdent name="InternalTrigger" org.eventb.core.type="ℙ(TRIGGER)"/>
-<org.eventb.core.prPred name="p9" org.eventb.core.predicate="⊤"/>
-<org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬SCXML1=SCXML3">
-<org.eventb.core.prIdent name="SCXML1" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="SCXML3" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="scxmlEngine_STATES" org.eventb.core.type="ℙ(scxmlEngine_STATES)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(SCXML_TRIGGER))⊆SCXML_FutureInternalTrigger"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p6" org.eventb.core.predicate="partition(TRIGGER,InternalTrigger,ExternalTrigger)">
-<org.eventb.core.prIdent name="ExternalTrigger" org.eventb.core.type="ℙ(TRIGGER)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬SCXML1=SCXML2">
-<org.eventb.core.prIdent name="SCXML1" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="SCXML2" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="scxmlEngine_STATES" org.eventb.core.type="ℙ(scxmlEngine_STATES)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p8" org.eventb.core.predicate="InternalTrigger∩ExternalTrigger=(∅ ⦂ ℙ(TRIGGER))">
-<org.eventb.core.prIdent name="ExternalTrigger" org.eventb.core.type="ℙ(TRIGGER)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(scxmlEngine_STATES,{SCXML1},{SCXML2},{SCXML3})">
-<org.eventb.core.prIdent name="SCXML1" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="SCXML2" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="SCXML3" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="scxmlEngine_STATES" org.eventb.core.type="ℙ(scxmlEngine_STATES)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGER))⊆InternalTrigger"/>
-<org.eventb.core.prPred name="p7" org.eventb.core.predicate="TRIGGER=InternalTrigger∪ExternalTrigger">
-<org.eventb.core.prIdent name="ExternalTrigger" org.eventb.core.type="ℙ(TRIGGER)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="scxmlEngine_STATES={SCXML1,SCXML2,SCXML3}">
-<org.eventb.core.prIdent name="SCXML1" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="SCXML2" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="SCXML3" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="scxmlEngine_STATES" org.eventb.core.type="ℙ(scxmlEngine_STATES)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬SCXML2=SCXML3">
-<org.eventb.core.prIdent name="SCXML2" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="SCXML3" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="scxmlEngine_STATES" org.eventb.core.type="ℙ(scxmlEngine_STATES)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 </org.eventb.core.prProof>
-<org.eventb.core.prProof name="INITIALISATION/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="TRIGGER">
+<org.eventb.core.prProof name="INITIALISATION/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
-<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(scxmlEngine_STATES,{SCXML1},{SCXML2},{SCXML3}))" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2,p3,p4,p5"/>
-<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p2,p3,p4,p5"/>
-<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TRIGGER,InternalTrigger,ExternalTrigger))" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7,p8"/>
-<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p7,p8"/>
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
-<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps=""/>
-</org.eventb.core.prAnte>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
-<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
 </org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
-</org.eventb.core.prRule>
-<org.eventb.core.prIdent name="ExternalTrigger" org.eventb.core.type="ℙ(TRIGGER)"/>
-<org.eventb.core.prPred name="p9" org.eventb.core.predicate="⊤"/>
-<org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬SCXML1=SCXML3">
-<org.eventb.core.prIdent name="SCXML1" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="SCXML3" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="scxmlEngine_STATES" org.eventb.core.type="ℙ(scxmlEngine_STATES)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(SCXML_TRIGGER))⊆SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p6" org.eventb.core.predicate="partition(TRIGGER,InternalTrigger,ExternalTrigger)">
-<org.eventb.core.prIdent name="InternalTrigger" org.eventb.core.type="ℙ(TRIGGER)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬SCXML1=SCXML2">
-<org.eventb.core.prIdent name="SCXML1" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="SCXML2" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="scxmlEngine_STATES" org.eventb.core.type="ℙ(scxmlEngine_STATES)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p8" org.eventb.core.predicate="InternalTrigger∩ExternalTrigger=(∅ ⦂ ℙ(TRIGGER))">
-<org.eventb.core.prIdent name="InternalTrigger" org.eventb.core.type="ℙ(TRIGGER)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGER))⊆ExternalTrigger"/>
-<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(scxmlEngine_STATES,{SCXML1},{SCXML2},{SCXML3})">
-<org.eventb.core.prIdent name="SCXML1" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="SCXML2" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="SCXML3" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="scxmlEngine_STATES" org.eventb.core.type="ℙ(scxmlEngine_STATES)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p7" org.eventb.core.predicate="TRIGGER=InternalTrigger∪ExternalTrigger">
-<org.eventb.core.prIdent name="InternalTrigger" org.eventb.core.type="ℙ(TRIGGER)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="scxmlEngine_STATES={SCXML1,SCXML2,SCXML3}">
-<org.eventb.core.prIdent name="SCXML1" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="SCXML2" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="SCXML3" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="scxmlEngine_STATES" org.eventb.core.type="ℙ(scxmlEngine_STATES)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬SCXML2=SCXML3">
-<org.eventb.core.prIdent name="SCXML2" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="SCXML3" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="scxmlEngine_STATES" org.eventb.core.type="ℙ(scxmlEngine_STATES)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="external/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8" org.eventb.core.prSets="TRIGGER,scxmlEngine_STATES">
 <org.eventb.core.lang name="L"/>
@@ -3690,103 +3600,36 @@
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
 </org.eventb.core.prProof>
-<org.eventb.core.prProof name="inv3/THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6" org.eventb.core.prSets="TRIGGER,scxmlEngine_STATES">
+<org.eventb.core.prProof name="inv3/THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8" org.eventb.core.prSets="SCXML_TRIGGER,SCXML_engineState_STATES">
 <org.eventb.core.lang name="L"/>
-<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(scxmlEngine_STATES,{SCXML1},{SCXML2},{SCXML3}))" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7,p8,p9,p10"/>
-<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p7,p8,p9,p10"/>
-<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TRIGGER,InternalTrigger,ExternalTrigger))" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11,p12"/>
-<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p11,p12"/>
-<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(InternalTrigger,FutureInternalTrigger))" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p13"/>
-<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p13"/>
-<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(ExternalTrigger,FutureExternalTrigger))" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p14"/>
-<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p14"/>
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p15"/>
-<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p16"/>
-<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p17"/>
-<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p18"/>
-<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InternalTrigger=FutureInternalTrigger" org.eventb.core.prHyps="p13">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p5" org.eventb.core.prInfHyps="p19"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p20"/>
-<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p12" org.eventb.core.prInfHyps="p21"/>
-<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p5,p11,p12"/>
-<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with ExternalTrigger=FutureExternalTrigger" org.eventb.core.prHyps="p14">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p3" org.eventb.core.prInfHyps="p22"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p20" org.eventb.core.prInfHyps="p23"/>
-<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p24"/>
-<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p3,p20,p21"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p5,p3,p7,p8,p9,p10,p11,p12,p13,p14,p19,p20,p21,p22,p23,p24">
-<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p7,p8,p5,p6,p2"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p3,p1,p4,p7,p8,p5,p6,p2">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
-</org.eventb.core.prRule>
-<org.eventb.core.prIdent name="ExternalTrigger" org.eventb.core.type="ℙ(TRIGGER)"/>
-<org.eventb.core.prIdent name="FutureExternalTrigger" org.eventb.core.type="ℙ(TRIGGER)"/>
-<org.eventb.core.prIdent name="FutureInternalTrigger" org.eventb.core.type="ℙ(TRIGGER)"/>
-<org.eventb.core.prIdent name="InternalTrigger" org.eventb.core.type="ℙ(TRIGGER)"/>
-<org.eventb.core.prIdent name="SCXML1" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="SCXML2" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="SCXML3" org.eventb.core.type="scxmlEngine_STATES"/>
-<org.eventb.core.prIdent name="externalQ" org.eventb.core.type="ℙ(TRIGGER)"/>
-<org.eventb.core.prIdent name="internalQ" org.eventb.core.type="ℙ(TRIGGER)"/>
-<org.eventb.core.prPred name="p23" org.eventb.core.predicate="TRIGGER=FutureInternalTrigger∪FutureExternalTrigger"/>
-<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(TRIGGER,InternalTrigger,ExternalTrigger)"/>
-<org.eventb.core.prPred name="p16" org.eventb.core.predicate="SCXML2∈scxmlEngine_STATES"/>
-<org.eventb.core.prPred name="p22" org.eventb.core.predicate="externalQ⊆FutureExternalTrigger"/>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(ExternalTrigger,FutureExternalTrigger)"/>
-<org.eventb.core.prPred name="p24" org.eventb.core.predicate="FutureInternalTrigger∩FutureExternalTrigger=(∅ ⦂ ℙ(TRIGGER))"/>
-<org.eventb.core.prPred name="p13" org.eventb.core.predicate="InternalTrigger=FutureInternalTrigger"/>
-<org.eventb.core.prPred name="p12" org.eventb.core.predicate="InternalTrigger∩ExternalTrigger=(∅ ⦂ ℙ(TRIGGER))"/>
-<org.eventb.core.prPred name="p5" org.eventb.core.predicate="internalQ⊆InternalTrigger"/>
-<org.eventb.core.prPred name="p17" org.eventb.core.predicate="SCXML3∈scxmlEngine_STATES"/>
-<org.eventb.core.prPred name="p6" org.eventb.core.predicate="partition(scxmlEngine_STATES,{SCXML1},{SCXML2},{SCXML3})"/>
-<org.eventb.core.prPred name="p7" org.eventb.core.predicate="scxmlEngine_STATES={SCXML1,SCXML2,SCXML3}"/>
-<org.eventb.core.prPred name="p19" org.eventb.core.predicate="internalQ⊆FutureInternalTrigger"/>
-<org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬SCXML1=SCXML3"/>
-<org.eventb.core.prPred name="p14" org.eventb.core.predicate="ExternalTrigger=FutureExternalTrigger"/>
-<org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬SCXML1=SCXML2"/>
-<org.eventb.core.prPred name="p3" org.eventb.core.predicate="externalQ⊆ExternalTrigger"/>
-<org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition(InternalTrigger,FutureInternalTrigger)"/>
-<org.eventb.core.prPred name="p18" org.eventb.core.predicate="scxmlEngine∈scxmlEngine_STATES">
-<org.eventb.core.prIdent name="scxmlEngine" org.eventb.core.type="scxmlEngine_STATES"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p20" org.eventb.core.predicate="TRIGGER=FutureInternalTrigger∪ExternalTrigger"/>
-<org.eventb.core.prPred name="p15" org.eventb.core.predicate="SCXML1∈scxmlEngine_STATES"/>
-<org.eventb.core.prPred name="p0" org.eventb.core.predicate="internalQ∩externalQ=(∅ ⦂ ℙ(TRIGGER))"/>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="TRIGGER=InternalTrigger∪ExternalTrigger"/>
-<org.eventb.core.prPred name="p21" org.eventb.core.predicate="FutureInternalTrigger∩ExternalTrigger=(∅ ⦂ ℙ(TRIGGER))"/>
-<org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬SCXML2=SCXML3"/>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-<org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+<org.eventb.core.prIdent name="SCXML_FIRET" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_FIREU" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_WAIT" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_engineState" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_externalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_internalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="SCXML_internalQ⊆SCXML_FutureInternalTrigger"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="SCXML_engineState∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="SCXML_externalQ⊆SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="SCXML_internalQ∩SCXML_externalQ=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SCXML_FIREU∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="partition(SCXML_engineState_STATES,{SCXML_WAIT},{SCXML_FIRET},{SCXML_FIREU})"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="SCXML_WAIT∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="SCXML_FIRET∈SCXML_engineState_STATES"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="futureIntenalTrigger/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3" org.eventb.core.prSets="TRIGGER">
 <org.eventb.core.lang name="L"/>
@@ -4072,5 +3915,196 @@
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="SCXML_futureInternalTrigger/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5" org.eventb.core.prSets="SCXML_TRIGGER">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p2,p3,p4"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p5,p2,p3,p4">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_externalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_internalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_raisedTriggers" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="SCXML_internalQ⊆SCXML_FutureInternalTrigger"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="SCXML_externalQ⊆SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="SCXML_internalQ∩SCXML_externalQ=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SCXML_raisedTriggers⊆SCXML_FutureInternalTrigger"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="SCXML_internalQ∪SCXML_raisedTriggers⊆SCXML_FutureInternalTrigger"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="SCXML_futureExternalTrigger/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5" org.eventb.core.prSets="SCXML_TRIGGER">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p3,p1,p5"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p4,p2,p3,p1,p5">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_externalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_internalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_raisedTriggers" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="SCXML_internalQ⊆SCXML_FutureInternalTrigger"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="SCXML_raisedTriggers⊆SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="SCXML_externalQ⊆SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SCXML_internalQ∩SCXML_externalQ=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="SCXML_externalQ∪SCXML_raisedTriggers⊆SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="SCXML_enableExternal/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12" org.eventb.core.prSets="SCXML_TRIGGER,SCXML_engineState_STATES">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p12,p9,p10,p5,p7,p1,p8"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p6,p3,p4,p2,p11,p12,p9,p10,p5,p7,p1,p8">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="SCXML_FIRET" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_FIREU" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_WAIT" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_engineState" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_et" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="SCXML_externalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_internalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="SCXML_internalQ⊆SCXML_FutureInternalTrigger"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="SCXML_engineState=SCXML_WAIT"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="SCXML_et∈SCXML_externalQ"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="SCXML_externalQ ∖ {SCXML_et}⊆SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="SCXML_externalQ⊆SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="SCXML_engineState∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="SCXML_internalQ∩SCXML_externalQ=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="partition(SCXML_engineState_STATES,{SCXML_WAIT},{SCXML_FIRET},{SCXML_FIREU})"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SCXML_FIRET∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="SCXML_internalQ=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SCXML_FIREU∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SCXML_WAIT∈SCXML_engineState_STATES"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="SCXML_enableInternal/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11" org.eventb.core.prSets="SCXML_TRIGGER,SCXML_engineState_STATES">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p10,p11,p8,p9,p4,p5,p6,p7"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p10,p11,p8,p9,p4,p5,p6,p7">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="SCXML_FIRET" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_FIREU" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_WAIT" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_engineState" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_externalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_internalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_it" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="SCXML_internalQ⊆SCXML_FutureInternalTrigger"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="SCXML_internalQ ∖ {SCXML_it}⊆SCXML_FutureInternalTrigger"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="SCXML_engineState=SCXML_WAIT"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="SCXML_it∈SCXML_internalQ"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SCXML_engineState∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="SCXML_externalQ⊆SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="SCXML_internalQ∩SCXML_externalQ=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="SCXML_FIREU∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="partition(SCXML_engineState_STATES,{SCXML_WAIT},{SCXML_FIRET},{SCXML_FIREU})"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SCXML_WAIT∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SCXML_FIRET∈SCXML_engineState_STATES"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="TS&#10;&#9;⚬&#9;INITIALI/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="SCXML_TRIGGER">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(SCXML_ExternalTrigger,SCXML_FutureExternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_ExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(SCXML_TRIGGER))⊆SCXML_FutureInternalTrigger"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_InternalTriggerx,SCXML_ExternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_ExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_InternalTriggerx" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(SCXML_InternalTriggerx,SCXML_FutureInternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_InternalTriggerx" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="SCXML_externalQ⊆SCXML_FutureExternalTrigger">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_externalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SCXML_internalQ∩SCXML_externalQ=(∅ ⦂ ℙ(SCXML_TRIGGER))">
+<org.eventb.core.prIdent name="SCXML_externalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_internalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="TS&#10;&#9;⚬&#9;INITIALI/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="SCXML_TRIGGER">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="SCXML_internalQ⊆SCXML_FutureInternalTrigger">
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_internalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(SCXML_ExternalTrigger,SCXML_FutureExternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_ExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(SCXML_TRIGGER))⊆SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_InternalTriggerx,SCXML_ExternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_ExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_InternalTriggerx" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(SCXML_InternalTriggerx,SCXML_FutureInternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_InternalTriggerx" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SCXML_internalQ∩SCXML_externalQ=(∅ ⦂ ℙ(SCXML_TRIGGER))">
+<org.eventb.core.prIdent name="SCXML_externalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_internalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 </org.eventb.core.prProof>
 </org.eventb.core.prFile>
