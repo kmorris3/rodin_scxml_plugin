@@ -109,4 +109,15 @@
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_x5ZNAsKkEea1EtZkHSvg1w" id="(0.5,1.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_x5ZNA8KkEea1EtZkHSvg1w" id="(0.2465753424657534,0.0)"/>
   </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_qLswMPkYEeaUH8SRfPf5Iw" type="4001" source="_x4a8oMKkEea1EtZkHSvg1w" target="_x4a8q8KkEea1EtZkHSvg1w">
+    <children xmi:type="notation:DecorationNode" xmi:id="_qLswNPkYEeaUH8SRfPf5Iw" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_qLswNfkYEeaUH8SRfPf5Iw" x="17" y="-1"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_qLswMfkYEeaUH8SRfPf5Iw" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_qLswMvkYEeaUH8SRfPf5Iw" fontName=".SF NS Text"/>
+    <element xmi:type="statemachines:Transition" href="secBot_m2.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::secBot_m2.SCXML_engineState._qLvMcPkYEeaUH8SRfPf5Iw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qLswM_kYEeaUH8SRfPf5Iw" points="[-4, -4, -11, -122]$[-48, -4, -55, -122]$[-48, 104, -55, -14]$[0, 104, -7, -14]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qLwakPkYEeaUH8SRfPf5Iw" id="(0.057971014492753624,0.6)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qLwakfkYEeaUH8SRfPf5Iw" id="(0.09722222222222222,0.85)"/>
+  </edges>
 </notation:Diagram>

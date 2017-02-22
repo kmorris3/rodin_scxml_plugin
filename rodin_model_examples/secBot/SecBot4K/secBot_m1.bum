@@ -56,8 +56,8 @@
 <org.eventb.core.action name="*" org.eventb.core.assignment="SCXML_sendMessage_enabled ≔ FALSE" org.eventb.core.label="act3"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="_eQ64YMIyEeacao5Tip5p3`" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="lastByteSent">
-<org.eventb.core.action name="(" org.eventb.core.assignment="SPI_state ≔ Idle" org.eventb.core.label="act2"/>
 <org.eventb.core.refinesEvent name=")" org.eventb.core.target="raiseInternalTrigger_spiDone"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="SPI_state ≔ Idle" org.eventb.core.label="act2"/>
 <org.eventb.core.guard name="*" org.eventb.core.label="grd3" org.eventb.core.predicate="SCXML_lastByteSent_enabled = TRUE"/>
 <org.eventb.core.action name="+" org.eventb.core.assignment="SCXML_lastByteSent_enabled ≔ FALSE" org.eventb.core.label="act3"/>
 </org.eventb.core.event>
@@ -68,11 +68,11 @@
 <org.eventb.core.variable name="_eQ64YMIyEeacao5Tip5p3j" org.eventb.core.identifier="SCXML_lastByteSent_enabled"/>
 <org.eventb.core.invariant name="_eQ64YMIyEeacao5Tip5p3k" org.eventb.core.label="inv5" org.eventb.core.predicate="SCXML_lastByteSent_enabled ∈ BOOL"/>
 <org.eventb.core.event name="_eQ64YMIyEeacao5Tip5p3l" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="raiseInternalTrigger_sendMessage">
-<org.eventb.core.guard name="'" org.eventb.core.label="grd3" org.eventb.core.predicate="SCXML_raisedTriggers = {send_message}"/>
 <org.eventb.core.refinesEvent name="(" org.eventb.core.target="SCXML_futureInternalTrigger"/>
+<org.eventb.core.guard name="'" org.eventb.core.label="grd3" org.eventb.core.predicate="SCXML_raisedTriggers = {send_message}"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="_eQ64YMIyEeacao5Tip5p3m" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="raiseInternalTrigger_lastByteSent">
-<org.eventb.core.guard name="'" org.eventb.core.label="grd3" org.eventb.core.predicate="SCXML_raisedTriggers = {last_byte_sent}"/>
 <org.eventb.core.refinesEvent name="(" org.eventb.core.target="SCXML_futureInternalTrigger"/>
+<org.eventb.core.guard name="'" org.eventb.core.label="grd3" org.eventb.core.predicate="SCXML_raisedTriggers = {last_byte_sent}"/>
 </org.eventb.core.event>
 </org.eventb.core.machineFile>
