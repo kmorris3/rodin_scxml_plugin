@@ -6,11 +6,10 @@
 <org.eventb.core.carrierSet name="+" org.eventb.core.identifier="ASIC_state_STATES"/>
 <org.eventb.core.constant name="3" org.eventb.core.identifier="SCXML_FutureExternalTrigger0"/>
 <org.eventb.core.constant name="(" org.eventb.core.identifier="spi_done"/>
-<org.eventb.core.constant name="1" org.eventb.core.comment="NOT USED - tried as an alternative to counting time" org.eventb.core.identifier="timer_50ms"/>
 <org.eventb.core.constant name="," org.eventb.core.identifier="InitialiseBuzzer"/>
 <org.eventb.core.constant name="-" org.eventb.core.identifier="InitialiseSensor"/>
 <org.eventb.core.constant name="." org.eventb.core.identifier="Wait50ms"/>
 <org.eventb.core.constant name="/" org.eventb.core.identifier="Go"/>
-<org.eventb.core.axiom name="2" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger, SCXML_FutureExternalTrigger0, {timer_50ms})"/>
+<org.eventb.core.axiom name="2" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger, SCXML_FutureExternalTrigger0)"/>
 <org.eventb.core.axiom name="0" org.eventb.core.label="axm3" org.eventb.core.predicate="partition(ASIC_state_STATES, {InitialiseBuzzer}, {InitialiseSensor}, {Wait50ms}, {Go})"/>
 </org.eventb.core.contextFile>

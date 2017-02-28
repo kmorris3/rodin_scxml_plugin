@@ -22,8 +22,9 @@
 <org.eventb.core.axiom name=":" org.eventb.core.label="axm5" org.eventb.core.predicate="partition(MESSAGE, {nullMessage}, {init_buzzer}, {init_sensor})"/>
 <org.eventb.core.constant name=";" org.eventb.core.identifier="max_"/>
 <org.eventb.core.axiom name="=" org.eventb.core.label="axm6" org.eventb.core.predicate="max_ ∈ ℕ"/>
-<org.eventb.core.axiom name="&gt;" org.eventb.core.label="axm7" org.eventb.core.predicate="max_ = 5"/>
+<org.eventb.core.axiom name="&gt;" org.eventb.core.label="axm7" org.eventb.core.predicate="max_ = 3"/>
 <org.eventb.core.constant name="?" org.eventb.core.identifier="messageSize"/>
 <org.eventb.core.axiom name="@" org.eventb.core.label="axm8" org.eventb.core.predicate="messageSize = { nullMessage↦ 1, init_buzzer↦3, init_sensor↦2}"/>
 <org.eventb.core.axiom name="A" org.eventb.core.label="axm9" org.eventb.core.predicate="messageSize ∈ MESSAGE → ℕ " org.eventb.core.theorem="true"/>
+<org.eventb.core.axiom name="C" org.eventb.core.comment="as this is the final refinement define triggers for ProB " org.eventb.core.label="axm11" org.eventb.core.predicate="SCXML_TRIGGER = {spi_done, last_byte_sent, send_message} "/>
 </org.eventb.core.contextFile>
