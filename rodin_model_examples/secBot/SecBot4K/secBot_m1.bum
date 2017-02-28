@@ -33,8 +33,8 @@
 </org.eventb.core.event>
 <org.eventb.core.event name="_eQ64YMIyEeacao5Tip5p3X" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SCXML_enableUntriggered">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="SCXML_enableUntriggered"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd3" org.eventb.core.predicate="⊥ ⇒ SCXML_lastByteSent_enabled = FALSE"/>
-<org.eventb.core.guard name=")" org.eventb.core.label="grd4" org.eventb.core.predicate="⊥ ⇒ SCXML_sendMessage_enabled = FALSE"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd3" org.eventb.core.predicate="⊤ ⇒ SCXML_lastByteSent_enabled = FALSE"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd4" org.eventb.core.predicate="⊤ ⇒ SCXML_sendMessage_enabled = FALSE"/>
 </org.eventb.core.event>
 <org.eventb.core.event ch.ethz.eventb.decomposition.external="true" name="_eQ64YMIyEeacao5Tip5p3Y" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SCXML_nextTrigger">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="SCXML_nextTrigger"/>

@@ -31,7 +31,7 @@
 <org.eventb.core.event name="_eQ64YMIyEeacao5Tip5p3G" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SCXML_enableUntriggered">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="SCXML_enableUntriggered"/>
 <org.eventb.core.guard name="(" org.eventb.core.comment=" " org.eventb.core.label="grd1" org.eventb.core.predicate="⊥ ⇒ SCXML_e1_enabled=FALSE"/>
-<org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="⊥ ⇒ SCXML_e2_enabled=FALSE"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="⊤ ⇒ SCXML_e2_enabled=FALSE"/>
 <org.eventb.core.action name="+" org.eventb.core.assignment="SCXML_e3_enabled ≔ bool(ASIC_state = Wait50ms)" org.eventb.core.label="act1"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="_eQ64YMIyEeacao5Tip5p3H" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SCXML_nextTrigger">
