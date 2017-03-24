@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.extendsContext name="'" org.eventb.core.target="secBot_x1"/>
+<org.eventb.core.carrierSet name="(" org.eventb.core.identifier="INITBUZZER_state_STATES"/>
+<org.eventb.core.constant name=")" org.eventb.core.identifier="IBConstructMessage"/>
+<org.eventb.core.constant name="*" org.eventb.core.identifier="IBWait"/>
+<org.eventb.core.axiom name="+" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(INITBUZZER_state_STATES, {IBConstructMessage}, {IBWait}) "/>
+<org.eventb.core.carrierSet name="," org.eventb.core.identifier="INITSENSOR_state_STATES"/>
+<org.eventb.core.constant name="-" org.eventb.core.identifier="ISConstructMessage"/>
+<org.eventb.core.constant name="." org.eventb.core.identifier="ISWait"/>
+<org.eventb.core.axiom name="/" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(INITSENSOR_state_STATES, {ISConstructMessage}, {ISWait}) "/>
+<org.eventb.core.carrierSet name="0" org.eventb.core.identifier="WAIT50MS_state_STATES"/>
+<org.eventb.core.constant name="1" org.eventb.core.identifier="Increment"/>
+<org.eventb.core.axiom name="2" org.eventb.core.label="axm3" org.eventb.core.predicate="partition(WAIT50MS_state_STATES, {Increment})"/>
+<org.eventb.core.carrierSet name="3" org.eventb.core.identifier="SENDINGMESSAGE_state_STATES"/>
+<org.eventb.core.constant name="4" org.eventb.core.identifier="SendByte"/>
+<org.eventb.core.axiom name="5" org.eventb.core.label="axm4" org.eventb.core.predicate="partition(SENDINGMESSAGE_state_STATES, {SendByte})"/>
+<org.eventb.core.carrierSet name="6" org.eventb.core.identifier="MESSAGE"/>
+<org.eventb.core.constant name="7" org.eventb.core.identifier="nullMessage"/>
+<org.eventb.core.constant name="8" org.eventb.core.identifier="init_buzzer"/>
+<org.eventb.core.constant name="9" org.eventb.core.identifier="init_sensor"/>
+<org.eventb.core.axiom name=":" org.eventb.core.label="axm5" org.eventb.core.predicate="partition(MESSAGE, {nullMessage}, {init_buzzer}, {init_sensor})"/>
+<org.eventb.core.constant name=";" org.eventb.core.identifier="max_"/>
+<org.eventb.core.axiom name="=" org.eventb.core.label="axm6" org.eventb.core.predicate="max_ ∈ ℕ"/>
+<org.eventb.core.axiom name="&gt;" org.eventb.core.label="axm7" org.eventb.core.predicate="max_ = 3"/>
+<org.eventb.core.constant name="?" org.eventb.core.identifier="messageSize"/>
+<org.eventb.core.axiom name="@" org.eventb.core.label="axm8" org.eventb.core.predicate="messageSize = { nullMessage↦ 1, init_buzzer↦3, init_sensor↦2}"/>
+<org.eventb.core.axiom name="A" org.eventb.core.label="axm9" org.eventb.core.predicate="messageSize ∈ MESSAGE → ℕ " org.eventb.core.theorem="true"/>
+<org.eventb.core.axiom name="C" org.eventb.core.comment="as this is the final refinement define triggers for ProB " org.eventb.core.label="axm11" org.eventb.core.predicate="SCXML_TRIGGER = {spi_done, last_byte_sent, send_message} "/>
+</org.eventb.core.contextFile>
