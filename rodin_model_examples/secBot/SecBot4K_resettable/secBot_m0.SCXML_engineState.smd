@@ -127,7 +127,7 @@
     <styles xmi:type="notation:RoutingStyle" xmi:id="_ECe2gf2DEeaUH8SRfPf5Iw" routing="Rectilinear"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_ECe2gv2DEeaUH8SRfPf5Iw" fontName=".SF NS Text"/>
     <element xmi:type="statemachines:Transition" href="secBot_m0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::secBot_m0.SCXML_engineState._ECgEoP2DEeaUH8SRfPf5Iw"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ECe2g_2DEeaUH8SRfPf5Iw" points="[-1, -4, 0, -13]$[-29, -4, -28, -13]$[-29, 10, -28, 1]$[-1, 10, 0, 1]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ECe2g_2DEeaUH8SRfPf5Iw" points="[-1, -14, 0, -23]$[-29, -14, -28, -23]$[-29, 10, -28, 1]$[-1, 10, 0, 1]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_EChSwP2DEeaUH8SRfPf5Iw" id="(0.013888888888888888,0.45)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_EChSwf2DEeaUH8SRfPf5Iw" id="(0.0,0.675)"/>
   </edges>
@@ -141,5 +141,16 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_N29BQ_2DEeaUH8SRfPf5Iw" points="[-6, -6, -6, -6]$[-30, -6, -30, -6]$[-30, 6, -30, 6]$[-6, 6, -6, 6]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_N2_dgP2DEeaUH8SRfPf5Iw" id="(0.0821917808219178,0.45)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_N2_dgf2DEeaUH8SRfPf5Iw" id="(0.0821917808219178,0.45)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_JlvOsBCSEeeQoKP3r2BRDA" type="4001" source="_x4a8q8KkEea1EtZkHSvg1w" target="_x4a8q8KkEea1EtZkHSvg1w">
+    <children xmi:type="notation:DecorationNode" xmi:id="_JlvOtBCSEeeQoKP3r2BRDA" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_JlvOtRCSEeeQoKP3r2BRDA" x="-8" y="-8"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_JlvOsRCSEeeQoKP3r2BRDA" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_JlvOshCSEeeQoKP3r2BRDA" fontName=".SF NS Text"/>
+    <element xmi:type="statemachines:Transition" href="secBot_m0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::secBot_m0.SCXML_engineState._JlxD4BCSEeeQoKP3r2BRDA"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_JlvOsxCSEeeQoKP3r2BRDA" points="[-16, -6, -16, -6]$[-44, -6, -44, -6]$[-44, 20, -44, 20]$[-4, 20, -4, 20]$[-4, 4, -4, 4]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_JlySABCSEeeQoKP3r2BRDA" id="(0.2222222222222222,0.9)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_JlySARCSEeeQoKP3r2BRDA" id="(0.2222222222222222,0.9)"/>
   </edges>
 </notation:Diagram>

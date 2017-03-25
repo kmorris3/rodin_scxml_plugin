@@ -4828,4 +4828,320 @@
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 </org.eventb.core.prProof>
+<org.eventb.core.prProof name="e1/act3/SIM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18" org.eventb.core.prSets="SCXML_TRIGGER,SCXML_engineState_STATES">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p18,p11,p16,p9,p3,p4,p13,p17,p14,p10,p5,p1,p6,p8,p2,p7"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p12,p15,p18,p11,p16,p9,p3,p4,p13,p17,p14,p10,p5,p1,p6,p8,p2,p7">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="SCXML_FIRET" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_FIREU" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger0" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger1" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger0" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger1" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_WAIT" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_e1_enabled" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SCXML_e1_enabled_1" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SCXML_engineState" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_externalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_internalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="last_byte_sent" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="reset_trigger" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="send_message" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="spi_done" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="SCXML_internalQ⊆SCXML_FutureInternalTrigger"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="SCXML_e1_enabled_1∈BOOL"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="SCXML_internalQ=SCXML_internalQ ∖ {spi_done}"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger,SCXML_FutureInternalTrigger0,{spi_done})"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SCXML_engineState∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="SCXML_externalQ⊆SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="SCXML_e1_enabled_1=TRUE⇒SCXML_e1_enabled=TRUE"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="SCXML_internalQ∩SCXML_externalQ=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="partition(SCXML_engineState_STATES,{SCXML_WAIT},{SCXML_FIRET},{SCXML_FIREU})"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SCXML_TRIGGER={spi_done,last_byte_sent,send_message}"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SCXML_FIRET∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SCXML_engineState=SCXML_FIRET"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{reset_trigger})"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger1)"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="SCXML_e1_enabled_1=TRUE"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="SCXML_FIREU∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger,SCXML_FutureInternalTrigger1,{spi_done},{send_message},{last_byte_sent})"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="SCXML_WAIT∈SCXML_engineState_STATES"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="e3/act3/SIM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20" org.eventb.core.prSets="SCXML_TRIGGER,SCXML_engineState_STATES">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p20,p11,p17,p9,p3,p4,p13,p18,p16,p10,p6,p1,p7,p8,p2,p19,p15,p14"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p12,p5,p20,p11,p17,p9,p3,p4,p13,p18,p16,p10,p6,p1,p7,p8,p2,p19,p15,p14">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="SCXML_FIRET" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_FIREU" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger0" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger1" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger0" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger1" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_WAIT" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_e3_enabled" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SCXML_e3_enabled_1" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SCXML_engineState" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_externalF" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_externalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_internalF" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_internalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="last_byte_sent" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="reset_trigger" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="send_message" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="spi_done" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="SCXML_internalQ⊆SCXML_FutureInternalTrigger"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="SCXML_internalQ=SCXML_internalQ ∖ {spi_done}"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="SCXML_internalF⊆SCXML_internalQ"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger,SCXML_FutureInternalTrigger0,{spi_done})"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SCXML_e3_enabled_1=TRUE"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="SCXML_engineState∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="SCXML_externalQ⊆SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="SCXML_internalQ∩SCXML_externalQ=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="partition(SCXML_engineState_STATES,{SCXML_WAIT},{SCXML_FIRET},{SCXML_FIREU})"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SCXML_TRIGGER={spi_done,last_byte_sent,send_message}"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SCXML_FIRET∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SCXML_engineState=SCXML_FIREU"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{reset_trigger})"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="SCXML_e3_enabled_1=TRUE⇒SCXML_e3_enabled=TRUE"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="SCXML_e3_enabled_1∈BOOL"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger1)"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="SCXML_FIREU∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger,SCXML_FutureInternalTrigger1,{spi_done},{send_message},{last_byte_sent})"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="SCXML_externalF⊆SCXML_internalQ"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="SCXML_WAIT∈SCXML_engineState_STATES"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="SCXML_enableInternal/SCXML_internalQ/EQL" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18" org.eventb.core.prSets="SCXML_TRIGGER,SCXML_engineState_STATES">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p18,p11,p16,p9,p4,p5,p12,p17,p14,p10,p6,p1,p7,p8,p2"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p15,p3,p13,p18,p11,p16,p9,p4,p5,p12,p17,p14,p10,p6,p1,p7,p8,p2">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="SCXML_FIRET" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_FIREU" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger0" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger1" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger0" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger1" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_WAIT" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_engineState" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_externalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_internalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_it" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="SCXML_reset_enabled" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="last_byte_sent" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="reset_trigger" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="send_message" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="spi_done" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="SCXML_internalQ⊆SCXML_FutureInternalTrigger"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="SCXML_reset_enabled∈BOOL"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="SCXML_engineState=SCXML_WAIT"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger,SCXML_FutureInternalTrigger0,{spi_done})"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="SCXML_engineState∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="SCXML_externalQ⊆SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="SCXML_internalQ∩SCXML_externalQ=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="partition(SCXML_engineState_STATES,{SCXML_WAIT},{SCXML_FIRET},{SCXML_FIREU})"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SCXML_TRIGGER={spi_done,last_byte_sent,send_message}"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SCXML_FIRET∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{reset_trigger})"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="SCXML_internalQ ∖ {SCXML_it}=SCXML_internalQ"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="⊥⇒SCXML_reset_enabled=FALSE"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger1)"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="SCXML_it∈SCXML_internalQ"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="SCXML_FIREU∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger,SCXML_FutureInternalTrigger1,{spi_done},{send_message},{last_byte_sent})"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="SCXML_WAIT∈SCXML_engineState_STATES"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="e1/SCXML_it_type/GRD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19" org.eventb.core.prSets="SCXML_TRIGGER,SCXML_engineState_STATES">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p19,p12,p17,p10,p4,p5,p14,p18,p15,p11,p6,p1,p7,p9,p3,p8"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p13,p16,p2,p19,p12,p17,p10,p4,p5,p14,p18,p15,p11,p6,p1,p7,p9,p3,p8">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="SCXML_FIRET" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_FIREU" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger0" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger1" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger0" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger1" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_WAIT" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_e1_enabled" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SCXML_e1_enabled_1" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SCXML_engineState" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_externalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_internalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_it" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="last_byte_sent" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="reset_trigger" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="send_message" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="spi_done" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="SCXML_internalQ⊆SCXML_FutureInternalTrigger"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="SCXML_e1_enabled_1∈BOOL"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger,SCXML_FutureInternalTrigger0,{spi_done})"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="SCXML_engineState∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="SCXML_externalQ⊆SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="SCXML_e1_enabled_1=TRUE⇒SCXML_e1_enabled=TRUE"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SCXML_internalQ∩SCXML_externalQ=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="partition(SCXML_engineState_STATES,{SCXML_WAIT},{SCXML_FIRET},{SCXML_FIREU})"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SCXML_TRIGGER={spi_done,last_byte_sent,send_message}"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SCXML_FIRET∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="SCXML_engineState=SCXML_FIRET"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{reset_trigger})"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger1)"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="SCXML_it∈SCXML_internalQ"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="SCXML_e1_enabled_1=TRUE"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="SCXML_FIREU∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger,SCXML_FutureInternalTrigger1,{spi_done},{send_message},{last_byte_sent})"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="SCXML_WAIT∈SCXML_engineState_STATES"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="e1/SCXML_engineState_actions3/SIM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19" org.eventb.core.prSets="SCXML_TRIGGER,SCXML_engineState_STATES">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p19,p12,p17,p10,p4,p5,p14,p18,p15,p11,p6,p1,p7,p9,p3,p8"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p13,p16,p2,p19,p12,p17,p10,p4,p5,p14,p18,p15,p11,p6,p1,p7,p9,p3,p8">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="SCXML_FIRET" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_FIREU" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger0" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger1" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger0" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger1" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_WAIT" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_e1_enabled" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SCXML_e1_enabled_1" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SCXML_engineState" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_externalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_internalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_it" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="last_byte_sent" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="reset_trigger" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="send_message" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="spi_done" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="SCXML_internalQ⊆SCXML_FutureInternalTrigger"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="SCXML_e1_enabled_1∈BOOL"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger,SCXML_FutureInternalTrigger0,{spi_done})"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="SCXML_engineState∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="SCXML_externalQ⊆SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="SCXML_e1_enabled_1=TRUE⇒SCXML_e1_enabled=TRUE"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SCXML_internalQ∩SCXML_externalQ=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="partition(SCXML_engineState_STATES,{SCXML_WAIT},{SCXML_FIRET},{SCXML_FIREU})"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SCXML_TRIGGER={spi_done,last_byte_sent,send_message}"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SCXML_FIRET∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="SCXML_engineState=SCXML_FIRET"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{reset_trigger})"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger1)"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="SCXML_internalQ=SCXML_internalQ ∖ {SCXML_it}"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="SCXML_e1_enabled_1=TRUE"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="SCXML_FIREU∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger,SCXML_FutureInternalTrigger1,{spi_done},{send_message},{last_byte_sent})"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="SCXML_WAIT∈SCXML_engineState_STATES"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="e1/SCXML_engineState_guards5/GRD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19" org.eventb.core.prSets="SCXML_TRIGGER,SCXML_engineState_STATES">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p19,p12,p17,p10,p4,p5,p14,p18,p15,p11,p6,p1,p7,p9,p3,p8"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p13,p16,p2,p19,p12,p17,p10,p4,p5,p14,p18,p15,p11,p6,p1,p7,p9,p3,p8">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+<org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="SCXML_FIRET" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_FIREU" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger0" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger1" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger0" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger1" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_WAIT" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_e1_enabled" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SCXML_e1_enabled_1" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SCXML_engineState" org.eventb.core.type="SCXML_engineState_STATES"/>
+<org.eventb.core.prIdent name="SCXML_externalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_internalQ" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_it" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="last_byte_sent" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="reset_trigger" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="send_message" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="spi_done" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="SCXML_internalQ⊆SCXML_FutureInternalTrigger"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="SCXML_e1_enabled_1∈BOOL"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger,SCXML_FutureInternalTrigger0,{spi_done})"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="SCXML_engineState∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="SCXML_externalQ⊆SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="SCXML_e1_enabled_1=TRUE⇒SCXML_e1_enabled=TRUE"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SCXML_internalQ∩SCXML_externalQ=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="partition(SCXML_engineState_STATES,{SCXML_WAIT},{SCXML_FIRET},{SCXML_FIREU})"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SCXML_TRIGGER={spi_done,last_byte_sent,send_message}"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="SCXML_it=spi_done"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SCXML_FIRET∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="SCXML_engineState=SCXML_FIRET"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{reset_trigger})"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger1)"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="SCXML_e1_enabled_1=TRUE"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="SCXML_FIREU∈SCXML_engineState_STATES"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger,SCXML_FutureInternalTrigger1,{spi_done},{send_message},{last_byte_sent})"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="SCXML_WAIT∈SCXML_engineState_STATES"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+</org.eventb.core.prProof>
 </org.eventb.core.prFile>
