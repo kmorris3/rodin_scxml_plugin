@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd">
+<org.eventb.core.scExtendsContext name="'" org.eventb.core.scTarget="/runToCompletionRefinementProblem2/m0_implicitContext.bcc|org.eventb.core.scContextFile#m0_implicitContext" org.eventb.core.source="/runToCompletionRefinementProblem2/m1_implicitContext.buc|org.eventb.core.contextFile#m1_implicitContext|org.eventb.core.extendsContext#_0ze4oNgmEeaevtaTdbW8fA"/>
+<org.eventb.core.scInternalContext name="m0_implicitContext">
+<org.eventb.core.scAxiom name="'" org.eventb.core.label="typeof_S1" org.eventb.core.predicate="S1∈engine_STATES" org.eventb.core.source="/runToCompletionRefinementProblem2/m0_implicitContext.buc|org.eventb.core.contextFile#m0_implicitContext|org.eventb.core.axiom#_ywRDsdgmEeaevtaTdbW8fA" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name="(" org.eventb.core.label="typeof_S2" org.eventb.core.predicate="S2∈engine_STATES" org.eventb.core.source="/runToCompletionRefinementProblem2/m0_implicitContext.buc|org.eventb.core.contextFile#m0_implicitContext|org.eventb.core.axiom#_ywRqwNgmEeaevtaTdbW8fA" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name=")" org.eventb.core.label="distinct_states_in_engine_STATES" org.eventb.core.predicate="partition(engine_STATES,{S1},{S2})" org.eventb.core.source="/runToCompletionRefinementProblem2/m0_implicitContext.buc|org.eventb.core.contextFile#m0_implicitContext|org.eventb.core.axiom#_ywRqwdgmEeaevtaTdbW8fA" org.eventb.core.theorem="false"/>
+<org.eventb.core.scConstant name="S1" org.eventb.core.source="/runToCompletionRefinementProblem2/m0_implicitContext.buc|org.eventb.core.contextFile#m0_implicitContext|org.eventb.core.constant#_ywQcodgmEeaevtaTdbW8fA" org.eventb.core.type="engine_STATES"/>
+<org.eventb.core.scConstant name="S2" org.eventb.core.source="/runToCompletionRefinementProblem2/m0_implicitContext.buc|org.eventb.core.contextFile#m0_implicitContext|org.eventb.core.constant#_ywRDsNgmEeaevtaTdbW8fA" org.eventb.core.type="engine_STATES"/>
+<org.eventb.core.scCarrierSet name="engine_STATES" org.eventb.core.source="/runToCompletionRefinementProblem2/m0_implicitContext.buc|org.eventb.core.contextFile#m0_implicitContext|org.eventb.core.carrierSet#_ywQcoNgmEeaevtaTdbW8fA" org.eventb.core.type="ℙ(engine_STATES)"/>
+</org.eventb.core.scInternalContext>
+</org.eventb.core.scContextFile>

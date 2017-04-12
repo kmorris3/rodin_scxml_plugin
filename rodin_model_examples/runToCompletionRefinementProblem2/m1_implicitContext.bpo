@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="4">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="4">
+<org.eventb.core.poIdentifier name="engine_STATES" org.eventb.core.type="ℙ(engine_STATES)"/>
+<org.eventb.core.poIdentifier name="S1" org.eventb.core.type="engine_STATES"/>
+<org.eventb.core.poIdentifier name="S2" org.eventb.core.type="engine_STATES"/>
+<org.eventb.core.poPredicate name="engine_STATET" org.eventb.core.predicate="S1∈engine_STATES" org.eventb.core.source="/runToCompletionRefinementProblem2/m0_implicitContext.buc|org.eventb.core.contextFile#m0_implicitContext|org.eventb.core.axiom#_ywRDsdgmEeaevtaTdbW8fA"/>
+<org.eventb.core.poPredicate name="engine_STATEU" org.eventb.core.predicate="S2∈engine_STATES" org.eventb.core.source="/runToCompletionRefinementProblem2/m0_implicitContext.buc|org.eventb.core.contextFile#m0_implicitContext|org.eventb.core.axiom#_ywRqwNgmEeaevtaTdbW8fA"/>
+<org.eventb.core.poPredicate name="engine_STATEV" org.eventb.core.predicate="partition(engine_STATES,{S1},{S2})" org.eventb.core.source="/runToCompletionRefinementProblem2/m0_implicitContext.buc|org.eventb.core.contextFile#m0_implicitContext|org.eventb.core.axiom#_ywRqwdgmEeaevtaTdbW8fA"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/runToCompletionRefinementProblem2/m1_implicitContext.bpo|org.eventb.core.poFile#m1_implicitContext|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="4"/>
+</org.eventb.core.poFile>
