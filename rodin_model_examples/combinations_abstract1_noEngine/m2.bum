@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+<org.eventb.core.refinesMachine name="'" org.eventb.core.target="m1"/>
+<org.eventb.core.seesContext name="_CUqMUEQDEeaCWfqGHXNJRQ" org.eventb.core.target="x1"/>
+<org.eventb.core.variable name="_UvuO4EQCEeaCWfqGHXNJRQ" org.eventb.core.identifier="SCXML_iq"/>
+<org.eventb.core.variable name="_YGwcIEQCEeaCWfqGHXNJRQ" org.eventb.core.identifier="SCXML_eq"/>
+<org.eventb.core.variable name="_vKYeoDZLEeeuOIrRIxAImD" org.eventb.core.identifier="SCXML_uc"/>
+<org.eventb.core.variable name="_vKYeoDZLEeeuOIrRIxAImL" org.eventb.core.identifier="A"/>
+<org.eventb.core.variable name="_vKYeoDZLEeeuOIrRIxAImN" org.eventb.core.identifier="B"/>
+<org.eventb.core.variable name="_vKYeoDZLEeeuOIrRIxAImP" org.eventb.core.identifier="C"/>
+<org.eventb.core.variable name="_vKYeoDZLEeeuOIrRIxAImR" org.eventb.core.identifier="D"/>
+<org.eventb.core.variable name="_vKYeoDZLEeeuOIrRIxAIm_" org.eventb.core.identifier="E"/>
+<org.eventb.core.variable name="_vKYeoDZLEeeuOIrRIxAIma" org.eventb.core.identifier="F"/>
+<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImb" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="E1 ≔ TRUE" org.eventb.core.label="act10"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="E2 ≔ FALSE" org.eventb.core.label="act11"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImc" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SCXML_futureInternalTrigger">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="SCXML_futureInternalTrigger"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImd" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SCXML_futureExternalTrigger">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="SCXML_futureExternalTrigger"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAIme" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SCXML_futureExternalTransitionSet">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="SCXML_futureExternalTransitionSet"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImf" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SCXML_futureInternalTransitionSet">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="SCXML_futureInternalTransitionSet"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImg" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SCXML_futureUntriggeredTransitionSet">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="SCXML_futureUntriggeredTransitionSet"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImh" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SCXML_Completion">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="SCXML_Completion"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="E1=FALSE"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImi" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="raise_t">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="raise_t"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImj" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="E0">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="E0"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd5" org.eventb.core.predicate="E2 = FALSE"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImk" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="E1">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="E1"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd5" org.eventb.core.predicate="E2 = FALSE"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAIml" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="E2">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="E2"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd5" org.eventb.core.predicate="E2 = FALSE"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImm" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="E3">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="E3"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd5" org.eventb.core.predicate="E2 = FALSE"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImn" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="E4">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="E4"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd5" org.eventb.core.predicate="E2 = TRUE"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="E2≔FALSE" org.eventb.core.label="act3"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImo" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="E5">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="E5"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd5" org.eventb.core.predicate="E2 = TRUE"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="E2≔FALSE" org.eventb.core.label="act5"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImp" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="E6">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="E6"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd5" org.eventb.core.predicate="E2 = TRUE"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="E2≔FALSE" org.eventb.core.label="act5"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImq" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="E7">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="E7"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd5" org.eventb.core.predicate="E2 = TRUE"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="E2≔FALSE" org.eventb.core.label="act7"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="_vKYeoDZLEeeuOIrRIxAImr" org.eventb.core.identifier="E1"/>
+<org.eventb.core.invariant name="_vKYeoDZLEeeuOIrRIxAIms" org.eventb.core.label="inv1" org.eventb.core.predicate="E1 ∈ BOOL"/>
+<org.eventb.core.variable name="_vKYeoDZLEeeuOIrRIxAImt" org.eventb.core.identifier="E2"/>
+<org.eventb.core.invariant name="_vKYeoDZLEeeuOIrRIxAImu" org.eventb.core.label="inv2" org.eventb.core.predicate="E2 ∈ BOOL"/>
+<org.eventb.core.invariant name="_vKYeoDZLEeeuOIrRIxAImv" org.eventb.core.label="inv3" org.eventb.core.predicate="(E = TRUE) ⇒ partition({TRUE}, {E1} ∩ {TRUE}, {E2} ∩ {TRUE})"/>
+<org.eventb.core.invariant name="_vKYeoDZLEeeuOIrRIxAImw" org.eventb.core.label="inv4" org.eventb.core.predicate="(E1 = TRUE) ⇒ (E = TRUE)"/>
+<org.eventb.core.invariant name="_vKYeoDZLEeeuOIrRIxAImx" org.eventb.core.label="inv5" org.eventb.core.predicate="(E2 = TRUE) ⇒ (E = TRUE)"/>
+<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImy" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="U1">
+<org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="E1=TRUE"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="E1≔FALSE" org.eventb.core.label="act1"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="E2≔TRUE" org.eventb.core.label="act2"/>
+<org.eventb.core.refinesEvent name="*" org.eventb.core.target="SCXML_futureUntriggeredTransitionSet"/>
+</org.eventb.core.event>
+</org.eventb.core.machineFile>

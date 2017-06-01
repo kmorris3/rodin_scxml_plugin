@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.extendsContext name="'" org.eventb.core.target="x0"/>
+<org.eventb.core.constant name="_fwdhQEZEEeexB9O4ISV-aQ" org.eventb.core.identifier="SCXML_FutureInternalTrigger1"/>
+<org.eventb.core.constant name="_mA0FAEZEEeexB9O4ISV-aQ" org.eventb.core.identifier="SCXML_FutureExternalTrigger1"/>
+<org.eventb.core.axiom name="_4i3q8EZEEeexB9O4ISV-aQ" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger0, SCXML_FutureInternalTrigger1)"/>
+<org.eventb.core.axiom name="_4i3q8UZEEeexB9O4ISV-aQ" org.eventb.core.label="axm2" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger0, SCXML_FutureExternalTrigger1)"/>
+</org.eventb.core.contextFile>
