@@ -164,24 +164,4 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BAxi41jyEeeHofYqGaGKwQ" points="[5, -2, -7, 36]$[5, -18, -7, 20]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BAzYEFjyEeeHofYqGaGKwQ" id="(0.45,0.1)"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_2E_8YFjyEeeHofYqGaGKwQ" type="4001" source="_g_afMFjxEeeHofYqGaGKwQ" target="_g_afMFjxEeeHofYqGaGKwQ">
-    <children xmi:type="notation:DecorationNode" xmi:id="_2E_8ZFjyEeeHofYqGaGKwQ" type="6001">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_2E_8ZVjyEeeHofYqGaGKwQ" x="3" y="9"/>
-    </children>
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_2E_8YVjyEeeHofYqGaGKwQ" routing="Rectilinear"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_2E_8YljyEeeHofYqGaGKwQ" fontName=".SF NS Text"/>
-    <element xmi:type="statemachines:Transition" href="u0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::u0.sm.P.P_statemachine1._2FAjcFjyEeeHofYqGaGKwQ"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2E_8Y1jyEeeHofYqGaGKwQ" points="[-22, 9, -22, 9]$[-22, 25, -22, 25]$[0, 25, 0, 25]$[0, 9, 0, 9]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2FBxkFjyEeeHofYqGaGKwQ" id="(0.75,0.775)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2FBxkVjyEeeHofYqGaGKwQ" id="(0.75,0.775)"/>
-  </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_5YvlEFjyEeeHofYqGaGKwQ" type="4001" source="_kA1BwFjxEeeHofYqGaGKwQ" target="_kA1BwFjxEeeHofYqGaGKwQ">
-    <children xmi:type="notation:DecorationNode" xmi:id="_5YvlFFjyEeeHofYqGaGKwQ" type="6001">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_5YvlFVjyEeeHofYqGaGKwQ" x="-1" y="8"/>
-    </children>
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_5YvlEVjyEeeHofYqGaGKwQ" routing="Rectilinear"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_5YvlEljyEeeHofYqGaGKwQ" fontName=".SF NS Text"/>
-    <element xmi:type="statemachines:Transition" href="u0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::u0.sm.P.P_statemachine2._5YwMIFjyEeeHofYqGaGKwQ"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5YvlE1jyEeeHofYqGaGKwQ" points="[-12, 20, -12, 20]$[-12, 36, -12, 36]$[10, 36, 10, 36]$[10, 20, 10, 20]"/>
-  </edges>
 </notation:Diagram>

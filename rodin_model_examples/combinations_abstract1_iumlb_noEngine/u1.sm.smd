@@ -210,26 +210,6 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BAxi41jyEeeHofYqGaGKwQ" points="[5, -2, -7, 36]$[5, -18, -7, 20]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_BAzYEFjyEeeHofYqGaGKwQ" id="(0.45,0.1)"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_2E_8YFjyEeeHofYqGaGKwQ" type="4001" source="_g_afMFjxEeeHofYqGaGKwQ" target="_g_afMFjxEeeHofYqGaGKwQ">
-    <children xmi:type="notation:DecorationNode" xmi:id="_2E_8ZFjyEeeHofYqGaGKwQ" type="6001">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_2E_8ZVjyEeeHofYqGaGKwQ" x="3" y="9"/>
-    </children>
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_2E_8YVjyEeeHofYqGaGKwQ" routing="Rectilinear"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_2E_8YljyEeeHofYqGaGKwQ" fontName=".SF NS Text"/>
-    <element xmi:type="statemachines:Transition" href="u1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::u1.sm.P.P_statemachine1._2FAjcFjyEeeHofYqGaGKwQ"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2E_8Y1jyEeeHofYqGaGKwQ" points="[-22, 9, -22, 9]$[-22, 25, -22, 25]$[0, 25, 0, 25]$[0, 9, 0, 9]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2FBxkFjyEeeHofYqGaGKwQ" id="(0.75,0.775)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2FBxkVjyEeeHofYqGaGKwQ" id="(0.75,0.775)"/>
-  </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_5YvlEFjyEeeHofYqGaGKwQ" type="4001" source="_kA1BwFjxEeeHofYqGaGKwQ" target="_kA1BwFjxEeeHofYqGaGKwQ">
-    <children xmi:type="notation:DecorationNode" xmi:id="_5YvlFFjyEeeHofYqGaGKwQ" type="6001">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_5YvlFVjyEeeHofYqGaGKwQ" x="-1" y="8"/>
-    </children>
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_5YvlEVjyEeeHofYqGaGKwQ" routing="Rectilinear"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_5YvlEljyEeeHofYqGaGKwQ" fontName=".SF NS Text"/>
-    <element xmi:type="statemachines:Transition" href="u1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::u1.sm.P.P_statemachine2._5YwMIFjyEeeHofYqGaGKwQ"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5YvlE1jyEeeHofYqGaGKwQ" points="[-12, 20, -12, 20]$[-12, 36, -12, 36]$[10, 36, 10, 36]$[10, 20, 10, 20]"/>
-  </edges>
   <edges xmi:type="notation:Edge" xmi:id="_U83c4Fj9EeeHofYqGaGKwQ" type="4001" source="_UcHgQFj9EeeHofYqGaGKwQ" target="_SV6owFj9EeeHofYqGaGKwQ">
     <children xmi:type="notation:DecorationNode" xmi:id="_U84D8Fj9EeeHofYqGaGKwQ" type="6001">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_U84D8Vj9EeeHofYqGaGKwQ" x="-8" y="-8"/>
@@ -247,14 +227,5 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_XDxfAlj9EeeHofYqGaGKwQ" fontName=".SF NS Text"/>
     <element xmi:type="statemachines:Transition" href="u1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::u1.sm.P.P_statemachine3._XDyGEFj9EeeHofYqGaGKwQ"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XDxfA1j9EeeHofYqGaGKwQ" points="[20, 1, -107, -2]$[107, 1, -20, -2]"/>
-  </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_h7yKYFj9EeeHofYqGaGKwQ" type="4001" source="_TPc40Fj9EeeHofYqGaGKwQ" target="_TPc40Fj9EeeHofYqGaGKwQ">
-    <children xmi:type="notation:DecorationNode" xmi:id="_h7yKZFj9EeeHofYqGaGKwQ" type="6001">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_h7yKZVj9EeeHofYqGaGKwQ" x="-2" y="7"/>
-    </children>
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_h7yKYVj9EeeHofYqGaGKwQ" routing="Rectilinear"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_h7yKYlj9EeeHofYqGaGKwQ" fontName=".SF NS Text"/>
-    <element xmi:type="statemachines:Transition" href="u1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::u1.sm.P.P_statemachine3._h7yxcFj9EeeHofYqGaGKwQ"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_h7yKY1j9EeeHofYqGaGKwQ" points="[-16, 20, -16, 20]$[-16, 40, -16, 40]$[10, 40, 10, 40]$[10, 20, 10, 20]"/>
   </edges>
 </notation:Diagram>
