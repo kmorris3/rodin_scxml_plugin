@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml" xmlns:iumlb="urn:xmlns:ac.soton.uk:iumlb" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" initial="ROOT_Main_Environment" name="root" version="1.0">
+  <datamodel>
+    <data expr="2" id="temp_high"/>
+    <data expr="1" id="temp_mid"/>
+    <data expr="0" id="temp_low"/>
+  </datamodel>
+  <state id="ROOT_Main_Environment">
+    <parallel id="ROOT_Main_Environment_parallel">
+      <state id="Main">
+        <state id="A">
+          <transition cond="temperature==temp_high" target="B" iumlb:label="alpha">
+            <iumlb:guard name="temp_high" predicate="temperature==temp_high"/>
+          </transition>
+        </state>
+        <state id="B">
+          <initial>
+            <transition target="D"/>
+          </initial>
+          <state id="D">
+            <transition cond="temperature==temp_high" target="E" iumlb:label="delta">
+              <iumlb:guard name="temp_high1" predicate="temperature==temp_high"/>
+            </transition>
+          </state>
+          <state id="E">
+            <transition cond="temperature==temp_high" target="F" iumlb:label="epsilon">
+              <iumlb:guard name="temp_high2" predicate="temperature==temp_high"/>
+            </transition>
+            <transition cond="temperature==temp_mid" target="D" iumlb:label="eta">
+              <iumlb:guard name="temp_mid" predicate="temperature==temp_mid"/>
+            </transition>
+          </state>
+          <state id="F">
+            <transition target="E" iumlb:label="zeta"/>
+            <transition cond="temperature==temp_mid" target="D" iumlb:label="theta">
+              <iumlb:guard name="temp_mid1" predicate="temperature==temp_mid"/>
+            </transition>
+          </state>
+          <transition cond="temperature==temp_low" target="A" iumlb:label="beta">
+            <iumlb:guard name="temp_low" predicate="temperature==temp_low"/>
+          </transition>
+          <transition target="C" iumlb:label="gamma"/>
+        </state>
+        <state id="C"/>
+        <initial>
+          <transition target="A"/>
+        </initial>
+      </state>
+      <state id="Environment">
+        <state id="NonDeterministic">
+          <transition target="NonDeterministic" iumlb:label="change_temperature">
+            <assign expr=":\in {temp_high, temp_mid, temp_low}" location="temperature"/>
+          </transition>
+        </state>
+        <initial>
+          <transition target="NonDeterministic"/>
+        </initial>
+      </state>
+    </parallel>
+  </state>
+</scxml>

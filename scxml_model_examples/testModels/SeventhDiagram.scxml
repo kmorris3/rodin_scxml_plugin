@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml" xmlns:iumlb="urn:xmlns:ac.soton.uk:iumlb" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="root" version="1.0" initial="test">
+    <state id="test">
+        <parallel id="S1_S2">
+            
+            <state id="S1">
+                <initial>
+                    <transition target="S11"/>
+                </initial>
+                
+                <state id="S11">
+                    <transition target="S12"/>
+                </state>
+                <state id="S12">
+                    <transition target="S13"/>
+                </state>
+                <state id="S13"/>
+            </state>
+            
+            <state id="S2">
+                <initial>
+                    <transition target="S21"/>
+                </initial>
+                <state id="S21">
+                    <transition target="S22"/>
+                </state>
+                <state id="S22">
+                    <transition target="S23"/>
+                </state>
+                <state id="S23"/>
+            </state>
+        </parallel>
+    </state>
+</scxml>
