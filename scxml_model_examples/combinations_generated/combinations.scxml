@@ -24,6 +24,22 @@
         </state>
         <state id="D"/>
       </state>
+      <state id="P_sm_3" iumlb:refinement="1">
+        <initial>
+          <transition target="E"/>
+        </initial>
+        <state id="E" iumlb:refinement="2">
+          <transition target="F" iumlb:refinement="1"/>
+          <state id="E1">
+            <transition target="E2"/>
+          </state>
+          <initial>
+            <transition target="E1"/>
+          </initial>
+          <final id="E2"/>
+        </state>
+        <state id="F"/>
+      </state>
     </parallel>
   </state>
 </scxml>
