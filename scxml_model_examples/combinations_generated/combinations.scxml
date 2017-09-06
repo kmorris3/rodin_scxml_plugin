@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml" xmlns:iumlb="urn:xmlns:ac.soton.uk:iumlb" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" initial="P" name="U" version="1.0" iumlb:refinement="0">
+  <state id="P" iumlb:refinement="0">
+    <parallel id="ON_Gate_CardReader">
+      <datamodel iumlb:refinement="2">
+        <data expr="false" id="On_In.Reset" iumlb:type="BOOL"/>
+        <data expr="false" id="On_In.CardAccept" iumlb:type="BOOL"/>
+      </datamodel>
+      <state id="P_sm_1" iumlb:refinement="0">
+        <initial>
+          <transition target="A"/>
+        </initial>
+        <state id="A">
+          <transition cond="" target="B"/>
+        </state>
+        <state id="B"/>
+      </state>
+      <state id="P_sm_2" iumlb:refinement="0">
+        <initial>
+          <transition target="C"/>
+        </initial>
+        <state id="C">
+          <transition target="D"/>
+        </state>
+        <state id="D"/>
+      </state>
+    </parallel>
+  </state>
+</scxml>
