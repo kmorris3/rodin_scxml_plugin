@@ -6,6 +6,11 @@
 <org.eventb.core.action name="_uw6_4EKiEeaoWLLW6iH2dS" org.eventb.core.assignment="SCXML_eq ≔ ∅" org.eventb.core.label="act2"/>
 <org.eventb.core.action name="_uw6_4EKiEeaoWLLW6iH2dT" org.eventb.core.assignment="SCXML_uc ≔ FALSE" org.eventb.core.label="act3"/>
 </org.eventb.core.event>
+<org.eventb.core.event name="_uw4joEKiEeaoWLLW6iH2dY" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="SCXML_futureExternalTrigger">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="SCXML_raisedTriggers"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="SCXML_raisedTriggers ⊆ SCXML_FutureExternalTrigger"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="SCXML_eq ≔ SCXML_eq ∪ SCXML_raisedTriggers" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
 <org.eventb.core.event name="_uw4joEKiEeaoWLLW6iH2dX" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="SCXML_futureInternalTrigger">
 <org.eventb.core.parameter name="(" org.eventb.core.identifier="SCXML_raisedTriggers"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger"/>
@@ -15,11 +20,6 @@
 <org.eventb.core.variable name="_YGwcIEQCEeaCWfqGHXNJRQ" org.eventb.core.identifier="SCXML_eq"/>
 <org.eventb.core.invariant name="_uw4joEKiEeaoWLLW6iH2dU" org.eventb.core.label="inv1" org.eventb.core.predicate="SCXML_iq ⊆ SCXML_FutureInternalTrigger"/>
 <org.eventb.core.invariant name="_uw4joEKiEeaoWLLW6iH2dV" org.eventb.core.label="inv2" org.eventb.core.predicate="SCXML_eq ⊆ SCXML_FutureExternalTrigger"/>
-<org.eventb.core.event name="_uw4joEKiEeaoWLLW6iH2dY" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="SCXML_futureExternalTrigger">
-<org.eventb.core.parameter name="'" org.eventb.core.identifier="SCXML_raisedTriggers"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="SCXML_raisedTriggers ⊆ SCXML_FutureExternalTrigger"/>
-<org.eventb.core.action name=")" org.eventb.core.assignment="SCXML_eq ≔ SCXML_eq ∪ SCXML_raisedTriggers" org.eventb.core.label="act1"/>
-</org.eventb.core.event>
 <org.eventb.core.invariant name="_uw4joEKiEeaoWLLW6iH2dZ" org.eventb.core.label="inv3" org.eventb.core.predicate="SCXML_iq ∩ SCXML_eq = ∅" org.eventb.core.theorem="true"/>
 <org.eventb.core.event name="_JfQ9IDZLEeeuOIrRIxAImA" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="SCXML_futureExternalTransitionSet">
 <org.eventb.core.action name="_VryE8zz8EeehiqkLDMZc8A" org.eventb.core.assignment="SCXML_uc ≔ FALSE" org.eventb.core.comment="" org.eventb.core.generated="false" org.eventb.core.label="SCXML_engineState_actions1" org.eventb.emf.persistence.generator_ID="ac.soton.eventb.statemachines._1dskAMIREeacao5Tip5p3A" org.eventb.emf.persistence.priority="10"/>
