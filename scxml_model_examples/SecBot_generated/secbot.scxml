@@ -7,7 +7,9 @@
           <transition target="InitialiseBuzzer"/>
         </initial>
         <state id="InitialiseBuzzer" iumlb:refinement="2">
-          <transition cond="" event="spi_done" target="InitialiseSensor" iumlb:refinement="0"/>
+          <transition cond="" event="spi_done" target="InitialiseSensor" iumlb:refinement="0">
+            <raise event="send_message"/>
+          </transition>
           <state id="IBConstructMessage" iumlb:refinement="2">
             <transition target="IBWait">
               <raise event="send_message"/>
@@ -19,7 +21,9 @@
           </initial>
         </state>
         <state id="InitialiseSensor" iumlb:refinement="2">
-          <transition event="spi_done" target="Wait50ms" iumlb:refinement="0"/>
+          <transition event="spi_done" target="Wait50ms" iumlb:refinement="0">
+            <raise event="send_message"/>
+          </transition>
           <state id="ISConstructMessage" iumlb:refinement="2">
             <transition target="ISWait">
               <raise event="send_message"/>

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.comment="(generated from SCXML file: /SecBot_generated/secbot.scxml)" org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="true" version="3">
-<org.eventb.core.extendsContext name="_x_sqEJyBEee82siX6JKIdw" org.eventb.core.target="SecBot_Model_0_ctx"/>
-<org.eventb.core.constant name="_x_sqEZyBEee82siX6JKIdw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureInternalTrigger1"/>
-<org.eventb.core.constant name="_x_sqEpyBEee82siX6JKIdw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureExternalTrigger1"/>
-<org.eventb.core.constant name="_x_sqE5yBEee82siX6JKIdw" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="last_byte_sent"/>
-<org.eventb.core.constant name="_x_sqFJyBEee82siX6JKIdw" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="send_message"/>
-<org.eventb.core.axiom name="_x_sqFZyBEee82siX6JKIdw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTrigger1" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger0,SCXML_FutureExternalTrigger1,{last_byte_sent})"/>
-<org.eventb.core.axiom name="_x_sqFpyBEee82siX6JKIdw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureInternalTrigger1" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger0,SCXML_FutureInternalTrigger1,{send_message})"/>
+<org.eventb.core.extendsContext name="_Ko2FEJy5Eee82siX6JKIdw" org.eventb.core.target="SecBot_Model_0_ctx"/>
+<org.eventb.core.constant name="_Ko2FEZy5Eee82siX6JKIdw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureInternalTrigger1"/>
+<org.eventb.core.constant name="_Ko2FEpy5Eee82siX6JKIdw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureExternalTrigger1"/>
+<org.eventb.core.constant name="_Ko2FE5y5Eee82siX6JKIdw" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="last_byte_sent"/>
+<org.eventb.core.axiom name="_Ko2FFJy5Eee82siX6JKIdw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTrigger1" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger0,SCXML_FutureExternalTrigger1,{last_byte_sent})"/>
+<org.eventb.core.axiom name="_Ko2FFZy5Eee82siX6JKIdw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureInternalTrigger1" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger0,SCXML_FutureInternalTrigger1)"/>
 </org.eventb.core.contextFile>
