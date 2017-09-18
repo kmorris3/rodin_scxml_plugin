@@ -1,0 +1,1556 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+<org.eventb.core.prProof name="INITIALISATION/distinct_states_in_ASIC_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="SCXML_TRIGGER">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2,p3"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p2,p3"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p4">
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p4" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p5">
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="p2,p3">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="TRUE=TRUE⇒{TRUE}=({TRUE}∩{TRUE})∪({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})∧({TRUE}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({TRUE}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({TRUE}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({FALSE}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({FALSE}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({FALSE}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="TRUE=TRUE⇒partition({TRUE},{TRUE}∩{TRUE},{FALSE}∩{TRUE},{FALSE}∩{TRUE},{FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="INITIALISATION/InitialiseBuzzer_substateof_SecBot/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2,p3"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p2,p3"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p4">
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p4" org.eventb.core.prHyps=""/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="TRUE=TRUE⇒TRUE=TRUE"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="INITIALISATION/InitialiseSensor_substateof_SecBot/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2,p3"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p2,p3"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p4">
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p4" org.eventb.core.prHyps=""/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒TRUE=TRUE"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="INITIALISATION/Wait50ms_substateof_SecBot/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2,p3"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p2,p3"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p4">
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p4" org.eventb.core.prHyps=""/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒TRUE=TRUE"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="INITIALISATION/Go_substateof_SecBot/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2,p3"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p2,p3"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p4">
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p4" org.eventb.core.prHyps=""/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒TRUE=TRUE"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="spi_done__InitialiseSensor_Wait50ms/distinct_states_in_ASIC_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5,p6"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p5,p6"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p7"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p8">
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="p3" org.eventb.core.prInfHyps="p9"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p12">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p10"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p9" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p12" org.eventb.core.prHyps="p11">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p20">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p14"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p16"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p18"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p10" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p19"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p20" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p28">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p14"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p16"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p18"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21,p22,p23,p24,p25,p26,p27"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p28" org.eventb.core.prHyps="p24">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p29">
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p29" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p30">
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p31"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p32"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p33"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p34"/>
+<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p35"/>
+<org.eventb.core.prHypAction name="HIDE5" org.eventb.core.prHyps="p36"/>
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p30" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p37">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InitialiseSensor=TRUE" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p25" org.eventb.core.prInfHyps="p40"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p26" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p21,p22,p25,p26"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p39" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p40" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p41" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InitialiseBuzzer=FALSE" org.eventb.core.prGoal="p37" org.eventb.core.prHyps="p43">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p49">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p46"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p47"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p42" org.eventb.core.prInfHyps="p48"/>
+<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p23,p24,p42"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p49" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p50">
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=Wait50ms" org.eventb.core.prHyps="p44">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p46" org.eventb.core.prInfHyps="p51"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p48" org.eventb.core.prInfHyps="p52"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p46,p48"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p51"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p52" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p50"/>
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p50" org.eventb.core.prHyps="p50"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p53">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InitialiseSensor=TRUE" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p25" org.eventb.core.prInfHyps="p40"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p26" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p21,p22,p25,p26"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p39" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p40" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p41" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InitialiseBuzzer=FALSE" org.eventb.core.prGoal="p53" org.eventb.core.prHyps="p43">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p51">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p46"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p47"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p42" org.eventb.core.prInfHyps="p48"/>
+<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p23,p24,p42"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p51" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p54">
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p54" org.eventb.core.prHyps=""/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p43">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InitialiseSensor=TRUE" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p25" org.eventb.core.prInfHyps="p40"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p26" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p21,p22,p25,p26"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p39" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p40" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p41" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p43" org.eventb.core.prHyps="p43"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="*" org.eventb.core.prGoal="p47">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InitialiseSensor=TRUE" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p25" org.eventb.core.prInfHyps="p40"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p26" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p21,p22,p25,p26"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p39" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p40" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p41" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InitialiseBuzzer=FALSE" org.eventb.core.prHyps="p43">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p46"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p47"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p42" org.eventb.core.prInfHyps="p48"/>
+<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p23,p24,p42"/>
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p47" org.eventb.core.prHyps="p47"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="+" org.eventb.core.prGoal="p45">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InitialiseSensor=TRUE" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p25" org.eventb.core.prInfHyps="p40"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p26" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p21,p22,p25,p26"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p39" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p40" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p41" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p45" org.eventb.core.prHyps="p45"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SecBot" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧{InitialiseBuzzer}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{Wait50ms}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="InitialiseSensor=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p40" org.eventb.core.predicate="{TRUE}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p31" org.eventb.core.predicate="SCXML_uc∈BOOL">
+<org.eventb.core.prIdent name="SCXML_uc" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p38" org.eventb.core.predicate="{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({TRUE}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p32" org.eventb.core.predicate="SecBot∈BOOL"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="SecBot=TRUE⇒partition({TRUE},{InitialiseBuzzer}∩{TRUE},{FALSE}∩{TRUE},{TRUE}∩{TRUE},{Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="Wait50ms=TRUE⇒⊤"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="Go=TRUE⇒⊤"/>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="{InitialiseSensor}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p41" org.eventb.core.predicate="{TRUE}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="{InitialiseBuzzer}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p29" org.eventb.core.predicate="{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({FALSE}∩{TRUE})∪{TRUE}∪({Go}∩{TRUE})∧{InitialiseBuzzer}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))∧InitialiseBuzzer=FALSE∧⊤∧{FALSE}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧FALSE=Go"/>
+<org.eventb.core.prPred name="p28" org.eventb.core.predicate="{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({FALSE}∩{TRUE})∪{TRUE}∪({Go}∩{TRUE})∧{InitialiseBuzzer}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))∧InitialiseBuzzer=FALSE∧{InitialiseBuzzer}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{FALSE}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧FALSE=Go"/>
+<org.eventb.core.prPred name="p34" org.eventb.core.predicate="InitialiseSensor∈BOOL"/>
+<org.eventb.core.prPred name="p33" org.eventb.core.predicate="InitialiseBuzzer∈BOOL"/>
+<org.eventb.core.prPred name="p50" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p27" org.eventb.core.predicate="{Wait50ms}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p49" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})∪{TRUE}∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="InitialiseSensor=TRUE"/>
+<org.eventb.core.prPred name="p37" org.eventb.core.predicate="{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({FALSE}∩{TRUE})∪{TRUE}∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p48" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="InitialiseBuzzer=TRUE⇒⊤"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="Go=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p46" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SecBot=TRUE"/>
+<org.eventb.core.prPred name="p39" org.eventb.core.predicate="{InitialiseBuzzer}∩{TRUE}∩{TRUE}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="⊤⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧{InitialiseBuzzer}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{Wait50ms}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p43" org.eventb.core.predicate="InitialiseBuzzer=FALSE"/>
+<org.eventb.core.prPred name="p36" org.eventb.core.predicate="Go∈BOOL"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="InitialiseBuzzer=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="Wait50ms=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="⊤⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({FALSE}∩{TRUE})∪{TRUE}∪({Go}∩{TRUE})∧{InitialiseBuzzer}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))∧InitialiseBuzzer=FALSE∧{InitialiseBuzzer}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{FALSE}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧FALSE=Go"/>
+<org.eventb.core.prPred name="p30" org.eventb.core.predicate="{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({FALSE}∩{TRUE})∪{TRUE}∪({Go}∩{TRUE})∧{InitialiseBuzzer}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))∧InitialiseBuzzer=FALSE∧{FALSE}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧FALSE=Go"/>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="{InitialiseBuzzer}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧({InitialiseBuzzer}∩{TRUE})∩({InitialiseSensor}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({Wait50ms}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="SecBot=TRUE⇒partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p45" org.eventb.core.predicate="FALSE=Go"/>
+<org.eventb.core.prPred name="p54" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p51" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p52" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({FALSE}∩{TRUE})∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="{InitialiseSensor}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({FALSE}∩{TRUE})∪({TRUE}∩{TRUE})∪({Go}∩{TRUE})∧({InitialiseBuzzer}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({TRUE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({FALSE}∩{TRUE})∩({TRUE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({FALSE}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({TRUE}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p42" org.eventb.core.predicate="{TRUE}=({InitialiseBuzzer}∩{TRUE})∪{TRUE}∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p47" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="⊤⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({FALSE}∩{TRUE})∪{TRUE}∪({Go}∩{TRUE})∧{InitialiseBuzzer}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))∧InitialiseBuzzer=FALSE∧{InitialiseBuzzer}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{FALSE}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧FALSE=Go"/>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="{InitialiseBuzzer}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p53" org.eventb.core.predicate="{InitialiseBuzzer}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p44" org.eventb.core.predicate="FALSE=Wait50ms"/>
+<org.eventb.core.prPred name="p35" org.eventb.core.predicate="Wait50ms∈BOOL"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.he:1"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="spi_done__InitialiseSensor_Wait50ms/InitialiseSensor_substateof_SecBot/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2,p3"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p2,p3"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p5"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="p8" org.eventb.core.prInfHyps="p7"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p10"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="SecBot" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧({InitialiseBuzzer}∩{TRUE})∩({InitialiseSensor}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({Wait50ms}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧{InitialiseBuzzer}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{Wait50ms}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="InitialiseSensor=TRUE⇒SecBot=TRUE">
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="SecBot=TRUE⇒partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE})">
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="InitialiseSensor=TRUE">
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SecBot=TRUE"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="⊤⇒SecBot=TRUE"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="spi_done__InitialiseSensor_Wait50ms/Wait50ms_substateof_SecBot/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4,p5"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p4,p5"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p7"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="p2" org.eventb.core.prInfHyps="p8"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p10">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p8" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p10"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p10"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SecBot" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧({InitialiseBuzzer}∩{TRUE})∩({InitialiseSensor}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({Wait50ms}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧{InitialiseBuzzer}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{Wait50ms}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="InitialiseSensor=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="SecBot=TRUE⇒partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE})">
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="InitialiseSensor=TRUE"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="TRUE=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SecBot=TRUE"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="⊤⇒SecBot=TRUE"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="spi_done__InitialiseBuzzer_InitialiseSensor/distinct_states_in_ASIC_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10" org.eventb.core.prSets="SCXML_TRIGGER">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11,p12"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p11,p12"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p13"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p13"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p14">
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="p2" org.eventb.core.prInfHyps="p15"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p14" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p18">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p16"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p17"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p18" org.eventb.core.prHyps="p17">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p26">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="p17" org.eventb.core.prInfHyps="p20"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p21" org.eventb.core.prHyps="p17" org.eventb.core.prInfHyps="p22"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p23" org.eventb.core.prHyps="p17" org.eventb.core.prInfHyps="p24"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="p17" org.eventb.core.prInfHyps="p25"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p26" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p34">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p20"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p22"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p24"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p25" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p27,p28,p29,p30,p31,p32,p33"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p34" org.eventb.core.prHyps="p33">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p35">
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p35" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p36">
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p37"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p38"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p39"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p40"/>
+<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p41"/>
+<org.eventb.core.prHypAction name="HIDE5" org.eventb.core.prHyps="p42"/>
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p36" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p43">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InitialiseBuzzer=TRUE" org.eventb.core.prHyps="p2">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p27" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p28" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p29" org.eventb.core.prInfHyps="p46"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p30" org.eventb.core.prInfHyps="p47"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p27,p28,p29,p30"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p44" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p48"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p45" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p49"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p46" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p50"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p47" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p51"/>
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=InitialiseSensor" org.eventb.core.prHyps="p49">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p31" org.eventb.core.prInfHyps="p52"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p32" org.eventb.core.prInfHyps="p53"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p48" org.eventb.core.prInfHyps="p54"/>
+<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p31,p32,p48"/>
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=Wait50ms" org.eventb.core.prGoal="p43" org.eventb.core.prHyps="p50">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p57">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p52" org.eventb.core.prInfHyps="p55"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p54" org.eventb.core.prInfHyps="p56"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p52,p54"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p57" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p59">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p55"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p56" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p58"/>
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=Go" org.eventb.core.prGoal="p59" org.eventb.core.prHyps="p51">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p62">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p33" org.eventb.core.prInfHyps="p60"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p58" org.eventb.core.prInfHyps="p61"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p33,p53,p58"/>
+<org.eventb.core.prHypAction name="SELECT3" org.eventb.core.prHyps="p55"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p62" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p64">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p55"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p61" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p63"/>
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=Wait50ms" org.eventb.core.prHyps="p50">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="DESELECT0" org.eventb.core.prHyps="p60"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p55"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p55"/>
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p64" org.eventb.core.prHyps="p3,p1,p7,p8,p10,p9,p2,p11,p12,p17,p27,p28,p29,p30,p31,p32,p33,p48,p49,p50,p51,p52,p53,p54,p58,p60,p63">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p52">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InitialiseBuzzer=TRUE" org.eventb.core.prHyps="p2">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p27" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p28" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p29" org.eventb.core.prInfHyps="p46"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p30" org.eventb.core.prInfHyps="p47"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p27,p28,p29,p30"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p44" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p48"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p45" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p49"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p46" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p50"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p47" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p51"/>
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=InitialiseSensor" org.eventb.core.prHyps="p49">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p31" org.eventb.core.prInfHyps="p52"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p32" org.eventb.core.prInfHyps="p53"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p48" org.eventb.core.prInfHyps="p54"/>
+<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p31,p32,p48"/>
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p52" org.eventb.core.prHyps="p52"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p53">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InitialiseBuzzer=TRUE" org.eventb.core.prHyps="p2">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p27" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p28" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p29" org.eventb.core.prInfHyps="p46"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p30" org.eventb.core.prInfHyps="p47"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p27,p28,p29,p30"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p44" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p48"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p45" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p49"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p46" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p50"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p47" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p51"/>
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=InitialiseSensor" org.eventb.core.prHyps="p49">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p31" org.eventb.core.prInfHyps="p52"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p32" org.eventb.core.prInfHyps="p53"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p48" org.eventb.core.prInfHyps="p54"/>
+<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p31,p32,p48"/>
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p53" org.eventb.core.prHyps="p53"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="*" org.eventb.core.prGoal="p50">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InitialiseBuzzer=TRUE" org.eventb.core.prHyps="p2">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p27" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p28" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p29" org.eventb.core.prInfHyps="p46"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p30" org.eventb.core.prInfHyps="p47"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p27,p28,p29,p30"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p44" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p48"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p45" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p49"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p46" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p50"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p47" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p51"/>
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p50" org.eventb.core.prHyps="p50"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="+" org.eventb.core.prGoal="p51">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InitialiseBuzzer=TRUE" org.eventb.core.prHyps="p2">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p27" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p28" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p29" org.eventb.core.prInfHyps="p46"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p30" org.eventb.core.prInfHyps="p47"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p27,p28,p29,p30"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p44" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p48"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p45" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p49"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p46" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p50"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p47" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p51"/>
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p51" org.eventb.core.prHyps="p51"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_eq" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_iq" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_it" org.eventb.core.type="SCXML_TRIGGER"/>
+<org.eventb.core.prIdent name="SCXML_raisedTriggers" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_uc" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SecBot" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p27" org.eventb.core.predicate="{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({FALSE}∩{TRUE})∪({TRUE}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧({FALSE}∩{TRUE})∩({TRUE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({FALSE}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({FALSE}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({TRUE}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({TRUE}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({Wait50ms}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧{InitialiseBuzzer}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{Wait50ms}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="InitialiseSensor=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p46" org.eventb.core.predicate="{TRUE}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p37" org.eventb.core.predicate="SCXML_uc∈BOOL"/>
+<org.eventb.core.prPred name="p38" org.eventb.core.predicate="SecBot∈BOOL"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SCXML_raisedTriggers⊆SCXML_FutureInternalTrigger"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="Wait50ms=TRUE⇒⊤"/>
+<org.eventb.core.prPred name="p60" org.eventb.core.predicate="{Wait50ms}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="Go=TRUE⇒⊤"/>
+<org.eventb.core.prPred name="p32" org.eventb.core.predicate="{InitialiseSensor}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SCXML_uc=TRUE"/>
+<org.eventb.core.prPred name="p47" org.eventb.core.predicate="{TRUE}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧{FALSE}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{FALSE}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧FALSE=Wait50ms∧FALSE=Go∧{Wait50ms}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p30" org.eventb.core.predicate="{InitialiseBuzzer}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p40" org.eventb.core.predicate="InitialiseSensor∈BOOL"/>
+<org.eventb.core.prPred name="p39" org.eventb.core.predicate="InitialiseBuzzer∈BOOL"/>
+<org.eventb.core.prPred name="p59" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p33" org.eventb.core.predicate="{Wait50ms}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p58" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p43" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="SCXML_eq⊆SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="InitialiseBuzzer=TRUE"/>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="Go=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p52" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="⊤⇒{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧{FALSE}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{FALSE}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧FALSE=Wait50ms∧FALSE=Go∧{Wait50ms}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="SecBot=TRUE"/>
+<org.eventb.core.prPred name="p36" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧{FALSE}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{FALSE}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧FALSE=Wait50ms∧FALSE=Go"/>
+<org.eventb.core.prPred name="p56" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="⊤⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧{InitialiseBuzzer}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{Wait50ms}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p54" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p63" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="SecBot=TRUE⇒partition({TRUE},{FALSE}∩{TRUE},{TRUE}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p35" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧{FALSE}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{FALSE}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧FALSE=Wait50ms∧FALSE=Go∧⊤"/>
+<org.eventb.core.prPred name="p42" org.eventb.core.predicate="Go∈BOOL"/>
+<org.eventb.core.prPred name="p44" org.eventb.core.predicate="{TRUE}=({TRUE}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p49" org.eventb.core.predicate="FALSE=InitialiseSensor"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="InitialiseBuzzer=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="InitialiseSensor=TRUE⇒⊤"/>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="Wait50ms=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p61" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="⊤⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p45" org.eventb.core.predicate="{TRUE}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p62" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p29" org.eventb.core.predicate="{InitialiseBuzzer}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧({InitialiseBuzzer}∩{TRUE})∩({InitialiseSensor}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({Wait50ms}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="SCXML_iq⊆SCXML_FutureInternalTrigger"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SecBot=TRUE⇒partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p48" org.eventb.core.predicate="{TRUE}={TRUE}∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p51" org.eventb.core.predicate="FALSE=Go"/>
+<org.eventb.core.prPred name="p34" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧{FALSE}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{FALSE}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧FALSE=Wait50ms∧FALSE=Go∧{Wait50ms}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p55" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p57" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({FALSE}∩{TRUE})∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p31" org.eventb.core.predicate="{InitialiseSensor}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prPred name="p53" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p28" org.eventb.core.predicate="{InitialiseBuzzer}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p64" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="SCXML_iq∩SCXML_eq=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
+<org.eventb.core.prPred name="p50" org.eventb.core.predicate="FALSE=Wait50ms"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="SCXML_it∈SCXML_iq"/>
+<org.eventb.core.prPred name="p41" org.eventb.core.predicate="Wait50ms∈BOOL"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.he:1"/>
+<org.eventb.core.prReas name="r7" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="spi_done__InitialiseBuzzer_InitialiseSensor/InitialiseBuzzer_substateof_SecBot/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2,p3"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p2,p3"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p5"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="p8" org.eventb.core.prInfHyps="p7"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p10"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="SecBot" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="InitialiseBuzzer=TRUE">
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧({InitialiseBuzzer}∩{TRUE})∩({InitialiseSensor}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({Wait50ms}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧{InitialiseBuzzer}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{Wait50ms}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="SecBot=TRUE⇒partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE})">
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="InitialiseBuzzer=TRUE⇒SecBot=TRUE">
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SecBot=TRUE"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="⊤⇒SecBot=TRUE"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="spi_done__InitialiseBuzzer_InitialiseSensor/InitialiseSensor_substateof_SecBot/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4,p5"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p4,p5"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p7"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="p1" org.eventb.core.prInfHyps="p8"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p10">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p8" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p10"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p10"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SecBot" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="InitialiseBuzzer=TRUE"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧({InitialiseBuzzer}∩{TRUE})∩({InitialiseSensor}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({Wait50ms}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧{InitialiseBuzzer}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{Wait50ms}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="InitialiseBuzzer=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="SecBot=TRUE⇒partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE})">
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="TRUE=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SecBot=TRUE"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="⊤⇒SecBot=TRUE"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="Wait50ms_Go/distinct_states_in_ASIC_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5,p6"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p5,p6"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p7"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p8">
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="p3" org.eventb.core.prInfHyps="p9"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p12">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p10"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p9" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p12" org.eventb.core.prHyps="p11">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p20">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p14"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p16"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p18"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p10" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p19"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p20" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p28">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p14"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p16"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p18"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21,p22,p23,p24,p25,p26,p27"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p28" org.eventb.core.prHyps="p22">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p29">
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p29" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p30">
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p31"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p32"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p33"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p34"/>
+<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p35"/>
+<org.eventb.core.prHypAction name="HIDE5" org.eventb.core.prHyps="p36"/>
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p30" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p37">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with Wait50ms=TRUE" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p25" org.eventb.core.prInfHyps="p40"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p27" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p21,p23,p25,p27"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p39" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p40" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p41" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InitialiseBuzzer=FALSE" org.eventb.core.prGoal="p37" org.eventb.core.prHyps="p43">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p49">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p46"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p47"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p42" org.eventb.core.prInfHyps="p48"/>
+<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p22,p24,p42"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p49" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p50">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InitialiseSensor=FALSE" org.eventb.core.prGoal="p50" org.eventb.core.prHyps="p44">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p53">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p46" org.eventb.core.prInfHyps="p51"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p48" org.eventb.core.prInfHyps="p52"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p46,p48"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p53" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p55">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p51"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p52" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p54"/>
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=Go" org.eventb.core.prHyps="p45">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p26" org.eventb.core.prInfHyps="p56"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p54" org.eventb.core.prInfHyps="p57"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p26,p47,p54"/>
+<org.eventb.core.prHypAction name="SELECT3" org.eventb.core.prHyps="p51"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p51"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p57" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p55"/>
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p55" org.eventb.core.prHyps="p55"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p58">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with Wait50ms=TRUE" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p25" org.eventb.core.prInfHyps="p40"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p27" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p21,p23,p25,p27"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p39" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p40" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p41" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InitialiseBuzzer=FALSE" org.eventb.core.prGoal="p58" org.eventb.core.prHyps="p43">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p51">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p46"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p47"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p42" org.eventb.core.prInfHyps="p48"/>
+<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p22,p24,p42"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p51" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p59">
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p59" org.eventb.core.prHyps=""/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p43">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with Wait50ms=TRUE" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p25" org.eventb.core.prInfHyps="p40"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p27" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p21,p23,p25,p27"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p39" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p40" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p41" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p43" org.eventb.core.prHyps="p43"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="*" org.eventb.core.prGoal="p56">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with Wait50ms=TRUE" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p25" org.eventb.core.prInfHyps="p40"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p27" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p21,p23,p25,p27"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p39" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p40" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p41" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InitialiseBuzzer=FALSE" org.eventb.core.prHyps="p43">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p46"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p47"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p42" org.eventb.core.prInfHyps="p48"/>
+<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p22,p24,p42"/>
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with InitialiseSensor=FALSE" org.eventb.core.prGoal="p56" org.eventb.core.prHyps="p44">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p51">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p46" org.eventb.core.prInfHyps="p51"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p48" org.eventb.core.prInfHyps="p52"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p46,p48"/>
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p51" org.eventb.core.prHyps="p51"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="+" org.eventb.core.prGoal="p44">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with Wait50ms=TRUE" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p25" org.eventb.core.prInfHyps="p40"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p27" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p21,p23,p25,p27"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p39" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p40" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p41" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p44" org.eventb.core.prHyps="p44"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="SecBot" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧{InitialiseBuzzer}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{Wait50ms}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="InitialiseSensor=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p31" org.eventb.core.predicate="SCXML_uc∈BOOL">
+<org.eventb.core.prIdent name="SCXML_uc" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p32" org.eventb.core.predicate="SecBot∈BOOL"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="Go=TRUE⇒⊤"/>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="{InitialiseSensor}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p29" org.eventb.core.predicate="{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({FALSE}∩{TRUE})∪{TRUE}∧⊤∧{InitialiseBuzzer}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))∧InitialiseBuzzer=FALSE∧{InitialiseSensor}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))∧InitialiseSensor=FALSE"/>
+<org.eventb.core.prPred name="p41" org.eventb.core.predicate="{TRUE}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="{InitialiseBuzzer}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="SecBot=TRUE⇒partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{FALSE}∩{TRUE},{TRUE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p34" org.eventb.core.predicate="InitialiseSensor∈BOOL"/>
+<org.eventb.core.prPred name="p33" org.eventb.core.predicate="InitialiseBuzzer∈BOOL"/>
+<org.eventb.core.prPred name="p54" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p27" org.eventb.core.predicate="{Wait50ms}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p52" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})∪{TRUE}∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p50" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪{TRUE}"/>
+<org.eventb.core.prPred name="p42" org.eventb.core.predicate="{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪{TRUE}∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p49" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({FALSE}∩{TRUE})∪{TRUE}"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="InitialiseBuzzer=TRUE⇒⊤"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="Go=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p44" org.eventb.core.predicate="InitialiseSensor=FALSE"/>
+<org.eventb.core.prPred name="p56" org.eventb.core.predicate="{InitialiseSensor}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SecBot=TRUE"/>
+<org.eventb.core.prPred name="p39" org.eventb.core.predicate="{InitialiseBuzzer}∩{TRUE}∩{TRUE}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="⊤⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧{InitialiseBuzzer}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{Wait50ms}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p43" org.eventb.core.predicate="InitialiseBuzzer=FALSE"/>
+<org.eventb.core.prPred name="p36" org.eventb.core.predicate="Go∈BOOL"/>
+<org.eventb.core.prPred name="p28" org.eventb.core.predicate="{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({FALSE}∩{TRUE})∪{TRUE}∧{InitialiseBuzzer}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))∧InitialiseBuzzer=FALSE∧{InitialiseSensor}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))∧InitialiseSensor=FALSE"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="InitialiseBuzzer=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="InitialiseSensor=TRUE⇒⊤"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="Wait50ms=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="Wait50ms=TRUE"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="⊤⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p57" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="{InitialiseBuzzer}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧({InitialiseBuzzer}∩{TRUE})∩({InitialiseSensor}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({Wait50ms}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p30" org.eventb.core.predicate="{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({FALSE}∩{TRUE})∪{TRUE}∧{InitialiseBuzzer}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))∧InitialiseBuzzer=FALSE∧{InitialiseSensor}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))∧InitialiseSensor=FALSE"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="SecBot=TRUE⇒partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p38" org.eventb.core.predicate="{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({TRUE}∩{TRUE})∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p46" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p53" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})∪{TRUE}"/>
+<org.eventb.core.prPred name="p45" org.eventb.core.predicate="FALSE=Go"/>
+<org.eventb.core.prPred name="p59" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p51" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="{InitialiseSensor}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p37" org.eventb.core.predicate="{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({FALSE}∩{TRUE})∪{TRUE}"/>
+<org.eventb.core.prPred name="p47" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="{InitialiseBuzzer}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({FALSE}∩{TRUE})∪({TRUE}∩{TRUE})∧({InitialiseBuzzer}∩{TRUE})∩({InitialiseSensor}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({TRUE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({TRUE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({FALSE}∩{TRUE})∩({TRUE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p55" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}"/>
+<org.eventb.core.prPred name="p58" org.eventb.core.predicate="{InitialiseBuzzer}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p48" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪{TRUE}∪({Go}∩{TRUE})"/>
+<org.eventb.core.prPred name="p40" org.eventb.core.predicate="{InitialiseSensor}∩{TRUE}∩{TRUE}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({FALSE}∩{TRUE})∪{TRUE}∧{InitialiseBuzzer}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))∧InitialiseBuzzer=FALSE∧{InitialiseSensor}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))∧InitialiseSensor=FALSE"/>
+<org.eventb.core.prPred name="p35" org.eventb.core.predicate="Wait50ms∈BOOL"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="⊤⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({FALSE}∩{TRUE})∪{TRUE}∧{InitialiseBuzzer}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))∧InitialiseBuzzer=FALSE∧{InitialiseSensor}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))∧InitialiseSensor=FALSE"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.he:1"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="Wait50ms_Go/Wait50ms_substateof_SecBot/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2,p3"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p2,p3"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p5"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="p8" org.eventb.core.prInfHyps="p7"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p10"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="SecBot" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧({InitialiseBuzzer}∩{TRUE})∩({InitialiseSensor}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({Wait50ms}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧{InitialiseBuzzer}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{Wait50ms}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="SecBot=TRUE⇒partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE})">
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="Wait50ms=TRUE⇒SecBot=TRUE">
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SecBot=TRUE"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="Wait50ms=TRUE">
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="FALSE=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="⊤⇒SecBot=TRUE"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="Wait50ms_Go/Go_substateof_SecBot/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4,p5"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p4,p5"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p7"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="p2" org.eventb.core.prInfHyps="p8"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p10">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p8" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p10"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p10"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="SecBot" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="Wait50ms" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧({InitialiseBuzzer}∩{TRUE})∩({InitialiseSensor}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseBuzzer}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({Wait50ms}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({InitialiseSensor}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({Wait50ms}∩{TRUE})∩({Go}∩{TRUE})=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="SecBot=TRUE⇒{TRUE}=({InitialiseBuzzer}∩{TRUE})∪({InitialiseSensor}∩{TRUE})∪({Wait50ms}∩{TRUE})∪({Go}∩{TRUE})∧{InitialiseBuzzer}∩{TRUE}∩{InitialiseSensor}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseBuzzer}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Wait50ms}=(∅ ⦂ ℙ(BOOL))∧{InitialiseSensor}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))∧{Wait50ms}∩{TRUE}∩{Go}=(∅ ⦂ ℙ(BOOL))">
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="SecBot=TRUE⇒partition({TRUE},{InitialiseBuzzer}∩{TRUE},{InitialiseSensor}∩{TRUE},{Wait50ms}∩{TRUE},{Go}∩{TRUE})">
+<org.eventb.core.prIdent name="Go" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseBuzzer" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="InitialiseSensor" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="TRUE=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="Wait50ms=TRUE⇒SecBot=TRUE"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="SecBot=TRUE"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="Wait50ms=TRUE"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+<org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="⊤⇒SecBot=TRUE"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+</org.eventb.core.prProof>
+</org.eventb.core.prFile>

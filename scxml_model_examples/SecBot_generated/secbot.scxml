@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml" xmlns:iumlb="urn:xmlns:ac.soton.uk:iumlb" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" initial="SecBot" name="SecBot_Model" version="1.0" iumlb:refinement="0">
+  <state id="SecBot" iumlb:refinement="0">
+    <parallel id="SecBot_parallel">
+      <state id="ASIC" iumlb:refinement="0">
+        <initial iumlb:refinement="0">
+          <transition target="InitialiseBuzzer"/>
+        </initial>
+        <state id="InitialiseBuzzer" iumlb:refinement="2">
+          <transition cond="" event="spi_done" target="InitialiseSensor" iumlb:refinement="0"/>
+          <state id="IBConstructMessage" iumlb:refinement="2">
+            <transition target="IBWait">
+              <raise event="send_message"/>
+            </transition>
+          </state>
+          <state id="IBWait" iumlb:refinement="2"/>
+          <initial iumlb:refinement="2">
+            <transition target="IBConstructMessage"/>
+          </initial>
+        </state>
+        <state id="InitialiseSensor" iumlb:refinement="2">
+          <transition event="spi_done" target="Wait50ms" iumlb:refinement="0"/>
+          <state id="ISConstructMessage" iumlb:refinement="2">
+            <transition target="ISWait">
+              <raise event="send_message"/>
+            </transition>
+          </state>
+          <state id="ISWait" iumlb:refinement="2"/>
+          <initial iumlb:refinement="2">
+            <transition target="ISConstructMessage"/>
+          </initial>
+        </state>
+        <state id="Wait50ms" iumlb:refinement="2">
+          <transition cond="" target="Go" iumlb:refinement="0"/>
+          <state id="Increment" iumlb:refinement="2">
+            <transition cond="" event="tick" target="Increment">
+              <assign attr="cnt" expr="cnt+1" location="cnt"/>
+              <iumlb:guard name="stillCounting" iumlb:predicate="cnt &lt; 5"/>
+            </transition>
+            <transition cond="" target="WAITDone">
+              <iumlb:guard name="doneCounting" iumlb:predicate="cnt = 5"/>
+            </transition>
+          </state>
+          <initial iumlb:refinement="2">
+            <transition cond="cnt=0" target="Increment"/>
+          </initial>
+          <final id="WAITDone" iumlb:refinement="2"/>
+          <datamodel>
+            <data expr="0" id="cnt" src="" iumlb:type="NAT "/>
+          </datamodel>
+        </state>
+        <state id="Go"/>
+      </state>
+      <state id="SPI" iumlb:refinement="1">
+        <initial>
+          <transition target="Idle"/>
+        </initial>
+        <state id="Idle">
+          <transition event="send_message" target="SendingMessage"/>
+        </state>
+        <state id="SendingMessage">
+          <transition cond="" event="last_byte_sent" target="Idle">
+            <raise event="spi_done"/>
+          </transition>
+        </state>
+      </state>
+    </parallel>
+  </state>
+</scxml>

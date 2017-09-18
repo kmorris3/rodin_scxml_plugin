@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:statemachines="http://soton.ac.uk/models/eventb/statemachines/2014" xmi:id="_vdlm0JlZEeedMvqFCC4aGQ" type="Statemachines" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_vmaysJlZEeedMvqFCC4aGQ" type="2008">
+    <children xmi:type="notation:DecorationNode" xmi:id="_vmcn4JlZEeedMvqFCC4aGQ" type="5009"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_vmd2AJlZEeedMvqFCC4aGQ" type="7012">
+      <children xmi:type="notation:Node" xmi:id="_vnQgMJlZEeedMvqFCC4aGQ" type="3001">
+        <children xmi:type="notation:BasicCompartment" xmi:id="_vnRHQJlZEeedMvqFCC4aGQ" type="7003">
+          <children xmi:type="notation:Node" xmi:id="_vnZDEJlZEeedMvqFCC4aGQ" type="3011">
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_vnZDEZlZEeedMvqFCC4aGQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_vnZDEplZEeedMvqFCC4aGQ" fontName=".SF NS Text"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_vnZDE5lZEeedMvqFCC4aGQ"/>
+            <element xmi:type="statemachines:Initial" href="SecBot_Model_0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Initial::SecBot_Model_0.SecBot_Model_sm.SecBot.ASIC_sm.ASIC_sm_initialState"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vnZDFJlZEeedMvqFCC4aGQ"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vnZDFZlZEeedMvqFCC4aGQ" type="3013">
+            <children xmi:type="notation:DecorationNode" xmi:id="_vnZDGZlZEeedMvqFCC4aGQ" type="5008"/>
+            <children xmi:type="notation:BasicCompartment" xmi:id="_vnZDGplZEeedMvqFCC4aGQ" type="7014">
+              <styles xmi:type="notation:SortingStyle" xmi:id="_vnZDG5lZEeedMvqFCC4aGQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_vnZDHJlZEeedMvqFCC4aGQ"/>
+            </children>
+            <children xmi:type="notation:BasicCompartment" xmi:id="_vnZDHZlZEeedMvqFCC4aGQ" type="7015">
+              <styles xmi:type="notation:SortingStyle" xmi:id="_vnZDHplZEeedMvqFCC4aGQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_vnZDH5lZEeedMvqFCC4aGQ"/>
+            </children>
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_vnZDFplZEeedMvqFCC4aGQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_vnZDF5lZEeedMvqFCC4aGQ" fontName=".SF NS Text"/>
+            <element xmi:type="statemachines:State" href="SecBot_Model_0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::State::SecBot_Model_0.SecBot_Model_sm.SecBot.ASIC_sm.InitialiseBuzzer"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vnZDGJlZEeedMvqFCC4aGQ" x="4" y="55"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vnZqIJlZEeedMvqFCC4aGQ" type="3013">
+            <children xmi:type="notation:DecorationNode" xmi:id="_vnZqJJlZEeedMvqFCC4aGQ" type="5008"/>
+            <children xmi:type="notation:BasicCompartment" xmi:id="_vnZqJZlZEeedMvqFCC4aGQ" type="7014">
+              <styles xmi:type="notation:SortingStyle" xmi:id="_vnZqJplZEeedMvqFCC4aGQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_vnZqJ5lZEeedMvqFCC4aGQ"/>
+            </children>
+            <children xmi:type="notation:BasicCompartment" xmi:id="_vnZqKJlZEeedMvqFCC4aGQ" type="7015">
+              <styles xmi:type="notation:SortingStyle" xmi:id="_vnZqKZlZEeedMvqFCC4aGQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_vnZqKplZEeedMvqFCC4aGQ"/>
+            </children>
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_vnZqIZlZEeedMvqFCC4aGQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_vnZqIplZEeedMvqFCC4aGQ" fontName=".SF NS Text"/>
+            <element xmi:type="statemachines:State" href="SecBot_Model_0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::State::SecBot_Model_0.SecBot_Model_sm.SecBot.ASIC_sm.InitialiseSensor"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vnZqI5lZEeedMvqFCC4aGQ" x="8" y="167"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vnZqK5lZEeedMvqFCC4aGQ" type="3013">
+            <children xmi:type="notation:DecorationNode" xmi:id="_vnZqL5lZEeedMvqFCC4aGQ" type="5008"/>
+            <children xmi:type="notation:BasicCompartment" xmi:id="_vnZqMJlZEeedMvqFCC4aGQ" type="7014">
+              <styles xmi:type="notation:SortingStyle" xmi:id="_vnZqMZlZEeedMvqFCC4aGQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_vnZqMplZEeedMvqFCC4aGQ"/>
+            </children>
+            <children xmi:type="notation:BasicCompartment" xmi:id="_vnZqM5lZEeedMvqFCC4aGQ" type="7015">
+              <styles xmi:type="notation:SortingStyle" xmi:id="_vnZqNJlZEeedMvqFCC4aGQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_vnZqNZlZEeedMvqFCC4aGQ"/>
+            </children>
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_vnZqLJlZEeedMvqFCC4aGQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_vnZqLZlZEeedMvqFCC4aGQ" fontName=".SF NS Text"/>
+            <element xmi:type="statemachines:State" href="SecBot_Model_0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::State::SecBot_Model_0.SecBot_Model_sm.SecBot.ASIC_sm.Wait50ms"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vnZqLplZEeedMvqFCC4aGQ" x="16" y="279"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_vnaRMJlZEeedMvqFCC4aGQ" type="3013">
+            <children xmi:type="notation:DecorationNode" xmi:id="_vnaRNJlZEeedMvqFCC4aGQ" type="5008"/>
+            <children xmi:type="notation:BasicCompartment" xmi:id="_vnaRNZlZEeedMvqFCC4aGQ" type="7014">
+              <styles xmi:type="notation:SortingStyle" xmi:id="_vnaRNplZEeedMvqFCC4aGQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_vnaRN5lZEeedMvqFCC4aGQ"/>
+            </children>
+            <children xmi:type="notation:BasicCompartment" xmi:id="_vnaROJlZEeedMvqFCC4aGQ" type="7015">
+              <styles xmi:type="notation:SortingStyle" xmi:id="_vnaROZlZEeedMvqFCC4aGQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_vnaROplZEeedMvqFCC4aGQ"/>
+            </children>
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_vnaRMZlZEeedMvqFCC4aGQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_vnaRMplZEeedMvqFCC4aGQ" fontName=".SF NS Text"/>
+            <element xmi:type="statemachines:State" href="SecBot_Model_0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::State::SecBot_Model_0.SecBot_Model_sm.SecBot.ASIC_sm.Go"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vnaRM5lZEeedMvqFCC4aGQ" x="28" y="367"/>
+          </children>
+        </children>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_vnQgMZlZEeedMvqFCC4aGQ"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_vnQgMplZEeedMvqFCC4aGQ" fontName=".SF NS Text"/>
+        <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_vnQgM5lZEeedMvqFCC4aGQ"/>
+        <element xmi:type="statemachines:Statemachine" href="SecBot_Model_0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Statemachine::SecBot_Model_0.SecBot_Model_sm.SecBot.ASIC_sm"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vnQgNJlZEeedMvqFCC4aGQ"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_vmd2AZlZEeedMvqFCC4aGQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_vmd2AplZEeedMvqFCC4aGQ"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_vmd2A5lZEeedMvqFCC4aGQ" type="7013">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_vmd2BJlZEeedMvqFCC4aGQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_vmd2BZlZEeedMvqFCC4aGQ"/>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_vmaysZlZEeedMvqFCC4aGQ"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_vmaysplZEeedMvqFCC4aGQ" fontName=".SF NS Text"/>
+    <element xmi:type="statemachines:State" href="SecBot_Model_0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::State::SecBot_Model_0.SecBot_Model_sm.SecBot"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vmays5lZEeedMvqFCC4aGQ" x="120" y="96" height="457"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_vmedEJlZEeedMvqFCC4aGQ" type="2006">
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_vmedEZlZEeedMvqFCC4aGQ"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_vmedEplZEeedMvqFCC4aGQ" fontName=".SF NS Text"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_vmedE5lZEeedMvqFCC4aGQ"/>
+    <element xmi:type="statemachines:Initial" href="SecBot_Model_0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Initial::SecBot_Model_0.SecBot_Model_sm.SecBot_Model_initialState"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vmedFJlZEeedMvqFCC4aGQ" x="160" y="4"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_vdlm0ZlZEeedMvqFCC4aGQ"/>
+  <element xmi:type="statemachines:Statemachine" href="SecBot_Model_0.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Statemachine::SecBot_Model_0.SecBot_Model_sm"/>
+</notation:Diagram>
