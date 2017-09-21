@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.comment="(generated for SCXML)" org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="true" version="3">
-<org.eventb.core.carrierSet name="_51q28JlDEeeu2r5d_pGsig" org.eventb.core.comment="all possible triggers" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_TRIGGER"/>
-<org.eventb.core.constant name="_51q28ZlDEeeu2r5d_pGsig" org.eventb.core.comment="all possible internal triggers" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureInternalTrigger"/>
-<org.eventb.core.constant name="_51reAJlDEeeu2r5d_pGsig" org.eventb.core.comment="all possible external triggers" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureExternalTrigger"/>
-<org.eventb.core.axiom name="_51reAZlDEeeu2r5d_pGsig" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.carrierSet name="_ZT2XMJ75Eee9l9UTdTLXvQ" org.eventb.core.comment="all possible triggers" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_TRIGGER"/>
+<org.eventb.core.constant name="_ZT4MYJ75Eee9l9UTdTLXvQ" org.eventb.core.comment="all possible internal triggers" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureInternalTrigger"/>
+<org.eventb.core.constant name="_ZT4MYZ75Eee9l9UTdTLXvQ" org.eventb.core.comment="all possible external triggers" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureExternalTrigger"/>
+<org.eventb.core.axiom name="_ZT4MYp75Eee9l9UTdTLXvQ" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)"/>
 </org.eventb.core.contextFile>
