@@ -18,9 +18,6 @@
 <org.eventb.core.action name="_9iHrQFlgEeeHofYqGaGKwQ" org.eventb.core.assignment="E1 ≔ TRUE" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="init_E1" org.eventb.emf.persistence.generator_ID="ac.soton.eventb.statemachines._ULoqsFjxEeeHofYqGaGKwQ" org.eventb.emf.persistence.priority="1"/>
 <org.eventb.core.action name="_9iHrQVlgEeeHofYqGaGKwQ" org.eventb.core.assignment="E2 ≔ FALSE" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="init_E2" org.eventb.emf.persistence.generator_ID="ac.soton.eventb.statemachines._ULoqsFjxEeeHofYqGaGKwQ" org.eventb.emf.persistence.priority="10"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImF" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SCXML_futureInternalTrigger">
-<org.eventb.core.refinesEvent name="'" org.eventb.core.target="SCXML_futureInternalTrigger"/>
-</org.eventb.core.event>
 <org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImG" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SCXML_futureExternalTrigger">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="SCXML_futureExternalTrigger"/>
 </org.eventb.core.event>

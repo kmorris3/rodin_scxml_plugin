@@ -17,10 +17,6 @@
 <org.eventb.core.action name="_vQHiE1lcEeeHofYqGaGKwQ" org.eventb.core.assignment="B ≔ FALSE" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="init_B" org.eventb.emf.persistence.generator_ID="ac.soton.eventb.statemachines._ULoqsFjxEeeHofYqGaGKwQ" org.eventb.emf.persistence.priority="10"/>
 <org.eventb.core.action name="_vQHiFFlcEeeHofYqGaGKwQ" org.eventb.core.assignment="D ≔ FALSE" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="init_D" org.eventb.emf.persistence.generator_ID="ac.soton.eventb.statemachines._ULoqsFjxEeeHofYqGaGKwQ" org.eventb.emf.persistence.priority="10"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImF" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SCXML_futureInternalTrigger">
-<org.eventb.core.refinesEvent name="'" org.eventb.core.target="SCXML_futureInternalTrigger"/>
-<org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger0"/>
-</org.eventb.core.event>
 <org.eventb.core.event name="_vKYeoDZLEeeuOIrRIxAImG" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="SCXML_futureExternalTrigger">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="SCXML_futureExternalTrigger"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="SCXML_raisedTriggers ⊆ SCXML_FutureExternalTrigger0"/>
