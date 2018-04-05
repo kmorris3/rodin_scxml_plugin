@@ -4124,8 +4124,8 @@
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="SCXML_iq∩SCXML_eq=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="SCXML_uc∈BOOL"/>
 <org.eventb.core.prPred name="p8" org.eventb.core.predicate="SCXML_uc=TRUE"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="SCXML_futureInternalTransitionSet/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
@@ -4152,7 +4152,7 @@
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="SCXML_uc∈BOOL"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="SCXML_it∈SCXML_iq"/>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="SCXML_uc=TRUE"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 </org.eventb.core.prProof>
 </org.eventb.core.prFile>
