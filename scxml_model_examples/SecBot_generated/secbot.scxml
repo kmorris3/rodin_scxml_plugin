@@ -7,9 +7,7 @@
           <transition target="InitialiseBuzzer"/>
         </initial>
         <state id="InitialiseBuzzer" iumlb:refinement="2">
-          <transition cond="" event="spi_done" target="InitialiseSensor" iumlb:refinement="0">
-            <raise event="send_message"/>
-          </transition>
+          <transition cond="" event="spi_done" target="InitialiseSensor"/>
           <state id="IBConstructMessage" iumlb:refinement="2">
             <transition target="IBWait">
               <raise event="send_message"/>
@@ -21,9 +19,7 @@
           </initial>
         </state>
         <state id="InitialiseSensor" iumlb:refinement="2">
-          <transition event="spi_done" target="Wait50ms" iumlb:refinement="0">
-            <raise event="send_message"/>
-          </transition>
+          <transition event="spi_done" target="Wait50ms"/>
           <state id="ISConstructMessage" iumlb:refinement="2">
             <transition target="ISWait">
               <raise event="send_message"/>
@@ -35,6 +31,8 @@
           </initial>
         </state>
         <state id="Wait50ms" iumlb:refinement="2">
+          <iumlb:invariant name="noSendMessageinWait50ms" iumlb:predicate="send_message ∉ SCXML_iq" iumlb:refinement="1"/>
+          <iumlb:invariant name="spi_idle_in_Wait50ms" iumlb:predicate="Idle = TRUE" iumlb:refinement="1"/>
           <transition cond="" target="Go" iumlb:refinement="0"/>
           <state id="Increment" iumlb:refinement="2">
             <transition cond="" event="tick" target="Increment">
@@ -53,7 +51,10 @@
             <data expr="0" id="cnt" src="" iumlb:type="NAT "/>
           </datamodel>
         </state>
-        <state id="Go"/>
+        <state id="Go">
+          <iumlb:invariant name="noSendMessageinGO" iumlb:predicate="send_message ∉ SCXML_iq" iumlb:refinement="1"/>
+          <iumlb:invariant name="spi_idle_in_Go" iumlb:predicate="Idle = TRUE" iumlb:refinement="1"/>
+        </state>
       </state>
       <state id="SPI" iumlb:refinement="1">
         <initial>
@@ -63,6 +64,10 @@
           <transition event="send_message" target="SendingMessage"/>
         </state>
         <state id="SendingMessage">
+        <!--
+          <iumlb:invariant name="not_Wait50ms_in_SendingMessage" iumlb:predicate="Wait50ms = FALSE" iumlb:refinement="1"/>
+          <iumlb:invariant name="not_GO_in_SendingMessage" iumlb:predicate="Go = FALSE" iumlb:refinement="1"/>
+         -->
           <transition cond="" event="last_byte_sent" target="Idle">
             <raise event="spi_done"/>
           </transition>

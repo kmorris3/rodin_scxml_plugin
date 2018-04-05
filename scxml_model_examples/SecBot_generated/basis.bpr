@@ -26,9 +26,9 @@
 <org.eventb.core.prPred name="p2" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
 <org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="INITIALISATION/typeof_SCXML_eq/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
@@ -56,9 +56,9 @@
 <org.eventb.core.prPred name="p2" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="INITIALISATION/disjointQueues/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
@@ -88,9 +88,9 @@
 <org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="SCXML_futureExternalTrigger/typeof_SCXML_eq/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
@@ -132,10 +132,10 @@
 <org.eventb.core.prPred name="p4" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="SCXML_futureExternalTrigger/disjointQueues/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
@@ -171,8 +171,8 @@
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="SCXML_iq∩(SCXML_eq∪SCXML_raisedTriggers)=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="SCXML_futureExternalTransitionSet/typeof_SCXML_iq/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
@@ -214,10 +214,10 @@
 <org.eventb.core.prPred name="p4" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
 <org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="SCXML_futureExternalTransitionSet/typeof_SCXML_eq/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
@@ -256,8 +256,8 @@
 <org.eventb.core.prPred name="p8" org.eventb.core.predicate="SCXML_uc=TRUE"/>
 <org.eventb.core.prPred name="p9" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="SCXML_futureExternalTransitionSet/disjointQueues/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
@@ -316,9 +316,9 @@
 <org.eventb.core.prPred name="p14" org.eventb.core.predicate="((∅ ⦂ ℙ(SCXML_TRIGGER))∪SCXML_raisedTriggers)∩SCXML_eq⊆{SCXML_et}"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r4" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="SCXML_futureInternalTransitionSet/typeof_SCXML_iq/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
@@ -356,8 +356,8 @@
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="SCXML_uc=TRUE"/>
 <org.eventb.core.prPred name="p8" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="SCXML_futureInternalTransitionSet/disjointQueues/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
@@ -401,8 +401,8 @@
 <org.eventb.core.prPred name="p8" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="SCXML_futureUntriggeredTransitionSet/typeof_SCXML_iq/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
@@ -444,10 +444,10 @@
 <org.eventb.core.prPred name="p4" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
 <org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="SCXML_futureUntriggeredTransitionSet/disjointQueues/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
@@ -483,7 +483,7 @@
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="SCXML_raisedTriggers⊆SCXML_FutureInternalTrigger"/>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 </org.eventb.core.prProof>
 </org.eventb.core.prFile>
