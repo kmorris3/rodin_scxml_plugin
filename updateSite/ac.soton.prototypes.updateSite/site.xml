@@ -141,6 +141,12 @@
    <feature url="features/ac.soton.coda.vhdl.sdk_0.0.5.201803201022.jar" id="ac.soton.coda.vhdl.sdk" version="0.0.5.201803201022">
       <category name="Utilities"/>
    </feature>
+   <feature url="features/ac.soton.scxml.eventb.feature_0.1.0.201804041310.jar" id="ac.soton.scxml.eventb.feature" version="0.1.0.201804041310">
+      <category name="SCXML"/>
+   </feature>
+   <feature url="features/ac.soton.scxml.sirius.feature_0.0.1.201804041425.jar" id="ac.soton.scxml.sirius.feature" version="0.0.1.201804041425">
+      <category name="SCXML"/>
+   </feature>
    <category-def name="Composition_and_Decomposition" label="Composition and Decomposition">
       <description>
          Tools that support model composition and decomposition.
