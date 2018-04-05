@@ -16,7 +16,7 @@
           <transition target="C"/>
         </initial>
         <state id="C">
-          <transition event="ext_trig" target="D">
+          <transition event="ext_trig" target="D" type="external">
             <raise event="int_trig"/>
           </transition>
         </state>
