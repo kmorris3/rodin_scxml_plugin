@@ -33,7 +33,9 @@
         <state id="Wait50ms" iumlb:refinement="2">
           <iumlb:invariant name="noSendMessageinWait50ms" iumlb:predicate="send_message ∉ SCXML_iq" iumlb:refinement="1"/>
           <iumlb:invariant name="spi_idle_in_Wait50ms" iumlb:predicate="Idle = TRUE" iumlb:refinement="1"/>
-          <transition cond="" target="Go" iumlb:refinement="0"/>
+          <transition cond="" target="Go" iumlb:refinement="0">
+            <iumlb:guard name="dontRaiseSendMessage" iumlb:predicate="send_message ∉ SCXML_raisedTriggers" iumlb:refinement="1"/>
+          </transition>
           <state id="Increment" iumlb:refinement="2">
             <transition cond="" event="tick" target="Increment">
               <assign attr="cnt" expr="cnt+1" location="cnt"/>
@@ -64,10 +66,6 @@
           <transition event="send_message" target="SendingMessage"/>
         </state>
         <state id="SendingMessage">
-        <!--
-          <iumlb:invariant name="not_Wait50ms_in_SendingMessage" iumlb:predicate="Wait50ms = FALSE" iumlb:refinement="1"/>
-          <iumlb:invariant name="not_GO_in_SendingMessage" iumlb:predicate="Go = FALSE" iumlb:refinement="1"/>
-         -->
           <transition cond="" event="last_byte_sent" target="Idle">
             <raise event="spi_done"/>
           </transition>
