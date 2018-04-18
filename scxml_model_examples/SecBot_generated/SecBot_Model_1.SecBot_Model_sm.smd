@@ -40,7 +40,7 @@
             <styles xmi:type="notation:DescriptionStyle" xmi:id="_6J8b3JlZEeedMvqFCC4aGQ"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_6J8b3ZlZEeedMvqFCC4aGQ" fontName=".SF NS Text"/>
             <element xmi:type="statemachines:State" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::State::SecBot_Model_1.SecBot_Model_sm.SecBot.ASIC_sm.InitialiseSensor"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6J8b3plZEeedMvqFCC4aGQ" x="72" y="147" width="81" height="113"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6J8b3plZEeedMvqFCC4aGQ" x="72" y="147" width="257" height="113"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_6J8b5plZEeedMvqFCC4aGQ" type="3013">
             <children xmi:type="notation:DecorationNode" xmi:id="_6J8b6plZEeedMvqFCC4aGQ" type="5008"/>
@@ -55,7 +55,7 @@
             <styles xmi:type="notation:DescriptionStyle" xmi:id="_6J8b55lZEeedMvqFCC4aGQ"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_6J8b6JlZEeedMvqFCC4aGQ" fontName=".SF NS Text"/>
             <element xmi:type="statemachines:State" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::State::SecBot_Model_1.SecBot_Model_sm.SecBot.ASIC_sm.Wait50ms"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6J8b6ZlZEeedMvqFCC4aGQ" x="296" y="11"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6J8b6ZlZEeedMvqFCC4aGQ" x="396" y="11"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_6J9C4JlZEeedMvqFCC4aGQ" type="3013">
             <children xmi:type="notation:DecorationNode" xmi:id="_6J9C5JlZEeedMvqFCC4aGQ" type="5008"/>
@@ -70,7 +70,7 @@
             <styles xmi:type="notation:DescriptionStyle" xmi:id="_6J9C4ZlZEeedMvqFCC4aGQ"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_6J9C4plZEeedMvqFCC4aGQ" fontName=".SF NS Text"/>
             <element xmi:type="statemachines:State" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::State::SecBot_Model_1.SecBot_Model_sm.SecBot.ASIC_sm.Go"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6J9C45lZEeedMvqFCC4aGQ" x="296" y="195"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6J9C45lZEeedMvqFCC4aGQ" x="392" y="147"/>
           </children>
         </children>
         <styles xmi:type="notation:DescriptionStyle" xmi:id="_6J6moZlZEeedMvqFCC4aGQ"/>
@@ -146,76 +146,76 @@
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_6I-ygZlZEeedMvqFCC4aGQ"/>
   <element xmi:type="statemachines:Statemachine" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Statemachine::SecBot_Model_1.SecBot_Model_sm"/>
-  <edges xmi:type="notation:Edge" xmi:id="_SrYMYDjeEeisrP81HZcQAA" type="4001" source="_6J4xe5lZEeedMvqFCC4aGQ" target="_6J4xcJlZEeedMvqFCC4aGQ">
-    <children xmi:type="notation:DecorationNode" xmi:id="_SrYMZDjeEeisrP81HZcQAA" type="6001">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_SrYMZTjeEeisrP81HZcQAA" x="-8" y="-8"/>
+  <edges xmi:type="notation:Edge" xmi:id="_JYld0EMPEeiDP45dYyysfg" type="4001" source="_6J4xe5lZEeedMvqFCC4aGQ" target="_6J4xcJlZEeedMvqFCC4aGQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_JYmE4EMPEeiDP45dYyysfg" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_JYmE4UMPEeiDP45dYyysfg" x="-8" y="-8"/>
     </children>
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_SrYMYTjeEeisrP81HZcQAA" routing="Rectilinear"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_SrYMYjjeEeisrP81HZcQAA" fontName=".AppleSystemUIFont"/>
-    <element xmi:type="statemachines:Transition" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::SecBot_Model_1.SecBot_Model_sm._SiGUlTjeEeisrP81HZcQAA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SrYMYzjeEeisrP81HZcQAA" points="[10, 2, -232, -274]$[172, 2, -70, -274]$[172, 38, -70, -238]"/>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_JYld0UMPEeiDP45dYyysfg" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_JYld0kMPEeiDP45dYyysfg" fontName=".AppleSystemUIFont"/>
+    <element xmi:type="statemachines:Transition" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::SecBot_Model_1.SecBot_Model_sm._JTjM10MPEeiDP45dYyysfg"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_JYld00MPEeiDP45dYyysfg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_SraBkDjeEeisrP81HZcQAA" type="4001" source="_6J8b25lZEeedMvqFCC4aGQ" target="_6J8b5plZEeedMvqFCC4aGQ">
-    <children xmi:type="notation:DecorationNode" xmi:id="_SraBlDjeEeisrP81HZcQAA" type="6001">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_SraBlTjeEeisrP81HZcQAA" x="-8" y="-8"/>
+  <edges xmi:type="notation:Edge" xmi:id="_JYmr8EMPEeiDP45dYyysfg" type="4001" source="_6J8b25lZEeedMvqFCC4aGQ" target="_6J8b5plZEeedMvqFCC4aGQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_JYmr9EMPEeiDP45dYyysfg" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_JYmr9UMPEeiDP45dYyysfg" x="-8" y="-8"/>
     </children>
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_SraBkTjeEeisrP81HZcQAA" routing="Rectilinear"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_SraBkjjeEeisrP81HZcQAA" fontName=".AppleSystemUIFont"/>
-    <element xmi:type="statemachines:Transition" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::SecBot_Model_1.SecBot_Model_sm.SecBot.ASIC_sm._SiFtgDjeEeisrP81HZcQAA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SraBkzjeEeisrP81HZcQAA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_JYmr8UMPEeiDP45dYyysfg" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_JYmr8kMPEeiDP45dYyysfg" fontName=".AppleSystemUIFont"/>
+    <element xmi:type="statemachines:Transition" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::SecBot_Model_1.SecBot_Model_sm.SecBot.ASIC_sm._JTjM0EMPEeiDP45dYyysfg"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_JYmr80MPEeiDP45dYyysfg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_Srb2wDjeEeisrP81HZcQAA" type="4001" source="_6J8b0JlZEeedMvqFCC4aGQ" target="_6J8b25lZEeedMvqFCC4aGQ">
-    <children xmi:type="notation:DecorationNode" xmi:id="_Srb2xDjeEeisrP81HZcQAA" type="6001">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_Srb2xTjeEeisrP81HZcQAA" x="-8" y="-8"/>
+  <edges xmi:type="notation:Edge" xmi:id="_JYnTAEMPEeiDP45dYyysfg" type="4001" source="_6J70wJlZEeedMvqFCC4aGQ" target="_6J8b0JlZEeedMvqFCC4aGQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_JYnTBEMPEeiDP45dYyysfg" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_JYnTBUMPEeiDP45dYyysfg" x="-8" y="-8"/>
     </children>
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_Srb2wTjeEeisrP81HZcQAA" routing="Rectilinear"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_Srb2wjjeEeisrP81HZcQAA" fontName=".AppleSystemUIFont"/>
-    <element xmi:type="statemachines:Transition" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::SecBot_Model_1.SecBot_Model_sm.SecBot.ASIC_sm._SiFtgTjeEeisrP81HZcQAA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Srb2wzjeEeisrP81HZcQAA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_JYnTAUMPEeiDP45dYyysfg" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_JYnTAkMPEeiDP45dYyysfg" fontName=".AppleSystemUIFont"/>
+    <element xmi:type="statemachines:Transition" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::SecBot_Model_1.SecBot_Model_sm.SecBot.ASIC_sm._JTjM0UMPEeiDP45dYyysfg"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_JYnTA0MPEeiDP45dYyysfg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_Srdr8DjeEeisrP81HZcQAA" type="4001" source="_6J8b5plZEeedMvqFCC4aGQ" target="_6J9C4JlZEeedMvqFCC4aGQ">
-    <children xmi:type="notation:DecorationNode" xmi:id="_Srdr9DjeEeisrP81HZcQAA" type="6001">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_Srdr9TjeEeisrP81HZcQAA" x="-8" y="-8"/>
+  <edges xmi:type="notation:Edge" xmi:id="_JYn6EEMPEeiDP45dYyysfg" type="4001" source="_6J8b5plZEeedMvqFCC4aGQ" target="_6J9C4JlZEeedMvqFCC4aGQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_JYn6FEMPEeiDP45dYyysfg" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_JYohIEMPEeiDP45dYyysfg" x="-8" y="-8"/>
     </children>
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_Srdr8TjeEeisrP81HZcQAA" routing="Rectilinear"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_Srdr8jjeEeisrP81HZcQAA" fontName=".AppleSystemUIFont"/>
-    <element xmi:type="statemachines:Transition" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::SecBot_Model_1.SecBot_Model_sm.SecBot.ASIC_sm._SiGUkDjeEeisrP81HZcQAA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Srdr8zjeEeisrP81HZcQAA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_JYn6EUMPEeiDP45dYyysfg" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_JYn6EkMPEeiDP45dYyysfg" fontName=".AppleSystemUIFont"/>
+    <element xmi:type="statemachines:Transition" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::SecBot_Model_1.SecBot_Model_sm.SecBot.ASIC_sm._JTjM0kMPEeiDP45dYyysfg"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_JYn6E0MPEeiDP45dYyysfg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_SrfhIDjeEeisrP81HZcQAA" type="4001" source="_6J70wJlZEeedMvqFCC4aGQ" target="_6J8b0JlZEeedMvqFCC4aGQ">
-    <children xmi:type="notation:DecorationNode" xmi:id="_SrfhJDjeEeisrP81HZcQAA" type="6001">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_SrfhJTjeEeisrP81HZcQAA" x="-8" y="-8"/>
+  <edges xmi:type="notation:Edge" xmi:id="_JYpIMEMPEeiDP45dYyysfg" type="4001" source="_6J8b0JlZEeedMvqFCC4aGQ" target="_6J8b25lZEeedMvqFCC4aGQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_JYpINEMPEeiDP45dYyysfg" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_JYpINUMPEeiDP45dYyysfg" x="-8" y="-8"/>
     </children>
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_SrfhITjeEeisrP81HZcQAA" routing="Rectilinear"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_SrfhIjjeEeisrP81HZcQAA" fontName=".AppleSystemUIFont"/>
-    <element xmi:type="statemachines:Transition" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::SecBot_Model_1.SecBot_Model_sm.SecBot.ASIC_sm._SiGUkTjeEeisrP81HZcQAA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SrfhIzjeEeisrP81HZcQAA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_JYpIMUMPEeiDP45dYyysfg" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_JYpIMkMPEeiDP45dYyysfg" fontName=".AppleSystemUIFont"/>
+    <element xmi:type="statemachines:Transition" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::SecBot_Model_1.SecBot_Model_sm.SecBot.ASIC_sm._JTjM00MPEeiDP45dYyysfg"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_JYpIM0MPEeiDP45dYyysfg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_SrhWUDjeEeisrP81HZcQAA" type="4001" source="_6KLscJlZEeedMvqFCC4aGQ" target="_6KLsZZlZEeedMvqFCC4aGQ">
-    <children xmi:type="notation:DecorationNode" xmi:id="_Srh9YDjeEeisrP81HZcQAA" type="6001">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_Srh9YTjeEeisrP81HZcQAA" x="-8" y="-8"/>
+  <edges xmi:type="notation:Edge" xmi:id="_JYpvQEMPEeiDP45dYyysfg" type="4001" source="_6KLscJlZEeedMvqFCC4aGQ" target="_6KLsZZlZEeedMvqFCC4aGQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_JYpvREMPEeiDP45dYyysfg" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_JYpvRUMPEeiDP45dYyysfg" x="-8" y="-8"/>
     </children>
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_SrhWUTjeEeisrP81HZcQAA" routing="Rectilinear"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_SrhWUjjeEeisrP81HZcQAA" fontName=".AppleSystemUIFont"/>
-    <element xmi:type="statemachines:Transition" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::SecBot_Model_1.SecBot_Model_sm.SecBot.SPI_sm._SiGUkjjeEeisrP81HZcQAA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SrhWUzjeEeisrP81HZcQAA" points="[0, 20, 213, 20]$[0, 47, 213, 47]$[-213, 47, 0, 47]$[-213, 20, 0, 20]"/>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_JYpvQUMPEeiDP45dYyysfg" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_JYpvQkMPEeiDP45dYyysfg" fontName=".AppleSystemUIFont"/>
+    <element xmi:type="statemachines:Transition" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::SecBot_Model_1.SecBot_Model_sm.SecBot.SPI_sm._JTjM1EMPEeiDP45dYyysfg"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_JYpvQ0MPEeiDP45dYyysfg" points="[0, -20, 213, -20]$[0, -41, 213, -41]$[-213, -41, 0, -41]$[-213, -20, 0, -20]"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_SrjLgDjeEeisrP81HZcQAA" type="4001" source="_6KLsZZlZEeedMvqFCC4aGQ" target="_6KLscJlZEeedMvqFCC4aGQ">
-    <children xmi:type="notation:DecorationNode" xmi:id="_SrjLhDjeEeisrP81HZcQAA" type="6001">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_SrjLhTjeEeisrP81HZcQAA" x="-8" y="-8"/>
+  <edges xmi:type="notation:Edge" xmi:id="_JYqWUEMPEeiDP45dYyysfg" type="4001" source="_6KLsZZlZEeedMvqFCC4aGQ" target="_6KLscJlZEeedMvqFCC4aGQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_JYqWVEMPEeiDP45dYyysfg" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_JYqWVUMPEeiDP45dYyysfg" x="-8" y="-8"/>
     </children>
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_SrjLgTjeEeisrP81HZcQAA" routing="Rectilinear"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_SrjLgjjeEeisrP81HZcQAA" fontName=".AppleSystemUIFont"/>
-    <element xmi:type="statemachines:Transition" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::SecBot_Model_1.SecBot_Model_sm.SecBot.SPI_sm._SiGUkzjeEeisrP81HZcQAA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SrjLgzjeEeisrP81HZcQAA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_JYqWUUMPEeiDP45dYyysfg" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_JYqWUkMPEeiDP45dYyysfg" fontName=".AppleSystemUIFont"/>
+    <element xmi:type="statemachines:Transition" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::SecBot_Model_1.SecBot_Model_sm.SecBot.SPI_sm._JTjM1UMPEeiDP45dYyysfg"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_JYqWU0MPEeiDP45dYyysfg" points="[0, 20, -213, 20]$[0, 35, -213, 35]$[213, 35, 0, 35]$[213, 20, 0, 20]"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_SrlAsDjeEeisrP81HZcQAA" type="4001" source="_6KLsYJlZEeedMvqFCC4aGQ" target="_6KLsZZlZEeedMvqFCC4aGQ">
-    <children xmi:type="notation:DecorationNode" xmi:id="_SrlAtDjeEeisrP81HZcQAA" type="6001">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_SrlAtTjeEeisrP81HZcQAA" x="-8" y="-8"/>
+  <edges xmi:type="notation:Edge" xmi:id="_JYq9YEMPEeiDP45dYyysfg" type="4001" source="_6KLsYJlZEeedMvqFCC4aGQ" target="_6KLsZZlZEeedMvqFCC4aGQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_JYq9ZEMPEeiDP45dYyysfg" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_JYq9ZUMPEeiDP45dYyysfg" x="-8" y="-8"/>
     </children>
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_SrlAsTjeEeisrP81HZcQAA" routing="Rectilinear"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_SrlAsjjeEeisrP81HZcQAA" fontName=".AppleSystemUIFont"/>
-    <element xmi:type="statemachines:Transition" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::SecBot_Model_1.SecBot_Model_sm.SecBot.SPI_sm._SiGUlDjeEeisrP81HZcQAA"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SrlAszjeEeisrP81HZcQAA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_JYq9YUMPEeiDP45dYyysfg" routing="Rectilinear"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_JYq9YkMPEeiDP45dYyysfg" fontName=".AppleSystemUIFont"/>
+    <element xmi:type="statemachines:Transition" href="SecBot_Model_1.bum#http://soton.ac.uk/models/eventb/statemachines/2014::Transition::SecBot_Model_1.SecBot_Model_sm.SecBot.SPI_sm._JTjM1kMPEeiDP45dYyysfg"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_JYq9Y0MPEeiDP45dYyysfg" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
   </edges>
 </notation:Diagram>

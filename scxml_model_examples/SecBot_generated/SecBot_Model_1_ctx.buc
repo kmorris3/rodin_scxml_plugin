@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.comment="(generated from SCXML file: /SecBot_generated/secbot.scxml)" org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="true" version="3">
-<org.eventb.core.extendsContext name="_SirjYDjeEeisrP81HZcQAA" org.eventb.core.target="SecBot_Model_0_ctx"/>
-<org.eventb.core.constant name="_SirjYTjeEeisrP81HZcQAA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureInternalTrigger1"/>
-<org.eventb.core.constant name="_SirjYjjeEeisrP81HZcQAA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureExternalTrigger1"/>
-<org.eventb.core.constant name="_SirjYzjeEeisrP81HZcQAA" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="last_byte_sent"/>
-<org.eventb.core.constant name="_SirjZDjeEeisrP81HZcQAA" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="send_message"/>
-<org.eventb.core.axiom name="_SirjZTjeEeisrP81HZcQAA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTrigger1" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger0,SCXML_FutureExternalTrigger1,{last_byte_sent})"/>
-<org.eventb.core.axiom name="_SisKcDjeEeisrP81HZcQAA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureInternalTrigger1" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger0,SCXML_FutureInternalTrigger1,{send_message})"/>
-<org.eventb.core.axiom name="_SisKcTjeEeisrP81HZcQAA" org.eventb.core.comment="help ProB" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTriggerProB1" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,{last_byte_sent}, SCXML_FutureExternalTrigger1)"/>
-<org.eventb.core.axiom name="_SisKcjjeEeisrP81HZcQAA" org.eventb.core.comment="help ProB" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureInternalTriggerProB1" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger,{spi_done},{send_message}, SCXML_FutureInternalTrigger1)"/>
+<org.eventb.core.extendsContext name="_JTx2UEMPEeiDP45dYyysfg" org.eventb.core.target="SecBot_Model_0_ctx"/>
+<org.eventb.core.constant name="_JTydYEMPEeiDP45dYyysfg" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureInternalTrigger1"/>
+<org.eventb.core.constant name="_JTydYUMPEeiDP45dYyysfg" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureExternalTrigger1"/>
+<org.eventb.core.constant name="_JTydYkMPEeiDP45dYyysfg" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="last_byte_sent"/>
+<org.eventb.core.constant name="_JTydY0MPEeiDP45dYyysfg" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="send_message"/>
+<org.eventb.core.axiom name="_JTydZEMPEeiDP45dYyysfg" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTrigger1" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger0,SCXML_FutureExternalTrigger1,{last_byte_sent})"/>
+<org.eventb.core.axiom name="_JTydZUMPEeiDP45dYyysfg" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureInternalTrigger1" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger0,SCXML_FutureInternalTrigger1,{send_message})"/>
+<org.eventb.core.axiom name="_JTydZkMPEeiDP45dYyysfg" org.eventb.core.comment="help ProB" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTriggerProB1" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,{last_byte_sent}, SCXML_FutureExternalTrigger1)"/>
+<org.eventb.core.axiom name="_JTydZ0MPEeiDP45dYyysfg" org.eventb.core.comment="help ProB" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureInternalTriggerProB1" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger,{spi_done},{send_message}, SCXML_FutureInternalTrigger1)"/>
 </org.eventb.core.contextFile>
