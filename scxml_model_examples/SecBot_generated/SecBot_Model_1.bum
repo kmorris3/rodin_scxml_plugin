@@ -43,22 +43,22 @@
 <org.eventb.core.event name="_JTwBJUMPEeiDP45dYyysfg" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="SCXML_futureExternalTransitionSet">
 <org.eventb.core.refinesEvent name="_JTwBJkMPEeiDP45dYyysfg" org.eventb.core.target="SCXML_futureExternalTransitionSet"/>
 <org.eventb.core.guard name="_t_YbkEMPEeiDP45dYyysfg" org.eventb.core.generated="false" org.eventb.core.label="g1" org.eventb.core.predicate="Go = TRUE ⇒ send_message ∉ SCXML_iq ∪ SCXML_raisedTriggers"/>
-<org.eventb.core.guard name="_MTxAEEMQEeiDP45dYyysfg" org.eventb.core.generated="false" org.eventb.core.label="g2" org.eventb.core.predicate="(InitialiseSensor = TRUE ∧ spi_done∈SCXML_iq ∪ SCXML_raisedTriggers)  ⇒ send_message ∉ SCXML_iq ∪ SCXML_raisedTriggers"/>
-<org.eventb.core.guard name="_pqAIAEMVEeiDP45dYyysfg" org.eventb.core.generated="false" org.eventb.core.label="g3" org.eventb.core.predicate="(InitialiseSensor = TRUE ∧ spi_done∈SCXML_iq ∪ SCXML_raisedTriggers) ⇒ Idle=TRUE"/>
+<org.eventb.core.guard name="_MTxAEEMQEeiDP45dYyysfg" org.eventb.core.generated="false" org.eventb.core.label="g2" org.eventb.core.predicate="(InitialiseSensor = TRUE ⇒ spi_done∈SCXML_iq ∪ SCXML_raisedTriggers)  ⇒ send_message ∉ SCXML_iq ∪ SCXML_raisedTriggers"/>
+<org.eventb.core.guard name="_pqAIAEMVEeiDP45dYyysfg" org.eventb.core.generated="false" org.eventb.core.label="g3" org.eventb.core.predicate="(InitialiseSensor = TRUE ⇒ spi_done∈SCXML_iq ∪ SCXML_raisedTriggers) ⇒ Idle=TRUE"/>
 <org.eventb.core.guard name="_2ILw4EMeEeiDP45dYyysfg" org.eventb.core.generated="false" org.eventb.core.label="g1b" org.eventb.core.predicate="Wait50ms = TRUE ⇒ send_message ∉ SCXML_iq ∪ SCXML_raisedTriggers"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="_JTwBJ0MPEeiDP45dYyysfg" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="SCXML_futureInternalTransitionSet">
 <org.eventb.core.refinesEvent name="_JTwoMEMPEeiDP45dYyysfg" org.eventb.core.target="SCXML_futureInternalTransitionSet"/>
 <org.eventb.core.guard name="_t_YbkEMPEeiDP45dYyysfg" org.eventb.core.generated="false" org.eventb.core.label="g1" org.eventb.core.predicate="Go = TRUE ⇒ send_message ∉ (SCXML_iq ∪ SCXML_raisedTriggers)∖{SCXML_it}"/>
-<org.eventb.core.guard name="_MTxAEEMQEeiDP45dYyysfg" org.eventb.core.generated="false" org.eventb.core.label="g2" org.eventb.core.predicate="(InitialiseSensor = TRUE ∧ spi_done∈(SCXML_iq∪SCXML_raisedTriggers)∖{SCXML_it} ) ⇒ send_message ∉ (SCXML_iq∪SCXML_raisedTriggers)∖{SCXML_it}"/>
-<org.eventb.core.guard name="_pqAIAEMVEeiDP45dYyysfg" org.eventb.core.generated="false" org.eventb.core.label="g3" org.eventb.core.predicate="(InitialiseSensor = TRUE ∧ spi_done∈(SCXML_iq∪SCXML_raisedTriggers)∖{SCXML_it}) ⇒ Idle=TRUE"/>
+<org.eventb.core.guard name="_MTxAEEMQEeiDP45dYyysfg" org.eventb.core.generated="false" org.eventb.core.label="g2" org.eventb.core.predicate="(InitialiseSensor = TRUE ⇒ spi_done∈(SCXML_iq∪SCXML_raisedTriggers)∖{SCXML_it} ) ⇒ send_message ∉ (SCXML_iq∪SCXML_raisedTriggers)∖{SCXML_it}"/>
+<org.eventb.core.guard name="_pqAIAEMVEeiDP45dYyysfg" org.eventb.core.generated="false" org.eventb.core.label="g3" org.eventb.core.predicate="(InitialiseSensor = TRUE ⇒ spi_done∈(SCXML_iq∪SCXML_raisedTriggers)∖{SCXML_it}) ⇒ Idle=TRUE"/>
 <org.eventb.core.guard name="_Zioa0EMgEeiDP45dYyysfg" org.eventb.core.generated="false" org.eventb.core.label="g1b" org.eventb.core.predicate="Wait50ms = TRUE ⇒ send_message ∉ (SCXML_iq ∪ SCXML_raisedTriggers)∖{SCXML_it}"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="_JTwoMUMPEeiDP45dYyysfg" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="SCXML_futureUntriggeredTransitionSet">
 <org.eventb.core.refinesEvent name="_JTwoMkMPEeiDP45dYyysfg" org.eventb.core.target="SCXML_futureUntriggeredTransitionSet"/>
 <org.eventb.core.guard name="_t_YbkEMPEeiDP45dYyysfg" org.eventb.core.generated="false" org.eventb.core.label="g1" org.eventb.core.predicate="Go = TRUE ⇒ send_message ∉ SCXML_iq ∪ SCXML_raisedTriggers"/>
-<org.eventb.core.guard name="_MTxAEEMQEeiDP45dYyysfg" org.eventb.core.generated="false" org.eventb.core.label="g2" org.eventb.core.predicate="(InitialiseSensor = TRUE ∧ spi_done∈SCXML_iq ∪ SCXML_raisedTriggers)  ⇒ send_message ∉ SCXML_iq ∪ SCXML_raisedTriggers"/>
-<org.eventb.core.guard name="_pqAIAEMVEeiDP45dYyysfg" org.eventb.core.generated="false" org.eventb.core.label="g3" org.eventb.core.predicate="(InitialiseSensor = TRUE ∧ spi_done∈SCXML_iq ∪ SCXML_raisedTriggers) ⇒ Idle=TRUE"/>
+<org.eventb.core.guard name="_MTxAEEMQEeiDP45dYyysfg" org.eventb.core.generated="false" org.eventb.core.label="g2" org.eventb.core.predicate="(InitialiseSensor = TRUE ⇒ spi_done∈SCXML_iq ∪ SCXML_raisedTriggers)  ⇒ send_message ∉ SCXML_iq ∪ SCXML_raisedTriggers"/>
+<org.eventb.core.guard name="_pqAIAEMVEeiDP45dYyysfg" org.eventb.core.generated="false" org.eventb.core.label="g3" org.eventb.core.predicate="(InitialiseSensor = TRUE ⇒ spi_done∈SCXML_iq ∪ SCXML_raisedTriggers) ⇒ Idle=TRUE"/>
 <org.eventb.core.guard name="_ZiqQAEMgEeiDP45dYyysfg" org.eventb.core.generated="false" org.eventb.core.label="g1b" org.eventb.core.predicate="Wait50ms = TRUE ⇒ send_message ∉ SCXML_iq ∪ SCXML_raisedTriggers"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="_JTwoM0MPEeiDP45dYyysfg" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="SCXML_Completion">
