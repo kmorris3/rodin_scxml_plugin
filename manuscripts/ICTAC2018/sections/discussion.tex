@@ -1,0 +1,25 @@
+% !TEX root = ../SCXMLREF.tex
+
+\section{Discussion}
+\label{sec:discussion}
+
+This is the discussion...
+Compare the behaviour of a visually similar statechart (SecBot?) in iUML-B and SCXML 
+	Based on their Event-B translations
+	Using the theorem prover to test whether they are equivalent (they are not)
+	Using the model checker to compare traces
+	Using LTL to show that certain temporal properties are not achieved by the iUML-B version.
+
+
+Early attempts – 
+1)	Simple next step – based on negated guards – negation is weakened
+2)	Engine – improves the R2C semantics but still suffers from the negated guards problem (refinement of the user model kinda works – simulations at the user level).
+\ColinCommented{IF POSSIBLE? use the secbot example to illustrate the problem of guard stengthening on refinement}
+
+The solution:
+3)	Transition combinations approach – works because there is always one event to completion. Invariants as well as simulations. 
+a.	Explosion – mitigated by mutual exclusions… same trigger – different state-chart regions.
+
+What can we do with it? 
+	Why is RTC needed?
+	Refinement in RTC

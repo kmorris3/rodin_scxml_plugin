@@ -1,0 +1,92 @@
+%%%%% BEGIN Identification part %%%%%
+% ========================
+\NeedsTeXFormat{LaTeX2e}\relax
+\ProvidesPackage{eventBlistings}
+    [2017/04/30 v0.0.1 Package for typesetting Event-B models]
+%%%%% END Identification part %%%%%
+
+%%%%% BEGIN Package loading %%%%%
+% ========================
+\RequirePackage{listings}
+\RequirePackage{xcolor}
+\RequirePackage{bsymb}
+%%%%% END Package loading %%%%%
+\lstMakeShortInline[language=EventB, breaklines=f, basicstyle=\ttfamily\normalsize]|
+\lstdefinelanguage{EventB}{
+  basicstyle=\ttfamily\scriptsize,
+  keywords={%
+    context,sets,constants,axioms,%
+    machine,sees,refines,variables,invariants,events,with,extended,theorem,%
+    begin,then,end,when,any,where,theory,types,operators,for,prefix,infix,imports},
+  keywordstyle=\color{red}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, imports, this},
+  ndkeywordstyle=\color{red}\bfseries,
+  identifierstyle=\color{orange},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{blue}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+  columns=fullflexible,
+  numberbychapter=false,
+  frame=top,frame=bottom,
+  basicstyle=\ttfamily\scriptsize,    % the size of the fonts that are used for the code
+  stepnumber=1,                           % the step between two line-numbers. If it is 1 each line will be numbered
+  numberstyle=\tiny,
+  numbersep=5pt,                         % how far the line-numbers are from the code
+  tabsize=2,                              % tab size in blank spaces
+  extendedchars=true,                     %
+  breaklines=true,                        % sets automatic line breaking
+  captionpos=b,                           % sets the caption-position to top
+  mathescape=false,
+  stringstyle=\color{black}\ttfamily, % Farbe der String
+  keywordstyle=\color{black}\ttfamily, % Farbe der String
+  showspaces=false,           % Leerzeichen anzeigen ?
+  showtabs=false,             % Tabs anzeigen ?
+  xleftmargin=10pt,
+  framexleftmargin=10pt,
+  framexrightmargin=0pt,
+  framexbottommargin=5pt,
+  framextopmargin=5pt,
+  showstringspaces=false,      % Leerzeichen in Strings anzeigen ?
+  escapechar=\%,
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,
+  inputencoding=utf8,         % UTF-8 input encoding
+  extendedchars=true,         % Use extended characters
+  literate=
+  {≔}{{$\bcmeq$ }}1
+  {⊆}{{$\subseteq$ }}1
+  {≠}{{$\neq$ }}1
+  {∀}{{$\forall$ }}1
+  {·}{{$\qdot$ }}1
+  {∈}{{$\in$ }}1
+  {⇒}{{$\limp$ }}1
+  {∧}{{$\land$ }}1
+  {∅}{{$\emptyset$ }}1
+  {≺}{{$\prec$ }}1
+  {⊕}{{$\oplus$ }}1
+  {⊑}{{$\sqsubseteq$ }}1
+  {→}{{$\tfun$ }}1
+  {∖}{{$\setminus$ }}1
+  {⩤}{{$\domsub$ }}1
+  {⊥}{{$\bfalse$ }}1
+  {∩}{{$\binter$ }}1
+  {∪}{{$\bunion$ }}1
+  {≪}{{$\ll$ }}1
+  {⇔}{{$\leqv$ }}1
+  {⇸}{{$\pfun$ }}1
+  {∼}{{$\sim$}}1
+  {⊏}{{$\sqsubset$ }}1
+  {↦}{{$\mapsto$ }}1
+  {∉}{{$\notin$ }}1
+  {∨}{{$\lor$ }}1
+  {≤}{{$\leq$ }}1
+  {xx}{{$\cprod$ }}1
+  , % Special symbols
+ }
