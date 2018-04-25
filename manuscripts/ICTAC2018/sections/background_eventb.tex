@@ -6,3 +6,18 @@
 \ColinCommented{we can copy from a previous paper}
 Overview of Event-B... semantics, refinement, proof obligations, tools..
 
+\ldots
+
+In Event-B the run to completion pseudocode of Listing~\ref{lst:scxml-r2c} could be represented (somewhat abstractly) as
+
+\begin{Bcode}
+	$%
+	\event{FireUntriggered}{}{}{UC=FALSE}{}{execute(untriggered())}
+	\event{FireInternallyTriggered}{}{}{UC=TRUE\\IQ\neq\emptyset}{}{execute(IQ.dequeue)\\UC:=FALSE}
+	\event{FireExternallyTriggered}{}{}{UC=TRUE\\IQ=\emptyset\\EQ\neq\emptyset}{}{execute(EQ.dequeue)\\UC:=FALSE}
+	$
+%	\Bvspace[2ex]
+\end{Bcode}
+
+Note that this is an abstract representation where each event would be specialised to select a particular set of transitions that can be fired in parallel and execute would be replaced by actions that encode the state changes made by those transitions.
+Representing the condition ‘untriggered enabled’ is cumbersome since we would need to write a conjunction of all the possible untriggered guards. Instead we introduce a dummy untriggered event that is only fired when no other selection of untriggered transitions are available and sets a boolean flag, UC, to indicate that none of the real untriggered events was fired and a trigger needs to be consumed.
