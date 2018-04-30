@@ -2,4 +2,27 @@
 
 \section{Introduction}
 \label{sec:introduction}
-This is the introduction...
+
+Formal verification of high consequence systems 
+requires the analysis of formal models that capture  
+the properties and functionality of the system of 
+interest. Proof obligations for systems' 
+properties or requirements can be made more tractable 
+using refinement, where properties are expressed in terms of variables that 
+are introduced at different abstraction levels.  
+
+A hierarchical development of a system model uses 
+refinement concepts to link the different levels
+of abstraction. Each subsequent level increases model 
+complexity by adding details in the form of functionality and 
+implementation method. As the model complexity increases 
+in each refinement level, tractability of the detailed 
+model can be improved by the use of a graphical representation, 
+with rich semantics that can support an infrastructure 
+for formal verification.
+
+The Event-B language \cite{abrial10:_model_event_b} provides the logic and refinement
+theory required to formally analyze a system model. 
+The open-source Rodin tool \cite{abrial10:_rodin} provides support for Event-B including automatic theorem provers.
+iUML-B \cite{snook14:_b_statem} augments the Event-B language with a graphical interface including state-machines.
+ 
