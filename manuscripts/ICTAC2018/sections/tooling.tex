@@ -4,4 +4,20 @@
 \label{sec:tooling}
 
 \ColinCommented{Things to cover: EMF metamodel, translation tool, anything else?}
-This is the section about our plug-in..
+
+A tool to automatically translate \SCXML models into \iUMLB has been produced. The tool is based on the Eclipse Modelling Framework (EMF) and uses a an \SCXML metamodel provided by Sirius~\cite{siriuswebsite} which has good support for extensibility. The tooling for \iUMLB and \EventB already contains EMF metamodels and provides a generic translator framework which has been specialised for the \SCXML to \iUMLB translation.  
+ 
+The following syntax extensions are added to \SCXML models to support modelling features needed in \iUMLB/\EventB. These extensions are prefixed with `iumlb:' in order to distinguish them from the scxml XML parser. (So that they are ignored by \SCXML simulation tools). 
+%They are loaded by EMF as generic feature maps (‘Any’ for contained elements and ‘AnyAttribute’ for attributes).
+\begin{itemize}
+	\item \textbf{iumlb:refinement} - an integer attribute representing the refinement level at which the parent element should be introduced.
+	\item \textbf{iumlb:invariant} - an element that generates an invariant in \iUMLB. This provides a way to add invariants to states so that important properties concerning the synchronisation of state with ancilliary data and other statemachines can be expressed.
+	\item \textbf{iumlb:guard} - an element that generates a transition guard in \iUMLB. 
+	This provides a way to add new guard conditions to transitions over several refinement as well as providing an element with attributes such as derived (for \EventB theroems), name and comment.
+	\item \textbf{iumlb:predicate} - a string attribute used for the predicate of a guard or invariant.
+	\item \ldots other attributes useful for \iUMLB elements: name, derived, type, comment.
+\end{itemize}
+
+The 
+Hierarchical nested state charts are translated to similar corresponding state-machine structures in \iUMLB according to the rules described in REF??. 
+
