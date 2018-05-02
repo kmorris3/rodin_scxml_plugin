@@ -15,16 +15,37 @@ The model can be farther refined by incorporating more details on how the initia
 After \textbf{send\_message} is raised, the SPI subsystem reacts. It spins for a while in the \textbf{send\_byte} state, looping as many times as it takes to get to the last byte in the message. When the last byte in the message is sent, it goes back to idle and raises an event which allows the state machine on the left to proceed. The sensor is then initialized in a very similar manner to the buzzer. After both peripherals are initialized, the state machine goes into the \textbf{Wait 50 ms} state, where it  increments a counter until it reaches some maximum, then exits.
 
 
+
+\begin{figure*}[t!]
+    \begin{centering}
+	    \begin{subfigure}[t]{0.5\textwidth}
+	        \begin{centering}
+	        \includegraphics[height=3in]{figures/Buzzer}
+	        \caption{Buzzer component high level abstraction}
+	        \label{fig:Buzzer}
+	        \end{centering}
+	    \end{subfigure}
+
+	    \begin{subfigure}[t]{0.5\textwidth}
+	        \begin{centering}
+	        \includegraphics[height=3in]{figures/Buzzer&Sensor_1}
+	        \caption{Statechart diagram for SecBot intrusion detection system}
+	        \label{fig:BuzzerSensor_1}
+	        \end{centering}
+	    \end{subfigure}
+	    \caption{First refinement including an abstraction of the sensor component}
+    \end{centering}
+\end{figure*}
+
 \begin{figure}[]
   \begin{centering}
-  \includegraphics[width=0.6\textwidth]{figures/Buzzer&Sensor_2}
+  \includegraphics[width=0.8\textwidth]{figures/Buzzer&Sensor_2}
   \caption{Statechart diagram for SecBot intrusion detection system}
-  \label{fig:Buzzer}
+  \label{fig:BuzzerSensor_2}
   \end{centering}
 \end{figure} 
 
 
-\KarlaCommented{Not sure if we should include these figures or the IUMLB generated ones. If we include this figure maybe we can simplify it by using color for each of the refinement levels}
 \ColinCommented{introduce the secbot example showing how we would like to develop it in refinements}
 
 
