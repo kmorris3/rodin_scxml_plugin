@@ -36,7 +36,7 @@ In practice we wish to leverage existing \EventB verification tools and hence ad
 	\item Invariants can be added to states to specify properties that hold while in that state.
 \end{itemize}
 
-Refinement should preserve the value of abstract state after each micro-step and at the end of each macro-step. The abstract state should not be altered by any new micro-steps that are introduced into an abstract macro-step, nor by any new macro-steps that are introduced.
+Refinement should preserve the value of the abstract state after each micro-step and at the end of each macro-step. The abstract state should not be altered by any new micro-steps that are introduced into an abstract macro-step, nor by any new macro-steps that are introduced. (Note that these goals take the view that macro-steps should align through refinement. An alternative approach that we are considering for future work takes the view that the macro-steps need not align and a micro-step may shift from one macro-step to another in a refinement). 
 
 There seems to be an inherent difficulty with refining `run to completion' semantics which require that every enabled micro step, is completed before the next macro step is started. The problem is that, in a refinement, we want to strengthen the conditions for a micro step. However, by making the micro steps more constrained we disable them and make their completion more easily achieved. This makes the guard for taking the next macro step weaker breaking the notion of refinement.
 
