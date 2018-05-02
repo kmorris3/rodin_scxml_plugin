@@ -3,8 +3,6 @@
 \section{Tooling}
 \label{sec:tooling}
 
-\ColinCommented{Things to cover: EMF metamodel, translation tool, anything else?}
-
 A tool to automatically translate \SCXML models into \iUMLB has been produced. The tool is based on the Eclipse Modelling Framework (EMF) and uses a an \SCXML metamodel provided by Sirius~\cite{siriuswebsite} which has good support for extensibility. The tooling for \iUMLB and \EventB already contains EMF metamodels and provides a generic translator framework which has been specialised for the \SCXML to \iUMLB translation.  
  
 The following syntax extensions are added to \SCXML models to support modelling features needed in \iUMLB/\EventB. These extensions are prefixed with `iumlb:' in order to distinguish them from the scxml XML parser. (So that they are ignored by \SCXML simulation tools). 
@@ -18,6 +16,7 @@ The following syntax extensions are added to \SCXML models to support modelling 
 	\item \ldots other attributes useful for \iUMLB elements: name, derived, type, comment.
 \end{itemize}
 
-The 
-Hierarchical nested state charts are translated to similar corresponding state-machine structures in \iUMLB according to the rules described in REF??. 
+Hierarchical nested state charts are translated into similarly structured \iUMLB state-machines. The generated \iUMLB model contains refinements that add nested state-machines as indicated in the  \SCXML state-chart by the \textbf{iumlb:refinement} attributes annotated on state elements. \iUMLB transitions are generated for each \SCXML transition and linked to \EventB events that represent each of the possible synchronisations that could involve that transition.
+
+
 
