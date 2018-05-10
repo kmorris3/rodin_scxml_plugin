@@ -39,12 +39,14 @@ In Event-B the run to completion pseudocode of Listing~\ref{lst:scxml-r2c} could
 
 \begin{Bcode}
 	$%
-	\event{FireUntriggered}{}{}{UC=FALSE}{}{execute(untriggered())}
-	\event{FireInternallyTriggered}{}{}{UC=TRUE\\IQ\neq\emptyset}{}{execute(IQ.dequeue)\\UC:=FALSE}
-	\event{FireExternallyTriggered}{}{}{UC=TRUE\\IQ=\emptyset\\EQ\neq\emptyset}{}{execute(EQ.dequeue)\\UC:=FALSE}
+	\event{\BeFireUntriggered}{}{}{\BUC=FALSE}{}{execute(untriggered())}
+	\event{\BeUntriggeredCompleted}{}{}{\BUC=FALSE\\untriggered()=\emptyset}{}{\BUC=TRUE}
+	\event{\BeFireInternallyTriggered}{}{}{\BUC=TRUE\\\BIQ\neq\emptyset}{}{execute(\BIQ.dequeue)\\\BUC:=FALSE}
+	\event{\BeFireExternallyTriggered}{}{}{\BUC=TRUE\\\BIQ=\emptyset\\\BEQ\neq\emptyset}{}{execute(\BEQ.dequeue)\\\BUC:=FALSE}
 	$
 %	\Bvspace[2ex]
 \end{Bcode}
 
-Note that this is an abstract representation where each event (FireUntriggered, FireInternallyTriggered, and FireExternallyTriggered) would be specialised to select a particular set of transitions that can be fired in parallel and \emph{execute()} would be replaced by actions that encode the state changes made by those transitions.
+where \BIQ and \BEQ are queues of internally and externally, raised triggers, \emph{untriggered} selects a set of currently enabled untriggered transitions, \emph{dequeue} retrieves the next trigger from the given queue and selects the set of transitions that become enabled by it and \emph{execute} fires the given set of transitions. 
+Note that this is an abstract representation where each event (\BeFireUntriggered, \BeFireInternallyTriggered, and \BeFireExternallyTriggered) would be specialised to select a particular set of transitions that can be fired in parallel and \emph{execute()} would be replaced by actions that encode the state changes made by those transitions.
 Representing the condition \textbf{untriggered\_enabled} (line 3 in Listing~\ref{lst:scxml-r2c}) is cumbersome since we would need to write a conjunction of all the possible untriggered guards. Instead we introduce a dummy untriggered event that is only fired when no other selection of untriggered transitions are available and sets a boolean flag, UC, to indicate that none of the real untriggered events was fired and a trigger needs to be consumed.
