@@ -3,26 +3,66 @@
 \section{Introduction}
 \label{sec:introduction}
 
-Formal verification of high consequence systems 
-requires the analysis of formal models that capture  
-the properties and functionality of the system of 
-interest. Proof obligations for systems' 
-properties or requirements can be made more tractable 
-using refinement, where properties are expressed in terms of variables that 
-are introduced at different abstraction levels.  
+Formal verification of high consequence systems requires the analysis
+of formal models that capture the properties and functionality of the
+system of interest. Although high-consequence controls and systems are
+designed to limit complexity, the requirements and consequent proof
+obligations tend increase complexity of verification.  Proof
+obligations for such requirements can be made more tractable using
+abstraction/refinement, which provides a natural divide and conquer
+strategy for controlling complexity.
 
-A hierarchical development of a system model uses 
-refinement concepts to link the different levels
-of abstraction. Each subsequent level increases model 
-complexity by adding details in the form of functionality and 
-implementation method. As the model complexity increases 
-in each refinement level, tractability of the detailed 
-model can be improved by the use of a graphical representation, 
-with rich semantics that can support an infrastructure 
-for formal verification.
+Statecharts\cite{Harel} are often used for high-consequence controls
+and other systems to provide an unambiguous, executable way of
+specifying functional as well as safety, security, and reliability
+properties.  While functional properties (usually) can be tested,
+safety security and reliability properties (usually) must be reasoned
+about formally.  Here we give a binding from Statecharts to Event-B so
+that such reasoning can be carried out.  Moreover, heirarchical
+encapsulation maps well onto Statecharts in a way that is not very
+different from previous work in iUML-B\cite{snook14:_b_statem}.
+Binding iUML-B to the a UML version of Statecharts is natural and the
+addition of run-to-completion semantics, expected by Statechart
+designers, is much of the contribution of this work.  Another
+contribution is the augmentation of the textual and parse-able format
+for Statecharts, SCXML to accomodate elements necessary for formal
+analysis.  
 
-The Event-B language \cite{abrial10:_model_event_b} provides the logic and refinement
-theory required to formally analyze a system model. 
-The open-source Rodin tool \cite{abrial10:_rodin} provides support for Event-B including automatic theorem provers.
-iUML-B \cite{snook14:_b_statem} augments the Event-B language with a graphical interface including state-machines.
- 
+While Statecharts and various semantic interpretations of Statecharts
+admit refinement reified as both hierarchical or parallel composition
+(e.g. see Argos\cite{Maraninchi91theargos}), here, as
+previously\cite{snook14:_b_statem}, we focus only on heirarchical
+refinement which is the form that Event-B natively admits.
+\RobCommented{I hope it is OK to make the heirarchical vs parallel
+  composition for refinement.  It leaves open work to be done.  Also,
+  I found exactly one reference for iUML-B in the .bib, I think Colin
+  and Karla's paper in the NASA conference might also be something to
+  cite.}  A hierarchical development of a system model uses refinement
+concepts to link the different levels of abstraction. Each subsequent
+level increases model complexity by adding details in the form of
+functionality and implementation method. As the model complexity
+increases in each refinement level, tractability of the detailed model
+can be improved by the use of a graphical representation, with rich
+semantics that can support an infrastructure for formal verification.
+
+The semantics adopted here cleaves closely to those of iUML-B
+specifically and UML Statecharts\cite{Alexandre} generally. Models
+decribed in Statecharts are expressed in SCXML and translated into
+Event-B logic and uses the Rodin framework\cite{Abrial} for machine
+proofs.
+%
+The Event-B language
+\cite{abrial10:_model_event_b} provides the logic and refinement
+theory required to formally analyze a system model.  The open-source
+Rodin tool \cite{abrial10:_rodin} provides support for Event-B
+including automatic theorem provers.  iUML-B \cite{snook14:_b_statem}
+augments the Event-B language with a graphical interface including
+state-machines.
+
+With suitable restrictions, Statecharts already provide a sound,
+intuitive, visual metaphor for refinement. Outfitted with a formal
+semantics, this work borrows from well-used Statechart practices in
+digital design.  The goal of the present work is to provide usable,
+well-founded tools that are familiar to designers of high-consequence
+systems and yet provide the currently lacking formal guarantees needed
+to ensure safety, security, and reliability.
