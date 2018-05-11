@@ -1,9 +1,22 @@
 % !TEX root = ../SCXMLREF.tex
 
-\section{Example}
+\section{Application to Intrusion Detection System}
 \label{sec:example}
 The SecBot example : pics from slides
 
 Note why it would not be a refinement 
 
+A tool to automatically translate \SCXML models into \iUMLB has been produced. The tool is based on the Eclipse Modelling Framework (EMF) and uses a an \SCXML metamodel provided by Sirius~\cite{siriuswebsite} which has good support for extensibility. The tooling for \iUMLB and \EventB already contains EMF metamodels and provides a generic translator framework which has been specialised for the \SCXML to \iUMLB translation.  
+
+Proving properties in SCXML
+
+Properties about the synchronisation of parallel state-machines (such as ASIC=Go => SPI=IDLE and ASIC=Wait50ms => SPI=IDLE) can be difficult to verify for all scenarios via simulation in SCXML. Proof of such properties is a major benefit of translating into Event-B.  Furthermore in order to benefit from the abstraction provided by Event-B, we would like to prove such things at abstract levels before the complication of further details are introduced. 
+2.	To prove POs about not raising specific internal triggers in abstract 'future' events – the translation can 'look ahead' at the future refinements and add a guard excluding specific internal triggers from being raised in a state if they are not raised in any contained substates/transitions. Alternatively, they could be automatically generated and added to satisfy all user invariants concerning the raising of internal triggers regardless of whether they are violated in future levels. If it is not obeyed by future transtions, guard strengthening GD proof obligations will make it obvious where the problems lie. For example, the guard… 
+     $Go = TRUE \limp send\_message \notin SCXML\_iq’$	
+     (where SCXML\_iq’ is the new value to be assigned to SCXML\_iq in the event’s actions)
+needs to be automatically added to all the future transitionSet events to prove they do not break the property in 1. This could be automatically generated and added to satisfy all user invariants concerning the raising of internal triggers. If it is not obeyed by future transtions, guard strengthening GD proof obligations will make it obvious where the problems lie.
+3.	Add a way to exclude specific internal triggers from ever being raised by a user transition (e.g. a doesn't raise element) - Or can this be automatically generated like 1). For example, the guard… 
+     send\_message ∉ SCXML\_raisedTriggers
+needs to be added to the transition Wait50ms\_Go in order to prove that it does not violate the property ASIC=Go => SPI=IDLE. However, if this is to be done manually, we would need a notation that avoids the user having to know about the internal basis parameter, SCXML\_raisedTriggers.
+4.	There are still things to consider about proving these properties are true at an abstract level - that is, you cannot prove them unless you add the detail that makes them true!! (example :- detail about when we raise send\_message is in level 2 but we need it to prove no messages get in the queue after SPI raises the second spi\_done). However, invariants and guards can be added at the abstract level in order to abstractly add the necessary constraints to make a proof. If these constraints are not maintained in later levels, simpler proof obligations about guard strengthening will be unprovable. These abstract guards should be removed at later refinements when the details have been specified. This implies using ranges in refinement attributes which we have considered but not used in the past.
 
