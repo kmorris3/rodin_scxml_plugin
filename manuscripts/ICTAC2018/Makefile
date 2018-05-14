@@ -6,6 +6,5 @@ SCXMLREF.pdf : SCXMLREF.tex
 	pdflatex SCXMLREF.tex
 	pdflatex SCXMLREF.tex
 
-	
 clean: 
-	$(RM) SCXMLREF.pdf *.toc *.out *.aux *.log *.blg *.bbl
+	$(RM) SCXMLREF.pdf *.toc *.out *.aux *.log *.blg *.bbl *.synctex.gz

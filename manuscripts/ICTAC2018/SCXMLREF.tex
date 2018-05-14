@@ -18,8 +18,6 @@
 % Package for typesetting abbreviations
 \usepackage{abbrev-SCXMLREF}
 
-% Package for typesetting Event-B 
-\usepackage[colour, nobox, small]{eventB}
 
 % Package for typesetting diagrams using TikZ
 \usepackage{tikz}
@@ -33,7 +31,7 @@
 \usepackage{bsymb}
 
 % Package for typesetting SCXMLREF example models in Event-B
-\usepackage{eventB-SCXMLREF}
+%\usepackage{eventB-SCXMLREF}
 
 % Package for AMS Math
 \usepackage{amsmath}
@@ -64,7 +62,7 @@
 \usepackage{standalone}
 
 % Package for listings (e.g. JavaScript)
-\usepackage{eventBlistings}
+%\usepackage{eventBlistings}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -72,6 +70,10 @@
   linkcolor = blue,
   urlcolor=cyan,
 }
+
+\usepackage{examplep}
+% Package for typesetting Event-B, load this package after all other packages
+\usepackage[colour]{lstEventB}
 
 \begin{document}
 
