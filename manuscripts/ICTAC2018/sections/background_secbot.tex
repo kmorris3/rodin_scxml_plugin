@@ -46,6 +46,8 @@ After \textbf{send\_message} is raised, the SPI subsystem reacts. It spins for a
 
 The system described must send messages to complete the initialization of the buzzer and sensor, but once the main routine is reached (\textbf{Go} state) no more messages should be sent through the SPI bus. As a result, when the ASIC is in the \textbf{Go} state the SPI subsystem must be in the \textbf{Idle} state. This system property must be satisfied by the system model first refinement and any subsequent refinement representations of the system.
 
+\KarlaCommented{The section "Extensions to SCXML" should be move to here to tie it with the example}
+
 \begin{lstlisting}[caption=Snippet for SCXML representation of SecBot model,label={lst:secBot}, language=xml]
 ...
 <state id="SecBot" iumlb:refinement="0">
