@@ -45,7 +45,7 @@ There seems to be an inherent difficulty with refining `run to completion' seman
 
 The `run to completion' semantics is supported by \EventB through the construction of a basis that constitutes an 
 abstract execution model, which all designed systems refined. The basis includes a \EventB context and machine. 
-The context, shown in~\ref{lst:BasisContext}, defines the basis triggers as a partition of internal and external triggers, defined by SCXML\_FutureInternalTrigger and SCXML\_FutureExternalTrigger respectively. The abstract model of the secBot extends this context by declaring a new axiom that defines the partitions of the SCXML\_FutureInternalTrigger set which would include the \textbf{spi\_done} trigger and a new partition SCXML\_FutureInternalTrigger0 to enable the introduction of additional internal triggers by subsequent refinements.
+The context, shown in~\ref{lst:BasisContext}, defines the basis triggers as a partition of internal and external triggers, defined by SCXML\_FutureInternalTrigger and SCXML\_FutureExternalTrigger respectively. The abstract model of the secBot extends this context by declaring a new axiom that defines the partitions of the SCXML\_FutureInternalTrigger set which would include the \textbf{spi\_done} trigger and a new partition SCXML\_FutureInternalTrigger0 to enable the introduction of additional internal triggers by subsequent refinements. 
 
 \begin{EventBcode} [\caption{Context for abstract basis}, \label{lst:BasisContext}]
 	CONTEXT
@@ -60,7 +60,17 @@ The context, shown in~\ref{lst:BasisContext}, defines the basis triggers as a pa
 	END
 \end{EventBcode}
 
-The machine of the basis shown in Listing~\ref{lst:BasisMachine} declare the .
+The machine of the basis shown in Listing~\ref{lst:BasisMachine} declares the variables that correspond to the triggers 
+present in the queue at any given time, as well as, the SCXML\_uc flag, which signals when a run to completion macro-step 
+have been completed and no untriggered transitions are enable. At the point of initialization, both queues are empty and
+SCXML\_uc is set to false. The parametric SCXML\_futureExternalTrigger event updates the external trigger queue with any 
+newly raised trigger. To raise an external trigger, each external trigger in the model must extend this event. 
+% If more than one external trigger have to be raised at the same time.  
+The SCXML\_futureExternalTransitionSet basis event must be refined by any event in the model conditioned on an external trigger. 
+The guards of this event check for an empty internal trigger queue and the completion of the previous macro-step. 
+A similar behavior is followed by SCXML\_futureInternalTransitionSet event, if internal triggers are in the queue.  
+To completely control the execution flow of the model, all untriggered transitions must refined the SCXML\_futureUntriggeredTransitionSet
+event. Any of the previously discussed events can raise internal triggers by introducing a guard that defines the SCXML\_raisedTrigger parameter.
 
 \begin{EventBcode} [\caption{Machine for abstract basis}, \label{lst:BasisMachine}]
 MACHINE
