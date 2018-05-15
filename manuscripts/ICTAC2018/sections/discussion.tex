@@ -40,9 +40,14 @@ Refinement should preserve the value of the abstract state after each micro-step
 
 There seems to be an inherent difficulty with refining `run to completion' semantics which require that every enabled micro step, is completed before the next macro step is started. The problem is that, in a refinement, we want to strengthen the conditions for a micro step. However, by making the micro steps more constrained we disable them and make their completion more easily achieved. This makes the guard for taking the next macro step weaker breaking the notion of refinement.
 
+
 \KarlaCommented{Starting to include the basis and related discussion maybe it should a a subsection}
 
-\begin{EventBcode}
+The `run to completion' semantics is supported by \EventB through the construction of a basis that constitutes an 
+abstract execution model, which all designed systems refined. The basis includes a \EventB context and machine. 
+The context, shown in~\ref{lst:BasisContext}, defines the basis triggers as a partition of internal and external triggers, defined by SCXML\_FutureInternalTrigger and SCXML\_FutureExternalTrigger respectively. The abstract model of the secBot extends this context by declaring a new axiom that defines the partitions of the SCXML\_FutureInternalTrigger set which would include the \textbf{spi\_done} trigger and a new partition SCXML\_FutureInternalTrigger0 to enable the introduction of additional internal triggers by subsequent refinements.
+
+\begin{EventBcode} [\caption{Context for abstract basis}, \label{lst:BasisContext}]
 	CONTEXT
 		basis 	// (generated for SCXML)
 	SETS
@@ -55,7 +60,9 @@ There seems to be an inherent difficulty with refining `run to completion' seman
 	END
 \end{EventBcode}
 
-\begin{EventBcode}
+The machine of the basis shown in Listing~\ref{lst:BasisMachine} declare the .
+
+\begin{EventBcode} [\caption{Machine for abstract basis}, \label{lst:BasisMachine}]
 MACHINE
 		basis 	// (generated for SCXML)
 	SEES
@@ -67,8 +74,8 @@ MACHINE
 	INVARIANTS
 	⚬	typeof_SCXML_iq:	SCXML_iq ⊆ SCXML_FutureInternalTrigger not theorem // internal trigger queue
 	⚬	typeof_SCXML_eq:	SCXML_eq ⊆ SCXML_FutureExternalTrigger not theorem // external trigger queue
-	⚬	disjointQueues:	SCXML_iq ∩ SCXML_eq= ∅ not theorem queues are disjoint
-	⚬	typeof_SCXML_uc:	SCXML_uc ∈ BOOL not theorem completion flag
+	⚬	disjointQueues:	SCXML_iq ∩ SCXML_eq= ∅ not theorem // queues are disjoint
+	⚬	typeof_SCXML_uc:	SCXML_uc ∈ BOOL not theorem // completion flag
 	EVENTS
 	⚬	INITIALISATION:	 not extended ordinary 
 		THEN
