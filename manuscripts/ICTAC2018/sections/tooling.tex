@@ -6,15 +6,40 @@
 The following syntax extensions are added to \SCXML models to support modelling features needed in \iUMLB/\EventB. These extensions are prefixed with `iumlb:' in order to distinguish them from the scxml XML parser. (So that they are ignored by \SCXML simulation tools). 
 %They are loaded by EMF as generic feature maps (‘Any’ for contained elements and ‘AnyAttribute’ for attributes).
 \begin{itemize}
-	\item \textbf{iumlb:refinement} - an integer attribute representing the refinement level at which the parent element should be introduced.
-	\item \textbf{iumlb:invariant} - an element that generates an invariant in \iUMLB. This provides a way to add invariants to states so that important properties concerning the synchronisation of state with ancilliary data and other statemachines can be expressed.
+	\item \textbf{iumlb:refinement} - an integer attribute representing the refinement level at which the parent element should be introduced (see listing~\ref{lst:secBot}, line~\ref{line:refinement}).
+	\item \textbf{iumlb:invariant} - an element that generates an invariant in \iUMLB. This provides a way to add invariants to states so that important properties concerning the synchronisation of state with ancilliary data and other statemachines can be expressed (see listing~\ref{lst:secBot}, line~\ref{line:invariant}).
 	\item \textbf{iumlb:guard} - an element that generates a transition guard in \iUMLB. 
-	This provides a way to add new guard conditions to transitions over several refinement as well as providing an element with attributes such as derived (for \EventB theroems), name and comment.
-	\item \textbf{iumlb:predicate} - a string attribute used for the predicate of a guard or invariant.
+	This provides a way to add new guard conditions to transitions over several refinement (listing~\ref{lst:secBot}, line~\ref{line:guard}) as well as providing an element with attributes such as derived (for \EventB theroems), name and comment.
+	\item \textbf{iumlb:predicate} - a string attribute used for the predicate of a guard or invariant (listing~\ref{lst:secBot}, line~\ref{line:predicate}).
 	\item \ldots other attributes useful for \iUMLB elements: name, derived, type, comment.
 \end{itemize}
 
-Hierarchical nested state charts are translated into similarly structured \iUMLB state-machines. The generated \iUMLB model contains refinements that add nested state-machines as indicated in the  \SCXML state-chart by the \textbf{iumlb:refinement} attributes annotated on state elements. \iUMLB transitions are generated for each \SCXML transition and linked to \EventB events that represent each of the possible synchronisations that could involve that transition.
+\begin{lstlisting}[caption=Snippet for SCXML representation of SecBot model,label={lst:secBot}, language=xml, escapechar=|]
+...
+<state id="Wait50ms" iumlb:refinement="2">
+	<initial iumlb:refinement="2"> |\label{line:refinement}|
+		<transition cond="cnt=0" target="Increment"/> 
+	</initial>
+	<iumlb:invariant name="check_cnt" iumlb:predicate="cnt < max" iumlb:refinement="2"/> |\label{line:invariant}|
+	<transition cond="" target="Go" iumlb:refinement="0" />
+	<state id="Increment" iumlb:refinement="2">
+		<transition cond="" event="tick" target="Increment">
+			<assign attr="cnt" expr="cnt+1" location="cnt"/>
+			<iumlb:guard name="stillCounting" iumlb:predicate="cnt &lt; 5"/> |\label{line:predicate}|
+		</transition>
+		<transition cond="" target="WAITDone">
+			<iumlb:guard name="doneCounting" iumlb:predicate="cnt = 5"/> |\label{line:guard}|
+    	</transition>
+	</state>
+	<final id="WAITDone" iumlb:refinement="2"/>
+	<datamodel>
+		<data expr="0" id="cnt" src="" iumlb:type="NAT "/>
+	</datamodel>
+</state>
+...
+\end{lstlisting}
 
+
+Hierarchical nested state charts are translated into similarly structured \iUMLB state-machines. The generated \iUMLB model contains refinements that add nested state-machines as indicated in the  \SCXML state-chart by the \textbf{iumlb:refinement} attributes annotated on state elements. \iUMLB transitions are generated for each \SCXML transition and linked to \EventB events that represent each of the possible synchronisations that could involve that transition.
 
 
