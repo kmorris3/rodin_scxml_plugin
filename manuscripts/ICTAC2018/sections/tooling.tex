@@ -20,7 +20,7 @@ The following syntax extensions are added to \SCXML models to support modelling 
 	<initial iumlb:refinement="2"> |\label{line:refinement}|
 		<transition cond="cnt=0" target="Increment"/> 
 	</initial>
-	<iumlb:invariant name="check_cnt" iumlb:predicate="cnt < max" iumlb:refinement="2"/> |\label{line:invariant}|
+	<iumlb:invariant name="check_cnt" iumlb:predicate="cnt &lt; max" iumlb:refinement="2"/> |\label{line:invariant}|
 	<transition cond="" target="Go" iumlb:refinement="0" />
 	<state id="Increment" iumlb:refinement="2">
 		<transition cond="" event="tick" target="Increment">
