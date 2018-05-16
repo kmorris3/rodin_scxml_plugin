@@ -36,7 +36,8 @@ In Event-B the run to completion pseudocode of Listing~\ref{lst:scxml-r2c} could
 \begin{EventBcode}
 FireUntriggered // Fire  enabled untriggered transitions
 when
-    UC = FALSE // Has not yet complete firing untriggered transitions
+    UC = FALSE // Has not yet completed firing untriggered transitions
+    untriggered() /= {}
 then
     execute(untriggered()) // Execute enabled untriggered transitions
 end
@@ -58,7 +59,7 @@ then
     UC := FALSE
 end
 
-FireExtenrallyTriggered
+FireExternallyTriggered
 when
     UC = TRUE
     IQ = {}
