@@ -9,7 +9,7 @@ system of interest. Although high-consequence controls and systems are
 designed to limit complexity, the requirements and consequent proof
 obligations tend to increase the complexity of the formal verification.  
 Proof obligations for such requirements can be made more tractable using
-abstraction/refinemen, providing a natural divide and conquer
+abstraction/refinement, providing a natural divide and conquer
 strategy for controlling complexity.
 
 Statecharts\cite{Harel} are often used for high-consequence controls
@@ -21,7 +21,7 @@ formally.  Here we give a binding from Statecharts to Event-B so that
 this type of reasoning can be carried out.  Moreover, heirarchical
 encapsulation maps well onto Statecharts in a way that is not very
 different from previous work in iUML-B\cite{snook14:_b_statem}.
-Binding iUML-B to the a UML version of Statecharts is natural and the
+Binding iUML-B to a UML version of Statecharts is natural and the
 addition of run-to-completion semantics, expected by Statechart
 designers, is much of the contribution of this work.  Another
 contribution is the augmentation of the textual and parse-able format
@@ -31,8 +31,9 @@ analysis.
 While Statecharts and various semantic interpretations of Statecharts
 admit refinement reified as both hierarchical or parallel composition
 (e.g. see Argos\cite{Maraninchi91theargos}), here, as
-previously\cite{snook14:_b_statem}, we focus only on heirarchical
+previously\cite{snook14:_b_statem}, we focus only on hierarchical
 refinement, the form that Event-B natively admits.
+\ColinCommented{Should we briefly say what parallel refinment is?}
 \RobCommented{I hope it is OK to make the heirarchical vs parallel
   composition for refinement.  It leaves open work to be done.  Also,
   I found exactly one reference for iUML-B in the .bib, I think Colin
@@ -46,7 +47,10 @@ can be improved by the use of a graphical representation, with rich
 semantics that can support an infrastructure for formal verification.
 
 The semantics adopted here cleaves closely to those of iUML-B
-specifically and UML Statecharts\cite{Alexandre} generally. Models
+specifically and UML Statecharts\cite{Alexandre} generally.
+\ColinCommented{They are somewhat different.. can we cleave to both of them? 
+	My view is that we adopt the semantics similar to those of UML and try to represent them in the alternative iUML-B semantics (that cleaves closely to those of Event-B)}
+ Models
 described in Statecharts are expressed in SCXML and translated into
 Event-B logic which uses the Rodin framework\cite{Abrial} for machine
 proofs.  UML Statechart semantics are not the only formal semantics
