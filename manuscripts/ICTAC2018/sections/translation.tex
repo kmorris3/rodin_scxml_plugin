@@ -1,0 +1,111 @@
+\section{SCXML Translation}
+\label{sec:translation}
+
+The `run to completion' semantics is supported by \EventB through the construction of a basis that constitutes an 
+abstract execution model, which all designed systems refined. The basis includes a \EventB context and machine. 
+The context, shown in~\ref{lst:BasisContext}, defines the basis triggers as a partition of internal and external triggers, defined by |SCXML_FutureInternalTrigger| and |SCXML_FutureExternalTrigger| respectively. The abstract model of the secBot extends this context by declaring a new axiom that defines the partitions of the |SCXML_FutureInternalTrigger|set which would include the \textbf{spi\_done} trigger and a new partition |SCXML_FutureInternalTrigger0| to enable the introduction of additional internal triggers by subsequent refinements. 
+
+\begin{EventBcode} [\caption{Context for abstract basis}, \label{lst:BasisContext}]
+	CONTEXT
+		basis 	// (generated for SCXML)
+	SETS
+	⚬	SCXML_TRIGGER	 // all possible triggers
+	CONSTANTS
+	⚬	SCXML_FutureInternalTrigger	 // all possible internal triggers
+	⚬	SCXML_FutureExternalTrigger	 // all possible external triggers
+	AXIOMS
+	⚬	axm1:	partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger) not theorem 
+	END
+\end{EventBcode}
+
+The machine of the basis shown in Listing~\ref{lst:BasisMachine} declares the variables that correspond to the triggers 
+present in the queue at any given time, as well as, the |SCXML_uc| flag, which signals when a run to completion macro-step 
+have been completed and no un-triggered transitions are enable. At the point of initialization, both queues are empty and
+|SCXML_uc| is set to false. The parametric |SCXML_futureExternalTrigger| event updates the external trigger queue with any 
+newly raised trigger. To raise an external trigger, each external trigger in the model must extend this event. 
+% If more than one external trigger have to be raised at the same time.  
+The |SCXML_futureExternalTransitionSet| basis event must be refined by any event in the model conditioned on an external trigger. 
+The guards of this event check for an empty internal trigger queue and the completion of the previous macro-step. 
+A similar behavior is followed by |SCXML_futureInternalTransitionSet| event, if internal triggers are in the queue.  
+To completely control the execution flow of the model, all un-triggered transitions must refined the |SCXML_futureUntriggeredTransitionSet|
+event. Any of the previously discussed events can raise internal triggers by introducing a guard that defines the |SCXML_raisedTrigger| parameter.
+
+\begin{EventBcode} [\caption{Machine for abstract basis}, \label{lst:BasisMachine}]
+MACHINE
+		basis 	// (generated for SCXML)
+	SEES
+	⚬	 basis 
+	VARIABLES
+	⚬	SCXML_iq	 // internal trigger queue
+	⚬	SCXML_eq	 // external trigger queue
+	⚬	SCXML_uc	 // run to completion flag
+	INVARIANTS
+	⚬	typeof_SCXML_iq:	SCXML_iq ⊆ SCXML_FutureInternalTrigger not theorem // internal trigger queue
+	⚬	typeof_SCXML_eq:	SCXML_eq ⊆ SCXML_FutureExternalTrigger not theorem // external trigger queue
+	⚬	disjointQueues:	SCXML_iq ∩ SCXML_eq= ∅ not theorem // queues are disjoint
+	⚬	typeof_SCXML_uc:	SCXML_uc ∈ BOOL not theorem // completion flag
+	EVENTS
+	⚬	INITIALISATION:	 not extended ordinary 
+		THEN
+		⚬	init_SCXML_iq:	SCXML_iq ≔ ∅ // internal Q is initially empty
+		⚬	init_SCXML_eq:	SCXML_eq ≔ ∅ // external Q is initially empty
+		⚬	init_SCXML_uc:	SCXML_uc ≔ FALSE // completion is initially FALSE
+		END
+
+	⚬	SCXML_futureExternalTrigger:	 not extended ordinary 
+		ANY
+		⚬	SCXML_raisedTriggers	 
+		WHERE
+		⚬	typeof_SCXML_raisedTriggers:	SCXML_raisedTriggers ⊆ SCXML_FutureExternalTrigger not theorem 
+		THEN
+		⚬	SCXML_raiseExternalTriggers:	SCXML_eq ≔ SCXML_eq ∪ SCXML_raisedTriggers 
+		END
+
+	⚬	SCXML_futureExternalTransitionSet:	 not extended ordinary 
+		ANY
+		⚬	SCXML_et	 
+		⚬	SCXML_raisedTriggers	 
+		WHERE
+		⚬	typeof_SCXML_et:	SCXML_et ∈ SCXML_eq not theorem 
+		⚬	SCXML_internalQEmpty:	SCXML_iq = ∅ not theorem 
+		⚬	SCXML_isComplete:	SCXML_uc = TRUE not theorem 
+		⚬	typeof_SCXML_raisedTriggers:	SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger not theorem 
+		THEN
+		⚬	SCXML_notComplete:	SCXML_uc ≔ FALSE 
+		⚬	SCXML_consumeExternalTrigger:	SCXML_eq ≔ SCXML_eq ∖ {SCXML_et} 
+		⚬	SCXML_raiseInternalTriggers:	SCXML_iq ≔ SCXML_iq ∪ SCXML_raisedTriggers 
+		END
+
+	⚬	SCXML_futureInternalTransitionSet:	 not extended ordinary 
+		ANY
+		⚬	SCXML_it	 
+		⚬	SCXML_raisedTriggers	 
+		WHERE
+		⚬	typeof_SCXML_it:	SCXML_it  ∈ SCXML_iq not theorem 
+		⚬	SCXML_isComplete:	SCXML_uc = TRUE not theorem 
+		⚬	typeof_SCXML_raisedTriggers:	SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger not theorem 
+		THEN
+		⚬	SCXML_notComplete:	SCXML_uc ≔ FALSE 
+		⚬	SCXML_consumeInternalTrigger:	SCXML_iq ≔ (SCXML_iq ∪ SCXML_raisedTriggers) ∖ {SCXML_it} 
+		END
+
+	⚬	SCXML_futureUntriggeredTransitionSet:	 not extended ordinary 
+		ANY
+		⚬	SCXML_raisedTriggers	 
+		WHERE
+		⚬	SCXML_isNotComplete:	SCXML_uc = FALSE not theorem 
+		⚬	typeof_SCXML_raisedTriggers:	SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger not theorem 
+		THEN
+		⚬	SCXML_NotComplete:	SCXML_uc ≔ FALSE 
+		⚬	SCXML_raiseInternalTriggers:	SCXML_iq ≔ SCXML_iq ∪ SCXML_raisedTriggers 
+		END
+
+	⚬	SCXML_Completion:	 not extended ordinary 
+		WHERE
+		⚬	SCXML_isNotComplete:	SCXML_uc = FALSE not theorem 
+		THEN
+		⚬	SCXML_Complete:	SCXML_uc ≔ TRUE 
+		END
+
+	END
+\end{EventBcode}
