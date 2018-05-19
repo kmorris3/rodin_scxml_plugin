@@ -1,6 +1,11 @@
 \section{SCXML Translation}
 \label{sec:translation}
 
+A tool to automatically translate \SCXML models into \iUMLB has been produced. 
+The tool is based on the Eclipse Modelling Framework (EMF) and uses a \SCXML metamodel provided by Sirius~\cite{siriuswebsite} which has good support for extensibility. 
+The tooling for \iUMLB and \EventB already contains EMF metamodels and provides a generic translator framework which has been specialised for the \SCXML to \iUMLB translation. 
+\ColinCommented{Here we should summarise the translation to iUML-B and Event-B showing the iUML-B statemachines of different refinement levels. Also mention the 'combinations'.. although there are no examples in the IDS.}
+
 The `run to completion' semantics is supported by \EventB through the construction of a basis that constitutes an 
 abstract execution model, which all designed systems refined. The basis includes a \EventB context and machine. 
 The context, shown in~\ref{lst:BasisContext}, defines the basis triggers as a partition of internal and external triggers, defined by |SCXML_FutureInternalTrigger| and |SCXML_FutureExternalTrigger| respectively. The abstract model of the secBot extends this context by declaring a new axiom that defines the partitions of the |SCXML_FutureInternalTrigger|set which would include the \textbf{spi\_done} trigger and a new partition |SCXML_FutureInternalTrigger0| to enable the introduction of additional internal triggers by subsequent refinements. 
