@@ -29,10 +29,15 @@ That is, |Idle=TRUE| is maintained in state |Go| if it holds in state |Wait50ms|
 To ensure this we add a guard |send_message /: SCXML_raisedTriggers| to |Wait50ms_Go| to prevent any future refinement from raising the trigger |send_message|.
 (Currently, this is added verbatim but we envision a `doesn't raise' notation to avoid the user having to reference the translation artefact, |SCXML_raisedTriggers|).
 We also need to prevent any future transitions from raising this trigger in the state |Go|.
-To automate this for all abstract `future' events, they could be automatically generated and added to satisfy all user invariants concerning the raising of internal triggers regardless of whether they are violated in future levels. For example, the guard… 
-     |Go = TRUE => send_message /: SCXML_raisedTriggers|
-needs to be automatically added to all the future transitionSet events to prove they do not break the property being verified. If it is not obeyed by future transitions, guard strengthening proof obligations will fail, making it obvious where the problems lie.
-As indicated above, we now need to prove by similar means that |Idle=TRUE| holds in state |Wait50ms|. In this case, however, we can only say that |Idle=TRUE| in state |InitialiseSensor| after the spi-system completes the message and raises the trigger, |spi_done|. Hence the state invariant for |InitialiseSensor| becomes |spi_done∈SCXML_iq => Idle=TRUE|. In order to prove this we again need a corresponding state invariant about |send_message| and need to make sure that the |SPI| system will never raise |send_message| and does not raise |spi_done| until it is finished. With these invariants and additional guards the Rodin automatic provers are able to prove all proof obligations and hence verify that the |SPI| system remains in |Idle| after servicing the `Initialise Sensor' message.
+To automate this for all abstract `future' events, they could be automatically generated and added to satisfy all user invariants concerning the raising of internal triggers regardless of whether they are violated in future levels. 
+For example, the guard  |Go = TRUE => send_message /: SCXML_raisedTriggers| needs to be automatically added to all the future transitionSet events to prove they do not break the property being verified. 
+If it is not obeyed by future transitions, guard strengthening proof obligations will fail, making it obvious where the problems lie.
+As indicated above, we now need to prove by similar means that |Idle=TRUE| holds in state |Wait50ms|. 
+In this case, however, we can only say that |Idle=TRUE| in state |InitialiseSensor| after the spi-system finishes sending the message and raises the trigger, |spi_done|. 
+Hence the state invariant for |InitialiseSensor| becomes |spi_done∈SCXML_iq => Idle=TRUE|. 
+In order to prove this we again need a corresponding state invariant about |send_message| and need to make sure that the |SPI| system will never raise |send_message|.
+We also ensure it does not raise |spi_done| until it is finished. 
+With these invariants and additional guards the Rodin automatic provers are able to prove all proof obligations and hence verify that the |SPI| system remains in |Idle| after servicing the `Initialise Sensor' message.
 
 Proving these properties are true at an abstract level illustrates how prover leads us to specify constraints representing an abstraction of the final behaviour. If these constraints are not maintained in later levels, simpler proof obligations about guard strengthening will be unprovable. The abstract guards should be removed at later refinements when the details have been specified. To do this we could introduce ranges in our refinement attributes.
 
