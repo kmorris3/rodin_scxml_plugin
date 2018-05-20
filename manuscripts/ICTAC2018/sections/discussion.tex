@@ -38,8 +38,32 @@ In practice we wish to leverage existing \EventB verification tools and hence ad
 
 Refinement should preserve the value of the abstract state after each micro-step and at the end of each macro-step. The abstract state should not be altered by any new micro-steps that are introduced into an abstract macro-step, nor by any new macro-steps that are introduced. (Note that these goals take the view that macro-steps should align through refinement. An alternative approach that we are considering for future work takes the view that the macro-steps need not align and a micro-step may shift from one macro-step to another in a refinement). 
 
-There seems to be an inherent difficulty with refining `run to completion' semantics which require that every enabled micro step, is completed before the next macro step is started. The problem is that, in a refinement, we want to strengthen the conditions for a micro step. However, by making the micro steps more constrained we disable them and make their completion more easily achieved. This makes the guard for taking the next macro step weaker breaking the notion of refinement.
+There is an inherent difficulty with refining `run to completion' semantics which require that every enabled micro step, is completed before the next macro step is started. The problem is that, in a refinement, we want to strengthen the conditions for a micro step. However, by making the micro steps more constrained we may disable them and hence make the completion of enabled ones more easily achieved. This makes the guard for taking the next macro step weaker breaking the notion of refinement.
 
-\ColinAdded{Here we should discuss the various translations that we have tried illustrating the problems of getting a refinment. Mainly the idea of having a scheduling engine that moves the transition guards to a scheduler and fires a collection of enabled transitions before moving to the next step, versus the flattened combinations approach that we finally adopted.}
+While it is always possible to abstract away sufficiently to reach a common semantic (see~\cite{Snook12:FMCO} for example), in this work we wish to explore verification that considers `run to completion' behaviour as closely as possible.    
+To simulate the `run to completion' semantics in \EventB, we initially adopted a scheduler approach where `engine' events decide which user transitions should be fired based on their guards. 
+Boolean flags are then used to enable these transitions which must then fire before the next step of the engine.
+The engine implements the operational semantics of Listing~\ref{lst:scxml-r2c} by deciding when to use internal or external triggers.
+To allow for transition guards to be strengthened in later refinements the scheduling engine may continue without actually firing the transitions.
+However, this introduces many additional behaviours making simulation difficult.
+We abstract away from the \SCXML rules about executing parallel transitions in document order and adopt non-deterministic firing order of transitions. 
+A consequence is that if transitions that can fire in parallel assign to the same variable as each other the resulting value is non-deterministic.
+\ColinInlineCommented{Son's suggestion to move the non-determinism to the enabling step may improve this scheduler engine approach}
+
+Due to difficulties with non-deterministic firing of user transitions we developed an alternative approach where a separate event is generated for each combination of transitions that could possibly be fired together in the same step. 
+For example, if T1 and T2 are transitions that could both become enabled at the same schedular step, four events are needed to cater for the possible combinations: neither, T1, T2 and both (where the combined event is constructed from the conjunction of guards and parallel firing of actions). 
+To allow for strengthening of the guards  in refinement we omit the negation of guards
+%(if $Gref \implies Gabs$  it does not follow that $\neg Gref \implies \neg Gabs$) 
+leaving the choice of lesser combinations, including the empty one, non-determistically available in case of future refinement.
+For example, T1 could fire alone even if T2 is enabled since we cannot add the negation of T2's guard to T1 unless we know that it will never be strengthened. 
+For future work we may consider extending \SCXML with an attribute to indicate that a guard is \emph{finalised} so that the negation can be used.
+
+With this approach, since there is only ever a single event to be fired, the schedular can be integrated with the events that represent the transition combinations, greatly simplifying the Event-B model.
+Instead of explicit events to progress and implement the scheduling engine, an abstract machine is provided with events that can be refined by the translation of the user's \SCXML model.
+This has benefits both for animation which is easier to follow having less translation artifacts and for proof where the obligations are directly associatied with particular transition combinations. 
+Another benefit is that any parallel assignments to the same variable are rejected by the Event-B static checker.
+The disadvantage, of course, is that there could be a combinatorial explosion in the number of events generated.
+In practice though, this is unlikely since the number of parallel statemachines is usually quite small.
+So far our examples have required few or no parallel transitions.
 
 
