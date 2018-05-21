@@ -10,18 +10,18 @@ The `run to completion' semantics is supported by \EventB through the constructi
 abstract execution model, which all designed systems refined. The basis includes a \EventB context and machine. 
 The context, shown in~\ref{lst:BasisContext}, defines the basis triggers as a partition of internal and external triggers, defined by |SCXML_FutureInternalTrigger| and |SCXML_FutureExternalTrigger| respectively. The abstract model of the secBot extends this context by declaring a new axiom that defines the partitions of the |SCXML_FutureInternalTrigger|set which would include the \textbf{spi\_done} trigger and a new partition |SCXML_FutureInternalTrigger0| to enable the introduction of additional internal triggers by subsequent refinements. 
 
-\begin{EventBcode} [\caption{Context for abstract basis}, \label{lst:BasisContext}]
+\begin{lstlisting}[caption={Context for abstract basis},label={lst:BasisContext}, language=Event-B, escapechar=|]
 	CONTEXT
 		basis 	// (generated for SCXML)
 	SETS
 	⚬	SCXML_TRIGGER	 // all possible triggers
 	CONSTANTS
 	⚬	SCXML_FutureInternalTrigger	 // all possible internal triggers
-	⚬	SCXML_FutureExternalTrigger	 // all possible external triggers
+	⚬	SCXML_FutureExternalTrigger	 // all possible external triggers  
 	AXIOMS
 	⚬	axm1:	partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger) not theorem 
 	END
-\end{EventBcode}
+\end{lstlisting}	
 
 The machine of the basis shown in Listing~\ref{lst:BasisMachine} declares the variables that correspond to the triggers 
 present in the queue at any given time, as well as, the |SCXML_uc| flag, which signals when a run to completion macro-step 
@@ -35,7 +35,7 @@ A similar behavior is followed by |SCXML_futureInternalTransitionSet| event, if 
 To completely control the execution flow of the model, all un-triggered transitions must refined the |SCXML_futureUntriggeredTransitionSet|
 event. Any of the previously discussed events can raise internal triggers by introducing a guard that defines the |SCXML_raisedTrigger| parameter.
 
-\begin{EventBcode} [\caption{Machine for abstract basis}, \label{lst:BasisMachine}]
+\begin{lstlisting}[caption={Machine for abstract basis}, label={lst:BasisMachine},language=Event-B, escapechar=|]
 MACHINE
 		basis 	// (generated for SCXML)
 	SEES
@@ -91,4 +91,26 @@ MACHINE
 		END
 
 	END
-\end{EventBcode}
+\end{lstlisting}
+
+
+\begin{lstlisting}[caption={Event-B event corresponding to internal triggered transition to \textbf{Wait50ms} state. This is the refinement level 1 shown in~\ref{fig:ASIC}}, label={lst:BasisMachine},language=Event-B, escapechar=|]
+	⚬	spi_done__InitialiseSensor_Wait50ms:	 extended ordinary ›
+		REFINES
+		⚬	 SCXML_futureInternalTransitionSet 
+		ANY
+		⚬	SCXML_it	 ›
+		⚬	SCXML_raisedTriggers	 ›
+		WHERE
+		⚬	typeof_SCXML_it:	SCXML_it  ∈ SCXML_iq not theorem ›
+		⚬	SCXML_isComplete:	SCXML_uc = TRUE not theorem ›
+		⚬	typeof_SCXML_raisedTriggers:	SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger not theorem ›
+		⚬	isin_InitialiseSensor:	InitialiseSensor = TRUE not theorem ›
+		⚬	SCXML_trigger:	SCXML_it = spi_done not theorem ›triggered transition
+		THEN
+		⚬	SCXML_notComplete:	SCXML_uc ≔ FALSE ›
+		⚬	SCXML_consumeInternalTrigger:	SCXML_iq ≔ (SCXML_iq ∪ SCXML_raisedTriggers) ∖ {SCXML_it} ›
+		⚬	leave_InitialiseSensor:	InitialiseSensor ≔ FALSE ›
+		⚬	enter_Wait50ms:	Wait50ms ≔ TRUE ›
+		END
+\end{lstlisting}
