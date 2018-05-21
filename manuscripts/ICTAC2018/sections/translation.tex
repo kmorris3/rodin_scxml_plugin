@@ -110,7 +110,7 @@ To completely control the execution flow of the model, all un-triggered transiti
 event. Any of the previously discussed events can raise internal triggers by introducing a guard that defines the |SCXML_raisedTrigger| parameter. As shown in listing~\ref{lst:SecBotMach0} the event that correspond to a triggered transition used the provided parameter to define the event trigger (see line~\ref{line:defTrigger}).
 
 
-\begin{lstlisting}[caption={Event-B event corresponding to internal triggered transition to \textbf{Wait50ms} state. This is the refinement level 1 shown in~\ref{fig:ASIC}}, label={lst:SecBotMach0},language=Event-B, escapechar=|, frame=single]
+\begin{lstlisting}[caption={Event-B event corresponding to internal triggered transition to \textbf{Wait50ms} state in refinement level 1 shown in~\ref{fig:ASIC}}, label={lst:SecBotMach0},language=Event-B, escapechar=|, frame=single]
 	⚬	spi_done__InitialiseSensor_Wait50ms:	 extended ordinary ›
 		REFINES
 		⚬	 SCXML_futureInternalTransitionSet 
