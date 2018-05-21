@@ -17,13 +17,13 @@ Therefore additional constraints, that are an abstraction of the missing details
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=1.0\textwidth]{figures/iumlb_verif}
-	\caption{state invariants to be verified at refinement level 1}
+	\caption{State invariants to be verified at refinement level 1.}
 	\label{fig:iumlb-verif}
 \end{figure}
 
 Figure~\ref{fig:iumlb-verif} is the generated iUML-B showing state invariants to be verified. (The invariants are added to the \SCXML model but are easier to visualise in the iUML-B with the current tooling).
-The main aim is to show the the property |Idle=TRUE| holds in state |Go|. 
-This is true because after sending the message while in |InitialiseSensor|, no other messages are triggered by the |ASIC|, so the |SPI| subsystem while stay in the |Idle| state indefinately. 
+The main aim is to show the property |Idle=TRUE| holds in state |Go|. 
+This is true because after sending the message while in |InitialiseSensor|, no other messages are triggered by the |ASIC|, so the |SPI| subsystem stays in the |Idle| state indefinately. 
 To enable the provers to discharge the proof obligation we work back along the |ASIC|'s sequence of states. 
 That is, |Idle=TRUE| is maintained in state |Go| if it holds in state |Wait50ms| and no |send_message| triggers are raised by the entry transition |Wait50ms_Go| nor once the |ASIC| subsystem is in state |Go|. 
 To ensure this we add a guard |send_message /: SCXML_raisedTriggers| to |Wait50ms_Go| to prevent any future refinement from raising the trigger |send_message|.

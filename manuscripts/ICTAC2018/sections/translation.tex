@@ -66,21 +66,6 @@ MACHINE
 		⚬	SCXML_raiseExternalTriggers:	SCXML_eq ≔ SCXML_eq ∪ SCXML_raisedTriggers 
 		END
 
-	⚬	SCXML_futureExternalTransitionSet:	 not extended ordinary 
-		ANY
-		⚬	SCXML_et	 
-		⚬	SCXML_raisedTriggers	 
-		WHERE
-		⚬	typeof_SCXML_et:	SCXML_et ∈ SCXML_eq not theorem 
-		⚬	SCXML_internalQEmpty:	SCXML_iq = ∅ not theorem 
-		⚬	SCXML_isComplete:	SCXML_uc = TRUE not theorem 
-		⚬	typeof_SCXML_raisedTriggers:	SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger not theorem 
-		THEN
-		⚬	SCXML_notComplete:	SCXML_uc ≔ FALSE 
-		⚬	SCXML_consumeExternalTrigger:	SCXML_eq ≔ SCXML_eq ∖ {SCXML_et} 
-		⚬	SCXML_raiseInternalTriggers:	SCXML_iq ≔ SCXML_iq ∪ SCXML_raisedTriggers 
-		END
-
 	⚬	SCXML_futureInternalTransitionSet:	 not extended ordinary 
 		ANY
 		⚬	SCXML_it	 
@@ -103,13 +88,6 @@ MACHINE
 		THEN
 		⚬	SCXML_NotComplete:	SCXML_uc ≔ FALSE 
 		⚬	SCXML_raiseInternalTriggers:	SCXML_iq ≔ SCXML_iq ∪ SCXML_raisedTriggers 
-		END
-
-	⚬	SCXML_Completion:	 not extended ordinary 
-		WHERE
-		⚬	SCXML_isNotComplete:	SCXML_uc = FALSE not theorem 
-		THEN
-		⚬	SCXML_Complete:	SCXML_uc ≔ TRUE 
 		END
 
 	END
