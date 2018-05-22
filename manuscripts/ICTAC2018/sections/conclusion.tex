@@ -9,15 +9,17 @@
 	2.	Look at how you can check for violations of refinement in a SCXML model construction
 	3.	Look at the sort of invariant properties you can verify about a SCXML model
 }
+
 This is the conclusion...
 
 \RobCommented{Add some stuff on auto-abstract interpretation. (?)}
 
-While Statecharts interpreted in iUML-B provide a way to incorporate
-refinement in an intuitive way, reversing this to {\emph discover}
-refinements holds promise.  Checking a particular Statechart model for
-heirarchical structures that happen to follow the refinement proof
-obligations suggests an automatic way to accomplish abstract
-interpretation on an existing model.  Such discovered
-abstraction/refinement relationships might improve the scalability of
-more complex Statechart models ``for free''.
+In this paper, we illustrate our approach for introducing refinement into Statecharts.  Our approach of intepreting Statecharts in \iUMLB provide a an intuitive way to incorporate refinement, reversing this to \emph{discover} refeinements holds promise.  Checking a particular Statechart model forheirarchical structures that happen to follow the refinement proof obligations suggests an automatic way to accomplish abstract interpretation on an existing model.  Such discovered abstraction/refinement relationships might improve the scalability of more complex Statechart models ``for free''.
+
+For our interpretation of Statecharts in \iUMLB, we used the ``run-to-completion'' semantics of Statecharts.  In particular, we have carefully designed our translated model such that the semantics is captured as a generic abstract model, which is subsequently refined by the translation of the actual SCXML model.  An advantage of this approach is that we can easily adapt replace the basis model with other alternative semantics~\cite{Eshuis_2009} without the changing the translation of the actual SCXML model. 
+\SonInlineCommented{@Colin: What do you call the translation of the actual SCXML model? (as in constrast to the basis abstract model)}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../SCXMLREF.tex"
+%%% End: 
