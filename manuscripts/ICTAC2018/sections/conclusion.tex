@@ -2,22 +2,14 @@
 
 \section{Conclusion}
 \label{sec:conclusion}
-\ColinInlineCommented{maybe consider the note below (from our previous plans for a paper)
-	
-	Note: Things to highlight with the choice of example
-	1.	Look at a system that is better model with SCXML run to completion semantics than iUML-B semantics
-	2.	Look at how you can check for violations of refinement in a SCXML model construction
-	3.	Look at the sort of invariant properties you can verify about a SCXML model
-}
-This is the conclusion...
+
+We have shown how a slightly extended and annotated startchart, with a typical 'run to completion' semantic, can be translated into the \EventB notation for verification of synchronisation properties using the powerful \EventB theorem proving tools.
+Furthermore, borrowing from the refinement concepts of \EventB, we introduce a notion of refinement to statecharts and demonstrate how the proof of a property at an abstract level, helps formulate constraints that must apply (and will be verifed to do so) in further refinements.
+
+In future work we will continue to experiment with different examples to explore the alternative translation strategies in more detail. 
+In particular, further work on refinement of the micro/macro-step and whether correspondence of macro-steps can be relaxed; whether more complex refinement techniques could be supported (for example, using ranges in refinement annotations) would be useful; supporting/comparing alternative variations of semantics (by generating a different basis/scheduler for the translation).
 
 \RobCommented{Add some stuff on auto-abstract interpretation. (?)}
-
-While Statecharts interpreted in iUML-B provide a way to incorporate
-refinement in an intuitive way, reversing this to {\emph discover}
-refinements holds promise.  Checking a particular Statechart model for
-heirarchical structures that happen to follow the refinement proof
-obligations suggests an automatic way to accomplish abstract
-interpretation on an existing model.  Such discovered
-abstraction/refinement relationships might improve the scalability of
-more complex Statechart models ``for free''.
+While Statecharts interpreted in iUML-B provide a way to incorporate refinement in an intuitive way, reversing this to \emph{discover} refinements holds promise. 
+Checking a particular Statechart model for heirarchical structures that happen to follow the refinement proof obligations suggests an automatic way to accomplish abstract interpretation on an existing model.  
+Such discovered abstraction/refinement relationships might improve the scalability of more complex Statechart models ``for free''.
