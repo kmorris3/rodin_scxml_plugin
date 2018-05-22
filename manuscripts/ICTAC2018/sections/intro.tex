@@ -6,7 +6,7 @@
 Previous workshop paper HCCV 2016~\cite{Morris_2016}
 \ColinCommented{MOVE this citation somewhere}
 
-Formal verification of high consequence systems requires the analysis
+Formal verification of high-consequence systems requires the analysis
 of formal models that capture the properties and functionality of the
 system of interest. Although high-consequence controls and systems are
 designed to limit complexity, the requirements and consequent proof
@@ -15,27 +15,27 @@ Proof obligations for such requirements can be made more tractable using
 abstraction/refinement, providing a natural divide and conquer
 strategy for controlling complexity.
 
-Statecharts\cite{Harel} are often used for high-consequence controls
+\Statecharts~\cite{Harel} are often used for high-consequence controls
 and other critical systems to provide an unambiguous, executable way
 of specifying functional as well as safety, security, and reliability
 properties.  While functional properties (usually) can be tested,
 safety security and reliability properties (usually) must be proved
-formally.  Here we give a binding from Statecharts to Event-B so that
-this type of reasoning can be carried out.  Moreover, heirarchical
-encapsulation maps well onto Statecharts in a way that is not very
-different from previous work in iUML-B\cite{Snook2006,snook14:_b_statem,Snook12:FMCO}.
-Binding iUML-B to a UML version of Statecharts is natural and the
-addition of run-to-completion semantics, expected by Statechart
+formally.  Here we give a binding from \Statecharts to \EventB so that
+this type of reasoning can be carried out.  Moreover, hierarchical
+encapsulation maps well onto \Statecharts in a way that is not very
+different from previous work in \iUMLB~\cite{Snook2006,snook14:_b_statem,Snook12:FMCO}, a diagramatic modelling notation for \EventB.
+Binding \iUMLB to a UML version of \Statecharts is natural and the
+addition of run-to-completion semantics, expected by \Statechart
 designers, is much of the contribution of this work.  Another
 contribution is the augmentation of the textual and parse-able format
-for Statecharts, SCXML to accomodate elements necessary to support formal
+for \Statecharts, \SCXML to accomodate elements necessary to support formal
 analysis. 
 
-While Statecharts and various semantic interpretations of Statecharts
+While \Statecharts and various semantic interpretations of \Statecharts
 admit refinement reified as both hierarchical or parallel composition
-(e.g. see Argos\cite{Maraninchi91theargos}), here, as
+(e.g. see Argos~\cite{Maraninchi91theargos}), here, as
 previously\cite{snook14:_b_statem}, we focus only on hierarchical
-refinement, the form that Event-B natively admits.
+refinement, the form that \EventB natively admits.
 \ColinCommented{Should we briefly say what parallel refinment is?}
 \RobCommented{I hope it is OK to make the heirarchical vs parallel
   composition for refinement.  It leaves open work to be done.  Also,
@@ -49,29 +49,36 @@ increases in each refinement level, tractability of the detailed model
 can be improved by the use of a graphical representation, with rich
 semantics that can support an infrastructure for formal verification.
 
-The semantics adopted here cleaves closely to those of iUML-B
-specifically and UML Statecharts\cite{Alexandre} generally.
+The semantics adopted here cleaves closely to those of \iUMLB
+specifically and UML \Statecharts~\cite{Alexandre} generally.
 \ColinCommented{They are somewhat different.. can we cleave to both of them? 
 	My view is that we adopt the semantics similar to those of UML and try to represent them in the alternative iUML-B semantics (that cleaves closely to those of Event-B)}
  Models
-described in Statecharts are expressed in SCXML and translated into
-Event-B logic which uses the Rodin framework\cite{Abrial} for machine
-proofs.  UML Statechart semantics are not the only formal semantics
-that can be bound to the Statechart graphical
-language\cite{Eshuis_2009}.
+described in \Statecharts are expressed in \SCXML and translated into
+\EventB logic which uses the \Rodin~\cite{Abrial} for machine
+proofs.  UML \Statechart semantics are not the only formal semantics
+that can be bound to the \Statechart graphical
+language~\cite{Eshuis_2009}.
 %
-The Event-B language
+The \EventB language
 \cite{abrial10:_model_event_b} provides the logic and refinement
 theory required to formally analyze a system model.  The open-source
-Rodin tool \cite{abrial10:_rodin} provides support for Event-B
-including automatic theorem provers.  iUML-B \cite{snook14:_b_statem}
-augments the Event-B language with a graphical interface including
+\Rodin \cite{abrial10:_rodin} provides support for \EventB
+including automatic theorem provers.  \iUMLB~\cite{snook14:_b_statem}
+augments the \EventB language with a graphical interface including
 state-machines.  
 
-With suitable restrictions, Statecharts already provide a sound,
+With suitable restrictions, \Statecharts already provide a sound,
 intuitive, visual metaphor for refinement. Outfitted with a formal
-semantics, this work borrows from well-used Statechart practices in
+semantics, this work borrows from well-used \Statechart practices in
 digital design.  The goal of the present work is to provide usable,
 well-founded tools that are familiar to designers of high-consequence
 systems and yet provide the currently lacking formal guarantees needed
 to ensure safety, security, and reliability.
+
+The rest of the paper is structured as follows.  Section~\ref{sec:background} provides background information on \SCXML, \EventB, and \iUMLB.  Section~\ref{sec:secbot} presents the intrusion dection system that is used as our running example.  Section~\ref{sec:discussion} discusses the various challenges for introducing refinement notion into \SCXML and our approach.  Section~\ref{sec:extensions} shows our extensions to \SCXML which are necessary for reasoning about properties of the \SCXML models.  In Section~\ref{sec:translation}, we illustrate our translation \SCXML models into \EventB using the intrusion detection system example.  Section~\ref{sec:example} shows how properties of the \SCXML models can be specified as invariants and verified in \EventB.  We summarise our contribution and conclude in Section~\ref{sec:conclusion}.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../SCXMLREF.tex"
+%%% End: 
