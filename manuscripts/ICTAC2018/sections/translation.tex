@@ -13,32 +13,33 @@ The basis includes \EventB context and machine.
 The context, shown in~\ref{lst:BasisContext}, defines the basis triggers as a partition of internal and external triggers, declared as |SCXML_FutureInternalTrigger| and |SCXML_FutureExternalTrigger| respectively. 
 The abstract model of the SecBot extends the basis context and declares a new axiom that defines the partitions of the |SCXML_FutureInternalTrigger| set, which would include the \textbf{spi\_done} trigger and a new partition |SCXML_FutureInternalTrigger0| to enable the introduction of additional internal triggers by subsequent refinements as shown in line~\ref{line:refPartition} of listing~\ref{lst:SecBotCont0}. 
 
-\ColinCommented{Suggestion: - SEE EXAMPLE AT END OF THIS SECTION - we could simplify listings by ommitting labels and some attributes s.a. 'not theorem', 'ordinary' and 'extended' (for latter, make sure any features that are from the abstract version are copied down ) }
 \begin{lstlisting}[caption={Abstract basis context},label={lst:BasisContext}, language=Event-B, escapechar=|, frame=single]
 	CONTEXT
 		basis 	// (generated for SCXML)
 	SETS
-	⚬	SCXML_TRIGGER	 // all possible triggers
+		SCXML_TRIGGER	 // all possible triggers
 	CONSTANTS
-	⚬	SCXML_FutureInternalTrigger	 // all possible internal triggers
-	⚬	SCXML_FutureExternalTrigger	 // all possible external triggers  
+		SCXML_FutureInternalTrigger	 // all possible internal triggers
+		SCXML_FutureExternalTrigger	 // all possible external triggers  
 	AXIOMS
-	⚬	axm1:	partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger) not theorem 
+		partition(SCXML_TRIGGER,
+				SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger) 
 	END
 \end{lstlisting}	
 
 \begin{lstlisting}[caption={Context for intrusion detection system abstract model},label={lst:SecBotCont0}, language=Event-B, escapechar=|, frame=single]
 	CONTEXT
-		SecBot_Model_0_ctx 	›(generated from SCXML file: /SecBot_generated/secbot.scxml)
+		SecBot_Model_0_ctx //(generated from:/SecBot_generated/secbot.scxml)
 	EXTENDS
-	⚬	 basis 
+		basis 
 	CONSTANTS
-	⚬	SCXML_FutureInternalTrigger0	 ›
-	⚬	SCXML_FutureExternalTrigger0	 ›
-	⚬	spi_done	 ›trigger
+		SCXML_FutureInternalTrigger0	
+		SCXML_FutureExternalTrigger0
+		spi_done	 	//trigger
 	AXIOMS
-	⚬	SCXML_FutureExternalTrigger0:	SCXML_FutureExternalTrigger0=SCXML_FutureExternalTrigger not theorem ›
-	⚬	SCXML_FutureInternalTrigger0:	partition(SCXML_FutureInternalTrigger,SCXML_FutureInternalTrigger0,{spi_done}) not theorem › |\label{line:refPartition}|
+		SCXML_FutureExternalTrigger0=SCXML_FutureExternalTrigger
+		partition(SCXML_FutureInternalTrigger,
+						SCXML_FutureInternalTrigger0,{spi_done}) |\label{line:refPartition}|
 	END
 \end{lstlisting}
 
@@ -56,55 +57,56 @@ A similar behavior is followed by |SCXML_futureExternalTransitionSet| event, if 
 MACHINE
 		basis 	// (generated for SCXML)
 	SEES
-	⚬	 basis 
+		basis 
 	VARIABLES
-	⚬	SCXML_iq	 // internal trigger queue
-	⚬	SCXML_eq	 // external trigger queue
-	⚬	SCXML_uc	 // run to completion flag
+		SCXML_iq	 // internal trigger queue
+		SCXML_eq	 // external trigger queue
+		SCXML_uc	 // run to completion flag
 	INVARIANTS
-	⚬	typeof_SCXML_iq:	SCXML_iq ⊆ SCXML_FutureInternalTrigger not theorem // internal trigger queue
-	⚬	typeof_SCXML_eq:	SCXML_eq ⊆ SCXML_FutureExternalTrigger not theorem // external trigger queue
-	⚬	disjointQueues:	SCXML_iq ∩ SCXML_eq= ∅ not theorem // queues are disjoint
-	⚬	typeof_SCXML_uc:	SCXML_uc ∈ BOOL not theorem // completion flag
+		SCXML_iq ⊆ SCXML_FutureInternalTrigger	// internal trigger queue
+		SCXML_eq ⊆ SCXML_FutureExternalTrigger	// external trigger queue
+		SCXML_iq ∩ SCXML_eq= ∅					// queues are disjoint
+		SCXML_uc ∈ BOOL							// completion flag
 	EVENTS
-	⚬	INITIALISATION:	 not extended ordinary 
+	
+		INITIALISATION: 
 		THEN
-		⚬	init_SCXML_iq:	SCXML_iq ≔ ∅ // internal Q is initially empty
-		⚬	init_SCXML_eq:	SCXML_eq ≔ ∅ // external Q is initially empty
-		⚬	init_SCXML_uc:	SCXML_uc ≔ FALSE // completion is initially FALSE
+			SCXML_iq := {}		//internal Q is initially empty
+			SCXML_eq := {}		//external Q is initially empty
+			SCXML_uc := FALSE	//completion is initially FALSE
 		END
 
-	⚬	SCXML_futureExternalTrigger:	 not extended ordinary 
+		SCXML_futureExternalTrigger: 
 		ANY
-		⚬	SCXML_raisedTriggers	 
+			SCXML_raisedTriggers	 
 		WHERE
-		⚬	typeof_SCXML_raisedTriggers:	SCXML_raisedTriggers ⊆ SCXML_FutureExternalTrigger not theorem 
+			SCXML_raisedTriggers ⊆ SCXML_FutureExternalTrigger 
 		THEN
-		⚬	SCXML_raiseExternalTriggers:	SCXML_eq ≔ SCXML_eq ∪ SCXML_raisedTriggers 
+			SCXML_eq ≔ SCXML_eq ∪ SCXML_raisedTriggers 
 		END
         ...
-	⚬	SCXML_futureInternalTransitionSet:	 not extended ordinary 
+		SCXML_futureInternalTransitionSet: 
 		ANY
-		⚬	SCXML_it	 
-		⚬	SCXML_raisedTriggers	 
+			SCXML_it	 
+			SCXML_raisedTriggers	 
 		WHERE
-		⚬	typeof_SCXML_it:	SCXML_it  ∈ SCXML_iq not theorem 
-		⚬	SCXML_isComplete:	SCXML_uc = TRUE not theorem 
-		⚬	typeof_SCXML_raisedTriggers:	SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger not theorem 
+			SCXML_it ∈ SCXML_iq 
+			SCXML_uc = TRUE 
+			SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger 
 		THEN
-		⚬	SCXML_notComplete:	SCXML_uc ≔ FALSE 
-		⚬	SCXML_consumeInternalTrigger:	SCXML_iq ≔ (SCXML_iq ∪ SCXML_raisedTriggers) ∖ {SCXML_it} 
+			SCXML_uc ≔ FALSE 
+			SCXML_iq ≔ (SCXML_iq ∪ SCXML_raisedTriggers) ∖ {SCXML_it} 
 		END
 
-	⚬	SCXML_futureUntriggeredTransitionSet:	 not extended ordinary 
+		SCXML_futureUntriggeredTransitionSet: 
 		ANY
-		⚬	SCXML_raisedTriggers	 
+			SCXML_raisedTriggers	 
 		WHERE
-		⚬	SCXML_isNotComplete:	SCXML_uc = FALSE not theorem 
-		⚬	typeof_SCXML_raisedTriggers:	SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger not theorem 
+			SCXML_uc = FALSE
+			SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger
 		THEN
-		⚬	SCXML_NotComplete:	SCXML_uc ≔ FALSE 
-		⚬	SCXML_raiseInternalTriggers:	SCXML_iq ≔ SCXML_iq ∪ SCXML_raisedTriggers 
+			SCXML_uc ≔ FALSE 
+			SCXML_iq ≔ SCXML_iq ∪ SCXML_raisedTriggers 
 		END
         ...
 	END
@@ -117,13 +119,15 @@ As shown in listing~\ref{lst:SecBotMach0} an event that corresponds to a trigger
 \begin{lstlisting}[caption={Event-B event corresponding to internal triggered transition to \textbf{Wait50ms} state in refinement level 1 shown in~\ref{fig:ASIC}}, label={lst:SecBotMach0},language=Event-B, escapechar=|, frame=single]
 spi_done__InitialiseSensor_Wait50ms:	
 REFINES SCXML_futureInternalTransitionSet 
-ANY	SCXML_it, SCXML_raisedTriggers	 ›
+ANY	
+	SCXML_it,
+	SCXML_raisedTriggers
 WHERE
 	SCXML_it  ∈ SCXML_iq 
 	SCXML_uc = TRUE
 	SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger
 	InitialiseSensor = TRUE
-	SCXML_it = spi_done |\label{line:defTrigger}|
+	SCXML_it = spi_done  	//trigger for this transition |\label{line:defTrigger}|
 THEN
 	SCXML_uc ≔ FALSE
 	SCXML_iq ≔ (SCXML_iq ∪ SCXML_raisedTriggers) ∖ {SCXML_it}
@@ -131,24 +135,3 @@ THEN
 	Wait50ms ≔ TRUE
 END
 \end{lstlisting}
-
-%\begin{lstlisting}[caption={Event-B event corresponding to internal triggered transition to \textbf{Wait50ms} state in refinement level 1 shown in~\ref{fig:ASIC}}, label={lst:SecBotMach0},language=Event-B, escapechar=|, frame=single]
-%	⚬	spi_done__InitialiseSensor_Wait50ms:	 extended ordinary ›
-%		REFINES
-%		⚬	 SCXML_futureInternalTransitionSet 
-%		ANY
-%		⚬	SCXML_it	 ›
-%		⚬	SCXML_raisedTriggers	 ›
-%		WHERE
-%		⚬	typeof_SCXML_it:	SCXML_it  ∈ SCXML_iq not theorem ›
-%		⚬	SCXML_isComplete:	SCXML_uc = TRUE not theorem ›
-%		⚬	typeof_SCXML_raisedTriggers:	SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger not theorem ›
-%		⚬	isin_InitialiseSensor:	InitialiseSensor = TRUE not theorem ›
-%		⚬	SCXML_trigger:	SCXML_it = spi_done not theorem ›triggered transition |\label{line:defTrigger}|
-%		THEN
-%		⚬	SCXML_notComplete:	SCXML_uc ≔ FALSE ›
-%		⚬	SCXML_consumeInternalTrigger:	SCXML_iq ≔ (SCXML_iq ∪ SCXML_raisedTriggers) ∖ {SCXML_it} ›
-%		⚬	leave_InitialiseSensor:	InitialiseSensor ≔ FALSE ›
-%		⚬	enter_Wait50ms:	Wait50ms ≔ TRUE ›
-%		END
-%\end{lstlisting}
