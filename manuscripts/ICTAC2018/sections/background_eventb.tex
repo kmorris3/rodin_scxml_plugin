@@ -42,31 +42,31 @@ then
     execute(untriggered()) // Execute enabled untriggered transitions
 end
 
-UntriggeredCompleted
+UntriggeredCompleted // Untriggered transitions are completed
 when
-    UC = FALSE
-    untriggered() = {}
+    UC = FALSE // Has not yet completed firing untriggered transitions
+    untriggered() = {} // No more enabled untriggered transitions
 then
-    UC = TRUE
+    UC = TRUE // Complete firing untriggered transitions
 end
 
-FireInternallyTriggered
+FireInternallyTriggered // Fire an interal trigger
 when
-    UC = TRUE
-    IQ /= {}
+    UC = TRUE // Complete firing untriggered transitions
+    IQ /= {} // The internal triggers queue is non-empty
 then
-    execute(IQ.dequeue)
-    UC := FALSE
+    execute(IQ.dequeue) // Execute and dequeue from the internal triggers queue
+    UC := FALSE // Re-enable firing of untriggered transitions
 end
 
-FireExternallyTriggered
+FireExternallyTriggered // Fire an external trigger
 when
-    UC = TRUE
-    IQ = {}
-    EQ /= {}
+    UC = TRUE // Complete firing untriggered transitions
+    IQ = {} // The internal trigger queue is empty
+    EQ /= {} // The external trigger queue is non-empty
 then
-    execute(EQ.dequeue)
-    UC := FALSE
+    execute(EQ.dequeue)  // Execute and dequeue from the external triggers queue
+    UC := FALSE // Re-enable firing of untriggered transitions
 end
 \end{lstlisting}	
 Here, |IQ| and |EQ| are queues of internally and externally, raised triggers, \emph{untriggered} selects a set of currently enabled untriggered transitions, \emph{dequeue} retrieves the next trigger from the given queue and selects the set of transitions that become enabled by it and \emph{execute} fires the given set of transitions. 
