@@ -3,8 +3,8 @@
 \section{Verification of Intrusion Detection System}
 \label{sec:example}
 
-One of our main goals is to express properties in SCXML intermediate refinements and prove them via translation to Event-B.
-In this section we illustrate how this can be done in the \IDS example.
+One of our main goals is to express properties in \SCXML intermediate refinements and prove them via translation to \EventB.
+In this section we illustrate how this can be done in the SecBot example.
  
 Properties about the synchronisation of parallel state-machines (such as |ASIC=Go => SPI=IDLE|
 % and |ASIC=Wait50ms => SPI=IDLE|
@@ -41,3 +41,7 @@ With these invariants and additional guards the Rodin automatic provers are able
 
 Proving these properties are true at an abstract level illustrates how prover leads us to specify constraints representing an abstraction of the final behaviour. If these constraints are not maintained in later levels, simpler proof obligations about guard strengthening will be unprovable. The abstract guards should be removed at later refinements when the details have been specified. To do this we could introduce ranges in our refinement attributes.
 
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../SCXMLREF"
+%%% End:

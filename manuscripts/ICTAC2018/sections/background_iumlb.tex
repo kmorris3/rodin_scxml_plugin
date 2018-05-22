@@ -10,7 +10,6 @@ Transitions contribute further guards and actions representing their state chang
 %A choice of two alternative translation encodings are supported by the iUML-B tools.  
 State-machines are typically refined by adding nested state-machines to states.
 Figure~\ref{fig:iumlb-sm} shows an example of a simple state-machine with two states.
-
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/iumlb-SM}
@@ -22,17 +21,22 @@ Each state is encoded as a boolean variable and the current state is indicated b
 An invariant ensures that only one state is set to |TRUE| at a time.
 %The state-machine, is initialised by setting one state variable to |TRUE| and all others to |FALSE|.
 Events change the values of state variables to move the |TRUE| value according to the transitions in the state-machine.  
-The \EventB translation of the statemachine in Figure~\ref{fig:iumlb-sm} can be seen below.
-\begin{EventBcode}
-variables S1, S2
-invariants S1:BOOL, S2:BOOL, 
-			TRUE:{S1,S2}=>partition({TRUE},{S1}/\{TRUE},{S2}/\{TRUE})
+The \EventB translation%
+%
+\footnote{%
+  Here, $\mathrm{partition(S, T1, T2, \ldots)}$ means the set $S$ is partitioned into (sub-)sets $T1, T2, \ldots$.
+} %
+of the state-machine in Figure~\ref{fig:iumlb-sm} can be seen in Listing~\ref{lst:eventb-sm}.%
+\begin{lstlisting}[caption={Translation of the state-machine in Fig.~\ref{fig:iumlb-sm}},label={lst:eventb-sm}, language=Event-B, escapechar=|, frame=single]
+ variables S1 S2
+invariants 
+	TRUE !: {S1, S2} => partition({TRUE}, {S1}/\{TRUE}, {S2}/\{TRUE})
 events
-    INITIALISATION: begin S1 := TRUE || S2 := FALSE end
-    e: when S1=TRUE then S1 ≔ FALSE || S2 ≔ TRUE  end
-    f: when S2=TRUE then S2 := FALSE end
+    INITIALISATION: begin S1, S2 := TRUE, FALSE end
+    e: when S1 = TRUE then S1, S2 ≔ FALSE, TRUE  end
+    f: when S2 = TRUE then S2 := FALSE end
 end
-\end{EventBcode}
+\end{lstlisting}	
 	
 %%% Local Variables:
 %%% mode: latex
