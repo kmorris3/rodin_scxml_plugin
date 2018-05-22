@@ -1,29 +1,43 @@
 % !TEX root = ../SCXMLREF.tex
 
-\section{Application to Intrusion Detection System}
+\section{Verification of Intrusion Detection System}
 \label{sec:example}
 
-\paragraph{Translation of the Intrusion Detection System to \EventB.}
-A tool to automatically translate \SCXML models into \iUMLB has been produced. 
-The tool is based on the Eclipse Modelling Framework (EMF) and uses a \SCXML metamodel provided by Sirius~\cite{siriuswebsite} which has good support for extensibility. 
-The tooling for \iUMLB and \EventB already contains EMF metamodels and provides a generic translator framework which has been specialised for the \SCXML to \iUMLB translation. 
-\ColinCommented{Here we should summarise the translation to iUML-B and Event-B showing the iUML-B statemachines of different refinement levels. Also mention the 'combinations'.. although there are no examples in the IDS.}
-
-\paragraph{Proving properties in SCXML.}
-Properties about the synchronisation of parallel state-machines (such as $ASIC=Go => SPI=IDLE$
-% and $ASIC=Wait50ms => SPI=IDLE$
+One of our main goals is to express properties in SCXML intermediate refinements and prove them via translation to Event-B.
+In this section we illustrate how this can be done in the \IDS example.
+ 
+Properties about the synchronisation of parallel state-machines (such as |ASIC=Go => SPI=IDLE|
+% and |ASIC=Wait50ms => SPI=IDLE|
 ) can be difficult to verify for all scenarios via simulation in SCXML. 
 Proof of such properties is a major benefit of translating into Event-B.  
-Furthermore, in order to benefit from the abstraction provided by Event-B, we would like to prove such things at abstract levels before the complication of further details are introduced. Typically these further details concern the raising of internal triggers that contribute to the synchronisation we wish to verify. Therefore we will need to introduce additional constraints (i.e. guards and invariants) that are an abstraction of the missing details and sufficient to perform the proof.
+Furthermore, in order to benefit from the abstraction provided by Event-B, we would like to prove such things at abstract levels before the complication of further details are introduced. 
+Typically these further details concern the raising of internal triggers that contribute to the synchronisation we wish to verify. 
+Therefore additional constraints, that are an abstraction of the missing details, are needed about triggers in order to perform the proof.
 
-To prove properties about not raising specific internal triggers in abstract `future' events – the translation can `look ahead' at the future refinements and add a guard excluding specific internal triggers from being raised in a state if they are not raised in any contained substates/transitions. Alternatively, they could be automatically generated and added to satisfy all user invariants concerning the raising of internal triggers regardless of whether they are violated in future levels. If it is not obeyed by future transtions, guard strengthening GD proof obligations will make it obvious where the problems lie. For example, the guard… 
-     $Go = TRUE => send\_message \notin SCXML\_iq’$	
-     (where SCXML\_iq’ is the new value to be assigned to SCXML\_iq in the event’s actions)
-needs to be automatically added to all the future transitionSet events to prove they do not break the property being verified. This could be automatically generated and added to satisfy all user invariants concerning the raising of internal triggers. If it is not obeyed by future transtions, guard strengthening GD proof obligations will make it obvious where the problems lie.
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/iumlb_verif}
+	\caption{State invariants to be verified at refinement level 1.}
+	\label{fig:iumlb-verif}
+\end{figure}
 
-Add a way to exclude specific internal triggers from ever being raised by a user transition (e.g. a doesn't raise element) - Or can this be automatically generated? For example, the guard… 
-     $send\_message ∉ SCXML\_raisedTriggers$
-needs to be added to the transition Wait50ms\_Go in order to prove that it does not violate the property $ASIC=Go => SPI=IDLE$. However, if this is to be done manually, we would need a notation that avoids the user having to know about the internal basis parameter, SCXML\_raisedTriggers.
+Figure~\ref{fig:iumlb-verif} is the generated iUML-B showing state invariants to be verified. (The invariants are added to the \SCXML model but are easier to visualise in the iUML-B with the current tooling).
+The main aim is to show the property |Idle=TRUE| holds in state |Go|. 
+This is true because after sending the message while in |InitialiseSensor|, no other messages are triggered by the |ASIC|, so the |SPI| subsystem stays in the |Idle| state indefinately. 
+To enable the provers to discharge the proof obligation we work back along the |ASIC|'s sequence of states. 
+That is, |Idle=TRUE| is maintained in state |Go| if it holds in state |Wait50ms| and no |send_message| triggers are raised by the entry transition |Wait50ms_Go| nor once the |ASIC| subsystem is in state |Go|. 
+To ensure this we add a guard |send_message /: SCXML_raisedTriggers| to |Wait50ms_Go| to prevent any future refinement from raising the trigger |send_message|.
+(Currently, this is added verbatim but we envision a `doesn't raise' notation to avoid the user having to reference the translation artefact, |SCXML_raisedTriggers|).
+We also need to prevent any future transitions from raising this trigger in the state |Go|.
+To automate this for all abstract `future' events, they could be automatically generated and added to satisfy all user invariants concerning the raising of internal triggers regardless of whether they are violated in future levels. 
+For example, the guard  |Go = TRUE => send_message /: SCXML_raisedTriggers| needs to be automatically added to all the future transitionSet events to prove they do not break the property being verified. 
+If it is not obeyed by future transitions, guard strengthening proof obligations will fail, making it obvious where the problems lie.
+As indicated above, we now need to prove by similar means that |Idle=TRUE| holds in state |Wait50ms|. 
+In this case, however, we can only say that |Idle=TRUE| in state |InitialiseSensor| after the spi-system finishes sending the message and raises the trigger, |spi_done|. 
+Hence the state invariant for |InitialiseSensor| becomes |spi_done∈SCXML_iq => Idle=TRUE|. 
+In order to prove this we again need a corresponding state invariant about |send_message| and need to make sure that the |SPI| system will never raise |send_message|.
+We also ensure it does not raise |spi_done| until it is finished. 
+With these invariants and additional guards the Rodin automatic provers are able to prove all proof obligations and hence verify that the |SPI| system remains in |Idle| after servicing the `Initialise Sensor' message.
 
-There are still things to consider about proving these properties are true at an abstract level - that is, you cannot prove them unless you add the detail that makes them true. (example :- detail about when we raise send\_message is in level 2 but we need it to prove no messages get in the queue after SPI raises the second spi\_done). However, invariants and guards can be added at the abstract level in order to abstractly add the necessary constraints to make a proof. If these constraints are not maintained in later levels, simpler proof obligations about guard strengthening will be unprovable. These abstract guards should be removed at later refinements when the details have been specified. This implies using ranges in refinement attributes which we have considered but not used in the past.
+Proving these properties are true at an abstract level illustrates how prover leads us to specify constraints representing an abstraction of the final behaviour. If these constraints are not maintained in later levels, simpler proof obligations about guard strengthening will be unprovable. The abstract guards should be removed at later refinements when the details have been specified. To do this we could introduce ranges in our refinement attributes.
 

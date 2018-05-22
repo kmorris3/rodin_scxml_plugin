@@ -1,0 +1,132 @@
+\section{SCXML Translation}
+\label{sec:translation}
+
+A tool to automatically translate \SCXML models into \iUMLB has been produced. 
+The tool is based on the Eclipse Modelling Framework (EMF) and uses a \SCXML metamodel provided by Sirius~\cite{siriuswebsite} which has good support for extensibility. 
+The tooling for \iUMLB and \EventB already contains EMF metamodels and provides a generic translator framework which has been specialised for the \SCXML to \iUMLB translation. 
+
+Each \SCXML transition is translated into a corresponding \iUMLB transition. Figure~\ref{fig:iumlb-verif} shows the \iUMLB representation, first refinement level design, of the intrusion detection system described in figure~\ref{fig:ASIC_SPI_1}. In the translation from \iUMLB to \EventB the `run to completion' semantics is supported by \EventB through the construction of a basis that constitutes an abstract execution model, which all designed systems refined. 
+The basis includes \EventB context and machine. 
+The context, shown in~\ref{lst:BasisContext}, defines the basis triggers as a partition of internal and external triggers, declared as |SCXML_FutureInternalTrigger| and |SCXML_FutureExternalTrigger| respectively. The abstract model of the SecBot extends the basis context and declares a new axiom that defines the partitions of the |SCXML_FutureInternalTrigger| set, which would include the \textbf{spi\_done} trigger and a new partition |SCXML_FutureInternalTrigger0| to enable the introduction of additional internal triggers by subsequent refinements as shown in line~\ref{line:refPartition} of listing~\ref{lst:SecBotCont0}. 
+
+\begin{lstlisting}[caption={Abstract basis context},label={lst:BasisContext}, language=Event-B, escapechar=|, frame=single]
+	CONTEXT
+		basis 	// (generated for SCXML)
+	SETS
+	⚬	SCXML_TRIGGER	 // all possible triggers
+	CONSTANTS
+	⚬	SCXML_FutureInternalTrigger	 // all possible internal triggers
+	⚬	SCXML_FutureExternalTrigger	 // all possible external triggers  
+	AXIOMS
+	⚬	axm1:	partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger) not theorem 
+	END
+\end{lstlisting}	
+
+\begin{lstlisting}[caption={Context for intrusion detection system abstract model},label={lst:SecBotCont0}, language=Event-B, escapechar=|, frame=single]
+	CONTEXT
+		SecBot_Model_0_ctx 	›(generated from SCXML file: /SecBot_generated/secbot.scxml)
+	EXTENDS
+	⚬	 basis 
+	CONSTANTS
+	⚬	SCXML_FutureInternalTrigger0	 ›
+	⚬	SCXML_FutureExternalTrigger0	 ›
+	⚬	spi_done	 ›trigger
+	AXIOMS
+	⚬	SCXML_FutureExternalTrigger0:	SCXML_FutureExternalTrigger0=SCXML_FutureExternalTrigger not theorem ›
+	⚬	SCXML_FutureInternalTrigger0:	partition(SCXML_FutureInternalTrigger,SCXML_FutureInternalTrigger0,{spi_done}) not theorem › |\label{line:refPartition}|
+	END
+\end{lstlisting}
+
+The basis machine, partially shown in Listing~\ref{lst:BasisMachine}, declares the variables that correspond to the triggers 
+present in the queue at any given time, as well as, the |SCXML_uc| flag, which signals when a run to completion macro-step 
+has been completed and no un-triggered transitions are enable. At the point of initialization, both queues are empty and
+|SCXML_uc| is set to false. The parametric |SCXML_futureExternalTrigger| event updates the external trigger queue with any 
+newly raised trigger. To raise an external trigger, each external trigger in the model must extend this event. 
+% If more than one external trigger have to be raised at the same time.  
+The |SCXML_futureInternalTransitionSet| basis event must be refined by any event in the model conditioned on an internal trigger. 
+The guards of this event check for the completion of the previous macro-step. 
+A similar behavior is followed by |SCXML_futureExternalTransitionSet| event, if internal triggers are in the queue.  
+
+
+\begin{lstlisting}[caption={Snippet of abstract basis machine}, label={lst:BasisMachine},language=Event-B, escapechar=|, frame=single]
+MACHINE
+		basis 	// (generated for SCXML)
+	SEES
+	⚬	 basis 
+	VARIABLES
+	⚬	SCXML_iq	 // internal trigger queue
+	⚬	SCXML_eq	 // external trigger queue
+	⚬	SCXML_uc	 // run to completion flag
+	INVARIANTS
+	⚬	typeof_SCXML_iq:	SCXML_iq ⊆ SCXML_FutureInternalTrigger not theorem // internal trigger queue
+	⚬	typeof_SCXML_eq:	SCXML_eq ⊆ SCXML_FutureExternalTrigger not theorem // external trigger queue
+	⚬	disjointQueues:	SCXML_iq ∩ SCXML_eq= ∅ not theorem // queues are disjoint
+	⚬	typeof_SCXML_uc:	SCXML_uc ∈ BOOL not theorem // completion flag
+	EVENTS
+	⚬	INITIALISATION:	 not extended ordinary 
+		THEN
+		⚬	init_SCXML_iq:	SCXML_iq ≔ ∅ // internal Q is initially empty
+		⚬	init_SCXML_eq:	SCXML_eq ≔ ∅ // external Q is initially empty
+		⚬	init_SCXML_uc:	SCXML_uc ≔ FALSE // completion is initially FALSE
+		END
+
+	⚬	SCXML_futureExternalTrigger:	 not extended ordinary 
+		ANY
+		⚬	SCXML_raisedTriggers	 
+		WHERE
+		⚬	typeof_SCXML_raisedTriggers:	SCXML_raisedTriggers ⊆ SCXML_FutureExternalTrigger not theorem 
+		THEN
+		⚬	SCXML_raiseExternalTriggers:	SCXML_eq ≔ SCXML_eq ∪ SCXML_raisedTriggers 
+		END
+        ...
+	⚬	SCXML_futureInternalTransitionSet:	 not extended ordinary 
+		ANY
+		⚬	SCXML_it	 
+		⚬	SCXML_raisedTriggers	 
+		WHERE
+		⚬	typeof_SCXML_it:	SCXML_it  ∈ SCXML_iq not theorem 
+		⚬	SCXML_isComplete:	SCXML_uc = TRUE not theorem 
+		⚬	typeof_SCXML_raisedTriggers:	SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger not theorem 
+		THEN
+		⚬	SCXML_notComplete:	SCXML_uc ≔ FALSE 
+		⚬	SCXML_consumeInternalTrigger:	SCXML_iq ≔ (SCXML_iq ∪ SCXML_raisedTriggers) ∖ {SCXML_it} 
+		END
+
+	⚬	SCXML_futureUntriggeredTransitionSet:	 not extended ordinary 
+		ANY
+		⚬	SCXML_raisedTriggers	 
+		WHERE
+		⚬	SCXML_isNotComplete:	SCXML_uc = FALSE not theorem 
+		⚬	typeof_SCXML_raisedTriggers:	SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger not theorem 
+		THEN
+		⚬	SCXML_NotComplete:	SCXML_uc ≔ FALSE 
+		⚬	SCXML_raiseInternalTriggers:	SCXML_iq ≔ SCXML_iq ∪ SCXML_raisedTriggers 
+		END
+        ...
+	END
+\end{lstlisting}
+
+To completely control the execution flow of the model, all un-triggered transitions must refined the |SCXML_futureUntriggeredTransitionSet|
+event. Any of the previously discussed events can raise internal triggers by introducing a guard that defines the |SCXML_raisedTrigger| parameter. As shown in listing~\ref{lst:SecBotMach0} the event that correspond to a triggered transition used the provided parameter to define the event trigger (see line~\ref{line:defTrigger}).
+
+
+\begin{lstlisting}[caption={Event-B event corresponding to internal triggered transition to \textbf{Wait50ms} state in refinement level 1 shown in~\ref{fig:ASIC}}, label={lst:SecBotMach0},language=Event-B, escapechar=|, frame=single]
+	⚬	spi_done__InitialiseSensor_Wait50ms:	 extended ordinary ›
+		REFINES
+		⚬	 SCXML_futureInternalTransitionSet 
+		ANY
+		⚬	SCXML_it	 ›
+		⚬	SCXML_raisedTriggers	 ›
+		WHERE
+		⚬	typeof_SCXML_it:	SCXML_it  ∈ SCXML_iq not theorem ›
+		⚬	SCXML_isComplete:	SCXML_uc = TRUE not theorem ›
+		⚬	typeof_SCXML_raisedTriggers:	SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger not theorem ›
+		⚬	isin_InitialiseSensor:	InitialiseSensor = TRUE not theorem ›
+		⚬	SCXML_trigger:	SCXML_it = spi_done not theorem ›triggered transition |\label{line:defTrigger}|
+		THEN
+		⚬	SCXML_notComplete:	SCXML_uc ≔ FALSE ›
+		⚬	SCXML_consumeInternalTrigger:	SCXML_iq ≔ (SCXML_iq ∪ SCXML_raisedTriggers) ∖ {SCXML_it} ›
+		⚬	leave_InitialiseSensor:	InitialiseSensor ≔ FALSE ›
+		⚬	enter_Wait50ms:	Wait50ms ≔ TRUE ›
+		END
+\end{lstlisting}
