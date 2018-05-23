@@ -17,7 +17,7 @@ The abstract model of the \IDS extends the basis context and declares a new axio
 
 \begin{lstlisting}[caption={Abstract basis context},label={lst:BasisContext}, language=Event-B, escapechar=|, frame=single]
 context
-	basis 	// (generated for SCXML)
+	basis_c 	// (generated for SCXML)
 sets
 	SCXML_TRIGGER	 // all possible triggers
 constants
@@ -32,7 +32,7 @@ end
 context
 	IDS_Model_0_ctx //(generated from:/IDS_generated/secbot.scxml)
 extends
-	basis 
+	basis_c 
 constants
 	SCXML_FutureInternalTrigger0	
 	SCXML_FutureExternalTrigger0
@@ -54,9 +54,9 @@ A similar behavior is followed by |SCXML_futureExternalTransitionSet| event, if 
 
 \begin{lstlisting}[caption={Snippet of abstract basis machine}, label={lst:BasisMachine},language=Event-B, escapechar=|, frame=single]
 machine
-	basis 	// (generated for SCXML)
+	basis_m 	// (generated for SCXML)
 sees
-	basis 
+	basis_c 
 variables
 	SCXML_iq	 // internal trigger queue
 	SCXML_eq	 // external trigger queue
