@@ -1,9 +1,9 @@
 % !TEX root = ../SCXMLREF.tex
 
-\section{Extensions to SCXML}
+\section{Extensions to \SCXML}
 \label{sec:extensions}
  
-The following syntax extensions are added to \SCXML models to support modelling features needed in \iUMLB/\EventB. These extensions are prefixed with `iumlb:' in order to distinguish them from the scxml XML parser. (So that they are ignored by \SCXML simulation tools). 
+The following syntax extensions are added to \SCXML models to support modelling features needed in \iUMLB/\EventB. These extensions are prefixed with `iumlb:' in order to distinguish them from the \SCXML XML parser. (So that they are ignored by \SCXML simulation tools). 
 %They are loaded by EMF as generic feature maps (‘Any’ for contained elements and ‘AnyAttribute’ for attributes).
 \begin{itemize}
 	\item \textbf{iumlb:refinement} - an integer attribute representing the refinement level at which the parent element should be introduced (see Listing~\ref{lst:secBot}, line~\ref{line:refinement}).
@@ -14,7 +14,7 @@ The following syntax extensions are added to \SCXML models to support modelling 
 	\item \ldots other attributes useful for \iUMLB elements: name, derived, type, comment.
 \end{itemize}
 
-\begin{lstlisting}[caption={\textbf{Wait50ms} state snippet of SCXML model representation illustrating the use of different SCXML modeling features, as well as, added syntax extensions},label={lst:secBot}, language=xml, escapechar=|, frame=single]
+\begin{lstlisting}[caption={\textbf{Wait50ms} state snippet of \SCXML model representation illustrating the use of different \SCXML modeling features, as well as, added syntax extensions},label={lst:secBot}, language=xml, escapechar=|, frame=single]
 ...
 <state id="Wait50ms" iumlb:refinement="2">
 	<initial iumlb:refinement="2"> |\label{line:refinement}|

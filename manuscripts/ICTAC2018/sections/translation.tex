@@ -1,6 +1,6 @@
 % !TEX root = ../SCXMLREF.tex
 
-\section{SCXML Translation}
+\section{\SCXML Translation}
 \label{sec:translation}
 
 A tool to automatically translate \SCXML models into \iUMLB has been produced. 
@@ -8,12 +8,12 @@ The tool is based on the \EMF and uses a \SCXML metamodel provided by Sirius~\ci
 The tooling for \iUMLB and \EventB already contains \EMF metamodels and provides a generic translator framework which has been specialised for the \SCXML to \iUMLB translation. 
 
 Each \SCXML transition is translated into a corresponding \iUMLB transition. 
-Fig.~\ref{fig:iumlb-verif} shows the \iUMLB representation, first refinement level design, of the intrusion detection system described in
+Fig.~\ref{fig:iumlb-verif} shows the \iUMLB representation, first refinement level design, of the \IDS described in
 Fig.~\ref{fig:ASIC_SPI_1}. 
 In the translation from \iUMLB to \EventB the `run to completion' semantics is supported by \EventB through the construction of a basis that constitutes an abstract execution model, which all designed systems refine. 
 The basis includes \EventB context and machine. 
 The context, shown in~\ref{lst:BasisContext}, defines the basis triggers as a partition of internal and external triggers, declared as |SCXML_FutureInternalTrigger| and |SCXML_FutureExternalTrigger| respectively. 
-The abstract model of the SecBot extends the basis context and declares a new axiom that defines the partitions of the |SCXML_FutureInternalTrigger| set, which would include the \textbf{spi\_done} trigger and a new partition |SCXML_FutureInternalTrigger0| to enable the introduction of additional internal triggers by subsequent refinements as shown in line~\ref{line:refPartition} of Listing~\ref{lst:SecBotCont0}. 
+The abstract model of the \IDS extends the basis context and declares a new axiom that defines the partitions of the |SCXML_FutureInternalTrigger| set, which would include the \textbf{spi\_done} trigger and a new partition |SCXML_FutureInternalTrigger0| to enable the introduction of additional internal triggers by subsequent refinements as shown in line~\ref{line:refPartition} of Listing~\ref{lst:SecBotCont0}. 
 
 \begin{lstlisting}[caption={Abstract basis context},label={lst:BasisContext}, language=Event-B, escapechar=|, frame=single]
 context
@@ -28,9 +28,9 @@ axioms
 end
 \end{lstlisting}	
 
-\begin{lstlisting}[caption={Context for intrusion detection system abstract model},label={lst:SecBotCont0}, language=Event-B, escapechar=|, frame=single]
+\begin{lstlisting}[caption={Context for \IDS abstract model},label={lst:SecBotCont0}, language=Event-B, escapechar=|, frame=single]
 context
-	SecBot_Model_0_ctx //(generated from:/SecBot_generated/secbot.scxml)
+	IDS_Model_0_ctx //(generated from:/IDS_generated/secbot.scxml)
 extends
 	basis 
 constants
@@ -46,8 +46,7 @@ end
 The basis machine, partially shown in Listing~\ref{lst:BasisMachine}, declares the variables that correspond to the triggers present in the queue at any given time, as well as, the |SCXML_uc| flag, which signals when a run to completion macro-step has been completed and no un-triggered transitions are enabled. 
 At the point of initialization, both queues are empty and |SCXML_uc| is set to false. 
 The parametric |SCXML_futureExternalTrigger| event updates the external trigger queue with any newly raised trigger. 
-To raise an external trigger, each external trigger in the model must extend this event. 
-% If more than one external trigger have to be raised at the same time.  
+To raise an external trigger, each external trigger in the model must extend this event.   
 The |SCXML_futureInternalTransitionSet| basis event must be refined by any event in the model conditioned on an internal trigger. 
 The guards of this event check for the completion of the previous macro-step. 
 A similar behavior is followed by |SCXML_futureExternalTransitionSet| event, if no internal triggers are in the queue.  
