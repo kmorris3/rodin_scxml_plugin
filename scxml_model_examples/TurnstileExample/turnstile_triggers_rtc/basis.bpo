@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="6">
+<org.eventb.core.poFile org.eventb.core.poStamp="1">
 <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="TRIGGER" org.eventb.core.type="ℙ(TRIGGER)"/>
 <org.eventb.core.poIdentifier name="FutureTriggers" org.eventb.core.type="ℙ(TRIGGER)"/>
 <org.eventb.core.poPredicate name="FutureTriggert" org.eventb.core.predicate="partition(TRIGGER,FutureTriggers)" org.eventb.core.source="/turnstile_triggers_rtc/basis.buc|org.eventb.core.contextFile#basis|org.eventb.core.axiom#)"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/basis.bpo|org.eventb.core.poFile#basis|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="6">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/basis.bpo|org.eventb.core.poFile#basis|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="1">
 <org.eventb.core.poIdentifier name="NEXT" org.eventb.core.type="ℙ(TRIGGER)"/>
 <org.eventb.core.poIdentifier name="NOW" org.eventb.core.type="ℙ(TRIGGER)"/>
 </org.eventb.core.poPredicateSet>
@@ -37,7 +37,7 @@
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="T⊆FutureTriggers" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dY|org.eventb.core.guard#*"/>
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="R⊆FutureTriggers" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.event#_uw4joEKiEeaoWLLW6iH2dY|org.eventb.core.guard#+"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/basis.bpo|org.eventb.core.poFile#basis|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="6">
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/turnstile_triggers_rtc/basis.bpo|org.eventb.core.poFile#basis|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="1">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="NOW⊆TRIGGER" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.invariant#_uw4joEKiEeaoWLLW6iH2dU"/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="NEXT⊆TRIGGER" org.eventb.core.source="/turnstile_triggers_rtc/basis.bum|org.eventb.core.machineFile#basis|org.eventb.core.invariant#_uw4joEKiEeaoWLLW6iH2dV"/>
 </org.eventb.core.poPredicateSet>

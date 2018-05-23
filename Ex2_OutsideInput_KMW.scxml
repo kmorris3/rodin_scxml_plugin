@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml" xmlns:iumlb="urn:xmlns:ac.soton.uk:iumlb" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="root" version="1.0" initial="External">
+	<datamodel iumlb:refinement="4">
+		<data id="temp_high" expr="2"/>
+		<data id="temp_mid" expr="1"/>
+		<data id="temp_low" expr="0"/>
+		<iumlb:invariant iumlb:refinement="4" predicate="temperature \in {temp_high, temp_mid, temp_low}" name="typeof_temperature"/>
+	</datamodel>
+
+    <!-- External state use to capture outside input -->
+	<state id="External">
+		<state id="A" iumlb:refinement="1">
+			<transition cond="temperature==temp_high" iumlb:label="alpha" target="B"/>
+		</state>
+
+		<state id="B" iumlb:refinement="1">
+			<initial>
+				<transition target="D"/>
+			</initial>
+
+			<state id="D">
+				<transition cond="temperature==temp_high" iumlb:label="delta" target="E"/>
+				<transition iumlb:label="gamma" target="C"/>
+			</state>
+
+			<state id="E">
+				<transition cond="temperature==temp_high" iumlb:label="epsilon" target="F"/>
+				<transition cond="temperature==temp_mid" iumlb:label="eta" target="D"/>
+				<transition iumlb:label="gamma" target="C"/>
+			</state>
+
+			<state id="F">
+				<transition iumlb:label="zeta" target="E"/>
+				<transition cond="temperature==temp_mid" iumlb:label="theta" target="D"/>
+			</state>
+
+			<transition cond="temperature==temp_low" iumlb:label="beta" target="A"/>
+			<transition iumlb:label="gamma" target="C"/>
+		</state>	
+
+		<state id="C" iumlb:refinement="1"/>
+
+        <transition iumlb:label="external_events">	
+			<assign location="temperature" expr=":\in {temp_high, temp_mid, temp_low}"/>
+		</transition>	
+	</state>	
+</scxml>

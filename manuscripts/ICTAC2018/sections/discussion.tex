@@ -28,7 +28,7 @@
 In order to introduce a notion of refinement into \SCXML we need to consider the kinds of things we would like to do in refinements and what properties should be preserved.
 In practice we wish to leverage existing \EventB verification tools and hence adopt a notion of refinement that can be automatically translated into an equivalent \EventB model consisting of a chain of refinements. While it might be possible to utilise data refinement by replacing a state-chart with an alternative one, this would greatly complicate things and is impractical when the \SCXML model is a single state-chart (rather than a chain of refined models). Hence we start from the following requirements which allow superposition refinements and guard strengthening in \SCXML models:
 \begin{itemize}
-	\item The firing conditions of a transition can be strengthened by adding further textual constraints about the state of other variables and statemachines in the system.
+	\item The firing conditions of a transition can be strengthened by adding further textual constraints about the state of other variables and state machines in the system.
 	\item The firing conditions of a transition can be strengthened by being more specific about the (nested) source state,
 	\item Nested state-charts can be added in refinements.
 	\item Ancilliary data can be added and corresponding actions to alter it added to transitions.
@@ -63,7 +63,7 @@ Instead of explicit events to progress and implement the scheduling engine, an a
 This has benefits both for animation which is easier to follow having less translation artifacts and for proof where the obligations are directly associatied with particular transition combinations. 
 Another benefit is that any parallel assignments to the same variable are rejected by the Event-B static checker.
 The disadvantage, of course, is that there could be a combinatorial explosion in the number of events generated.
-In practice though, this is unlikely since the number of parallel statemachines is usually quite small.
+In practice though, this is unlikely since the number of parallel state machines is usually quite small.
 So far our examples have required few or no parallel transitions.
 
 
