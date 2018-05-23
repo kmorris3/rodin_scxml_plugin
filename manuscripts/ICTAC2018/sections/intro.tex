@@ -31,11 +31,14 @@ contribution is the augmentation of the textual and parse-able format
 for \Statecharts, \SCXML to accomodate elements necessary to support formal
 analysis. 
 
-While \Statecharts and various semantic interpretations of \Statecharts
-admit refinement reified as both hierarchical or parallel composition
-(e.g. see Argos~\cite{Maraninchi91theargos}), here, as
+While \Statecharts and various semantic interpretations of
+\Statecharts admit refinement reified as both hierarchical or parallel
+composition (e.g. see Argos~\cite{Maraninchi91theargos}), here, as
 previously\cite{snook14:_b_statem}, we focus only on hierarchical
-refinement, the form that \EventB natively admits.
+refinement, the form that \EventB natively admits.  Here we define
+hierarchical composition to mean nesting new transition systems inside
+previously pure states, and parallel composition to be the combination
+in one machine of formerly separate transition systems.
 \ColinCommented{Should we briefly say what parallel refinment is?}
 \RobCommented{I hope it is OK to make the heirarchical vs parallel
   composition for refinement.  It leaves open work to be done.  Also,
@@ -49,16 +52,20 @@ increases in each refinement level, tractability of the detailed model
 can be improved by the use of a graphical representation, with rich
 semantics that can support an infrastructure for formal verification.
 
-The semantics adopted here cleaves closely to those of \iUMLB
-specifically and UML \Statecharts~\cite{Alexandre} generally.
-\ColinCommented{They are somewhat different.. can we cleave to both of them? 
-	My view is that we adopt the semantics similar to those of UML and try to represent them in the alternative iUML-B semantics (that cleaves closely to those of Event-B)}
- Models
-described in \Statecharts are expressed in \SCXML and translated into
-\EventB logic which uses the \Rodin~\cite{Abrial} for machine
-proofs.  UML \Statechart semantics are not the only formal semantics
-that can be bound to the \Statechart graphical
-language~\cite{Eshuis_2009}.
+
+The semantics adopted here adheres closely to UML \Statecharts~\cite{Alexandre} and is implemented in \iUMLB.
+%% \ColinCommented{They are somewhat different.. can we cleave to both of them? 
+%% 	My view is that we adopt the semantics similar to those of UML and try to represent them in the alternative iUML-B semantics (that cleaves closely to those of Event-B)}
+ Models described in \Statecharts are expressed in \SCXML and
+ translated into \EventB logic which uses the \Rodin~\cite{Abrial} for
+ machine proofs.  UML \Statechart semantics are not the only formal
+ semantics that can be bound to the \Statechart graphical
+ language~\cite{Eshuis_2009}.  In Statecharts every triggering signal
+ can cause transitions that emit other triggers in a cascade.
+ Different semantic interpretations of Statecharts resolve these
+ cascades differently.  Argos~\cite{Maraninchi91theargos}, for
+ example, views cascading transitions as instantaneous and
+ simultaneous rather than the queue-based semantics adopted here.
 %
 The \EventB language
 \cite{abrial10:_model_event_b} provides the logic and refinement
