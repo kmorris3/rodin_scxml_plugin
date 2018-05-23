@@ -50,7 +50,7 @@ To raise an external trigger, each external trigger in the model must extend thi
 % If more than one external trigger have to be raised at the same time.  
 The |SCXML_futureInternalTransitionSet| basis event must be refined by any event in the model conditioned on an internal trigger. 
 The guards of this event check for the completion of the previous macro-step. 
-A similar behavior is followed by |SCXML_futureExternalTransitionSet| event, if internal triggers are in the queue.  
+A similar behavior is followed by |SCXML_futureExternalTransitionSet| event, if no internal triggers are in the queue.  
 
 
 \begin{lstlisting}[caption={Snippet of abstract basis machine}, label={lst:BasisMachine},language=Event-B, escapechar=|, frame=single]
