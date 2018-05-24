@@ -72,10 +72,8 @@ end
 Here, |IQ| and |EQ| are queues of internally and externally, raised triggers, \emph{untriggered} selects a set of currently enabled untriggered transitions, \emph{dequeue} retrieves the next trigger from the given queue and selects the set of transitions that become enabled by it and \emph{execute} fires the given set of transitions. 
 Note that this is an abstract representation where each event (|FireUntriggered|, |FireInternallyTriggered|, and |FireExternallyTriggered|) would be specialised to select a particular set of transitions that can be fired in parallel and |execute()| would be replaced by actions that encode the state changes made by those transitions.
 Representing the condition \textbf{untriggered\_enabled} (line 3 in Listing~\ref{lst:scxml-r2c}) is cumbersome since we would need to write a conjunction of all the possible untriggered guards. Instead we introduce a dummy untriggered event that is only fired when no other selection of untriggered transitions are available and sets a boolean flag, |UC|, to indicate that none of the real untriggered events was fired and a trigger needs to be consumed.
-
-\RobCommented{Please have a look Colin and make sure you agree with
-  this.  I think it is accurate to this work, let me know (quickly) if
-  I have described something incorrectly} Note that causing all of the
+ 
+Note that causing all of the
 transitions to simultaneously and atomically fire for each event is a
 further semantic choice.  Transitions associated with |FireUntriggered|,
 |FireInternallyTriggered|, and |FireExternallyTriggered| might
