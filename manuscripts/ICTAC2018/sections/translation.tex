@@ -52,22 +52,19 @@ The guards of this event check for the completion of the previous macro-step.
 A similar behavior is followed by |SCXML_futureExternalTransitionSet| event, if no internal triggers are in the queue.  
 
 
-\begin{lstlisting}[caption={Snippet of abstract basis machine}, label={lst:BasisMachine},language=Event-B, escapechar=|, frame=single]
-machine
-	basis_m 	// (generated for SCXML)
-sees
-	basis_c 
+\begin{lstlisting}[caption={Snippet of abstract basis machine}, label={lst:BasisMachine},language=Event-B, escapechar=|, frame=single][t]
+machine basis_m   // (generated for SCXML)
+sees basis_c 
 variables
-	SCXML_iq	 // internal trigger queue
-	SCXML_eq	 // external trigger queue
-	SCXML_uc	 // run to completion flag
+	SCXML_iq	  // internal trigger queue
+	SCXML_eq	  // external trigger queue
+	SCXML_uc	  // run to completion flag
 invariants
 	SCXML_iq ⊆ SCXML_FutureInternalTrigger	// internal trigger queue
 	SCXML_eq ⊆ SCXML_FutureExternalTrigger	// external trigger queue
 	SCXML_iq ∩ SCXML_eq= ∅					// queues are disjoint
 	SCXML_uc ∈ BOOL							// completion flag
 events
-
 	INITIALISATION: 
 	begin
 		SCXML_iq := {}		//internal Q is initially empty
@@ -81,7 +78,7 @@ events
 	then
 		SCXML_eq ≔ SCXML_eq ∪ SCXML_raisedTriggers 
 	end
-	...
+	
 	SCXML_futureInternalTransitionSet: 
 	any SCXML_it SCXML_raisedTriggers where
 		SCXML_it ∈ SCXML_iq 
@@ -99,8 +96,7 @@ events
 	then
 		SCXML_uc ≔ FALSE 
 		SCXML_iq ≔ SCXML_iq ∪ SCXML_raisedTriggers 
-	end
-	...
+	ends
 end
 \end{lstlisting}
 

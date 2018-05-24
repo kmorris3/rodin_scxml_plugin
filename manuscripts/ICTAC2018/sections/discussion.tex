@@ -48,7 +48,7 @@ To allow for transition guards to be strengthened in later refinements the sched
 However, this introduces many additional behaviours making simulation difficult.
 We abstract away from the \SCXML rules about executing parallel transitions in document order and adopt non-deterministic firing order of transitions. 
 A consequence is that if transitions that can fire in parallel assign to the same variable as each other the resulting value is non-deterministic.
-\ColinInlineCommented{Son's suggestion to move the non-determinism to the enabling step may improve this scheduler engine approach}
+%\ColinInlineCommented{Son's suggestion to move the non-determinism to the enabling step may improve this scheduler engine approach}
 
 Due to difficulties with non-deterministic firing of user transitions we developed an alternative approach where a separate event is generated for each combination of transitions that could possibly be fired together in the same step. 
 For example, if T1 and T2 are transitions that could both become enabled at the same schedular step, four events are needed to cater for the possible combinations: neither, T1, T2 and both (where the combined event is constructed from the conjunction of guards and parallel firing of actions). 
