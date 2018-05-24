@@ -51,10 +51,12 @@ The |SCXML_futureInternalTransitionSet| basis event must be refined by any event
 The guards of this event check for the completion of the previous macro-step. 
 A similar behavior is followed by |SCXML_futureExternalTransitionSet| event, if no internal triggers are in the queue.  
 
-
+\begin{lstfloat}
 \begin{lstlisting}[caption={Snippet of abstract basis machine}, label={lst:BasisMachine},language=Event-B, escapechar=|, frame=single][t]
-machine basis_m   // (generated for SCXML)
-sees basis_c 
+machine 
+	basis_m   // (generated for SCXML)
+sees 
+	basis_c 
 variables
 	SCXML_iq	  // internal trigger queue
 	SCXML_eq	  // external trigger queue
@@ -65,6 +67,7 @@ invariants
 	SCXML_iq ∩ SCXML_eq= ∅					// queues are disjoint
 	SCXML_uc ∈ BOOL							// completion flag
 events
+
 	INITIALISATION: 
 	begin
 		SCXML_iq := {}		//internal Q is initially empty
@@ -97,9 +100,10 @@ events
 		SCXML_uc ≔ FALSE 
 		SCXML_iq ≔ SCXML_iq ∪ SCXML_raisedTriggers 
 	ends
+
 end
 \end{lstlisting}
-
+\end{lstfloat}
 To completely control the execution flow of the model, all un-triggered transitions must refine the |SCXML_futureUntriggeredTransitionSet| event. 
 Any of the previously discussed events can raise a set of internal triggers, |{i1,i2...}|, by introducing a guard that defines |{i1,i2...} <: SCXML_raisedTrigger| parameter (not shown in listings). 
 As shown in listing~\ref{lst:SecBotMach0} an event that corresponds to a triggered transition uses the provided parameter |SCXML_it| (|SCXML_et| for externally triggered transitions) to define which trigger enables the event (see line~\ref{line:defTrigger}).

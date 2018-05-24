@@ -39,8 +39,7 @@ Other attributes useful for \iUMLB elements: name, derived, type, comment, have 
 ...
 \end{lstlisting}
 
-
-Hierarchical nested state charts are translated into similarly structured \iUMLB state-machines. The generated \iUMLB model contains refinements that add nested state-machines as indicated in the  \SCXML \statechart by the \textbf{iumlb:refinement} attributes annotated on state elements. \iUMLB transitions are generated for each \SCXML transition and linked to \EventB events that represent each of the possible synchronisations that could involve that transition.
+Hierarchical nested state charts are translated into similarly structured \iUMLB state-machines. The generated \iUMLB model contains refinements that add nested state-machines as indicated in the  \SCXML \statechart (see Listing~\ref{lst:secBot}) by the \textbf{iumlb:refinement} attributes annotated on state elements. \iUMLB transitions are generated for each \SCXML transition and linked to \EventB events that represent each of the possible synchronisations that could involve that transition.
 
 
 %%% Local Variables:
