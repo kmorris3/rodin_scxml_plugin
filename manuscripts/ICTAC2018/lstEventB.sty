@@ -77,11 +77,11 @@
 
 % Declaration of the *colour* option.
 \DeclareOption{colour}{
-  \EventB@SetKeywordColour{red}
-  \EventB@SetNdKeywordColour{red}
+  \EventB@SetKeywordColour{blue}
+  \EventB@SetNdKeywordColour{blue}
   \EventB@SetIdentifierColour{purple}
   \EventB@SetCommentColour{green!50!black}
-  \EventB@SetFormulaColour{blue}
+  \EventB@SetFormulaColour{purple}
 }
 
 % Declaration of the *color* option as an alias of *colour*.
@@ -118,7 +118,7 @@
   identifierstyle=\color{EventB@identifiercolour}\sffamily,
   comment=[l]{//},%
   morecomment=[s]{/*}{*/},%
-  commentstyle=\color{EventB@commentcolour}\rmfamily,%
+  commentstyle=\color{EventB@commentcolour}\small\it\rmfamily,%
   stringstyle=\color{EventB@formulacolour}\sffamily,
   string=[b]",
   showstringspaces=true, % Do show the space in formulae
