@@ -3,7 +3,7 @@
 \section{Extensions to \SCXML}
 \label{sec:extensions}
  
-The following syntax extensions are added to \SCXML models to support modelling features needed in \iUMLB/\EventB. These extensions are prefixed with `iumlb:' in order to distinguish them from the \SCXML XML parser. (So that they are ignored by \SCXML simulation tools). 
+The following syntax extensions are added to \SCXML models to support modelling features needed in \iUMLB/\EventB. These extensions are prefixed with `iumlb:' in order to distinguish them for the \SCXML XML parser. (So that they are ignored by \SCXML simulation tools). 
 %They are loaded by EMF as generic feature maps (‘Any’ for contained elements and ‘AnyAttribute’ for attributes).
 \begin{itemize}
 	\item \textbf{iumlb:refinement} - an integer attribute representing the refinement level at which the parent element should be introduced (see Listing~\ref{lst:secBot}, line~\ref{line:refinement}).
@@ -12,7 +12,7 @@ The following syntax extensions are added to \SCXML models to support modelling 
 	This provides a way to add new guard conditions to transitions over several refinement (Listing~\ref{lst:secBot}, line~\ref{line:guard}) as well as providing an element with attributes such as derived (for \EventB theroems), name and comment.
 	\item \textbf{iumlb:predicate} - a string attribute used for the predicate of a guard or invariant (Listing~\ref{lst:secBot}, line~\ref{line:predicate}).
 \end{itemize}
-Other attributes useful for \iUMLB elements: name, derived, type, comment, have also been added for convenience.
+Other attributes added for \iUMLB elements are: \textbf{iumlb:name}, \textbf{iumlb:derived}, \textbf{iumlb:type}, \textbf{iumlb:comment}.
 
 \begin{lstlisting}[caption={\textbf{Wait50ms} state snippet of \SCXML model representation illustrating the use of different \SCXML modeling features, as well as, added syntax extensions},label={lst:secBot}, language=xml, escapechar=|, frame=single, float=t]
 ...
