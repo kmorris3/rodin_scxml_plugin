@@ -21,7 +21,7 @@ Therefore additional constraints, that are an abstraction of the missing details
 	\label{fig:iumlb-verif}
 \end{figure}
 
-Figure~\ref{fig:iumlb-verif} is the generated iUML-B showing state invariants to be verified. (The invariants are added to the \SCXML model but are easier to visualise in the iUML-B with the current tooling).
+Figure~\ref{fig:iumlb-verif} is the generated iUML-B showing state invariants (textual properties with a star icon inside states) to be verified. Note that the invariants are added to the \SCXML model but are easier to visualise in the iUML-B with the current tooling.
 The main aim is to show the property |Idle=TRUE| holds in state |Go|. 
 This is true because after sending the message while in |InitialiseSensor|, no other messages are triggered by the |ASIC|, so the |SPI| subsystem stays in the |Idle| state indefinately. 
 To enable the provers to discharge the proof obligation we work back along the |ASIC|'s sequence of states. 
@@ -39,7 +39,9 @@ In order to prove this we again need a corresponding state invariant about |send
 We also ensure it does not raise |spi_done| until it is finished. 
 With these invariants and additional guards the Rodin automatic provers are able to prove all proof obligations and hence verify that the |SPI| system remains in |Idle| after servicing the `Initialise Sensor' message.
 
-Proving these properties are true at an abstract level illustrates how prover leads us to specify constraints representing an abstraction of the final behaviour. If these constraints are not maintained in later levels, simpler proof obligations about guard strengthening will be unprovable. The abstract guards should be removed at later refinements when the details have been specified. To do this we could introduce ranges in our refinement attributes.
+In order to prove these properties are true at an abstract level the prover forces us to add constraints on the behaviour to be added in later refinements. 
+For example to complete the proof we needed to add a guard to specify that a transition would not raise a particular trigger in any future refinement. 
+If these constraints are broken by later refinements, proof obligations about guard strengthening will be unprovable. The abstract guards should be removed at later refinements when the details have been specified. To do this we could introduce ranges in our refinement attributes.
 
 %%% Local Variables:
 %%% mode: latex
