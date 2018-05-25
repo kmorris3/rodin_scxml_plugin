@@ -61,6 +61,12 @@
 % Package for including standalone source files
 \usepackage{standalone}
 
+% For floating listings
+\usepackage{float}
+\newfloat{lstfloat}{htbp}{lop}
+\floatname{lstfloat}{Listing}
+\def\lstfloatautorefname{Listing} % needed for hyperref/auroref
+
 % Package for listings (e.g. JavaScript)
 %\usepackage{eventBlistings}
 

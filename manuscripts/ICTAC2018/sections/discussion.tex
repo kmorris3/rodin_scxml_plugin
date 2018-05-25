@@ -18,7 +18,7 @@
 %
 %The solution:
 %3)	Transition combinations approach – works because there is always one event to completion. Invariants as well as simulations. 
-%a.	Explosion – mitigated by mutual exclusions… same trigger – different state-chart regions.
+%a.	Explosion – mitigated by mutual exclusions… same trigger – different \Statechart regions.
 %
 %What can we do with it? 
 %	Why is RTC needed?
@@ -26,11 +26,11 @@
 
 
 In order to introduce a notion of refinement into \SCXML we need to consider the kinds of things we would like to do in refinements and what properties should be preserved.
-In practice we wish to leverage existing \EventB verification tools and hence adopt a notion of refinement that can be automatically translated into an equivalent \EventB model consisting of a chain of refinements. While it might be possible to utilise data refinement by replacing a state-chart with an alternative one, this would greatly complicate things and is impractical when the \SCXML model is a single state-chart (rather than a chain of refined models). Hence we start from the following requirements which allow superposition refinements and guard strengthening in \SCXML models:
+In practice we wish to leverage existing \EventB verification tools and hence adopt a notion of refinement that can be automatically translated into an equivalent \EventB model consisting of a chain of refinements. While it might be possible to utilise data refinement by replacing a \Statechart with an alternative one, this would greatly complicate things and is impractical when the \SCXML model is a single \Statechart (rather than a chain of refined models). Hence we start from the following requirements which allow superposition refinements and guard strengthening in \SCXML models:
 \begin{itemize}
 	\item The firing conditions of a transition can be strengthened by adding further textual constraints about the state of other variables and state machines in the system.
 	\item The firing conditions of a transition can be strengthened by being more specific about the (nested) source state,
-	\item Nested state-charts can be added in refinements.
+	\item Nested \Statecharts can be added in refinements.
 	\item Ancilliary data can be added and corresponding actions to alter it added to transitions.
 	\item Raise actions can be added to transitions to define how internal triggers are raised. These internal triggers may have already been introduced and used to trigger transitions in which case they are non-deterministically raised at the abstract levels. (Note that external triggers are always unguarded and cannot be refined).
 	\item Invariants can be added to states to specify properties that hold while in that state.
@@ -38,7 +38,7 @@ In practice we wish to leverage existing \EventB verification tools and hence ad
 
 Refinement should preserve the value of the abstract state after each micro-step and at the end of each macro-step. The abstract state should not be altered by any new micro-steps that are introduced into an abstract macro-step, nor by any new macro-steps that are introduced. (Note that these goals take the view that macro-steps should align through refinement. An alternative approach that we are considering for future work takes the view that the macro-steps need not align and a micro-step may shift from one macro-step to another in a refinement). 
 
-There is an inherent difficulty with refining `run to completion' semantics which require that every enabled micro step, is completed before the next macro step is started. The problem is that, in a refinement, we want to strengthen the conditions for a micro step. However, by making the micro steps more constrained we may disable them and hence make the completion of enabled ones more easily achieved. This makes the guard for taking the next macro step weaker breaking the notion of refinement.
+There is an inherent difficulty with refining `run to completion' semantics which require that every enabled micro-step, is completed before the next macro-step is started. The problem is that, in a refinement, we want to strengthen the conditions for a micro-step. However, by making the micro-steps more constrained we may disable them and hence make the completion of enabled ones more easily achieved. This makes the guard for taking the next macro-step weaker breaking the notion of refinement.
 
 While it is always possible to abstract away sufficiently to reach a common semantic (see~\cite{Snook12:FMCO} for example), in this work we wish to explore verification that considers `run to completion' behaviour as closely as possible.    
 To simulate the `run to completion' semantics in \EventB, we initially adopted a scheduler approach where `engine' events decide which user transitions should be fired based on their guards. 
@@ -48,7 +48,7 @@ To allow for transition guards to be strengthened in later refinements the sched
 However, this introduces many additional behaviours making simulation difficult.
 We abstract away from the \SCXML rules about executing parallel transitions in document order and adopt non-deterministic firing order of transitions. 
 A consequence is that if transitions that can fire in parallel assign to the same variable as each other the resulting value is non-deterministic.
-\ColinInlineCommented{Son's suggestion to move the non-determinism to the enabling step may improve this scheduler engine approach}
+%\ColinInlineCommented{Son's suggestion to move the non-determinism to the enabling step may improve this scheduler engine approach}
 
 Due to difficulties with non-deterministic firing of user transitions we developed an alternative approach where a separate event is generated for each combination of transitions that could possibly be fired together in the same step. 
 For example, if T1 and T2 are transitions that could both become enabled at the same schedular step, four events are needed to cater for the possible combinations: neither, T1, T2 and both (where the combined event is constructed from the conjunction of guards and parallel firing of actions). 
