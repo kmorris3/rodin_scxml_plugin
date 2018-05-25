@@ -21,7 +21,7 @@ and when the event has no parameters and guard, we use
   |begin S(v) end|
 %& \inlineevent{\Be}{}{}{}{}{S(\Bv)}~.
 \end{center}
-The action of an event comprises of one or more assignments, each of them has one of the following forms: (1) |v := E(t, v)|, (2) |v :: E(t, v)|, and (3) |v :∣ P(t, v)|.  Assignments of form (1) are deterministic, assign value of expression |E(t, v)| to |v|.  Assignments of forms (2) and (3) are non-deterministic. (2) assigns any value from the set |E(t,v)| to |v|, while (3) assigns any value satisified predicate |P(t,v)| to |v|.
+The action of an event comprises of one or more assignments, each of them has one of the following forms: (1) |v := E(t, v)|, (2) |v :: E(t, v)|, and (3) |v :∣ P(t, v)|.  Assignments of form (1) are deterministic, assign value of expression |E(t, v)| to |v|.  Assignments of forms (2) and (3) are non-deterministic. (2) assigns any value from the set |E(t,v)| to |v|, while (3) assigns any value satisfied predicate |P(t,v)| to |v|.
 Note that invariants |I(v)| are inductive, i.e., they must be \emph{maintained} by all events. This is more strict than general safety properties which hold for all reachable states of the \EventB machine.  This is also the difference between verifying the consistency of \EventB machines using theorem proving and model checking (e.g., \PROB) techniques: model checkers explore all reachable states of the system while interpreting the invariants as safety properties.
 \MichaelInlineCommented{I think you also need to explain refinement, especially data refinement and superposition refinement, as these are important later.}
 
@@ -33,7 +33,7 @@ facilities for modelling, verifying the consistency of models
 using theorem proving and model checking techniques, and validating
 models with simulation-based approaches.
 
-In, \EventB the run to completion pseudocode of Listing~\ref{lst:scxml-r2c} could be represented (somewhat abstractly) as showed in Listing~\ref{lst:eventb-r2c}.
+In, \EventB the run to completion pseudocode of Listing~\ref{lst:scxml-r2c} could be represented (somewhat abstractly) as shown in Listing~\ref{lst:eventb-r2c}.
 \begin{lstlisting}[caption={Run to completion pseudocode in \EventB},label={lst:eventb-r2c}, language=Event-B, escapechar=|, frame=single]
  FireUntriggered // Fire  enabled untriggered transitions
 when
@@ -81,7 +81,7 @@ further semantic choice.  Transitions associated with |FireUntriggered|,
 just as well fire separately in a non-deterministic order, or by use
 of a per-transition priority, fire in a predetermined order.  Each
 choice has realistic exemplars in the physical world, and to some
-degree, the choice is arbitrary.  The argument in favor of the
+degree, the choice is arbitrary.  The argument in favour of the
 parallel atomic transitions chosen here is pragmatic: the resulting
 representation in \EventB is more terse.
 
