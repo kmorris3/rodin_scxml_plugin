@@ -3,30 +3,13 @@
 \section{Discussion}
 \label{sec:discussion}
 
-%This is the discussion...
-%Compare the behaviour of a visually similar statechart (SecBot?) in \iUMLB and \SCXML 
-%	Based on their \EventB translations
-%	Using the theorem prover to test whether they are equivalent (they are not)
-%	Using the model checker to compare traces
-%	Using LTL to show that certain temporal properties are not achieved by the \iUMLB version.
-%
-%
-%Early attempts – 
-%1)	Simple next step – based on negated guards – negation is weakened
-%2)	Engine – improves the R2C semantics but still suffers from the negated guards problem (refinement of the user model kinda works – simulations at the user level).
-%\ColinCommented{IF POSSIBLE? use the secbot example to illustrate the problem of guard stengthening on refinement}
-%
-%The solution:
-%3)	Transition combinations approach – works because there is always one event to completion. Invariants as well as simulations. 
-%a.	Explosion – mitigated by mutual exclusions… same trigger – different \Statechart regions.
-%
-%What can we do with it? 
-%	Why is RTC needed?
-%	Refinement in RTC
-
-
 In order to introduce a notion of refinement into \SCXML we need to consider the kinds of things we would like to do in refinements and what properties should be preserved.
-In practice we wish to leverage existing \EventB verification tools and hence adopt a notion of refinement that can be automatically translated into an equivalent \EventB model consisting of a chain of refinements. While it might be possible to utilise data refinement by replacing a \Statechart with an alternative one, this would greatly complicate things and is impractical when the \SCXML model is a single \Statechart (rather than a chain of refined models). Hence we start from the following requirements which allow superposition refinements and guard strengthening in \SCXML models:
+In practice we wish to leverage existing \EventB verification tools and hence adopt a notion of refinement that can be automatically translated into an equivalent \EventB model consisting of a chain of refinements.
+
+While it would be possible to utilise \EventB's data refinement to perform complex refinements at the \statechart level (for example replacing an abstract \statechart with a different one in the refined model), this would lead to complex proof obligations and is impractical when the \SCXML model is a single \Statechart (rather than a chain of refined models).
+We prefer to use particular refinement idioms at the \statechart level that correspond to \EventB's superposition refinement and thus have simpler proof obligations. 
+These refinement idioms are very natural from an engineering perspective (as illustrated by the running example).
+ Hence we start from the following requirements which allow superposition refinements and guard strengthening in \SCXML models:
 \begin{itemize}
 	\item The firing conditions of a transition can be strengthened by adding further textual constraints about the state of other variables and state machines in the system.
 	\item The firing conditions of a transition can be strengthened by being more specific about the (nested) source state,
@@ -38,7 +21,7 @@ In practice we wish to leverage existing \EventB verification tools and hence ad
 
 Refinement should preserve the value of the abstract state after each micro-step and at the end of each macro-step. The abstract state should not be altered by any new micro-steps that are introduced into an abstract macro-step, nor by any new macro-steps that are introduced. (Note that these goals take the view that macro-steps should align through refinement. An alternative approach that we are considering for future work takes the view that the macro-steps need not align and a micro-step may shift from one macro-step to another in a refinement). 
 
-There is an inherent difficulty with refining `run to completion' semantics which require that every enabled micro-step, is completed before the next macro-step is started. The problem is that, in a refinement, we want to strengthen the conditions for a micro-step. However, by making the micro-steps more constrained we may disable them and hence make the completion of enabled ones more easily achieved. This makes the guard for taking the next macro-step weaker breaking the notion of refinement.
+There is an inherent difficulty with refining `run to completion' semantics which require that every enabled micro-step is completed before the next macro-step is started. The problem is that, in a refinement, we want to strengthen the conditions for a micro-step. However, by making the micro-steps more constrained we may disable them and hence make the completion of enabled ones more easily achieved. This makes the guard for taking the next macro-step weaker breaking the notion of refinement.
 
 While it is always possible to abstract away sufficiently to reach a common semantic (see~\cite{Snook12:FMCO} for example), in this work we wish to explore verification that considers `run to completion' behaviour as closely as possible.    
 To simulate the `run to completion' semantics in \EventB, we initially adopted a scheduler approach where `engine' events decide which user transitions should be fired based on their guards. 
