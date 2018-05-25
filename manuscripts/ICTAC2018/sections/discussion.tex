@@ -14,7 +14,7 @@ These refinement idioms are very natural from an engineering perspective (as ill
 	\item The firing conditions of a transition can be strengthened by adding further textual constraints about the state of other variables and state machines in the system.
 	\item The firing conditions of a transition can be strengthened by being more specific about the (nested) source state,
 	\item Nested \Statecharts can be added in refinements.
-	\item Ancilliary data can be added and corresponding actions to alter it added to transitions.
+	\item Ancillary data can be added and corresponding actions to alter it can be added to transitions.
 	\item Raise actions can be added to transitions to define how internal triggers are raised. These internal triggers may have already been introduced and used to trigger transitions in which case they are non-deterministically raised at the abstract levels. (Note that external triggers are always unguarded and cannot be refined).
 	\item Invariants can be added to states to specify properties that hold while in that state.
 \end{itemize}
@@ -34,16 +34,16 @@ A consequence is that if transitions that can fire in parallel assign to the sam
 %\ColinInlineCommented{Son's suggestion to move the non-determinism to the enabling step may improve this scheduler engine approach}
 
 Due to difficulties with non-deterministic firing of user transitions we developed an alternative approach where a separate event is generated for each combination of transitions that could possibly be fired together in the same step. 
-For example, if T1 and T2 are transitions that could both become enabled at the same schedular step, four events are needed to cater for the possible combinations: neither, T1, T2 and both (where the combined event is constructed from the conjunction of guards and parallel firing of actions). 
+For example, if T1 and T2 are transitions that could both become enabled at the same scheduler step, four events are needed to cater for the possible combinations: neither, T1, T2 and both (where the combined event is constructed from the conjunction of guards and parallel firing of actions). 
 To allow for strengthening of the guards  in refinement we omit the negation of guards
 %(if $Gref \implies Gabs$  it does not follow that $\neg Gref \implies \neg Gabs$) 
-leaving the choice of lesser combinations, including the empty one, non-determistically available in case of future refinement.
+leaving the choice of lesser combinations, including the empty one, non-deterministically available in case of future refinement.
 For example, T1 could fire alone even if T2 is enabled since we cannot add the negation of T2's guard to T1 unless we know that it will never be strengthened. 
 For future work we may consider extending \SCXML with an attribute to indicate that a guard is \emph{finalised} so that the negation can be used.
 
-With this approach, since there is only ever a single event to be fired, the schedular can be integrated with the events that represent the transition combinations, greatly simplifying the Event-B model.
+With this approach, since there is only ever a single event to be fired, the scheduler can be integrated with the events that represent the transition combinations, greatly simplifying the Event-B model.
 Instead of explicit events to progress and implement the scheduling engine, an abstract machine is provided with events that can be refined by the translation of the user's \SCXML model.
-This has benefits both for animation which is easier to follow having less translation artifacts and for proof where the obligations are directly associatied with particular transition combinations. 
+This has benefits both for animation which is easier to follow having less translation artefacts and for proof where the obligations are directly associated with particular transition combinations. 
 Another benefit is that any parallel assignments to the same variable are rejected by the Event-B static checker.
 The disadvantage, of course, is that there could be a combinatorial explosion in the number of events generated.
 In practice though, this is unlikely since the number of parallel state machines is usually quite small.

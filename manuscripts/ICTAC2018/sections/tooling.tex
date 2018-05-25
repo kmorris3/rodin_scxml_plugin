@@ -7,9 +7,9 @@ The following syntax extensions are added to \SCXML models to support modelling 
 %They are loaded by EMF as generic feature maps (‘Any’ for contained elements and ‘AnyAttribute’ for attributes).
 \begin{itemize}
 	\item \textbf{iumlb:refinement} - an integer attribute representing the refinement level at which the parent element should be introduced (see Listing~\ref{lst:secBot}, line~\ref{line:refinement}).
-	\item \textbf{iumlb:invariant} - an element that generates an invariant in \iUMLB. This provides a way to add invariants to states so that important properties concerning the synchronisation of state with ancilliary data and other state machines can be expressed (see Listing~\ref{lst:secBot}, line~\ref{line:invariant}).
+	\item \textbf{iumlb:invariant} - an element that generates an invariant in \iUMLB. This provides a way to add invariants to states so that important properties concerning the synchronisation of state with ancillary data and other state machines can be expressed (see Listing~\ref{lst:secBot}, line~\ref{line:invariant}).
 	\item \textbf{iumlb:guard} - an element that generates a transition guard in \iUMLB. 
-	This provides a way to add new guard conditions to transitions over several refinement (Listing~\ref{lst:secBot}, line~\ref{line:guard}) as well as providing an element with attributes such as derived (for \EventB theroems), name and comment.
+	This provides a way to add new guard conditions to transitions over several refinement (Listing~\ref{lst:secBot}, line~\ref{line:guard}) as well as providing an element with attributes such as derived (for \EventB theorems), name and comment.
 	\item \textbf{iumlb:predicate} - a string attribute used for the predicate of a guard or invariant (Listing~\ref{lst:secBot}, line~\ref{line:predicate}).
 \end{itemize}
 Other attributes added for \iUMLB elements are: \textbf{iumlb:name}, \textbf{iumlb:derived}, \textbf{iumlb:type}, \textbf{iumlb:comment}.

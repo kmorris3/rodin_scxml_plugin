@@ -4,8 +4,8 @@
 \label{sec:translation}
 
 A tool to automatically translate \SCXML models into \iUMLB has been produced. 
-The tool is based on the \EMF and uses an \SCXML metamodel provided by Sirius~\cite{siriuswebsite} which has good support for extensibility. 
-The tooling for \iUMLB and \EventB already contains \EMF metamodels and provides a generic translator framework which has been specialised for the \SCXML to \iUMLB translation. 
+The tool is based on the \EMF and uses an \SCXML meta-model provided by Sirius~\cite{siriuswebsite} which has good support for extensibility. 
+The tooling for \iUMLB and \EventB already contains \EMF meta-models and provides a generic translator framework which has been specialised for the \SCXML to \iUMLB translation. 
 
 Each \SCXML transition is translated into a corresponding \iUMLB transition. 
 Fig.~\ref{fig:iumlb-verif} shows the \iUMLB representation, first refinement level design, of the \IDS described in
@@ -49,7 +49,7 @@ The parametric |SCXML_futureExternalTrigger| event updates the external trigger 
 To raise an external trigger, each external trigger in the model must extend this event.   
 The |SCXML_futureInternalTransitionSet| basis event must be refined by any event in the model conditioned on an internal trigger. 
 The guards of this event check for the completion of the previous macro-step. 
-A similar behavior is followed by |SCXML_futureExternalTransitionSet| event, if no internal triggers are in the queue.  
+A similar behaviour is followed by |SCXML_futureExternalTransitionSet| event, if no internal triggers are in the queue.  
 
 \begin{lstfloat}
 \begin{lstlisting}[caption={Snippet of abstract basis machine}, label={lst:BasisMachine},language=Event-B, escapechar=|, frame=single][t]
