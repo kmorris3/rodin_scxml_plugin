@@ -17,10 +17,10 @@ and other critical systems to provide an unambiguous, executable way
 of specifying functional as well as safety, security, and reliability
 properties.  While functional properties (usually) can be tested,
 safety, security and reliability properties (usually) must be proved
-formally.  Here we give a binding from \Statecharts to \EventB so that
+formally.  Here we give a binding from \Statecharts to \EventB~\cite{abrial10:_model_event_b} so that
 this type of reasoning can be carried out.  Moreover, hierarchical
 encapsulation maps well onto \Statecharts in a way that is not very
-different from previous work in \iUMLB~\cite{Snook2006,snook14:_b_statem,Snook12:FMCO}, a diagrammatic modelling notation for \EventB.
+different from previous work in \iUMLB~\cite{snook14:_b_statem,Snook2006,Snook12:FMCO}, a diagrammatic modelling notation for \EventB.
 Binding \iUMLB to a UML~\cite{Rumbaugh2004} version of \Statecharts is natural and the
 addition of run-to-completion semantics, expected by \Statechart
 designers, is much of the contribution of this work.  Another
@@ -31,7 +31,7 @@ analysis.
 While \Statecharts and various semantic interpretations of
 \Statecharts admit refinement reified as both hierarchical or parallel
 composition (e.g. see Argos~\cite{Maraninchi91theargos}), here, as
-previously\cite{snook14:_b_statem}, we focus only on hierarchical
+previously~\cite{snook14:_b_statem}, we focus only on hierarchical
 refinement, the form that \EventB natively admits.  Here we define
 hierarchical composition to mean nesting new transition systems inside
 previously pure states, and parallel composition to be the combination
@@ -53,12 +53,11 @@ The semantics adopted here adheres closely to UML \Statecharts~\cite{Alexandre} 
  language~\cite{Eshuis_2009}.  In Statecharts every triggering signal
  can cause transitions that emit other triggers in a cascade.
  Different semantic interpretations of Statecharts resolve these
- cascades differently.  Argos~\cite{Maraninchi91theargos}, for
+ cascades differently.  Argos, for
  example, views cascading transitions as instantaneous and
  simultaneous rather than the queue-based semantics adopted here.
 %
-The \EventB language
-\cite{abrial10:_model_event_b} provides the logic and refinement
+The \EventB modelling method provides the logic and refinement
 theory required to formally analyse a system model.  The open-source
 \Rodin provides support for \EventB
 including automatic theorem provers.  \iUMLB
@@ -75,7 +74,7 @@ to ensure safety, security, and reliability.
 
 We previously reported~\cite{Morris_2016} our early attempts to relate \Statecharts to \EventB. At that stage we had tried some aspects of the translation by using simplifications and we were beginning to gain insights into the problem, but had not arrived at the translation we now use.
 
-The rest of the paper is structured as follows.  Section~\ref{sec:background} provides background information on \SCXML, \EventB, and \iUMLB.  Section~\ref{sec:secbot} presents our running example.  Section~\ref{sec:discussion} discusses the various challenges for introducing refinement notion into \SCXML and our approach.  Section~\ref{sec:extensions} shows our extensions to \SCXML which are necessary for reasoning about properties of the \SCXML models.  In Section~\ref{sec:translation}, we illustrate our translation of \SCXML models into \EventB using the example introduced in Section~\ref{sec:secbot}.  Section~\ref{sec:example} shows how properties of the \SCXML models can be specified as invariants and verified in \EventB.  We summarise our contribution and conclude in Section~\ref{sec:conclusion}.
+The rest of the paper is structured as follows.  Section~\ref{sec:background} provides background information on \SCXML, \EventB, and \iUMLB.  Section~\ref{sec:secbot} presents our running example.  Section~\ref{sec:discussion} discusses the various challenges for introducing a refinement notion into \SCXML and demonstrates our approach.  Section~\ref{sec:extensions} shows our extensions to \SCXML which are necessary for reasoning about properties of \SCXML models.  In Section~\ref{sec:translation}, we illustrate our translation of \SCXML models into \EventB using the example introduced in Section~\ref{sec:secbot}.  Section~\ref{sec:example} shows how properties of the \SCXML models can be specified as invariants and verified in \EventB.  We summarise our contribution and conclude in Section~\ref{sec:conclusion}.
 
 %%% Local Variables: 
 %%% mode: latex

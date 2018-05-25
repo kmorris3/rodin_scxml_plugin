@@ -12,7 +12,7 @@ Fig.~\ref{fig:iumlb-verif} shows the \iUMLB representation, first refinement lev
 Fig.~\ref{fig:ASIC_SPI_1}. 
 In the translation from \iUMLB to \EventB the `run to completion' semantics is supported by \EventB through the construction of a basis that constitutes an abstract execution model, which all designed systems refine. 
 The basis includes \EventB \emph{context} and \emph{machine}. 
-The context, shown in~\ref{lst:BasisContext}, defines the basis triggers as a partition of internal and external triggers, declared as |SCXML_FutureInternalTrigger| and |SCXML_FutureExternalTrigger| respectively. 
+The context, shown in Listing~\ref{lst:BasisContext}, defines the basis triggers as a partition of internal and external triggers, declared as |SCXML_FutureInternalTrigger| and |SCXML_FutureExternalTrigger| respectively. 
 The abstract model of the \IDS extends the basis context and declares a new axiom that defines the partitions of the |SCXML_FutureInternalTrigger| set, which would include the \textbf{spi\_done} trigger and a new partition |SCXML_FutureInternalTrigger0| to enable the introduction of additional internal triggers by subsequent refinements as shown in line~\ref{line:refPartition} of Listing~\ref{lst:SecBotCont0}. 
 
 \begin{lstlisting}[caption={Abstract basis context},label={lst:BasisContext}, language=Event-B, escapechar=|, frame=single]
@@ -44,7 +44,7 @@ end
 \end{lstlisting}
 
 The basis machine, partially shown in Listing~\ref{lst:BasisMachine}, declares the variables that correspond to the triggers present in the queue at any given time, as well as, the |SCXML_uc| flag, which signals when a run to completion macro-step has been completed and no un-triggered transitions are enabled. 
-At the point of initialization, both queues are empty and |SCXML_uc| is set to false. 
+At the point of initialisation, both queues are empty and |SCXML_uc| is set to |FALSE|. 
 The parametric |SCXML_futureExternalTrigger| event updates the external trigger queue with any newly raised trigger. 
 To raise an external trigger, each external trigger in the model must extend this event.   
 The |SCXML_futureInternalTransitionSet| basis event must be refined by any event in the model conditioned on an internal trigger. 
@@ -106,7 +106,7 @@ end
 \end{lstfloat}
 To completely control the execution flow of the model, all un-triggered transitions must refine the |SCXML_futureUntriggeredTransitionSet| event. 
 Any of the previously discussed events can raise a set of internal triggers, |{i1,i2...}|, by introducing a guard that defines |{i1,i2...} <: SCXML_raisedTrigger| parameter (not shown in listings). 
-As shown in listing~\ref{lst:SecBotMach0} an event that corresponds to a triggered transition uses the provided parameter |SCXML_it| (|SCXML_et| for externally triggered transitions) to define which trigger enables the event (see line~\ref{line:defTrigger}).
+As shown in Listing~\ref{lst:SecBotMach0} an event that corresponds to a triggered transition uses the provided parameter |SCXML_it| (|SCXML_et| for externally triggered transitions) to define which trigger enables the event (see line~\ref{line:defTrigger}).
 
 \begin{lstlisting}[caption={Event-B event corresponding to internal triggered transition to \textbf{Wait50ms} state in refinement level 1 shown in Fig.~\ref{fig:ASIC}}, label={lst:SecBotMach0},language=Event-B, escapechar=|, frame=single]
 spi_done__InitialiseSensor_Wait50ms:	
