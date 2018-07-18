@@ -23,7 +23,7 @@ Refinement should preserve the value of the abstract state after each micro-step
 
 There is an inherent difficulty with refining `run to completion' semantics which require that every enabled micro-step is completed before the next macro-step is started. The problem is that, in a refinement, we want to strengthen the conditions for a micro-step. However, by making the micro-steps more constrained we may disable them and hence make the completion of enabled ones more easily achieved. This makes the guard for taking the next macro-step weaker breaking the notion of refinement.
 
-While it is always possible to abstract away sufficiently to reach a common semantic (see~\cite{Snook12:FMCO} for example), in this work we wish to explore verification that considers `run to completion' behaviour as closely as possible.    
+While it is always possible to abstract away sufficiently to reach a common semantics (see~\cite{Snook12:FMCO} for example), in this work we wish to explore verification that considers `run to completion' behaviour as closely as possible.    
 To simulate the `run to completion' semantics in \EventB, we initially adopted a scheduler approach where `engine' events decide which user transitions should be fired based on their guards. 
 Boolean flags are then used to enable these transitions which must then fire before the next step of the engine.
 The engine implements the operational semantics of Listing~\ref{lst:scxml-r2c} by deciding when to use internal or external triggers.
