@@ -16,11 +16,11 @@ In the case where the event has no parameters, we use the following form
   |when G(v) then S(v) end|
 %& \inlineevent{\Be}{}{}{G(\Bv)}{}{S(\Bv)}~,
 \end{center}
-and when the event has no parameters and no guard, we use
-\begin{center}
-  |begin S(v) end|
-%& \inlineevent{\Be}{}{}{}{}{S(\Bv)}~.
-\end{center}
+% and when the event has no parameters and no guard, we use
+% \begin{center}
+%   |begin S(v) end|
+% %& \inlineevent{\Be}{}{}{}{}{S(\Bv)}~.
+% \end{center}
 The action of an event comprises of one or more assignments, each of them has one of the following forms: (1) |v := E(t, v)|, (2) |v :: E(t, v)|, and (3) |v :∣ P(t, v)|.  Assignments of form (1) are deterministic, assign the value of expression |E(t, v)| to |v|.  Assignments of forms (2) and (3) are non-deterministic. (2) assigns any value from the set |E(t,v)| to |v|, while (3) assigns any value satisfied predicate |P(t,v)| to |v|.
 A machine in \EventB corresponds to a transition system
 where \emph{variables} represent the states and \emph{events} specify
@@ -29,7 +29,7 @@ the transitions.  Note that invariants |I(v)| are inductive, i.e., they must be 
 Machines can be refined by adding more details.  Refinement can be done by extending the machine to include additional variables (\emph{superposition refinement}) representing new features of the system, or to replace some (abstract) variables by new (concrete) variables (\emph{data refinement}).  More information about \EventB can be found in~\cite{hoang13:_introd_event_b_model_method}.  \EventB is supported by \Rodin~\cite{abrial10:_rodin}, an extensible toolkit which includes facilities for modelling, verifying the consistency of models using theorem proving and model checking techniques, and validating models with simulation-based approaches.
 
 In \EventB the run to completion pseudocode of Listing~\ref{lst:scxml-r2c} could be represented (somewhat abstractly) as shown in Listing~\ref{lst:eventb-r2c}.
-\begin{lstlisting}[caption={Run to completion pseudocode in \EventB},label={lst:eventb-r2c}, language=Event-B, escapechar=|, frame=single]
+\begin{lstlisting}[caption={Run to completion pseudocode in \EventB},label={lst:eventb-r2c}, language=Event-B, escapechar=|, frame=single, float=t]
  FireUntriggered // Fire  enabled un-triggered transitions
 when
     UC = FALSE // Has not yet completed firing un-triggered transitions
@@ -37,7 +37,6 @@ when
 then
     execute(untriggered()) // Execute enabled un-triggered transitions
 end
-
 UntriggeredCompleted // Un-triggered transitions are completed
 when
     UC = FALSE // Has not yet completed firing un-triggered transitions
@@ -45,7 +44,6 @@ when
 then
     UC = TRUE // Complete firing un-triggered transitions
 end
-
 FireInternallyTriggered // Fire an internal trigger
 when
     UC = TRUE // Complete firing un-triggered transitions
@@ -54,7 +52,6 @@ then
     execute(IQ.dequeue) // Execute and dequeue from the internal triggers queue
     UC := FALSE // Re-enable firing of un-triggered transitions
 end
-
 FireExternallyTriggered // Fire an external trigger
 when
     UC = TRUE // Complete firing un-triggered transitions
