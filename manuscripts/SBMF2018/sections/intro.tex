@@ -28,7 +28,8 @@ contribution is the augmentation of the textual and parse-able format
 for \Statecharts, \SCXML to accommodate elements necessary to support formal
 analysis. 
 
-While \Statecharts and various semantic interpretations of
+There are many formal semantics that can be bound to 
+ the \Statechart graphical language~\cite{Eshuis_2009}. While \Statecharts and various semantic interpretations of
 \Statecharts admit refinement reified as both hierarchical or parallel
 composition (e.g. see Argos~\cite{Maraninchi91theargos}), here, as
 previously~\cite{snook14:_b_statem}, we focus only on hierarchical
@@ -48,12 +49,21 @@ semantics that can support an infrastructure for formal verification.
 The semantics adopted here adheres closely to UML \Statecharts~\cite{Alexandre} and is implemented in \iUMLB.
  Models described in \Statecharts are expressed in \SCXML and
  translated into \EventB logic which uses the \Rodin~\cite{abrial10:_rodin} for
- machine proofs.  UML \Statechart semantics are not the only formal
- semantics that can be bound to the \Statechart graphical
- language~\cite{Eshuis_2009}.  In Statecharts every triggering signal
- can cause transitions that emit other triggers in a cascade.
- Different semantic interpretations of Statecharts resolve these
- cascades differently.  
+ machine proofs. With suitable restrictions, \Statecharts already provide a sound,
+intuitive, visual metaphor for refinement. Outfitted with a formal
+semantics, this work borrows from well-used \Statechart practices in
+digital design.  We previously reported~\cite{Morris_2016} our early 
+attempts to relate \Statecharts to \EventB. The goal of the present 
+work is to provide usable,well-founded tools that are familiar to 
+designers of high-consequence systems and yet provide the currently 
+lacking formal guarantees needed to ensure safety, security, and reliability.
+
+ % UML \Statechart semantics are not the only formal
+ % semantics that can be bound to the \Statechart graphical
+ % language~\cite{Eshuis_2009}.  In Statecharts every triggering signal
+ % can cause transitions that emit other triggers in a cascade.
+ % Different semantic interpretations of Statecharts resolve these
+ % cascades differently.  
  % Argos, for
  % example, views cascading transitions as instantaneous and
  % simultaneous rather than the queue-based semantics adopted here.
@@ -65,14 +75,14 @@ The semantics adopted here adheres closely to UML \Statecharts~\cite{Alexandre} 
 % augments the \EventB language with a graphical interface including
 % state-machines.  
 
-With suitable restrictions, \Statecharts already provide a sound,
-intuitive, visual metaphor for refinement. Outfitted with a formal
-semantics, this work borrows from well-used \Statechart practices in
-digital design.  We previously reported~\cite{Morris_2016} our early 
-attempts to relate \Statecharts to \EventB. The goal of the present 
-work is to provide usable,well-founded tools that are familiar to 
-designers of high-consequence systems and yet provide the currently 
-lacking formal guarantees needed to ensure safety, security, and reliability.
+% With suitable restrictions, \Statecharts already provide a sound,
+% intuitive, visual metaphor for refinement. Outfitted with a formal
+% semantics, this work borrows from well-used \Statechart practices in
+% digital design.  We previously reported~\cite{Morris_2016} our early 
+% attempts to relate \Statecharts to \EventB. The goal of the present 
+% work is to provide usable,well-founded tools that are familiar to 
+% designers of high-consequence systems and yet provide the currently 
+% lacking formal guarantees needed to ensure safety, security, and reliability.
 
 % We previously reported~\cite{Morris_2016} our early attempts to relate \Statecharts to \EventB. At that stage we had tried some aspects of the translation by using simplifications and we were beginning to gain insights into the problem, but had not arrived at the translation we now use.
 
