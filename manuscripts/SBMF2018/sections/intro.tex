@@ -47,16 +47,12 @@ semantics that can support an infrastructure for formal verification.
 
 
 The semantics adopted here adheres closely to UML \Statecharts~\cite{Alexandre} and is implemented in \iUMLB.
- Models described in \Statecharts are expressed in \SCXML and
- translated into \EventB logic which uses the \Rodin~\cite{abrial10:_rodin} for
- machine proofs. With suitable restrictions, \Statecharts already provide a sound,
-intuitive, visual metaphor for refinement. Outfitted with a formal
-semantics, this work borrows from well-used \Statechart practices in
-digital design.  We previously reported~\cite{Morris_2016} our early 
-attempts to relate \Statecharts to \EventB. The goal of the present 
-work is to provide usable,well-founded tools that are familiar to 
-designers of high-consequence systems and yet provide the currently 
-lacking formal guarantees needed to ensure safety, security, and reliability.
+Models described in \Statecharts are expressed in \SCXML and translated into \EventB logic which uses the \Rodin~\cite{abrial10:_rodin} for machine proofs.
+With suitable restrictions, \Statecharts already provide a sound, intuitive, visual metaphor for refinement. 
+Outfitted with a formal semantics, this work borrows from well-used \Statechart practices in digital design.  
+We previously reported~\cite{Morris_2016} our early attempts to relate \Statecharts to \EventB. 
+\ColinAdded{At that stage we suggested the necessary extensions and basic mechanism of translation but had not solved the more challenging problem of refinement with run to completion semantics.} 
+The goal of the present work is to provide usable, well-founded tools that are familiar to designers of high-consequence systems and yet provide the currently lacking formal guarantees needed to ensure safety, security, and reliability.
 
  % UML \Statechart semantics are not the only formal
  % semantics that can be bound to the \Statechart graphical
