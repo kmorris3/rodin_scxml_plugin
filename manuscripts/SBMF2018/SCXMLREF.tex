@@ -93,7 +93,8 @@
 \definecolor{darkred}{rgb}{0.6,0.0,0.0}
 
 \lstset{
-  basicstyle=\ttfamily\footnotesize,
+  basicstyle=\ttfamily\scriptsize,
+%  basicstyle=\ttfamily\footnotesize,
   columns=fullflexible,
   showstringspaces=false,
   numbers=left,                   % where to put the line-numbers
@@ -189,18 +190,24 @@
 
 \input{sections/conclusion}
 
-\begin{footnotesize} %small} %scriptsize}
+%\begin{footnotesize}
+\begin{scriptsize}
 	\vspace{6 pt}
 	\noindent
 	All data supporting this study are openly available from the University of Southampton repository at
-	https://tinyurl.com/ICTAC2018-34    \textbf{(DOI FOR FINAL)}
+	https://tinyurl.com/SCXML-REF    \textbf{(DOI FOR FINAL)}
 	%http://doi.org/10.????/SOTON/D0???\\   %<GET a new DOI!!>
-\section*{Acknowledgment} The authors would like to thank Jason Michnovicz for developing the \IDS example used throughout the manuscript.
+
+\end{scriptsize}
+\begin{footnotesize}
+\vspace{6 pt}
+\noindent
+\textbf{Acknowledgment:} The authors would like to thank Jason Michnovicz for developing the \IDS example used throughout the manuscript.
 
 \par
 
-\end{footnotesize} %small} %scriptsize}
-
+\end{footnotesize}
+%\end{scriptsize}
 
 \bibliographystyle{plain}
 \bibliography{SCXMLREF}
