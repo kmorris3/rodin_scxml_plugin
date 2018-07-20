@@ -17,6 +17,8 @@ The topic addressed is certainly relevant, and the work has a potential for prac
 
 - It is not clear the precise contribution of this paper with respect to [9]. Saying "... but had not arrived at the translation we now use" is too vague. The new contribution must be emphasised, also with respect to [13]. 
 
+ADDED to Intro: "At that stage we suggested the necessary extensions and basic mechanism of translation but had not solved the more challenging problem of refinement with run to completion semantics."
+
 - Overall, the presentation is too informal. The discussion in Section 4 is certainly helpful, but it seems challenging to relate all these decisions to what was briefly presented in Section 2.2 on Event-B. As refinement for Statecharts is the central intended contribution of this paper, via mapping into Event-B, a formal account of Refinement in Event-B seems fundamental. As is, the requirements in Section 4 looks like a list of postulated decisions, without a unifying notion. Some terms, like raise actions, are not explained.
 
 - The extensions to SCXML are purely syntactic, and it is not at all clear that engineers that use Statecharts would be happy to adopt these extensions. 
