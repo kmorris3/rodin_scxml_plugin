@@ -17,24 +17,28 @@ The topic addressed is certainly relevant, and the work has a potential for prac
 
 - It is not clear the precise contribution of this paper with respect to [9]. Saying "... but had not arrived at the translation we now use" is too vague. The new contribution must be emphasised, also with respect to [13]. 
 
-ADDED to Intro: "At that stage we suggested the necessary extensions and basic mechanism of translation but had not solved the more challenging problem of refinement with run to completion semantics."
+>RESPONSE: COLIN ADDED TO INTRO: 
+>	"At that stage (and similarly in~\cite{Snook12:FMCO}) we suggested the necessary extensions and basic mechanism of translation but, 
+>   through restrictions and abstraction, avoided the more challenging problem of refinement with run to completion semantics. "
 
 - Overall, the presentation is too informal. The discussion in Section 4 is certainly helpful, but it seems challenging to relate all these decisions to what was briefly presented in Section 2.2 on Event-B. As refinement for Statecharts is the central intended contribution of this paper, via mapping into Event-B, a formal account of Refinement in Event-B seems fundamental. As is, the requirements in Section 4 looks like a list of postulated decisions, without a unifying notion. Some terms, like raise actions, are not explained.
 
 - The extensions to SCXML are purely syntactic, and it is not at all clear that engineers that use Statecharts would be happy to adopt these extensions. 
 
+
 Small issues:
 - To what sort of instantiation are you referring to in the abstract?
-- has no parameters and guard -> ... and no guard
+- has no parameters and guard -> ... and no guard			
 - In, Event-B -> In Event-B,
 - systems components -> system components
 - After the ASIC moves -> After that the ASIC moves
 - the we have -> we have
 - common semantic -> ... semantcis
 - Right-margin is exceeded on Page 13. 
-- Furthermore,in -> Furthermore, in
+- Furthermore,in -> Furthermore, in 						
 - 'run to completion' semantic ->  ... semantics
 
+>RESPONSE: THESE HAVE ALL BEEN DONE OR ARE NO LONGER RELEVANT
 
 ----------------------- REVIEW 2 ---------------------
 PAPER: 34
@@ -82,6 +86,8 @@ Statecharts refinement possibilities are constrained to comply with Event-B supe
 Authors should illustrate with some possible (and reasonable) SCXML refinement  that does not comply with the imposed refinement conditions.
 
 the authors say that “[transition] T1 could fire alone even if T2 is enabled since we cannot add the negation of T2’s guard to T1 “. It is then not clear how this complies with the Statechart completion semantics.
+
+> RESPONSE : COLIN ADDED: "This non-determinism in the model accurately reflects the abstract run to completion where we do not, yet know whether T2 will be enabled or not in future refinements."
 
 
 Minor comments:
