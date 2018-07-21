@@ -8,23 +8,24 @@
 %% 
 %% This is a generated file.
 %% 
-%% Copyright (C) 2017 by Thai Son Hoang
+%% Copyright (C) 2017--2018 by Thai Son Hoang
 %% <T dot S dot Hoang at ecs dot soton dot ac dot uk>
 %% 
 %% This file may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either version 1.3
+%% conditions of the LaTeX Project Public License, either version 1.3c
 %% of this license or (at your option) any later version.
 %% The latest version of this license is in:
 %% 
 %%    http://www.latex-project.org/lppl.txt
 %% 
-%% and version 1.3 or later is part of all distributions of LaTeX
-%% version 2005/12/01 or later.
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008/05/04 or later.
 %% 
 %% This work has the LPPL maintenance status "author-maintained".
 %% 
 %% The Current Maintainer of this work is T. S. Hoang.
 %% 
+
 
 %%%%% BEGIN Package loading %%%%%
 \RequirePackage{soul}
@@ -38,17 +39,21 @@
 
 \newcommand{\CT@contributor}[2][]{%
   \chgtrk@ifstrequal{#1}{}{%
-    \expandafter\def\csname #2Added\endcsname{\CT@added[#2]}%
-    \expandafter\def\csname #2Deleted\endcsname{\CT@deleted[#2]}%
-    \expandafter\def\csname #2Changed\endcsname{\CT@changed[#2]}%
-    \expandafter\def\csname #2Commented\endcsname{\CT@commented[#2]}%
-    \expandafter\def\csname #2InlineCommented\endcsname{\CT@inlinecommented[#2]}%
+    \expandafter\def\csname #2Add\endcsname{\CT@add[#2]}%
+    \expandafter\def\csname #2Delete\endcsname{\CT@delete[#2]}%
+    \expandafter\def\csname #2Change\endcsname{\CT@change[#2]}%
+    \expandafter\def\csname #2Comment\endcsname{\CT@comment[#2]}%
+    \expandafter\def\csname #2CommentTo\endcsname{\CT@commentto[#2]}%
+    \expandafter\def\csname #2InlineComment\endcsname{\CT@inlinecomment[#2]}%
+    \expandafter\def\csname #2InlineCommentTo\endcsname{\CT@inlinecommentto[#2]}%
   }{%
-    \expandafter\def\csname #1Added\endcsname{\CT@added[#2]}%
-    \expandafter\def\csname #1Deleted\endcsname{\CT@deleted[#2]}%
-    \expandafter\def\csname #1Changed\endcsname{\CT@changed[#2]}%
-    \expandafter\def\csname #1Commented\endcsname{\CT@commented[#2]}%
-    \expandafter\def\csname #1InlineCommented\endcsname{\CT@inlinecommented[#2]}%
+    \expandafter\def\csname #1Add\endcsname{\CT@add[#2]}%
+    \expandafter\def\csname #1Delete\endcsname{\CT@delete[#2]}%
+    \expandafter\def\csname #1Change\endcsname{\CT@change[#2]}%
+    \expandafter\def\csname #1Comment\endcsname{\CT@comment[#2]}%
+    \expandafter\def\csname #1CommentTo\endcsname{\CT@commentto[#2]}%
+    \expandafter\def\csname #1InlineComment\endcsname{\CT@inlinecomment[#2]}%
+    \expandafter\def\csname #1InlineCommentTo\endcsname{\CT@inlinecommentto[#2]}%
   }%
 }%
 
@@ -56,85 +61,115 @@
 
 \newcommandx{\TODOthiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}%
 
-\newcommand{\CT@added}[2][]{%
+\newcommand{\CT@add}[2][]{%
   \chgtrk@ifstrequal{#1}{}{%
     % Do nothing
   }{%
-    \todo[linecolor=orange,backgroundcolor=orange!25,bordercolor=orange]{#1 added}%{}
+    \todo[linecolor=orange,backgroundcolor=orange!25,bordercolor=orange]{\textbf{#1} added}%{}
   }%
   \texthl{#2}%
 }%
 
-\newcommand{\CTadded}[1]{%
-  \CT@added{#1}%
+\newcommand{\CTadd}[1]{%
+  \CT@add{#1}%
 }%
 
-\newcommand{\CT@deleted}[2][]{%
+\newcommand{\CT@delete}[2][]{%
   \chgtrk@ifstrequal{#1}{}{%
     % Do nothing
   }{%
-    \todo[linecolor=red,backgroundcolor=red!25,bordercolor=red]{#1 deleted}%{}
+    \todo[linecolor=red,backgroundcolor=red!25,bordercolor=red]{\textbf{#1} delete}%{}
   }%
   \setstcolor{red}%
   \st{#2}%
 }%
 
-\newcommand{\CTdeleted}[1]{%
-  \CT@deleted{#1}%
+\newcommand{\CTdelete}[1]{%
+  \CT@delete{#1}%
 }%
 
-\newcommand{\CT@changed}[3][]{%
+\newcommand{\CT@change}[3][]{%
   \setstcolor{red}%
   \st{#2}%
   \chgtrk@ifstrequal{#1}{}{%
     % Do nothing
   }{%
-    \todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue]{#1 changed}%{}
+    \todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue]{\textbf{#1} changed}%{}
   }%
   \texthl{#3}%
   %\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue]{\textbf{Before}:
   %}%
 }%
 
-\newcommand{\CTchanged}[2]{%
-  \CT@changed{#1}{#2}%
+\newcommand{\CTchange}[2]{%
+  \CT@change{#1}{#2}%
 }%
 
-\newcommand{\CT@commented}[2][]{%
+\newcommand{\CT@comment}[2][]{%
   \chgtrk@ifstrequal{#1}{}{%
     \todo[linecolor=green,backgroundcolor=green!25,bordercolor=green]{#2}%{}
   }{%
-    \todo[linecolor=green,backgroundcolor=green!25,bordercolor=green]{#1: #2}%{}
+    \todo[linecolor=green,backgroundcolor=green!25,bordercolor=green]{\textbf{#1}: #2}%{}
   }%
 }%
 
-\newcommand{\CTcommented}[1]{%
-  \CT@commented{#1}%
+\newcommand{\CT@commentto}[3][]{%
+  \chgtrk@ifstrequal{#1}{}{%
+    \todo[linecolor=green,backgroundcolor=green!25,bordercolor=green]{$\rightarrow$\textbf{#2}
+      #3}%
+  }{%
+    \todo[linecolor=green,backgroundcolor=green!25,bordercolor=green]{\textbf{#1}:
+      $\rightarrow$\textbf{#2} #3}%
+  }%
 }%
 
-\newcommand{\CT@inlinecommented}[2][]{%
+\newcommand{\CTcomment}[1]{%
+  \CT@comment{#1}%
+}%
+
+\newcommand{\CTcommentto}[2]{%
+  \CT@commentto{#1}{#2}%
+}%
+
+\newcommand{\CT@inlinecomment}[2][]{%
   \chgtrk@ifstrequal{#1}{}{%
     \todo[inline, linecolor=green,backgroundcolor=green!25,bordercolor=green]{#2}%{}
   }{%
-    \todo[inline, linecolor=green,backgroundcolor=green!25,bordercolor=green]{#1: #2}%{}
+    \todo[inline, linecolor=green,backgroundcolor=green!25,bordercolor=green]{\textbf{#1}: #2}%{}
   }%
 }%
 
-\newcommand{\CTinlinecommented}[1]{%
-  \CT@inlinecommented{#1}%
+\newcommand{\CT@inlinecommentto}[3][]{%
+  \chgtrk@ifstrequal{#1}{}{%
+    \todo[inline,
+    linecolor=green,backgroundcolor=green!25,bordercolor=green]{$\rightarrow$\textbf{#2}
+      #3}%
+  }{%
+    \todo[inline,
+    linecolor=green,backgroundcolor=green!25,bordercolor=green]{\textbf{#1}:
+      $\rightarrow$\textbf{#2} #3}%
+  }%
+}%
+
+\newcommand{\CTinlinecomment}[1]{%
+  \CT@inlinecomment{#1}%
+}%
+
+\newcommand{\CTinlinecommentto}[2]{%
+  \CT@inlinecommentto{#1}{#2}%
 }%
 
 %%%%% BEGIN Declaration of options %%%%%
 \DeclareOption{disabled}{%
-  \renewcommand{\CT@added}[2][]{%
-    #2%
+  \renewcommand{\CT@add}[2][]{%
+    #2% Display only the added text
   }%
-  \renewcommand{\CT@deleted}[2][]{}%
-  \renewcommand{\CT@changed}[3][]{%
-    #3%
+  \renewcommand{\CT@delete}[2][]{}% Do nothing
+  \renewcommand{\CT@change}[3][]{%
+    #3% Display only the changed text
   }%
-  \renewcommand{\CT@commented}[2][]{}%
-  \renewcommand{\CT@inlinecommented}[2][]{}%
+  \renewcommand{\CT@comment}[2][]{}% Do nothing
+  \renewcommand{\CT@inlinecomment}[2][]{}% Do nothing
 }%
 
 %%%%% END Declaration of options %%%%%
