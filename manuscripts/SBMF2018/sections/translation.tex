@@ -16,7 +16,7 @@ The context, shown in Listing~\ref{lst:BasisContext}, defines the basis triggers
 The abstract model of the \IDS extends the basis context and declares a new axiom that defines the partitions of the |SCXML_FutureInternalTrigger| set, which would include the \textbf{spi\_done} trigger and a new partition |SCXML_FutureInternalTrigger0| to enable the introduction of additional internal triggers by subsequent refinements. 
  % as shown in line~\ref{line:refPartition} of Listing~\ref{lst:SecBotCont0}. 
 
-\begin{lstlisting}[caption={Abstract basis context},label={lst:BasisContext}, language=Event-B, escapechar=|, frame=single]
+\begin{lstlisting}[caption={Abstract basis context},label={lst:BasisContext}, language=Event-B, escapechar=|, frame=single, basicstyle=\rmfamily\scriptsize]
 context
 	basis_c 	// (generated for SCXML)
 sets
@@ -52,8 +52,8 @@ The |SCXML_futureInternalTransitionSet| basis event must be refined by any event
 The guards of this event check for the completion of the previous macro-step. 
 A similar behaviour is followed by |SCXML_futureExternalTransitionSet| event, if no internal triggers are in the queue.  
 
-\begin{lstfloat}
-\begin{lstlisting}[caption={Snippet of abstract basis machine}, label={lst:BasisMachine},language=Event-B, escapechar=|, frame=single]
+\begin{lstfloat}[!tb]
+\begin{lstlisting}[caption={Snippet of abstract basis machine}, label={lst:BasisMachine},language=Event-B, escapechar=|, frame=single, basicstyle=\rmfamily\scriptsize]
 machine 
 	basis_m   // (generated for SCXML)
 sees 
