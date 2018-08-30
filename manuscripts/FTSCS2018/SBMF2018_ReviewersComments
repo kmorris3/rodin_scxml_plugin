@@ -1,0 +1,57 @@
+----------------------- REVIEW 1 ---------------------
+PAPER: 34
+TITLE: Refinement of SCXML Statecharts via translation to Event-B
+AUTHORS: Karla Morris, Rob Armstrong, Colin Snook, Thai Son Hoang and Michael Butler
+
+Overall evaluation: 0 (borderline paper)
+
+----------- Overall evaluation -----------
+The purpose of this paper is to provide a "run to completion" semantics for Statecharts using Event-B as an underlying formalism. Then, refinement can be conducted using Event-B tools. 
+
+The paper is relatively easy to read, proper motivation is provided, the approach is illustrated with an example, and the authors consider related work to some extent. The approach is interesting and is within the scope of the Symposium.   
+
+My main concern is the contribution with respect to previous work (of the authors) that already connect Statecharts and Event-B. So the new contribution seems to be considering a "run to completion" semantics. 
+Also, the translation from SCXML into iUML-B is embedded into a tool. I would expect to see first a systematic (preferably, rule-based) translation scheme. 
+
+In Section 4, the authors mention that the use of "particular refinement idioms" is more practical than carrying out data refinement at the SCXML level. This seems reasonable, but a more detailed discussion is necessary, showing that applications of these idioms can indeed be an alternative for a more general and explicit data refinement transformation. 
+
+Below some minor comments.
+* margin not respected on Page 11.
+* "the kinds of things we would like to do" - too informal
+
+
+----------------------- REVIEW 2 ---------------------
+PAPER: 34
+TITLE: Refinement of SCXML Statecharts via translation to Event-B
+AUTHORS: Karla Morris, Rob Armstrong, Colin Snook, Thai Son Hoang and Michael Butler
+
+Overall evaluation: -2 (reject)
+
+----------- Overall evaluation -----------
+Refinement of SCXML Statecharts via translation to Event-B by K. Morris, R. Armstrong, C. Snook, T.S. Hoang, and M. Butler
+
+This paper deals with an important topic: how to verify software development techniques used by real practitioners in industry. One way of doing this is by translation from the industry-friendly technique into a verification-friendly technique. The chosen practical notation in this paper is a kind of StateChart (SCXML) and the target is Event-B. The authors take the opportunity of transferring the verification technique of formal refinement from Event-B up into SCXML (here, refinement). This allows them to prove properties at an abstract level in a setting familiar to the practising engineer.
+
+I expected to see a wider variety of related work. For example, StateCharts are translated into a wide variety of difference verification formalisms and their tools, such as Verilog and Reactive Machines. The latter is a riff on action systems, much as Event-B is.
+
+The paper is an easy read: there's not much technical content.
+
+The authors claim two contributions: (i) the addition to previous work of run-to-completion semantics, which is expected by Statechart designers; and (ii) the extension of the textual and parsable format for Statecharts to accommodate elements necessary to support formal analysis.
+
+This is really a workshop-type paper. Although the topic is important, the paper discusses a rather specific part of a rather specific solution. The most interesting part of their work is their addition of run-to-completion semantics; but, apart from some pseudo-code for the algorithm, they have nothing formal to say on the matter and no results.
+
+
+----------------------- REVIEW 3 ---------------------
+PAPER: 34
+TITLE: Refinement of SCXML Statecharts via translation to Event-B
+AUTHORS: Karla Morris, Rob Armstrong, Colin Snook, Thai Son Hoang and Michael Butler
+
+Overall evaluation: -1 (weak reject)
+
+----------- Overall evaluation -----------
+This paper presents an approach to define refinements of statecharts using a translation to event-B as a means to achieve a notion of correctness. A textual language to describe statecharts (SCXSML) is enhanced with some primitives to describe refinement, and this is then translated into an event-B specification that is able to check whether the proposed refinement is well-defined. The approach is illustrated with an example of an intrusion detection system.
+
+The idea is indeed very interesting and promising, the paper is easy to read (considering a reader with some knowledge of event-B). However, there are some points that should be addressed in a better way:
+* How is the event-B model obtained from the statechart model? In particular, since many events may arise due to the possibility of firing transitions in parallel, how are the events generated? Is it really feasible to generate an event to each possible parallel execution of transitions? What if the system is composed by many statecharts, the amount of potential parallelism may be large… For the concrete example of the paper, how many events were generated?
+* Can you at least sketch the general definition of the translation (of SCXML to event-B)? The paper presents only one example, but no definition of the translation. Can the correctness of this translation be verified? You say that the event-B model implements the run to completion execution model. Can it be shown that this semantics is implemented correctly (for example, by proving some invariants)?  Since this translation is the essential contribution of the paper, it should be presented in a more formal way.
+* Is it the case that the invariants of the semantical model are used to prove properties of the concrete examples? I mean, if an application relies on the behavior of some execution model, proving properties of the application should require at some point assumptions about the semantics of the underlying execution model. How much about the translation of statecharts to event-B must be known to be able to carry out the proofs of properties of the application?

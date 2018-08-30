@@ -1,0 +1,221 @@
+\documentclass[runningheads,a4paper]{llncs}
+
+% Set TOC depth to 3
+%\setcounter{tocdepth}{3}
+
+% Package for change tracking
+%\usepackage[disabled]{chgtrk}
+\usepackage{chgtrk}
+\newCTcontributor{Karla}
+\newCTcontributor{Colin}
+\newCTcontributor{Rob}
+\newCTcontributor{Son}
+\newCTcontributor{Michael}
+
+% Package for typesetting AMS Symbols
+\usepackage{amssymb}
+
+% Package for typesetting abbreviations
+\usepackage{abbrev-SCXMLREF}
+
+
+% Package for typesetting diagrams using TikZ
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+%\usepackage{pgf-picture}
+
+% Package for typesetting requirements
+%\usepackage[compact]{reqdoc}
+
+% Package for typesetting Event-B mathematical symbols
+\usepackage{bsymb}
+
+% Package for typesetting SCXMLREF example models in Event-B
+%\usepackage{eventB-SCXMLREF}
+
+% Package for AMS Math
+\usepackage{amsmath}
+
+% Package for typesetting URLs
+\usepackage{url}
+\urldef{\mailsa}\path|{cfs, mjb}@ecs.soton.ac.uk|
+\urldef{\mailsa}\path|{knmorri, rob}@sandia.gov|
+
+% Package for highlight TODOs
+%\usepackage[disable]{hltodonotes}
+%\usepackage[]{hltodonotes}
+
+\newcommand{\keywords}[1]{\par\addvspace\baselineskip
+\noindent\keywordname\enspace\ignorespaces#1}
+
+% Package for fancy references
+\usepackage{varioref}
+
+% Package for including figures
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+% Package for sub-floats (e.g. figures)
+% \usepackage{subfig}
+
+% Package for including standalone source files
+\usepackage{standalone}
+
+% For floating listings
+\usepackage{float}
+\newfloat{lstfloat}{htbp}{lop}
+\floatname{lstfloat}{Listing}
+\def\lstfloatautorefname{Listing} % needed for hyperref/auroref
+
+% Package for listings (e.g. JavaScript)
+%\usepackage{eventBlistings}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor = blue,
+  urlcolor=cyan!50!black,
+  citecolor=cyan,
+}
+
+\usepackage{examplep}
+% Package for typesetting Event-B, load this package after all other packages
+\usepackage[colour]{lstEventB}
+
+% Listing for XML
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{lightblue}{rgb}{0.0,0.0,0.9}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{darkred}{rgb}{0.6,0.0,0.0}
+
+\lstset{
+  basicstyle=\ttfamily\scriptsize,
+%  basicstyle=\ttfamily\footnotesize,
+  columns=fullflexible,
+  showstringspaces=false,
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+  stepnumber=1,
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},      % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=none,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                   % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title  
+  commentstyle=\color{gray}\upshape
+}
+
+\lstdefinelanguage{XML}
+{
+  morestring=[s][\color{mauve}]{"}{"},
+  morestring=[s][\color{black}]{>}{<},
+  morecomment=[s]{<?}{?>},
+  morecomment=[s][\color{dkgreen}]{<!--}{-->},
+  stringstyle=\color{black},
+  identifierstyle=\color{lightblue},
+  keywordstyle=\color{red},
+  morekeywords={xmlns,xsi,noNamespaceSchemaLocation,type,id,x,y,source,target,version,tool,transRef,roleRef,objective,eventually}% list your attributes here
+}
+% Listing for XML
+
+
+\begin{document}
+
+\mainmatter  % start of an individual contribution
+
+% first the title is needed
+\title{Refinement of SCXML Statecharts via translation to Event-B}
+
+% a short form should be given in case it is too long for the running head
+\titlerunning{Refinement of SCXML}
+
+% the name(s) of the author(s) follow(s) next
+%
+\author{ 
+K. Morris \inst{2} 
+\and R. Armstrong \inst{2}
+\and C. Snook \inst{1}%\textsuperscript{https://orcid.org/0000-0002-0210-0983} 
+\and T.S. Hoang \inst{1}
+\and M. Butler \inst{1} 
+}
+
+%  \authorrunning{} has to be set for the shorter version of the authors' names;
+% otherwise a warning will be rendered in the running heads. When processed by
+% EasyChair, this command is mandatory: a document without \authorrunning
+% will be rejected by EasyChair
+
+\authorrunning{K.Morris, C. Snook et al.}
+
+% Institutes for affiliations are also joined by \and,
+\institute{
+	University of Southampton,
+	Southampton, United Kingdom\\
+	\email{\{cfs,t.s.hoang,mjb\}@soton.ac.uk}\\
+	\and
+	Sandia National Laboratories, 
+	Livermore, California, U.S.A.\\
+	\email{\{knmorri,rob\}@sandia.gov}
+}
+
+\maketitle
+
+% Reset all abbreviations
+\resetabbrev
+
+\input{sections/abstract}
+
+\input{sections/intro}
+
+\input{sections/background}
+
+\input{sections/secbot}
+
+\input{sections/discussion}
+
+\input{sections/tooling}
+
+\input{sections/translation}
+
+\input{sections/example}
+
+\input{sections/conclusion}
+
+%\begin{footnotesize}
+\begin{scriptsize}
+	\vspace{6 pt}
+	\noindent
+	All data supporting this study are openly available from the University of Southampton repository at
+	https://tinyurl.com/SCXML-REF    \textbf{(DOI FOR FINAL)}
+	%http://doi.org/10.????/SOTON/D0???\\   %<GET a new DOI!!>
+
+\end{scriptsize}
+\begin{footnotesize}
+\vspace{6 pt}
+\noindent
+\textbf{Acknowledgment:} The authors would like to thank Jason Michnovicz for developing the \IDS example used throughout the manuscript.
+
+\par
+
+\end{footnotesize}
+%\end{scriptsize}
+
+\bibliographystyle{plain}
+\bibliography{SCXMLREF}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
