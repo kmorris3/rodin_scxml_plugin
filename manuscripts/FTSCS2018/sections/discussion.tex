@@ -50,7 +50,12 @@ The disadvantage, of course, is that there could be a combinatorial explosion in
 In practice though, this is unlikely since the number of parallel state machines is usually quite small.
 So far our examples have required few or no parallel transitions.
 
-
+The following syntax extensions are added to \SCXML models to support refinement and invariant verification. 
+\begin{itemize}
+	\item \textbf{refinement} - an integer attribute representing the refinement level at which the parent element should be introduced,
+	\item \textbf{invariant} - an invariant property (such as synchronisation of state with ancillary data and other state machines) that holds while in the parent state,
+	\item \textbf{guard} - a guard condition of the parent transition (allowing transition conditions to be added at particular refinement levels). 
+\end{itemize}
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "../SCXMLREF.tex"
