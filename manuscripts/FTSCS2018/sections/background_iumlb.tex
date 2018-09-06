@@ -36,7 +36,10 @@ events
     f: when S2 = TRUE then S2 := FALSE end
 end
 \end{lstlisting}	
-	
+
+While the \iUMLB translation deals with the basic data formalisation of state-machines it differs significantly from the aims of the work presented here. 
+\iUMLB adopts \EventB's simple guarded action semantics and does not have a concept of triggers and run-to-completion.
+Here we make use of \iUMLB's state-machine translation but provide a completely different semantic by generating a behaviour into the underlying \EventB events that are linked to the generated \iUMLB transitions.
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../SCXMLREF"
