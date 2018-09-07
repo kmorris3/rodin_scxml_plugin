@@ -12,7 +12,7 @@ A \statechart model of this system is shown in Fig.~\ref{fig:ASIC}. The \ASIC st
 In a subsequent level of refinement, shown in Fig.~\ref{fig:ASIC_SPI_1}, the designer adds a parallel state representing the \SPI subsystem. The \SPI subsystem is usually on an \textbf{Idle} state until the \textbf{send\_message} trigger is raised, at which point the \SPI subsystem enters a state \textbf{Sending Message}, which represents sending the message, byte by byte. When the last byte of the message is sent, it raises the \textbf{spi\_done} trigger, allowing the other parallel state to continue, while \SPI subsystem returns to idle. In the current refined model we have incorporated the implementation details for raising \textbf{spi\_done} and introduced a new internal trigger 
 \textbf{send\_message}, which is nondeterministic at this point.
 
-\begin{figure*}[]
+\begin{figure*}[!tb]\centering
 	    \begin{subfigure}[t]{0.3\textwidth}
 	        \begin{centering}
 	        \includegraphics[height=2.5in]{figures/ASIC}
@@ -32,7 +32,7 @@ In a subsequent level of refinement, shown in Fig.~\ref{fig:ASIC_SPI_1}, the des
 The model can be further refined by incorporating more details on how the initialisation states, the wait state, and the \SPI subsystem operate, including how they interact with each other. The \statechart diagram for this refinement level is in Fig.~\ref{fig:ASIC_SPI_2}. The \textbf{Initialise Buzzer} state constructs the \SPI message to send, then raises the \textbf{send\_message} trigger, and then waits.
 After \textbf{send\_message} is raised, the \SPI subsystem reacts. It spins for a while in the \textbf{Send Byte} state, looping as many times as it takes to get to the last byte in the message. When the last byte in the message is sent, it goes back to \textbf{Idle} and raises an event which allows the state machine on the left to proceed. The sensor is then initialised in a very similar manner to the buzzer. After both peripherals are initialised, the state machine goes into the \textbf{Wait 50 ms} state, where it increments a counter until it reaches some maximum, then exits.
 
-\begin{figure}[!htbp]
+\begin{figure}[!tbp]
   \begin{centering}
   \includegraphics[width=0.8\textwidth]{figures/ASIC&SPI_2}
   \caption{\Statechart diagram for \IDS including implementation details for the messages send between the system components.}
