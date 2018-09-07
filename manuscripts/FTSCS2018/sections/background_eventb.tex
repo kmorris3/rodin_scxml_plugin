@@ -6,11 +6,11 @@
 \EventB~\cite{abrial10:_model_event_b} is a formal method for system
 development.  Main features of \EventB include the use of
 \emph{refinement} to introduce system details gradually into the
-formal model.  An \EventB model contains two parts: \emph{contexts} and \emph{machines}. Contexts contain \emph{carrier sets}, \emph{constants}, and \emph{axioms} constraining the carrier sets and constants.  Machines contain \emph{variables} |v|, \emph{invariants} |I(v)| constraining the variables, and \emph{events}. An event comprises a guard denoting its enabled-condition and an action describing how the variables are modified when the event is executed.  In general, an event |e| has the following form, where |t| are the event parameters, |G(t, v)| is the guard of the event, and |S(t, v)| is the action of the event.
-\begin{center}
-  |any t where G(t, v) then S(t, v) end|
+formal model.  An \EventB model contains two parts: \emph{contexts} and \emph{machines}. Contexts contain \emph{carrier sets}, \emph{constants}, and \emph{axioms} constraining the carrier sets and constants.  Machines contain \emph{variables} |v|, \emph{invariants} |I(v)| constraining the variables, and \emph{events}. An event comprises a guard denoting its enabled-condition and an action describing how the variables are modified when the event is executed.  In general, an event |e| has the form: |any t where G(t, v) then S(t, v) end|  where |t| are the event parameters, |G(t, v)| is the guard of the event, and |S(t, v)| is the action of the event.
+% \begin{center}
+  % |any t where G(t, v) then S(t, v) end|
 %& \inlineevent{\Be}{}{\Bt}{G(\Bt,\Bv)}{}{S(\Bt,\Bv)}
-\end{center}
+% \end{center}
 %In the case where the event has no parameters, we use the following form
 %\begin{center}
 %  |when G(v) then S(v) end|

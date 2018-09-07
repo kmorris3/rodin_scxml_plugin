@@ -6,14 +6,6 @@
 One of our main goals is to express properties in \SCXML intermediate refinements and prove them via translation to \EventB.
 In this section we illustrate how this can be done in the \IDS example.
 
-% \begin{figure}[!tbp]
-\begin{figure}[]
-	\centering
-	\includegraphics[width=0.8\textwidth]{figures/iumlb_verif}
-	\caption{State invariants to be verified at refinement level 1.}
-	\label{fig:iumlb-verif}
-\end{figure}
-
 Properties about the synchronisation of parallel state-machines (such as |ASIC = Go => SPI = IDLE|)
 % and |ASIC=Wait50ms => SPI=IDLE|
 can be difficult to verify for all scenarios via simulation in \SCXML. 
@@ -21,6 +13,15 @@ Proof of such properties is a major benefit of translating into Event-B.
 Furthermore,  in order to benefit from the abstraction provided by Event-B, we would like to prove such things at abstract levels before the complication of further details are introduced. 
 Typically these further details concern the raising of internal triggers that contribute to the synchronisation we wish to verify. 
 Therefore additional constraints, that are an abstraction of the missing details, are needed about triggers in order to perform the proof.
+% \begin{figure}[!tbp]
+\begin{figure}[!h]
+	\vspace{-.4cm}
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/iumlb_verif}
+	\caption{State invariants to be verified at refinement level 1.}
+	\label{fig:iumlb-verif}
+	\vspace{-.4cm}
+\end{figure}
 
 Fig.~\ref{fig:iumlb-verif} is the generated \iUMLB showing state invariants (textual properties with a star icon inside states) to be verified. Note that the invariants are added to the \SCXML model but are easier to visualise in the \iUMLB with the current tooling.
 The main aim is to show the property |Idle=TRUE| holds in state |Go|. 
