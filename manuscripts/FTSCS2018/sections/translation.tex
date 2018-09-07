@@ -54,10 +54,7 @@ A final abstract event, |SCXML_completion|, sets the completion flag (TRUE) if i
 
 \begin{lstfloat}[!tb]
 \begin{lstlisting}[caption={Abstract basis machine (part of)}, label={lst:BasisMachine},language=Event-B, escapechar=|, frame=single, basicstyle=\rmfamily\scriptsize]
-machine 
-	basis_m   // (generated for SCXML)
-sees 
-	basis_c 
+machine basis_m  sees basis_c // (generated for SCXML)
 variables
 	SCXML_iq	  // internal trigger queue
 	SCXML_eq	  // external trigger queue
@@ -106,28 +103,47 @@ end
 \end{lstlisting}
 \end{lstfloat}
 
+\begin{lstfloat}[!tb]
+\begin{lstlisting}[caption={Event-B event corresponding to internal triggered transition to \textbf{Wait50ms} state in refinement level 1 shown in Fig.~\ref{fig:ASIC}}, label={lst:SecBotMach0},language=Event-B, escapechar=|, frame=single]
+spi_done__InitialiseSensor_Wait50ms:	
+refines SCXML_futureInternalTransitionSet 
+any SCXML_it SCXML_raisedTriggers where
+SCXML_it  ∈ SCXML_iq 
+SCXML_uc = TRUE
+SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger
+InitialiseSensor = TRUE
+SCXML_it = spi_done  	//trigger for this transition |\label{line:defTrigger}|
+then
+SCXML_uc ≔ FALSE
+SCXML_iq ≔ (SCXML_iq ∪ SCXML_raisedTriggers) ∖ {SCXML_it}
+InitialiseSensor ≔ FALSE
+Wait50ms ≔ TRUE
+end
+\end{lstlisting}
+\end{lstfloat}
+
 The translation of a specific \SCXML model comprises two stages as follows. 
 Firstly, all possible combinations of transitions that can fire together are calculated and corresponding events are generated, at appropriate refinement levels, that refine the abstract basis events.  
 If these transitions raise internal triggers, a guard, (e.g. |{i1,i2...} <: SCXML_raisedTrigger|, where |i1,i2..| have been added to the internal triggers set), is introduced that defines the raised triggers parameter. 
 The subset constraint leaves it open for more raised triggers to be added by later refinements.
 For triggered transition combinations, the trigger is specified in a guard (see line~\ref{line:defTrigger} of Listing~\ref{lst:SecBotMach0}) that provides a value for the trigger parameter. 
 
-\begin{lstlisting}[caption={Event-B event corresponding to internal triggered transition to \textbf{Wait50ms} state in refinement level 1 shown in Fig.~\ref{fig:ASIC}}, label={lst:SecBotMach0},language=Event-B, escapechar=|, frame=single, float=t]
-spi_done__InitialiseSensor_Wait50ms:	
-refines SCXML_futureInternalTransitionSet 
-any SCXML_it SCXML_raisedTriggers where
-	SCXML_it  ∈ SCXML_iq 
-	SCXML_uc = TRUE
-	SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger
-	InitialiseSensor = TRUE
-	SCXML_it = spi_done  	//trigger for this transition |\label{line:defTrigger}|
-then
-	SCXML_uc ≔ FALSE
-	SCXML_iq ≔ (SCXML_iq ∪ SCXML_raisedTriggers) ∖ {SCXML_it}
-	InitialiseSensor ≔ FALSE
-	Wait50ms ≔ TRUE
-end
-\end{lstlisting}
+%\begin{lstlisting}[caption={Event-B event corresponding to internal triggered transition to \textbf{Wait50ms} state in refinement level 1 shown in Fig.~\ref{fig:ASIC}}, label={lst:SecBotMach0},language=Event-B, escapechar=|, frame=single, float=!tb]
+%spi_done__InitialiseSensor_Wait50ms:	
+%refines SCXML_futureInternalTransitionSet 
+%any SCXML_it SCXML_raisedTriggers where
+%	SCXML_it  ∈ SCXML_iq 
+%	SCXML_uc = TRUE
+%	SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger
+%	InitialiseSensor = TRUE
+%	SCXML_it = spi_done  	//trigger for this transition |\label{line:defTrigger}|
+%then
+%	SCXML_uc ≔ FALSE
+%	SCXML_iq ≔ (SCXML_iq ∪ SCXML_raisedTriggers) ∖ {SCXML_it}
+%	InitialiseSensor ≔ FALSE
+%	Wait50ms ≔ TRUE
+%end
+%\end{lstlisting}
 
 Secondly, the \SCXML state-chart is translated into a corresponding iUML-B state-machine whose transitions elaborate (i.e. add state change details to) the possible transition combination events that the transition may be involved in. 
 A transition may fire in parallel with transitions of parallel nested state-machines that have the same (possibly null) trigger.
