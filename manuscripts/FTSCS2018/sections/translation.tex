@@ -10,7 +10,7 @@ Refinements partition these trigger sets further to introduce concrete triggers,
 For example, the \IDS model introduces a specific internal trigger, \textbf{spi\_done},  by partitioning |SCXML_FutureInternalTrigger| into the singleton \textbf{\{spi\_done\}} and a new set, |SCXML_FutureInternalTrigger0|, representing the remainder. 
  % as shown in line~\ref{line:refPartition} of Listing~\ref{lst:SecBotCont0}. 
 
-\begin{lstlisting}[caption={Abstract basis context},label={lst:BasisContext}, language=Event-B, escapechar=|, frame=single, basicstyle=\rmfamily\scriptsize]
+\begin{lstlisting}[caption={Abstract basis context},label={lst:BasisContext}, language=Event-B, escapechar=|, frame=single, basicstyle=\rmfamily\scriptsize, belowskip=-2.0 \baselineskip, float=t]
 context
 	basis_c 	// (generated for SCXML)
 sets
@@ -53,7 +53,7 @@ All three of these transition events also allow for raising a non-deterministic 
 A final abstract event, |SCXML_completion|, sets the completion flag (TRUE) if it is not already set. At this abstract basis level, this is non-deterministically fired since we do not yet have any detail of what needs to be completed.
 
 \begin{lstfloat}[!tb]
-\begin{lstlisting}[caption={Abstract basis machine (part of)}, label={lst:BasisMachine},language=Event-B, escapechar=|, frame=single, basicstyle=\rmfamily\scriptsize]
+\begin{lstlisting}[caption={Abstract basis machine (part of)}, label={lst:BasisMachine},language=Event-B, escapechar=|, frame=single, basicstyle=\rmfamily\scriptsize, belowskip=-2.0 \baselineskip]
 machine basis_m  sees basis_c // (generated for SCXML)
 variables
 	SCXML_iq	  // internal trigger queue
@@ -104,7 +104,7 @@ end
 \end{lstfloat}
 
 \begin{lstfloat}[!tb]
-\begin{lstlisting}[caption={Event-B event corresponding to internal triggered transition to \textbf{Wait50ms} state in refinement level 1 shown in Fig.~\ref{fig:ASIC}}, label={lst:SecBotMach0},language=Event-B, escapechar=|, frame=single]
+\begin{lstlisting}[caption={Event-B event corresponding to internal triggered transition to \textbf{Wait50ms} state in refinement level 1 shown in Fig.~\ref{fig:ASIC}}, label={lst:SecBotMach0},language=Event-B, escapechar=|, frame=single, belowskip=-2.0 \baselineskip]
 spi_done__InitialiseSensor_Wait50ms:	
 refines SCXML_futureInternalTransitionSet 
 any SCXML_it SCXML_raisedTriggers where
