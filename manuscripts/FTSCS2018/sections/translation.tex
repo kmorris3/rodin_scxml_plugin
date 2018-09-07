@@ -136,28 +136,28 @@ Fig.~\ref{fig:iumlb-verif} shows the generated \iUMLB first refinement level cor
 The main rules for the translation of SCXML features to iUML-B/Event-B can be summarized as follow:
 
 \begin{description}
-\item[Top level SCXML model:] A refinement chain of \EventB machines each containing an initialisation event and a root level \iUMLB state-machine. The depth of the refinement chain is found by searching the \SCXML for the maximum refinement annotation.
+\item[Top level SCXML model:] Generates a refinement chain of \EventB machines each containing an initialisation event and a \iUMLB state-machine. The depth of the refinement chain is found by searching the \SCXML for the maximum refinement annotation.
 
-\item[Top level invariant:] An invariant owned by an \EventB machine produced from the containing \SCXML. Added only at the refinement level defined in the invariant (default 0) 
+%\item[Top level invariant:] An invariant owned by an \EventB machine produced from the containing \SCXML. Added only at the refinement level defined in the invariant (default 0) 
 
-\item[State invariant:] An invariant owned by the \iUMLB state that has been produced from the containing \SCXML state. Added only at the refinement level defined in the invariant (defaults to first level at which containing \iUMLB state is introduced)
+\item[State:] Generates a state in the \iUMLB state-machine that has been produced from the container of the \SCXML state. A refined state is also added in all of the refinements of the parent \iUMLB state-machine.
 
-\item[State (not owned by a parallel):] The state owned by the \iUMLB state-machine that has been produced from the containing \SCXML or state. A refined state is also added in all of the refinements of the parent \iUMLB state-machine
+\item[State invariant:] Generates an invariant in the \iUMLB state corresponding to the \SCXML state that contains the invariant. Added only at the refinement level defined in the invariant (defaults to first level at which containing \iUMLB state is introduced).
 
-\item[State (owned by a parallel):] An \iUMLB state-machine is added to the state that has been generated from the owner of the parallel. The nested \iUMLB state-machine is added starting from the refinement level that is annotated on the source state and continuing throughout subsequent refinements.
+\item[Parallel Region:] Generates an \iUMLB state-machine in the state corresponding to the owner of the parallel region. The nested \iUMLB state-machine is added starting from the refinement level that is annotated on the parallel region and continuing throughout subsequent refinements.
 
-\item[State (with nested states):] A nested \iUMLB state-machine, with an initial state, is added to the \iUMLB state that has been produced from the source state, if any, or from its containing state if it did not produce an \iUMLB state. The nested \iUMLB state-machine is added starting from the refinement level that is annotated on the source state and continuing throughout subsequent refinements.
+%\item[State (with nested states):] A nested \iUMLB state-machine, with an initial state, is added to the \iUMLB state that has been produced from the source state, if any, or from its containing state if it did not produce an \iUMLB state. The nested \iUMLB state-machine is added starting from the refinement level that is annotated on the source state and continuing throughout subsequent refinements.
 
-\item[Initial:] An \iUMLB initial state, and a transition from it to the \iUMLB state indicated in the \SCXML initial attribute, are added to the \iUMLB state-machine produced from the parent \SCXML. The \iUMLB initial state and \iUMLB transition are added at all refinement levels. The \iUMLB transitions are set to elaborate the \EventB INITIALISATION event for that refinement level.
+\item[Initial:] Generates an \iUMLB initial state, and a transition from it to the \iUMLB state indicated in the \SCXML initial attribute. The \iUMLB initial state and \iUMLB transition are added at all refinement levels. The \iUMLB transitions are set to elaborate the \EventB INITIALISATION event for that refinement level.
 
-\item[Final:] An \iUMLB state with a transition to a final state are added to the state-machine that has been generated from the containing \SCXML or state. The transition represents the same events that are linked to the transitions that exit the parent \iUMLB state. The \iUMLB state, final state and transition are also added as refined elements to all of the refinements of the parent \iUMLB state-machine.
+\item[Final:] Generates an \iUMLB state with a transition to a final state in the state-machine that has been generated from the containing \SCXML state. The transition elaborates the same events that are linked to the transitions that exit the parent \iUMLB state. The \iUMLB state, final state and transition are also added as refined elements to all of the refinements of the parent \iUMLB state-machine.
 
-\item[Transition:] An \iUMLB transition is added to the state-machine that has been generated from the containing \SCXML or state. The \iUMLB transition’s source and target are those that have been produced from the corresponding \SCXML transition’s source and target states. The transition elaborates generated \EventB events according to the rules given in Section ~\ref{sec:translation}. The \iUMLB transition and elaborated \EventB events are also added as corresponding refined elements in all of the refinements of the parent \iUMLB state-machine.
+\item[Transition:] Generates an \iUMLB transition in the state-machine that has been generated from the containing \SCXML state. The \iUMLB transition’s source and target are those that have been generated from the \SCXML transition’s source and target states. The transition elaborates generated \EventB events according to the rules given in Section ~\ref{sec:translation}. The \iUMLB transition and elaborated \EventB events are also added as corresponding refined elements in all of the refinements of the parent \iUMLB state-machine.
 
-\item[Target:] Attribute of a transition element. Used to determine the transitions target state as described above
+%\item[Target:] Attribute of a transition element. Used to determine the transitions target state as described above
+
 \end{description}
 
-The iUML-B state-machine is subsequently translated into Event-B using the standard iUML-B translation~\cite{snook14:_b_statem} which provides variables to model the current state and guards and actions to model the state changes that transitions perform.
 
 
 % \begin{EventBNoShortInline}
@@ -216,6 +216,7 @@ The iUML-B state-machine is subsequently translated into Event-B using the stand
 A tool to automatically translate \SCXML models into \iUMLB has been produced. 
 The tool is based on the \EMF and uses an \SCXML meta-model provided by Sirius~\cite{siriuswebsite} which has good support for extensibility. 
 %The tooling for \iUMLB and \EventB already contains \EMF meta-models and provides a generic translator framework which has been specialised for the \SCXML to \iUMLB translation. 
+The iUML-B state-machine is subsequently translated into Event-B using the standard iUML-B translation~\cite{snook14:_b_statem} which provides variables to model the current state and guards and actions to model the state changes that transitions perform.
 
 %%% Local Variables:
 %%% mode: latex
