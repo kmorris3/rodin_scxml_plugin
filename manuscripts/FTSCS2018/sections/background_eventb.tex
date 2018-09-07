@@ -21,10 +21,10 @@ formal model.  An \EventB model contains two parts: \emph{contexts} and \emph{ma
 %   |begin S(v) end|
 % %& \inlineevent{\Be}{}{}{}{}{S(\Bv)}~.
 % \end{center}
-The action of an event comprises of one or more assignments, each of them has one of the following forms: (1) |v := E(t, v)|, (2) |v :: E(t, v)|, and (3) |v :∣ P(t, v)|.  Assignments of form (1) are deterministic, assign the value of expression |E(t, v)| to |v|.  Assignments of forms (2) and (3) are non-deterministic. (2) assigns any value from the set |E(t,v)| to |v|, while (3) assigns any value satisfied predicate |P(t,v)| to |v|.
-A machine in \EventB corresponds to a transition system
-where \emph{variables} represent the states and \emph{events} specify
-the transitions.  Note that invariants |I(v)| are inductive, i.e., they must be \emph{maintained} by all events. This is more strict than general safety properties which hold for all reachable states of the \EventB machine.  
+%The action of an event comprises of one or more assignments, each of them has one of the following forms: (1) |v := E(t, v)|, (2) |v :: E(t, v)|, and (3) |v :∣ P(t, v)|.  Assignments of form (1) are deterministic, assign the value of expression |E(t, v)| to |v|.  Assignments of forms (2) and (3) are non-deterministic. (2) assigns any value from the set |E(t,v)| to |v|, while (3) assigns any value satisfied predicate |P(t,v)| to |v|.
+%A machine in \EventB corresponds to a transition system
+%where \emph{variables} represent the states and \emph{events} specify
+%the transitions.  Note that invariants |I(v)| are inductive, i.e., they must be \emph{maintained} by all events. This is more strict than general safety properties which hold for all reachable states of the \EventB machine.  
 % This is also the difference between verifying the consistency of \EventB machines using theorem proving and model checking (e.g., \PROB) techniques: model checkers explore all reachable states of the system while interpreting the invariants as safety properties.  
 
 Machines can be refined by adding more details.  Refinement can be done by extending the machine to include additional variables (\emph{superposition refinement}) representing new features of the system, or to replace some (abstract) variables by new (concrete) variables (\emph{data refinement}).  More information about \EventB can be found in~\cite{hoang13:_introd_event_b_model_method}.  \EventB is supported by \Rodin~\cite{abrial10:_rodin}, an extensible toolkit which includes facilities for modelling, verifying the consistency of models using theorem proving and model checking techniques, and validating models with simulation-based approaches.
