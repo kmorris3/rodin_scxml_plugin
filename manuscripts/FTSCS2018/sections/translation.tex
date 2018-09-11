@@ -3,7 +3,7 @@
 \section{\SCXML Translation}
 \label{sec:translation}
 
-The translation from \iUMLB to \EventB is based on an abstract `basis' that models the `run to completion' semantics. 
+The translation from \SCXML to \EventB is based on an abstract `basis' that models the `run to completion' semantics. 
 This basis consists of an \EventB \emph{context} and \emph{machine} that are the same for all input models and are refined by the specific output of the translation.  
 The basis context, Listing~\ref{lst:BasisContext}, introduces a given set of all possible triggers that is partitioned into internal and external ones, some of which will be introduced in future refinements. 
 Refinements partition these trigger sets further to introduce concrete triggers, leaving a new abstract set to represent the remaining triggers yet to be introduced. 
@@ -124,7 +124,7 @@ end
 
 The translation of a specific \SCXML model comprises two stages as follows. 
 Firstly, all possible combinations of transitions that can fire together are calculated and corresponding events are generated, at appropriate refinement levels, that refine the abstract basis events.  
-If these transitions raise internal triggers, a guard, (e.g. |{i1,i2...} <: SCXML_raisedTrigger|, where |i1,i2..| have been added to the internal triggers set), is introduced that defines the raised triggers parameter. 
+If these transitions raise internal triggers, a guard, (e.g. |{i1, i2, ...} <: SCXML_raisedTrigger|, where |i1, i2, ...| have been added to the internal triggers set), is introduced that defines the raised triggers parameter. 
 The subset constraint leaves it open for more raised triggers to be added by later refinements.
 For triggered transition combinations, the trigger is specified in a guard (see line~\ref{line:defTrigger} of Listing~\ref{lst:SecBotMach0}) that provides a value for the trigger parameter. 
 

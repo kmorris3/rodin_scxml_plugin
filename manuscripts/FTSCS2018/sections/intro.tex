@@ -12,27 +12,26 @@ Proof obligations for such requirements can be made more tractable using
 abstraction/refinement, providing a natural divide and conquer
 strategy for controlling complexity.
 
-\Statecharts~\cite{Harel} are often used for high-consequence controls
-and other critical systems to provide an unambiguous, executable way
+\Statecharts~\cite{Harel} are often used for safety-critical 
+and other high-consequence systems to provide an unambiguous, executable way
 of specifying functional as well as safety, security, and reliability
 properties.  While functional properties (usually) can be tested,
 safety, security and reliability properties (usually) must be proved
 formally.  Here we give a binding from \Statecharts to \EventB~\cite{abrial10:_model_event_b} so that
 this type of reasoning can be carried out.  Moreover, hierarchical
-encapsulation maps well onto \Statecharts in a way that is not very
-different from previous work in \iUMLB~\cite{snook14:_b_statem,Snook2006,Snook12:FMCO}, a diagrammatic modelling notation for \EventB.
-Binding \iUMLB to a UML~\cite{Rumbaugh2004} version of \Statecharts is natural and the
+encapsulation maps well onto \Statecharts in a similar way to nested state-machines in \iUMLB~\cite{snook14:_b_statem,Snook2006,Snook12:FMCO}, a diagrammatic modelling notation for \EventB.
+Binding \iUMLB to UML \Statecharts~\cite{Rumbaugh2004} is natural and the
 addition of run-to-completion semantics, expected by \Statechart
 designers, is much of the contribution of this work.  Another
 contribution is the augmentation of the textual and parse-able format
-for \Statecharts, \SCXML to accommodate elements necessary to support formal
+for \Statecharts, \SCXML~\cite{scxmlwebsite} to accommodate elements necessary to support formal
 analysis. 
 
 There are many formal semantics that can be bound to 
  the \Statechart graphical language~\cite{Eshuis_2009}. While \Statecharts and various semantic interpretations of
 \Statecharts admit refinement reified as both hierarchical or parallel
 composition (e.g. see Argos~\cite{Maraninchi91theargos}), here, as
-previously~\cite{snook14:_b_statem}, we focus only on hierarchical
+previously~\cite{snook14:_b_statem}, we focus on hierarchical
 refinement, the form that \EventB natively admits.  Here we define
 hierarchical composition to mean nesting new transition systems inside
 previously pure states, and parallel composition to be the combination
