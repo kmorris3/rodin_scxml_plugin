@@ -1,12 +1,11 @@
 % !TEX root = ../SCXMLREF.tex
 
-\section{Discussion}
+\section{Design Rationale}
 \label{sec:discussion}
  
 We consider the kinds of things we would like to do in \SCXML refinements and what properties should be preserved.
 In practice we wish to leverage existing \EventB verification tools and hence adopt a notion of refinement that can be automatically translated into an equivalent \EventB model consisting of a chain of refinements.
-While it would be possible to utilise \EventB's data refinement to perform more substantial \statechart refinements (for example replacing an abstract \statechart with a different one in the refined model), this would lead to complex proof obligations and is impractical when the \SCXML model is a single \Statechart (rather than a chain of refined models).
-We prefer to use particular refinement idioms at the \statechart level that correspond to \EventB's superposition refinement and thus have simpler proof obligations. 
+We use particular refinement idioms at the \statechart level that correspond to \EventB's superposition refinement and thus have simple proof obligations. 
 These refinement idioms are very natural from an engineering perspective (as illustrated by the running example).
 Hence we start from the following requirements which allow superposition refinements and guard strengthening in \SCXML models:
 \begin{itemize}
@@ -17,6 +16,7 @@ Hence we start from the following requirements which allow superposition refinem
 	\item Raise actions can be added to transitions to define how internal triggers are raised. These internal triggers may have already been introduced and used to trigger transitions, in which case they are non-deterministically raised at the abstract levels. (Note that external triggers are always unguarded and cannot be refined).
 	\item Invariants can be added to states to specify properties that hold while in that state.
 \end{itemize}
+While it would be possible to utilise \EventB's data refinement to perform more substantial \statechart refinements (for example replacing an abstract \statechart with a different one in the refined model), this would lead to complex proof obligations and is impractical when the \SCXML model is a single \Statechart (rather than a chain of refined models).
 
 Adherence to \EventB refinement means that refined transitions (hence micro- and macro-steps) should preserve the abstract state and new ones should not alter the abstract state. 
 %(An alternative approach that we are considering for future work takes the view that the macro-steps need not align and a micro-step may shift from one macro-step to another in a refinement). 
@@ -39,11 +39,11 @@ To allow for strengthening of the guards  in refinement we omit the negation of 
 leaving the choice of lesser combinations, including the empty one, non-deterministically available in case of future refinement.
 For example, T1 could fire alone even if T2 is enabled since we cannot add the negation of T2's guard to T1 unless we know that it will never be strengthened. 
 This non-determinism in the model accurately reflects the abstract run to completion where we do not yet know whether T2 will be enabled or not in future refinements. 
-For future work we may consider adding an attribute to indicate that a guard is \emph{finalised} so that the negation can be used to remove this non-determinism throughout the refinement chain.
+In future work we intend to add an attribute \emph{finalised} to indicate that no further guard strengthening refinements will be made to a transition, removing non-determinism throughout the refinement chain.
 
-Since there is only ever a single event to be fired, the scheduler can be integrated with the events that represent the transition combinations, greatly simplifying the Event-B model.
-Instead of explicit events to progress and implement the scheduling engine, an abstract machine is provided with events that can be refined by the translation of the user's \SCXML model.
-This has benefits both for animation which is easier to follow having less translation artefacts and for proof where the obligations are directly associated with particular transition combinations. 
+Since there is only ever a single event to be fired in a particular micro-step, the scheduler can be integrated with the events that represent the transition combinations, greatly simplifying the Event-B model.
+Instead of explicit events to progress and implement the scheduling engine, an abstract machine is provided with events that can be refined by the translation of the user's \SCXML model into events that represent combinations of transitions that can fire in the same micro-step.
+This has benefits both for animation (i.e. execution of the \statechart for validation) which is easier to follow having less translation artefacts and for proof where the obligations are directly associated with particular transition combinations. 
 Another benefit is that any parallel assignments to the same variable are rejected by the Event-B static checker.
 The disadvantage, of course, is that there could be a combinatorial explosion in the number of events generated.
 In practice though, this is unlikely since, to be fired in parallel, transitions must have the same trigger and be located in parallel \statecharts.

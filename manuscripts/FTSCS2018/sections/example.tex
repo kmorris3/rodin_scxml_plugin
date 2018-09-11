@@ -41,9 +41,9 @@ In order to prove this we again need a corresponding state invariant about |send
 We also ensure it does not raise |spi_done| until it is finished. 
 With these invariants and additional guards the Rodin automatic provers are able to prove all proof obligations and hence verify that the |SPI| system remains in |Idle| after servicing the `Initialise Sensor' message.
 
-In order to prove these properties are true at an abstract level the prover forces us to add constraints on the behaviour to be added in later refinements. 
-For example to complete the proof we needed to add a guard to specify that a transition would not raise a particular trigger in any future refinement. 
-If these constraints are broken by later refinements, proof obligations about guard strengthening will be unprovable. The abstract guards should be removed at later refinements when the details have been specified. To do this we could introduce ranges in our refinement attributes.
+In order to prove properties at an abstract level we constrain the behaviour to be added in later refinements. 
+For example, we needed to add a guard to specify that a transition does not raise a particular trigger in any future refinement. 
+The abstract constraints should not appear in later refinements when the details have been finalised. To do this we could introduce ranges into our refinement attributes.
 
 %%% Local Variables:
 %%% mode: latex
