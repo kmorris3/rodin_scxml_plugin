@@ -167,13 +167,13 @@ E.g. Fig.~\ref{fig:iumlb-verif}, |Idle = TRUE| is generated from an invariant at
 
 \item[Parallel Region:] Generates an \iUMLB state-machine in the state corresponding to the owner of the parallel region. 
 The nested \iUMLB state-machine is added starting from the refinement level that is annotated on the parallel region and continuing throughout subsequent refinements. 
-E.g. Fig.~\ref{fig:ASIC_SPI_1}, right hand region |-->| Fig.~\ref{fig:iumlb-verif}, lower nested state-machine.
+E.g. Fig.~\ref{fig:ASIC_SPI_1}, right-hand region |-->| Fig.~\ref{fig:iumlb-verif}, lower nested state-machine.
 
 %\item[State (with nested states):] A nested \iUMLB state-machine, with an initial state, is added to the \iUMLB state that has been produced from the source state, if any, or from its containing state if it did not produce an \iUMLB state. The nested \iUMLB state-machine is added starting from the refinement level that is annotated on the source state and continuing throughout subsequent refinements.
 
 \item[Initial:] Generates an \iUMLB initial state, and a transition from it to the \iUMLB state indicated in the \SCXML initial attribute. 
 The \iUMLB initial state and \iUMLB transition are added at all refinement levels. The \iUMLB transitions are set to elaborate the \EventB INITIALISATION event for that refinement level.
-E.g. Fig.~\ref{fig:ASIC_SPI_1}, initial state and transition in right hand region |-->| Fig.~\ref{fig:iumlb-verif}, initial state and transition in lower nested state-machine.
+E.g. Fig.~\ref{fig:ASIC_SPI_1}, initial state and transition in right-hand region |-->| Fig.~\ref{fig:iumlb-verif}, initial state and transition in lower nested state-machine.
 
 \item[Final:] Generates an \iUMLB state with a transition to a final state in the state-machine that has been generated from the containing \SCXML state. 
 The transition elaborates the same events that are linked to the transitions that exit the parent \iUMLB state. 
