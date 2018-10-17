@@ -1,0 +1,321 @@
+\documentclass{response}
+
+\papertitle{Refinement of Statecharts with Run-to-Completion Semantics}
+\paperauthor{K. Moris, C. Snook, T.S.Hoang, R. Armstrong, and M. Butler}
+\usepackage{chgtrk}
+\newCTcontributor{Karla}
+\newCTcontributor{Colin}
+\newCTcontributor{Rob}
+\newCTcontributor{Son}
+\newCTcontributor{Michael}
+
+\begin{document}
+
+%%%%% Reviewer 1 (Begin) %%%%%
+% Overall evaluation: 1 (weak accept)
+
+% ----------- Overall evaluation -----------
+% The paper deals with an evergreen topic of verifying state-based
+% models, namely statecharts. The authors extended the well-know
+% Event-B toolset to be able to support the 'run-to-completion'
+% semantics of modern statechart languages. Besides the theoretical
+% results, the authors also provide the algorithms in the tool. The
+% paper also contains the necessary amount of figures and examples.
+% The related work is also comprehensive enough, it proves that the
+% authors are familiar with the literature.
+
+\begin{comment}{Reviewer \#1}
+Contribution:
+Authors present an encoding scheme to be able to handle the
+abstraction (and refinement) of statechart models. The contribution is
+mainly focused onto the special encoding and the implementation. The
+contribution is enough for a workshop paper and it could be a nice
+piece of work to be shown in the workshop.
+However, the approach seems not to scale well, so I would suggest the
+authors evaluate their work using more complex (industrial)
+verification problems.
+\end{comment}
+
+\begin{response}
+  \SonInlineComment{Future work? Which complex problem?}
+\end{response}
+
+% Writing: The paper is easy to read, easy to follow. Except for minor
+% typos, it has good quality.
+
+% My overall opinion is that I suggest this paper be presented at the
+% workshop.
+
+\begin{comment}{Reviewer \#1}
+  Typos and suggestions:
+
+  an intermediate refinement level by translation into Event-B --> an
+  intermediate refinement level by A translation into Event-B
+
+  Trigger events are queued when they are raised and then one is
+  dequeued --> Trigger events are queued when they are raised, and
+  then one is dequeued
+
+  This is repeated until no transitions are enabled and then the next
+  trigger --> This is repeated until no transitions are enabled, and
+  then the next trigger
+
+  The ASIC starts by initialising the buzzer, this involves sending
+  --> The ASIC starts by initialising the buzzer; this involves
+  sending
+
+  In practice we wish to leverage --> In practice, we wish to leverage
+  for the messages send between the system components --> for the
+  messages sent between the system components
+
+  right hand region --> right-hand region
+\end{comment}
+\begin{response}
+  Done. Thank you very much.
+  \SonInlineComment[Colin]{Can you check if this is done}
+\end{response}
+%%%%% Reviewer 1 (End) %%%%%
+
+%%%%% Reviewer 2 (Begin) %%%%%
+% Overall evaluation: -1 (weak reject)
+
+% ----------- Overall evaluation -----------
+% Overview:
+% =========
+% The paper describes an approach to represent Statecharts semantics
+% in iUML-B, a diagrammatic notation for Event-B.  The focus in this
+% work is supporting hierarchical refinement, that is, describing
+% nested behavior on a previously "leaf-level" state.   The
+% Statecharts semantics represented are similar to UML Statecharts.
+
+% Section 2 describes background.  Section 2.1 briefly describes the
+% run-to-completion semantics of SCXML (StateCharts XML); Section 2.2
+% describes Event B, focusing on refinement, and Section 2.3 describes
+% iUML-B State machines, which have a direct translation into Event B
+% specifications.  Although the iUML-B state machines look much like
+% Statecharts, they do not share the run-to-completion or transition
+% triggering semantics.
+
+% Section 3 describes an example model of an intrusion detection
+% system initialization sequence.  The model is constructed first as a
+% sequential state machine that describes the initialization phases,
+% then is refined twice: the first refinement introduces the
+% communication SPI bus, and  second is a hierarchical refinement that
+% describes in more detail the behavior of each initialization phase.
+% Throughout the refinements, we would like to preserve an invariant
+% that the initialization phase is in 'go' only if the SPI bus is
+% idle.
+
+% Section 4 describes refinements for this notion of StateCharts and
+% their relation to Event-B.  The goal is to have a notion of proof
+% that is preserved  by hierarchical refinement: we can strengthen
+% transition firing conditions, add nested statecharts, and allowing
+% additional triggers for internal actions (which are viewed as
+% non-deterministic in child context where they may fire).  It
+% provides illustrations of how the interplay between micro/macrosteps
+% leads to difficulties in terms of Event-B refinement: a strengthened
+% transition guard may lead to a system in which fewer microsteps are
+% required, weakening the guard on new macrosteps.  To prevent such
+% weakenings, the system uses a non-deterministic semantics, in which
+% enabled transitions may fire, but do not need to fire, and it is
+% always possible that no transitions fire.  An event is generated for
+% each possible combination of transitions that may occur.
+
+% In order to support this translation, the SCXML definition is
+% extended to support refinement, invariant, and guard (to allow
+% refinement of transition labels at lower levels of abstraction).
+
+% Section 5 describes the translation in more detail. This explanation
+% is at the level of a prose description, other than for the pieces of
+% the translation related to triggering events.  I suspect that these
+% aspects have been dealt with in previous papers, but in this case
+% the authors should have provided citations to the work containing
+% the definitions.  While it is possible to get an outline of the
+% translation scheme, it is difficult to understand it in full
+% generality.
+
+% Section 6 describes proofs of the intrusion detection system using
+% Rodin (the Event-B prover).  In order to prove the property under
+% future refinements, one must add a series of invariants to states
+% that limit the behavior of future refinements.  In the case of this
+% model, a handful of such invariants are required.
+
+% Section 7 concludes.
+
+
+% Review:
+% =======
+% The paper is well written and describes interesting work towards
+% creating a Statecharts semantics that both supports
+% run-to-completion semantics and hierarchical refinement.  For the
+% most part, the writing is clear and easy to understand.
+
+\begin{comment}{Reviewer \#2}
+  Nevertheless, there are some significant problems with
+  the work from my perspective, starting from motivation. There have
+  been many, many StateCharts semantics proposed over 20 years and any
+  proposal for new semantics much have a clear reason for existing.
+  The current approach, while having novelty in that it both supports
+  hierarchical refinement and run-to-completion behavior, needs a
+  stronger motivation in terms of solving design challenges faced by
+  real engineers.
+\end{comment}
+
+
+\begin{comment}{Reviewer \#2}
+  The current semantics is one of non-determinism as to which events
+  will fire in a given microstep.  While this allows refinement, it
+  does not admit a deterministic execution strategy, which means that
+  it is not currently useful for generation of implementations.  In
+  addition, it appears that it is possible that events can be "lost"
+  and the system may choose not to execute them.  The authors must
+  provide additional justification that this is a sensible semantics;
+  I suspect that it will be surprising to most users who are familiar
+  with StateCharts.  When adding transitions at lower layers, it was
+  not clear to me how these new transitions fit into the cross-product
+  translation used to determine which set of transitions would fire.
+  Perhaps this is handled layer-by-layer, but then each layer would
+  need a scheduler and this was not discussed.   
+\end{comment}
+
+\begin{comment}{Reviewer \#2}
+  The goal appears to be to try to create something that resembles
+  StateCharts but is bound to the semantics of Event-B.  In this case,
+  the authors should also justify why Event-B is a suitable language
+  for representing Statecharts behavior.  In this case, it appeared
+  that the target language made some aspects of behavior difficult to
+  formalize.  
+\end{comment}
+
+\begin{comment}{Reviewer \#2}
+  In addition, I would have liked a more formal description of the
+  translation, or at least a reference to a more formal description of
+  the translation than the prose description of different model
+  aspects.  
+\end{comment}
+
+%%%%% Reviewer 2 (End) %%%%%
+
+%%%%% Reviewer 3 (Begin) %%%%%
+
+% Overall evaluation: 0 (borderline paper)
+
+% ----------- Overall evaluation -----------
+% This is an interesting subject and approach. The presentation is not
+% that convincing though, it is slightly hard to follow the details.
+
+\begin{comment}{Reviewer \#3}
+  Page 1:
+
+  * Line -2, it says:
+
+  "While functional properties (usually) can be tested, safety,
+  security and reliability properties
+  (usually) must be proved formally."
+
+  "Can" ... and ... "must" ... why?
+\end{comment}
+
+\begin{comment}{Reviewer \#3}
+  Page 2:
+
+  * Top: The first paragraph can be expressed more clearly. That is:
+  what is the approach taken? Is UML state charts mapped to iUML-B or
+  not?
+
+  * Second paragraph appears complicated writing.
+\end{comment}
+
+
+\begin{comment}{Reviewer \#3}
+  Page 3:
+
+* Listing 1: I think I would name that variable "run2completion" differently.
+\end{comment}
+
+\begin{comment}{Reviewer \#3}
+  Page 4:
+
+  * Mid, it is not clear what this means:
+
+  "The diagrammatic models are contained within an Event-B machine"
+
+  and this as well:
+
+ "while Event-B events are expected to already exist to represent the transitions."
+\end{comment}
+
+\begin{comment}{Reviewer \#3}
+  Page 5:
+
+  * It would seem more natural to have one state variable ranging over
+  an enumerated type of states, rather than having a Boolean flag for
+  each state.
+
+  * Section 3: be more clear about what this system does. Is it just a
+  buzz that goes off when a sensor senses something?
+
+  * Mid:
+
+  "At this abstraction the spi_done triggered, which ..."
+  ->
+  " At this abstraction there is only one event, spi_done, which ..."
+
+  * Line -9: "on an Idle state" -> "in an Idle state".
+
+* Line -6: "while SPI subsystem ..." -> "while the SPI subsystem ..."
+\end{comment}
+
+\begin{comment}{Reviewer \#3}
+  Page 6:
+
+  * Figure 2: this looks like a way of modeling event refinement,
+  which seems different from state refinement. Perhaps comment on
+  this.
+
+  * Line -7: "This safety property is introduced ..." : where, when?
+
+* Figure 2(b): "last_byte_send" -> "last_byte_sent".
+\end{comment}
+
+\begin{comment}{Reviewer \#3}
+  Page 7:
+
+  * Mid: "Ancillary data, with corresponding actions to alter it, can
+  ..." - something is wrong with this sentence.
+
+* Line -4: I don't understand: "Note that external triggers are always unguarded ...".
+\end{comment}
+
+\begin{comment}{Reviewer \#3}
+  Page 8:
+
+* The next couple of pages is a lot of English without some structure to hang it up on.
+\end{comment}
+
+\begin{comment}{Reviewer \#3}
+  Page 9:
+
+* The three bullets (refinement, invariant, guard): there is mention of the parent state. Not sure I understand.
+\end{comment}
+
+\begin{comment}{Reviewer \#3}
+  Page 10:
+
+* In general, the explanation of the example could be improved a lot.
+\end{comment}
+
+\begin{comment}{Reviewer \#3}
+  Page 12:
+
+* I had a hard time reading this.
+\end{comment}
+
+\begin{comment}{Reviewer \#3}
+  Page 14:
+
+* Mid: "SCXML future..TransitionSet" - is this correct?
+\end{comment}
+%%%%% Reviewer 3 (End) %%%%%
+
+\end{document}
