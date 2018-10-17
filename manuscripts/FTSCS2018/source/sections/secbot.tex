@@ -7,7 +7,7 @@
 An \IDS is used to illustrate the use of refinement in \statecharts and how it is supported by \EventB verification tools.
 The \IDS is designed using an \ASIC which connects to a buzzer and a sensor over a \SPI bus. The system is controlled via the \ASIC on the \SPI bus. At power-up, the \ASIC sends commands over the \SPI bus to initialise the sensor and the buzzer. After waiting for 50 milliseconds the \ASIC enters its main routine, which makes the buzzer respond to the sensor. In the early design phase the \statechart model of this system may be limited to the \ASIC that captures the initialisation of the peripherals and the 50 ms wait. In the interest of simplicity, we elide all details of the main routine.
 
-A \statechart model of this system is shown in Fig.~\ref{fig:ASIC}. The \ASIC starts by initialising the buzzer, this involves sending a message over the \SPI bus. These messages constitute an implementation detail that we elide at this abstraction level. Once the message is sent (which will be indicated by some event saying that the \SPI system is done), the \ASIC moves on to initialise the sensor. After that the \ASIC moves into a waiting state for 50 ms, and finally moves into the state which represents normal operation. At this abstraction the \textbf{spi\_done} triggered, which signals completion by the \SPI system, is an internal trigger that can be fired at any time.
+A \statechart model of this system is shown in Fig.~\ref{fig:ASIC}. The \ASIC starts by initialising the buzzer; this involves sending a message over the \SPI bus. These messages constitute an implementation detail that we elide at this abstraction level. Once the message is sent (which will be indicated by some event saying that the \SPI system is done), the \ASIC moves on to initialise the sensor. After that the \ASIC moves into a waiting state for 50 ms, and finally moves into the state which represents normal operation. At this abstraction the \textbf{spi\_done} triggered, which signals completion by the \SPI system, is an internal trigger that can be fired at any time.
 
 In a subsequent level of refinement, shown in Fig.~\ref{fig:ASIC_SPI_1}, the designer adds a parallel state representing the \SPI subsystem. The \SPI subsystem is usually on an \textbf{Idle} state until the \textbf{send\_message} trigger is raised, at which point the \SPI subsystem enters a state \textbf{Sending Message}, which represents sending the message, byte by byte. When the last byte of the message is sent, it raises the \textbf{spi\_done} trigger, allowing the other parallel state to continue, while \SPI subsystem returns to idle. In the current refined model we have incorporated the implementation details for raising \textbf{spi\_done} and introduced a new internal trigger 
 \textbf{send\_message}, which is nondeterministic at this point.
@@ -35,7 +35,7 @@ After \textbf{send\_message} is raised, the \SPI subsystem reacts. It spins for 
 \begin{figure}[!tbp]
   \begin{centering}
   \includegraphics[width=0.8\textwidth]{figures/ASIC&SPI_2}
-  \caption{\Statechart diagram for \IDS including implementation details for the messages send between the system components.}
+  \caption{\Statechart diagram for \IDS including implementation details for the messages sent between the system components.}
   \label{fig:ASIC_SPI_2}
   \end{centering}
 \end{figure} 
