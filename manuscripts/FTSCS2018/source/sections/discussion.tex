@@ -43,7 +43,7 @@ In future work we intend to add an attribute \emph{finalised} to indicate that n
 
 Since there is only ever a single event to be fired in a particular micro-step, the scheduler can be integrated with the events that represent the transition combinations, greatly simplifying the Event-B model.
 Instead of explicit events to progress and implement the scheduling engine, an abstract machine is provided with events that can be refined by the translation of the user's \SCXML model into events that represent combinations of transitions that can fire in the same micro-step.
-This has benefits both for animation (i.e. execution of the \statechart for validation) which is easier to follow having less translation artefacts and for proof where the obligations are directly associated with particular transition combinations. 
+This has benefits both for simulation (i.e. execution of the \statechart for validation) which is easier to follow having less translation artefacts and for proof where the obligations are directly associated with particular transition combinations. 
 Another benefit is that any parallel assignments to the same variable are rejected by the Event-B static checker.
 The disadvantage, of course, is that there could be a combinatorial explosion in the number of events generated.
 In practice though, this is unlikely since, to be fired in parallel, transitions must have the same trigger and be located in parallel \statecharts.
