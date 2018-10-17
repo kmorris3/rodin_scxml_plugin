@@ -42,7 +42,8 @@ After \textbf{send\_message} is raised, the \SPI subsystem reacts. It spins for 
 
 The system described must send messages to complete the initialisation of the buzzer and sensor, but once the main routine is reached (\textbf{Go} state) no more messages should be sent through the \SPI bus. As a result, a desirable safety property is that \emph{when the \ASIC is in the \textbf{Go} state the \SPI subsystem
 must be in the \textbf{Idle} state}.
-This safety property is introduced in the first refinement and maintained by subsequent refinements.
+\ColinChange{This safety property is introduced in the first refinement and maintained by subsequent refinements.}
+{This safety property should hold from the first refinement and be preserved in all future refinements.}
 
 
 

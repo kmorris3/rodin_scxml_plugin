@@ -4,8 +4,8 @@
 \label{sec:iumlb}
 
 \iUMLB provides a diagrammatic modelling notation for \EventB in the form of state-machines and class diagrams. 
-The diagrammatic models are contained within an \EventB machine and generate or contribute to parts of it. 
-For example a state-machine will automatically generate the \EventB data elements (sets, constants, axioms, variables, and invariants) to implement the states while \EventB events are expected to already exist to represent the transitions. 
+The diagrammatic models \ColinChange{are contained within}{relate to} an \EventB machine and generate or contribute to parts of it. 
+For example a state-machine will automatically generate the \EventB data elements (sets, constants, axioms, variables, and invariants) to implement the states \ColinDelete{while EventB events are expected to already exist to represent the transitions}. 
 Transitions contribute further guards and actions representing their state change, to the events that they elaborate.  
 State-machines are typically refined by adding nested state-machines to states.
 Figure~\ref{fig:iumlb-sm} shows an example of a simple state-machine with two states.
