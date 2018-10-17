@@ -1,7 +1,7 @@
 \documentclass{response}
 
 \papertitle{Refinement of Statecharts with Run-to-Completion Semantics}
-\paperauthor{K. Moris, C. Snook, T.S.Hoang, R. Armstrong, and M. Butler}
+\paperauthor{K. Morris, C. Snook, T.S.Hoang, R. Armstrong, and M. Butler}
 \usepackage{chgtrk}
 \newCTcontributor{Karla}
 \newCTcontributor{Colin}
@@ -38,6 +38,7 @@ verification problems.
 
 \begin{response}
   \SonInlineComment{Future work? Which complex problem?}
+  \ColinInlineComment{We would like to use it for HL3 but we would need lifting. Also relevant for DB.. i have it in mind to switch to SysML}
 \end{response}
 
 % Writing: The paper is easy to read, easy to follow. Except for minor
@@ -73,6 +74,7 @@ verification problems.
 \begin{response}
   Done. Thank you very much.
   \SonInlineComment[Colin]{Can you check if this is done}
+  \ColinInlineComment{Lets review them - i am not sure all are correct}
 \end{response}
 %%%%% Reviewer 1 (End) %%%%%
 
@@ -161,6 +163,10 @@ verification problems.
   real engineers.
 \end{comment}
 
+\begin{response}
+\ColinInlineComment{Add statement that previous statechart semantics are totally useless because they do not support proof of safety - ours is the first useful semantics.. what more motivation do you want.
+}
+\end{response}
 
 \begin{comment}{Reviewer \#2}
   The current semantics is one of non-determinism as to which events
@@ -171,12 +177,26 @@ verification problems.
   and the system may choose not to execute them.  The authors must
   provide additional justification that this is a sensible semantics;
   I suspect that it will be surprising to most users who are familiar
-  with StateCharts.  When adding transitions at lower layers, it was
+  with StateCharts.  
+ \end{comment}
+  
+  \begin{response}
+  \ColinInlineComment{Clarify: This is only true in abstractions - that is the nature and purpose of abstraction.. just keep refining away the non-determinism until you can implement it.
+  It will be surprising to people who only model implementations, but that is why we need to teach them something better.}
+  \end{response}
+
+\begin{comment}{Reviewer \#2}  
+  When adding transitions at lower layers, it was
   not clear to me how these new transitions fit into the cross-product
   translation used to determine which set of transitions would fire.
   Perhaps this is handled layer-by-layer, but then each layer would
   need a scheduler and this was not discussed.   
 \end{comment}
+
+\begin{response}
+	\ColinInlineComment{Clarify: There is a new (possibly extended) cross product for each layer. A new Event-B is generated for each layer to enable refinement to be verified.
+	}
+\end{response}
 
 \begin{comment}{Reviewer \#2}
   The goal appears to be to try to create something that resembles
@@ -187,12 +207,20 @@ verification problems.
   formalize.  
 \end{comment}
 
+\begin{response}
+	\ColinInlineComment{I think the reviewer skipped the intro.}
+\end{response}
+
 \begin{comment}{Reviewer \#2}
   In addition, I would have liked a more formal description of the
   translation, or at least a reference to a more formal description of
   the translation than the prose description of different model
   aspects.  
 \end{comment}
+
+\begin{response}
+	\ColinInlineComment{Aaarrrrgh!}
+\end{response}
 
 %%%%% Reviewer 2 (End) %%%%%
 
@@ -216,16 +244,31 @@ verification problems.
   "Can" ... and ... "must" ... why?
 \end{comment}
 
+\begin{response}
+	\ColinInlineComment{ok we will have to spell it out. limitations of testing, need for instantiation etc. state explosion}
+\end{response}
+
 \begin{comment}{Reviewer \#3}
   Page 2:
 
   * Top: The first paragraph can be expressed more clearly. That is:
   what is the approach taken? Is UML state charts mapped to iUML-B or
   not?
+\end{comment}
 
+\begin{response}
+\ColinInlineComment{Clarify para... we want to go to Event-B but going via UML-B makes it easier since we at least get the syntactic part of state-charts for free.}
+\end{response}
+
+\begin{comment}{Reviewer \#3}
+  Page 2:
+  
   * Second paragraph appears complicated writing.
 \end{comment}
 
+\begin{response}
+	\ColinInlineComment{Remove nicely written Intro and replace with some simple bullet points.}
+\end{response}
 
 \begin{comment}{Reviewer \#3}
   Page 3:
@@ -233,17 +276,33 @@ verification problems.
 * Listing 1: I think I would name that variable "run2completion" differently.
 \end{comment}
 
+\begin{response}
+	\ColinInlineComment{Aaarrrrgh! change to "completion" then}
+\end{response}
+
+
 \begin{comment}{Reviewer \#3}
   Page 4:
 
   * Mid, it is not clear what this means:
 
   "The diagrammatic models are contained within an Event-B machine"
+\end{comment}
 
+\begin{response}
+	\ColinInlineComment{Delete "are contained within an Event-B machine"}
+\end{response}
+
+\begin{comment}{Reviewer \#3}
+Page 4:
   and this as well:
 
  "while Event-B events are expected to already exist to represent the transitions."
 \end{comment}
+
+\begin{response}
+	\ColinInlineComment{Delete  "while Event-B events are expected to already exist to represent the transitions" }
+\end{response}
 
 \begin{comment}{Reviewer \#3}
   Page 5:
@@ -251,20 +310,50 @@ verification problems.
   * It would seem more natural to have one state variable ranging over
   an enumerated type of states, rather than having a Boolean flag for
   each state.
+\end{comment}
+  
+  \begin{response}
+  	\ColinInlineComment{Add: "UML-B also provides the option of an alternative translation with a single state variable ranging over an enumerated type of states, however, the boolean representation of each state is more natural for a user to reference in SCXML guards and actions." }
+  \end{response}
+  
+\begin{comment}{Reviewer \#3}
 
   * Section 3: be more clear about what this system does. Is it just a
   buzz that goes off when a sensor senses something?
+\end{comment}
+
+\begin{response}
+	\ColinInlineComment{Aaarrrrgh!}
+\end{response}
+
+\begin{comment}{Reviewer \#3}
 
   * Mid:
 
   "At this abstraction the spi_done triggered, which ..."
   ->
   " At this abstraction there is only one event, spi_done, which ..."
+\end{comment}
 
+\begin{response}
+	\ColinInlineComment{Change to: At this abstraction the spi\_done trigger, which indicates that the SPI system has finished, is an internal trigger that can be fired at any time.}
+\end{response}
+
+\begin{comment}{Reviewer \#3}
   * Line -9: "on an Idle state" -> "in an Idle state".
+\end{comment}
 
+\begin{response}
+	\ColinInlineComment{agree}
+\end{response}
+
+\begin{comment}{Reviewer \#3}
 * Line -6: "while SPI subsystem ..." -> "while the SPI subsystem ..."
 \end{comment}
+
+\begin{response}
+	\ColinInlineComment{agree}
+\end{response}
 
 \begin{comment}{Reviewer \#3}
   Page 6:
@@ -272,20 +361,46 @@ verification problems.
   * Figure 2: this looks like a way of modeling event refinement,
   which seems different from state refinement. Perhaps comment on
   this.
+\end{comment}
 
+\begin{response}
+	\ColinInlineComment{I don't understand, why do they think it is event refinement? It is just superposition of new states and events}
+\end{response}
+
+\begin{comment}{Reviewer \#3}
   * Line -7: "This safety property is introduced ..." : where, when?
+\end{comment}
 
+\begin{response}
+	\ColinInlineComment{Maybe we should not say introduced because here we are talking about the problem not the model. Change to "This safety property should hold at the first refinement and be preserved in all future refinements" }
+\end{response}
+
+\begin{comment}{Reviewer \#3}
 * Figure 2(b): "last_byte_send" -> "last_byte_sent".
 \end{comment}
+
+\begin{response}
+	\ColinInlineComment{agree}
+\end{response}
 
 \begin{comment}{Reviewer \#3}
   Page 7:
 
   * Mid: "Ancillary data, with corresponding actions to alter it, can
   ..." - something is wrong with this sentence.
+\end{comment}
 
+\begin{response}
+	\ColinInlineComment{disagree - looks ok to me}
+\end{response}
+
+\begin{comment}{Reviewer \#3}
 * Line -4: I don't understand: "Note that external triggers are always unguarded ...".
 \end{comment}
+
+\begin{response}
+	\ColinInlineComment{What is there not to understand?}
+\end{response}
 
 \begin{comment}{Reviewer \#3}
   Page 8:
@@ -293,11 +408,19 @@ verification problems.
 * The next couple of pages is a lot of English without some structure to hang it up on.
 \end{comment}
 
+\begin{response}
+	\ColinInlineComment{I think we leave it. Other reviewers seem fine with it and it is supposed to be an in-depth discussion about the reasoning behind the translation. i would prefer not to introduce gratuitous headings}
+\end{response}
+
 \begin{comment}{Reviewer \#3}
   Page 9:
 
 * The three bullets (refinement, invariant, guard): there is mention of the parent state. Not sure I understand.
 \end{comment}
+
+\begin{response}
+	\ColinInlineComment{I think we leave it.. most people understand the concept of 'parent'}
+\end{response}
 
 \begin{comment}{Reviewer \#3}
   Page 10:
@@ -305,11 +428,19 @@ verification problems.
 * In general, the explanation of the example could be improved a lot.
 \end{comment}
 
+\begin{response}
+	\ColinInlineComment{I think we leave it. Other reviewers seem fine with it and even said it was easy to understand. This reviewer seems to have difficulty with a lot of things and their comment is too general for us to know how to help them}
+\end{response}
+
 \begin{comment}{Reviewer \#3}
   Page 12:
 
 * I had a hard time reading this.
 \end{comment}
+
+\begin{response}
+	\ColinInlineComment{I think we leave it. Other reviewers seem fine with it and even said it was easy to understand. This reviewer seems to have difficulty with a lot of things and their comment is too general for us to know how to help them}
+\end{response}
 
 \begin{comment}{Reviewer \#3}
   Page 14:
@@ -317,5 +448,9 @@ verification problems.
 * Mid: "SCXML future..TransitionSet" - is this correct?
 \end{comment}
 %%%%% Reviewer 3 (End) %%%%%
+
+\begin{response}
+	\ColinInlineComment{I was making an 'on they fly' abbreviation to avoid listing the 3 different basis events. Maybe replace 'SCXML\_future..TransitionSet' for 'SCXML\_futureUntriggeredTransitionSet', 'SCXML\_futureInternalTransitionSet', 'SCXML\_futureExternalTransitionSet'}
+\end{response}
 
 \end{document}
