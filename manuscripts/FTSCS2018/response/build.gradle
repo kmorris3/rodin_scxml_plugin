@@ -1,0 +1,176 @@
+/**
+ * Copyright (C) 2018 Thai Son Hoang
+ * Gradle LaTeX beamer build file.
+ *
+ * To configure:
+ * - The BASENAME: The name of the presentation
+ * - The RES_FILES: The list of names of the required resource files, e.g., .sty, .bib, .cls (which will be copied from RES_LOCATION)
+ * - The RES_LOCATION: The location of the style files (e.g., resources/latexStyles from the root folder)
+ * - The TIKZ_FILES: The list of names of the TikZ files (without *.tex extension).
+ * - LATEX program: Default to be 'pdflatex'
+ * - BIBTEX program: Default to be 'bibtex'
+ * - pdf_build_steps: Default LaTeX -> BiBTeX -> LaTeX -> LaTeX
+ *
+ * Contributors
+ *   Thai Son Hoang - Initial API and implementation.
+ */
+
+/**
+ * Extra Properties:
+ * - The base name for the main LaTeX file
+ * - The LaTeX Program
+ */
+ext {
+  BASENAME = 'responses' // The base name of the presentation, this will be appended by the suffices.
+  SUFFICES = ['']
+  GENERATED_EXTENSIONS = ['aux', 'bbl', 'bcf', 'blg', 'lof', 'log', 'lot', 'ilg', 'nav', 'nlo', 'nls', 'out', 'rel', 'run.xml', 'synctex.gz', 'snm', 'toc', 'vrb']
+  RES_FILES = []
+  RES_LOCATION = '.' // Relative location of resource files
+  TIKZ_FILES = []
+  LATEX = 'pdflatex'
+  BIBTEX = 'bibtex'
+}
+
+// The default task is 'build'
+defaultTasks 'build'
+
+/*
+ * The build task:
+ * - Build all tasks with prefix 'PDF_BUILD'
+ */
+task build {
+  dependsOn tasks.matching {
+    Task task -> task.name.startsWith('PDF_BUILD')
+  }
+  dependsOn tasks.matching {
+    Task task -> task.name.startsWith('TIKZ_BUILD')
+  }
+}
+
+/*
+ * For each suffix, create a 'PDF_BUILD' task
+ * - the task depends on all 'COPY_RES' tasks
+ * - Input files:
+ *   + all class files,
+ *   + all style files,
+ *   + all bibliography files,
+ *   + the tex file corresponding to the suffix,
+ *   + the main content text file.
+ *   + all files in 'figures' folder
+ * - Output file: the pdf file corresponding to the suffix.
+ * - The build is done by the pdf_build_steps
+ */
+SUFFICES.each { def suffix -> 
+  task "PDF_BUILD_$suffix"() {
+    dependsOn tasks.matching {
+      Task task -> task.name.startsWith('COPY_RES')
+    }
+    inputs.files fileTree('.').include('**/*.cls'), fileTree('.').include('**/*.sty'), fileTree('.').include('**/*.bib'), BASENAME+"-"+suffix+".tex", BASENAME+"-main"+".tex",  fileTree('./figures').include('**/*')
+    outputs.file BASENAME+suffix+".pdf"
+    doLast{
+      pdf_build_steps(BASENAME+suffix)
+    }
+  }
+}
+
+/*
+ * For convenience, we also create a task with each suffix name to link to the corresponding PDF_BUILD task.
+ */
+SUFFICES.each { def suffix -> 
+  task "_$suffix"() {
+    dependsOn "PDF_BUILD_$suffix"
+  }
+}
+
+/*
+ * Method to build the pdf for the given file name
+ * 1. Latex
+ * 2. Bibtex
+ * 3. Latex
+ * 4. Latex
+ */
+void pdf_build_steps(name) {
+  exec {
+    commandLine LATEX, name 
+  }
+/*  exec {
+    commandLine BIBTEX, name 
+  }
+  exec {
+    commandLine 'makeindex', name+'.nlo', '-s', 'nomencl.ist', '-o', name+'.nls'
+  }*/
+  exec {
+    commandLine LATEX, name 
+  }
+  exec {
+    commandLine LATEX, name 
+  }
+}
+
+/*
+ * For each style name, create a 'COPY_RES' task
+ * - The 'Copy' task copies the file corresponding to the style name from the the STY_LOCATION to the
+ * current location
+ */
+RES_FILES.each { def resFile ->
+  task "COPY_RES_$resFile"(type: Copy) {
+    from RES_LOCATION
+    into '.'
+    include resFile
+  }
+}
+
+task clean(type: Delete) {
+  dependsOn tasks.matching {
+    Task task -> task.name.startsWith('CLEAN_GENERATED')
+  }
+}
+
+GENERATED_EXTENSIONS.each { def extension ->
+  task "CLEAN_GENERATED_$extension"(type: Delete) {
+    delete fileTree('.').include('**/*.'+extension)
+  }
+}
+
+task cleanall(type: Delete) {
+  dependsOn clean
+  dependsOn tasks.matching {
+    Task task -> task.name.startsWith('CLEANALL_')
+  }
+}
+
+SUFFICES.each { def suffix ->
+  task "CLEANALL_$suffix"(type: Delete) {
+    delete BASENAME+"-"+suffix+".pdf"
+  }
+}
+
+RES_FILES.each { def resFile ->
+  task "CLEANALL_$resFile"(type: Delete) {
+    delete resFile
+  }
+}
+
+// 'clean' should run after 'build'
+clean.shouldRunAfter build
+
+/*
+ * The 'all' task include 'build' and 'clean'.
+ */
+task all {
+  dependsOn 'build', 'clean'
+}
+
+TIKZ_FILES.each { def tikzFile ->
+  task "TIKZ_BUILD_$tikzFile"(type: Exec) {
+    inputs.file tikzFile+".tex"
+    outputs.file tikzFile+".pdf"
+    commandLine LATEX, tikzFile
+  }
+}
+
+TIKZ_FILES.each { def tikzFile ->
+  task "CLEANALL_$tikzFile"(type: Delete) {
+    delete tikzFile+".pdf"
+  }
+}

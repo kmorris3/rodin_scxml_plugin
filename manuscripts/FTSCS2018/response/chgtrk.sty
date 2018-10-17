@@ -1,0 +1,184 @@
+%%
+%% This is file `chgtrk.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% chgtrk.dtx  (with options: `chgtrk')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2017--2018 by Thai Son Hoang
+%% <T dot S dot Hoang at ecs dot soton dot ac dot uk>
+%% 
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008/05/04 or later.
+%% 
+%% This work has the LPPL maintenance status "author-maintained".
+%% 
+%% The Current Maintainer of this work is T. S. Hoang.
+%% 
+
+
+%%%%% BEGIN Package loading %%%%%
+\RequirePackage{soul}
+\RequirePackage{todonotes}
+\RequirePackage{etoolbox}
+\RequirePackage{xargs}
+%%%%% END Package loading %%%%%
+
+
+\newcommand{\chgtrk@ifstrequal}{\expandafter\ifstrequal\expandafter}
+
+\newcommand{\CT@contributor}[2][]{%
+  \chgtrk@ifstrequal{#1}{}{%
+    \expandafter\def\csname #2Add\endcsname{\CT@add[#2]}%
+    \expandafter\def\csname #2Delete\endcsname{\CT@delete[#2]}%
+    \expandafter\def\csname #2Change\endcsname{\CT@change[#2]}%
+    \expandafter\def\csname #2Comment\endcsname{\CT@comment[#2]}%
+    \expandafter\def\csname #2CommentTo\endcsname{\CT@commentto[#2]}%
+    \expandafter\def\csname #2InlineComment\endcsname{\CT@inlinecomment[#2]}%
+    \expandafter\def\csname #2InlineCommentTo\endcsname{\CT@inlinecommentto[#2]}%
+  }{%
+    \expandafter\def\csname #1Add\endcsname{\CT@add[#2]}%
+    \expandafter\def\csname #1Delete\endcsname{\CT@delete[#2]}%
+    \expandafter\def\csname #1Change\endcsname{\CT@change[#2]}%
+    \expandafter\def\csname #1Comment\endcsname{\CT@comment[#2]}%
+    \expandafter\def\csname #1CommentTo\endcsname{\CT@commentto[#2]}%
+    \expandafter\def\csname #1InlineComment\endcsname{\CT@inlinecomment[#2]}%
+    \expandafter\def\csname #1InlineCommentTo\endcsname{\CT@inlinecommentto[#2]}%
+  }%
+}%
+
+\let\newCTcontributor\CT@contributor
+
+\newcommandx{\TODOthiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}%
+
+\newcommand{\CT@add}[2][]{%
+  \chgtrk@ifstrequal{#1}{}{%
+    % Do nothing
+  }{%
+    \todo[linecolor=orange,backgroundcolor=orange!25,bordercolor=orange]{\textbf{#1} added}%{}
+  }%
+  \texthl{#2}%
+}%
+
+\newcommand{\CTadd}[1]{%
+  \CT@add{#1}%
+}%
+
+\newcommand{\CT@delete}[2][]{%
+  \chgtrk@ifstrequal{#1}{}{%
+    % Do nothing
+  }{%
+    \todo[linecolor=red,backgroundcolor=red!25,bordercolor=red]{\textbf{#1} delete}%{}
+  }%
+  \setstcolor{red}%
+  \st{#2}%
+}%
+
+\newcommand{\CTdelete}[1]{%
+  \CT@delete{#1}%
+}%
+
+\newcommand{\CT@change}[3][]{%
+  \setstcolor{red}%
+  \st{#2}%
+  \chgtrk@ifstrequal{#1}{}{%
+    % Do nothing
+  }{%
+    \todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue]{\textbf{#1} changed}%{}
+  }%
+  \texthl{#3}%
+  %\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue]{\textbf{Before}:
+  %}%
+}%
+
+\newcommand{\CTchange}[2]{%
+  \CT@change{#1}{#2}%
+}%
+
+\newcommand{\CT@comment}[2][]{%
+  \chgtrk@ifstrequal{#1}{}{%
+    \todo[linecolor=green,backgroundcolor=green!25,bordercolor=green]{#2}%{}
+  }{%
+    \todo[linecolor=green,backgroundcolor=green!25,bordercolor=green]{\textbf{#1}: #2}%{}
+  }%
+}%
+
+\newcommand{\CT@commentto}[3][]{%
+  \chgtrk@ifstrequal{#1}{}{%
+    \todo[linecolor=green,backgroundcolor=green!25,bordercolor=green]{$\rightarrow$\textbf{#2}
+      #3}%
+  }{%
+    \todo[linecolor=green,backgroundcolor=green!25,bordercolor=green]{\textbf{#1}:
+      $\rightarrow$\textbf{#2} #3}%
+  }%
+}%
+
+\newcommand{\CTcomment}[1]{%
+  \CT@comment{#1}%
+}%
+
+\newcommand{\CTcommentto}[2]{%
+  \CT@commentto{#1}{#2}%
+}%
+
+\newcommand{\CT@inlinecomment}[2][]{%
+  \chgtrk@ifstrequal{#1}{}{%
+    \todo[inline, linecolor=green,backgroundcolor=green!25,bordercolor=green]{#2}%{}
+  }{%
+    \todo[inline, linecolor=green,backgroundcolor=green!25,bordercolor=green]{\textbf{#1}: #2}%{}
+  }%
+}%
+
+\newcommand{\CT@inlinecommentto}[3][]{%
+  \chgtrk@ifstrequal{#1}{}{%
+    \todo[inline,
+    linecolor=green,backgroundcolor=green!25,bordercolor=green]{$\rightarrow$\textbf{#2}
+      #3}%
+  }{%
+    \todo[inline,
+    linecolor=green,backgroundcolor=green!25,bordercolor=green]{\textbf{#1}:
+      $\rightarrow$\textbf{#2} #3}%
+  }%
+}%
+
+\newcommand{\CTinlinecomment}[1]{%
+  \CT@inlinecomment{#1}%
+}%
+
+\newcommand{\CTinlinecommentto}[2]{%
+  \CT@inlinecommentto{#1}{#2}%
+}%
+
+%%%%% BEGIN Declaration of options %%%%%
+\DeclareOption{disabled}{%
+  \renewcommand{\CT@add}[2][]{%
+    #2% Display only the added text
+  }%
+  \renewcommand{\CT@delete}[2][]{}% Do nothing
+  \renewcommand{\CT@change}[3][]{%
+    #3% Display only the changed text
+  }%
+  \renewcommand{\CT@comment}[2][]{}% Do nothing
+  \renewcommand{\CT@inlinecomment}[2][]{}% Do nothing
+}%
+
+%%%%% END Declaration of options %%%%%
+
+%%%%% BEGIN Execution of options %%%%%
+
+\ProcessOptions
+%%%%% END Execution of options %%%%%
+
+\endinput
+%%
+%% End of file `chgtrk.sty'.
