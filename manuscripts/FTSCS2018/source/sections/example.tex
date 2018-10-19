@@ -32,7 +32,7 @@ To ensure this we add a guard |send_message /: SCXML_raisedTriggers| to |Wait50m
 (Currently, this is added verbatim but we envision a `doesn't raise' notation to avoid the user having to reference the translation artefact, |SCXML_raisedTriggers|).
 We also need to prevent any future transitions from raising this trigger in the state |Go|.
 To automate this for all abstract `future' events, they could be automatically generated and added to satisfy all user invariants concerning the raising of internal triggers regardless of whether they are violated in future levels. 
-For example, the guard  |Go = TRUE => send_message /: SCXML_raisedTriggers| needs to be automatically added to the three `basis' events |SCXML_future..TransitionSet| to prove they do not break the property being verified. 
+For example, the guard  |Go = TRUE => send_message /: SCXML_raisedTriggers| needs to be automatically added to the three `basis' events, |SCXML_futureUntriggeredTransitionSet|, |SCXML_futureInternalTransitionSet| and |SCXML_futureExternalTransitionSet| to prove they do not break the property being verified. 
 If it is not obeyed by future transitions, guard strengthening proof obligations will fail, making it obvious where the problems lie.
 As indicated above, we now need to prove by similar means that |Idle=TRUE| holds in state |Wait50ms|. 
 In this case, however, we can only say that |Idle=TRUE| in state |InitialiseSensor| after the \SPI-system finishes sending the message and raises the trigger, |spi_done|. 
