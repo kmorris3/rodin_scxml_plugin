@@ -196,8 +196,10 @@ verification problems.
 \end{comment}
 
 \begin{response}
-	\ColinInlineComment{Clarify: There is a new (possibly extended) cross product for each layer. A new Event-B is generated for each layer to enable refinement to be verified.
-	}
+	\ColinInlineComment{Fixed -see below}
+	Yes each layer makes a new cross product. 
+	Added "Each refinement produces a new set of events representing the (possibly extended) transition combinations that may occur at that level of refinement."
+	(We already explain in the sentence before that these events replace the scheduler).
 \end{response}
 
 \begin{comment}{Reviewer \#2}
