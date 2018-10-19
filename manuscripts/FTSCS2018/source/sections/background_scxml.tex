@@ -8,18 +8,18 @@
 
 \begin{lstlisting}[caption=Pseudocode for 'run to completion',label={lst:scxml-r2c}, frame=single]
 while running:
-	while run2completion = false
+	while completion = false
 		if untriggered_enabled
 			execute(untriggered())
 		elseif IQ /= {}
 			execute(internal(IQ.dequeue)) 
 		else
-			run2completion = true
+			completion = true
 		endif
 	endwhile
 	if EQ /= {}
 		execute(EQ.dequeue) 
-		run2completion = false
+		completion = false
 	endif
 endwhile 
 \end{lstlisting}

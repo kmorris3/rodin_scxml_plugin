@@ -181,8 +181,10 @@ verification problems.
  \end{comment}
   
   \begin{response}
-  \ColinInlineComment{Clarify: This is only true in abstractions - that is the nature and purpose of abstraction.. just keep refining away the non-determinism until you can implement it.
-  It will be surprising to people who only model implementations, but that is why we need to teach them something better.}
+  \ColinInlineComment{Fixed - see below}
+	The non-determinism is removed in refinements before implementation. Abstraction often entails non-determinism.
+	I.e. the possibility of losing an event is resolved one way or the other when we reach a decision on whether it should be fired or not.
+	Added "The non-determinism is useful to allow abstractions which facilitate verification proofs but must be removed in refinements to reach a design suitable for implementation."
   \end{response}
 
 \begin{comment}{Reviewer \#2}  
@@ -278,7 +280,8 @@ Added "The binding is facilitated by translating to iUML-B, a diagrammatic model
 \end{comment}
 
 \begin{response}
-	\ColinInlineComment{Aaarrrrgh! change to "completion" then}
+	\ColinInlineComment{Fixed - see below}
+	Changed "run2completion" to "completion".
 \end{response}
 
 
@@ -454,7 +457,8 @@ Page 4:
 %%%%% Reviewer 3 (End) %%%%%
 
 \begin{response}
-	\ColinInlineComment{I was making an 'on they fly' abbreviation to avoid listing the 3 different basis events. Maybe replace 'SCXML\_future..TransitionSet' for 'SCXML\_futureUntriggeredTransitionSet', 'SCXML\_futureInternalTransitionSet', 'SCXML\_futureExternalTransitionSet'}
+	\ColinInlineComment{Fixed - see below}
+	It was intended as shorthand for the three events: 'SCXML\_futureUntriggeredTransitionSet', 'SCXML\_futureInternalTransitionSet', 'SCXML\_futureExternalTransitionSet' but we have now listed them explicitly.
 \end{response}
 
 \end{document}
