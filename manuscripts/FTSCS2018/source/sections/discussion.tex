@@ -38,8 +38,10 @@ To allow for strengthening of the guards  in refinement we omit the negation of 
 %(if $Gref \implies Gabs$  it does not follow that $\neg Gref \implies \neg Gabs$) 
 leaving the choice of lesser combinations, including the empty one, non-deterministically available in case of future refinement.
 For example, T1 could fire alone even if T2 is enabled since we cannot add the negation of T2's guard to T1 unless we know that it will never be strengthened. 
-This non-determinism in the model accurately reflects the abstract run to completion where we do not yet know whether T2 will be enabled or not in future refinements. 
+This non-determinism in the model accurately reflects the abstract run to completion where we do not yet know whether T2 will be enabled or not in future refinements.
+The non-determinism is useful to allow abstractions which facilitate verification proofs but must be removed in refinements to reach a design suitable for implementation.
 In future work we intend to add an attribute \emph{finalised} to indicate that no further guard strengthening refinements will be made to a transition, removing non-determinism throughout the refinement chain.
+
 
 Since there is only ever a single event to be fired in a particular micro-step, the scheduler can be integrated with the events that represent the transition combinations, greatly simplifying the Event-B model.
 Instead of explicit events to progress and implement the scheduling engine, an abstract machine is provided with events that can be refined by the translation of the user's \SCXML model into events that represent combinations of transitions that can fire in the same micro-step.
