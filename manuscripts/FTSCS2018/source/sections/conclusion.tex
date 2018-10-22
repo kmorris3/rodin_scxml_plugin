@@ -20,12 +20,20 @@ Furthermore, the refinement process supported in~\cite{MeNaBa04,MiCa14,HaSyLu15,
 
 In future work we will continue to experiment with different examples to explore the alternative translation strategies in more detail. 
 In particular, further work on refinement of the micro/macro-step and whether correspondence of macro-steps can be relaxed; whether more complex refinement techniques could be supported (for example, using ranges in refinement annotations) would be useful; supporting/comparing alternative variations of semantics (by generating a different basis/scheduler for the translation).
-
 For our interpretation of \statecharts in \iUMLB, we used the `run-to-completion' semantics of \statecharts.  In particular, we have carefully designed our translated model such that the semantics is captured as a generic abstract model, which is subsequently refined by the translation of the \SCXML model.  An advantage of this approach is that we can easily adapt the basis model with other alternative semantics~\mbox{\cite{Eshuis_2009}} without changing the translation of the \SCXML model. 
 
-While \statecharts interpreted in \iUMLB provide a way to incorporate refinement in an intuitive way, reversing this to \emph{discover} refinements holds promise. 
-Checking a particular \statechart model for hierarchical structures that happen to follow the refinement proof obligations suggests an automatic way to accomplish abstract interpretation on an existing model.  
-Such discovered abstraction/refinement relationships might improve the scalability of more complex \statechart models ``for free''.
+\ColinAdd{We will also demonstrate the scalability of the translation on more realistic industrial examples. The Haemodialysis Machine case study~\mbox{\cite{Mashkoor16}} from the ABZ 2016 conference would make a good test case since its highly sequential processes are natural for a state-chart representation and results can be compared with existing \mbox{\iUMLB} solutions~\mbox{\cite{HoSnLaBu16}}. The ERTMS Hybrid Level 3 case study~\mbox{\cite{HoBuRe18}} from the ABZ 2018 conference is also an industrial example which would test the method. This case study would require lifting of the output models to a generalised set of instances using a model composition technique that we have been developing for this purpose.}
+  
+
+\ColinDelete{
+While \mbox{\statecharts} interpreted in \mbox{\iUMLB} provide a way to incorporate refinement in an intuitive way, reversing this to \emph{discover} refinements holds promise. 
+Checking a particular \mbox{\statechart} model for hierarchical structures that happen to follow the refinement proof obligations suggests an automatic way to accomplish abstract interpretation on an existing model.  
+Such discovered abstraction/refinement relationships might improve the scalability of more complex \mbox{\statechart} models ``for free''.
+}
+\ColinComment{I suggest to remove this reverse engineering of abstractions as it is a bit speculative and not discussed in the rest of the paper.}
+
+
+
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "../SCXMLREF.tex"
