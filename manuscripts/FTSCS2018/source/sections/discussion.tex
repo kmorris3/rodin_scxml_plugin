@@ -13,7 +13,8 @@ Hence we start from the following requirements which allow superposition refinem
 	\item The firing conditions of a transition can be strengthened by being more specific about the (nested) source state,
 	\item Nested \Statecharts can be added in refinements.
 	\item Ancillary data, with corresponding actions to alter it, can be added to transitions.
-	\item Raise actions can be added to transitions to define how internal triggers are raised. These internal triggers may have already been introduced and used to trigger transitions, in which case they are non-deterministically raised at the abstract levels. (Note that external triggers are always unguarded and cannot be refined).
+	\item Raise actions can be added to transitions to define how internal triggers are raised. These internal triggers may have already been introduced and used to trigger transitions, in which case they are non-deterministically raised at the abstract levels. \KarlaDelete{(Note that external triggers are always unguarded and cannot be refined).}
+	\item \KarlaAdd{External triggers represent inputs to the model. If not restrictions are imposed on the inputs then the events that raise external trigger are always unguarded and cannot be refined.}
 	\item Invariants can be added to states to specify properties that hold while in that state.
 \end{itemize}
 While it would be possible to utilise \EventB's data refinement to perform more substantial \statechart refinements (for example replacing an abstract \statechart with a different one in the refined model), this would lead to complex proof obligations and is impractical when the \SCXML model is a single \Statechart (rather than a chain of refined models).
