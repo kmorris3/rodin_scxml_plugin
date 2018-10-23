@@ -26,8 +26,10 @@ The \EventB translation%
 %
 \footnote{%
   Here, $\mathrm{partition(S, T1, T2, \ldots)}$ means the set $S$ is partitioned into disjoint (sub-)sets $T1, T2, \ldots$.
-that cover $S$} %
-of the state-machine in Figure~\ref{fig:iumlb-sm} can be seen in Listing~\ref{lst:eventb-sm}.%
+that cover $S$} 
+of the state-machine in Figure~\ref{fig:iumlb-sm} can be seen in Listing~\ref{lst:eventb-sm}.
+\iUMLB \KarlaAdd{also provides the option of an alternative translation with a single state variable ranging over an enumerated type of states, however, the boolean representation of each state is more natural for a user to reference in} 
+\SCXML \KarlaAdd{guards and actions.}
 	
 While the \iUMLB translation deals with the basic data formalisation of state-machines it differs significantly from the aims of the work presented here. 
 \iUMLB adopts \EventB's simple guarded action semantics and does not have a concept of triggers and run-to-completion.

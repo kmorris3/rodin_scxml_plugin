@@ -12,8 +12,9 @@ Proof obligations for such requirements can be made more tractable using
 abstraction/refinement, providing a natural divide and conquer
 strategy for controlling complexity.
 
-\Statecharts~\cite{Harel} are often used for safety-critical and other high-consequence systems to provide an unambiguous, executable way of specifying functional as well as safety, security, and reliability properties.  
-While functional properties (usually) can be tested, safety, security and reliability properties (usually) must be proved formally.  
+\Statecharts~\cite{Harel} are often used for safety-critical and other high-consequence systems to provide an unambiguous, executable way of specifying functional as well as safety, security, and reliability properties. 
+\KarlaAdd{While functional properties (usually) can be tested, the need for instantiation and state space explosion can make testing of safety, security and reliability properties intractable. Therefore, such properties must be proved formally.} 
+\KarlaDelete{While functional properties (usually) can be tested, safety, security and reliability properties (usually) must be proved formally.}
 
 Here we give a binding from \Statecharts to \EventB~\cite{abrial10:_model_event_b} so that this type of reasoning can be carried out.
 \ColinAdd{The binding is facilitated by translating to \mbox{\iUMLB~\cite{snook14:_b_statem,Snook2006,Snook12:FMCO}}, a diagrammatic modelling notation for \mbox{\EventB.}}

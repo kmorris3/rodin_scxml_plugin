@@ -253,7 +253,9 @@ verification problems.
 \end{comment}
 
 \begin{response}
-	\ColinInlineComment{ok we will have to spell it out. limitations of testing, need for instantiation etc. state explosion}
+	% \ColinInlineComment{ok we will have to spell it out. limitations of testing, need for instantiation etc. state explosion}
+  \KarlaInlineComment{Fixed - see below}
+  We have revised the sentence. "While functional properties (usually) can be tested, the need for instantiation and state space explosion can make testing of safety, security and reliability properties intractable. Therefore, such properties must be proved formally."
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -277,6 +279,7 @@ Added "The binding is facilitated by translating to iUML-B, a diagrammatic model
 
 \begin{response}
 	\ColinInlineComment{Remove nicely written Intro and replace with some simple bullet points.}
+  \KarlaInlineComment{I like the way it reads right now.}
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -325,7 +328,9 @@ Page 4:
 \end{comment}
   
   \begin{response}
-  	\ColinInlineComment{Add: "UML-B also provides the option of an alternative translation with a single state variable ranging over an enumerated type of states, however, the boolean representation of each state is more natural for a user to reference in SCXML guards and actions." }
+  	% \ColinInlineComment{Add: "UML-B also provides the option of an alternative translation with a single state variable ranging over an enumerated type of states, however, the boolean representation of each state is more natural for a user to reference in SCXML guards and actions." }
+    \KarlaInlineComment{Fixed - see below}
+    In the interest of clarity we have added the following text: "iUML-B also provides the option of an alternative translation with a single state variable ranging over an enumerated type of states, however, the boolean representation of each state is more natural for a user to reference in SCXML guards and actions.""
   \end{response}
   
 \begin{comment}{Reviewer \#3}
@@ -348,7 +353,8 @@ Page 4:
 \end{comment}
 
 \begin{response}
-	\ColinInlineComment{Change to: At this abstraction the spi\_done trigger, which indicates that the SPI system has finished, is an internal trigger that can be fired at any time.}
+  \KarlaInlineComment{Fixed - see below}
+  The text has been changed to: "At this abstraction the spi\_done trigger, which indicates that the SPI system has finished, is an internal trigger that can be fired at any time."
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -376,7 +382,10 @@ Page 4:
 \end{comment}
 
 \begin{response}
-	\ColinInlineComment{I don't understand, why do they think it is event refinement? It is just superposition of new states and events}
+	% \ColinInlineComment{I don't understand, why do they think it is event refinement? It is just superposition of new states and events}
+  \KarlaInlineComment{Fixed - see below}
+  To improve clarity we have revised the text to clearly state that 
+  the refinement used is superposition. "In a subsequent level of refinement, shown in Fig. 2b, the designer uses superposition refinement to add a parallel state representing the SPI subsystem."
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -405,7 +414,8 @@ Page 4:
 \end{comment}
 
 \begin{response}
-	\ColinInlineComment{disagree - looks ok to me}
+  \KarlaInlineComment{Fixed - see below}
+  We have revised the sentence to: "Actions that modify ancillary data can be added to transitions.""
 \end{response}
 
 \begin{comment}{Reviewer \#3}

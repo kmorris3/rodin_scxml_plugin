@@ -12,7 +12,7 @@ Hence we start from the following requirements which allow superposition refinem
 	\item The firing conditions of a transition can be strengthened by adding further textual constraints about the state of other variables and state machines in the system.
 	\item The firing conditions of a transition can be strengthened by being more specific about the (nested) source state,
 	\item Nested \Statecharts can be added in refinements.
-	\item Ancillary data, with corresponding actions to alter it, can be added to transitions.
+	\item \KarlaAdd{Actions that modify ancillary data can be added to transitions.} \KarlaDelete{Ancillary data, with corresponding actions to alter it, can be added to transitions.}
 	\item Raise actions can be added to transitions to define how internal triggers are raised. These internal triggers may have already been introduced and used to trigger transitions, in which case they are non-deterministically raised at the abstract levels. \KarlaDelete{(Note that external triggers are always unguarded and cannot be refined).}
 	\item \KarlaAdd{External triggers represent inputs to the model. If not restrictions are imposed on the inputs then the events that raise external trigger are always unguarded and cannot be refined.}
 	\item Invariants can be added to states to specify properties that hold while in that state.
