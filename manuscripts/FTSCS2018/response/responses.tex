@@ -37,11 +37,22 @@ verification problems.
 \end{comment}
 
 \begin{response}
-  \ColinInlineComment{Fixed}
   As discussed in the paper we believe it will scale well provided certain unusual styles of modelling are avoided. 
   However, evaluation on larger models is definitely worthwhile.
-  Added to conclusions :- 
-  "We will also demonstrate the scalability of the translation on more realistic industrial examples. The Haemodialysis Machine case study(cite) from the ABZ 2016 conference would make a good test case since its highly sequential processes are natural for a state-chart representation and results can be compared with existing iUML-B solutions(cite). The ERTMS Hybrid Level 3 case study(cite) from the ABZ 2018 conference is also an industrial example which would test the method. This case study would require lifting of the output models to a generalised set of instances using a model composition technique that we have been developing for this purpose."
+  The following is added to conclusions.
+  \begin{quote}
+    ``We will also demonstrate the scalability of the translation on
+    more realistic industrial examples. The Haemodialysis Machine case
+    study(cite) from the ABZ 2016 conference would make a good test
+    case since its highly sequential processes are natural for a
+    state-chart representation and results can be compared with
+    existing iUML-B solutions(cite). The ERTMS Hybrid Level 3 case
+    study(cite) from the ABZ 2018 conference is also an industrial
+    example which would test the method. This case study would require
+    lifting of the output models to a generalised set of instances
+    using a model composition technique that we have been developing
+    for this purpose.''
+  \end{quote}
 \end{response}
 
 % Writing: The paper is easy to read, easy to follow. Except for minor
@@ -182,10 +193,9 @@ verification problems.
  \end{comment}
   
   \begin{response}
-  \ColinInlineComment{Fixed - see below}
-	The non-determinism is removed in refinements before implementation. Abstraction often entails non-determinism.
-	I.e. the possibility of losing an event is resolved one way or the other when we reach a decision on whether it should be fired or not.
-	Added "The non-determinism is useful to allow abstractions which facilitate verification proofs but must be removed in refinements to reach a design suitable for implementation."
+    The non-determinism is removed in refinements before implementation. Abstraction often entails non-determinism.
+    I.e., the possibility of losing an event is resolved one way or the other when we reach a decision on whether it should be fired or not.
+    The following is added ``The non-determinism is useful to allow abstractions which facilitate verification proofs but must be removed in refinements to reach a design suitable for implementation.''
   \end{response}
 
 \begin{comment}{Reviewer \#2}  
@@ -197,9 +207,8 @@ verification problems.
 \end{comment}
 
 \begin{response}
-	\ColinInlineComment{Fixed - see below}
 	Yes each layer makes a new cross product. 
-	Added "Each refinement produces a new set of events representing the (possibly extended) transition combinations that may occur at that level of refinement."
+	The following is added ``Each refinement produces a new set of events representing the (possibly extended) transition combinations that may occur at that level of refinement.''
 	(We already explain in the sentence before that these events replace the scheduler).
 \end{response}
 
@@ -213,10 +222,9 @@ verification problems.
 \end{comment}
 
 \begin{response}
-  \KarlaInlineComment{Fixed - see below}
   We have added to the introduction section a couple of sentence regarding the advantages of using 
   the Event-B within the Rodin tool.
-  "The Event-B modelling method provides the logic and refinement theory required to formally analyse a system model.  The open-source Rodin provides support for Event-B including automatic theorem provers and model checking capabilities. iUML-B augments the Event-B language with a graphical interface including state-machines.  "
+  ``The Event-B modelling method provides the logic and refinement theory required to formally analyse a system model.  The open-source Rodin provides support for Event-B including automatic theorem provers and model checking capabilities. iUML-B augments the Event-B language with a graphical interface including state-machines.''
 \end{response}
 
 \begin{comment}{Reviewer \#2}
@@ -227,7 +235,8 @@ verification problems.
 \end{comment}
 
 \begin{response}
-	\ColinInlineComment{Aaarrrrgh!}
+  \ColinInlineComment{Aaarrrrgh!}
+  \SonInlineComment{Should we say this as future work?}      
 \end{response}
 
 %%%%% Reviewer 2 (End) %%%%%
@@ -253,9 +262,7 @@ verification problems.
 \end{comment}
 
 \begin{response}
-	% \ColinInlineComment{ok we will have to spell it out. limitations of testing, need for instantiation etc. state explosion}
-  \KarlaInlineComment{Fixed - see below}
-  We have revised the sentence. "While functional properties (usually) can be tested, the need for instantiation and state space explosion can make testing of safety, security and reliability properties intractable. Therefore, such properties must be proved formally."
+  We have revised the sentence. ``While functional properties (usually) can be tested, the need for instantiation and state space explosion can make testing of safety, security and reliability properties intractable. Therefore, such properties must be proved formally.''
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -267,8 +274,7 @@ verification problems.
 \end{comment}
 
 \begin{response}
-\ColinInlineComment{Fixed - see below}
-Added "The binding is facilitated by translating to iUML-B, a diagrammatic modelling notation for Event-B."
+  The following is added ``The binding is facilitated by translating to iUML-B, a diagrammatic modelling notation for Event-B.''
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -278,8 +284,7 @@ Added "The binding is facilitated by translating to iUML-B, a diagrammatic model
 \end{comment}
 
 \begin{response}
-	\ColinInlineComment{Remove nicely written Intro and replace with some simple bullet points.}
-  \KarlaInlineComment{I like the way it reads right now.}
+  We have rewritten the paragraph using simple bullet points.
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -289,8 +294,7 @@ Added "The binding is facilitated by translating to iUML-B, a diagrammatic model
 \end{comment}
 
 \begin{response}
-	\ColinInlineComment{Fixed - see below}
-	Changed "run2completion" to "completion".
+	Changed ``run2completion'' to ``completion''.
 \end{response}
 
 
@@ -303,8 +307,7 @@ Added "The binding is facilitated by translating to iUML-B, a diagrammatic model
 \end{comment}
 
 \begin{response}
-	\ColinInlineComment{Fixed - see below}
-	Agree - the containment is an unnecessary technical detail. Changed "are contained within" to "relate to".
+	Agree - the containment is an unnecessary technical detail. Changed ``are contained within'' to ``relate to''.
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -315,8 +318,7 @@ Page 4:
 \end{comment}
 
 \begin{response}
-	\ColinInlineComment{Fixed - see below}
-	Agree - this is an unnecessary technical detail. Deleted  "while Event-B events are expected to already exist to represent the transitions".
+	Agree - this is an unnecessary technical detail. Deleted  ``while Event-B events are expected to already exist to represent the transitions''.
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -328,9 +330,7 @@ Page 4:
 \end{comment}
   
   \begin{response}
-  	% \ColinInlineComment{Add: "UML-B also provides the option of an alternative translation with a single state variable ranging over an enumerated type of states, however, the boolean representation of each state is more natural for a user to reference in SCXML guards and actions." }
-    \KarlaInlineComment{Fixed - see below}
-    In the interest of clarity we have added the following text: "iUML-B also provides the option of an alternative translation with a single state variable ranging over an enumerated type of states, however, the boolean representation of each state is more natural for a user to reference in SCXML guards and actions.""
+    In the interest of clarity we have added the following text: ``iUML-B also provides the option of an alternative translation with a single state variable ranging over an enumerated type of states, however, the boolean representation of each state is more natural for a user to reference in SCXML guards and actions.''
   \end{response}
   
 \begin{comment}{Reviewer \#3}
@@ -341,6 +341,7 @@ Page 4:
 
 \begin{response}
 	\ColinInlineComment{Aaarrrrgh!}
+        
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -353,8 +354,7 @@ Page 4:
 \end{comment}
 
 \begin{response}
-  \KarlaInlineComment{Fixed - see below}
-  The text has been changed to: "At this abstraction the spi\_done trigger, which indicates that the SPI system has finished, is an internal trigger that can be fired at any time."
+  The text has been changed to: ``At this abstraction the spi\_done trigger, which indicates that the SPI system has finished, is an internal trigger that can be fired at any time.''
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -362,7 +362,7 @@ Page 4:
 \end{comment}
 
 \begin{response}
-	\ColinInlineComment{agree}
+  Fixed, thank you very much.
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -370,7 +370,7 @@ Page 4:
 \end{comment}
 
 \begin{response}
-	\ColinInlineComment{agree}
+  Fixed, thank you very much.
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -382,10 +382,8 @@ Page 4:
 \end{comment}
 
 \begin{response}
-	% \ColinInlineComment{I don't understand, why do they think it is event refinement? It is just superposition of new states and events}
-  \KarlaInlineComment{Fixed - see below}
   To improve clarity we have revised the text to clearly state that 
-  the refinement used is superposition. "In a subsequent level of refinement, shown in Fig. 2b, the designer uses superposition refinement to add a parallel state representing the SPI subsystem."
+  the refinement used is superposition. ``In a subsequent level of refinement, shown in Fig. 2b, the designer uses superposition refinement to add a parallel state representing the SPI subsystem.''
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -393,8 +391,7 @@ Page 4:
 \end{comment}
 
 \begin{response}
-	\ColinInlineComment{Fixed - see below}
-	Agree - Here we are talking about the problem not the model. Changed to "This safety property should hold at the first refinement and be preserved in all future refinements"
+	Agree - Here we are talking about the problem not the model. Changed to ``This safety property should hold at the first refinement and be preserved in all future refinements''
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -402,7 +399,6 @@ Page 4:
 \end{comment}
 
 \begin{response}
-	\KarlaInlineComment{Fixed - see below}
   Agree - We have modified the figure.
 \end{response}
 
@@ -414,8 +410,7 @@ Page 4:
 \end{comment}
 
 \begin{response}
-  \KarlaInlineComment{Fixed - see below}
-  We have revised the sentence to: "Actions that modify ancillary data can be added to transitions.""
+  We have revised the sentence to: ``Actions that modify ancillary data can be added to transitions.''
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -423,8 +418,7 @@ Page 4:
 \end{comment}
 
 \begin{response}
-  \KarlaInlineComment{Fixed - see below}
-  We have revised the sentence for clarification. Changed to "External triggers represent inputs to the model. If not restrictions are imposed on the inputs then the events that raise external trigger are always unguarded and cannot be refined."
+  We have revised the sentence for clarification. Changed to ``External triggers represent inputs to the model. If not restrictions are imposed on the inputs then the events that raise external trigger are always unguarded and cannot be refined.''
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -434,7 +428,7 @@ Page 4:
 \end{comment}
 
 \begin{response}
-	\ColinInlineComment{I think we leave it. Other reviewers seem fine with it and it is supposed to be an in-depth discussion about the reasoning behind the translation. i would prefer not to introduce gratuitous headings}
+  The section is an in-depth discussion about the reasoning behind the translation and we would prefer not to introduce gratuitous (sub-)headings.
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -455,6 +449,7 @@ Page 4:
 
 \begin{response}
 	\ColinInlineComment{I think we leave it. Other reviewers seem fine with it and even said it was easy to understand. This reviewer seems to have difficulty with a lot of things and their comment is too general for us to know how to help them}
+        \SonInlineComment{Should we leave out this comment altogether?}
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -465,6 +460,7 @@ Page 4:
 
 \begin{response}
 	\ColinInlineComment{I think we leave it. Other reviewers seem fine with it and even said it was easy to understand. This reviewer seems to have difficulty with a lot of things and their comment is too general for us to know how to help them}
+        \SonInlineComment{Should we leave out this comment altogether?}
 \end{response}
 
 \begin{comment}{Reviewer \#3}
@@ -475,7 +471,6 @@ Page 4:
 %%%%% Reviewer 3 (End) %%%%%
 
 \begin{response}
-	\ColinInlineComment{Fixed - see below}
 	It was intended as shorthand for the three events: 'SCXML\_futureUntriggeredTransitionSet', 'SCXML\_futureInternalTransitionSet', 'SCXML\_futureExternalTransitionSet' but we have now listed them explicitly.
 \end{response}
 
