@@ -19,12 +19,24 @@ Hence we start from the following requirements which allow superposition refinem
 \end{itemize}
 While it would be possible to utilise \EventB's data refinement to perform more substantial \statechart refinements (for example replacing an abstract \statechart with a different one in the refined model), this would lead to complex proof obligations and is impractical when the \SCXML model is a single \Statechart (rather than a chain of refined models).
 
-Adherence to \EventB refinement means that refined transitions (hence micro- and macro-steps) should preserve the abstract state and new ones should not alter the abstract state. 
-%(An alternative approach that we are considering for future work takes the view that the macro-steps need not align and a micro-step may shift from one macro-step to another in a refinement). 
-With this approach, there is an inherent difficulty in refining `run to completion' semantics where every enabled micro-step must be completed before the next macro-step is started. 
-The problem is that, in a refinement, we want to strengthen the conditions for a micro-step. 
-However, by making the micro-steps more constrained we may disable them and hence make the completion of enabled ones more easily achieved. 
-This makes the guard for taking the next macro-step weaker breaking the notion of refinement.
+
+\begin{sloppypar}
+  Adherence to \EventB refinement means that refined transitions
+  (hence micro- and macro-steps) should preserve the abstract state
+  and new ones should not alter the abstract state.
+  % (An alternative approach that we are considering for future work
+  % takes the view that the macro-steps need not align and a
+  % micro-step may shift from one macro-step to another in a
+  % refinement).
+  With this approach, there is an inherent difficulty in refining `run
+  to completion' semantics where every enabled micro-step must be
+  completed before the next macro-step is started.  The problem is
+  that, in a refinement, we want to strengthen the conditions for a
+  micro-step.  However, by making the micro-steps more constrained we
+  may disable them and hence make the completion of enabled ones more
+  easily achieved.  This makes the guard for taking the next
+  macro-step weaker breaking the notion of refinement.
+\end{sloppypar}
 
 While it is always possible to abstract away sufficiently to reach a common semantics (see~\cite{Snook12:FMCO} for example), in this work we wish to explore verification that considers `run to completion' behaviour as closely as possible.    
 To simulate the `run to completion' semantics in \EventB, we initially adopted a scheduler approach where `engine' events decide which user transitions should be fired based on their guards. 

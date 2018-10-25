@@ -23,6 +23,7 @@ Therefore additional constraints, that are an abstraction of the missing details
 	\vspace{-.4cm}
 \end{figure}
 
+\begin{sloppypar}
 Fig.~\ref{fig:iumlb-verif} is the generated \iUMLB showing state invariants (textual properties with a star icon inside states) to be verified. Note that the invariants are added to the \SCXML model but are easier to visualise in the \iUMLB with the current tooling.
 The main aim is to show the property |Idle=TRUE| holds in state |Go|. 
 This is true because after sending the message while in |InitialiseSensor|, no other messages are triggered by the |ASIC|, so the |SPI| subsystem stays in the |Idle| state indefinitely. 
@@ -42,6 +43,7 @@ Hence the state invariant for |InitialiseSensor| becomes |spi_done∈SCXML_iq =>
 In order to prove this we again need a corresponding state invariant about |send_message| and need to make sure that the |SPI| system will never raise |send_message|.
 We also ensure it does not raise |spi_done| until it is finished. 
 With these invariants and additional guards the Rodin automatic provers are able to prove all proof obligations and hence verify that the |SPI| system remains in |Idle| after servicing the `Initialise Sensor' message.
+\end{sloppypar}
 
 In order to prove properties at an abstract level we constrain the behaviour to be added in later refinements. 
 For example, we needed to add a guard to specify that a transition does not raise a particular trigger in any future refinement. 
