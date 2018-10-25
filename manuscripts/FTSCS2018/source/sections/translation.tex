@@ -152,9 +152,13 @@ Fig.~\ref{fig:iumlb-verif} shows the generated \iUMLB first refinement level cor
 The main rules for the translation of SCXML features to iUML-B/Event-B can be summarized as follow:
 
 \begin{description}
-\item[Top level SCXML model:] Generates a refinement chain of \EventB machines each containing an initialisation event and a \iUMLB state-machine.
-The depth of the refinement chain is found by searching the \SCXML for the maximum refinement annotation.
-
+\item[Top level SCXML model:] 
+  \begin{sloppypar}
+    Generates a refinement chain of \EventB machines each containing
+    an initialisation event and a \iUMLB state-machine.  The depth of
+    the refinement chain is found by searching the \SCXML for the
+    maximum refinement annotation.
+  \end{sloppypar}
 %\item[Top level invariant:] An invariant owned by an \EventB machine produced from the containing \SCXML. Added only at the refinement level defined in the invariant (default 0) 
 
 \item[State:] Generates a state in the \iUMLB state-machine that has been produced from the container of the \SCXML state. 
