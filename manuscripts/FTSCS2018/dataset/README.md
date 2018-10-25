@@ -1,7 +1,7 @@
 READ ME File for 'Requirements document, scenarios, and Event-B models for lift examples'
 =========================================================================================
 
-**Dataset DOI:**  To be updated
+**Dataset DOI:**  https://doi.org/10.5258/SOTON/D0693
 
 **Authors:** Colin Snook (University of Southampton, U.K.) and Karla Morris (Sandia National Laboratories, Livermore, California, U.S.A.)
 
@@ -10,12 +10,13 @@ READ ME File for 'Requirements document, scenarios, and Event-B models for lift 
 *Title:* Refinement of Statecharts with Run-to-Completion Semantics
 *Event:* FTSCS 2018 - The 6th International Workshop on Formal Techniques for Safety-Critical Systems 
 *Location:* Gold Coast, Australia
+*Event Date:* 16th November 2018
 
 This dataset contains:
 ======================
-- *ac.soton.prototypes.updateSite.zip* An Eclipse update site for (prototype) Rodin plug-ins
+- *ac.soton.prototypes.updateSite.zip* An archived Eclipse update site containing (prototype) Rodin plug-ins
 
-- *SecBot_generated.zip* The archive of the development of the SecBot Case study using the prototype plug-ins.
+- *SecBot_generated.zip* The archive of the development of the SecBot Case study (models) using the prototype plug-ins.
 
 **Date of data collection:** May--September 2018
 
