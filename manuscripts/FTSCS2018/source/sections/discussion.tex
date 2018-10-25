@@ -12,9 +12,9 @@ Hence we start from the following requirements which allow superposition refinem
 	\item The firing conditions of a transition can be strengthened by adding further textual constraints about the state of other variables and state machines in the system.
 	\item The firing conditions of a transition can be strengthened by being more specific about the (nested) source state,
 	\item Nested \Statecharts can be added in refinements.
-	\item \KarlaAdd{Actions that modify ancillary data can be added to transitions.} \KarlaDelete{Ancillary data, with corresponding actions to alter it, can be added to transitions.}
-	\item Raise actions can be added to transitions to define how internal triggers are raised. These internal triggers may have already been introduced and used to trigger transitions, in which case they are non-deterministically raised at the abstract levels. \KarlaDelete{(Note that external triggers are always unguarded and cannot be refined).}
-	\item \KarlaAdd{External triggers represent inputs to the model. If no restrictions are imposed on the inputs then the events that raise external trigger are always unguarded and cannot be refined.}
+	\item Actions that modify ancillary data can be added to transitions.
+	\item Raise actions can be added to transitions to define how internal triggers are raised. These internal triggers may have already been introduced and used to trigger transitions, in which case they are non-deterministically raised at the abstract levels.
+	\item External triggers represent inputs to the model. If no restrictions are imposed on the inputs then the events that raise external trigger are always unguarded and cannot be refined.
 	\item Invariants can be added to states to specify properties that hold while in that state.
 \end{itemize}
 While it would be possible to utilise \EventB's data refinement to perform more substantial \statechart refinements (for example replacing an abstract \statechart with a different one in the refined model), this would lead to complex proof obligations and is impractical when the \SCXML model is a single \Statechart (rather than a chain of refined models).
@@ -55,13 +55,13 @@ To allow for strengthening of the guards  in refinement we omit the negation of 
 leaving the choice of lesser combinations, including the empty one, non-deterministically available in case of future refinement.
 For example, T1 could fire alone even if T2 is enabled since we cannot add the negation of T2's guard to T1 unless we know that it will never be strengthened. 
 This non-determinism in the model accurately reflects the abstract run to completion where we do not yet know whether T2 will be enabled or not in future refinements.
-\ColinAdd{The non-determinism is useful to allow abstractions which facilitate verification proofs but must be removed in refinements to reach a design suitable for implementation.}
+The non-determinism is useful to allow abstractions which facilitate verification proofs but must be removed in refinements to reach a design suitable for implementation.
 In future work we intend to add an attribute \emph{finalised} to indicate that no further guard strengthening refinements will be made to a transition, removing non-determinism throughout the refinement chain.
 
 
 Since there is only ever a single event to be fired in a particular micro-step, the scheduler can be integrated with the events that represent the transition combinations, greatly simplifying the Event-B model.
 Instead of explicit events to progress and implement the scheduling engine, an abstract machine is provided with events that can be refined by the translation of the user's \SCXML model into events that represent combinations of transitions that can fire in the same micro-step.
-\ColinAdd{Each refinement produces a new set of events representing the (possibly extended) transition combinations that may occur at that level of refinement.} 
+Each refinement produces a new set of events representing the (possibly extended) transition combinations that may occur at that level of refinement.
 This has benefits both for simulation (i.e. execution of the \statechart for validation) which is easier to follow having less translation artefacts and for proof where the obligations are directly associated with particular transition combinations. 
 Another benefit is that any parallel assignments to the same variable are rejected by the Event-B static checker.
 The disadvantage, of course, is that there could be a combinatorial explosion in the number of events generated.

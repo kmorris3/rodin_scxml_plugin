@@ -13,11 +13,10 @@ abstraction/refinement, providing a natural divide and conquer
 strategy for controlling complexity.
 
 \Statecharts~\cite{Harel} are often used for safety-critical and other high-consequence systems to provide an unambiguous, executable way of specifying functional as well as safety, security, and reliability properties. 
-\KarlaAdd{While functional properties (usually) can be tested, the need for instantiation and state space explosion can make testing of safety, security and reliability properties intractable. Therefore, such properties must be proved formally.} 
-\KarlaDelete{While functional properties (usually) can be tested, safety, security and reliability properties (usually) must be proved formally.}
+While functional properties (usually) can be tested, the need for instantiation and state space explosion can make testing of safety, security and reliability properties intractable. Therefore, such properties must be proved formally.
 
 Here we give a binding from \Statecharts to \EventB~\cite{abrial10:_model_event_b} so that this type of reasoning can be carried out.
-\ColinAdd{The binding is facilitated by translating to \mbox{\iUMLB~\cite{snook14:_b_statem,Snook2006,Snook12:FMCO}}, a diagrammatic modelling notation for \mbox{\EventB.}}
+The binding is facilitated by translating to \mbox{\iUMLB~\cite{snook14:_b_statem,Snook2006,Snook12:FMCO}}, a diagrammatic modelling notation for \mbox{\EventB.}
 Hierarchical encapsulation maps well onto \Statecharts in a similar way to nested state-machines in \iUMLB.
 Binding UML \Statecharts~\cite{Rumbaugh2004} to \iUMLB is natural and the addition of run-to-completion semantics, expected by \Statechart
 designers, is much of the contribution of this work.  
@@ -47,7 +46,7 @@ With suitable restrictions, \Statecharts already provide a sound, intuitive, vis
 Outfitted with a formal semantics, this work borrows from well-used \Statechart practices in digital design.  
 We previously reported~\cite{Morris_2016} our early attempts to relate \Statecharts to \EventB. 
 At that stage (and similarly in\mbox{~\cite{Snook12:FMCO}}) we suggested the necessary extensions and basic mechanism of translation but avoided the more challenging problem of refinement with run to completion semantics. 
-The goal of the present work is to provide usable, well-founded tools that are familiar to designers of safety-critical systems with the formal guarantees needed to ensure safety and reliability. \SonAdd{The motivation of the work is entirely driven by the industrial partner, who feels that the current sematics for \mbox{\Statecharts} is insufficient for formal verification.}
+The goal of the present work is to provide usable, well-founded tools that are familiar to designers of safety-critical systems with the formal guarantees needed to ensure safety and reliability. The motivation of the work is entirely driven by the industrial partner, who feels that the current sematics for \mbox{\Statecharts} is insufficient for formal verification.
 
 % UML \Statechart semantics are not the only formal
 % semantics that can be bound to the \Statechart graphical
@@ -58,12 +57,12 @@ The goal of the present work is to provide usable, well-founded tools that are f
 % Argos, for example, views cascading transitions as instantaneous and
 % simultaneous rather than the queue-based semantics adopted here.
 
-\KarlaAdd{The \mbox{\EventB} modelling method provides the logic and refinement
+The \mbox{\EventB} modelling method provides the logic and refinement
 theory required to formally analyse a system model.  The open-source
 \mbox{\Rodin} provides support for \mbox{\EventB} including automatic theorem provers and 
 model checking capabilities.  
 \mbox{\iUMLB} augments the \mbox{\EventB} language with a graphical interface including
-state-machines.} 
+state-machines.
 
 % With suitable restrictions, \Statecharts already provide a sound,
 % intuitive, visual metaphor for refinement. Outfitted with a formal
