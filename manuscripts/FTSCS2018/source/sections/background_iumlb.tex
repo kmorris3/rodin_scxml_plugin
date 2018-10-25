@@ -4,8 +4,8 @@
 \label{sec:iumlb}
 
 \iUMLB provides a diagrammatic modelling notation for \EventB in the form of state-machines and class diagrams. 
-The diagrammatic models \ColinChange{are contained within}{relate to} an \EventB machine and generate or contribute to parts of it. 
-For example a state-machine will automatically generate the \EventB data elements (sets, constants, axioms, variables, and invariants) to implement the states \ColinDelete{while EventB events are expected to already exist to represent the transitions}. 
+The diagrammatic models relate to an \EventB machine and generate or contribute to parts of it. 
+For example a state-machine will automatically generate the \EventB data elements (sets, constants, axioms, variables, and invariants) to implement the states. 
 Transitions contribute further guards and actions representing their state change, to the events that they elaborate.  
 State-machines are typically refined by adding nested state-machines to states.
 Figure~\ref{fig:iumlb-sm} shows an example of a simple state-machine with two states.
@@ -28,8 +28,7 @@ The \EventB translation%
   Here, $\mathrm{partition(S, T1, T2, \ldots)}$ means the set $S$ is partitioned into disjoint (sub-)sets $T1, T2, \ldots$.
 that cover $S$} 
 of the state-machine in Figure~\ref{fig:iumlb-sm} can be seen in Listing~\ref{lst:eventb-sm}.
-\iUMLB \KarlaAdd{also provides the option of an alternative translation with a single state variable ranging over an enumerated type of states, however, the boolean representation of each state is more natural for a user to reference in} 
-\SCXML \KarlaAdd{guards and actions.}
+\iUMLB also provides the option of an alternative translation with a single state variable ranging over an enumerated type of states, however, the boolean representation of each state is more natural for a user to reference in \SCXML guards and actions.
 	
 While the \iUMLB translation deals with the basic data formalisation of state-machines it differs significantly from the aims of the work presented here. 
 \iUMLB adopts \EventB's simple guarded action semantics and does not have a concept of triggers and run-to-completion.
