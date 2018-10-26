@@ -13,19 +13,19 @@ In a subsequent level of refinement, shown in Fig.~\ref{fig:ASIC_SPI_1}, the des
 \textbf{send\_message}, which is non-deterministic at this point.
 
 \begin{figure*}[!tb]\centering
-	    \begin{subfigure}[t]{0.3\textwidth}
-	        \begin{centering}
+	    \subfloat[][\ASIC component high level abstraction]{
+%	        \begin{centering}
 	        \includegraphics[height=2.5in]{figures/ASIC}
-	        \caption{\ASIC component high level abstraction}
-	        \label{fig:ASIC}
-	        \end{centering}
-	    \end{subfigure}
-\qquad
-	    \begin{subfigure}[t]{0.5\textwidth}
+%	        \end{centering}
+                \label{fig:ASIC}
+	    }
+            \hspace{2em}
+	    \subfloat[][First refinement introducing the abstract model of the \SPI subsystem]{
+  %            \begin{centering}
 	        \includegraphics[height=2.5in]{figures/ASIC&SPI_1}
-	        \caption{First refinement introducing the abstract model of the \SPI subsystem.}
-	        \label{fig:ASIC_SPI_1}
-	    \end{subfigure}
+    %          \end{centering}
+              \label{fig:ASIC_SPI_1}
+	    }
 	    \caption{\Statechart diagram for \IDS including the abstract representation of the \ASIC and \SPI components.}
 \end{figure*}
 
