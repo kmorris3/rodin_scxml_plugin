@@ -1,11 +1,20 @@
 % !TEX root = ../SCXMLREF.tex
 
-\section{Conclusion}
-\label{sec:conclusion}
-We have shown how a slightly extended and annotated \statechart, with a typical 'run to completion' semantic, can be translated into the \EventB notation for verification of synchronisation properties using the \EventB theorem proving tools.
-Furthermore, borrowing from the refinement concepts of \EventB, we introduce a notion of refinement to \statecharts and demonstrate how the proof of a property at an abstract level, helps formulate constraints that must apply (and will be verified to do so) in further refinements.
+\section{Future Work.}
+\label{sec:future}
+In future work we will continue to experiment with different examples to explore the alternative translation strategies in more detail. 
+In particular, further work on refinement of the micro/macro-step and whether correspondence of macro-steps can be relaxed; whether more complex refinement techniques could be supported (for example, using ranges in refinement annotations) would be useful; supporting/comparing alternative variations of semantics (by generating a different basis/scheduler for the translation).
+For our interpretation of \statecharts in \iUMLB, we used the `run-to-completion' semantics of \statecharts.  In particular, we have carefully designed our translated model such that the semantics is captured as a generic abstract model, which is subsequently refined by the translation of the \SCXML model.  An advantage of this approach is that we can easily adapt the basis model with other alternative semantics~\mbox{\cite{Eshuis_2009}} without changing the translation of the \SCXML model. 
 
-\paragraph{Related Work.} Refinement of UML \statecharts has been  studied previously in~\cite{MeNaBa04,SzVi10,MiCa14,HaSyLu15,LiMiCaCoTySaHaLaLe17}. 
+We will also demonstrate the scalability of the translation on more realistic industrial examples. 
+The Haemodialysis Machine case study~\mbox{\cite{Mashkoor16}} from the ABZ 2016 conference would make a good test case since its highly sequential processes are natural for a state-chart representation and results can be compared with existing \mbox{\iUMLB} solutions~\mbox{\cite{HoSnLaBu16}}. 
+The ERTMS Hybrid Level 3 case study~\mbox{\cite{HoBuRe18}} from the ABZ 2018 conference is also an industrial example which would test the method. 
+This case study would require lifting of the output models to a generalised set of instances using a model composition technique that we have been developing for this purpose.
+
+
+\section{Related Work.} 
+\label{sec:related}
+Refinement of UML \statecharts has been  studied previously in~\cite{MeNaBa04,SzVi10,MiCa14,HaSyLu15,LiMiCaCoTySaHaLaLe17}. 
 In~\cite{MeNaBa04}, the authors consider a coalgebraic description of UML \statecharts, and define an equivalence relationship and a behavioural refinement notion between \statecharts. 
 In~\cite{SzVi10}, the authors define a structured operational semantics of \statecharts based on label transition systems.  
 Behaviour refinements are then constructed based on this semantics. 
@@ -18,14 +27,10 @@ This refinement process is similar to \EventB ``superposition'' refinement which
 In our paper, we focus on the run-to-completion semantics of \statecharts, whereas none of the above work deals with it explicitly. 
 Furthermore, the refinement process supported in~\cite{MeNaBa04,MiCa14,HaSyLu15,LiMiCaCoTySaHaLaLe17} is based on refinement patterns (called refinement rules/laws), whereas we rely on the more general theory of refinement, given by the proof obligations of \EventB, for proving the refinement relationship between \statecharts.
 
-\paragraph{Future Work.} In future work we will continue to experiment with different examples to explore the alternative translation strategies in more detail. 
-In particular, further work on refinement of the micro/macro-step and whether correspondence of macro-steps can be relaxed; whether more complex refinement techniques could be supported (for example, using ranges in refinement annotations) would be useful; supporting/comparing alternative variations of semantics (by generating a different basis/scheduler for the translation).
-For our interpretation of \statecharts in \iUMLB, we used the `run-to-completion' semantics of \statecharts.  In particular, we have carefully designed our translated model such that the semantics is captured as a generic abstract model, which is subsequently refined by the translation of the \SCXML model.  An advantage of this approach is that we can easily adapt the basis model with other alternative semantics~\mbox{\cite{Eshuis_2009}} without changing the translation of the \SCXML model. 
-
-	We will also demonstrate the scalability of the translation on more realistic industrial examples. 
-	The Haemodialysis Machine case study~\mbox{\cite{Mashkoor16}} from the ABZ 2016 conference would make a good test case since its highly sequential processes are natural for a state-chart representation and results can be compared with existing \mbox{\iUMLB} solutions~\mbox{\cite{HoSnLaBu16}}. 
-	The ERTMS Hybrid Level 3 case study~\mbox{\cite{HoBuRe18}} from the ABZ 2018 conference is also an industrial example which would test the method. 
-	This case study would require lifting of the output models to a generalised set of instances using a model composition technique that we have been developing for this purpose.
+\section{Conclusion}
+\label{sec:conclusion}
+We have shown how a slightly extended and annotated \statechart, with a typical 'run to completion' semantic, can be translated into the \EventB notation for verification of synchronisation properties using the \EventB theorem proving tools.
+Furthermore, borrowing from the refinement concepts of \EventB, we introduce a notion of refinement to \statecharts and demonstrate how the proof of a property at an abstract level, helps formulate constraints that must apply (and will be verified to do so) in further refinements.
 
 
 %%% Local Variables: 
