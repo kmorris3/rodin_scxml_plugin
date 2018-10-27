@@ -13,20 +13,23 @@ In a subsequent level of refinement, shown in Fig.~\ref{fig:ASIC_SPI_1}, the des
 \textbf{send\_message}, which is non-deterministic at this point.
 
 \begin{figure*}[!tb]\centering
-	    \subfloat[][\ASIC component high level abstraction]{
-%	        \begin{centering}
-	        \includegraphics[height=2.5in]{figures/ASIC}
-%	        \end{centering}
-                \label{fig:ASIC}
-	    }
-            \hspace{2em}
-	    \subfloat[][First refinement introducing the abstract model of the \SPI subsystem]{
-  %            \begin{centering}
-	        \includegraphics[height=2.5in]{figures/ASIC&SPI_1}
-    %          \end{centering}
-              \label{fig:ASIC_SPI_1}
-	    }
-	    \caption{\Statechart diagram for \IDS including the abstract representation of the \ASIC and \SPI components.}
+  \subfloat[][\ASIC component high level abstraction]{
+    \begin{minipage}{0.35\textwidth}
+      \centering
+      \includegraphics[height=2.5in]{figures/ASIC}
+    \end{minipage}
+    \label{fig:ASIC}
+  }
+  \hfill
+  \subfloat[][First refinement introducing the abstract model of the
+  \SPI subsystem]{
+    \begin{minipage}{0.55\textwidth}
+      \centering
+      \includegraphics[height=2.5in]{figures/ASIC&SPI_1}
+    \end{minipage}
+    \label{fig:ASIC_SPI_1}
+  }
+  \caption{\Statechart diagram for \IDS including the abstract representation of the \ASIC and \SPI components.}
 \end{figure*}
 
 The model can be further refined by incorporating more details on how the initialisation states, the wait state, and the \SPI subsystem operate, including how they interact with each other. The \statechart diagram for this refinement level is in Fig.~\ref{fig:ASIC_SPI_2}. The \textbf{Initialise Buzzer} state constructs the \SPI message to send, then raises the \textbf{send\_message} trigger, and then waits.
