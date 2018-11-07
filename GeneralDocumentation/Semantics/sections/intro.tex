@@ -1,0 +1,42 @@
+% !TEX root = ../SCXMLREF.tex
+
+\section{Introduction}
+\label{sec:introduction}
+
+\subsection{Signature}
+A (UML-B) state-machine is a tuple |SM, S, T, r, o, c, i| where
+\SonInlineComment{This is just the ``syntax'' of state-machines. It is (necessarily) incomplete and missing several constraints, e.g., the owner and contain relationship should form tree-like relationship between state-machines}
+\begin{itemize}
+\item |SM| is a set of state-machines,
+
+\item |S| is the set of states,
+
+\item |T !: S <-> S| is the set of transitions between states,
+
+\item |r !: SM| is the root state machine,
+
+\item |o !: S --> SM| is the ownership relationship between states and state-machines,
+
+\item |c !: SM \ {r} --> S| is the containment relationship between nested state-machines (i.e., except the root machine) and their containing state.
+
+\item |i !: !POW(S)| is the initial states.
+\SonInlineComment{Are these different from the states that reach from the INITIALISATION}
+\end{itemize}
+
+\subsection{Semantics}
+Each UML-B state-machine |SM, S, T, r, o, c, i| corresponding to a transition system |States, trns|.
+\begin{itemize}
+\item |States <: SM +-> S|: The state is an evaluation of statemachine to the current state of that state-machine.
+  \SonInlineComment{There are some well-definedness condition here}
+  \begin{itemize}
+  \item |!sm, State . State !: States & sm !: dom(State) => o(State(sm)) !: sm| 
+  \end{itemize}
+
+\item |trns : States ** T +-> States|: Label transition from states to states.
+\end{itemize}
+\SonInlineComment{We should define how to map transitions \EventBinline{T} to label transition \EventBinline{trns}}.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../SCXMLREF.tex"
+%%% End: 
