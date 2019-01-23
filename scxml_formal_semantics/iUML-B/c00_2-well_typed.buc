@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.comment="This context defines the notion of &quot;well-typed&quot; for some attributes of the State-machine-extension ADT." org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.extendsContext name="'" org.eventb.core.target="c00_1-state_machine_extensions"/>
+<org.eventb.core.constant de.prob2.rodin.symbolic.symbolicAttribute="false" de.prob2.rodin.units.inferredUnitPragmaAttribute="" de.prob2.rodin.units.unitPragmaAttribute="" name="cst2" org.eventb.core.identifier="root_state_machine_WT"/>
+<org.eventb.core.constant de.prob2.rodin.symbolic.symbolicAttribute="false" de.prob2.rodin.units.inferredUnitPragmaAttribute="" de.prob2.rodin.units.unitPragmaAttribute="" name="cst1" org.eventb.core.identifier="owners_WT"/>
+<org.eventb.core.axiom name="cst3" org.eventb.core.label="root_state_machine_WT−DEF" org.eventb.core.predicate="root_state_machine_WT = (&#10;  λ sme · sme ∈ StateMachineExtensions&#10;    ∣&#10;    bool(root_state_machine(sme) ∈ state_machines(sme))&#10;)"/>
+<org.eventb.core.axiom name="cst4" org.eventb.core.label="root_state_machine_WT−TYPE" org.eventb.core.predicate="root_state_machine_WT ∈ StateMachineExtensions → BOOL" org.eventb.core.theorem="true"/>
+<org.eventb.core.axiom name="axm1" org.eventb.core.label="owners_WT-DEF" org.eventb.core.predicate="owners_WT = (&#10;  λ sme · sme ∈ StateMachineExtensions&#10;   ∣&#10;    bool(owners(sme) ∈ nodes(sme) → state_machines(sme))&#10;)"/>
+<org.eventb.core.axiom name="axm2" org.eventb.core.label="owners_WT−TYPE" org.eventb.core.predicate="owners_WT ∈ StateMachineExtensions → BOOL" org.eventb.core.theorem="true"/>
+<org.eventb.core.constant de.prob2.rodin.symbolic.symbolicAttribute="false" de.prob2.rodin.units.inferredUnitPragmaAttribute="" de.prob2.rodin.units.unitPragmaAttribute="" name="cst5" org.eventb.core.identifier="containers_WT"/>
+<org.eventb.core.axiom name="cst6" org.eventb.core.label="containers_WT-DEF" org.eventb.core.predicate="containers_WT = (&#10;  λ sme · sme ∈ StateMachineExtensions&#10;    ∣&#10;    bool(containers(sme) ∈ state_machines(sme) ∖ {root_state_machine(sme)} → nodes(sme))&#10;)"/>
+<org.eventb.core.axiom name="cst7" org.eventb.core.label="containers_WT−TYPE" org.eventb.core.predicate="containers_WT ∈ StateMachineExtensions → BOOL" org.eventb.core.theorem="true"/>
+</org.eventb.core.contextFile>

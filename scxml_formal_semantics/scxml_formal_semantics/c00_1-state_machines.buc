@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.comment="This context models the set of state-machines" org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="3">
+    <org.eventb.core.extendsContext name="cst6" org.eventb.core.target="c00_0-nodes"/>
+    <org.eventb.core.axiom name="axm3" org.eventb.core.comment="Typing information." org.eventb.core.generated="false" org.eventb.core.label="nodes−TYPE" org.eventb.core.predicate="nodes ∈ ℙ(NODE)"/>
+    <org.eventb.core.axiom name="axm2" org.eventb.core.comment="Typing information." org.eventb.core.generated="false" org.eventb.core.label="state_machines−TYPE" org.eventb.core.predicate="state_machines ∈ NODE"/>
+    <org.eventb.core.axiom name="set6" org.eventb.core.comment="Typing information." org.eventb.core.generated="false" org.eventb.core.label="root_state_machines−TYPE" org.eventb.core.predicate="root_state_machine ∈ NODE"/>
+    <org.eventb.core.constant name="set3" org.eventb.core.comment="Attribute &quot;state_machines&quot;" org.eventb.core.generated="false" org.eventb.core.identifier="state_machines"/>
+    <org.eventb.core.constant name="set5" org.eventb.core.comment="Attribute &quot;root_state_machine&quot;" org.eventb.core.generated="false" org.eventb.core.identifier="root_state_machine"/>
+    <org.eventb.core.constant name="cst3" org.eventb.core.comment="Attribute &quot;nodes&quot;" org.eventb.core.generated="false" org.eventb.core.identifier="nodes"/>
+    <org.eventb.core.constant name="cst7" org.eventb.core.comment="Attribute &quot;owners&quot;" org.eventb.core.generated="false" org.eventb.core.identifier="owners"/>
+    <org.eventb.core.axiom name="cst8" org.eventb.core.comment="Typing information." org.eventb.core.generated="false" org.eventb.core.label="owners-TYPE" org.eventb.core.predicate="owners ∈ NODE ↔ NODE"/>
+</org.eventb.core.contextFile>

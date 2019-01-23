@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+<org.eventb.core.seesContext name="*" org.eventb.core.target="c00-state_machines_extensions_id"/>
+<org.eventb.core.seesContext name="2" org.eventb.core.target="c00_0-nodes"/>
+<org.eventb.core.seesContext name="inv2" org.eventb.core.target="c00_0-state_machines"/>
+<org.eventb.core.variable name="(" org.eventb.core.identifier="ids"/>
+<org.eventb.core.event name="3" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="ids ≔ ∅" org.eventb.core.label="init−ids"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="sms ≔ ∅" org.eventb.core.label="init-sms"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="rsm ≔ ∅" org.eventb.core.label="init-rsm"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="nds ≔ ∅" org.eventb.core.label="init-nds"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="4" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="SME_Creates">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="nid"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="nid ∉ ids"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="ids ≔ ids ∪ {nid}" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="sms(nid) ≔ {sm}" org.eventb.core.label="act2"/>
+<org.eventb.core.parameter name="+" org.eventb.core.identifier="sm"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd2" org.eventb.core.predicate="sm ∈ STATE_MACHINE"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="rsm(nid) ≔ sm" org.eventb.core.label="act3"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="nds(nid) ≔ ∅" org.eventb.core.label="act4"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="5" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="SM_AddsNode">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="sid"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="sm"/>
+<org.eventb.core.parameter name=")" org.eventb.core.identifier="nd"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd1" org.eventb.core.predicate="sid ∈ ids"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd2" org.eventb.core.predicate="sm ∈ sms(sid)"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="nd ∉ nds(sid)"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="nds(sid) ≔ nds(sid) ∪ {nd}" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="6" org.eventb.core.identifier="sms"/>
+<org.eventb.core.invariant name="inv1" org.eventb.core.label="ids−TYPE" org.eventb.core.predicate=" ids ⊆ SME_ID" org.eventb.core.theorem="true"/>
+<org.eventb.core.invariant name="9" org.eventb.core.label="sms−TYPE" org.eventb.core.predicate="sms ∈ ids → ℙ(STATE_MACHINE)"/>
+<org.eventb.core.variable name=":" org.eventb.core.identifier="rsm"/>
+<org.eventb.core.invariant name=";" org.eventb.core.label="rsm-TYPE" org.eventb.core.predicate="rsm ∈ ids → STATE_MACHINE"/>
+<org.eventb.core.variable name="&gt;" org.eventb.core.identifier="nds"/>
+<org.eventb.core.invariant name="?" org.eventb.core.label="nds-TYPE" org.eventb.core.predicate="nds ∈ ids → ℙ(NODE)"/>
+</org.eventb.core.machineFile>

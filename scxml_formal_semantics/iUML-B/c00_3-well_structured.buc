@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.comment="This context defines the notion of &quot;well-structured&quot; State-machine-extension ADT." org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.extendsContext name="'" org.eventb.core.target="c00_2-well_typed"/>
+<org.eventb.core.constant de.prob2.rodin.symbolic.symbolicAttribute="false" de.prob2.rodin.units.inferredUnitPragmaAttribute="" de.prob2.rodin.units.unitPragmaAttribute="" name="(" org.eventb.core.comment="The predicate &quot;sme_well_structured&quot; for state-machine extensions." org.eventb.core.identifier="sme_well_structured"/>
+<org.eventb.core.axiom name=")" org.eventb.core.comment="DEFINITION" org.eventb.core.label="sme_well_structured−DEF" org.eventb.core.predicate="&#9;sme_well_structured = (&#10;  λ sme · sme ∈ StateMachineExtensions&#10;    ∣&#10;    bool(&#10;      root_state_machine_WT(sme) = TRUE ∧&#10;      owners_WT(sme) = TRUE ∧&#10;      containers_WT(sme) = TRUE ∧&#10;      tree(root_state_machine(sme) ↦ state_machines(sme) ↦ parents(sme)) = TRUE&#10;    )&#10;)"/>
+<org.eventb.core.extendsContext name="*" org.eventb.core.target="c00_2-tree_shaped"/>
+<org.eventb.core.axiom name="+" org.eventb.core.comment="Typing information." org.eventb.core.label="sme_well_structured−TYPE" org.eventb.core.predicate="sme_well_structured ∈ StateMachineExtensions → BOOL" org.eventb.core.theorem="true"/>
+<org.eventb.core.extendsContext name="," org.eventb.core.target="c00_2-sme_derived"/>
+</org.eventb.core.contextFile>

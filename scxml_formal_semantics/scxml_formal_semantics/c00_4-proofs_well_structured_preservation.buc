@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.comment="This context states the preservations of well-structured state-machine extensions&#10;by the operators of the State-machine-extension ADT." org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.extendsContext name="'" org.eventb.core.target="c00_3-well_structured"/>
+<org.eventb.core.extendsContext name="(" org.eventb.core.target="c00_3-sme_create"/>
+<org.eventb.core.axiom name="+" org.eventb.core.label="sme_create−well_structured" org.eventb.core.predicate="∀sm·sm ∈ STATE_MACHINE ⇒ sme_well_structured(sme_create(sm)) = TRUE" org.eventb.core.theorem="true"/>
+<org.eventb.core.axiom name=")" org.eventb.core.label="sm_add_node−well_structured" org.eventb.core.predicate="∀sme,sm,nd·&#10;  sme↦sm↦nd ∈ dom(sm_add_node) ∧ sme_well_structured(sme) = TRUE&#10; ⇒&#10;  sme_well_structured(sm_add_node(sme↦sm↦nd)) = TRUE" org.eventb.core.theorem="true"/>
+<org.eventb.core.extendsContext name="*" org.eventb.core.target="c00_3-sm_add_node"/>
+<org.eventb.core.axiom name="," org.eventb.core.label="sm_delete_node−well_structured" org.eventb.core.predicate="∀sme,nd·&#10;  sme↦nd ∈ dom(sm_delete_node) ∧ sme_well_structured(sme) = TRUE&#10; ⇒&#10;  sme_well_structured(sm_delete_node(sme↦nd)) = TRUE" org.eventb.core.theorem="true"/>
+<org.eventb.core.extendsContext name="-" org.eventb.core.target="c00_3-sm_delete_node"/>
+</org.eventb.core.contextFile>

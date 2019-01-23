@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.comment="This context defines the tree-shaped on state-machine." org.eventb.core.configuration="org.eventb.core.fwd" version="3">
+<org.eventb.core.extendsContext name="'" org.eventb.core.target="c00_1-state_machines_closure"/>
+<org.eventb.core.constant de.prob2.rodin.symbolic.symbolicAttribute="false" de.prob2.rodin.units.inferredUnitPragmaAttribute="" de.prob2.rodin.units.unitPragmaAttribute="" name="(" org.eventb.core.comment="The &quot;tree&quot; &quot;predicate&quot;." org.eventb.core.identifier="tree"/>
+<org.eventb.core.axiom name="+" org.eventb.core.comment="Definition: the root state-machine @rsm is reachable from any node @sm except itself via the parents relationship @prn." org.eventb.core.label="tree−DEF" org.eventb.core.predicate="tree = (λ rsm↦sms↦prn · &#10;          rsm ∈ STATE_MACHINE ∧ rsm ∈ sms ∧ prn ∈ sms ∖ {rsm} → sms&#10;        ∣&#10;          bool(&#10;            (∀sm·sm ∈ sms ∖ {rsm} ⇒ rsm ∈ cl(prn)[{sm}])&#10;          )&#10;)"/>
+<org.eventb.core.axiom name=")" org.eventb.core.comment="Typing information" org.eventb.core.label="tree-TYPE" org.eventb.core.predicate="tree ∈ STATE_MACHINE × ℙ(STATE_MACHINE) × (STATE_MACHINE ⇸ STATE_MACHINE) ⇸ BOOL" org.eventb.core.theorem="true"/>
+<org.eventb.core.axiom name="*" org.eventb.core.comment="WD condition." org.eventb.core.label="tree−WD" org.eventb.core.predicate="dom(tree) = {rsm↦sms↦prn ∣ rsm ∈ sms ∧ prn ∈ sms ∖ {rsm} → sms}" org.eventb.core.theorem="true"/>
+</org.eventb.core.contextFile>

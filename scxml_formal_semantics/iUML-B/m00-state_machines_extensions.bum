@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+<org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="ids ≔ ∅" org.eventb.core.label="init−ids"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="smes ≔ ∅" org.eventb.core.label="init−smes"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="(" org.eventb.core.identifier="ids"/>
+<org.eventb.core.invariant name=")" org.eventb.core.label="ids−TYPE" org.eventb.core.predicate=" ids ⊆ SME_ID" org.eventb.core.theorem="true"/>
+<org.eventb.core.seesContext name="*" org.eventb.core.target="c00-state_machines_extensions_id"/>
+<org.eventb.core.event name="," org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="SME_Creates">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="nid"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="nid ∉ ids"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="ids ≔ ids ∪ {nid}" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="smes(nid) ≔ sme_create(sm)" org.eventb.core.label="act2"/>
+<org.eventb.core.parameter name="+" org.eventb.core.identifier="sm"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd2" org.eventb.core.predicate="sm ∈ STATE_MACHINE"/>
+<org.eventb.core.guard name="grd2" org.eventb.core.label="COPY−sme_create−TYPE" org.eventb.core.predicate="sme_create ∈ STATE_MACHINE → StateMachineExtensions" org.eventb.core.theorem="true"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="COPY−sme_create−well_structured" org.eventb.core.predicate="∀bsm·bsm ∈ STATE_MACHINE ⇒ sme_well_structured(sme_create(bsm)) = TRUE" org.eventb.core.theorem="true"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="-" org.eventb.core.identifier="smes"/>
+<org.eventb.core.invariant name="." org.eventb.core.label="smes−TYPE" org.eventb.core.predicate="smes ∈ ids → StateMachineExtensions"/>
+<org.eventb.core.event name="4" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="SME_Removes">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="sid"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="sid ∈ ids"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="ids ≔ ids ∖ {sid}" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="smes ≔ {sid} ⩤ smes" org.eventb.core.label="act2"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="/" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="SM_AddsNode">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="sid"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="sm"/>
+<org.eventb.core.parameter name=")" org.eventb.core.identifier="nd"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd1" org.eventb.core.predicate="sid ∈ ids"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd2" org.eventb.core.predicate="sm ∈ state_machines(smes(sid))"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd3" org.eventb.core.predicate="nd ∉ nodes(smes(sid))"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="smes(sid) ≔ sm_add_node(smes(sid)↦sm↦nd)" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="0" org.eventb.core.label="thm1" org.eventb.core.predicate="smes(sid)∈StateMachineExtensions" org.eventb.core.theorem="true"/>
+<org.eventb.core.guard name="1" org.eventb.core.label="COPY−sm_add_node−WD" org.eventb.core.predicate="dom(sm_add_node) = {sme↦bsm↦bnd ∣ sme ∈ StateMachineExtensions ∧ bsm ∈ state_machines(sme) ∧ bnd ∉ nodes(sme)}" org.eventb.core.theorem="true"/>
+<org.eventb.core.guard name="." org.eventb.core.label="thm2" org.eventb.core.predicate="smes(sid) ↦ sm ↦ nd∈dom(sm_add_node)" org.eventb.core.theorem="true"/>
+<org.eventb.core.guard name="/" org.eventb.core.label="COPY−sm_add_node−well_structured" org.eventb.core.predicate="∀sme,bsm,bnd·&#10;  sme↦bsm↦bnd ∈ dom(sm_add_node) ∧ sme_well_structured(sme) = TRUE&#10; ⇒&#10;  sme_well_structured(sm_add_node(sme↦bsm↦bnd)) = TRUE" org.eventb.core.theorem="true"/>
+<org.eventb.core.guard name="2" org.eventb.core.label="COPY−assocMult_sm_add_node" org.eventb.core.predicate="sm_add_node ∈ (StateMachineExtensions × STATE_MACHINE × NODE) ⇸ StateMachineExtensions" org.eventb.core.theorem="true"/>
+</org.eventb.core.event>
+<org.eventb.core.invariant name="1" org.eventb.core.label="smes−well_structured" org.eventb.core.predicate="∀sid·sid ∈ ids ⇒ sme_well_structured(smes(sid)) = TRUE"/>
+<org.eventb.core.seesContext name="2" org.eventb.core.target="c00_4-proofs_well_structured_preservation"/>
+<org.eventb.core.event name="3" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="SM_DeletesNode">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="sid"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="nd"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd1" org.eventb.core.predicate="sid ∈ ids"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="nd ∈ nodes(smes(sid))"/>
+<org.eventb.core.guard name="grd1" org.eventb.core.label="thm1" org.eventb.core.predicate="smes(sid)∈StateMachineExtensions" org.eventb.core.theorem="true"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="smes(sid) ≔ sm_delete_node(smes(sid)↦nd)" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="/" org.eventb.core.label="COPY−sm_delete_node−WD" org.eventb.core.predicate="dom(sm_delete_node) = ({sme↦bnd ∣ sme ∈ StateMachineExtensions ∧ bnd ∈ nodes(sme)})" org.eventb.core.theorem="true"/>
+<org.eventb.core.guard name="," org.eventb.core.label="thm2" org.eventb.core.predicate="smes(sid)↦nd ∈ dom(sm_delete_node)" org.eventb.core.theorem="true"/>
+<org.eventb.core.guard name="-" org.eventb.core.label="COPY−assocMult_sm_delete_node" org.eventb.core.predicate="sm_delete_node ∈ (StateMachineExtensions × NODE) ⇸ StateMachineExtensions" org.eventb.core.theorem="true"/>
+<org.eventb.core.guard name="." org.eventb.core.label="COPY−sm_delete_node−well_structured" org.eventb.core.predicate="∀sme,bnd·&#10;  sme↦bnd ∈ dom(sm_delete_node) ∧ sme_well_structured(sme) = TRUE&#10; ⇒&#10;  sme_well_structured(sm_delete_node(sme↦bnd)) = TRUE" org.eventb.core.theorem="true"/>
+</org.eventb.core.event>
+</org.eventb.core.machineFile>

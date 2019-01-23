@@ -1,0 +1,1321 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+<org.eventb.core.prProof name="sm_add_node−WD/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="sme,sm" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="NODE,STATE_MACHINE,STATE_MACHINE_EXTENSION">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p3"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees sme,sm)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p4">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p4" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="p5">
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p7">
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p7" org.eventb.core.prHyps="p1">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p5">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="p5"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+<org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p8">
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="p1"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p9">
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11" org.eventb.core.prHyps="p10">
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p12">
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p12" org.eventb.core.prHyps="p2">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p5">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="p5"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+<org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p13">
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p13" org.eventb.core.prHyps="p2"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(NODE))"/>
+<org.eventb.core.prIdent name="state_machines" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE))"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="state_machines∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE)"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="nodes∈StateMachineExtensions → ℙ(NODE)"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="StateMachineExtensions∈ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="sme∈dom(state_machines)∧state_machines∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE)∧(sm∈state_machines(sme)⇒sme∈dom(nodes)∧nodes∈STATE_MACHINE_EXTENSION ⇸ ℙ(NODE))">
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="sm∈state_machines(sme)">
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="sme∈StateMachineExtensions">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE·sme∈StateMachineExtensions⇒sme∈dom(state_machines)∧state_machines∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE)∧(sm∈state_machines(sme)⇒sme∈dom(nodes)∧nodes∈STATE_MACHINE_EXTENSION ⇸ ℙ(NODE))"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="sme∈StateMachineExtensions⇒sme∈dom(state_machines)∧state_machines∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE)∧(sm∈state_machines(sme)⇒sme∈dom(nodes)∧nodes∈STATE_MACHINE_EXTENSION ⇸ ℙ(NODE))">
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="sme∈dom(state_machines)">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="nodes∈STATE_MACHINE_EXTENSION ⇸ ℙ(NODE)"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="sm∈state_machines(sme)⇒sme∈dom(nodes)∧nodes∈STATE_MACHINE_EXTENSION ⇸ ℙ(NODE)">
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="state_machines∈StateMachineExtensions → ℙ(STATE_MACHINE)"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="sme∈dom(nodes)∧nodes∈STATE_MACHINE_EXTENSION ⇸ ℙ(NODE)">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="sme∈dom(nodes)">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prExpr name="e0" org.eventb.core.expression="StateMachineExtensions"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.totalDom:2"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="sm_add_node−state_machines/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="nd,sme,sm" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3" org.eventb.core.prSets="NODE,STATE_MACHINE,STATE_MACHINE_EXTENSION" org.eventb.core.psManual="true">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p5"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees sme,sm,nd)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="p7">
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps="p1"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p10">
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional image goal for sm_add_node(sme ↦ sm ↦ nd)" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p1">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p11">
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p11" org.eventb.core.prHyps="p11"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+<org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p12">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p12" org.eventb.core.prHyps="p3"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="*" org.eventb.core.prGoal="p13">
+<org.eventb.core.prRule name="r9" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with dom(sm_add_node)={sme,sm,nd·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}" org.eventb.core.prHyps="p4">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p7" org.eventb.core.prInfHyps="p14"/>
+<org.eventb.core.prHypAction name="DESELECT1" org.eventb.core.prHyps="p7"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p15,p16,p17"/>
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p13" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p15">
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p15" org.eventb.core.prHyps="p15"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+<org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(NODE))"/>
+<org.eventb.core.prIdent name="sm_add_node" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×STATE_MACHINE×NODE×STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="state_machines" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE))"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="sm_add_node∈StateMachineExtensions × STATE_MACHINE × NODE ⇸ StateMachineExtensions"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="dom(sm_add_node)={sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧nd∉nodes(sme) ∣ sme ↦ sm ↦ nd}"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="state_machines∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE)"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION∧sm_add_node(sme ↦ sm ↦ nd)∈dom(state_machines)∧state_machines∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE)∧sme∈dom(state_machines)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION∧sm_add_node(sme ↦ sm ↦ nd)∈dom(state_machines)∧state_machines∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE)∧sme∈dom(state_machines)"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="sme ↦ sm ↦ nd∈dom(sm_add_node)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="StateMachineExtensions∈ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="sme ↦ sm ↦ nd∈dom(sm_add_node)⇒sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION∧sm_add_node(sme ↦ sm ↦ nd)∈dom(state_machines)∧state_machines∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE)∧sme∈dom(state_machines)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="sm_add_node(sme ↦ sm ↦ nd)∈StateMachineExtensions">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="sm∈state_machines(sme)">
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="sme∈StateMachineExtensions">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="¬nd∈nodes(sme)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="sme∈dom(state_machines)">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="sme ↦ sm ↦ nd∈{sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="state_machines∈StateMachineExtensions → ℙ(STATE_MACHINE)"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="sm_add_node(sme ↦ sm ↦ nd)∈dom(state_machines)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="dom(sm_add_node)={sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}"/>
+<org.eventb.core.prExpr name="e0" org.eventb.core.expression="StateMachineExtensions"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.funImgGoal"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.totalDom:2"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+<org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+<org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="sm_add_node−root_state_machine/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="nd,sme,sm" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3" org.eventb.core.prSets="NODE,STATE_MACHINE,STATE_MACHINE_EXTENSION" org.eventb.core.psManual="true">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p5"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees sme,sm,nd)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="p7">
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps="p1"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p10">
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional image goal for sm_add_node(sme ↦ sm ↦ nd)" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p1">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p11">
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p11" org.eventb.core.prHyps="p11"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+<org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p12">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p12" org.eventb.core.prHyps="p3"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="*" org.eventb.core.prGoal="p13">
+<org.eventb.core.prRule name="r9" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with dom(sm_add_node)={sme,sm,nd·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}" org.eventb.core.prHyps="p4">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p14" org.eventb.core.prInfHyps="p15"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p7" org.eventb.core.prInfHyps="p16"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p14,p7"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p17"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p18,p19,p20"/>
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p13" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p18">
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p18" org.eventb.core.prHyps="p18"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+<org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(NODE))"/>
+<org.eventb.core.prIdent name="root_state_machine" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×STATE_MACHINE)"/>
+<org.eventb.core.prIdent name="sm_add_node" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×STATE_MACHINE×NODE×STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="state_machines" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE))"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="sm_add_node∈StateMachineExtensions × STATE_MACHINE × NODE ⇸ StateMachineExtensions"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION∧sm_add_node(sme ↦ sm ↦ nd)∈dom(root_state_machine)∧root_state_machine∈STATE_MACHINE_EXTENSION ⇸ STATE_MACHINE∧sme∈dom(root_state_machine)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="sme ↦ sm ↦ nd∈dom(sm_add_node)⇒sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION∧sm_add_node(sme ↦ sm ↦ nd)∈dom(root_state_machine)∧root_state_machine∈STATE_MACHINE_EXTENSION ⇸ STATE_MACHINE∧sme∈dom(root_state_machine)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="dom(sm_add_node)={sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧nd∉nodes(sme) ∣ sme ↦ sm ↦ nd}"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒state_machines(sm_add_node(sme ↦ sm ↦ nd))=state_machines(sme)"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="sme∈dom(root_state_machine)">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="sme ↦ sm ↦ nd∈dom(sm_add_node)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="StateMachineExtensions∈ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION∧sm_add_node(sme ↦ sm ↦ nd)∈dom(root_state_machine)∧root_state_machine∈STATE_MACHINE_EXTENSION ⇸ STATE_MACHINE∧sme∈dom(root_state_machine)"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="sm_add_node(sme ↦ sm ↦ nd)∈StateMachineExtensions">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="sm∈state_machines(sme)">
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="sme∈StateMachineExtensions">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="¬nd∈nodes(sme)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="sm_add_node(sme ↦ sm ↦ nd)∈dom(root_state_machine)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme)⇒state_machines(sm_add_node(sme ↦ sm ↦ nd))=state_machines(sme)"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="sme ↦ sm ↦ nd∈{sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="root_state_machine∈STATE_MACHINE_EXTENSION ⇸ STATE_MACHINE"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="root_state_machine∈StateMachineExtensions → STATE_MACHINE"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈{sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}⇒state_machines(sm_add_node(sme ↦ sm ↦ nd))=state_machines(sme)"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="dom(sm_add_node)={sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}"/>
+<org.eventb.core.prExpr name="e0" org.eventb.core.expression="StateMachineExtensions"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.funImgGoal"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.totalDom:2"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+<org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+<org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="sm_add_node−nodes/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="nd,sme,sm" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3" org.eventb.core.prSets="NODE,STATE_MACHINE,STATE_MACHINE_EXTENSION" org.eventb.core.psManual="true">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p5"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees sme,sm,nd)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="p7">
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps="p1"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p10">
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional image goal for sm_add_node(sme ↦ sm ↦ nd)" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p1">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p11">
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p11" org.eventb.core.prHyps="p11"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+<org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p12">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p12" org.eventb.core.prHyps="p3"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="*" org.eventb.core.prGoal="p13">
+<org.eventb.core.prRule name="r9" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with dom(sm_add_node)={sme,sm,nd·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}" org.eventb.core.prHyps="p4">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p14" org.eventb.core.prInfHyps="p15"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p16" org.eventb.core.prInfHyps="p17"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p7" org.eventb.core.prInfHyps="p18"/>
+<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p14,p16,p7"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p19"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p20"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21,p22,p23"/>
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p13" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p21">
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p21" org.eventb.core.prHyps="p21"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+<org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(NODE))"/>
+<org.eventb.core.prIdent name="sm_add_node" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×STATE_MACHINE×NODE×STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="state_machines" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE))"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="sm_add_node∈StateMachineExtensions × STATE_MACHINE × NODE ⇸ StateMachineExtensions"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="dom(sm_add_node)={sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧nd∉nodes(sme) ∣ sme ↦ sm ↦ nd}"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒state_machines(sm_add_node(sme ↦ sm ↦ nd))=state_machines(sme)"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION∧sm_add_node(sme ↦ sm ↦ nd)∈dom(nodes)∧nodes∈STATE_MACHINE_EXTENSION ⇸ ℙ(NODE)∧sme∈dom(nodes)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒root_state_machine(sm_add_node(sme ↦ sm ↦ nd))=root_state_machine(sme)">
+<org.eventb.core.prIdent name="root_state_machine" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×STATE_MACHINE)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="nodes∈StateMachineExtensions → ℙ(NODE)"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="sme ↦ sm ↦ nd∈dom(sm_add_node)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="sm_add_node(sme ↦ sm ↦ nd)∈dom(nodes)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="StateMachineExtensions∈ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="sm_add_node(sme ↦ sm ↦ nd)∈StateMachineExtensions">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme)⇒root_state_machine(sm_add_node(sme ↦ sm ↦ nd))=root_state_machine(sme)">
+<org.eventb.core.prIdent name="root_state_machine" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×STATE_MACHINE)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="sm∈state_machines(sme)">
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="sme∈StateMachineExtensions">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈{sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}⇒root_state_machine(sm_add_node(sme ↦ sm ↦ nd))=root_state_machine(sme)">
+<org.eventb.core.prIdent name="root_state_machine" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×STATE_MACHINE)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="¬nd∈nodes(sme)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme)⇒state_machines(sm_add_node(sme ↦ sm ↦ nd))=state_machines(sme)"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="nodes∈STATE_MACHINE_EXTENSION ⇸ ℙ(NODE)"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="sme ↦ sm ↦ nd∈{sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="sme∈dom(nodes)">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION∧sm_add_node(sme ↦ sm ↦ nd)∈dom(nodes)∧nodes∈STATE_MACHINE_EXTENSION ⇸ ℙ(NODE)∧sme∈dom(nodes)"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="sme ↦ sm ↦ nd∈dom(sm_add_node)⇒sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION∧sm_add_node(sme ↦ sm ↦ nd)∈dom(nodes)∧nodes∈STATE_MACHINE_EXTENSION ⇸ ℙ(NODE)∧sme∈dom(nodes)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈{sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}⇒state_machines(sm_add_node(sme ↦ sm ↦ nd))=state_machines(sme)"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="dom(sm_add_node)={sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}"/>
+<org.eventb.core.prExpr name="e0" org.eventb.core.expression="StateMachineExtensions"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.funImgGoal"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.totalDom:2"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+<org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+<org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="sm_add_node−owners/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="nd,sme,sm" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3" org.eventb.core.prSets="NODE,STATE_MACHINE,STATE_MACHINE_EXTENSION" org.eventb.core.psManual="true">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p5"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees sme,sm,nd)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="p7">
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps="p1"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p10">
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional image goal for sm_add_node(sme ↦ sm ↦ nd)" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p1">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p11">
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p11" org.eventb.core.prHyps="p11"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+<org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p12">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p12" org.eventb.core.prHyps="p3"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="*" org.eventb.core.prGoal="p13">
+<org.eventb.core.prRule name="r9" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with dom(sm_add_node)={sme,sm,nd·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}" org.eventb.core.prHyps="p4">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p14" org.eventb.core.prInfHyps="p15"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p16" org.eventb.core.prInfHyps="p17"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p18" org.eventb.core.prInfHyps="p19"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p7" org.eventb.core.prInfHyps="p20"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p14,p16,p18,p7"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p20" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24,p25,p26"/>
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p13" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p24">
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p24" org.eventb.core.prHyps="p24"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+<org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(NODE))"/>
+<org.eventb.core.prIdent name="owners" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(NODE×STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="sm_add_node" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×STATE_MACHINE×NODE×STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="state_machines" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE))"/>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme)⇒nodes(sm_add_node(sme ↦ sm ↦ nd))=nodes(sme)∪{nd}"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒state_machines(sm_add_node(sme ↦ sm ↦ nd))=state_machines(sme)"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒root_state_machine(sm_add_node(sme ↦ sm ↦ nd))=root_state_machine(sme)">
+<org.eventb.core.prIdent name="root_state_machine" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×STATE_MACHINE)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈{sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}⇒nodes(sm_add_node(sme ↦ sm ↦ nd))=nodes(sme)∪{nd}"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="sme ↦ sm ↦ nd∈dom(sm_add_node)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION∧sm_add_node(sme ↦ sm ↦ nd)∈dom(owners)∧owners∈STATE_MACHINE_EXTENSION ⇸ ℙ(NODE × STATE_MACHINE)∧sme∈dom(owners)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme)⇒root_state_machine(sm_add_node(sme ↦ sm ↦ nd))=root_state_machine(sme)">
+<org.eventb.core.prIdent name="root_state_machine" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×STATE_MACHINE)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="owners∈StateMachineExtensions → (NODE ↔ STATE_MACHINE)"/>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="sm∈state_machines(sme)">
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="sme∈StateMachineExtensions">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒nodes(sm_add_node(sme ↦ sm ↦ nd))=nodes(sme)∪{nd}"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈{sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}⇒root_state_machine(sm_add_node(sme ↦ sm ↦ nd))=root_state_machine(sme)">
+<org.eventb.core.prIdent name="root_state_machine" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×STATE_MACHINE)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="¬nd∈nodes(sme)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="sme ↦ sm ↦ nd∈{sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="dom(sm_add_node)={sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="sm_add_node∈StateMachineExtensions × STATE_MACHINE × NODE ⇸ StateMachineExtensions"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="dom(sm_add_node)={sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧nd∉nodes(sme) ∣ sme ↦ sm ↦ nd}"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="sme ↦ sm ↦ nd∈dom(sm_add_node)⇒sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION∧sm_add_node(sme ↦ sm ↦ nd)∈dom(owners)∧owners∈STATE_MACHINE_EXTENSION ⇸ ℙ(NODE × STATE_MACHINE)∧sme∈dom(owners)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="StateMachineExtensions∈ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="sm_add_node(sme ↦ sm ↦ nd)∈StateMachineExtensions">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="sm_add_node(sme ↦ sm ↦ nd)∈dom(owners)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION∧sm_add_node(sme ↦ sm ↦ nd)∈dom(owners)∧owners∈STATE_MACHINE_EXTENSION ⇸ ℙ(NODE × STATE_MACHINE)∧sme∈dom(owners)"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="owners∈STATE_MACHINE_EXTENSION ⇸ ℙ(NODE × STATE_MACHINE)"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="sme∈dom(owners)">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme)⇒state_machines(sm_add_node(sme ↦ sm ↦ nd))=state_machines(sme)"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈{sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}⇒state_machines(sm_add_node(sme ↦ sm ↦ nd))=state_machines(sme)"/>
+<org.eventb.core.prExpr name="e0" org.eventb.core.expression="StateMachineExtensions"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.funImgGoal"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.totalDom:2"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+<org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+<org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="sm_add_node−containers/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="nd,sme,sm" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3" org.eventb.core.prSets="NODE,STATE_MACHINE,STATE_MACHINE_EXTENSION" org.eventb.core.psManual="true">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p5"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees sme,sm,nd)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="p7">
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps="p1"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p10">
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional image goal for sm_add_node(sme ↦ sm ↦ nd)" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p1">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p11">
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p11" org.eventb.core.prHyps="p11"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+<org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p12">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p12" org.eventb.core.prHyps="p3"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="*" org.eventb.core.prGoal="p13">
+<org.eventb.core.prRule name="r9" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with dom(sm_add_node)={sme,sm,nd·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}" org.eventb.core.prHyps="p4">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p14" org.eventb.core.prInfHyps="p15"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p16" org.eventb.core.prInfHyps="p17"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p18" org.eventb.core.prInfHyps="p19"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p20" org.eventb.core.prInfHyps="p21"/>
+<org.eventb.core.prHypAction name="FORWARD_INF4" org.eventb.core.prHyps="p7" org.eventb.core.prInfHyps="p22"/>
+<org.eventb.core.prHypAction name="DESELECT5" org.eventb.core.prHyps="p14,p16,p18,p20,p7"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p21" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p26"/>
+<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p22" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p27,p28,p29"/>
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p13" org.eventb.core.prHyps="p3">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p27">
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p27" org.eventb.core.prHyps="p27"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+<org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="containers" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE×NODE))"/>
+<org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(NODE))"/>
+<org.eventb.core.prIdent name="sm_add_node" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×STATE_MACHINE×NODE×STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="state_machines" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE))"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="sm_add_node(sme ↦ sm ↦ nd)∈dom(containers)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈{sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}⇒owners(sm_add_node(sme ↦ sm ↦ nd))=owners(sme)∪{nd ↦ sm}">
+<org.eventb.core.prIdent name="owners" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(NODE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme)⇒nodes(sm_add_node(sme ↦ sm ↦ nd))=nodes(sme)∪{nd}"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒state_machines(sm_add_node(sme ↦ sm ↦ nd))=state_machines(sme)"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒root_state_machine(sm_add_node(sme ↦ sm ↦ nd))=root_state_machine(sme)">
+<org.eventb.core.prIdent name="root_state_machine" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×STATE_MACHINE)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈{sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}⇒nodes(sm_add_node(sme ↦ sm ↦ nd))=nodes(sme)∪{nd}"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="sme ↦ sm ↦ nd∈dom(sm_add_node)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="sme∈dom(containers)">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme)⇒root_state_machine(sm_add_node(sme ↦ sm ↦ nd))=root_state_machine(sme)">
+<org.eventb.core.prIdent name="root_state_machine" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×STATE_MACHINE)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p28" org.eventb.core.predicate="sm∈state_machines(sme)">
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p27" org.eventb.core.predicate="sme∈StateMachineExtensions">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme)⇒owners(sm_add_node(sme ↦ sm ↦ nd))=owners(sme)∪{nd ↦ sm}">
+<org.eventb.core.prIdent name="owners" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(NODE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒nodes(sm_add_node(sme ↦ sm ↦ nd))=nodes(sme)∪{nd}"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈{sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}⇒root_state_machine(sm_add_node(sme ↦ sm ↦ nd))=root_state_machine(sme)">
+<org.eventb.core.prIdent name="root_state_machine" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×STATE_MACHINE)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p29" org.eventb.core.predicate="¬nd∈nodes(sme)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="sme ↦ sm ↦ nd∈{sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION∧sm_add_node(sme ↦ sm ↦ nd)∈dom(containers)∧containers∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × NODE)∧sme∈dom(containers)"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="containers∈StateMachineExtensions → (STATE_MACHINE ↔ NODE)"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="dom(sm_add_node)={sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="containers∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × NODE)"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="sm_add_node∈StateMachineExtensions × STATE_MACHINE × NODE ⇸ StateMachineExtensions"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="dom(sm_add_node)={sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧nd∉nodes(sme) ∣ sme ↦ sm ↦ nd}"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="StateMachineExtensions∈ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="sm_add_node(sme ↦ sm ↦ nd)∈StateMachineExtensions">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme)⇒state_machines(sm_add_node(sme ↦ sm ↦ nd))=state_machines(sme)"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION∧sm_add_node(sme ↦ sm ↦ nd)∈dom(containers)∧containers∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × NODE)∧sme∈dom(containers)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒owners(sm_add_node(sme ↦ sm ↦ nd))=owners(sme)∪{nd ↦ sm}">
+<org.eventb.core.prIdent name="owners" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(NODE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="sme ↦ sm ↦ nd∈dom(sm_add_node)⇒sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION∧sm_add_node(sme ↦ sm ↦ nd)∈dom(containers)∧containers∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × NODE)∧sme∈dom(containers)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈{sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}⇒state_machines(sm_add_node(sme ↦ sm ↦ nd))=state_machines(sme)"/>
+<org.eventb.core.prExpr name="e0" org.eventb.core.expression="StateMachineExtensions"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.funImgGoal"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.totalDom:2"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+<org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+<org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="sm_add_node−parents/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="nd,sme,sm" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34" org.eventb.core.prSets="NODE,STATE_MACHINE,STATE_MACHINE_EXTENSION" org.eventb.core.psManual="true">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p22" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p35"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p36"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p27" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p32" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p33" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p40"/>
+<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="REWRITE6" org.eventb.core.prHidden="p12" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="REWRITE7" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="REWRITE8" org.eventb.core.prHidden="p31" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="REWRITE9" org.eventb.core.prHidden="p30" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prHypAction name="REWRITE10" org.eventb.core.prHidden="p20" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p46"/>
+<org.eventb.core.prHypAction name="REWRITE11" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p47"/>
+<org.eventb.core.prHypAction name="REWRITE12" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p48"/>
+<org.eventb.core.prHypAction name="REWRITE13" org.eventb.core.prHidden="p29" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p49"/>
+<org.eventb.core.prHypAction name="REWRITE14" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p50"/>
+<org.eventb.core.prHypAction name="REWRITE15" org.eventb.core.prHidden="p24" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p51"/>
+<org.eventb.core.prHypAction name="REWRITE16" org.eventb.core.prHidden="p28" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p52"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p37" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p53"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p54"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p39" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p55"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p40" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p56"/>
+<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p41" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p57"/>
+<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p42" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p58"/>
+<org.eventb.core.prHypAction name="REWRITE6" org.eventb.core.prHidden="p43" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p59"/>
+<org.eventb.core.prHypAction name="REWRITE7" org.eventb.core.prHidden="p44" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p60"/>
+<org.eventb.core.prHypAction name="REWRITE8" org.eventb.core.prHidden="p45" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p61"/>
+<org.eventb.core.prHypAction name="REWRITE9" org.eventb.core.prHidden="p46" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p62"/>
+<org.eventb.core.prHypAction name="REWRITE10" org.eventb.core.prHidden="p47" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p63"/>
+<org.eventb.core.prHypAction name="REWRITE11" org.eventb.core.prHidden="p48" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p64"/>
+<org.eventb.core.prHypAction name="REWRITE12" org.eventb.core.prHidden="p49" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p65"/>
+<org.eventb.core.prHypAction name="REWRITE13" org.eventb.core.prHidden="p50" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p66"/>
+<org.eventb.core.prHypAction name="REWRITE14" org.eventb.core.prHidden="p51" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p67"/>
+<org.eventb.core.prHypAction name="REWRITE15" org.eventb.core.prHidden="p52" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p68"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees sme,sm,nd)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p69">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p69" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p71" org.eventb.core.prHyps="p70">
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p71" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p72">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p72" org.eventb.core.prHyps="p21"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p73">
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional image goal for sm_add_node(sme ↦ sm ↦ nd)" org.eventb.core.prGoal="p73" org.eventb.core.prHyps="p21">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p73" org.eventb.core.prHyps="p74">
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p73" org.eventb.core.prHyps="p23">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p74">
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p74" org.eventb.core.prHyps="p74"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+<org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p75">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p75" org.eventb.core.prHyps="p23"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="*" org.eventb.core.prGoal="p76">
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p76" org.eventb.core.prHyps="p23">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p77">
+<org.eventb.core.prRule name="r9" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p77" org.eventb.core.prHyps="p15,p19,p6,p8,p17,p2,p3,p11,p23,p18,p21,p9,p4,p5,p10,p26,p25,p35,p53,p54,p55,p56,p57,p58,p59,p60,p61,p62,p63,p64,p65,p66,p67,p68,p70">
+<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1;2;3:30000"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+<org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="contained" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×NODE×ℙ(STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="contained_recursive" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×NODE×ℙ(STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="containers" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE×NODE))"/>
+<org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(NODE))"/>
+<org.eventb.core.prIdent name="owners" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(NODE×STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="parents" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="root_state_machine" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×STATE_MACHINE)"/>
+<org.eventb.core.prIdent name="sm_add_node" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×STATE_MACHINE×NODE×STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="state_machines" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE))"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒cl(r)=r∪(r;cl(r))"/>
+<org.eventb.core.prPred name="p62" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·dom(r)=dom(cl(r))"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="cl∈(STATE_MACHINE ↔ STATE_MACHINE) → (STATE_MACHINE ↔ STATE_MACHINE)"/>
+<org.eventb.core.prPred name="p66" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION·sme∈StateMachineExtensions⇒sme∈dom(containers)∧containers∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × NODE)"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="nodes∈StateMachineExtensions → ℙ(NODE)"/>
+<org.eventb.core.prPred name="p46" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒dom(r)=dom(cl(r))"/>
+<org.eventb.core.prPred name="p73" org.eventb.core.predicate="sm_add_node(sme ↦ sm ↦ nd)∈dom(parents)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒ran(r)=ran(cl(r))"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="owners∈StateMachineExtensions → (NODE ↔ STATE_MACHINE)"/>
+<org.eventb.core.prPred name="p43" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒(∀T⦂ℙ(STATE_MACHINE)·r[T]⊆T⇒(cl(r))[T]⊆T)"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE·sme∈StateMachineExtensions⇒sme∈dom(state_machines)∧state_machines∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE)∧(sm∈state_machines(sme)⇒sme∈dom(nodes)∧nodes∈STATE_MACHINE_EXTENSION ⇸ ℙ(NODE))"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒cl(r)=r∪(cl(r);r)"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒r⊆cl(r)"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒(∀T⦂ℙ(STATE_MACHINE)·r[T]⊆T⇒(cl(r))[T]⊆T)"/>
+<org.eventb.core.prPred name="p49" org.eventb.core.predicate="contained=(λsme⦂STATE_MACHINE_EXTENSION ↦ nd⦂NODE·sme∈StateMachineExtensions∧⊤ ∣ (containers(sme))∼[{nd}])"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="state_machines∈StateMachineExtensions → ℙ(STATE_MACHINE)"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,nd⦂NODE·sme∈StateMachineExtensions∧nd∈NODE⇒sme∈dom(containers)∧containers∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × NODE)"/>
+<org.eventb.core.prPred name="p50" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION·sme∈StateMachineExtensions∧⊤⇒sme∈dom(containers)∧containers∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × NODE)"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="containers∈StateMachineExtensions → (STATE_MACHINE ↔ NODE)"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="contained∈StateMachineExtensions × NODE → ℙ(STATE_MACHINE)"/>
+<org.eventb.core.prPred name="p47" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒ran(r)=ran(cl(r))"/>
+<org.eventb.core.prPred name="p54" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·cl(r);r⊆cl(r)"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒dom(r)=dom(cl(r))"/>
+<org.eventb.core.prPred name="p48" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒(∀p⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r⊆p⇒cl(r)⊆cl(p))"/>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="dom(sm_add_node)={sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧nd∉nodes(sme) ∣ sme ↦ sm ↦ nd}"/>
+<org.eventb.core.prPred name="p41" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒cl(r)=r∪(r;cl(r))"/>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="parents∈StateMachineExtensions → (STATE_MACHINE ↔ STATE_MACHINE)"/>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="contained_recursive=(λsme⦂STATE_MACHINE_EXTENSION ↦ nd⦂NODE·sme∈StateMachineExtensions∧nd∈NODE ∣ (containers(sme))∼[{nd}]∪(cl(parents(sme)))∼[(containers(sme))∼[{nd}]])"/>
+<org.eventb.core.prPred name="p74" org.eventb.core.predicate="sm_add_node(sme ↦ sm ↦ nd)∈StateMachineExtensions">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p68" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION·sme∈StateMachineExtensions⇒sme∈dom(containers)∧containers∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × NODE)∧sme∈dom(parents)∧parents∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × STATE_MACHINE)∧parents(sme)∈dom(cl)∧cl∈ℙ(STATE_MACHINE × STATE_MACHINE) ⇸ ℙ(STATE_MACHINE × STATE_MACHINE)"/>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒containers(sm_add_node(sme ↦ sm ↦ nd))=containers(sme)"/>
+<org.eventb.core.prPred name="p40" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒cl(r);cl(r)⊆cl(r)"/>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒owners(sm_add_node(sme ↦ sm ↦ nd))=owners(sme)∪{nd ↦ sm}"/>
+<org.eventb.core.prPred name="p51" org.eventb.core.predicate="contained_recursive=(λsme⦂STATE_MACHINE_EXTENSION ↦ nd⦂NODE·sme∈StateMachineExtensions∧⊤ ∣ (containers(sme))∼[{nd}]∪(cl(parents(sme)))∼[(containers(sme))∼[{nd}]])"/>
+<org.eventb.core.prPred name="p75" org.eventb.core.predicate="parents∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × STATE_MACHINE)"/>
+<org.eventb.core.prPred name="p27" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒cl(r);r⊆cl(r)"/>
+<org.eventb.core.prPred name="p63" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·ran(r)=ran(cl(r))"/>
+<org.eventb.core.prPred name="p37" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒r⊆cl(r)"/>
+<org.eventb.core.prPred name="p29" org.eventb.core.predicate="contained=(λsme⦂STATE_MACHINE_EXTENSION ↦ nd⦂NODE·sme∈StateMachineExtensions∧nd∈NODE ∣ (containers(sme))∼[{nd}])"/>
+<org.eventb.core.prPred name="p64" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE),p⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r⊆p⇒cl(r)⊆cl(p)"/>
+<org.eventb.core.prPred name="p30" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒r;cl(r)⊆cl(r)"/>
+<org.eventb.core.prPred name="p31" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒cl(r∼)=(cl(r))∼"/>
+<org.eventb.core.prPred name="p32" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒(∀p⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r⊆p∧p;r⊆p⇒cl(r)⊆p)"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION∧sm_add_node(sme ↦ sm ↦ nd)∈dom(parents)∧parents∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × STATE_MACHINE)∧sme∈dom(parents)"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="parents=(λsme⦂STATE_MACHINE_EXTENSION·sme∈StateMachineExtensions ∣ containers(sme);owners(sme))"/>
+<org.eventb.core.prPred name="p45" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒r;cl(r)⊆cl(r)"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒state_machines(sm_add_node(sme ↦ sm ↦ nd))=state_machines(sme)"/>
+<org.eventb.core.prPred name="p39" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒(∀p⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r⊆p∧p;r⊆p⇒cl(r)⊆p)"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒root_state_machine(sm_add_node(sme ↦ sm ↦ nd))=root_state_machine(sme)"/>
+<org.eventb.core.prPred name="p59" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE),T⦂ℙ(STATE_MACHINE)·r[T]⊆T⇒(cl(r))[T]⊆T"/>
+<org.eventb.core.prPred name="p70" org.eventb.core.predicate="sme ↦ sm ↦ nd∈dom(sm_add_node)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p76" org.eventb.core.predicate="sme∈dom(parents)">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p44" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒cl(r∼)=(cl(r))∼"/>
+<org.eventb.core.prPred name="p55" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE),p⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r⊆p∧p;r⊆p⇒cl(r)⊆p"/>
+<org.eventb.core.prPred name="p58" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·cl(r)=r∪(cl(r);r)"/>
+<org.eventb.core.prPred name="p77" org.eventb.core.predicate="sme∈StateMachineExtensions">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒nodes(sm_add_node(sme ↦ sm ↦ nd))=nodes(sme)∪{nd}"/>
+<org.eventb.core.prPred name="p69" org.eventb.core.predicate="sme ↦ sm ↦ nd∈dom(sm_add_node)⇒sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION∧sm_add_node(sme ↦ sm ↦ nd)∈dom(parents)∧parents∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × STATE_MACHINE)∧sme∈dom(parents)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION·sme∈StateMachineExtensions⇒sme∈dom(containers)∧containers∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × NODE)∧sme∈dom(owners)∧owners∈STATE_MACHINE_EXTENSION ⇸ ℙ(NODE × STATE_MACHINE)"/>
+<org.eventb.core.prPred name="p67" org.eventb.core.predicate="contained_recursive=(λsme⦂STATE_MACHINE_EXTENSION ↦ nd⦂NODE·sme∈StateMachineExtensions ∣ (containers(sme))∼[{nd}]∪(cl(parents(sme)))∼[(containers(sme))∼[{nd}]])"/>
+<org.eventb.core.prPred name="p38" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒cl(r);r⊆cl(r)"/>
+<org.eventb.core.prPred name="p56" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·cl(r);cl(r)⊆cl(r)"/>
+<org.eventb.core.prPred name="p61" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r;cl(r)⊆cl(r)"/>
+<org.eventb.core.prPred name="p42" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒cl(r)=r∪(cl(r);r)"/>
+<org.eventb.core.prPred name="p60" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·cl(r∼)=(cl(r))∼"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="root_state_machine∈StateMachineExtensions → STATE_MACHINE"/>
+<org.eventb.core.prPred name="p35" org.eventb.core.predicate="dom(sm_add_node)={sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}"/>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="sm_add_node∈StateMachineExtensions × STATE_MACHINE × NODE ⇸ StateMachineExtensions"/>
+<org.eventb.core.prPred name="p52" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION·sme∈StateMachineExtensions∧⊤⇒sme∈dom(containers)∧containers∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × NODE)∧sme∈dom(parents)∧parents∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × STATE_MACHINE)∧parents(sme)∈dom(cl)∧cl∈ℙ(STATE_MACHINE × STATE_MACHINE) ⇸ ℙ(STATE_MACHINE × STATE_MACHINE)"/>
+<org.eventb.core.prPred name="p72" org.eventb.core.predicate="sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION"/>
+<org.eventb.core.prPred name="p71" org.eventb.core.predicate="sm_add_node∈STATE_MACHINE_EXTENSION × STATE_MACHINE × NODE ⇸ STATE_MACHINE_EXTENSION∧sm_add_node(sme ↦ sm ↦ nd)∈dom(parents)∧parents∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × STATE_MACHINE)∧sme∈dom(parents)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p36" org.eventb.core.predicate="StateMachineExtensions∈ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prPred name="p53" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r⊆cl(r)"/>
+<org.eventb.core.prPred name="p28" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,nd⦂NODE·sme∈StateMachineExtensions∧nd∈NODE⇒sme∈dom(containers)∧containers∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × NODE)∧sme∈dom(parents)∧parents∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × STATE_MACHINE)∧parents(sme)∈dom(cl)∧cl∈ℙ(STATE_MACHINE × STATE_MACHINE) ⇸ ℙ(STATE_MACHINE × STATE_MACHINE)"/>
+<org.eventb.core.prPred name="p57" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·cl(r)=r∪(r;cl(r))"/>
+<org.eventb.core.prPred name="p33" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒cl(r);cl(r)⊆cl(r)"/>
+<org.eventb.core.prPred name="p65" org.eventb.core.predicate="contained=(λsme⦂STATE_MACHINE_EXTENSION ↦ nd⦂NODE·sme∈StateMachineExtensions ∣ (containers(sme))∼[{nd}])"/>
+<org.eventb.core.prPred name="p34" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒(∀p⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r⊆p⇒cl(r)⊆cl(p))"/>
+<org.eventb.core.prExpr name="e0" org.eventb.core.expression="StateMachineExtensions"/>
+<org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.totalDom:2"/>
+<org.eventb.core.prReas name="r9" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.funImgGoal"/>
+<org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="sm_add_node−parents/THM" org.eventb.core.confidence="0" org.eventb.core.prFresh="nd,sme,sm" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="NODE,STATE_MACHINE,STATE_MACHINE_EXTENSION">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p3"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p8" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
+<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p10" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11"/>
+<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p12" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p13"/>
+<org.eventb.core.prHypAction name="REWRITE6" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p15"/>
+<org.eventb.core.prHypAction name="REWRITE7" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p17"/>
+<org.eventb.core.prHypAction name="REWRITE8" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p19"/>
+<org.eventb.core.prHypAction name="REWRITE9" org.eventb.core.prHidden="p20" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21"/>
+<org.eventb.core.prHypAction name="REWRITE10" org.eventb.core.prHidden="p22" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
+<org.eventb.core.prHypAction name="REWRITE11" org.eventb.core.prHidden="p24" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
+<org.eventb.core.prHypAction name="REWRITE12" org.eventb.core.prHidden="p26" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p27"/>
+<org.eventb.core.prHypAction name="REWRITE13" org.eventb.core.prHidden="p28" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p29"/>
+<org.eventb.core.prHypAction name="REWRITE14" org.eventb.core.prHidden="p30" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p31"/>
+<org.eventb.core.prHypAction name="REWRITE15" org.eventb.core.prHidden="p32" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p33"/>
+<org.eventb.core.prHypAction name="REWRITE16" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p35"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p36"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p9" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p11" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p40"/>
+<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="REWRITE6" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="REWRITE7" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="REWRITE8" org.eventb.core.prHidden="p21" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="REWRITE9" org.eventb.core.prHidden="p23" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prHypAction name="REWRITE10" org.eventb.core.prHidden="p25" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p46"/>
+<org.eventb.core.prHypAction name="REWRITE11" org.eventb.core.prHidden="p27" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p47"/>
+<org.eventb.core.prHypAction name="REWRITE12" org.eventb.core.prHidden="p29" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p48"/>
+<org.eventb.core.prHypAction name="REWRITE13" org.eventb.core.prHidden="p31" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p49"/>
+<org.eventb.core.prHypAction name="REWRITE14" org.eventb.core.prHidden="p33" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p50"/>
+<org.eventb.core.prHypAction name="REWRITE15" org.eventb.core.prHidden="p35" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p51"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees sme,sm,nd)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p52">
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p52" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p54" org.eventb.core.prHyps="p53"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="parents" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="sm_add_node" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×STATE_MACHINE×NODE×STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒cl(r)=r∪(r;cl(r))">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p45" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·dom(r)=dom(cl(r))">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p49" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION·sme∈StateMachineExtensions⇒sme∈dom(containers)∧containers∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × NODE)">
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="containers" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE×NODE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒dom(r)=dom(cl(r))">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒ran(r)=ran(cl(r))">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒(∀T⦂ℙ(STATE_MACHINE)·r[T]⊆T⇒(cl(r))[T]⊆T)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒r⊆cl(r)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒cl(r)=r∪(cl(r);r)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒(∀T⦂ℙ(STATE_MACHINE)·r[T]⊆T⇒(cl(r))[T]⊆T)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p29" org.eventb.core.predicate="contained=(λsme⦂STATE_MACHINE_EXTENSION ↦ nd⦂NODE·sme∈StateMachineExtensions∧⊤ ∣ (containers(sme))∼[{nd}])">
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="contained" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×NODE×ℙ(STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="containers" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE×NODE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p30" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,nd⦂NODE·sme∈StateMachineExtensions∧nd∈NODE⇒sme∈dom(containers)∧containers∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × NODE)">
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="containers" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE×NODE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p31" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION·sme∈StateMachineExtensions∧⊤⇒sme∈dom(containers)∧containers∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × NODE)">
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="containers" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE×NODE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒ran(r)=ran(cl(r))">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p52" org.eventb.core.predicate="sme ↦ sm ↦ nd∈dom(sm_add_node)⇒parents(sm_add_node(sme ↦ sm ↦ nd))=parents(sme)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme ↦ sm ↦ nd∈dom(sm_add_node)⇒parents(sm_add_node(sme ↦ sm ↦ nd))=parents(sme)"/>
+<org.eventb.core.prPred name="p37" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·cl(r);r⊆cl(r)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒dom(r)=dom(cl(r))">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p27" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒(∀p⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r⊆p⇒cl(r)⊆cl(p))">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="dom(sm_add_node)={sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧nd∉nodes(sme) ∣ sme ↦ sm ↦ nd}">
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(NODE))"/>
+<org.eventb.core.prIdent name="state_machines" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒cl(r)=r∪(r;cl(r))">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p32" org.eventb.core.predicate="contained_recursive=(λsme⦂STATE_MACHINE_EXTENSION ↦ nd⦂NODE·sme∈StateMachineExtensions∧nd∈NODE ∣ (containers(sme))∼[{nd}]∪(cl(parents(sme)))∼[(containers(sme))∼[{nd}]])">
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="contained_recursive" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×NODE×ℙ(STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="containers" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE×NODE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p51" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION·sme∈StateMachineExtensions⇒sme∈dom(containers)∧containers∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × NODE)∧sme∈dom(parents)∧parents∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × STATE_MACHINE)∧parents(sme)∈dom(cl)∧cl∈ℙ(STATE_MACHINE × STATE_MACHINE) ⇸ ℙ(STATE_MACHINE × STATE_MACHINE)">
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="containers" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE×NODE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒cl(r);cl(r)⊆cl(r)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p54" org.eventb.core.predicate="parents(sm_add_node(sme ↦ sm ↦ nd))=parents(sme)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p33" org.eventb.core.predicate="contained_recursive=(λsme⦂STATE_MACHINE_EXTENSION ↦ nd⦂NODE·sme∈StateMachineExtensions∧⊤ ∣ (containers(sme))∼[{nd}]∪(cl(parents(sme)))∼[(containers(sme))∼[{nd}]])">
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="contained_recursive" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×NODE×ℙ(STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="containers" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE×NODE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒cl(r);r⊆cl(r)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p46" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·ran(r)=ran(cl(r))">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒r⊆cl(r)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p28" org.eventb.core.predicate="contained=(λsme⦂STATE_MACHINE_EXTENSION ↦ nd⦂NODE·sme∈StateMachineExtensions∧nd∈NODE ∣ (containers(sme))∼[{nd}])">
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="contained" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×NODE×ℙ(STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="containers" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE×NODE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p47" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE),p⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r⊆p⇒cl(r)⊆cl(p)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒r;cl(r)⊆cl(r)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒(∀p⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r⊆p∧p;r⊆p⇒cl(r)⊆p)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒cl(r∼)=(cl(r))∼">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒r;cl(r)⊆cl(r)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒(∀p⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r⊆p∧p;r⊆p⇒cl(r)⊆p)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p42" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE),T⦂ℙ(STATE_MACHINE)·r[T]⊆T⇒(cl(r))[T]⊆T">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p53" org.eventb.core.predicate="sme ↦ sm ↦ nd∈dom(sm_add_node)">
+<org.eventb.core.prIdent name="nd" org.eventb.core.type="NODE"/>
+<org.eventb.core.prIdent name="sm" org.eventb.core.type="STATE_MACHINE"/>
+<org.eventb.core.prIdent name="sme" org.eventb.core.type="STATE_MACHINE_EXTENSION"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒cl(r∼)=(cl(r))∼">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p38" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE),p⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r⊆p∧p;r⊆p⇒cl(r)⊆p">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p41" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·cl(r)=r∪(cl(r);r)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p50" org.eventb.core.predicate="contained_recursive=(λsme⦂STATE_MACHINE_EXTENSION ↦ nd⦂NODE·sme∈StateMachineExtensions ∣ (containers(sme))∼[{nd}]∪(cl(parents(sme)))∼[(containers(sme))∼[{nd}]])">
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="contained_recursive" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×NODE×ℙ(STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="containers" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE×NODE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒cl(r);r⊆cl(r)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p39" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·cl(r);cl(r)⊆cl(r)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p44" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r;cl(r)⊆cl(r)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·⊤⇒cl(r)=r∪(cl(r);r)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p43" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·cl(r∼)=(cl(r))∼">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="dom(sm_add_node)={sme⦂STATE_MACHINE_EXTENSION,sm⦂STATE_MACHINE,nd⦂NODE·sme∈StateMachineExtensions∧sm∈state_machines(sme)∧¬nd∈nodes(sme) ∣ sme ↦ sm ↦ nd}">
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="nodes" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(NODE))"/>
+<org.eventb.core.prIdent name="state_machines" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p35" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION·sme∈StateMachineExtensions∧⊤⇒sme∈dom(containers)∧containers∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × NODE)∧sme∈dom(parents)∧parents∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × STATE_MACHINE)∧parents(sme)∈dom(cl)∧cl∈ℙ(STATE_MACHINE × STATE_MACHINE) ⇸ ℙ(STATE_MACHINE × STATE_MACHINE)">
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="containers" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE×NODE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="StateMachineExtensions∈ℙ(STATE_MACHINE_EXTENSION)">
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p36" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r⊆cl(r)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p34" org.eventb.core.predicate="∀sme⦂STATE_MACHINE_EXTENSION,nd⦂NODE·sme∈StateMachineExtensions∧nd∈NODE⇒sme∈dom(containers)∧containers∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × NODE)∧sme∈dom(parents)∧parents∈STATE_MACHINE_EXTENSION ⇸ ℙ(STATE_MACHINE × STATE_MACHINE)∧parents(sme)∈dom(cl)∧cl∈ℙ(STATE_MACHINE × STATE_MACHINE) ⇸ ℙ(STATE_MACHINE × STATE_MACHINE)">
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="containers" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE×NODE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p40" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·cl(r)=r∪(r;cl(r))">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒cl(r);cl(r)⊆cl(r)">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p48" org.eventb.core.predicate="contained=(λsme⦂STATE_MACHINE_EXTENSION ↦ nd⦂NODE·sme∈StateMachineExtensions ∣ (containers(sme))∼[{nd}])">
+<org.eventb.core.prIdent name="StateMachineExtensions" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION)"/>
+<org.eventb.core.prIdent name="contained" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×NODE×ℙ(STATE_MACHINE))"/>
+<org.eventb.core.prIdent name="containers" org.eventb.core.type="ℙ(STATE_MACHINE_EXTENSION×ℙ(STATE_MACHINE×NODE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒(∀p⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r⊆p⇒cl(r)⊆cl(p))">
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE_MACHINE×STATE_MACHINE)×ℙ(STATE_MACHINE×STATE_MACHINE))"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+</org.eventb.core.prProof>
+</org.eventb.core.prFile>
