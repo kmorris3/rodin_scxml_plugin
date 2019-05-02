@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scxml xmlns="http://www.w3.org/2005/07/scxml" xmlns:iumlb="urn:xmlns:ac.soton.uk:iumlb" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" initial="OFF" name="drone" version="1.0" iumlb:refinement="0">
-  <iumlb:invariant iumlb:refinement="1" predicate="" name=""/>
+  <!-- <iumlb:invariant iumlb:refinement="1" predicate="" name=""/> -->
   <datamodel>
     <!-- How to define GPS coordinates -->
-    <data expr="0" id="startPos.x" iumlb:type="NAT" iumlb:refinement="1"/>
-    <data expr="0" id="startPos.y" iumlb:type="NAT" iumlb:refinement="1"/>
-    <data expr="0" id="startPos.z" iumlb:type="NAT" iumlb:refinement="1"/>
-    <data expr="0" id="getGPS.x" iumlb:type="NAT" iumlb:refinement="1"/>
-    <data expr="0" id="getGPS.y" iumlb:type="NAT" iumlb:refinement="1"/>
-    <data expr="0" id="getGPS.z" iumlb:type="NAT" iumlb:refinement="1"/>
-    <data expr="NAT" id="rise" iumlb:type="NAT" iumlb:refinement="1"/>
+    <data expr="0" id="startPos_x" iumlb:type="NAT" iumlb:refinement="1"/>
+    <data expr="0" id="startPos_y" iumlb:type="NAT" iumlb:refinement="1"/>
+    <data expr="0" id="startPos_z" iumlb:type="NAT" iumlb:refinement="1"/>
+    <data expr="0" id="getGPS_x" iumlb:type="NAT" iumlb:refinement="1"/>
+    <data expr="0" id="getGPS_y" iumlb:type="NAT" iumlb:refinement="1"/>
+    <data expr="0" id="getGPS_z" iumlb:type="NAT" iumlb:refinement="1"/>
+    <data expr="::NAT" id="rise" iumlb:type="NAT" iumlb:refinement="1"/>
   </datamodel>
 
   <state id="OFF" iumlb:refinement="1">
@@ -19,9 +19,9 @@
   <state id="START" iumlb:refinement="1">
     <onentry>
       <!-- execute startup() -->
-      <assign expr="NAT" location="getGPS.x" iumlb:refinement="1"/>
-      <assign expr="NAT" location="getGPS.y" iumlb:refinement="1"/>
-      <assign expr="NAT" location="getGPS.z" iumlb:refinement="1"/>
+      <assign expr="::NAT" location="getGPS_x" iumlb:refinement="1"/>
+      <assign expr="::NAT" location="getGPS_y" iumlb:refinement="1"/>
+      <assign expr="::NAT" location="getGPS_z" iumlb:refinement="1"/>
     </onentry>
     <transition event="toTakeoff" target="OPERATIONAL" iumlb:label="START_OPERATIONAL"/>
   </state>
@@ -34,14 +34,16 @@
       <state id="TAKEOFF" iumlb:refinement="1">
         <onentry>
           <!-- execute startPos = getGPS() -->
-          <assign expr="getGPS.x" location="startPos.x" iumlb:refinement="1"/>
-          <assign expr="getGPS.y" location="startPos.y" iumlb:refinement="1"/>
-          <assign expr="getGPS.z" location="startPos.z" iumlb:refinement="1"/>
+          <assign expr="getGPS_x" location="startPos_x" iumlb:refinement="1"/>
+          <assign expr="getGPS_y" location="startPos_y" iumlb:refinement="1"/>
+          <assign expr="getGPS_z" location="startPos_z" iumlb:refinement="1"/>
           <!-- execute rise() -->
-          <assign expr="getGPS.y + rise" location="getGPS.y" iumlb:refinement="1"/>
+          <assign expr="getGPS_y + rise" location="getGPS_y" iumlb:refinement="1"/>
         </onentry>
 
         <transition event="toFly" target="FLY" iumlb:label="TAKEOFF_FLY"/>
+        <!-- Tansition added in fig 16 -->
+        <transition event="toLand" target="DESCEND" iumlb:label="TAKEOFF_DESCEND"/>
       </state>
 
       <state id="FLY" iumlb:refinement="1">
@@ -52,7 +54,7 @@
         <transition event="Landed" target="LANDED" iumlb:label="DESCEND_LANDED"/>
       </state>
 
-      <final id="LANDED" iumlb:refinement="1"> 
+      <final id="LANDED" iumlb:refinement="1"/> 
       <transition event="off" target="SHUTDOWN" iumlb:label="LANDED_SHUTDOWN"/>
       <transition event="toTakeoff" target="OPERATIONAL" iumlb:label="LANDED_OPERATIONAL"/>
 

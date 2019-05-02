@@ -31,6 +31,8 @@
   </state>
 
   <state id="OPERATIONAL" iumlb:refinement="1">
+    <!-- In refinement 5 we are adding another parallel state.   -->
+    <!-- Do we need to update the refinement level for the parallel construct? -->
     <parallel id="FLYOP_BATTERYOP" iumlb:refinement="4">
       <!-- Flying Region -->
       <state id="FLYOP" iumlb:refinement="4">
@@ -52,12 +54,24 @@
           </initial>
 
           <state id="CLIMB" iumlb:refinement="2">
+            <initial>
+              <transition target="CLIMB2" iumlb:refinement="5" />
+            </initial>
+
+            <state id="CLIMB2" iumlb:refinement="5">
+              <transition event="cancel" target="ABORT">
+                <raise event="toLand"/>
+              </transition>
+            </state>
+
+            <state id="ABORT" iumlb:refinement="5"/>
+
             <transition target="HOVER" iumlb:label="CLIMB_HOVER">
               <!-- getAlt()=getGPS_y -->
               <iumlb:guard predicate="getGPS_y&gt;min" name="check_min"/>
               <raise event="toFly"/>
             </transition>
-          </state>
+          </state> <!-- End of State=CLIMB -->
 
           <state id="HOVER" iumlb:refinement="2">
             <!-- <onentry> -->
@@ -136,6 +150,21 @@
           </transition>
         </state>
       </state>  <!-- End BATERRYOP Region -->
+
+      <!-- Sensor Operation Region -->
+      <state id="SENSOROP" iumlb:refinement="5">
+        <initial>
+          <transition target="SENSOR" iumlb:refinement="5"/>
+        </initial>
+
+        <state id="SENSOR" iumlb:refinement="5">
+          <transition event="obstacleDetected" target="CANCELING">
+            <raise event="cancel"/>
+          </transition>
+        </state>
+
+        <state id="CANCELING" iumlb:refinement="5"/>
+      </state>  <!-- End SENSOROP Region -->
 
     </parallel> <!-- End of OPERATIONAL PARALLEL -->
   </state> <!-- End of State=OPERATIONAL -->
