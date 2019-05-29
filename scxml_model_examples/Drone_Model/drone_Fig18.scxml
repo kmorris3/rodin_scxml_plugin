@@ -11,8 +11,8 @@
     <data expr="0" id="getGPS_z" iumlb:type="NAT" iumlb:refinement="1"/>
     <data expr="::NAT" id="rise" iumlb:type="NAT" iumlb:refinement="1"/>
     <data expr="10" id="min" iumlb:type="NAT" iumlb:refinement="2" />
-    <data expr="0" id="dir" iumlb:type="NAT" iumlb:refinement="3" />
-    <data expr="::{0..100}" id="charge" iumlb:type="{0..100}" iumlb:refinement="4" />
+    <data expr="0" id="dir" iumlb:type="INT" iumlb:refinement="3" />
+    <data expr="::0..100" id="charge" iumlb:type="0..100" iumlb:refinement="4" />
   </datamodel>
 
 
@@ -101,7 +101,7 @@
               <assign expr="1" location="dir" iumlb:refinement="3"/>
             </onentry>
             <transition target="GOFORWARD" iumlb:label="ALIGN_GOFORWARD">
-              <iumlb:guard predicate="isAligned(startPos_x,startPos_y,startPos_z)" name="check_Aligned"/>
+              <iumlb:guard predicate="isAligned(startPos_x |-> startPos_y |-> startPos_z) = TRUE" name="check_Aligned"/>
             </transition>
           </state>
 
@@ -109,7 +109,7 @@
             <onentry>
               <!-- execute goForward() -->
               <!-- <assign expr="" location="" iumlb:refinement="3"/> -->
-              <assign expr="dir*-1" location="dir" iumlb:refinement="3"/>
+              <assign expr="dir*(-1)" location="dir" iumlb:refinement="3"/>
             </onentry>
             <transition target="DESCEND2" iumlb:label="GOFORWARD_DESCEND2">
               <assign expr="startPos_x" location="getGPS_x" iumlb:refinement="3"/>
@@ -143,7 +143,7 @@
         <state id="BATERRY">
           <onentry>
             <!-- execute charge=getCharge() -->
-            <assign expr="::{0..100}" location="charge" iumlb:refinement="4"/>
+            <assign expr="::0..100" location="charge" iumlb:refinement="4"/>
           </onentry>
           <transition target="BATERRY" iumlb:label="BATERRY_BATERRY">
             <iumlb:guard predicate="charge&lt;10" name="check_charge"/>
