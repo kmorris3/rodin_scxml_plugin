@@ -114,9 +114,10 @@
           <transition event="Landed" target="LANDED" iumlb:label="DESCEND_LANDED"/>
         </state> <!-- End of State=DESCEND -->
 
-        <final id="LANDED" iumlb:refinement="1"/> 
-        <transition event="off" target="SHUTDOWN" iumlb:label="LANDED_SHUTDOWN"/>
-        <transition event="toTakeoff" target="OPERATIONAL" iumlb:label="LANDED_OPERATIONAL"/>
+        <state id="LANDED" iumlb:refinement="1"> 
+          <transition event="off" target="SHUTDOWN" iumlb:label="LANDED_SHUTDOWN"/>
+          <transition event="toTakeoff" target="OPERATIONAL" iumlb:label="LANDED_OPERATIONAL"/>
+        </state>
       </state> <!-- End FLYOP Region -->
 
       <!-- Battery Operation Region -->
