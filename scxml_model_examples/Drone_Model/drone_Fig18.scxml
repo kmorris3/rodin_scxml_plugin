@@ -32,11 +32,9 @@
   </state>
 
   <state id="OPERATIONAL" iumlb:refinement="1">
-    <!-- In refinement 5 we are adding another parallel state.   -->
-    <!-- Do we need to update the refinement level for the parallel construct? -->
-    <parallel id="FLYOP_BATTERYOP" iumlb:refinement="4">
+    <parallel id="FLYOP_BATTERYOP" iumlb:refinement="1">
       <!-- Flying Region -->
-      <state id="FLYOP" iumlb:refinement="4">
+      <state id="FLYOP" iumlb:refinement="1">
         <initial>
           <transition target="TAKEOFF"/>
         </initial>

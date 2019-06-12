@@ -32,9 +32,9 @@
   </state>
 
   <state id="OPERATIONAL" iumlb:refinement="1">
-    <parallel id="FLYOP_BATTERYOP" iumlb:refinement="4">
+    <parallel id="FLYOP_BATTERYOP" iumlb:refinement="1">
       <!-- Flying Region -->
-      <state id="FLYOP" iumlb:refinement="4">
+      <state id="FLYOP" iumlb:refinement="1">
         <initial>
           <transition target="TAKEOFF"/>
         </initial>
