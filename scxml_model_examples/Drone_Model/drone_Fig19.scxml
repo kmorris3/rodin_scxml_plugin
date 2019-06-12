@@ -172,6 +172,9 @@
             </onentry>
             <transition event="TurnDone" target="FORWARD1"/>
           </state>
+          
+          <state id="HOLD" iumlb:refinement="6">
+          </state>
 
           <transition event="toLand" target="DESCEND" iumlb:label="FLY_DESCEND"/>
         </state> <!-- End of State=FLY -->
