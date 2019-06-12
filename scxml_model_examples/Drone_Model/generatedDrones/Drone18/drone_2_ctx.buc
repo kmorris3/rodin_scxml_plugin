@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.comment="(generated from SCXML file: /Drone18/drone_Fig18.scxml)" org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="true" version="3">
+<org.eventb.core.extendsContext name="_4tztsI0VEemE05FqQWmyJA" org.eventb.core.target="drone_1_ctx"/>
+<org.eventb.core.constant name="_4tztsY0VEemE05FqQWmyJA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureInternalTrigger2"/>
+<org.eventb.core.constant name="_4tztso0VEemE05FqQWmyJA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureExternalTrigger2"/>
+<org.eventb.core.constant name="_4tzts40VEemE05FqQWmyJA" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="cancel"/>
+<org.eventb.core.axiom name="_4t0UwI0VEemE05FqQWmyJA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTrigger2" org.eventb.core.predicate="SCXML_FutureExternalTrigger2=SCXML_FutureExternalTrigger1"/>
+<org.eventb.core.axiom name="_4t0UwY0VEemE05FqQWmyJA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureInternalTrigger2" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger1,SCXML_FutureInternalTrigger2,{cancel})"/>
+<org.eventb.core.axiom name="_4t0Uwo0VEemE05FqQWmyJA" org.eventb.core.comment="help ProB" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureInternalTriggerProB2" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger,{toLand},{toFly},{cancel}, SCXML_FutureInternalTrigger2)"/>
+</org.eventb.core.contextFile>

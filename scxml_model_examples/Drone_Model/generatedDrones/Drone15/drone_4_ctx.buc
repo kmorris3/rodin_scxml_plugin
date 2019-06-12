@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.comment="(generated from SCXML file: /Drone15/drone_Fig15.scxml)" org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="true" version="3">
+<org.eventb.core.extendsContext name="_lsHiQI0REemE05FqQWmyJA" org.eventb.core.target="drone_3_ctx"/>
+<org.eventb.core.constant name="_lsHiQY0REemE05FqQWmyJA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureInternalTrigger4"/>
+<org.eventb.core.constant name="_lsHiQo0REemE05FqQWmyJA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureExternalTrigger4"/>
+<org.eventb.core.constant name="_lsHiQ40REemE05FqQWmyJA" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="after15s"/>
+<org.eventb.core.axiom name="_lsHiRI0REemE05FqQWmyJA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTrigger4" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger3,SCXML_FutureExternalTrigger4,{after15s})"/>
+<org.eventb.core.axiom name="_lsHiRY0REemE05FqQWmyJA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureInternalTrigger4" org.eventb.core.predicate="SCXML_FutureInternalTrigger4=SCXML_FutureInternalTrigger3"/>
+<org.eventb.core.axiom name="_lsHiRo0REemE05FqQWmyJA" org.eventb.core.comment="help ProB" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTriggerProB4" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,{toTakeoff},{on},{Landed},{toLand},{off},{after15s}, SCXML_FutureExternalTrigger4)"/>
+</org.eventb.core.contextFile>
