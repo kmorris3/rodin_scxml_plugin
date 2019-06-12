@@ -108,7 +108,7 @@
             <onentry>
               <!-- execute goForward() -->
               <!-- <assign expr="" location="" iumlb:refinement="3"/> -->
-              <assign expr="dir*(-1)" location="dir" iumlb:refinement="3"/>
+              <assign expr="dir*-1" location="dir" iumlb:refinement="3"/>
             </onentry>
             <transition target="DESCEND2" iumlb:label="GOFORWARD_DESCEND2">
               <assign expr="startPos_x" location="getGPS_x" iumlb:refinement="3"/>
