@@ -12,6 +12,7 @@
     <data expr="::NAT" id="rise" iumlb:type="NAT" iumlb:refinement="1"/>
     <data expr="10" id="minimum" iumlb:type="NAT" iumlb:refinement="2" />
     <data expr="0" id="dir" iumlb:type="INT" iumlb:refinement="3" />
+    <data expr="::  (NAT**NAT**NAT) --> BOOL" id="isAligned" iumlb:type=" (NAT**NAT**NAT) --> BOOL" iumlb:refinement="3"><!--this should really be a constant - we need a way to specify--></data>
     <data expr="::0..100" id="charge" iumlb:type="0..100" iumlb:refinement="4" />
   </datamodel>
 
