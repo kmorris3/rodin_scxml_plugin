@@ -10,7 +10,7 @@
     <data expr="0" id="getGPS_y" iumlb:type="NAT" iumlb:refinement="1"/>
     <data expr="0" id="getGPS_z" iumlb:type="NAT" iumlb:refinement="1"/>
     <data expr="::NAT" id="rise" iumlb:type="NAT" iumlb:refinement="1"/>
-    <data expr="10" id="min" iumlb:type="NAT" iumlb:refinement="2" />
+    <data expr="10" id="minimum" iumlb:type="NAT" iumlb:refinement="2" />
   </datamodel>
 
   <state id="OFF" iumlb:refinement="1">
@@ -48,7 +48,7 @@
         <state id="CLIMB" iumlb:refinement="2">
           <transition target="HOVER" iumlb:label="CLIMB_HOVER">
             <!-- getAlt()=getGPS_y -->
-            <iumlb:guard predicate="getGPS_y&gt;min" name="check_min"/>
+            <iumlb:guard predicate="getGPS_y&gt;minimum" name="check_min"/>
             <raise event="toFly"/>
           </transition>
         </state>
