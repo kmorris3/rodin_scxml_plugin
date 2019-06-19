@@ -1,207 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scxml xmlns="http://www.w3.org/2005/07/scxml" xmlns:iumlb="urn:xmlns:ac.soton.uk:iumlb" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" initial="OFF" name="drone" version="1.0" iumlb:refinement="0">
-  <!-- <iumlb:invariant iumlb:refinement="1" predicate="" name=""/> -->
   <datamodel>
-    <!-- How to define GPS coordinates -->
-    <data expr="0" id="startPos_x" iumlb:type="NAT" iumlb:refinement="2" />
-    <data expr="0" id="startPos_y" iumlb:type="NAT" iumlb:refinement="2" />
-    <data expr="0" id="startPos_z" iumlb:type="NAT" iumlb:refinement="2" />
+    <data expr="0" id="startPos_x" iumlb:type="NAT" iumlb:refinement="2"/>
+    <data expr="0" id="startPos_y" iumlb:type="NAT" iumlb:refinement="2"/>
+    <data expr="0" id="startPos_z" iumlb:type="NAT" iumlb:refinement="2"/>
     <data expr="0" id="getGPS_x" iumlb:type="NAT" iumlb:refinement="1"/>
     <data expr="0" id="getGPS_y" iumlb:type="NAT" iumlb:refinement="1"/>
     <data expr="0" id="getGPS_z" iumlb:type="NAT" iumlb:refinement="1"/>
     <data expr="::NAT" id="rise" iumlb:type="NAT" iumlb:refinement="2"/>
-    <data expr="10" id="minimum" iumlb:type="NAT" iumlb:refinement="3" />
-    <data expr="0" id="dir" iumlb:type="INT" iumlb:refinement="4" />
-    <data expr="::  (NAT**NAT**NAT) --> BOOL" id="isAligned" iumlb:type=" (NAT**NAT**NAT) --> BOOL" iumlb:dataKind="Constant" iumlb:refinement="4"><!--this should really be a constant - we need a way to specify--></data>
-    <data expr="::0..100" id="charge" iumlb:type="0..100" iumlb:refinement="5" />
-    <data expr="::0..360" id="alpha" iumlb:type="0..360" iumlb:refinement="7" />
-    <data expr="200" id="maxY" iumlb:type="NAT" iumlb:refinement="7" />
-    <data expr="0" id="l" iumlb:type="NAT" iumlb:refinement="7" />
-    <data expr="::NAT" id="y" iumlb:type="NAT" iumlb:refinement="7" />
+    <data expr="10" id="minimum" iumlb:type="NAT" iumlb:refinement="3"/>
+    <data expr="0" id="dir" iumlb:type="INT" iumlb:refinement="4"/>
+    <data expr="(%x|->y|->z|->a|->b|->c.x:NAT&amp;y:NAT&amp;z:NAT&amp;a:NAT&amp;b:NAT&amp;c:NAT|bool(x=a&amp;z=c))" id="isAligned" src="" iumlb:type=" (NAT**NAT**NAT**NAT**NAT**NAT) --> BOOL" iumlb:dataKind="Constant" iumlb:refinement="4"><!--this should really be a constant - we need a way to specify--></data>
+    <data expr="::0..100" id="charge" iumlb:type="0..100" iumlb:refinement="5"/>
+    <data expr="::0..360" id="alpha" iumlb:type="0..360" iumlb:refinement="7"/>
+    <data expr="200" id="maxY" iumlb:type="NAT" iumlb:refinement="7"/>
+    <data expr="0" id="l" iumlb:type="NAT" iumlb:refinement="7"/>
+    <data expr="::NAT" id="y" iumlb:type="NAT" iumlb:refinement="7"/>
   </datamodel>
-
-
   <state id="OFF" iumlb:refinement="1">
     <transition event="on" target="START" iumlb:label="OFF_START"/>
   </state>
-
   <state id="START" iumlb:refinement="1">
     <onentry>
-      <!-- execute startup() -->
       <assign expr="::NAT" location="getGPS_x" iumlb:refinement="1"/>
       <assign expr="::NAT" location="getGPS_y" iumlb:refinement="1"/>
       <assign expr="::NAT" location="getGPS_z" iumlb:refinement="1"/>
     </onentry>
     <transition event="toTakeoff" target="OPERATIONAL" iumlb:label="START_OPERATIONAL"/>
   </state>
-
   <state id="OPERATIONAL" iumlb:refinement="1">
     <transition event="off" target="SHUTDOWN" iumlb:label="OPERATIONAL_SHUTDOWN" iumlb:refinement="1"/>
     <transition event="toTakeoff" target="OPERATIONAL" iumlb:label="OPERATIONAL_OPERATIONAL" iumlb:refinement="1"/>
-
     <parallel id="FLYOP_BATTERYOP" iumlb:refinement="2">
-      <!-- Flying Region -->
       <state id="FLYOP" iumlb:refinement="2">
         <initial>
           <transition target="TAKEOFF"/>
         </initial>
-
         <state id="TAKEOFF" iumlb:refinement="2">
           <onentry>
-            <!-- execute startPos = getGPS() -->
             <assign expr="getGPS_x" location="startPos_x" iumlb:refinement="2"/>
             <assign expr="getGPS_y" location="startPos_y" iumlb:refinement="2"/>
             <assign expr="getGPS_z" location="startPos_z" iumlb:refinement="2"/>
-            <!-- execute rise() -->
             <assign expr="getGPS_y + rise" location="getGPS_y" iumlb:refinement="2"/>
           </onentry>
           <initial>
             <transition target="CLIMB" iumlb:refinement="3"/>
           </initial>
-
           <state id="CLIMB" iumlb:refinement="3">
             <initial>
-              <transition target="CLIMB2" iumlb:refinement="6" />
+              <transition target="CLIMB2" iumlb:refinement="6"/>
             </initial>
-
             <state id="CLIMB2" iumlb:refinement="6">
               <transition event="cancel" target="ABORT">
                 <raise event="toLand"/>
               </transition>
             </state>
-
             <state id="ABORT" iumlb:refinement="6"/>
-
             <transition target="HOVER" iumlb:label="CLIMB_HOVER">
-              <!-- getAlt()=getGPS_y -->
-              <iumlb:guard predicate="getGPS_y&gt;minimum" name="check_min" iumlb:refinement="3"/>
+              <iumlb:guard predicate="getGPS_y>minimum" name="check_min" iumlb:refinement="3"/>
               <raise event="toFly"/>
             </transition>
-          </state> <!-- End of State=CLIMB -->
-
-          <state id="HOVER" iumlb:refinement="3">
-            <!-- <onentry> -->
-              <!-- execute hover() -->
-              <!-- <assign expr="" location="" iumlb:refinement="3"/> -->
-            <!-- </onentry> -->
           </state>
-
+          <state id="HOVER" iumlb:refinement="3"/>
           <transition event="toFly" target="FLY" iumlb:label="TAKEOFF_FLY"/>
-          <!-- Tansition added in fig 16 -->
           <transition event="toLand" target="DESCEND" iumlb:label="TAKEOFF_DESCEND"/>
-        </state> <!-- End of State=TAKEOFF -->
-
+        </state>
         <state id="FLY" iumlb:refinement="2">
           <initial>
             <transition target="FORWARD1" iumlb:refinement="7"/>
           </initial>
-
           <state id="FORWARD1" iumlb:refinement="7">
             <onentry>
-              <!-- execute speed(1) -->
               <assign expr="0" location="l" iumlb:refinement="7"/>
             </onentry>
-            <onexit>
-              <!-- execute speed(0) -->
-            </onexit>
+            <onexit/>
             <transition event="LongStepReached" target="TURN1"/>
           </state>
-
           <state id="TURN1" iumlb:refinement="7">
             <onentry>
-              <!-- execute alpha=0 -->
               <assign expr="0" location="alpha" iumlb:refinement="7"/>
             </onentry>
             <transition event="TurnDone" target="FORWARD2"/>
           </state>
-
           <state id="FORWARD2" iumlb:refinement="7">
             <onentry>
-              <!-- execute speed(1) -->
               <assign expr="0" location="l" iumlb:refinement="7"/>
             </onentry>
-            <onexit>
-              <!-- execute speed(0) -->
-            </onexit>
+            <onexit/>
             <transition event="ShortStepReached" target="TURN2"/>
           </state>
-
           <state id="TURN2" iumlb:refinement="7">
             <onentry>
-              <!-- execute alpha=0 -->
               <assign expr="0" location="alpha" iumlb:refinement="7"/>
             </onentry>
             <transition event="TurnDone" target="FORWARD3"/>
           </state>
-
           <state id="FORWARD3" iumlb:refinement="7">
             <onentry>
-              <!-- execute speed(1) -->
               <assign expr="0" location="l" iumlb:refinement="7"/>
             </onentry>
-            <onexit>
-              <!-- execute speed(0) -->
-            </onexit>
+            <onexit/>
             <transition event="LongStepReached" target="TURN3"/>
           </state>
-
           <state id="TURN3" iumlb:refinement="7">
             <onentry>
-              <!-- execute alpha=0 -->
               <assign expr="0" location="alpha" iumlb:refinement="7"/>
             </onentry>
             <transition event="TurnDone" target="FORWARD4"/>
           </state>
-
           <state id="FORWARD4" iumlb:refinement="7">
             <onentry>
-              <!-- execute speed(1) -->
               <assign expr="0" location="l" iumlb:refinement="7"/>
             </onentry>
-            <onexit>
-              <!-- execute speed(0) -->
-            </onexit>
+            <onexit/>
             <transition event="ShortStepReached" target="TURN4"/>
             <transition target="HOLD">
               <iumlb:guard predicate="y>=maxY" name="check_y"/>
               <raise event="toLand"/>
             </transition>
           </state>
-
           <state id="TURN4" iumlb:refinement="7">
             <onentry>
-              <!-- execute alpha=0 -->
               <assign expr="0" location="alpha" iumlb:refinement="7"/>
             </onentry>
             <transition event="TurnDone" target="FORWARD1"/>
           </state>
-          
-          <state id="HOLD" iumlb:refinement="7">
-          </state>
-
+          <state id="HOLD" iumlb:refinement="7"/>
           <transition event="toLand" target="DESCEND" iumlb:label="FLY_DESCEND"/>
-        </state> <!-- End of State=FLY -->
-
+        </state>
         <state id="DESCEND" iumlb:refinement="2">
           <initial>
             <transition target="ALIGN" iumlb:refinement="4"/>
           </initial>
-
           <state id="ALIGN" iumlb:refinement="4">
             <onentry>
-              <!-- execute rotate(1) -->
-              <!-- <assign expr="" location="" iumlb:refinement="4"/> -->
               <assign expr="1" location="dir" iumlb:refinement="4"/>
             </onentry>
             <transition target="GOFORWARD" iumlb:label="ALIGN_GOFORWARD">
               <iumlb:guard predicate="isAligned(startPos_x |-> startPos_y |-> startPos_z) = TRUE" name="check_Aligned"/>
             </transition>
           </state>
-
           <state id="GOFORWARD" iumlb:refinement="4">
             <onentry>
-              <!-- execute goForward() -->
-              <!-- <assign expr="" location="" iumlb:refinement="4"/> -->
               <assign expr="dir*-1" location="dir" iumlb:refinement="4"/>
             </onentry>
             <transition target="DESCEND2" iumlb:label="GOFORWARD_DESCEND2">
@@ -210,33 +150,20 @@
               <assign expr="startPos_z" location="getGPS_z" iumlb:refinement="4"/>
             </transition>
           </state>
-
-          <state id="DESCEND2" iumlb:refinement="4">
-            <!-- <onentry> -->
-              <!-- execute descend() -->
-              <!-- <assign expr="" location="" iumlb:refinement="4"/> -->
-            <!-- </onentry> -->
-          </state>
-
+          <state id="DESCEND2" iumlb:refinement="4"/>
           <transition event="Landed" target="LANDED" iumlb:label="DESCEND_LANDED"/>
-        </state> <!-- End of State=DESCEND -->
-
-        <!-- This is now a final state for OPERATIONAL -->
-        <state id="LANDED" iumlb:refinement="2"> 
+        </state>
+        <state id="LANDED" iumlb:refinement="2">
           <transition event="off" target="SHUTDOWN" iumlb:label="LANDED_SHUTDOWN"/>
           <transition event="toTakeoff" target="OPERATIONAL" iumlb:label="LANDED_OPERATIONAL"/>
         </state>
-      </state> <!-- End FLYOP Region -->
-
-      <!-- Battery Operation Region -->
+      </state>
       <state id="BATTERYOP" iumlb:refinement="5">
         <initial>
-          <transition target="BATERRY" />
+          <transition target="BATERRY"/>
         </initial>
-
         <state id="BATERRY">
           <onentry>
-            <!-- execute charge=getCharge() -->
             <assign expr="::0..100" location="charge" iumlb:refinement="5"/>
           </onentry>
           <transition target="BATERRY" iumlb:label="BATERRY_BATERRY">
@@ -244,33 +171,21 @@
             <raise event="toLand"/>
           </transition>
         </state>
-      </state>  <!-- End BATERRYOP Region -->
-
-      <!-- Sensor Operation Region -->
+      </state>
       <state id="SENSOROP" iumlb:refinement="6">
         <initial>
           <transition target="SENSOR" iumlb:refinement="6"/>
         </initial>
-
         <state id="SENSOR" iumlb:refinement="6">
           <transition event="obstacleDetected" target="CANCELING">
             <raise event="cancel"/>
           </transition>
         </state>
-
         <state id="CANCELING" iumlb:refinement="6"/>
-      </state>  <!-- End SENSOROP Region -->
-
-    </parallel> <!-- End of OPERATIONAL PARALLEL -->
-  </state> <!-- End of State=OPERATIONAL -->
-
+      </state>
+    </parallel>
+  </state>
   <state id="SHUTDOWN" iumlb:refinement="1">
-    <!-- <onentry> -->
-      <!-- execute shutdown() -->
-      <!-- <assign expr="" location="" iumlb:refinement="1"/> -->
-    <!-- </onentry> -->
     <transition target="OFF" iumlb:label="SHUTDOWN_OFF"/>
   </state>
-
 </scxml>
-

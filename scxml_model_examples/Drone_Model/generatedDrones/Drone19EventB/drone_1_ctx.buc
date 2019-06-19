@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.comment="(generated from SCXML file: /Drone19EventB/drone_Fig19_EventB.scxml)" org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="true" version="3">
-<org.eventb.core.extendsContext name="_X0LNsJKFEemF9L5j7PBjgw" org.eventb.core.target="drone_0_ctx"/>
-<org.eventb.core.constant name="_X0LNsZKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureInternalTrigger1"/>
-<org.eventb.core.constant name="_X0LNspKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureExternalTrigger1"/>
-<org.eventb.core.axiom name="_X0LNs5KFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTrigger1" org.eventb.core.predicate="SCXML_FutureExternalTrigger1=SCXML_FutureExternalTrigger0"/>
-<org.eventb.core.axiom name="_X0L0wJKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureInternalTrigger1" org.eventb.core.predicate="SCXML_FutureInternalTrigger1=SCXML_FutureInternalTrigger0"/>
+<org.eventb.core.extendsContext name="_Vz8-MJKMEemF9L5j7PBjgw" org.eventb.core.target="drone_0_ctx"/>
+<org.eventb.core.constant name="_Vz8-MZKMEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureInternalTrigger1"/>
+<org.eventb.core.constant name="_Vz8-MpKMEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureExternalTrigger1"/>
+<org.eventb.core.axiom name="_Vz8-M5KMEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTrigger1" org.eventb.core.predicate="SCXML_FutureExternalTrigger1=SCXML_FutureExternalTrigger0"/>
+<org.eventb.core.axiom name="_Vz8-NJKMEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureInternalTrigger1" org.eventb.core.predicate="SCXML_FutureInternalTrigger1=SCXML_FutureInternalTrigger0"/>
 </org.eventb.core.contextFile>
