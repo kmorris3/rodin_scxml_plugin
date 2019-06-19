@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.comment="(generated from SCXML file: /Drone19EventB/drone_Fig19_EventB.scxml)" org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="true" version="3">
+<org.eventb.core.extendsContext name="_aTQhQJJvEemcQNw0-tgBHA" org.eventb.core.target="drone_5_ctx"/>
+<org.eventb.core.constant name="_aTQhQZJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureInternalTrigger6"/>
+<org.eventb.core.constant name="_aTQhQpJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureExternalTrigger6"/>
+<org.eventb.core.constant name="_aTQhQ5JvEemcQNw0-tgBHA" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="obstacleDetected"/>
+<org.eventb.core.axiom name="_aTQhRJJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTrigger6" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger5,SCXML_FutureExternalTrigger6,{obstacleDetected})"/>
+<org.eventb.core.axiom name="_aTQhRZJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureInternalTrigger6" org.eventb.core.predicate="SCXML_FutureInternalTrigger6=SCXML_FutureInternalTrigger5"/>
+<org.eventb.core.axiom name="_aTQhRpJvEemcQNw0-tgBHA" org.eventb.core.comment="help ProB" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTriggerProB6" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,{toTakeoff},{off},{on},{Landed},{ShortStepReached},{LongStepReached},{TurnDone},{obstacleDetected}, SCXML_FutureExternalTrigger6)"/>
+</org.eventb.core.contextFile>

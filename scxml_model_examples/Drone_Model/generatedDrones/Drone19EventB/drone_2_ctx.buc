@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.comment="(generated from SCXML file: /Drone19EventB/drone_Fig19_EventB.scxml)" org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="true" version="3">
+<org.eventb.core.extendsContext name="_aSFckJJvEemcQNw0-tgBHA" org.eventb.core.target="drone_1_ctx"/>
+<org.eventb.core.constant name="_aSFckZJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureInternalTrigger2"/>
+<org.eventb.core.constant name="_aSFckpJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureExternalTrigger2"/>
+<org.eventb.core.constant name="_aSFck5JvEemcQNw0-tgBHA" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="Landed"/>
+<org.eventb.core.constant name="_aSFclJJvEemcQNw0-tgBHA" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="toLand"/>
+<org.eventb.core.constant name="_aSFclZJvEemcQNw0-tgBHA" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="ShortStepReached"/>
+<org.eventb.core.constant name="_aSFclpJvEemcQNw0-tgBHA" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="LongStepReached"/>
+<org.eventb.core.constant name="_aSFcl5JvEemcQNw0-tgBHA" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="TurnDone"/>
+<org.eventb.core.constant name="_aSFcmJJvEemcQNw0-tgBHA" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="toFly"/>
+<org.eventb.core.axiom name="_aSFcmZJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTrigger2" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger1,SCXML_FutureExternalTrigger2,{Landed},{ShortStepReached},{LongStepReached},{TurnDone})"/>
+<org.eventb.core.axiom name="_aSFcmpJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureInternalTrigger2" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger1,SCXML_FutureInternalTrigger2,{toLand},{toFly})"/>
+<org.eventb.core.axiom name="_aSGDoJJvEemcQNw0-tgBHA" org.eventb.core.comment="help ProB" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTriggerProB2" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,{toTakeoff},{off},{on},{Landed},{ShortStepReached},{LongStepReached},{TurnDone}, SCXML_FutureExternalTrigger2)"/>
+<org.eventb.core.axiom name="_aSGDoZJvEemcQNw0-tgBHA" org.eventb.core.comment="help ProB" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureInternalTriggerProB2" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger,{toLand},{toFly}, SCXML_FutureInternalTrigger2)"/>
+</org.eventb.core.contextFile>
