@@ -1210,11 +1210,11 @@
 <org.eventb.core.prPred name="p162" org.eventb.core.predicate="({toLand}∪{toFly}∪SCXML_FutureInternalTrigger3∪{cancel})∩(SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on})=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
 <org.eventb.core.prPred name="p69" org.eventb.core.predicate="OPERATIONAL=TRUE⇒{TRUE}=({TAKEOFF}∩{TRUE})∪({FLY}∩{TRUE})∪({DESCEND}∩{TRUE})∪({LANDED}∩{TRUE})∧({TAKEOFF}∩{TRUE})∩({FLY}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({TAKEOFF}∩{TRUE})∩({DESCEND}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({TAKEOFF}∩{TRUE})∩({LANDED}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({FLY}∩{TRUE})∩({DESCEND}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({FLY}∩{TRUE})∩({LANDED}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({DESCEND}∩{TRUE})∩({LANDED}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.he:1"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="GOFORWARD_DESCEND2/getGPS_y/EQL" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="p0,p1,p2,p3,p4,p5,p6,p7,p8" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
@@ -2015,11 +2015,11 @@
 <org.eventb.core.prPred name="p162" org.eventb.core.predicate="({toLand}∪{toFly}∪SCXML_FutureInternalTrigger3∪{cancel})∩(SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on})=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
 <org.eventb.core.prPred name="p69" org.eventb.core.predicate="OPERATIONAL=TRUE⇒{TRUE}=({TAKEOFF}∩{TRUE})∪({FLY}∩{TRUE})∪({DESCEND}∩{TRUE})∪({LANDED}∩{TRUE})∧({TAKEOFF}∩{TRUE})∩({FLY}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({TAKEOFF}∩{TRUE})∩({DESCEND}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({TAKEOFF}∩{TRUE})∩({LANDED}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({FLY}∩{TRUE})∩({DESCEND}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({FLY}∩{TRUE})∩({LANDED}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({DESCEND}∩{TRUE})∩({LANDED}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.he:1"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="GOFORWARD_DESCEND2/getGPS_z/EQL" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="p0,p1,p2,p3,p4,p5,p6,p7,p8" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
@@ -2820,11 +2820,11 @@
 <org.eventb.core.prPred name="p162" org.eventb.core.predicate="({toLand}∪{toFly}∪SCXML_FutureInternalTrigger3∪{cancel})∩(SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on})=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
 <org.eventb.core.prPred name="p69" org.eventb.core.predicate="OPERATIONAL=TRUE⇒{TRUE}=({TAKEOFF}∩{TRUE})∪({FLY}∩{TRUE})∪({DESCEND}∩{TRUE})∪({LANDED}∩{TRUE})∧({TAKEOFF}∩{TRUE})∩({FLY}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({TAKEOFF}∩{TRUE})∩({DESCEND}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({TAKEOFF}∩{TRUE})∩({LANDED}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({FLY}∩{TRUE})∩({DESCEND}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({FLY}∩{TRUE})∩({LANDED}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({DESCEND}∩{TRUE})∩({LANDED}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.he:1"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="ALIGN_GOFORWARD/check_Aligned/WD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
@@ -3642,13 +3642,13 @@
 <org.eventb.core.prPred name="p165" org.eventb.core.predicate="({toLand}∪{toFly}∪SCXML_FutureInternalTrigger3∪{cancel})∩(SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on})=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
 <org.eventb.core.prPred name="p71" org.eventb.core.predicate="OPERATIONAL=TRUE⇒{TRUE}=({TAKEOFF}∩{TRUE})∪({FLY}∩{TRUE})∪({DESCEND}∩{TRUE})∪({LANDED}∩{TRUE})∧({TAKEOFF}∩{TRUE})∩({FLY}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({TAKEOFF}∩{TRUE})∩({DESCEND}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({TAKEOFF}∩{TRUE})∩({LANDED}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({FLY}∩{TRUE})∩({DESCEND}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({FLY}∩{TRUE})∩({LANDED}∩{TRUE})=(∅ ⦂ ℙ(BOOL))∧({DESCEND}∩{TRUE})∩({LANDED}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
 <org.eventb.core.prPred name="p203" org.eventb.core.predicate="isAligned∈ℤ × ℤ × ℤ ⇸ BOOL"/>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
 <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.he:1"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
 </org.eventb.core.prProof>
 </org.eventb.core.prFile>

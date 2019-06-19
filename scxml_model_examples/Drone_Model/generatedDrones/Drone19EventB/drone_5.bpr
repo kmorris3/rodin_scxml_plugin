@@ -6878,6 +6878,7 @@
 </org.eventb.core.prAnte>
 <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
 </org.eventb.core.prRule>
+<org.eventb.core.prIdent name="BATERRY" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prPred name="p14" org.eventb.core.predicate="¬Landed∈SCXML_FutureExternalTrigger2">
 <org.eventb.core.prIdent name="Landed" org.eventb.core.type="SCXML_TRIGGER"/>
 <org.eventb.core.prIdent name="SCXML_FutureExternalTrigger2" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
@@ -6915,7 +6916,6 @@
 <org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 <org.eventb.core.prIdent name="ShortStepReached" org.eventb.core.type="SCXML_TRIGGER"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p0" org.eventb.core.predicate="TRUE=TRUE⇒TRUE=TRUE"/>
 <org.eventb.core.prPred name="p24" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger1,SCXML_FutureInternalTrigger2,{toLand},{toFly})">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger1" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger2" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
@@ -7131,6 +7131,7 @@
 <org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 <org.eventb.core.prIdent name="off" org.eventb.core.type="SCXML_TRIGGER"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="BATERRY=TRUE⇒TRUE=TRUE"/>
 <org.eventb.core.prPred name="p45" org.eventb.core.predicate="¬on∈SCXML_FutureExternalTrigger2">
 <org.eventb.core.prIdent name="SCXML_FutureExternalTrigger2" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 <org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
@@ -7369,9 +7370,9 @@
 <org.eventb.core.prIdent name="SCXML_TRIGGER" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 <org.eventb.core.prIdent name="toTakeoff" org.eventb.core.type="SCXML_TRIGGER"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="toTakeoff__START_OPERATIONAL/charge_type/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0">
 <org.eventb.core.lang name="L"/>

@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.machineFile org.eventb.core.comment="(generated for SCXML)" org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="true" version="5">
-<org.eventb.core.seesContext name="_aRTZcJJvEemcQNw0-tgBHA" org.eventb.core.target="basis"/>
-<org.eventb.core.variable name="_aRTZcZJvEemcQNw0-tgBHA" org.eventb.core.comment="internal trigger queue" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_iq"/>
-<org.eventb.core.variable name="_aRUAgJJvEemcQNw0-tgBHA" org.eventb.core.comment="external trigger queue" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_eq"/>
-<org.eventb.core.variable name="_aRUAgZJvEemcQNw0-tgBHA" org.eventb.core.comment="run to completion flag" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_uc"/>
-<org.eventb.core.invariant name="_aRUAgpJvEemcQNw0-tgBHA" org.eventb.core.comment="internal trigger queue" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_iq" org.eventb.core.predicate="SCXML_iq ⊆ SCXML_FutureInternalTrigger"/>
-<org.eventb.core.invariant name="_aRUAg5JvEemcQNw0-tgBHA" org.eventb.core.comment="external trigger queue" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_eq" org.eventb.core.predicate="SCXML_eq ⊆ SCXML_FutureExternalTrigger"/>
-<org.eventb.core.invariant name="_aRUAhJJvEemcQNw0-tgBHA" org.eventb.core.comment="queues are disjoint" org.eventb.core.generated="true" org.eventb.core.label="disjointQueues" org.eventb.core.predicate="SCXML_iq ∩ SCXML_eq= ∅"/>
-<org.eventb.core.invariant name="_aRUAhZJvEemcQNw0-tgBHA" org.eventb.core.comment="completion flag" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_uc" org.eventb.core.predicate="SCXML_uc ∈ BOOL"/>
-<org.eventb.core.event name="_aRUAhpJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="true" org.eventb.core.label="INITIALISATION">
-<org.eventb.core.action name="_aRUAh5JvEemcQNw0-tgBHA" org.eventb.core.assignment="SCXML_iq ≔ ∅" org.eventb.core.comment="internal Q is initially empty" org.eventb.core.generated="true" org.eventb.core.label="init_SCXML_iq"/>
-<org.eventb.core.action name="_aRUAiJJvEemcQNw0-tgBHA" org.eventb.core.assignment="SCXML_eq ≔ ∅" org.eventb.core.comment="external Q is initially empty" org.eventb.core.generated="true" org.eventb.core.label="init_SCXML_eq"/>
-<org.eventb.core.action name="_aRUAiZJvEemcQNw0-tgBHA" org.eventb.core.assignment="SCXML_uc ≔ FALSE" org.eventb.core.comment="completion is initially FALSE" org.eventb.core.generated="true" org.eventb.core.label="init_SCXML_uc"/>
+<org.eventb.core.seesContext name="_Xz1PcJKFEemF9L5j7PBjgw" org.eventb.core.target="basis"/>
+<org.eventb.core.variable name="_Xz1PcZKFEemF9L5j7PBjgw" org.eventb.core.comment="internal trigger queue" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_iq"/>
+<org.eventb.core.variable name="_Xz1PcpKFEemF9L5j7PBjgw" org.eventb.core.comment="external trigger queue" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_eq"/>
+<org.eventb.core.variable name="_Xz1Pc5KFEemF9L5j7PBjgw" org.eventb.core.comment="run to completion flag" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_uc"/>
+<org.eventb.core.invariant name="_Xz1PdJKFEemF9L5j7PBjgw" org.eventb.core.comment="internal trigger queue" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_iq" org.eventb.core.predicate="SCXML_iq ⊆ SCXML_FutureInternalTrigger"/>
+<org.eventb.core.invariant name="_Xz1PdZKFEemF9L5j7PBjgw" org.eventb.core.comment="external trigger queue" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_eq" org.eventb.core.predicate="SCXML_eq ⊆ SCXML_FutureExternalTrigger"/>
+<org.eventb.core.invariant name="_Xz12gJKFEemF9L5j7PBjgw" org.eventb.core.comment="queues are disjoint" org.eventb.core.generated="true" org.eventb.core.label="disjointQueues" org.eventb.core.predicate="SCXML_iq ∩ SCXML_eq= ∅"/>
+<org.eventb.core.invariant name="_Xz12gZKFEemF9L5j7PBjgw" org.eventb.core.comment="completion flag" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_uc" org.eventb.core.predicate="SCXML_uc ∈ BOOL"/>
+<org.eventb.core.event name="_Xz12gpKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="true" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="_Xz12g5KFEemF9L5j7PBjgw" org.eventb.core.assignment="SCXML_iq ≔ ∅" org.eventb.core.comment="internal Q is initially empty" org.eventb.core.generated="true" org.eventb.core.label="init_SCXML_iq"/>
+<org.eventb.core.action name="_Xz12hJKFEemF9L5j7PBjgw" org.eventb.core.assignment="SCXML_eq ≔ ∅" org.eventb.core.comment="external Q is initially empty" org.eventb.core.generated="true" org.eventb.core.label="init_SCXML_eq"/>
+<org.eventb.core.action name="_Xz12hZKFEemF9L5j7PBjgw" org.eventb.core.assignment="SCXML_uc ≔ FALSE" org.eventb.core.comment="completion is initially FALSE" org.eventb.core.generated="true" org.eventb.core.label="init_SCXML_uc"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="_aRUnkJJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="true" org.eventb.core.label="SCXML_futureExternalTrigger">
-<org.eventb.core.parameter name="_aRUnkZJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_raisedTriggers"/>
-<org.eventb.core.guard name="_aRUnkpJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_raisedTriggers" org.eventb.core.predicate="SCXML_raisedTriggers ⊆ SCXML_FutureExternalTrigger"/>
-<org.eventb.core.action name="_aRUnk5JvEemcQNw0-tgBHA" org.eventb.core.assignment="SCXML_eq ≔ SCXML_eq ∪ SCXML_raisedTriggers" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_raiseExternalTriggers"/>
+<org.eventb.core.event name="_Xz12hpKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="true" org.eventb.core.label="SCXML_futureExternalTrigger">
+<org.eventb.core.parameter name="_Xz2dkJKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_raisedTriggers"/>
+<org.eventb.core.guard name="_Xz2dkZKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_raisedTriggers" org.eventb.core.predicate="SCXML_raisedTriggers ⊆ SCXML_FutureExternalTrigger"/>
+<org.eventb.core.action name="_Xz2dkpKFEemF9L5j7PBjgw" org.eventb.core.assignment="SCXML_eq ≔ SCXML_eq ∪ SCXML_raisedTriggers" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_raiseExternalTriggers"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="_aRUnlJJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="true" org.eventb.core.label="SCXML_futureExternalTransitionSet">
-<org.eventb.core.parameter name="_aRUnlZJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_et"/>
-<org.eventb.core.parameter name="_aRUnlpJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_raisedTriggers"/>
-<org.eventb.core.guard name="_aRUnl5JvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_et" org.eventb.core.predicate="SCXML_et ∈ SCXML_eq"/>
-<org.eventb.core.guard name="_aRUnmJJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_internalQEmpty" org.eventb.core.predicate="SCXML_iq = ∅"/>
-<org.eventb.core.guard name="_aRVOoJJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_isComplete" org.eventb.core.predicate="SCXML_uc = TRUE"/>
-<org.eventb.core.guard name="_aRVOoZJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_raisedTriggers" org.eventb.core.predicate="SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger"/>
-<org.eventb.core.action name="_aRVOopJvEemcQNw0-tgBHA" org.eventb.core.assignment="SCXML_uc ≔ FALSE" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_notComplete"/>
-<org.eventb.core.action name="_aRVOo5JvEemcQNw0-tgBHA" org.eventb.core.assignment="SCXML_eq ≔ SCXML_eq ∖ {SCXML_et}" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_consumeExternalTrigger"/>
-<org.eventb.core.action name="_aRVOpJJvEemcQNw0-tgBHA" org.eventb.core.assignment="SCXML_iq ≔ SCXML_iq ∪ SCXML_raisedTriggers" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_raiseInternalTriggers"/>
+<org.eventb.core.event name="_Xz2dk5KFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="true" org.eventb.core.label="SCXML_futureExternalTransitionSet">
+<org.eventb.core.parameter name="_Xz2dlJKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_et"/>
+<org.eventb.core.parameter name="_Xz2dlZKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_raisedTriggers"/>
+<org.eventb.core.guard name="_Xz2dlpKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_et" org.eventb.core.predicate="SCXML_et ∈ SCXML_eq"/>
+<org.eventb.core.guard name="_Xz2dl5KFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_internalQEmpty" org.eventb.core.predicate="SCXML_iq = ∅"/>
+<org.eventb.core.guard name="_Xz3EoJKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_isComplete" org.eventb.core.predicate="SCXML_uc = TRUE"/>
+<org.eventb.core.guard name="_Xz3EoZKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_raisedTriggers" org.eventb.core.predicate="SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger"/>
+<org.eventb.core.action name="_Xz3EopKFEemF9L5j7PBjgw" org.eventb.core.assignment="SCXML_uc ≔ FALSE" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_notComplete"/>
+<org.eventb.core.action name="_Xz3Eo5KFEemF9L5j7PBjgw" org.eventb.core.assignment="SCXML_eq ≔ SCXML_eq ∖ {SCXML_et}" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_consumeExternalTrigger"/>
+<org.eventb.core.action name="_Xz3EpJKFEemF9L5j7PBjgw" org.eventb.core.assignment="SCXML_iq ≔ SCXML_iq ∪ SCXML_raisedTriggers" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_raiseInternalTriggers"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="_aRV1sJJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="true" org.eventb.core.label="SCXML_futureInternalTransitionSet">
-<org.eventb.core.parameter name="_aRV1sZJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_it"/>
-<org.eventb.core.parameter name="_aRV1spJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_raisedTriggers"/>
-<org.eventb.core.guard name="_aRV1s5JvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_it" org.eventb.core.predicate="SCXML_it  ∈ SCXML_iq"/>
-<org.eventb.core.guard name="_aRV1tJJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_isComplete" org.eventb.core.predicate="SCXML_uc = TRUE"/>
-<org.eventb.core.guard name="_aRV1tZJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_raisedTriggers" org.eventb.core.predicate="SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger"/>
-<org.eventb.core.action name="_aRV1tpJvEemcQNw0-tgBHA" org.eventb.core.assignment="SCXML_uc ≔ FALSE" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_notComplete"/>
-<org.eventb.core.action name="_aRV1t5JvEemcQNw0-tgBHA" org.eventb.core.assignment="SCXML_iq ≔ (SCXML_iq ∪ SCXML_raisedTriggers) ∖ {SCXML_it}" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_consumeInternalTrigger"/>
+<org.eventb.core.event name="_Xz3EpZKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="true" org.eventb.core.label="SCXML_futureInternalTransitionSet">
+<org.eventb.core.parameter name="_Xz3EppKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_it"/>
+<org.eventb.core.parameter name="_Xz3Ep5KFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_raisedTriggers"/>
+<org.eventb.core.guard name="_Xz3EqJKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_it" org.eventb.core.predicate="SCXML_it  ∈ SCXML_iq"/>
+<org.eventb.core.guard name="_Xz3rsJKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_isComplete" org.eventb.core.predicate="SCXML_uc = TRUE"/>
+<org.eventb.core.guard name="_Xz3rsZKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_raisedTriggers" org.eventb.core.predicate="SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger"/>
+<org.eventb.core.action name="_Xz3rspKFEemF9L5j7PBjgw" org.eventb.core.assignment="SCXML_uc ≔ FALSE" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_notComplete"/>
+<org.eventb.core.action name="_Xz3rs5KFEemF9L5j7PBjgw" org.eventb.core.assignment="SCXML_iq ≔ (SCXML_iq ∪ SCXML_raisedTriggers) ∖ {SCXML_it}" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_consumeInternalTrigger"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="_aRV1uJJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="true" org.eventb.core.label="SCXML_futureUntriggeredTransitionSet">
-<org.eventb.core.parameter name="_aRWcwJJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_raisedTriggers"/>
-<org.eventb.core.guard name="_aRWcwZJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_isNotComplete" org.eventb.core.predicate="SCXML_uc = FALSE"/>
-<org.eventb.core.guard name="_aRWcwpJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_raisedTriggers" org.eventb.core.predicate="SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger"/>
-<org.eventb.core.action name="_aRWcw5JvEemcQNw0-tgBHA" org.eventb.core.assignment="SCXML_uc ≔ FALSE" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_NotComplete"/>
-<org.eventb.core.action name="_aRWcxJJvEemcQNw0-tgBHA" org.eventb.core.assignment="SCXML_iq ≔ SCXML_iq ∪ SCXML_raisedTriggers" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_raiseInternalTriggers"/>
+<org.eventb.core.event name="_Xz3rtJKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="true" org.eventb.core.label="SCXML_futureUntriggeredTransitionSet">
+<org.eventb.core.parameter name="_Xz3rtZKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_raisedTriggers"/>
+<org.eventb.core.guard name="_Xz3rtpKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_isNotComplete" org.eventb.core.predicate="SCXML_uc = FALSE"/>
+<org.eventb.core.guard name="_Xz3rt5KFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_raisedTriggers" org.eventb.core.predicate="SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger"/>
+<org.eventb.core.action name="_Xz4SwJKFEemF9L5j7PBjgw" org.eventb.core.assignment="SCXML_uc ≔ FALSE" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_NotComplete"/>
+<org.eventb.core.action name="_Xz4SwZKFEemF9L5j7PBjgw" org.eventb.core.assignment="SCXML_iq ≔ SCXML_iq ∪ SCXML_raisedTriggers" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_raiseInternalTriggers"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="_aRWcxZJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="true" org.eventb.core.label="SCXML_Completion">
-<org.eventb.core.guard name="_aRWcxpJvEemcQNw0-tgBHA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_isNotComplete" org.eventb.core.predicate="SCXML_uc = FALSE"/>
-<org.eventb.core.action name="_aRWcx5JvEemcQNw0-tgBHA" org.eventb.core.assignment="SCXML_uc ≔ TRUE" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_Complete"/>
+<org.eventb.core.event name="_Xz4SwpKFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="true" org.eventb.core.label="SCXML_Completion">
+<org.eventb.core.guard name="_Xz4Sw5KFEemF9L5j7PBjgw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_isNotComplete" org.eventb.core.predicate="SCXML_uc = FALSE"/>
+<org.eventb.core.action name="_Xz4SxJKFEemF9L5j7PBjgw" org.eventb.core.assignment="SCXML_uc ≔ TRUE" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_Complete"/>
 </org.eventb.core.event>
 </org.eventb.core.machineFile>

@@ -12,7 +12,7 @@
     <data expr="::NAT" id="rise" iumlb:type="NAT" iumlb:refinement="2"/>
     <data expr="10" id="minimum" iumlb:type="NAT" iumlb:refinement="3" />
     <data expr="0" id="dir" iumlb:type="INT" iumlb:refinement="4" />
-    <data expr="::  (NAT**NAT**NAT) --> BOOL" id="isAligned" iumlb:type=" (NAT**NAT**NAT) --> BOOL" iumlb:refinement="4"><!--this should really be a constant - we need a way to specify--></data>
+    <data expr="::  (NAT**NAT**NAT) --> BOOL" id="isAligned" iumlb:type=" (NAT**NAT**NAT) --> BOOL" iumlb:dataKind="Constant" iumlb:refinement="4"><!--this should really be a constant - we need a way to specify--></data>
     <data expr="::0..100" id="charge" iumlb:type="0..100" iumlb:refinement="5" />
     <data expr="::0..360" id="alpha" iumlb:type="0..360" iumlb:refinement="7" />
     <data expr="200" id="maxY" iumlb:type="NAT" iumlb:refinement="7" />
