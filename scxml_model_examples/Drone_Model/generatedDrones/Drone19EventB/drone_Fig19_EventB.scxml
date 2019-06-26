@@ -7,10 +7,9 @@
     <data expr="0" id="getGPS_x" iumlb:type="NAT" iumlb:refinement="1"/>
     <data expr="0" id="getGPS_y" iumlb:type="NAT" iumlb:refinement="1"/>
     <data expr="0" id="getGPS_z" iumlb:type="NAT" iumlb:refinement="1"/>
-    <data expr="::NAT" id="rise" iumlb:type="NAT" iumlb:refinement="2"/>
     <data expr="10" id="minimum" iumlb:type="NAT" iumlb:refinement="3"/>
     <data expr="0" id="dir" iumlb:type="INT" iumlb:refinement="4"/>
-    <data expr="(%x|->y|->z|->a|->b|->c.x:NAT&amp;y:NAT&amp;z:NAT&amp;a:NAT&amp;b:NAT&amp;c:NAT|bool(x=a&amp;z=c))" id="isAligned" src="" iumlb:type=" (NAT**NAT**NAT**NAT**NAT**NAT) --> BOOL" iumlb:dataKind="Constant" iumlb:refinement="4"><!--this should really be a constant - we need a way to specify--></data>
+    <data id="isAligned" src="" iumlb:type=" (NAT**NAT**NAT**NAT**NAT**NAT**INT) --> BOOL" iumlb:dataKind="Constant" iumlb:refinement="4"/>
     <data expr="::0..100" id="charge" iumlb:type="0..100" iumlb:refinement="5"/>
     <data expr="::0..360" id="alpha" iumlb:type="0..360" iumlb:refinement="7"/>
     <data expr="200" id="maxY" iumlb:type="NAT" iumlb:refinement="7"/>
@@ -26,22 +25,33 @@
       <assign expr="::NAT" location="getGPS_y" iumlb:refinement="1"/>
       <assign expr="::NAT" location="getGPS_z" iumlb:refinement="1"/>
     </onentry>
-    <transition event="toTakeoff" target="OPERATIONAL" iumlb:label="START_OPERATIONAL"/>
+    <transition event="toTakeoff" target="OPERATIONAL" iumlb:label="START_OPERATIONAL">
+      <iumlb:parameter name="in_GPS_x" type="NAT" comment="input current GPS y coordinate" iumlb:refinement="2"/>
+      <iumlb:parameter name="in_GPS_y" type="NAT" comment="input current GPS y coordinate" iumlb:refinement="2"/>
+      <iumlb:parameter name="in_GPS_z" type="NAT" comment="input current GPS y coordinate" iumlb:refinement="2"/>
+    </transition>
   </state>
   <state id="OPERATIONAL" iumlb:refinement="1">
     <transition event="off" target="SHUTDOWN" iumlb:label="OPERATIONAL_SHUTDOWN" iumlb:refinement="1"/>
-    <transition event="toTakeoff" target="OPERATIONAL" iumlb:label="OPERATIONAL_OPERATIONAL" iumlb:refinement="1"/>
-    <parallel id="FLYOP_BATTERYOP" iumlb:refinement="2">
-      <state id="FLYOP" iumlb:refinement="2">
+    <transition event="toTakeoff" target="OPERATIONAL" iumlb:label="OPERATIONAL_OPERATIONAL" iumlb:refinement="1">
+      <iumlb:parameter name="in_GPS_x" type="NAT" comment="input current GPS y coordinate" iumlb:refinement="2"/>
+      <iumlb:parameter name="in_GPS_y" type="NAT" comment="input current GPS y coordinate" iumlb:refinement="2"/>
+      <iumlb:parameter name="in_GPS_z" type="NAT" comment="input current GPS y coordinate" iumlb:refinement="2"/>
+    </transition>
+    <parallel id="FLYOP_BATTERYOP" iumlb:refinement="1">
+      <state id="FLYOP" iumlb:refinement="1">
         <initial>
-          <transition target="TAKEOFF"/>
+          <transition target="TAKEOFF">
+            <iumlb:parameter name="in_GPS_x" type="NAT" comment="input current GPS y coordinate" iumlb:refinement="2"/>
+            <iumlb:parameter name="in_GPS_y" type="NAT" comment="input current GPS y coordinate" iumlb:refinement="2"/>
+            <iumlb:parameter name="in_GPS_z" type="NAT" comment="input current GPS y coordinate" iumlb:refinement="2"/>
+          </transition>
         </initial>
         <state id="TAKEOFF" iumlb:refinement="2">
           <onentry>
-            <assign expr="getGPS_x" location="startPos_x" iumlb:refinement="2"/>
-            <assign expr="getGPS_y" location="startPos_y" iumlb:refinement="2"/>
-            <assign expr="getGPS_z" location="startPos_z" iumlb:refinement="2"/>
-            <assign expr="getGPS_y + rise" location="getGPS_y" iumlb:refinement="2"/>
+            <assign expr="in_GPS_x" location="startPos_x" iumlb:refinement="2"/>
+            <assign expr="in_GPS_y" location="startPos_y" iumlb:refinement="2"/>
+            <assign expr="in_GPS_z" location="startPos_z" iumlb:refinement="2"/>
           </onentry>
           <initial>
             <transition target="CLIMB" iumlb:refinement="3"/>
@@ -57,7 +67,8 @@
             </state>
             <state id="ABORT" iumlb:refinement="6"/>
             <transition target="HOVER" iumlb:label="CLIMB_HOVER">
-              <iumlb:guard predicate="getGPS_y>minimum" name="check_min" iumlb:refinement="3"/>
+              <iumlb:parameter name="in_GPS_y" type="NAT" comment="input current GPS y coordinate" iumlb:refinement="3"/>
+              <iumlb:guard predicate="in_GPS_y>minimum" name="check_min" iumlb:refinement="3"/>
               <raise event="toFly"/>
             </transition>
           </state>
@@ -65,7 +76,7 @@
           <transition event="toFly" target="FLY" iumlb:label="TAKEOFF_FLY"/>
           <transition event="toLand" target="DESCEND" iumlb:label="TAKEOFF_DESCEND"/>
         </state>
-        <state id="FLY" iumlb:refinement="2">
+        <state id="FLY" iumlb:refinement="7">
           <initial>
             <transition target="FORWARD1" iumlb:refinement="7"/>
           </initial>
@@ -128,7 +139,7 @@
           <state id="HOLD" iumlb:refinement="7"/>
           <transition event="toLand" target="DESCEND" iumlb:label="FLY_DESCEND"/>
         </state>
-        <state id="DESCEND" iumlb:refinement="2">
+        <state id="DESCEND" iumlb:refinement="4">
           <initial>
             <transition target="ALIGN" iumlb:refinement="4"/>
           </initial>
@@ -137,7 +148,10 @@
               <assign expr="1" location="dir" iumlb:refinement="4"/>
             </onentry>
             <transition target="GOFORWARD" iumlb:label="ALIGN_GOFORWARD">
-              <iumlb:guard predicate="isAligned(startPos_x |-> startPos_y |-> startPos_z) = TRUE" name="check_Aligned"/>
+              <iumlb:parameter name="in_GPS_x" type="NAT" comment="input current GPS y coordinate" iumlb:refinement="4"/>
+              <iumlb:parameter name="in_GPS_y" type="NAT" comment="input current GPS y coordinate" iumlb:refinement="4"/>
+              <iumlb:parameter name="in_GPS_z" type="NAT" comment="input current GPS y coordinate" iumlb:refinement="4"/>
+              <iumlb:guard predicate="isAligned(in_GPS_x |-> in_GPS_y |-> in_GPS_z |-> startPos_x |-> startPos_y |-> startPos_z |-> dir) = TRUE" name="check_Aligned"/>
             </transition>
           </state>
           <state id="GOFORWARD" iumlb:refinement="4">
@@ -145,18 +159,17 @@
               <assign expr="dir*-1" location="dir" iumlb:refinement="4"/>
             </onentry>
             <transition target="DESCEND2" iumlb:label="GOFORWARD_DESCEND2">
-              <assign expr="startPos_x" location="getGPS_x" iumlb:refinement="4"/>
-              <assign expr="startPos_y" location="getGPS_y" iumlb:refinement="4"/>
-              <assign expr="startPos_z" location="getGPS_z" iumlb:refinement="4"/>
+              <iumlb:parameter name="in_GPS_x" type="NAT" comment="input current GPS y coordinate" iumlb:refinement="4"/>
+              <iumlb:parameter name="in_GPS_y" type="NAT" comment="input current GPS y coordinate" iumlb:refinement="4"/>
+              <iumlb:parameter name="in_GPS_z" type="NAT" comment="input current GPS y coordinate" iumlb:refinement="4"/>
+              <iumlb:guard predicate="in_GPS_x = startPos_x" name="check_x_pos"/>
+              <iumlb:guard predicate="in_GPS_z = startPos_z" name="check_z_pos"/>
             </transition>
           </state>
           <state id="DESCEND2" iumlb:refinement="4"/>
           <transition event="Landed" target="LANDED" iumlb:label="DESCEND_LANDED"/>
         </state>
-        <state id="LANDED" iumlb:refinement="2">
-          <transition event="off" target="SHUTDOWN" iumlb:label="LANDED_SHUTDOWN"/>
-          <transition event="toTakeoff" target="OPERATIONAL" iumlb:label="LANDED_OPERATIONAL"/>
-        </state>
+        <final id="LANDED" iumlb:refinement="2"/>
       </state>
       <state id="BATTERYOP" iumlb:refinement="5">
         <initial>
