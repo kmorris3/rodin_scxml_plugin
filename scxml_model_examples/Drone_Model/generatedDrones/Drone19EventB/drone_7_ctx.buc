@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.comment="(generated from SCXML file: /Drone19EventB/drone_Fig19_EventB.scxml)" org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="true" version="3">
-<org.eventb.core.extendsContext name="_1P_yAJ2HEemAFq3nY1gYbQ" org.eventb.core.target="drone_6_ctx"/>
-<org.eventb.core.constant name="_1P_yAZ2HEemAFq3nY1gYbQ" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureInternalTrigger7"/>
-<org.eventb.core.constant name="_1P_yAp2HEemAFq3nY1gYbQ" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureExternalTrigger7"/>
-<org.eventb.core.constant name="_1P_yA52HEemAFq3nY1gYbQ" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="ShortStepReached"/>
-<org.eventb.core.constant name="_1P_yBJ2HEemAFq3nY1gYbQ" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="LongStepReached"/>
-<org.eventb.core.constant name="_1P_yBZ2HEemAFq3nY1gYbQ" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="TurnDone"/>
-<org.eventb.core.axiom name="_1P_yBp2HEemAFq3nY1gYbQ" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTrigger7" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger6,SCXML_FutureExternalTrigger7,{ShortStepReached},{LongStepReached},{TurnDone})"/>
-<org.eventb.core.axiom name="_1QAZEJ2HEemAFq3nY1gYbQ" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureInternalTrigger7" org.eventb.core.predicate="SCXML_FutureInternalTrigger7=SCXML_FutureInternalTrigger6"/>
-<org.eventb.core.axiom name="_1QAZEZ2HEemAFq3nY1gYbQ" org.eventb.core.comment="help ProB" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTriggerProB7" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,{toTakeoff},{off},{on},{Landed},{obstacleDetected},{ShortStepReached},{LongStepReached},{TurnDone}, SCXML_FutureExternalTrigger7)"/>
+<org.eventb.core.extendsContext name="_UifMEKI_EemSnZSg4v26hw" org.eventb.core.target="drone_6_ctx"/>
+<org.eventb.core.constant name="_UifMEaI_EemSnZSg4v26hw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureInternalTrigger7"/>
+<org.eventb.core.constant name="_UifMEqI_EemSnZSg4v26hw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureExternalTrigger7"/>
+<org.eventb.core.constant name="_UifME6I_EemSnZSg4v26hw" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="ShortStepReached"/>
+<org.eventb.core.constant name="_UifMFKI_EemSnZSg4v26hw" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="LongStepReached"/>
+<org.eventb.core.constant name="_UifMFaI_EemSnZSg4v26hw" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="TurnDone"/>
+<org.eventb.core.axiom name="_UifMFqI_EemSnZSg4v26hw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTrigger7" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger6,SCXML_FutureExternalTrigger7,{ShortStepReached},{LongStepReached},{TurnDone})"/>
+<org.eventb.core.axiom name="_UifMF6I_EemSnZSg4v26hw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureInternalTrigger7" org.eventb.core.predicate="SCXML_FutureInternalTrigger7=SCXML_FutureInternalTrigger6"/>
+<org.eventb.core.axiom name="_UifMGKI_EemSnZSg4v26hw" org.eventb.core.comment="help ProB" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTriggerProB7" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,{toTakeoff},{off},{on},{Landed},{obstacleDetected},{ShortStepReached},{LongStepReached},{TurnDone}, SCXML_FutureExternalTrigger7)"/>
 </org.eventb.core.contextFile>
