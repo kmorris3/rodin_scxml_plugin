@@ -1468,4 +1468,114 @@
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
 <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.he:1"/>
 </org.eventb.core.prProof>
+<org.eventb.core.prProof name="INITIALISATION/act1/SIM" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{toTakeoff},{off},{on}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1,p2,p3,p4,p5,p6,p7"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬off=on">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="off" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prIdent name="on" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{toTakeoff},{off},{on})">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger0" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="off" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prIdent name="on" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prIdent name="toTakeoff" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬toTakeoff=on">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="on" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prIdent name="toTakeoff" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on}">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger0" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="off" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prIdent name="on" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prIdent name="toTakeoff" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬on∈SCXML_FutureExternalTrigger0">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger0" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="on" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬toTakeoff=off">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="off" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prIdent name="toTakeoff" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬off∈SCXML_FutureExternalTrigger0">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger0" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="off" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="¬toTakeoff∈SCXML_FutureExternalTrigger0">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger0" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="toTakeoff" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="INITIALISATION/act2/SIM" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{toTakeoff},{off},{on}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p1,p2,p3,p4,p5,p6,p7"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬off=on">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="off" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prIdent name="on" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{toTakeoff},{off},{on})">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger0" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="off" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prIdent name="on" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prIdent name="toTakeoff" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬toTakeoff=on">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="on" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prIdent name="toTakeoff" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on}">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger0" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="off" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prIdent name="on" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prIdent name="toTakeoff" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬on∈SCXML_FutureExternalTrigger0">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger0" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="on" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬toTakeoff=off">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="off" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+<org.eventb.core.prIdent name="toTakeoff" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="¬off∈SCXML_FutureExternalTrigger0">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger0" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="off" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="¬toTakeoff∈SCXML_FutureExternalTrigger0">
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="SCXML_FutureExternalTrigger0" org.eventb.core.type="ℙ(SCXML_FutureExternalTrigger)"/>
+<org.eventb.core.prIdent name="toTakeoff" org.eventb.core.type="SCXML_FutureExternalTrigger"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+</org.eventb.core.prProof>
 </org.eventb.core.prFile>

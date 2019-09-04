@@ -6,23 +6,23 @@
 <org.eventb.core.prAnte name="'">
 <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4"/>
 <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p3,p4"/>
-<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{toTakeoff},{off},{on}))" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{toTakeoff},{on}))" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5,p6,p7,p8,p9,p10,p11"/>
-<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p5,p6,p7,p8,p9,p10,p11"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5,p6,p7,p8"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p5,p6,p7,p8"/>
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p12">
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p12" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p13">
-<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on}" org.eventb.core.prHyps="p5">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p9" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p10">
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{on}" org.eventb.core.prHyps="p5">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p3" org.eventb.core.prInfHyps="p14"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p4" org.eventb.core.prInfHyps="p15"/>
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p3" org.eventb.core.prInfHyps="p11"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p4" org.eventb.core.prInfHyps="p12"/>
 <org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p3,p4"/>
 <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p16,p3,p4"/>
-<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p13" org.eventb.core.prHyps="">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p13,p3,p4"/>
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
 </org.eventb.core.prRule>
@@ -33,17 +33,17 @@
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
-<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p17">
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p17" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p18">
-<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p18" org.eventb.core.prHyps=""/>
+<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p14">
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p14" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p15">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p15" org.eventb.core.prHyps=""/>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
-<org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p19">
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p19" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p18">
-<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p18" org.eventb.core.prHyps=""/>
+<org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p16">
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p16" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p15">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p15" org.eventb.core.prHyps=""/>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
@@ -57,48 +57,44 @@
 </org.eventb.core.prRule>
 <org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 <org.eventb.core.prIdent name="SCXML_FutureExternalTrigger0" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
-<org.eventb.core.prIdent name="off" org.eventb.core.type="SCXML_TRIGGER"/>
 <org.eventb.core.prIdent name="on" org.eventb.core.type="SCXML_TRIGGER"/>
 <org.eventb.core.prIdent name="toTakeoff" org.eventb.core.type="SCXML_TRIGGER"/>
-<org.eventb.core.prPred name="p13" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})"/>
-<org.eventb.core.prPred name="p18" org.eventb.core.predicate="⊤"/>
-<org.eventb.core.prPred name="p19" org.eventb.core.predicate="({FALSE}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩(SCXML_FutureExternalTrigger0∪{toTakeoff}∪{on})=(∅ ⦂ ℙ(SCXML_TRIGGER))">
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="({FALSE}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
 <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬on∈SCXML_FutureExternalTrigger0"/>
-<org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬toTakeoff=off"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬on∈SCXML_FutureExternalTrigger0"/>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition({TRUE},{TRUE}∩{TRUE},{FALSE}∩{TRUE},{FALSE}∩{TRUE},{FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{on}"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬off=on"/>
-<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{toTakeoff},{off},{on})"/>
-<org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬toTakeoff=on"/>
-<org.eventb.core.prPred name="p12" org.eventb.core.predicate="{TRUE}=({TRUE}∩{TRUE})∪({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{toTakeoff},{on})"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬toTakeoff=on"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="{TRUE}=({TRUE}∩{TRUE})∪({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})"/>
 <org.eventb.core.prPred name="p4" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p5" org.eventb.core.predicate="SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on}"/>
-<org.eventb.core.prPred name="p14" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on}">
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger0∪{toTakeoff}∪{on}">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p17" org.eventb.core.predicate="({TRUE}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬off∈SCXML_FutureExternalTrigger0"/>
-<org.eventb.core.prPred name="p15" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩(SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on})=(∅ ⦂ ℙ(SCXML_TRIGGER))">
-<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
-</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="({TRUE}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬toTakeoff∈SCXML_FutureExternalTrigger0"/>
-<org.eventb.core.prPred name="p16" org.eventb.core.predicate="SCXML_FutureInternalTrigger0=SCXML_FutureInternalTrigger">
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="SCXML_FutureInternalTrigger0=SCXML_FutureInternalTrigger">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger0" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
 <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="SHUTDOWN_OFF/distinct_states_in_drone_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
@@ -106,85 +102,85 @@
 <org.eventb.core.prAnte name="'">
 <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5,p6"/>
 <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p5,p6"/>
-<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{toTakeoff},{off},{on}))" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{toTakeoff},{on}))" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7,p8,p9,p10,p11,p12,p13"/>
-<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p7,p8,p9,p10,p11,p12,p13"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7,p8,p9,p10"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p7,p8,p9,p10"/>
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition({TRUE},{OFF}∩{TRUE},{START}∩{TRUE},{OPERATIONAL}∩{TRUE},{SHUTDOWN}∩{TRUE}))" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p14,p15,p16,p17,p18,p19,p20"/>
-<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p14,p15,p16,p17,p18,p19,p20"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11,p12,p13,p14,p15,p16,p17"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p11,p12,p13,p14,p15,p16,p17"/>
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p21">
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p21" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p28">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
-<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p26"/>
-<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p20" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p27"/>
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p18">
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p18" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p25">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p12" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p19"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p20"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
+<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
+<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
 <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p29"/>
-<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p30"/>
-<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p31"/>
-<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p32"/>
-<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p33"/>
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p26"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p27"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p28"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p29"/>
+<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p30"/>
 <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SHUTDOWN=TRUE" org.eventb.core.prHyps="p2">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p14" org.eventb.core.prInfHyps="p34"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p35"/>
-<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p26" org.eventb.core.prInfHyps="p36"/>
-<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p27" org.eventb.core.prInfHyps="p37"/>
-<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p14,p24,p26,p27"/>
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p31"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p32"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p33"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p34"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p11,p21,p23,p24"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p35" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p36" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p40"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p37" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p41"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on}" org.eventb.core.prHyps="p7">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p31" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p35"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p32" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p36"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p33" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{on}" org.eventb.core.prHyps="p7">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p5" org.eventb.core.prInfHyps="p42"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p6" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p5" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p6" org.eventb.core.prInfHyps="p40"/>
 <org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p5,p6"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with OFF=FALSE" org.eventb.core.prHyps="p39">
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with OFF=FALSE" org.eventb.core.prHyps="p36">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p44"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p45"/>
-<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p38" org.eventb.core.prInfHyps="p46"/>
-<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p22,p23,p38"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with START=FALSE" org.eventb.core.prGoal="p28" org.eventb.core.prHyps="p40">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p49">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p44" org.eventb.core.prInfHyps="p47"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p46" org.eventb.core.prInfHyps="p48"/>
-<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p44,p46"/>
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p49" org.eventb.core.prHyps="">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p19" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p20" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p35" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p19,p20,p35"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with START=FALSE" org.eventb.core.prGoal="p25" org.eventb.core.prHyps="p37">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p46">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p41" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p43" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p41,p43"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p46" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p48">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p44"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p45" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p47"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with OPERATIONAL=FALSE" org.eventb.core.prGoal="p48" org.eventb.core.prHyps="p38">
 <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p51">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p47"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p48" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p50"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with OPERATIONAL=FALSE" org.eventb.core.prGoal="p51" org.eventb.core.prHyps="p41">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p54">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p25" org.eventb.core.prInfHyps="p52"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p50" org.eventb.core.prInfHyps="p53"/>
-<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p25,p45,p50"/>
-<org.eventb.core.prHypAction name="SELECT3" org.eventb.core.prHyps="p47"/>
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p54" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p56">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p47"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p53" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p55"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with START=FALSE" org.eventb.core.prHyps="p40">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p49"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p47" org.eventb.core.prInfHyps="p50"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p22,p42,p47"/>
+<org.eventb.core.prHypAction name="SELECT3" org.eventb.core.prHyps="p44"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p51" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p53">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p44"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p50" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p52"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with START=FALSE" org.eventb.core.prHyps="p37">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="DESELECT0" org.eventb.core.prHyps="p52"/>
-<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p47"/>
+<org.eventb.core.prHypAction name="DESELECT0" org.eventb.core.prHyps="p49"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p44"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p47"/>
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p44"/>
 <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p57,p58,p59,p60,p5,p6,p14,p22,p23,p24,p25,p26,p27,p38,p44,p45,p46,p50,p52"/>
-<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p56" org.eventb.core.prHyps="">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p54,p55,p56,p57,p5,p6,p11,p19,p20,p21,p22,p23,p24,p35,p41,p42,p43,p47,p49"/>
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p53" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
 </org.eventb.core.prRule>
@@ -215,36 +211,36 @@
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
-<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p61">
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p61" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p62">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
-<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p26"/>
-<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p20" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p27"/>
+<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p58">
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p58" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p59">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p12" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p19"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p20"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
+<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
+<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
 <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p29"/>
-<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p30"/>
-<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p31"/>
-<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p32"/>
-<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p33"/>
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p26"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p27"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p28"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p29"/>
+<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p30"/>
 <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SHUTDOWN=TRUE" org.eventb.core.prHyps="p2">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p14" org.eventb.core.prInfHyps="p34"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p35"/>
-<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p26" org.eventb.core.prInfHyps="p36"/>
-<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p27" org.eventb.core.prInfHyps="p37"/>
-<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p14,p24,p26,p27"/>
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p31"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p32"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p33"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p34"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p11,p21,p23,p24"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p35" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p36" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p40"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p37" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p41"/>
-<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p62" org.eventb.core.prHyps="p40"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p31" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p35"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p32" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p36"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p33" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p59" org.eventb.core.prHyps="p37"/>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
@@ -254,36 +250,36 @@
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
-<org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p63">
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p63" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p64">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
-<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p26"/>
-<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p20" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p27"/>
+<org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p60">
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p60" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p61">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p12" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p19"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p20"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
+<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
+<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
 <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p29"/>
-<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p30"/>
-<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p31"/>
-<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p32"/>
-<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p33"/>
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p26"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p27"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p28"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p29"/>
+<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p30"/>
 <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SHUTDOWN=TRUE" org.eventb.core.prHyps="p2">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p14" org.eventb.core.prInfHyps="p34"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p35"/>
-<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p26" org.eventb.core.prInfHyps="p36"/>
-<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p27" org.eventb.core.prInfHyps="p37"/>
-<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p14,p24,p26,p27"/>
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p31"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p32"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p33"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p34"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p11,p21,p23,p24"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p35" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p36" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p40"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p37" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p41"/>
-<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p64" org.eventb.core.prHyps="p41"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p31" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p35"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p32" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p36"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p33" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p61" org.eventb.core.prHyps="p38"/>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
@@ -293,139 +289,139 @@
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
-<org.eventb.core.prAnte name="*" org.eventb.core.prGoal="p65">
+<org.eventb.core.prAnte name="*" org.eventb.core.prGoal="p62">
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p62" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p63">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p12" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p19"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p20"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
+<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
+<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p63" org.eventb.core.prHyps=""/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="+" org.eventb.core.prGoal="p15">
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p15" org.eventb.core.prHyps="p15"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="," org.eventb.core.prGoal="p64">
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p64" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p49">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p12" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p19"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p20"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
+<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
+<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p26"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p27"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p28"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p29"/>
+<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p30"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SHUTDOWN=TRUE" org.eventb.core.prHyps="p2">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p31"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p32"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p33"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p34"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p11,p21,p23,p24"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p31" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p35"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p32" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p36"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p33" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{on}" org.eventb.core.prHyps="p7">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p5" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p6" org.eventb.core.prInfHyps="p40"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p5,p6"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with OFF=FALSE" org.eventb.core.prHyps="p36">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p19" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p20" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p35" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p19,p20,p35"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with START=FALSE" org.eventb.core.prGoal="p49" org.eventb.core.prHyps="p37">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p44">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p41" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p43" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p41,p43"/>
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p44" org.eventb.core.prHyps="p44"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="-" org.eventb.core.prGoal="p65">
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p65" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p66">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
-<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p26"/>
-<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p20" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p27"/>
-<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p66" org.eventb.core.prHyps=""/>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-<org.eventb.core.prAnte name="+" org.eventb.core.prGoal="p18">
-<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p18" org.eventb.core.prHyps="p18"/>
-</org.eventb.core.prAnte>
-<org.eventb.core.prAnte name="," org.eventb.core.prGoal="p67">
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p67" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p52">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
-<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p26"/>
-<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p20" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p27"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p12" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p19"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p20"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
+<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
+<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
 <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p29"/>
-<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p30"/>
-<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p31"/>
-<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p32"/>
-<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p33"/>
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p26"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p27"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p28"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p29"/>
+<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p30"/>
 <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SHUTDOWN=TRUE" org.eventb.core.prHyps="p2">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p14" org.eventb.core.prInfHyps="p34"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p35"/>
-<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p26" org.eventb.core.prInfHyps="p36"/>
-<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p27" org.eventb.core.prInfHyps="p37"/>
-<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p14,p24,p26,p27"/>
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p31"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p32"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p33"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p34"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p11,p21,p23,p24"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p35" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p36" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p40"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p37" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p41"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on}" org.eventb.core.prHyps="p7">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p31" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p35"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p32" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p36"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p33" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{on}" org.eventb.core.prHyps="p7">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p5" org.eventb.core.prInfHyps="p42"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p6" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p5" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p6" org.eventb.core.prInfHyps="p40"/>
 <org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p5,p6"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with OFF=FALSE" org.eventb.core.prHyps="p39">
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with OFF=FALSE" org.eventb.core.prHyps="p36">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p44"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p45"/>
-<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p38" org.eventb.core.prInfHyps="p46"/>
-<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p22,p23,p38"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with START=FALSE" org.eventb.core.prGoal="p52" org.eventb.core.prHyps="p40">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p47">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p44" org.eventb.core.prInfHyps="p47"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p46" org.eventb.core.prInfHyps="p48"/>
-<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p44,p46"/>
-<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p47" org.eventb.core.prHyps="p47"/>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-<org.eventb.core.prAnte name="-" org.eventb.core.prGoal="p68">
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p68" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p69">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
-<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p26"/>
-<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p20" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p27"/>
-<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p19" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p20" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p35" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p19,p20,p35"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with START=FALSE" org.eventb.core.prHyps="p37">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p29"/>
-<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p30"/>
-<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p31"/>
-<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p32"/>
-<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p33"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SHUTDOWN=TRUE" org.eventb.core.prHyps="p2">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p14" org.eventb.core.prInfHyps="p34"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p35"/>
-<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p26" org.eventb.core.prInfHyps="p36"/>
-<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p27" org.eventb.core.prInfHyps="p37"/>
-<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p14,p24,p26,p27"/>
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p41" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p43" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p41,p43"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p35" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p36" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p40"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p37" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p41"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on}" org.eventb.core.prHyps="p7">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p5" org.eventb.core.prInfHyps="p42"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p6" org.eventb.core.prInfHyps="p43"/>
-<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p5,p6"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with OFF=FALSE" org.eventb.core.prHyps="p39">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p44"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p45"/>
-<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p38" org.eventb.core.prInfHyps="p46"/>
-<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p22,p23,p38"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with START=FALSE" org.eventb.core.prHyps="p40">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p44" org.eventb.core.prInfHyps="p47"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p46" org.eventb.core.prInfHyps="p48"/>
-<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p44,p46"/>
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p47"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p48" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p50"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with OPERATIONAL=FALSE" org.eventb.core.prGoal="p69" org.eventb.core.prHyps="p41">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p47">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p25" org.eventb.core.prInfHyps="p52"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p50" org.eventb.core.prInfHyps="p53"/>
-<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p25,p45,p50"/>
-<org.eventb.core.prHypAction name="SELECT3" org.eventb.core.prHyps="p47"/>
-<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p47" org.eventb.core.prHyps="p47"/>
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p44"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p45" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p47"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with OPERATIONAL=FALSE" org.eventb.core.prGoal="p66" org.eventb.core.prHyps="p38">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p44">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p49"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p47" org.eventb.core.prInfHyps="p50"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p22,p42,p47"/>
+<org.eventb.core.prHypAction name="SELECT3" org.eventb.core.prHyps="p44"/>
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p44" org.eventb.core.prHyps="p44"/>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
@@ -462,110 +458,106 @@
 <org.eventb.core.prIdent name="SCXML_FutureExternalTrigger0" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 <org.eventb.core.prIdent name="SHUTDOWN" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="START" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="off" org.eventb.core.type="SCXML_TRIGGER"/>
 <org.eventb.core.prIdent name="on" org.eventb.core.type="SCXML_TRIGGER"/>
 <org.eventb.core.prIdent name="toTakeoff" org.eventb.core.type="SCXML_TRIGGER"/>
-<org.eventb.core.prPred name="p32" org.eventb.core.predicate="OPERATIONAL∈BOOL"/>
-<org.eventb.core.prPred name="p19" org.eventb.core.predicate="({START}∩{TRUE})∩({SHUTDOWN}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p29" org.eventb.core.predicate="SCXML_uc∈BOOL">
+<org.eventb.core.prPred name="p29" org.eventb.core.predicate="OPERATIONAL∈BOOL"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="({START}∩{TRUE})∩({SHUTDOWN}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="SCXML_uc∈BOOL">
 <org.eventb.core.prIdent name="SCXML_uc" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p31" org.eventb.core.predicate="START∈BOOL"/>
-<org.eventb.core.prPred name="p63" org.eventb.core.predicate="({TRUE}∩{TRUE})∩({OPERATIONAL}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p28" org.eventb.core.predicate="START∈BOOL"/>
+<org.eventb.core.prPred name="p60" org.eventb.core.predicate="({TRUE}∩{TRUE})∩({OPERATIONAL}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{on}"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{toTakeoff},{on})"/>
 <org.eventb.core.prPred name="p2" org.eventb.core.predicate="SHUTDOWN=TRUE"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p40" org.eventb.core.predicate="START=FALSE"/>
-<org.eventb.core.prPred name="p49" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({FALSE}∩{TRUE})"/>
-<org.eventb.core.prPred name="p46" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪({START}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪{TRUE}"/>
-<org.eventb.core.prPred name="p30" org.eventb.core.predicate="OFF∈BOOL"/>
-<org.eventb.core.prPred name="p37" org.eventb.core.predicate="{OPERATIONAL}∩{TRUE}∩{TRUE}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p52" org.eventb.core.predicate="{START}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p65" org.eventb.core.predicate="({TRUE}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p64" org.eventb.core.predicate="FALSE=OPERATIONAL"/>
-<org.eventb.core.prPred name="p18" org.eventb.core.predicate="({START}∩{TRUE})∩({OPERATIONAL}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p33" org.eventb.core.predicate="SHUTDOWN∈BOOL"/>
-<org.eventb.core.prPred name="p24" org.eventb.core.predicate="{OFF}∩{TRUE}∩{SHUTDOWN}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p37" org.eventb.core.predicate="START=FALSE"/>
+<org.eventb.core.prPred name="p46" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p39" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger0∪{toTakeoff}∪{on}">
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p43" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪({START}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪{TRUE}"/>
+<org.eventb.core.prPred name="p27" org.eventb.core.predicate="OFF∈BOOL"/>
+<org.eventb.core.prPred name="p34" org.eventb.core.predicate="{OPERATIONAL}∩{TRUE}∩{TRUE}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p49" org.eventb.core.predicate="{START}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p62" org.eventb.core.predicate="({TRUE}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p61" org.eventb.core.predicate="FALSE=OPERATIONAL"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="({START}∩{TRUE})∩({OPERATIONAL}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p30" org.eventb.core.predicate="SHUTDOWN∈BOOL"/>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="{OFF}∩{TRUE}∩{SHUTDOWN}=(∅ ⦂ ℙ(BOOL))"/>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition({TRUE},{TRUE}∩{TRUE},{START}∩{TRUE},{OPERATIONAL}∩{TRUE},{FALSE}∩{TRUE})"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition({TRUE},{OFF}∩{TRUE},{START}∩{TRUE},{OPERATIONAL}∩{TRUE},{SHUTDOWN}∩{TRUE})"/>
-<org.eventb.core.prPred name="p44" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{START}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p38" org.eventb.core.predicate="{TRUE}=({OFF}∩{TRUE})∪({START}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪{TRUE}"/>
-<org.eventb.core.prPred name="p22" org.eventb.core.predicate="{OFF}∩{TRUE}∩{START}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p27" org.eventb.core.predicate="{OPERATIONAL}∩{TRUE}∩{SHUTDOWN}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p45" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{OPERATIONAL}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p59" org.eventb.core.predicate="SCXML_eq⊆SCXML_FutureExternalTrigger">
+<org.eventb.core.prPred name="p41" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{START}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p35" org.eventb.core.predicate="{TRUE}=({OFF}∩{TRUE})∪({START}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪{TRUE}"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="{OFF}∩{TRUE}∩{START}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="{OPERATIONAL}∩{TRUE}∩{SHUTDOWN}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p42" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{OPERATIONAL}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p56" org.eventb.core.predicate="SCXML_eq⊆SCXML_FutureExternalTrigger">
 <org.eventb.core.prIdent name="SCXML_eq" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p7" org.eventb.core.predicate="SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on}"/>
-<org.eventb.core.prPred name="p48" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪{TRUE}"/>
-<org.eventb.core.prPred name="p57" org.eventb.core.predicate="SCXML_FutureInternalTrigger0=SCXML_FutureInternalTrigger">
+<org.eventb.core.prPred name="p45" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪{TRUE}"/>
+<org.eventb.core.prPred name="p54" org.eventb.core.predicate="SCXML_FutureInternalTrigger0=SCXML_FutureInternalTrigger">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger0" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p21" org.eventb.core.predicate="{TRUE}=({TRUE}∩{TRUE})∪({START}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({FALSE}∩{TRUE})"/>
-<org.eventb.core.prPred name="p56" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})"/>
-<org.eventb.core.prPred name="p20" org.eventb.core.predicate="({OPERATIONAL}∩{TRUE})∩({SHUTDOWN}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p51" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})∪({OPERATIONAL}∩{TRUE})"/>
-<org.eventb.core.prPred name="p26" org.eventb.core.predicate="{START}∩{TRUE}∩{SHUTDOWN}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p54" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="{TRUE}=({TRUE}∩{TRUE})∪({START}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p53" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="({OPERATIONAL}∩{TRUE})∩({SHUTDOWN}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p48" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})∪({OPERATIONAL}∩{TRUE})"/>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="{START}∩{TRUE}∩{SHUTDOWN}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p51" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})"/>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p25" org.eventb.core.predicate="{START}∩{TRUE}∩{OPERATIONAL}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{toTakeoff},{off},{on})"/>
-<org.eventb.core.prPred name="p61" org.eventb.core.predicate="({TRUE}∩{TRUE})∩({START}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬toTakeoff=on"/>
-<org.eventb.core.prPred name="p67" org.eventb.core.predicate="({START}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p17" org.eventb.core.predicate="({OFF}∩{TRUE})∩({SHUTDOWN}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p58" org.eventb.core.predicate="SCXML_iq⊆SCXML_FutureInternalTrigger">
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="{START}∩{TRUE}∩{OPERATIONAL}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p58" org.eventb.core.predicate="({TRUE}∩{TRUE})∩({START}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬toTakeoff=on"/>
+<org.eventb.core.prPred name="p64" org.eventb.core.predicate="({START}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="({OFF}∩{TRUE})∩({SHUTDOWN}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p55" org.eventb.core.predicate="SCXML_iq⊆SCXML_FutureInternalTrigger">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 <org.eventb.core.prIdent name="SCXML_iq" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p42" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on}">
+<org.eventb.core.prPred name="p66" org.eventb.core.predicate="{OPERATIONAL}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p50" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})∪{TRUE}"/>
+<org.eventb.core.prPred name="p33" org.eventb.core.predicate="{START}∩{TRUE}∩{TRUE}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p63" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="{TRUE}=({OFF}∩{TRUE})∪({START}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
+<org.eventb.core.prPred name="p44" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p40" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩(SCXML_FutureExternalTrigger0∪{toTakeoff}∪{on})=(∅ ⦂ ℙ(SCXML_TRIGGER))">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p69" org.eventb.core.predicate="{OPERATIONAL}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬off∈SCXML_FutureExternalTrigger0"/>
-<org.eventb.core.prPred name="p43" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩(SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on})=(∅ ⦂ ℙ(SCXML_TRIGGER))">
-<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p53" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})∪{TRUE}"/>
-<org.eventb.core.prPred name="p36" org.eventb.core.predicate="{START}∩{TRUE}∩{TRUE}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p66" org.eventb.core.predicate="⊤"/>
-<org.eventb.core.prPred name="p14" org.eventb.core.predicate="{TRUE}=({OFF}∩{TRUE})∪({START}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
-<org.eventb.core.prPred name="p47" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))"/>
 <org.eventb.core.prPred name="p4" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p50" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪{TRUE}"/>
-<org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬on∈SCXML_FutureExternalTrigger0"/>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬toTakeoff=off"/>
-<org.eventb.core.prPred name="p62" org.eventb.core.predicate="FALSE=START"/>
-<org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬off=on"/>
-<org.eventb.core.prPred name="p68" org.eventb.core.predicate="({OPERATIONAL}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p55" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}"/>
-<org.eventb.core.prPred name="p23" org.eventb.core.predicate="{OFF}∩{TRUE}∩{OPERATIONAL}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p35" org.eventb.core.predicate="{OFF}∩{TRUE}∩{TRUE}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p39" org.eventb.core.predicate="OFF=FALSE"/>
-<org.eventb.core.prPred name="p60" org.eventb.core.predicate="SCXML_iq∩SCXML_eq=(∅ ⦂ ℙ(SCXML_TRIGGER))">
+<org.eventb.core.prPred name="p47" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪{TRUE}"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬on∈SCXML_FutureExternalTrigger0"/>
+<org.eventb.core.prPred name="p59" org.eventb.core.predicate="FALSE=START"/>
+<org.eventb.core.prPred name="p65" org.eventb.core.predicate="({OPERATIONAL}∩{TRUE})∩({FALSE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p52" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="{OFF}∩{TRUE}∩{OPERATIONAL}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p32" org.eventb.core.predicate="{OFF}∩{TRUE}∩{TRUE}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p36" org.eventb.core.predicate="OFF=FALSE"/>
+<org.eventb.core.prPred name="p57" org.eventb.core.predicate="SCXML_iq∩SCXML_eq=(∅ ⦂ ℙ(SCXML_TRIGGER))">
 <org.eventb.core.prIdent name="SCXML_eq" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 <org.eventb.core.prIdent name="SCXML_iq" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p16" org.eventb.core.predicate="({OFF}∩{TRUE})∩({OPERATIONAL}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p34" org.eventb.core.predicate="{TRUE}=({OFF}∩{TRUE})∪({START}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({TRUE}∩{TRUE})"/>
-<org.eventb.core.prPred name="p15" org.eventb.core.predicate="({OFF}∩{TRUE})∩({START}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p41" org.eventb.core.predicate="OPERATIONAL=FALSE"/>
-<org.eventb.core.prPred name="p28" org.eventb.core.predicate="{TRUE}={TRUE}∪({START}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="({OFF}∩{TRUE})∩({OPERATIONAL}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p31" org.eventb.core.predicate="{TRUE}=({OFF}∩{TRUE})∪({START}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({TRUE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="({OFF}∩{TRUE})∩({START}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p38" org.eventb.core.predicate="OPERATIONAL=FALSE"/>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="{TRUE}={TRUE}∪({START}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({FALSE}∩{TRUE})"/>
 <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬toTakeoff∈SCXML_FutureExternalTrigger0"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
-<org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
-<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="off__LANDED_SHUTDOWN/distinct_states_in_drone_sm/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4" org.eventb.core.prSets="SCXML_TRIGGER">
 <org.eventb.core.lang name="L"/>
@@ -1427,89 +1419,89 @@
 <org.eventb.core.prAnte name="'">
 <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p6,p7"/>
 <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p6,p7"/>
-<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{toTakeoff},{off},{on}))" org.eventb.core.prHyps="">
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{toTakeoff},{on}))" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p8,p9,p10,p11,p12,p13,p14"/>
-<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p8,p9,p10,p11,p12,p13,p14"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p8,p9,p10,p11"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p8,p9,p10,p11"/>
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition({TRUE},{OFF}∩{TRUE},{START}∩{TRUE},{OPERATIONAL}∩{TRUE},{SHUTDOWN}∩{TRUE}))" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p15,p16,p17,p18,p19,p20,p21"/>
-<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p15,p16,p17,p18,p19,p20,p21"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12,p13,p14,p15,p16,p17,p18"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p12,p13,p14,p15,p16,p17,p18"/>
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p22">
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p22" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p29">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p26"/>
-<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p20" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p27"/>
-<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p21" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p28"/>
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p19">
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p19" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p26">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p20"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
+<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
+<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
 <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p30"/>
-<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p31"/>
-<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p32"/>
-<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p33"/>
-<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p34"/>
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p27"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p28"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p29"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p30"/>
+<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p31"/>
 <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with OFF=TRUE" org.eventb.core.prHyps="p4">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p15" org.eventb.core.prInfHyps="p35"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p36"/>
-<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p37"/>
-<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p25" org.eventb.core.prInfHyps="p38"/>
-<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p15,p23,p24,p25"/>
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p12" org.eventb.core.prInfHyps="p32"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p20" org.eventb.core.prInfHyps="p33"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p34"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p35"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p12,p20,p21,p22"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p35" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p36" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p40"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p37" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p41"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p32" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p36"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p33" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p35" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
 <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_et=on" org.eventb.core.prHyps="p2">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p43" org.eventb.core.prInfHyps="p44"/>
-<org.eventb.core.prHypAction name="DESELECT1" org.eventb.core.prHyps="p43"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on}" org.eventb.core.prHyps="p8">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p40" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="DESELECT1" org.eventb.core.prHyps="p40"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{on}" org.eventb.core.prHyps="p8">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p6" org.eventb.core.prInfHyps="p45"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p7" org.eventb.core.prInfHyps="p46"/>
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p6" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p7" org.eventb.core.prInfHyps="p43"/>
 <org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p6,p7"/>
-<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=START" org.eventb.core.prHyps="p40">
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=START" org.eventb.core.prHyps="p37">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p26" org.eventb.core.prInfHyps="p47"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p27" org.eventb.core.prInfHyps="p48"/>
-<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p39" org.eventb.core.prInfHyps="p49"/>
-<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p26,p27,p39"/>
-<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=OPERATIONAL" org.eventb.core.prGoal="p29" org.eventb.core.prHyps="p41">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p52">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p47" org.eventb.core.prInfHyps="p50"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p49" org.eventb.core.prInfHyps="p51"/>
-<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p47,p49"/>
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p52" org.eventb.core.prHyps="">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p36" org.eventb.core.prInfHyps="p46"/>
+<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p23,p24,p36"/>
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=OPERATIONAL" org.eventb.core.prGoal="p26" org.eventb.core.prHyps="p38">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p49">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p44" org.eventb.core.prInfHyps="p47"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p46" org.eventb.core.prInfHyps="p48"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p44,p46"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p49" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p51">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p47"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p48" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p50"/>
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=SHUTDOWN" org.eventb.core.prGoal="p51" org.eventb.core.prHyps="p39">
 <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p54">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p50"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p51" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p53"/>
-<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=SHUTDOWN" org.eventb.core.prGoal="p54" org.eventb.core.prHyps="p42">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p57">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p28" org.eventb.core.prInfHyps="p55"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p53" org.eventb.core.prInfHyps="p56"/>
-<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p28,p48,p53"/>
-<org.eventb.core.prHypAction name="SELECT3" org.eventb.core.prHyps="p50"/>
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p57" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p59">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p50"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p56" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p58"/>
-<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=OPERATIONAL" org.eventb.core.prHyps="p41">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p25" org.eventb.core.prInfHyps="p52"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p50" org.eventb.core.prInfHyps="p53"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p25,p45,p50"/>
+<org.eventb.core.prHypAction name="SELECT3" org.eventb.core.prHyps="p47"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p54" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p56">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p47"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p53" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p55"/>
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=OPERATIONAL" org.eventb.core.prHyps="p38">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="DESELECT0" org.eventb.core.prHyps="p55"/>
-<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p50"/>
+<org.eventb.core.prHypAction name="DESELECT0" org.eventb.core.prHyps="p52"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p47"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p50"/>
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p47"/>
 <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p60,p61,p62,p63,p43,p6,p7,p15,p23,p24,p25,p26,p27,p28,p39,p47,p48,p49,p53,p55"/>
-<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p59" org.eventb.core.prHyps="">
+<org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p57,p58,p59,p60,p40,p6,p7,p12,p20,p21,p22,p23,p24,p25,p36,p44,p45,p46,p50,p52"/>
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p56" org.eventb.core.prHyps="">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
 <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
 </org.eventb.core.prRule>
@@ -1542,64 +1534,208 @@
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
-<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p64">
+<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p61">
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p61" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p62">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p20"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
+<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
+<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p62" org.eventb.core.prHyps=""/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p63">
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p63" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p44">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p20"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
+<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
+<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p27"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p28"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p29"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p30"/>
+<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p31"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with OFF=TRUE" org.eventb.core.prHyps="p4">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p12" org.eventb.core.prInfHyps="p32"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p20" org.eventb.core.prInfHyps="p33"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p34"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p35"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p12,p20,p21,p22"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p32" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p36"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p33" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p35" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_et=on" org.eventb.core.prHyps="p2">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p40" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="DESELECT1" org.eventb.core.prHyps="p40"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{on}" org.eventb.core.prHyps="p8">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p6" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p7" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p6,p7"/>
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=START" org.eventb.core.prHyps="p37">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p36" org.eventb.core.prInfHyps="p46"/>
+<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p23,p24,p36"/>
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p44" org.eventb.core.prHyps="p44"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="*" org.eventb.core.prGoal="p64">
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p64" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p65">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p26"/>
-<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p20" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p27"/>
-<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p21" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p28"/>
-<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p65" org.eventb.core.prHyps=""/>
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p45">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p20"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
+<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
+<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p27"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p28"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p29"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p30"/>
+<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p31"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with OFF=TRUE" org.eventb.core.prHyps="p4">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p12" org.eventb.core.prInfHyps="p32"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p20" org.eventb.core.prInfHyps="p33"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p34"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p35"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p12,p20,p21,p22"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p32" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p36"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p33" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p35" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_et=on" org.eventb.core.prHyps="p2">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p40" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="DESELECT1" org.eventb.core.prHyps="p40"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{on}" org.eventb.core.prHyps="p8">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p6" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p7" org.eventb.core.prInfHyps="p43"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p6,p7"/>
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=START" org.eventb.core.prHyps="p37">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p45"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p36" org.eventb.core.prInfHyps="p46"/>
+<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p23,p24,p36"/>
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p45" org.eventb.core.prHyps="p45"/>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
-<org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p66">
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="+" org.eventb.core.prGoal="p65">
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p65" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p38">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p20"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
+<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
+<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p27"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p28"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p29"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p30"/>
+<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p31"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with OFF=TRUE" org.eventb.core.prHyps="p4">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p12" org.eventb.core.prInfHyps="p32"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p20" org.eventb.core.prInfHyps="p33"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p34"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p35"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p12,p20,p21,p22"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p32" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p36"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p33" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p35" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p38" org.eventb.core.prHyps="p38"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="," org.eventb.core.prGoal="p66">
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p66" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p47">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p26"/>
-<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p20" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p27"/>
-<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p21" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p28"/>
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p39">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p20"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
+<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
+<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
 <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p30"/>
-<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p31"/>
-<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p32"/>
-<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p33"/>
-<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p34"/>
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p27"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p28"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p29"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p30"/>
+<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p31"/>
 <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with OFF=TRUE" org.eventb.core.prHyps="p4">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p15" org.eventb.core.prInfHyps="p35"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p36"/>
-<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p37"/>
-<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p25" org.eventb.core.prInfHyps="p38"/>
-<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p15,p23,p24,p25"/>
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p12" org.eventb.core.prInfHyps="p32"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p20" org.eventb.core.prInfHyps="p33"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p34"/>
+<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p35"/>
+<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p12,p20,p21,p22"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p35" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p36" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p40"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p37" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p41"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_et=on" org.eventb.core.prHyps="p2">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p43" org.eventb.core.prInfHyps="p44"/>
-<org.eventb.core.prHypAction name="DESELECT1" org.eventb.core.prHyps="p43"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on}" org.eventb.core.prHyps="p8">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p6" org.eventb.core.prInfHyps="p45"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p7" org.eventb.core.prInfHyps="p46"/>
-<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p6,p7"/>
-<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=START" org.eventb.core.prHyps="p40">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p26" org.eventb.core.prInfHyps="p47"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p27" org.eventb.core.prInfHyps="p48"/>
-<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p39" org.eventb.core.prInfHyps="p49"/>
-<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p26,p27,p39"/>
-<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p47" org.eventb.core.prHyps="p47"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p32" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p36"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p33" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p35" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p39" org.eventb.core.prHyps="p39"/>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
@@ -1609,152 +1745,8 @@
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-<org.eventb.core.prAnte name="*" org.eventb.core.prGoal="p67">
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p67" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p48">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p26"/>
-<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p20" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p27"/>
-<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p21" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p28"/>
-<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p30"/>
-<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p31"/>
-<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p32"/>
-<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p33"/>
-<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p34"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with OFF=TRUE" org.eventb.core.prHyps="p4">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p15" org.eventb.core.prInfHyps="p35"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p36"/>
-<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p37"/>
-<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p25" org.eventb.core.prInfHyps="p38"/>
-<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p15,p23,p24,p25"/>
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p35" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p36" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p40"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p37" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p41"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_et=on" org.eventb.core.prHyps="p2">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p43" org.eventb.core.prInfHyps="p44"/>
-<org.eventb.core.prHypAction name="DESELECT1" org.eventb.core.prHyps="p43"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on}" org.eventb.core.prHyps="p8">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p6" org.eventb.core.prInfHyps="p45"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p7" org.eventb.core.prInfHyps="p46"/>
-<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p6,p7"/>
-<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="he with FALSE=START" org.eventb.core.prHyps="p40">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p26" org.eventb.core.prInfHyps="p47"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p27" org.eventb.core.prInfHyps="p48"/>
-<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p39" org.eventb.core.prInfHyps="p49"/>
-<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p26,p27,p39"/>
-<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p48" org.eventb.core.prHyps="p48"/>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-<org.eventb.core.prAnte name="+" org.eventb.core.prGoal="p68">
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p68" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p41">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p26"/>
-<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p20" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p27"/>
-<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p21" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p28"/>
-<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p30"/>
-<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p31"/>
-<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p32"/>
-<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p33"/>
-<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p34"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with OFF=TRUE" org.eventb.core.prHyps="p4">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p15" org.eventb.core.prInfHyps="p35"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p36"/>
-<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p37"/>
-<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p25" org.eventb.core.prInfHyps="p38"/>
-<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p15,p23,p24,p25"/>
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p35" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p36" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p40"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p37" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p41"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
-<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p41" org.eventb.core.prHyps="p41"/>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-<org.eventb.core.prAnte name="," org.eventb.core.prGoal="p69">
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p69" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p42">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p26"/>
-<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p20" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p27"/>
-<org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p21" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p28"/>
-<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p30"/>
-<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p31"/>
-<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p32"/>
-<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p33"/>
-<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p34"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with OFF=TRUE" org.eventb.core.prHyps="p4">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p15" org.eventb.core.prInfHyps="p35"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p23" org.eventb.core.prInfHyps="p36"/>
-<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p24" org.eventb.core.prInfHyps="p37"/>
-<org.eventb.core.prHypAction name="FORWARD_INF3" org.eventb.core.prHyps="p25" org.eventb.core.prInfHyps="p38"/>
-<org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p15,p23,p24,p25"/>
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p35" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p36" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p40"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p37" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p41"/>
-<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
-<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p42" org.eventb.core.prHyps="p42"/>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-<org.eventb.core.prAnte name="-" org.eventb.core.prGoal="p21">
-<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p21" org.eventb.core.prHyps="p21"/>
+<org.eventb.core.prAnte name="-" org.eventb.core.prGoal="p18">
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p18" org.eventb.core.prHyps="p18"/>
 </org.eventb.core.prAnte>
 <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
 </org.eventb.core.prRule>
@@ -1774,114 +1766,110 @@
 <org.eventb.core.prIdent name="SCXML_et" org.eventb.core.type="SCXML_TRIGGER"/>
 <org.eventb.core.prIdent name="SHUTDOWN" org.eventb.core.type="BOOL"/>
 <org.eventb.core.prIdent name="START" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="off" org.eventb.core.type="SCXML_TRIGGER"/>
 <org.eventb.core.prIdent name="on" org.eventb.core.type="SCXML_TRIGGER"/>
 <org.eventb.core.prIdent name="toTakeoff" org.eventb.core.type="SCXML_TRIGGER"/>
-<org.eventb.core.prPred name="p33" org.eventb.core.predicate="OPERATIONAL∈BOOL"/>
-<org.eventb.core.prPred name="p20" org.eventb.core.predicate="({START}∩{TRUE})∩({SHUTDOWN}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p30" org.eventb.core.predicate="SCXML_uc∈BOOL">
+<org.eventb.core.prPred name="p30" org.eventb.core.predicate="OPERATIONAL∈BOOL"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="({START}∩{TRUE})∩({SHUTDOWN}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p27" org.eventb.core.predicate="SCXML_uc∈BOOL">
 <org.eventb.core.prIdent name="SCXML_uc" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p32" org.eventb.core.predicate="START∈BOOL"/>
-<org.eventb.core.prPred name="p66" org.eventb.core.predicate="({FALSE}∩{TRUE})∩({OPERATIONAL}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p68" org.eventb.core.predicate="({TRUE}∩{TRUE})∩({OPERATIONAL}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p51" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
-<org.eventb.core.prPred name="p69" org.eventb.core.predicate="({TRUE}∩{TRUE})∩({SHUTDOWN}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p53" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
+<org.eventb.core.prPred name="p29" org.eventb.core.predicate="START∈BOOL"/>
+<org.eventb.core.prPred name="p63" org.eventb.core.predicate="({FALSE}∩{TRUE})∩({OPERATIONAL}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p65" org.eventb.core.predicate="({TRUE}∩{TRUE})∩({OPERATIONAL}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{on}"/>
+<org.eventb.core.prPred name="p48" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{toTakeoff},{on})"/>
+<org.eventb.core.prPred name="p66" org.eventb.core.predicate="({TRUE}∩{TRUE})∩({SHUTDOWN}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p50" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
 <org.eventb.core.prPred name="p7" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p36" org.eventb.core.predicate="{TRUE}∩{TRUE}∩{START}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p39" org.eventb.core.predicate="{TRUE}={TRUE}∪({START}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
-<org.eventb.core.prPred name="p31" org.eventb.core.predicate="OFF∈BOOL"/>
-<org.eventb.core.prPred name="p49" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
-<org.eventb.core.prPred name="p41" org.eventb.core.predicate="FALSE=OPERATIONAL"/>
-<org.eventb.core.prPred name="p19" org.eventb.core.predicate="({START}∩{TRUE})∩({OPERATIONAL}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p34" org.eventb.core.predicate="SHUTDOWN∈BOOL"/>
-<org.eventb.core.prPred name="p25" org.eventb.core.predicate="{OFF}∩{TRUE}∩{SHUTDOWN}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p33" org.eventb.core.predicate="{TRUE}∩{TRUE}∩{START}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p36" org.eventb.core.predicate="{TRUE}={TRUE}∪({START}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
+<org.eventb.core.prPred name="p42" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger0∪{toTakeoff}∪{on}">
+<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p28" org.eventb.core.predicate="OFF∈BOOL"/>
+<org.eventb.core.prPred name="p46" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
+<org.eventb.core.prPred name="p38" org.eventb.core.predicate="FALSE=OPERATIONAL"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="({START}∩{TRUE})∩({OPERATIONAL}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p31" org.eventb.core.predicate="SHUTDOWN∈BOOL"/>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="{OFF}∩{TRUE}∩{SHUTDOWN}=(∅ ⦂ ℙ(BOOL))"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition({TRUE},{OFF}∩{TRUE},{START}∩{TRUE},{OPERATIONAL}∩{TRUE},{SHUTDOWN}∩{TRUE})"/>
-<org.eventb.core.prPred name="p42" org.eventb.core.predicate="FALSE=SHUTDOWN"/>
-<org.eventb.core.prPred name="p64" org.eventb.core.predicate="({FALSE}∩{TRUE})∩({TRUE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p23" org.eventb.core.predicate="{OFF}∩{TRUE}∩{START}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p28" org.eventb.core.predicate="{OPERATIONAL}∩{TRUE}∩{SHUTDOWN}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p44" org.eventb.core.predicate="on∈SCXML_eq">
+<org.eventb.core.prPred name="p39" org.eventb.core.predicate="FALSE=SHUTDOWN"/>
+<org.eventb.core.prPred name="p61" org.eventb.core.predicate="({FALSE}∩{TRUE})∩({TRUE}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="{OFF}∩{TRUE}∩{START}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="{OPERATIONAL}∩{TRUE}∩{SHUTDOWN}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p41" org.eventb.core.predicate="on∈SCXML_eq">
 <org.eventb.core.prIdent name="SCXML_eq" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p47" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{OPERATIONAL}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p62" org.eventb.core.predicate="SCXML_eq⊆SCXML_FutureExternalTrigger">
+<org.eventb.core.prPred name="p44" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{OPERATIONAL}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p59" org.eventb.core.predicate="SCXML_eq⊆SCXML_FutureExternalTrigger">
 <org.eventb.core.prIdent name="SCXML_eq" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p8" org.eventb.core.predicate="SCXML_FutureExternalTrigger=SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on}"/>
-<org.eventb.core.prPred name="p67" org.eventb.core.predicate="({FALSE}∩{TRUE})∩({SHUTDOWN}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p43" org.eventb.core.predicate="SCXML_et∈SCXML_eq">
+<org.eventb.core.prPred name="p64" org.eventb.core.predicate="({FALSE}∩{TRUE})∩({SHUTDOWN}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p40" org.eventb.core.predicate="SCXML_et∈SCXML_eq">
 <org.eventb.core.prIdent name="SCXML_eq" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p52" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({FALSE}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
-<org.eventb.core.prPred name="p60" org.eventb.core.predicate="SCXML_FutureInternalTrigger0=SCXML_FutureInternalTrigger">
+<org.eventb.core.prPred name="p49" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({FALSE}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
+<org.eventb.core.prPred name="p57" org.eventb.core.predicate="SCXML_FutureInternalTrigger0=SCXML_FutureInternalTrigger">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger0" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p58" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})"/>
-<org.eventb.core.prPred name="p21" org.eventb.core.predicate="({OPERATIONAL}∩{TRUE})∩({SHUTDOWN}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p27" org.eventb.core.predicate="{START}∩{TRUE}∩{SHUTDOWN}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p38" org.eventb.core.predicate="{TRUE}∩{TRUE}∩{SHUTDOWN}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p56" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p55" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="({OPERATIONAL}∩{TRUE})∩({SHUTDOWN}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="{START}∩{TRUE}∩{SHUTDOWN}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p35" org.eventb.core.predicate="{TRUE}∩{TRUE}∩{SHUTDOWN}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p53" org.eventb.core.predicate="{TRUE}={TRUE}∪({FALSE}∩{TRUE})∪({FALSE}∩{TRUE})"/>
 <org.eventb.core.prPred name="p6" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p57" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({FALSE}∩{TRUE})"/>
-<org.eventb.core.prPred name="p26" org.eventb.core.predicate="{START}∩{TRUE}∩{OPERATIONAL}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger,SCXML_FutureExternalTrigger0,{toTakeoff},{off},{on})"/>
-<org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬toTakeoff=on"/>
-<org.eventb.core.prPred name="p18" org.eventb.core.predicate="({OFF}∩{TRUE})∩({SHUTDOWN}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p61" org.eventb.core.predicate="SCXML_iq⊆SCXML_FutureInternalTrigger">
+<org.eventb.core.prPred name="p54" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({FALSE}∩{TRUE})"/>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="{START}∩{TRUE}∩{OPERATIONAL}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬toTakeoff=on"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="({OFF}∩{TRUE})∩({SHUTDOWN}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p58" org.eventb.core.predicate="SCXML_iq⊆SCXML_FutureInternalTrigger">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 <org.eventb.core.prIdent name="SCXML_iq" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p45" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on}">
-<org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
-</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition({TRUE},{FALSE}∩{TRUE},{TRUE}∩{TRUE},{OPERATIONAL}∩{TRUE},{SHUTDOWN}∩{TRUE})"/>
-<org.eventb.core.prPred name="p55" org.eventb.core.predicate="{OPERATIONAL}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬off∈SCXML_FutureExternalTrigger0"/>
-<org.eventb.core.prPred name="p46" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩(SCXML_FutureExternalTrigger0∪{toTakeoff}∪{off}∪{on})=(∅ ⦂ ℙ(SCXML_TRIGGER))">
+<org.eventb.core.prPred name="p52" org.eventb.core.predicate="{OPERATIONAL}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p62" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="{TRUE}=({OFF}∩{TRUE})∪({START}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
+<org.eventb.core.prPred name="p47" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p43" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩(SCXML_FutureExternalTrigger0∪{toTakeoff}∪{on})=(∅ ⦂ ℙ(SCXML_TRIGGER))">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p65" org.eventb.core.predicate="⊤"/>
-<org.eventb.core.prPred name="p15" org.eventb.core.predicate="{TRUE}=({OFF}∩{TRUE})∪({START}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
-<org.eventb.core.prPred name="p50" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{FALSE}=(∅ ⦂ ℙ(BOOL))"/>
 <org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)">
 <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p4" org.eventb.core.predicate="OFF=TRUE"/>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="¬on∈SCXML_FutureExternalTrigger0"/>
-<org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬toTakeoff=off"/>
-<org.eventb.core.prPred name="p40" org.eventb.core.predicate="FALSE=START"/>
-<org.eventb.core.prPred name="p14" org.eventb.core.predicate="¬off=on"/>
-<org.eventb.core.prPred name="p54" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({SHUTDOWN}∩{TRUE})"/>
-<org.eventb.core.prPred name="p48" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{SHUTDOWN}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p59" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}"/>
-<org.eventb.core.prPred name="p29" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({OPERATIONAL}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬on∈SCXML_FutureExternalTrigger0"/>
+<org.eventb.core.prPred name="p37" org.eventb.core.predicate="FALSE=START"/>
+<org.eventb.core.prPred name="p51" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({SHUTDOWN}∩{TRUE})"/>
+<org.eventb.core.prPred name="p45" org.eventb.core.predicate="{FALSE}∩{TRUE}∩{SHUTDOWN}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p56" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}"/>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪{TRUE}∪({OPERATIONAL}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
 <org.eventb.core.prPred name="p2" org.eventb.core.predicate="SCXML_et=on"/>
-<org.eventb.core.prPred name="p24" org.eventb.core.predicate="{OFF}∩{TRUE}∩{OPERATIONAL}=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p63" org.eventb.core.predicate="SCXML_iq∩SCXML_eq=(∅ ⦂ ℙ(SCXML_TRIGGER))">
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="{OFF}∩{TRUE}∩{OPERATIONAL}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p60" org.eventb.core.predicate="SCXML_iq∩SCXML_eq=(∅ ⦂ ℙ(SCXML_TRIGGER))">
 <org.eventb.core.prIdent name="SCXML_eq" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 <org.eventb.core.prIdent name="SCXML_iq" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p17" org.eventb.core.predicate="({OFF}∩{TRUE})∩({OPERATIONAL}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p22" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪({TRUE}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
-<org.eventb.core.prPred name="p16" org.eventb.core.predicate="({OFF}∩{TRUE})∩({START}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
-<org.eventb.core.prPred name="p35" org.eventb.core.predicate="{TRUE}=({TRUE}∩{TRUE})∪({START}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
-<org.eventb.core.prPred name="p37" org.eventb.core.predicate="{TRUE}∩{TRUE}∩{OPERATIONAL}=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="({OFF}∩{TRUE})∩({OPERATIONAL}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="{TRUE}=({FALSE}∩{TRUE})∪({TRUE}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="({OFF}∩{TRUE})∩({START}∩{TRUE})=(∅ ⦂ ℙ(BOOL))"/>
+<org.eventb.core.prPred name="p32" org.eventb.core.predicate="{TRUE}=({TRUE}∩{TRUE})∪({START}∩{TRUE})∪({OPERATIONAL}∩{TRUE})∪({SHUTDOWN}∩{TRUE})"/>
+<org.eventb.core.prPred name="p34" org.eventb.core.predicate="{TRUE}∩{TRUE}∩{OPERATIONAL}=(∅ ⦂ ℙ(BOOL))"/>
 <org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬toTakeoff∈SCXML_FutureExternalTrigger0"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.he:1"/>
-<org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
-<org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
-<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.he:1"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
 </org.eventb.core.prProof>
 </org.eventb.core.prFile>

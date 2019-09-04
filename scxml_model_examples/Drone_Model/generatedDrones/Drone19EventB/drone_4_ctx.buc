@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.comment="(generated from SCXML file: /Drone19EventB/drone_Fig19_EventB.scxml)" org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="true" version="3">
-<org.eventb.core.extendsContext name="_Uhl0MKI_EemSnZSg4v26hw" org.eventb.core.target="drone_3_ctx"/>
-<org.eventb.core.constant name="_Uhl0MaI_EemSnZSg4v26hw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureInternalTrigger4"/>
-<org.eventb.core.constant name="_Uhl0MqI_EemSnZSg4v26hw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureExternalTrigger4"/>
-<org.eventb.core.constant name="_Uhl0M6I_EemSnZSg4v26hw" org.eventb.core.comment="generated from DataItem" org.eventb.core.generated="true" org.eventb.core.identifier="isAligned"/>
-<org.eventb.core.axiom name="_Uhl0NKI_EemSnZSg4v26hw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureExternalTrigger4" org.eventb.core.predicate="SCXML_FutureExternalTrigger4=SCXML_FutureExternalTrigger3"/>
-<org.eventb.core.axiom name="_Uhl0NaI_EemSnZSg4v26hw" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_FutureInternalTrigger4" org.eventb.core.predicate="SCXML_FutureInternalTrigger4=SCXML_FutureInternalTrigger3"/>
-<org.eventb.core.axiom name="_Uhl0NqI_EemSnZSg4v26hw" org.eventb.core.comment="generated from DataItem" org.eventb.core.generated="true" org.eventb.core.label="isAligned_type" org.eventb.core.predicate="isAligned ∈ (ℕ×ℕ×ℕ×ℕ×ℕ×ℕ×ℤ) → BOOL"/>
+<org.eventb.core.extendsContext name="_2Gn2sL6yEemI6oYwv3984Q" org.eventb.core.target="drone_3_ctx"/>
+<org.eventb.core.constant name="_2Gn2sb6yEemI6oYwv3984Q" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureInternalTrigger4"/>
+<org.eventb.core.constant name="_2Gn2sr6yEemI6oYwv3984Q" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureExternalTrigger4"/>
+<org.eventb.core.constant name="_2Gn2s76yEemI6oYwv3984Q" org.eventb.core.comment="generated from DataItem" org.eventb.core.generated="true" org.eventb.core.identifier="isAligned"/>
+<org.eventb.core.axiom name="_2Gn2tL6yEemI6oYwv3984Q" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_FutureExternalTrigger4" org.eventb.core.predicate="SCXML_FutureExternalTrigger4=SCXML_FutureExternalTrigger3"/>
+<org.eventb.core.axiom name="_2Gn2tb6yEemI6oYwv3984Q" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_FutureInternalTrigger4" org.eventb.core.predicate="SCXML_FutureInternalTrigger4=SCXML_FutureInternalTrigger3"/>
+<org.eventb.core.axiom name="_2GodwL6yEemI6oYwv3984Q" org.eventb.core.comment="generated from DataItem" org.eventb.core.generated="true" org.eventb.core.label="isAligned_type" org.eventb.core.predicate="isAligned ∈ (ℕ×ℕ×ℕ×ℕ×ℕ×ℕ×ℤ) → BOOL"/>
 </org.eventb.core.contextFile>
