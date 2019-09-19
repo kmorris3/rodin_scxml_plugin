@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.machineFile org.eventb.core.comment="(generated for SCXML)" org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="true" version="5">
+<org.eventb.core.machineFile org.eventb.core.comment="(generated for SCXML)" org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="5">
 <org.eventb.core.seesContext name="_kfipkNqxEemchLOowTWPlA" org.eventb.core.target="basis"/>
 <org.eventb.core.variable name="_kfjQoNqxEemchLOowTWPlA" org.eventb.core.comment="internal trigger queue" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_iq"/>
 <org.eventb.core.variable name="_kfjQodqxEemchLOowTWPlA" org.eventb.core.comment="external trigger queue" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_eq"/>
@@ -66,4 +66,5 @@
 <org.eventb.core.guard name="_kfm7CdqxEemchLOowTWPlA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_hasNoDequeuedTriggers" org.eventb.core.predicate="SCXML_dt=  ∅"/>
 <org.eventb.core.action name="_kfm7CtqxEemchLOowTWPlA" org.eventb.core.assignment="SCXML_uc ≔ TRUE" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_setComplete"/>
 </org.eventb.core.event>
+<org.eventb.core.invariant name="_ic1t0Nq4EemchLOowTWPlA" org.eventb.core.generated="false" org.eventb.core.label="check" org.eventb.core.predicate="SCXML_uc = TRUE  ⇒ SCXML_dt=∅"/>
 </org.eventb.core.machineFile>
