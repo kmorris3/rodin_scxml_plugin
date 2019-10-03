@@ -77,9 +77,11 @@
             </transition>
           </state>
           <state id="HOVER" iumlb:refinement="4"/>
-          <transition event="toFly" target="FLY" iumlb:label="TAKEOFF_FLY"/>
-          <transition event="toLand" target="DESCEND" iumlb:label="TAKEOFF_DESCEND"/>
-          <iumlb:invariant predicate="charge>20" name="check_charge_inTAKEOFF" iumlb:refinement="2"/>
+          <transition event="toFly" target="FLY" iumlb:label="TAKEOFF_FLY">
+            <iumlb:guard predicate="charge>40" name="check_charge" iumlb:refinement="2"/>
+          </transition>
+          <transition event="toLand" target="DESCEND" iumlb:label="TAKEOFF_DESCEND" iumlb:finalised="2"/>
+          <iumlb:invariant trigger="toLand" predicate="BATTERYOK=TRUE" name="check_charge_inTAKEOFF" iumlb:refinement="2"/>
         </state>
         <state id="FLY" iumlb:refinement="7">
           <initial>
@@ -142,8 +144,8 @@
             <transition event="TurnDone" target="FORWARD1"/>
           </state>
           <state id="HOLD" iumlb:refinement="7"/>
-          <transition event="toLand" target="DESCEND" iumlb:label="FLY_DESCEND"/>
-          <iumlb:invariant predicate="charge>20" name="check_charge_inFLY" iumlb:refinement="2"/>
+          <transition event="toLand" target="DESCEND" iumlb:label="FLY_DESCEND" iumlb:finalised="2"/>
+          <iumlb:invariant trigger="toLand" predicate="BATTERYOK=TRUE" name="check_charge_inFLY" iumlb:refinement="2"/>
         </state>
         <state id="DESCEND" iumlb:refinement="5">
           <initial>
@@ -182,15 +184,15 @@
           <transition target="BATTERY"/>
         </initial>
         <state id="BATTERY">
-          <transition event="decreaseCharge" target="BATTERY" iumlb:label="BATTERY_BATTERY">
-            <iumlb:guard predicate="charge>=10" name="update_charge"/>
-            <assign expr="charge - 10" location="charge" iumlb:refinement="2"/>
-          </transition>
           <initial>
             <transition target="BATTERYOK"/>
           </initial>
           <state id="BATTERYOK">
-            <transition target="BATTERYLOW" iumlb:label="BATTERYOK_BATTERYLOW">
+            <transition event="decreaseCharge" target="BATTERYOK" iumlb:label="BATTERYOK_BATTERYOK">
+              <iumlb:guard predicate="charge>=10" name="update_charge"/>
+              <assign expr="charge - 10" location="charge" iumlb:refinement="2"/>
+            </transition>
+            <transition target="BATTERYLOW" iumlb:label="BATTERYOK_BATTERYLOW" iumlb:finalised="2">
               <iumlb:guard predicate="charge&lt;=20" name="check_charge"/>
               <raise event="toLand"/>
             </transition>
