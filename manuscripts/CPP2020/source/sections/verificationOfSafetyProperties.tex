@@ -1,0 +1,28 @@
+% !TEX root = ../main.tex
+
+
+\section{Verification of Safety Properties}
+
+In a statechart model we naturally wish to verify properties P that are expected to hold true in a particular state S.
+Hence, all of the safety properties that we consider are of the form: S=TRUE => P, where the antecedent is implied by the containment of P within S.
+
+There are two kinds of properties that we might want to verify in a statechart;
+1) properties concerning the values of auxiliary data which is being maintained by the system and 2) constraints on the state of a parallel statechart region.
+
+SCXML models represent components that react to received triggers and cannot be perfectly synchronised with changes to the monitored properties. 
+Hence, if naively expressed, P may be temporarily violated until the system reacts by leaving the state S in which the property is expected to hold.
+To cater for this we express P in a form that allows time for the reaction to take place.
+
+There are two forms of reaction that can be used to exit S; a) an untriggered transition, or b) a transition that is triggered by an internally raised trigger.
+For properties about the value of auxiliary data, untriggered transitions appear to be more suited because, in this case, there is unlikely to be a natural place to raise an internal trigger when the appropriate conditions arise.
+For properties about the state of a parallel region either reaction could be used depending on whether the system detects the violation in the state that contains P of the state that P refers to.
+
+We illustrate an example where some auxiliary data is monitored by one statemachine  and another statemachine utilises this by referring to the state of the monitor. 
+Hence the reaction consists of an untriggered transition in the monitoring statemachine that sends an internal trigger to the other statemachine when it leaves the desired monitoring state.
+
+
+
+
+
+
+
