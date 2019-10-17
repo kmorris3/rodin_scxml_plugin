@@ -11,14 +11,16 @@ There are two kinds of properties that we might want to verify in a statechart;
 
 SCXML models represent components that react to received triggers and cannot be perfectly synchronised with changes to the monitored properties. 
 Hence, if naively expressed, P may be temporarily violated until the system reacts by leaving the state S in which the property is expected to hold.
-To cater for this we express P in a form that allows time for the reaction to take place.
+To cater for this we express P in a modified form P' that allows time for the reaction to take place.
 
 There are two forms of reaction that can be used to exit S; a) an untriggered transition, or b) a transition that is triggered by an internally raised trigger.
+For a), the modified property P' is \emph{untriggered transitions are not complete} or P, and for b) P' is \emph{trigger t is in the internal queue or dequeued} or P (where t is the particular trigger needed to react to the violation of P).
+
 For properties about the value of auxiliary data, untriggered transitions appear to be more suited because, in this case, there is unlikely to be a natural place to raise an internal trigger when the appropriate conditions arise.
 For properties about the state of a parallel region either reaction could be used depending on whether the system detects the violation in the state that contains P of the state that P refers to.
 
-We illustrate an example where some auxiliary data is monitored by one statemachine  and another statemachine utilises this by referring to the state of the monitor. 
-Hence the reaction consists of an untriggered transition in the monitoring statemachine that sends an internal trigger to the other statemachine when it leaves the desired monitoring state.
+We illustrate an example where some auxiliary data is monitored by one statechart  and another statechart utilises this by referring to the state of the monitor. 
+Hence the reaction consists of an untriggered transition in the monitoring statechart that sends an internal trigger to the other statechart when it leaves the desired monitoring state.
 
 
 
