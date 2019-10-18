@@ -4,7 +4,7 @@
 \section{Verification of Safety Properties}
 
 In a statechart model we naturally wish to verify properties P that are expected to hold true in a particular state S.
-Hence, all of the safety properties that we consider are of the form: S=TRUE => P, where the antecedent is implied by the containment of P within S.
+Hence, all of the safety properties that we consider are of the form: S=TRUE => P, where the antecedent is implicit from the containment of P within S.
 
 There are two kinds of properties that we might want to verify in a statechart;
 1) properties concerning the values of auxiliary data which is being maintained by the system and 2) constraints on the state of a parallel statechart region.
@@ -19,9 +19,15 @@ For a), the modified property P' is \emph{untriggered transitions are not comple
 For properties about the value of auxiliary data, untriggered transitions appear to be more suited because, in this case, there is unlikely to be a natural place to raise an internal trigger when the appropriate conditions arise.
 For properties about the state of a parallel region either reaction could be used depending on whether the system detects the violation in the state that contains P of the state that P refers to.
 
-We illustrate an example where some auxiliary data is monitored by one statechart  and another statechart utilises this by referring to the state of the monitor. 
+In this section we illustrate a typical example of the type of properties that we imagine could be verified in a reactive SCXML system.
+All of the proof obligations are automatically discharged for our sample application.
+Since our models are strictly structured and proof obligations will always have this common form, we expect that proofs will always discharge automatically.
+We model the safety property features at an early level of refinement where the models are relatively simple, so that the modeller has more chance of expressing valid verification conditions. 
+Detail is then added in later refinements which is proven (automatically) to preserve the proven safety properties.
+In our example, some auxiliary data is monitored by one statechart and another statechart utilises this by referring to the state of the monitor. 
 Hence the reaction consists of an untriggered transition in the monitoring statechart that sends an internal trigger to the other statechart when it leaves the desired monitoring state.
 
+\emph{Now describe the battery charge verification in UML-B}
 
 
 
