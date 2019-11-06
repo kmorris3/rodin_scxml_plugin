@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="5">
+    <org.eventb.core.seesContext name="_TFWHcACsEeqxMcZPa8B2wQ" org.eventb.core.target="c0"/>
+    <org.eventb.core.variable name="_TFWHcQCsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.identifier="charge"/>
+    <org.eventb.core.variable name="_TFWugACsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.identifier="triggers"/>
+    <org.eventb.core.variable name="_TFWugQCsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.identifier="dequeue"/>
+    <org.eventb.core.variable name="_TFWuggCsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.identifier="old_charge"/>
+    <org.eventb.core.invariant name="_TFXVkACsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.label="inv1" org.eventb.core.predicate="charge ∈ ℕ"/>
+    <org.eventb.core.invariant name="_TFX8oACsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.label="inv2" org.eventb.core.predicate="triggers ⊆ TRIGGER"/>
+    <org.eventb.core.invariant name="_TFX8oQCsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.label="inv3" org.eventb.core.predicate="dequeue ⊆ TRIGGER"/>
+    <org.eventb.core.invariant name="_TFZKwACsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.label="inv4" org.eventb.core.predicate="dequeue ≠ ∅ ⇒ (∃ trigger · dequeue = {trigger})"/>
+    <org.eventb.core.invariant name="_TFaY4ACsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.label="inv5" org.eventb.core.predicate="old_charge ∈ ℕ"/>
+    <org.eventb.core.event name="_TFa_8ACsEeqxMcZPa8B2wQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_TFa_8QCsEeqxMcZPa8B2wQ" org.eventb.core.assignment="charge ≔ 20" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_TFbnAACsEeqxMcZPa8B2wQ" org.eventb.core.assignment="triggers ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="_TFbnAQCsEeqxMcZPa8B2wQ" org.eventb.core.assignment="dequeue ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="_TFcOEACsEeqxMcZPa8B2wQ" org.eventb.core.assignment="old_charge ≔ 20" org.eventb.core.generated="false" org.eventb.core.label="act4"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_TFcOEQCsEeqxMcZPa8B2wQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="external_discharge">
+        <org.eventb.core.parameter name="_TFc1IACsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.identifier="trigger"/>
+        <org.eventb.core.guard name="_TFc1IQCsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="trigger ∉ triggers"/>
+        <org.eventb.core.guard name="_TFdcMACsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="trigger = DISCHARGE"/>
+        <org.eventb.core.guard name="_TFdcMQCsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="charge &gt; 0"/>
+        <org.eventb.core.action name="_TFdcMgCsEeqxMcZPa8B2wQ" org.eventb.core.assignment="triggers ≔ triggers ∪ {trigger}" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_TFeDQACsEeqxMcZPa8B2wQ" org.eventb.core.assignment="old_charge ≔ charge" org.eventb.core.generated="false" org.eventb.core.label="act4"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_TFeDQQCsEeqxMcZPa8B2wQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="external_trigger">
+        <org.eventb.core.parameter name="_TFfRYACsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.identifier="trigger"/>
+        <org.eventb.core.guard name="_TFhGkACsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="trigger ∉ triggers"/>
+        <org.eventb.core.guard name="_TFhGkQCsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="trigger ≠ DISCHARGE"/>
+        <org.eventb.core.action name="_TFhtoACsEeqxMcZPa8B2wQ" org.eventb.core.assignment="triggers ≔ triggers ∪ {trigger}" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_TFhtoQCsEeqxMcZPa8B2wQ" org.eventb.core.assignment="old_charge ≔ charge" org.eventb.core.generated="false" org.eventb.core.label="act4"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_TFhtogCsEeqxMcZPa8B2wQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="dequeue_discharge">
+        <org.eventb.core.guard name="_TFi7wACsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="dequeue = ∅"/>
+        <org.eventb.core.guard name="_TFi7wQCsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="DISCHARGE ∈ triggers"/>
+        <org.eventb.core.action name="_TFi7wgCsEeqxMcZPa8B2wQ" org.eventb.core.assignment="dequeue ≔ {DISCHARGE}" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_TFji0ACsEeqxMcZPa8B2wQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="dequeue">
+        <org.eventb.core.parameter name="_TFji0QCsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.identifier="trigger"/>
+        <org.eventb.core.guard name="_TFkJ4ACsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="dequeue = ∅"/>
+        <org.eventb.core.guard name="_TFkJ4QCsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="trigger ∈ triggers"/>
+        <org.eventb.core.guard name="_TFkw8ACsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="trigger ≠ DISCHARGE"/>
+        <org.eventb.core.action name="_TFkw8QCsEeqxMcZPa8B2wQ" org.eventb.core.assignment="dequeue ≔ {trigger}" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_TFlYAACsEeqxMcZPa8B2wQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="discharge">
+        <org.eventb.core.guard name="_TFlYAQCsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="DISCHARGE ∈ dequeue"/>
+        <org.eventb.core.action name="_TFl_EACsEeqxMcZPa8B2wQ" org.eventb.core.assignment="dequeue ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_TFl_EQCsEeqxMcZPa8B2wQ" org.eventb.core.assignment="charge ≔ charge − 1" org.eventb.core.generated="false" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="_TFl_EgCsEeqxMcZPa8B2wQ" org.eventb.core.assignment="triggers ≔ triggers ∖ {DISCHARGE}" org.eventb.core.generated="false" org.eventb.core.label="act3"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_TFl_EwCsEeqxMcZPa8B2wQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="other_trigger">
+        <org.eventb.core.guard name="_TFmmIACsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="dequeue ≠ ∅"/>
+        <org.eventb.core.guard name="_TFnNMACsEeqxMcZPa8B2wQ" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="DISCHARGE ∉ dequeue"/>
+        <org.eventb.core.action name="_TFnNMQCsEeqxMcZPa8B2wQ" org.eventb.core.assignment="dequeue ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="_TFobUACsEeqxMcZPa8B2wQ" org.eventb.core.assignment="triggers ≔ triggers ∖ dequeue" org.eventb.core.generated="false" org.eventb.core.label="act3"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_TFq3kACsEeqxMcZPa8B2wQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="do_nothing"/>
+</org.eventb.core.machineFile>

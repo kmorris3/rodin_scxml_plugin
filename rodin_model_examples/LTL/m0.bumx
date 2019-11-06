@@ -1,0 +1,83 @@
+machine m0
+sees c0
+variables
+	charge
+	triggers
+	dequeue
+	old_charge
+invariants
+	@inv1: charge ∈ ℕ
+	@inv2: triggers ⊆ TRIGGER
+	@inv3: dequeue ⊆ TRIGGER
+	@inv4: dequeue ≠ ∅ ⇒ (∃ trigger · dequeue = {trigger})
+	@inv5: old_charge ∈ ℕ
+events
+	event INITIALISATION
+	then
+		@act1: charge ≔ 20
+		@act2: triggers ≔ ∅
+		@act3: dequeue ≔ ∅
+		@act4: old_charge ≔ 20
+	end
+	
+	event external_discharge
+	any trigger
+	where
+		@grd1: trigger ∉ triggers
+		@grd2: trigger = DISCHARGE
+		@grd3: charge > 0
+	then
+		@act1: triggers ≔ triggers ∪ {trigger}
+		@act4: old_charge ≔ charge
+	end
+	
+	event external_trigger
+	any trigger
+	where
+		@grd1: trigger ∉ triggers
+		@grd2: trigger ≠ DISCHARGE
+	then
+		@act1: triggers ≔ triggers ∪ {trigger}
+		@act4: old_charge ≔ charge
+	end
+
+	event dequeue_discharge
+	where
+		@grd1: dequeue = ∅
+		@grd2: DISCHARGE ∈ triggers
+	then
+		@act1: dequeue ≔ {DISCHARGE}
+	end
+	
+	event dequeue
+	any trigger
+	where
+		@grd1: dequeue = ∅
+		@grd2: trigger ∈ triggers
+		@grd3: trigger ≠ DISCHARGE
+	then
+		@act1: dequeue ≔ {trigger}
+	end
+
+	event discharge
+	where
+		@grd1: DISCHARGE ∈ dequeue
+	then
+		@act1: dequeue ≔ ∅
+		@act2: charge ≔ charge − 1
+		@act3: triggers ≔ triggers ∖ {DISCHARGE}
+	end
+	
+	event other_trigger
+	where
+		@grd1: dequeue ≠ ∅
+		@grd2: DISCHARGE ∉ dequeue
+	then
+		@act1: dequeue ≔ ∅
+		@act3: triggers ≔ triggers ∖ dequeue
+	end
+	
+	event do_nothing
+	end
+	
+end

@@ -1,0 +1,8 @@
+context c0
+sets
+	TRIGGER
+constants
+	DISCHARGE
+axioms
+	@axm1: DISCHARGE ∈ TRIGGER
+end
