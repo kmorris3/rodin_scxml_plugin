@@ -4,38 +4,38 @@
 \section{Verification of Safety Properties}
 
 In a statechart model we naturally wish to verify properties P that are expected to hold true in a particular state S.
-Hence, all of the safety properties that we consider are of the form: S=TRUE => P, where the antecedent is implicit from the containment of P within S.
+Hence, all of the safety properties that we consider are of the form: |S=TRUE => P|, where the antecedent is implicit from the containment of |P| within |S|.
 
-There are two kinds of properties that we might want to verify in an SCXML statechart;
+There are two kinds of properties that we might want to verify in an \SCXML statechart;
 1) properties concerning the values of auxiliary data maintained by the system and 2) constraints about the state of another parallel statechart region.
 
-SCXML models represent components that react to received triggers and cannot be perfectly synchronised with changes to the monitored properties. 
-Hence, P may be temporarily violated until the system reacts by leaving the state S in which the property is expected to hold.
-To cater for this we express P in a modified form P' that allows time for the reaction to take place.
+\SCXML models represent components that react to received triggers and cannot be perfectly synchronised with changes to the monitored properties. 
+Hence, |P| may be temporarily violated until the system reacts by leaving the state |S| in which the property is expected to hold.
+To cater for this we express |P| in a modified form |P'| that allows time for the reaction to take place.
 
-There are two forms of reaction that can be used to exit S; a) an untriggered transition, or b) a transition that is triggered by an internally raised trigger.
-For a), the modified property P' becomes P or \emph{untriggered transitions are not complete}, and for b) P' becomes P or \emph{trigger t is in the internal queue or dequeued} (where t is the internal trigger raised when the violation of P is detected).
+There are two forms of reaction that can be used to exit |S|; a) an untriggered transition, or b) a transition that is triggered by an internally raised trigger.
+For a), the modified property |P'| becomes |P| or \emph{untriggered transitions are not complete}, and for b) |P'| becomes |P| or \emph{trigger |t| is in the internal queue or dequeued} (where |t| is the internal trigger raised when the violation of |P| is detected).
 
 %Not sure the following is true so removed it..
 %For properties about the value of auxiliary data, untriggered transitions appear to be more suited because, in this case, there is unlikely to be a natural place to raise an internal trigger when the appropriate conditions arise.
 %For properties about the state of a parallel region either reaction could be used depending on whether the system detects the violation in the state that contains P of the state that P refers to.
 
-In this section we illustrate a typical example of the type of properties that we imagine could be verified in a reactive SCXML system.
+In this section we illustrate a typical example of the type of properties that we imagine could be verified in a reactive \SCXML system.
 All of the proof obligations are automatically discharged for our example.
 Since our models are strictly structured and proof obligations will always have this common form, we are optimistic that proofs will always discharge automatically.
 We model the safety property features at an early level of refinement where the models are relatively simple, so that the validity of verification conditions is clear. 
 Detail is then added in later refinements which are proven (automatically) to preserve the previously verified safety properties.
-In our example, some auxiliary data is monitored by one statechart region and while a parallel region refers to the state of the monitoring region. 
-Hence the reaction consists of an untriggered transition in the monitoring region which sends an internal trigger to the other region when it leaves the desired monitor state.
+In our example, some auxiliary data is monitored by one state-chart region and while a parallel region refers to the state of the monitoring region. 
+Hence the reaction consists of an un-triggered transition in the monitoring region which sends an internal trigger to the other region when it leaves the desired monitor state.
 
-\emph{Now describe the battery charge verification in UML-B}
+\emph{Now describe the battery charge verification in \UMLB}
 
 The safety property that we wish to verify is that the control system does not continue to take off or fly if the battery charge drops below a certain threshold (say 21\%). 
 By refinement level 1 we have developed the drone's state to the point where we distinguish the takeoff and fly states.
 In refinement level 2 we therefore introduce the battery charge monitoring function along with the associated safety properties.
-A parallel state-chart region, with sub-states BATTERYOK and BATTERYLOW, is added to the state OPERATIONAL.
+A parallel state-chart region, with sub-states |BATTERYOK| and |BATTERYLOW|, is added to the state |OPERATIONAL|.
 An external trigger indicates that the battery charge has dropped by 1\% and this is used by a self transition to decrement the controllers data value for charge.
-The BATTERYOK state is supposed to indicate that the battery charge is ok (>20\%) and to ensure that it does, we add a state invariant to this effect (charge>20).
+The |BATTERYOK| state is supposed to indicate that the battery charge is ok (>20\%) and to ensure that it does, we add a state invariant to this effect (charge>20).
 When charge decreases to 20 (or less), an untriggered transition immediately reacts by switching to the BATTERYLOW state.
 To ensure that this reaction is not bypassed by the non-determinism that we incorporated to allow for future refinement, we flag it as finalised at refinement level 2.
 Finalisation means that we cannot strengthen its guards in future refinements as is normally permitted, since its reaction is needed to ensure the invariant is preserved.
@@ -47,7 +47,7 @@ The transitions that enter state OPERATIONAL and initialise the BATTERY region b
 The self transition that decreases charge (and hence could potentially falsify the consequent) is guarded by |SCXML_uc = FALSE| since it is a triggered transition, and hence the disjunction in the consequent ensures it remains true.
 The completion event (|SCXML_NoUntriggeredTransitions|) of the basis machine resets |SCXML_uc = TRUE| to indicate completion of the cycle and hence could potentially break the invariant. 
 However, finalising the transition (|BATTERYOK_BATTERYLOW|) that leaves BATTERYOK when charge>20 becomes false, causes the translation to add its negated guard to the completion event.
-Since this transition fires when BATTERYOK is TRUE (its source state) and |charge≤20| the completion event is guarded by |¬(BATTERYOK= TRUE ∧ charge≤20)| which means that it does not fire when it could break the invariant (i.e. forcing the untriggered reaction to fire first).
+Since this transition fires when |BATTERYOK| is |TRUE| (its source state) and |charge≤20| the completion event is guarded by |¬(BATTERYOK= TRUE ∧ charge≤20)| which means that it does not fire when it could break the invariant (i.e. forcing the untriggered reaction to fire first).
 
 
 
