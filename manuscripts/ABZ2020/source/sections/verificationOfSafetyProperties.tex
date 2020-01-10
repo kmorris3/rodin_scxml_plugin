@@ -3,18 +3,23 @@
 
 \section{Verification of Safety Properties}
 
-In a statechart model we naturally wish to verify properties P that are expected to hold true in a particular state S.
-Hence, all of the safety properties that we consider are of the form: |S=TRUE => P|, where the antecedent is implicit from the containment of |P| within |S|.
+In a state-chart model we naturally wish to verify properties P that are expected to hold true in a particular state S.
+Hence, all of the safety properties that we consider are of the form: |S=TRUE ⇒ P|, where the antecedent is implicit from the containment of |P| within |S|.
 
-There are two kinds of properties that we might want to verify in an \SCXML statechart;
-1) properties concerning the values of auxiliary data maintained by the system and 2) constraints about the state of another parallel statechart region.
+There are two kinds of properties that we might want to verify in an \SCXML state-chart;
+1) properties concerning the values of auxiliary data maintained by the system and 
+2) constraints about the state of another parallel state-chart region.
 
 \SCXML models represent components that react to received triggers and cannot be perfectly synchronised with changes to the monitored properties. 
 Hence, |P| may be temporarily violated until the system reacts by leaving the state |S| in which the property is expected to hold.
 To cater for this we express |P| in a modified form |P'| that allows time for the reaction to take place.
 
-There are two forms of reaction that can be used to exit |S|; a) an untriggered transition, or b) a transition that is triggered by an internally raised trigger.
-For a), the modified property |P'| becomes |P| or \emph{untriggered transitions are not complete}, and for b) |P'| becomes |P| or \emph{trigger |t| is in the internal queue or dequeued} (where |t| is the internal trigger raised when the violation of |P| is detected).
+There are two forms of reaction that can be used to exit |S|; 
+a) an untriggered transition, or 
+b) a transition that is triggered by an internally raised trigger.
+For a), the modified property |P'| becomes |P ∨| \emph{untriggered transitions are not complete}, 
+and for b) |P'| becomes |P ∨| \emph{trigger} |t| \emph{is in the internal queue or dequeued}
+(where |t| is the internal trigger raised when the violation of |P| is detected).
 
 %Not sure the following is true so removed it..
 %For properties about the value of auxiliary data, untriggered transitions appear to be more suited because, in this case, there is unlikely to be a natural place to raise an internal trigger when the appropriate conditions arise.
@@ -36,26 +41,17 @@ In refinement level 2 we therefore introduce the battery charge monitoring funct
 A parallel state-chart region, with sub-states |BATTERYOK| and |BATTERYLOW|, is added to the state |OPERATIONAL|.
 An external trigger indicates that the battery charge has dropped by 1\% and this is used by a self transition to decrement the controllers data value for charge.
 The |BATTERYOK| state is supposed to indicate that the battery charge is ok (>20\%) and to ensure that it does, we add a state invariant to this effect (charge>20).
-When charge decreases to 20 (or less), an untriggered transition immediately reacts by switching to the BATTERYLOW state.
+When charge decreases to 20 (or less), an untriggered transition immediately reacts by switching to the |BATTERYLOW| state.
 To ensure that this reaction is not bypassed by the non-determinism that we incorporated to allow for future refinement, we flag it as finalised at refinement level 2.
 Finalisation means that we cannot strengthen its guards in future refinements as is normally permitted, since its reaction is needed to ensure the invariant is preserved.
 
-After translation to \UMLB the invariant in state BATTERYOK is |SCXML_uc = FALSE ∨ charge>20| and after translation to \EVENTB, \\
-|(BATTERYOK = TRUE) ⇒ (SCXML_uc = FALSE ∨ charge>20)|
+After translation to \UMLB the invariant in state |BATTERYOK| is 
+\newline |SCXML_uc = FALSE ∨ charge>20| and after translation to \EVENTB, 
+\newline |(BATTERYOK = TRUE) ⇒ (SCXML_uc = FALSE ∨ charge>20)|
 The only events that can break this invariant are ones that make the antecedent become true or the consequent become false and we deal with these as follows:
-The transitions that enter state OPERATIONAL and initialise the BATTERY region by entering BATTERYOK (hence making the antecedent become true) contain the guard that |charge>50| (since we do not allow the drone to take off unless the battery is well charged) and hence the invariant is satisfied.
+The transitions that enter state |OPERATIONAL| and initialise the |BATTERY| region by entering |BATTERYOK| (hence making the antecedent become true) contain the guard that |charge>50| (since we do not allow the drone to take off unless the battery is well charged) and hence the invariant is satisfied.
 The self transition that decreases charge (and hence could potentially falsify the consequent) is guarded by |SCXML_uc = FALSE| since it is a triggered transition, and hence the disjunction in the consequent ensures it remains true.
-The completion event (|SCXML_NoUntriggeredTransitions|) of the basis machine resets |SCXML_uc = TRUE| to indicate completion of the cycle and hence could potentially break the invariant. 
-However, finalising the transition (|BATTERYOK_BATTERYLOW|) that leaves BATTERYOK when charge>20 becomes false, causes the translation to add its negated guard to the completion event.
-Since this transition fires when |BATTERYOK| is |TRUE| (its source state) and |charge≤20| the completion event is guarded by |¬(BATTERYOK= TRUE ∧ charge≤20)| which means that it does not fire when it could break the invariant (i.e. forcing the untriggered reaction to fire first).
-
-
-
-
-
-
-
-
-
-
+The completion event |SCXML_NoUntriggeredTransitions| of the basis machine resets |SCXML_uc = TRUE| to indicate completion of the cycle and hence could potentially break the invariant. 
+However, finalising the transition |BATTERYOK_BATTERYLOW| that leaves |BATTERYOK| when |charge>20| becomes false, causes the translation to add its negated guard to the completion event.
+Since this transition fires when |BATTERYOK = TRUE| (i.e. its source state) and |charge≤20| the completion event is guarded by |¬(BATTERYOK= TRUE ∧ charge≤20)| which means that it does not fire when it could break the invariant (i.e. forcing the untriggered reaction to fire first).
 
