@@ -1,0 +1,1 @@
+SF(dequeue_discharge) & WF(discharge) & WF(other_trigger) => G ([ExternalTriggerEvent_decreaseCharge] => F {charge < old_charge})

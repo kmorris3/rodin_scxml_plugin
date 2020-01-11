@@ -1,0 +1,30 @@
+% !TEX root = ../main.tex
+
+
+\section{Verification of Control Responses}
+
+It is sometimes possible to construct a model that satisfies some invariant (e.g. safety) properties, but does not behave in a useful way.
+Therefore, as well as verifying invariant properties, we would like to verify the liveness of the system, or more specifically in this case, that the controller responds to external triggers to make appropriate modifications to the system variables. 
+These kind of live responses can not be verified by proof of invariants since they involve temporal properties.
+Instead, we can express the property in \LTL  and use the \PROB model checker to verify it.
+
+In general our liveness properties will have the following form:
+
+	|G([external_trigger_event] ==> F{predicate})|
+\\
+Where the predicate concerns variables |v| that the system maintains, and may refer to old values |old(v)| that existed when the external trigger occurred.
+To specify a liveness property to be verify, a special `LTL' element is added to the \SCXML model with attributes, property (a string of the above form)  and refinement (an integer indicating the refinement level at which the property should be verified).
+The translator generates a separate `branch' refinement for each \LTL property to be verified. 
+In this special refinement, history variables are added to record the value at the state when the external trigger occurs, of any variables that are referenced as `old' values.
+A text file is automatically generated containing the LTL property to be checked. 
+In this generated version, an assumption of strong fairness is added:
+
+	|SF[e1] & SF[e2]... ==> G[external_trigger _event] ==> F[predicate]|
+\\
+This property can be copied and pasted into the \PROB model checker LTL checking text field.
+
+We illustrate the method with an example of a temporal property that we expect to hold in the drone \SCXML system. 
+The liveness property that we wish to  verify is that, after an external trigger event |decreaseCharge|, the battery charge value should  decrease in value.
+
+	|G ([ExternalTriggerEvent_decreaseCharge] => F {charge < old(charge)})|
+\\
