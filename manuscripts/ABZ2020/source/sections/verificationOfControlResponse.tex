@@ -17,7 +17,9 @@ To specify a liveness property to be verify, a special `LTL' element is added to
 The translator generates a separate `branch' refinement for each \LTL property to be verified. 
 In this special refinement, history variables are added to record the value at the state when the external trigger occurs, of any variables that are referenced as `old' values.
 A text file is automatically generated containing the LTL property to be checked. 
-In this generated version, an assumption of strong fairness is added:
+In this generated version, an assumption of strong fairness is added for all other events in the model.
+(This assumption is stronger than necessary since some events will not affect the outcome, but is easier to generate and is sufficient for our verification aim). 
+For simplicity we omit this assumption from the remaining examples.
 
 	|SF[e1] & SF[e2]... ==> G[external_trigger _event] ==> F[predicate]|
 \\
