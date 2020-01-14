@@ -13,15 +13,26 @@ development of the model to refinements that obey the rules. This will allow us 
 of the model in a very strategic fashion, as properties proven of early abstraction levels 
 are preserve in later refinements.
 
-The first abstraction of the model shown in figure~\ref{fig:drone} captures the basic 
+The first abstraction of the model shown in figure~\ref{fig:drone1} captures the basic 
 functionality of the drone. The model initial state is |OFF| and as a result of the |on| and 
 |toTakeoff| external triggers it transitions to the |START| and |OPERATIONAL| respectively. 
 The drone reacts to the |off| external trigger by shutting down and a subsequent transition to |OFF|.
 Within the |OPERATIONAL| state the drone will transition to |FLY|, |DESCEND| or |LANDED| 
-after the internal triggers |toFly|, |toLand| or |landed|. In this abstraction these interal 
+after the internal triggers |toFly|, |toLand| or |landed|. In this abstraction these internal 
 triggers are raised non-deterministically in the system by functionality not currently defined.
-As additional details are incoorporated into the model in later refinements some of that non-determinism is 
+As additional details are incorporated into the model in later refinements some of that non-determinism is 
 removed and replaced transitions with actions that raised the previously defined internal triggers.
+
+Figure~\ref{fig:drone2} shows the first refinement of the model, as we refine the parent state |TAKEOFF|
+by introducing child states and new model variables, similar to the rule 1 and 2 defined by Syriani et al.
+As part of this refinement we introduced an untriggered transition responsible for 
+raising the |toFly| internal trigger, and therefore removed some of the non-determinisms in the abstraction.
+
+The second refinement, figure~\ref{fig:drone3} extends the capabilities within |OPERATIONAL| by making it a parallel
+state that controls flying and battery related functionality. This is same as rule 4 defined by Syriani et al.
+Our statechart semantics support transition refinement when constrained to adding guards and/or 
+actions to previously defined transitions. These new strengthening of guards, or additional actions are expression in term on new model variables that contribute implementation details to the model.
+
 \begin{figure}[!h]
 	\vspace{-.4cm}
 	\centering
@@ -29,7 +40,9 @@ removed and replaced transitions with actions that raised the previously defined
 	\caption{Statechart of drone application. 1. Abstract level including only generic behavior 
 	2. Refinement level introducing details for TakeOff 3. Refinement level for descending capabilities 
 	4. Refinement level for battery consumption functionality. NOTE: this figure still needs a lot of work}
-	\label{fig:drone}
+	\label{fig:drone1}
+	\label{fig:drone2}
+	\label{fig:drone3}
 	\vspace{-.4cm}
 \end{figure} 
 % \emph{Describe the Drone case study including refinements and things we would verify}
