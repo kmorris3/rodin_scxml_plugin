@@ -33,16 +33,41 @@ state that controls flying and battery related functionality. This is same as ru
 Our statechart semantics support transition refinement when constrained to adding guards and/or 
 actions to previously defined transitions. These new strengthening of guards, or additional actions are expression in term on new model variables that contribute implementation details to the model.
 
+Figure~\ref{fig:drone4} shows
+
 \begin{figure}[!h]
 	\vspace{-.4cm}
 	\centering
-	\includegraphics[width=0.99\textwidth]{figures/drone.png}
-	\caption{Statechart of drone application. 1. Abstract level including only generic behavior 
-	2. Refinement level introducing details for TakeOff 3. Refinement level for descending capabilities 
-	4. Refinement level for battery consumption functionality. NOTE: this figure still needs a lot of work}
+	\includegraphics[width=0.95\textwidth]{figures/Picture1.png}
+	\caption{Statechart of drone application. Abstract level including only generic behavior }
 	\label{fig:drone1}
-	\label{fig:drone2}
-	\label{fig:drone3}
 	\vspace{-.4cm}
+\end{figure} 
+
+\begin{figure}[!h]
+	% \vspace{-.4cm}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/Picture2.png}
+	\caption{Statechart of drone application. Refinement level introducing details for TakeOff}
+	\label{fig:drone2}
+	% \vspace{-.4cm}
+\end{figure} 
+
+\begin{figure}[!h]
+	% \vspace{-.4cm}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/Picture2.png}
+	\caption{Statechart of drone application.Refinement level for descending capabilities}
+	\label{fig:drone3}
+	% \vspace{-.4cm}
+\end{figure} 
+
+\begin{figure}[!h]
+	% \vspace{-.4cm}
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/Picture2.png}
+	\caption{Statechart of drone application. Refinement level for battery consumption functionality}
+	\label{fig:drone4}
+	% \vspace{-.4cm}
 \end{figure} 
 % \emph{Describe the Drone case study including refinements and things we would verify}
