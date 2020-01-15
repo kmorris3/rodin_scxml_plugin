@@ -46,9 +46,16 @@ raising the |toFly| internal trigger, and therefore removed some of the non-dete
 
 The second refinement, figure~\ref{fig:drone3} extends the capabilities within |OPERATIONAL| by making it a parallel
 state that controls flying and battery related functionality. This is same as rule 4 defined by Syriani et al.
-Our statechart semantics support transition refinement when constrained to adding guards and/or 
-actions to previously defined transitions. These new strengthening of guards, or additional 
+The charge within the drone battery is control by the parallel |BATTERYOP| state. 
+The functionality is modeled by introducing a new model variable |charge|, which is decreased as 
+a response to the internal trigger |decreaseCharge|. The aforementioned trigger, is raised non-deterministic by some 
+unspecified internal functionality. Our statechart semantics support transition refinement, as such
+we are able to modified preciously defined transitions. In particular, this type of refinement allow
+us to add guards and/or actions to previously defined transitions. These new strengthening of guards, or additional 
 actions are expression in term on new model variables that contribute implementation details to the model.
+To ensure the drone operates with enough battery power we strengthen the guards of transitions to |FLY| and |TAKEOFF|.
+As part of this design stage we introduce a requirement to constrain drone operation to battery charge of 
+at least 20\% of its capacity. This can be expressed as |(BATTERYOK = TRUE) => charge > 20\%|
 
 \begin{figure}[!h]
 	\centering
@@ -58,11 +65,15 @@ actions are expression in term on new model variables that contribute implementa
 \end{figure} 
 
 Figure~\ref{fig:drone4} shows
+At this stage of the model we introduce additional implementation details to ensure that under special 
+circumstances (e.g sensing of adverse environment or unexpected battery dropped) the drone is able 
+to circumvent flying and proceed to an emergency landing. 
+\emph{What should be the expression for this property the invariant on line 84 seems strange to me}
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=0.95\textwidth]{figures/Picture4.png}
+	\includegraphics[width=0.95\textwidth]{figures/Picture5.png}
 	\caption{Statechart of drone application. Refinement level for battery consumption functionality}
 	\label{fig:drone4}
 \end{figure} 
-% \emph{Describe the Drone case study including refinements and things we would verify}
+
