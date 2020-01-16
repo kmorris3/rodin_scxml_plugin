@@ -64,12 +64,15 @@ at least 20\% of its capacity. This can be expressed as |(BATTERYOK = TRUE) => c
 	\label{fig:drone3}
 \end{figure} 
 
-Figure~\ref{fig:drone4} shows
-At this stage of the model we introduce additional implementation details to ensure that under special 
+Figure~\ref{fig:drone4} shows a third refinement of the drone model, 
+at this stage we introduce additional implementation details to ensure that under special 
 circumstances (e.g sensing of adverse environment or unexpected battery dropped) the drone is able 
-to circumvent flying and proceed to an emergency landing. 
 \emph{What should be the expression for this property the invariant on line 84 seems strange to me}
-
+to circumvent flying and proceed to an emergency landing. The internal trigger |cancel| can be raise 
+non-deterministically by some sensing capability, the details of which are not currently implemented.
+If the trigger is raised the climbing process must be aborted and the drone descending sequence shall
+start. The ability to abort the takeoff operation and perform an emergency descend was not included an 
+any of the previously outlined abstractions (see figures~\ref{fig:drone1} -~\ref{fig:drone3}) 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.95\textwidth]{figures/Picture5.png}
