@@ -65,8 +65,11 @@
 	% Package for listing Event-B code
 	\usepackage[colour]{lstEventB}
 	
-	% Package for listing Gherkin code
-%	\usepackage[colour]{lstGherkin}
+% For floating listings
+\usepackage{float}
+\newfloat{lstfloat}{htbp}{lop}
+\floatname{lstfloat}{Listing}
+\def\lstfloatautorefname{Listing} % needed for hyperref/auroref
 	
 	%package for envelope
 	\usepackage{bbding}
@@ -115,7 +118,7 @@
 % Text of paper \ldots
 \input{sections/background}
 \input{sections/runToCompletionBasis}
-\input{sections/translationToUMLB}
+\input{sections/translation}
 \input{sections/descriptionOfSampleApplication}
 \input{sections/statechartRefinements}
 \input{sections/verificationOfSafetyProperties}
