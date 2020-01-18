@@ -40,7 +40,7 @@ By refinement level 1 we have developed the drone's state to the point where we 
 In refinement level 2 we therefore introduce the battery charge monitoring function along with the associated safety properties.
 A parallel state-chart region, with sub-states |BATTERYOK| and |BATTERYLOW|, is added to the state |OPERATIONAL|.
 An external trigger indicates that the battery charge has dropped by 1\% and this is used by a self transition to decrement the controllers data value for charge.
-The |BATTERYOK| state is supposed to indicate that the battery charge is ok (>20\%) and to ensure that it does, we add a state invariant to this effect (charge>20).
+The |BATTERYOK| state is supposed to indicate that the battery charge is ok ($>$20\%) and to ensure that it does, we add a state invariant to this effect (charge$>$20).
 When charge decreases to 20 (or less), an untriggered transition immediately reacts by switching to the |BATTERYLOW| state.
 To ensure that this reaction is not bypassed by the non-determinism that we incorporated to allow for future refinement, we flag it as finalised at refinement level 2.
 Finalisation means that we cannot strengthen its guards in future refinements as is normally permitted, since its reaction is needed to ensure the invariant is preserved.
