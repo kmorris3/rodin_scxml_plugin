@@ -55,7 +55,7 @@ us to add guards and/or actions to previously defined transitions. These new str
 actions are expression in term on new model variables that contribute implementation details to the model.
 To ensure the drone operates with enough battery power we strengthen the guards of transitions to |FLY| and |TAKEOFF|.
 As part of this design stage we introduce a requirement to constrain drone operation to battery charge of 
-at least 20\% of its capacity. This can be expressed as |(BATTERYOK = TRUE) => charge > 20\%|
+at least 20\% of its capacity. This can be expressed as |(BATTERYOK = TRUE) => charge > 20|\%
 
 \begin{figure}[!h]
 	\centering
@@ -67,11 +67,14 @@ at least 20\% of its capacity. This can be expressed as |(BATTERYOK = TRUE) => c
 Figure~\ref{fig:drone4} shows a third refinement of the drone model, 
 at this stage we introduce additional implementation details to ensure that under special 
 circumstances (e.g sensing of adverse environment or unexpected battery dropped) the drone is able 
-\emph{What should be the expression for this property the invariant on line 84 seems strange to me}
-to circumvent flying and proceed to an emergency landing. The internal trigger |cancel| can be raise 
-non-deterministically by some sensing capability, the details of which are not currently implemented.
-If the trigger is raised the climbing process must be aborted and the drone descending sequence shall
-start. The ability to abort the takeoff operation and perform an emergency descend was not included an 
+to circumvent flying and proceed to an emergency landing. The previously described requirement can be
+expressed as |(TAKEOFF = TRUE) => (BATTERYOK = TRUE ∨ toLand)|.
+% \emph{What should be the expression for this property the invariant on line 84 seems strange to me}
+To implement this new capability in the design we internal trigger |cancel| is introduced.
+The internal trigger |cancel| can be raise non-deterministically by some sensing capability, 
+the details of which are not currently implemented. If the trigger is raised the climbing process 
+must be aborted and the drone descending sequence shall start. The ability to abort the 
+takeoff operation and perform an emergency descend was not included on 
 any of the previously outlined abstractions (see figures~\ref{fig:drone1} -~\ref{fig:drone3}) 
 \begin{figure}[!h]
 	\centering

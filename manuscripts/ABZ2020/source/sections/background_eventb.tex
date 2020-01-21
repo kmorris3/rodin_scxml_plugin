@@ -3,10 +3,15 @@
 \subsection{Event-B}
 \label{sec:eventb}
 
-\EventB~\cite{abrial10:_model_event_b} is a formal method for system
-development.  Main features of \EventB include the use of
-\emph{refinement} to introduce system details gradually into the
-formal model.  An \EventB model contains two parts: \emph{contexts} and \emph{machines}. Contexts contain \emph{carrier sets}, \emph{constants}, and \emph{axioms} constraining the carrier sets and constants.  Machines contain \emph{variables} |v|, \emph{invariants} |I(v)| constraining the variables, and \emph{events}. An event comprises a guard denoting its enabled-condition and an action describing how the variables are modified when the event is executed.  In general, an event |e| has the form: |any t where G(t, v) then S(t, v) end|  where |t| are the event parameters, |G(t, v)| is the guard of the event, and |S(t, v)| is the action of the event.
+\EventB~\cite{abrial10:_model_event_b,hoang13:_introd_event_b_model_method} is a formal method for system
+design.  It uses \emph{refinement} to introduce system details gradually into the
+formal model.  An \EventB model contains two parts: \emph{contexts} and \emph{machines}. 
+Contexts contain \emph{carrier sets}, \emph{constants}, and \emph{axioms} constraining 
+the carrier sets and constants.  Machines contain \emph{variables} |v|, \emph{invariants} |I(v)| 
+constraining the variables, and \emph{events}. An event consists of a guard 
+denoting its enabled-condition and an action defining the value of variables after the event is executed.  
+In general, an event |e| has the form: |any t where G(t, v) then S(t, v) end| where |t| 
+are the event parameters, |G(t, v)| is the guard of the event, and |S(t, v)| is the action of the event.
 % \begin{center}
   % |any t where G(t, v) then S(t, v) end|
 %& \inlineevent{\Be}{}{\Bt}{G(\Bt,\Bv)}{}{S(\Bt,\Bv)}
@@ -27,7 +32,13 @@ formal model.  An \EventB model contains two parts: \emph{contexts} and \emph{ma
 %the transitions.  Note that invariants |I(v)| are inductive, i.e., they must be \emph{maintained} by all events. This is more strict than general safety properties which hold for all reachable states of the \EventB machine.  
 % This is also the difference between verifying the consistency of \EventB machines using theorem proving and model checking (e.g., \PROB) techniques: model checkers explore all reachable states of the system while interpreting the invariants as safety properties.  
 
-Machines can be refined by adding more details.  Refinement can be done by extending the machine to include additional variables (\emph{superposition refinement}) representing new features of the system, or to replace some (abstract) variables by new (concrete) variables (\emph{data refinement}).  More information about \EventB can be found in~\cite{hoang13:_introd_event_b_model_method}.  \EventB is supported by \Rodin~\cite{abrial10:_rodin}, an extensible toolkit which includes facilities for modelling, verifying the consistency of models using theorem proving and model checking techniques, and validating models with simulation-based approaches.
+Machines can be refined by adding more details.  Refinement can be done by extending the machine 
+to include additional variables (\emph{superposition refinement}) representing new features of 
+the system, or to replace some (abstract) variables by new (concrete) variables (\emph{data refinement}).  
+% More information about \EventB can be found in~\cite{hoang13:_introd_event_b_model_method}.  
+\EventB is supported by Rodin Platform (Rodin\footnote{An extensible toolkit which includes 
+facilities for modelling, verifying the consistency of models using theorem proving and model 
+checking techniques, and validating models with simulation-based approaches.})~\cite{abrial10:_rodin}.
 
 % In \EventB the run to completion pseudocode of Listing~\ref{lst:scxml-r2c} could be represented (somewhat abstractly) as shown in Listing~\ref{lst:eventb-r2c}.
 % \begin{lstlisting}[caption={Run to completion pseudocode in \EventB},label={lst:eventb-r2c}, language=Event-B, escapechar=|, frame=single, float=t]
