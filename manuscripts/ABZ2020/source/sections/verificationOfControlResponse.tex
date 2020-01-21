@@ -10,7 +10,7 @@ Instead, we can express the property in \LTL  and use the \PROB model checker to
 
 In general our liveness properties will have the following form:
 
-	|G([external_trigger_event] ==> F{predicate})|
+	|G([external_trigger_event] => F{predicate})|
 \\
 Where the predicate concerns variables |v| that the system maintains, and may refer to old values |old(v)| that existed when the external trigger occurred.
 To specify a liveness property to be verify, a special \LTL element is added to the \SCXML model with attributes, property (a string of the above form)  and refinement (an integer indicating the refinement level at which the property should be verified).
@@ -21,7 +21,7 @@ In this generated version, an assumption of strong fairness is added for all oth
 (This assumption is stronger than necessary since some events will not affect the outcome, but is easier to generate and is sufficient for our verification aim). 
 For simplicity we omit this assumption from the remaining examples.
 
-	|SF[e1] & SF[e2]... ==> G[external_trigger _event] ==> F[predicate]|
+	|SF[e1] & SF[e2]... => G[external_trigger _event] => F[predicate]|
 \\
 This property can be copied and pasted into the \PROB model checker \LTL checking text field.
 
