@@ -15,7 +15,9 @@ are preserved in later refinements.
 
 The first abstraction of the model shown in figure~\ref{fig:drone1} captures the basic 
 functionality of the drone. The model initial state is |OFF| and as a result of the |on| and 
-|toTakeoff| external triggers it transitions to the |START| and |OPERATIONAL| states respectively. 
+|toTakeoff| external triggers it transitions to the |START| and |OPERATIONAL| states 
+respectively\footnote{Transitions in figures~\ref{fig:drone1} -~\ref{fig:drone4} are labeled with trigger names
+(e.g. toTakeoff, toFly) not with event names as it is in \UMLB.}. 
 The drone reacts to the |off| external trigger by shutting down and subsequently transitioning to the |OFF| state.
 Within the |OPERATIONAL| state the drone will transition to |FLY|, |DESCEND| or |LANDED| 
 after the internal triggers |toFly|, |toLand| or |landed| respectively. 
