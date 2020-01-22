@@ -80,7 +80,7 @@ and a flag, |uc|, that signals when a run to completion macro-step has been comp
 After initialisation, all trigger queues are empty 
 and |uc| is set to |FALSE| so that un-triggered transitions are dealt with via the
 |futureUntriggeredTransitionSet| event, which may raise internal triggers.
-If not transitions are
+This will subsequently enable completion and reset the |uc| flag to |TRUE|.
 
 
 
