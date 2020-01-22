@@ -5,9 +5,9 @@
 
 The translation of a specific \SCXML model comprises two stages as follows. 
 Firstly, all possible combinations of transitions that can fire together are calculated and corresponding events are generated, at appropriate refinement levels, that refine the abstract basis events.  
-If these transitions raise internal triggers, a guard, (e.g. |{i1, i2, ...} <: SCXML_raisedTrigger|, where |i1, i2, ...| have been added to the internal triggers set), is introduced that defines the raised triggers parameter. 
-The subset constraint leaves it open for more raised triggers to be added by later refinements.
-For triggered transition combinations, the trigger is specified in a guard (see line~\ref{line:defTrigger} of Listing~\ref{lst:SecBotMach0}) that provides a value for the trigger parameter. 
+If these transitions raise internal triggers, a guard, (e.g. |{i1, i2, ...} <: SCXML_raisedTrigger|, where |i1, i2, ...| have been added to the internal triggers set), is introduced to define the raised triggers parameter. 
+The subset constraint allow for more raised triggers to be added by later refinements.
+For triggered transition combinations, the trigger is specified in a guard that provides a value for the trigger parameter. 
 
 %\begin{lstlisting}[caption={Event-B event corresponding to internal triggered transition to \textbf{Wait50ms} state in refinement level 1 shown in Fig.~\ref{fig:ASIC}}, label={lst:SecBotMach0},language=Event-B, escapechar=|, frame=single, float=!tb]
 %spi_done__InitialiseSensor_Wait50ms:	
@@ -28,7 +28,7 @@ For triggered transition combinations, the trigger is specified in a guard (see 
 
 Secondly, the \SCXML state-chart is translated into a corresponding \UMLB state-machine whose transitions elaborate (i.e. add state change details to) the possible transition combination events that the transition may be involved in. 
 A transition may fire in parallel with transitions of parallel nested state-machines that have the same (possibly null) trigger.
-Fig.~\ref{fig:iumlb-verif} shows the generated \UMLB first refinement level corresponding to the IDS described in Fig.~\ref{fig:ASIC_SPI_1}. 
+% Fig.~\ref{fig:iumlb-verif} shows the generated \UMLB first refinement level corresponding to the IDS described in Fig.~\ref{fig:ASIC_SPI_1}. 
 % Table~\ref{tab:translation_rules} provides a summary of the main SCXML to iUML-B/Event-B translation rules.
 The main rules for the translation of \SCXML features to \UMLB/\EVENTB can be summarized as follow:
 
@@ -44,32 +44,32 @@ The main rules for the translation of \SCXML features to \UMLB/\EVENTB can be su
 
 \item[State:] Generates a state in the \UMLB state-machine that has been produced from the container of the \SCXML state. 
 A refined state is also added in all of the refinements of the parent \UMLB state-machine. 
-E.g. Fig.~\ref{fig:ASIC_SPI_1}, \textbf{Initialise Buzzer} |-->| Fig.~\ref{fig:iumlb-verif}, |InitialiseBuzzer|.
+% E.g. Fig.~\ref{fig:ASIC_SPI_1}, \textbf{Initialise Buzzer} |-->| Fig.~\ref{fig:iumlb-verif}, |InitialiseBuzzer|.
 
 \item[State invariant:] Generates an invariant in the \UMLB state corresponding to the \SCXML state that contains the invariant. 
 Added only at the refinement level defined in the invariant (defaults to first level at which containing \UMLB state is introduced). 
-E.g. Fig.~\ref{fig:iumlb-verif}, |Idle = TRUE| is generated from an invariant attached (not shown) to the state \textbf{Go} of Fig.~\ref{fig:ASIC_SPI_1}.
+% E.g. Fig.~\ref{fig:iumlb-verif}, |Idle = TRUE| is generated from an invariant attached (not shown) to the state \textbf{Go} of Fig.~\ref{fig:ASIC_SPI_1}.
 
 \item[Parallel Region:] Generates an \UMLB state-machine in the state corresponding to the owner of the parallel region. 
 The nested \UMLB state-machine is added starting from the refinement level that is annotated on the parallel region and continuing throughout subsequent refinements. 
-E.g. Fig.~\ref{fig:ASIC_SPI_1}, right-hand region |-->| Fig.~\ref{fig:iumlb-verif}, lower nested state-machine.
+% E.g. Fig.~\ref{fig:ASIC_SPI_1}, right-hand region |-->| Fig.~\ref{fig:iumlb-verif}, lower nested state-machine.
 
 %\item[State (with nested states):] A nested \iUMLB state-machine, with an initial state, is added to the \iUMLB state that has been produced from the source state, if any, or from its containing state if it did not produce an \iUMLB state. The nested \iUMLB state-machine is added starting from the refinement level that is annotated on the source state and continuing throughout subsequent refinements.
 
 \item[Initial:] Generates an \UMLB initial state, and a transition from it to the \UMLB state indicated in the \SCXML initial attribute. 
 The \UMLB initial state and \UMLB transition are added at all refinement levels. The \UMLB transitions are set to elaborate the \EventB INITIALISATION event for that refinement level.
-E.g. Fig.~\ref{fig:ASIC_SPI_1}, initial state and transition in right-hand region |-->| Fig.~\ref{fig:iumlb-verif}, initial state and transition in lower nested state-machine.
+% E.g. Fig.~\ref{fig:ASIC_SPI_1}, initial state and transition in right-hand region |-->| Fig.~\ref{fig:iumlb-verif}, initial state and transition in lower nested state-machine.
 
 \item[Final:] Generates an \UMLB state with a transition to a final state in the state-machine that has been generated from the containing \SCXML state. 
 The transition elaborates the same events that are linked to the transitions that exit the parent \UMLB state. 
 The \UMLB state, final state and transition are also added as refined elements to all of the refinements of the parent \UMLB state-machine.
-(Not used in our example).
+% (Not used in our example).
 
 \item[Transition:] Generates an \UMLB transition in the state-machine that has been generated from the containing \SCXML state. 
 The \UMLB transition’s source and target are those that have been generated from the \SCXML transition’s source and target states. 
 The transition elaborates generated \EVENTB events according to the rules given in Section ~\ref{sec:translation}. 
 The \UMLB transition and elaborated \EVENTB events are also added as corresponding refined elements in all of the refinements of the parent \UMLB state-machine.
-E.g. Fig.~\ref{fig:ASIC_SPI_1}, \textbf{send\_message} |-->| Fig.~\ref{fig:iumlb-verif}, |send_message__Idle_SendingMessage|.
+% E.g. Fig.~\ref{fig:ASIC_SPI_1}, \textbf{send\_message} |-->| Fig.~\ref{fig:iumlb-verif}, |send_message__Idle_SendingMessage|.
 
 %\item[Target:] Attribute of a transition element. Used to determine the transitions target state as described above
 
