@@ -5,7 +5,8 @@
 
 The run to completetion sematics is implemented via an abstract basis that is extend by the model. 
 Figure~\ref{fig:basis} shows a statechart representation of how the basis enforces 
-the run to completion semantics on the model transitions.
+the run to completion semantics on the model transitions. 
+\todo{Change r2c figure to make sure we have all necessary details. It is not clear right now. A legend may help}
 \begin{figure}[!h]
 	\vspace{-.4cm}
 	\centering
@@ -57,6 +58,8 @@ leaving a new abstract set to represent the remaining triggers yet to be introdu
 % \end{lstlisting}
 
 % The basis machine, part of which is shown in Listing~\ref{lst:BasisMachine}, declares variables 
+\todo{Rewrite the following paragraph to reference the r2c state-chart}
+\todo{Add the invariants that the basis must preserve}
 The basis machine declares variables 
 that correspond to the triggers present in the queue at any given time, and a flag, |SCXML_uc|, that signals when a run to completion macro-step has been completed (no un-triggered transitions are enabled). 
 After initialisation, both trigger queues are empty and |SCXML_uc| is set to |FALSE| so that un-triggered transitions are dealt with. 

@@ -2,7 +2,8 @@
 
 \section{\SCXML Translation}
 \label{sec:translation}
-
+\todo{This section should be rewritten to only include those aspects of the translation that have changed
+in the latest release of the tool}
 The translation of a specific \SCXML model comprises two stages as follows. 
 Firstly, all possible combinations of transitions that can fire together are calculated and corresponding events are generated, at appropriate refinement levels, that refine the abstract basis events.  
 If these transitions raise internal triggers, a guard, (e.g. |{i1, i2, ...} <: SCXML_raisedTrigger|, where |i1, i2, ...| have been added to the internal triggers set), is introduced to define the raised triggers parameter. 
