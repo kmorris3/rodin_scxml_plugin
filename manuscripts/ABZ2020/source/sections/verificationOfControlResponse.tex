@@ -44,7 +44,7 @@ Also, the controller stops decreasing charge when it approaches 0.
 To cater for this we added a pre-condition |BATTERYOK = TRUE ∧ charge ≥10| to the \LTL property.
 \item
 Even if this pre-condition is true when the trigger is raised, another trigger (e.g. |off|) may already be in the queue and take the controller out of |BATTERYOK| before the |decreaseCharge| trigger is dequeued.
-Again we strengthen the pre-condition |off ∉ SCXML_dt ∪ SCXML_eq| of the \LTL expression to avoid this situation.
+Again we strengthen the pre-condition |off ∉ dt ∪ eQ| of the \LTL expression to avoid this situation.
 \\
 \end{itemize}
 After making these changes \PROB was able to exhaustively check the model and confirm that the \LTL property holds.
