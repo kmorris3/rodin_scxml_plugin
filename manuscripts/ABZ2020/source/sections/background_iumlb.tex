@@ -8,15 +8,15 @@ The diagrammatic models relate to an \EventB machine and generate or contribute 
 For example a state-machine will automatically generate the \EventB data elements (sets, constants, axioms, variables, and invariants) to implement the states. 
 Transitions contribute further guards and actions representing their state change, to the events that they elaborate.  
 State-machines are typically refined by adding nested state-machines to states.
-Figure~\ref{fig:iumlb-sm} shows an example of a simple state-machine with two states.
-\begin{figure}[!h]
-	\vspace{-.5cm}
-	\centering
-	\includegraphics[width=0.6\textwidth]{figures/iumlb-SM}
-	\caption{An example \UMLB state-machine}
-	\label{fig:iumlb-sm}
-	\vspace{-.5cm}
-\end{figure}
+% Figure~\ref{fig:iumlb-sm} shows an example of a simple state-machine with two states.
+% \begin{figure}[!h]
+% 	\vspace{-.5cm}
+% 	\centering
+% 	\includegraphics[width=0.6\textwidth]{figures/iumlb-SM}
+% 	\caption{An example \UMLB state-machine}
+% 	\label{fig:iumlb-sm}
+% 	\vspace{-.5cm}
+% \end{figure}
 
 Each state is encoded as a boolean variable and the current state is indicated by one of the boolean variables being set to |TRUE|. 
 An invariant ensures that only one state is set to |TRUE| at a time.
