@@ -6,11 +6,11 @@
 The run to completion semantics is implemented via an abstract basis that is extend by the model. 
 Figure~\ref{fig:basis} shows a statechart representation of how the basis enforces 
 the run to completion semantics on the model transitions. 
-\todo{ Karla : Change r2c figure to make sure we have all necessary details. It is not clear right now. A legend may help}
+
 \begin{figure}[!h]
 	\vspace{-.4cm}
 	\centering
-	\includegraphics[width=0.99\textwidth, trim=0 100 0 0]{figures/Picture6.png}
+	\includegraphics[width=0.99\textwidth, trim=30 50 60 0]{figures/Picture6.png}
 	\caption{Abstract representation of run to completion basis}
 	\label{fig:basis}
 	\vspace{-.4cm}
@@ -60,7 +60,6 @@ leaving a new abstract set to represent the remaining triggers yet to be introdu
 
 % The basis machine, part of which is shown in Listing~\ref{lst:BasisMachine}, declares variables 
 \todo{Karla: Write this section to reference the r2c state-chart}
-\todo{Karla: Add the invariants that the basis must preserve}
 Each of the transitions in the basis (see figure~\ref{fig:basis}) 
 represents a basis machine abstract event that
 describe the generic behavior of models under a run to completion semantics.
