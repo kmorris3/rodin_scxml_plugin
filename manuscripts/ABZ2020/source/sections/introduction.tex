@@ -14,7 +14,33 @@ Possible outline:
 \item Conclusion 
 \end{itemize}
 
-\todo{Rob is working on the intro}
+\todo{Rob is working on the intro} A reactive state machine is one
+where a transition is always available on every step and does not
+deadlock.  This does not mean the machine is always ``doing
+something'' it might stay in one place via a self-transition, all that
+is required is a transition must be taken at every step.  This work
+exposes a shallow embedding of Statechart\cite{} semantics in Event B.
+Statecharts provide a graphical language, generalized from state
+machines, that is popular with engineers, variants of which appear in
+Matlab Simulink/Stateflow\cite{} and the Ansys tools.  Particularly
+attractive is providing accessibility to abstraction/refinement via
+Rodin/Event-B which has an intuitive metaphor in the Statechart
+semantics\cite{prev-work}.  The commercial tools have similar ideas
+expressed as encapsulation and composition but not entailing any
+formal guarantees.  The hope is that engineers can better understand
+the origin of proof obligations in refinements and achieve formal
+guarantees earlier in their designs where it is most tractable.
+
+Reactive systems provide less opportunity for refinement: there are no
+idle or stuttering steps to overload with refined and more detailed
+behaviors.  Still reactive systems are most like the real-world
+machines with which we will produce an implementation.  The foregoing
+is an approach to translating reactive Statechart designs into their
+formal equivalents while incorporating abstraction/refinement.
+\todo{Karla we should talk (with Colin too?) so that I better understand what it is you need.}
+
+
+{\color{red}
 Ideas on content
 We prove properties in early refinements - because easier to see - (so far fully automatic - try proving battery inv in later refinement)
 	although we put everything in the same model we envisage gradual construction	
@@ -37,3 +63,4 @@ Also section on how we arrived at the new translation.
 	adding the invariant about only one dequeued trigger at a time - otherwise proof did not discharge about the future triggered transitions
 		(because consuming another dequeued trigger would discard the one we are interested in)
 	the drone model made us rethink the basis.. we had to dequeue triggers.. (why?)
+}
