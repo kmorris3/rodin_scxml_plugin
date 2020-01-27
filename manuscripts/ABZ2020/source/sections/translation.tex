@@ -8,7 +8,7 @@ The translation of a specific \SCXML model comprises the following stages:
 	\item 
 Firstly, a basis machine and context are created to embody the semantics of the \SCXML language.
 The basis provides variables and events to model the queue of triggers as well as abstract versions of events to model transitions firing.
-The basis is independent of the particular \SCML model which is added in subsequent refinements.
+The basis is independent of the particular \SCXML model which is added in subsequent refinements.
 	\item 
 Secondly, all possible combinations of transitions that can fire together are calculated and corresponding events are generated, at appropriate refinement levels, that refine the abstract basis events.  
 If these transitions raise internal triggers, a guard, (e.g. |{i1, i2, ...} <: raisedTrigger|, where |i1, i2, ...| have been added to the internal triggers set), is introduced to define the raised triggers parameter. 
