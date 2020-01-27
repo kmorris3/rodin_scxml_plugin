@@ -3,7 +3,7 @@
 
 \section{Run To Completion}
 
-The run to completion semantics is implemented via an abstract basis that is extend by the model. 
+The run to completion semantics is \SonChange{implemented}{specified} via an abstract basis that is extend by the model. 
 Figure~\ref{fig:basis} shows a statechart representation of how the basis enforces 
 the run to completion semantics on the model transitions. 
 
@@ -17,7 +17,7 @@ the run to completion semantics on the model transitions.
 \end{figure}
 
 % The translation from \SCXML to \EVENTB is based on an abstract `basis' that models the `run to completion' semantics. 
-The implementation of this basis consists of an \EVENTB \emph{context} and \emph{machine} that are 
+The \SonChange{implementation}{specification} of this basis consists of an \EVENTB \emph{context} and \emph{machine} that are 
 the same for all input models and are refined by the specific output of the translation.  
 % The basis context, Listing~\ref{lst:BasisContext}, introduces a given set of all 
 The basis context introduces a set of all possible triggers, |SCXML_TRIGGER|.  
@@ -26,9 +26,9 @@ This set is partitioned into internal and external triggers
 some of which will be introduced in future refinements. 
 Each refinement partitions these trigger sets further to introduce concrete triggers, 
 leaving a new abstract set to represent the remaining triggers yet to be introduced. 
-For simplicity, this section describes a the run to completion basis 
-that is implemented using sets to abstractly represent the trigger queues. 
-In section~\ref{sec:verificationResponses} we will discussed the limitation of this 
+For simplicity, this section describes \SonDelete{a} the run to completion basis 
+that is \SonChange{implemented}{modelled} using sets to abstractly represent the trigger queues. 
+In \SonChange{section}{Section}~\ref{sec:verificationResponses} we will discussed the limitation of this 
 abstraction and the ways in which they can be overcome.
 % For example, the IDS model introduces a specific internal trigger, \textbf{spi\_done},  by partitioning |SCXML_FutureInternalTrigger| into the singleton \textbf{\{spi\_done\}} and a new set, |SCXML_FutureInternalTrigger0|, representing the remainder. 
  % as shown in line~\ref{line:refPartition} of Listing~\ref{lst:SecBotCont0}. 
@@ -62,9 +62,9 @@ abstraction and the ways in which they can be overcome.
 % \end{lstlisting}
 
 % The basis machine, part of which is shown in Listing~\ref{lst:BasisMachine}, declares variables 
-Each of the transitions in the basis (see figure~\ref{fig:basis}) 
-represents a basis machine abstract event that
-describe the generic behavior of models under a run to completion semantics.
+Each of the transitions in the basis (see \SonChange{figure}{Figure}~\ref{fig:basis}) 
+represents \SonChange{a basis machine abstract event that describe}{an abstract event of the basis machine that
+describes} the generic \SonChange{behavior}{behaviour} of models under a run to completion semantics.
 These events provide an abstraction that defines the altering of trigger queues 
 and completion flag. In order to preserve refinement rules, 
 which prohibit the modification of existing variables,
@@ -86,7 +86,7 @@ The abstract event, |futureRaiseExternalTrigger| represents the raising
 of an external trigger (this transition is not shown in the diagram).    
 After completion raised triggers are dealt with by moving them to the dequeuing queue, |dt|.
 Internal triggers have a higher priority, since the external trigger queue is only dequeued if 
-the |iQ| is empty (see |dequeueExternalTriggered| and |dequeueInternalTriggered| in figure~\ref{fig:basis}).
+the |iQ| is empty (see |dequeueExternalTriggered| and |dequeueInternalTriggered| in \SonChange{figure}{Figure}~\ref{fig:basis}).
 The abstract event, |futureTriggeredTransitions| represents a combination 
 of transitions that are triggered by the trigger presently ready to dequeue, |dt|.
 The actions of these transitions may also raise triggers of their own.
@@ -95,10 +95,10 @@ The actions of these transitions may also raise triggers of their own.
 In the process of refining a model, a designer takes advantage of the non-determinism 
 in the abstraction. When a refinement level for which the designer wants to enforce 
 a requirement is reached, the model needs to be \emph{finalized}. The SCXML translation tool
-will then automatically strengthens the guards of the events 
+will then automatically strengthens the guards of \SonDelete{the} events 
 |NoTriggerTransitionEnable| and |futureUntriggeredTransitionSet|, 
-to ensure that the run to completion sequence is not interrupted by non-deterministic behavior. 
-The guards of the |NoTriggerTransitionEnable| event are strengthen by 
+to ensure that the run to completion sequence is not interrupted by non-deterministic \SonChange{behavior}{behaviour}. 
+The guards of \SonChange{the}{event} |NoTriggerTransitionEnable| \SonDelete{event} are strengthen by 
 adding the conjunction of the negated guards of all transitions triggered by |dt|.
 In the case of the |futureUntriggeredTransitionSet| event, guard strengthening is 
 achieved by adding the conjunction of the negated guards of all untriggered transitions.
@@ -248,3 +248,8 @@ achieved by adding the conjunction of the negated guards of all untriggered tran
 % end
 % \end{lstlisting}
 % \end{lstfloat}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:
