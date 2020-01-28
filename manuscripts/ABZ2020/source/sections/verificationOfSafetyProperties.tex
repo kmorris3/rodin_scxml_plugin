@@ -36,13 +36,13 @@ Hence the reaction consists of an un-triggered transition in the monitoring regi
 \SonChange{The}{For our drone model, the} safety property that we wish to verify is that the control system does not continue to take off or fly if the battery charge drops below a certain threshold (say 21\%). 
 By refinement level 1 we have developed the drone's state to the point where we distinguish the |TAKEOFF| and |FLY| states\SonAdd{ (Figure~\mbox{\ref{fig:drone1}})}.
 In refinement level 2 we therefore introduce the battery charge monitoring function along with the associated safety properties.
-A parallel state-chart region, with sub-states |BATTERYOK| and |BATTERYLOW|, is added to the state |OPERATIONAL|\SonAdd{ (Figure~\mbox{\ref{fig:drone2}})}.
+A parallel state-chart region, with sub-states |BATTERYOK| and |BATTERYLOW|, is added to the state |OPERATIONAL|\SonAdd{ (Figure~\mbox{\ref{fig:drone4}})}.
 The |BATTERYOK| sub-state is used in the safety invariant of the |TAKEOFF| and |FLY| states.
 Thus we split the verification into two parts: a \emph{type b} proof to show that the system reacts to the battery charge decreasing below 21\% (an external event) by leaving the  |BATTERYOK| sub-state, and a \emph{type a} proof to show that when the system leaves the |BATTERYOK| state it subsequently (within the run to completion) leaves the |FLY| or |TAKEOFF| states. 
 Both parts are described in more detail as follows.
 
 \paragraph{System Reacts to the Low Battery Charge}%
-\SonComment{Figure 3, decreaseCharge decreases the charge by 10 (should it be 1), the guard also state that charge is greater than or equal to 10 (should it be 21)}%
+\SonComment{Figure 4, decreaseCharge decreases the charge by 10 (should it be 1?), the guard also state that charge is greater than or equal to 10 (should it be 21?)}%
 An external trigger indicates that the battery charge has dropped by 1\% and this is used by a self transition to decrement the controllers data value for charge.
 The |BATTERYOK| state is supposed to indicate that the battery charge is ok ($>$20\%) and to ensure that it does, we add a state invariant to this effect (charge$>$20).
 When charge decreases to 20 (or less), an untriggered transition immediately reacts by switching to the |BATTERYLOW| state.
