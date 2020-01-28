@@ -2,7 +2,7 @@
 
 
 \section{Run To Completion}
-
+\label{sec:run-completion}
 The run to completion semantics is \SonChange{implemented}{specified} via an abstract basis that is extend by the model. 
 Figure~\ref{fig:basis} shows a statechart representation of how the basis enforces 
 the run to completion semantics on the model transitions. 
@@ -28,7 +28,7 @@ Each refinement partitions these trigger sets further to introduce concrete trig
 leaving a new abstract set to represent the remaining triggers yet to be introduced. 
 For simplicity, this section describes \SonDelete{a} the run to completion basis 
 that is \SonChange{implemented}{modelled} using sets to abstractly represent the trigger queues. 
-In \SonChange{section}{Section}~\ref{sec:verificationResponses} we will discussed the limitation of this 
+In \SonChange{section}{Section}~\ref{sec:verificationResponses} we will discuss the limitations of this 
 abstraction and the ways in which they can be overcome.
 % For example, the IDS model introduces a specific internal trigger, \textbf{spi\_done},  by partitioning |SCXML_FutureInternalTrigger| into the singleton \textbf{\{spi\_done\}} and a new set, |SCXML_FutureInternalTrigger0|, representing the remainder. 
  % as shown in line~\ref{line:refPartition} of Listing~\ref{lst:SecBotCont0}. 
