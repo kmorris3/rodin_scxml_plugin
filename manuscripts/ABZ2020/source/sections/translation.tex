@@ -6,7 +6,7 @@
 The translation of a specific \SCXML model comprises the following stages: 
 \begin{itemize}
 	\item 
-Firstly, a basis machine and context are created to embody the semantics of the \SCXML language.
+Firstly, a basis machine and context are created to embody the semantics of the \SCXML language\SonAdd{ (Section~\mbox{\ref{sec:run-completion}})}.
 The basis provides variables and events to model the queue of triggers as well as abstract versions of events to model transitions firing.
 The basis is independent of the particular \SCXML model which is added in subsequent refinements.
 	\item 
@@ -20,7 +20,7 @@ A transition may fire in parallel with transitions of parallel nested state-mach
 	\item
 Finally the \UMLB state-machine is translated into \EVENTB by programmatically invoking the \UMLB translator.
 \end{itemize}
-Further details of the translation are given in~\cite{MoSn16,MoSnHo18}
+Further details of the translation are given in~\cite{MoSn16,MoSnHo18}.
 New features of the translation added since~\cite{MoSnHo18} are as follows:
 \begin{description}
 \item[Trigger queues in basis:]
@@ -43,6 +43,6 @@ The tool is based on the \EMF and uses an \SCXML meta-model provided by Sirius~\
 The \UMLB state-machine is subsequently translated into \EVENTB using the standard \UMLB translation~\cite{snook14:_b_statem} which provides variables to model the current state and guards and actions to model the state changes that transitions perform.
 
 %%% Local Variables:
-%%% mode: latexaudiolab
+%%% mode: latex
 %%% TeX-master: "../main"
 %%% End:
