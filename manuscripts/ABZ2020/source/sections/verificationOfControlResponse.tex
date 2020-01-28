@@ -4,15 +4,15 @@
 \section{Verification of Control Responses}\label{sec:verificationResponses}
 
 It is sometimes possible to construct a model that satisfies some invariant (e.g. safety) properties, but does not behave in a useful way.
-Therefore, as well as verifying invariant properties, we would like to verify the liveness of the system, or more specifically in this case, that the controller responds to external triggers to make appropriate modifications to the system variables. 
-These kind of live responses can not be verified by proof of invariants since they involve temporal properties.
+Therefore, as well as verifying invariant properties, we would like to verify \SonChange{the liveness of the system, or more}{the system's responsiveness.  More} specifically in this case, \SonAdd{we want to ensure }that the controller responds to external triggers to make appropriate modifications to the system variables. 
+These kind of live responses can not be verified by proof of invariants since they \SonChange{involve}{are} temporal properties.
 Instead, we can express the property in \LTL  and use the \PROB model checker to verify it.
 
 In general our liveness properties will have the following form:
-
-	|G([external_trigger_event] => F{predicate})|
-\\
-Where the predicate concerns variables |v| that the system maintains, and may refer to old values |old(v)| that existed when the external trigger occurred.
+\begin{center}
+  |G([external_trigger_event] => F{predicate})|~,
+\end{center}
+\SonChange{Where}{where} the predicate concerns variables |v| that the system maintains, and may refer to old values |old(v)| that existed when the external trigger occurred.
 To specify a liveness property to be verify, a special \LTL element is added to the \SCXML model with attributes, property (a string of the above form)  and refinement (an integer indicating the refinement level at which the property should be verified).
 The translator generates a separate `branch' refinement for each \LTL property to be verified. 
 In this special refinement, history variables are added to record the value at the state when the external trigger occurs, of any variables that are referenced as `old' values.
@@ -20,16 +20,16 @@ A text file is automatically generated containing the \LTL property to be checke
 In this generated version, an assumption of strong fairness is added for all other events in the model.
 (This assumption is stronger than necessary since some events will not affect the outcome, but is easier to generate and is sufficient for our verification aim). 
 For simplicity we omit this assumption from the remaining examples.
-
-	|SF[e1] & SF[e2]... => G[external_trigger _event] => F[predicate]|
-\\
+\begin{center}
+  |SF[e1] & SF[e2]... => G([external_trigger _event] => F[predicate])|
+\end{center}
 This property can be copied and pasted into the \PROB model checker \LTL checking text field.
 
 We illustrate the method with an example of a temporal property that we expect to hold in the drone \SCXML system. 
 The liveness property that we wish to  verify is that, after an external trigger event |decreaseCharge|, the battery charge value should  decrease in value.
-
-	|G ([ExternalTriggerEvent_decreaseCharge] => F {charge < old(charge)})|
-\\
+\begin{center}
+  |G ([ExternalTriggerEvent_decreaseCharge] => F {charge < old(charge)})|~.
+\end{center}
 At first, we could not verify this property.
 The counter example traces that \PROB provided gave us a better understanding of the reasons why:
 \begin{itemize}
@@ -45,6 +45,10 @@ To cater for this we added a pre-condition |BATTERYOK = TRUE ∧ charge ≥10| t
 \item
 Even if this pre-condition is true when the trigger is raised, another trigger (e.g. |off|) may already be in the queue and take the controller out of |BATTERYOK| before the |decreaseCharge| trigger is dequeued.
 Again we strengthen the pre-condition |off ∉ dt ∪ eQ| of the \LTL expression to avoid this situation.
-\\
 \end{itemize}
 After making these changes \PROB was able to exhaustively check the model and confirm that the \LTL property holds.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

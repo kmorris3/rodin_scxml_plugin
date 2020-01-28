@@ -33,14 +33,16 @@ Detail is then added in later refinements which are proven (automatically) to pr
 In our example, some auxiliary data is monitored by one state-chart region and while a parallel region refers to the state of the monitoring region. 
 Hence the reaction consists of an un-triggered transition in the monitoring region which sends an internal trigger to the other region when it leaves the desired monitor state.
 
-The safety property that we wish to verify is that the control system does not continue to take off or fly if the battery charge drops below a certain threshold (say 21\%). 
-By refinement level 1 we have developed the drone's state to the point where we distinguish the takeoff and fly states.
+\SonChange{The}{For our drone model, the} safety property that we wish to verify is that the control system does not continue to take off or fly if the battery charge drops below a certain threshold (say 21\%). 
+By refinement level 1 we have developed the drone's state to the point where we distinguish the |TAKEOFF| and |FLY| states\SonAdd{ (Figure~\mbox{\ref{fig:drone1}})}.
 In refinement level 2 we therefore introduce the battery charge monitoring function along with the associated safety properties.
-A parallel state-chart region, with sub-states |BATTERYOK| and |BATTERYLOW|, is added to the state |OPERATIONAL|.
+A parallel state-chart region, with sub-states |BATTERYOK| and |BATTERYLOW|, is added to the state |OPERATIONAL|\SonAdd{ (Figure~\mbox{\ref{fig:drone2}})}.
 The |BATTERYOK| sub-state is used in the safety invariant of the |TAKEOFF| and |FLY| states.
 Thus we split the verification into two parts: a \emph{type b} proof to show that the system reacts to the battery charge decreasing below 21\% (an external event) by leaving the  |BATTERYOK| sub-state, and a \emph{type a} proof to show that when the system leaves the |BATTERYOK| state it subsequently (within the run to completion) leaves the |FLY| or |TAKEOFF| states. 
 Both parts are described in more detail as follows.
 
+\paragraph{System Reacts to the Low Battery Charge}%
+\SonComment{Figure 3, decreaseCharge decreases the charge by 10 (should it be 1), the guard also state that charge is greater than or equal to 10 (should it be 21)}%
 An external trigger indicates that the battery charge has dropped by 1\% and this is used by a self transition to decrement the controllers data value for charge.
 The |BATTERYOK| state is supposed to indicate that the battery charge is ok ($>$20\%) and to ensure that it does, we add a state invariant to this effect (charge$>$20).
 When charge decreases to 20 (or less), an untriggered transition immediately reacts by switching to the |BATTERYLOW| state.
@@ -51,7 +53,9 @@ After translation to
 \EVENTB via \UMLB
 the invariant in state |BATTERYOK| is 
 %|uc = FALSE ∨ charge>20| and after translation to \EVENTB, 
-\newline |(BATTERYOK = TRUE) ⇒ (uc = FALSE ∨ charge>20)|.
+\begin{center}
+ |(BATTERYOK = TRUE) ⇒ (uc = FALSE ∨ charge>20)|~.
+\end{center}
 The only events that can break this invariant are ones that make the antecedent become true or the consequent become false and we deal with these as follows:
 The transitions that enter state |OPERATIONAL| and initialise the |BATTERY| region by entering |BATTERYOK| (hence making the antecedent become true) contain the guard that |charge>50| (since we do not allow the drone to take off unless the battery is well charged) and hence the invariant is satisfied.
 The self transition that decreases charge (and hence could potentially falsify the consequent) is guarded by |uc = FALSE| since it is a triggered transition, and hence the disjunction in the consequent ensures it remains true.
@@ -59,10 +63,13 @@ The completion event |NoUntriggeredTransitions| of the basis machine resets |uc 
 However, finalising the transition |BATTERYOK_BATTERYLOW| (that leaves |BATTERYOK| when |charge>20| becomes false) means that  the negation of its guard is added to the completion event by the translation.
 Since this transition fires when |BATTERYOK = TRUE| (i.e. its source state) and |charge≤20| the completion event is guarded by |¬(BATTERYOK= TRUE ∧ charge≤20)| which means that it does not fire when it could break the invariant (i.e. forcing the untriggered reaction to fire first).
 
+\paragraph{System Subsequently Leaves the FLY or TAKEOFF States}
 The safety property of the |TAKEOFF| and |FLY| states can now be simply stated as |BATTERYOK = TRUE|. 
 However, since this relies on a particular internal trigger (|toLand|) to make the appropriate reaction, we also need to specify that trigger as an attribute of the invariant in the \SCXML model.
 After translation to \EVENTB via \UMLB the invariant in state |TAKEOFF| becomes 
+\begin{center}
  |(TAKEOFF = TRUE) ⇒ (toLand∈iQ ∨ toLand∈dt ∨ BATTERYOK=TRUE)|.
+\end{center}
 The invariant for the |FLY| state is similar with a corresponding antecedent.
 The transitions that enter |TAKEOFF| (which make the antecedent true) simultaneously enter |BATTERYOK| ensure the consequent is true.
 The only transition that enters |FLY| (which makes the antecedent of the |FLY| invariant true) comes from the |TAKEOFF| state and hence the consequent is already true.
@@ -73,9 +80,7 @@ The only events that falsify the second conjunct are the transitions triggered b
 
 Hence, invariant properties that follow these suggested patterns are always automatically proven due to simple logic about the changes in state.
 
-
-
-
-
-
-
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:
