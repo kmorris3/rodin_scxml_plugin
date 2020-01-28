@@ -14,13 +14,13 @@ Possible outline:
 \item Conclusion 
 \end{itemize}
 
-\todo{Rob is working on the intro} A reactive state machine is one
-where a transition is always available on every step and does not
-deadlock.  This does not mean the machine is always ``doing
-something'' it might stay in one place via a self-transition, all that
-is required is a transition must be taken at every step.  This work
-exposes a shallow embedding of Statechart\cite{} semantics in Event B.
-Statecharts provide a graphical language, generalized from state
+\newcommand{\SCs}{{{Statecharts}}}
+\newcommand{\SC}{{{Statechart}}}
+
+
+\todo{Rob is working on the intro}  Reactive \SCs are open systems capable of receiving potentially non-deterministic input.  This work
+exposes a shallow embedding of open \SCs\cite{} semantics in Event B.
+\SCs provide a graphical language, generalized from state
 machines, that is popular with engineers, variants of which appear in
 Matlab Simulink/Stateflow\cite{} and the Ansys tools.  Particularly
 attractive is providing accessibility to abstraction/refinement via
@@ -31,36 +31,50 @@ formal guarantees.  The hope is that engineers can better understand
 the origin of proof obligations in refinements and achieve formal
 guarantees earlier in their designs where it is most tractable.
 
-Reactive systems provide less opportunity for refinement: there are no
-idle or stuttering steps to overload with refined and more detailed
-behaviors.  Still reactive systems are most like the real-world
-machines with which we will produce an implementation.  The foregoing
-is an approach to translating reactive Statechart designs into their
-formal equivalents while incorporating abstraction/refinement.
-\todo{Karla we should talk (with Colin too?) so that I better understand what it is you need.}
+Previous work has developed a number of different semantics all with
+different purposes and
+outcomes~\cite{Syriani_2019,Harel,Maraninchi91theargos}.  Because this
+work is focused on a mapping to Event-B, safety property preserving
+refinement is key.  Event-B provides not only a definition of
+refinement but a rubric for finding valid refinements and this is
+carried over into the work presented here.  In our version of \SC
+semantics refinement means a subsetting of traces from the
+abstraction.  This has the beneficial effect of preserving safety
+properties from abstraction to refinement and permits proofs to be
+discharged at the highest tractible level of abstraction, where they
+are presumabley the easiest to discharge. Many incompatible
+definitions of refinement have been posed by
+others\cite{Syriani_2019,Maraninchi91theargos} and that can lead to
+confusion.  Though these separate refinements have different goals,
+all of which may be attractive to systems designers, preservation of
+safety proofs is the goal here.
+
+Preservation of safety across refinement requires only a few restrictions to the original\cite{Harel} \SCs (e.g. transitions cannot cross containment boundaries arbitrarily), but still allows for both parallel and hierarchical composition.  With these restrictions composition and refinement are similar.
 
 
-{\color{red}
-Ideas on content
-We prove properties in early refinements - because easier to see - (so far fully automatic - try proving battery inv in later refinement)
-	although we put everything in the same model we envisage gradual construction	
-	we could also build a Sirius tool that can show views at each refinement.
 
-We simulate the translation with the scenario checker. It automatically runs to completion (events are annotated as internal and prioritised)
-This shows the main intended R2C behaviour for a refinement level.
-Other behaviours are possible depending on future refinement - e.g. a completion can occur without taking enabled transitions if in future we might strengthen a guard.
-	these can be explored by single event stepping without the scenario checker big step.
 
-proof forces us to finalise transitions..
-	.. i.e. to remove non-determinism that allows for some future refinement.
-		(in usual event-b it is not built in to the 'engine' and is only checked when the next refinement is provided..
-		.. we only have this finalisation because we needed to model the run to completion queueing mechanisms, hence new transitions modify old variables (queues))
-	we have to limit what can be done in later refinements as some things could violate what is proved.
-	e.g. a response transition must come next (to make the invariant before completion) so we cannot strengthen its guards any more.
-	e.g. similarly a trigger raised as a response must be used in the way that preserves the invariant, so future transitions may not consume it.
+%% {\color{red}
+%% Ideas on content
+%% We prove properties in early refinements - because easier to see - (so far fully automatic - try proving battery inv in later refinement)
+%% 	although we put everything in the same model we envisage gradual construction	
+%% 	we could also build a Sirius tool that can show views at each refinement.
 
-Also section on how we arrived at the new translation.
-	adding the invariant about only one dequeued trigger at a time - otherwise proof did not discharge about the future triggered transitions
-		(because consuming another dequeued trigger would discard the one we are interested in)
-	the drone model made us rethink the basis.. we had to dequeue triggers.. (why?)
-}
+%% We simulate the translation with the scenario checker. It automatically runs to completion (events are annotated as internal and prioritised)
+%% This shows the main intended R2C behaviour for a refinement level.
+%% Other behaviours are possible depending on future refinement - e.g. a completion can occur without taking enabled transitions if in future we might strengthen a guard.
+%% 	these can be explored by single event stepping without the scenario checker big step.
+
+%% proof forces us to finalise transitions..
+%% 	.. i.e. to remove non-determinism that allows for some future refinement.
+%% 		(in usual event-b it is not built in to the 'engine' and is only checked when the next refinement is provided..
+%% 		.. we only have this finalisation because we needed to model the run to completion queueing mechanisms, hence new transitions modify old variables (queues))
+%% 	we have to limit what can be done in later refinements as some things could violate what is proved.
+%% 	e.g. a response transition must come next (to make the invariant before completion) so we cannot strengthen its guards any more.
+%% 	e.g. similarly a trigger raised as a response must be used in the way that preserves the invariant, so future transitions may not consume it.
+
+%% Also section on how we arrived at the new translation.
+%% 	adding the invariant about only one dequeued trigger at a time - otherwise proof did not discharge about the future triggered transitions
+%% 		(because consuming another dequeued trigger would discard the one we are interested in)
+%% 	the drone model made us rethink the basis.. we had to dequeue triggers.. (why?)
+%% }
