@@ -43,7 +43,7 @@ Both parts are described in more detail as follows.
 
 \paragraph{System Reacts to the Low Battery Charge}%
 \SonComment{Figure 4, decreaseCharge decreases the charge by 10 (should it be 1?), the guard also state that charge is greater than or equal to 10 (should it be 21?)}%
-An external trigger indicates that the battery charge has dropped by 1\% and this is used by a self transition to decrement the controllers data value for charge.
+An external trigger indicates that the battery charge has dropped by 10\% and this is used by a self transition to decrement the controllers data value for charge.
 The |BATTERYOK| state is supposed to indicate that the battery charge is ok ($>$20\%) and to ensure that it does, we add a state invariant to this effect (charge$>$20).
 When charge decreases to 20 (or less), an untriggered transition immediately reacts by switching to the |BATTERYLOW| state.
 To ensure that this reaction is not bypassed by the non-determinism that we incorporated to allow for future refinement, we flag it as finalised at refinement level 2.
