@@ -37,19 +37,32 @@ outcomes~\cite{Syriani_2019,Harel,Maraninchi91theargos}.  Because this
 work is focused on a mapping to Event-B, safety property preserving
 refinement is key.  Event-B provides not only a definition of
 refinement but a rubric for finding valid refinements and this is
-carried over into the work presented here.  In our version of \SC
-semantics refinement means a subsetting of traces from the
+carried over into the \SCs work presented here.  In our version of \SC
+semantics, refinement means a subsetting of traces from an
 abstraction.  This has the beneficial effect of preserving safety
 properties from abstraction to refinement and permits proofs to be
-discharged at the highest tractible level of abstraction, where they
-are presumabley the easiest to discharge. Many incompatible
-definitions of refinement have been posed by
+discharged at the highest tractible level of abstraction.  It is at
+the highest level of abstraction that proofs are presumabley the
+easiest to discharge.
+
+Many incompatible definitions of refinement have been posed by
 others\cite{Syriani_2019,Maraninchi91theargos} and that can lead to
 confusion.  Though these separate refinements have different goals,
-all of which may be attractive to systems designers, preservation of
-safety proofs is the goal here.
+all of which may be attractive to systems designers in different ways,
+preservation of safety proofs is the goal here.  While these other
+forms of refinement cannot be said to conflict with the one presented
+here, they will not always preserve safety properties.  From the
+Event-B vernacular it might be better to relabel these other
+approaches not as methods of model ``refinement'', but rather methods
+of model ``elaboration''.  \todo{Karla, Colin: have a look that this sentence, I believe this is supportable, but it might raise hackles }
 
-Preservation of safety across refinement requires only a few restrictions to the original\cite{Harel} \SCs (e.g. transitions cannot cross containment boundaries arbitrarily), but still allows for both parallel and hierarchical composition.  With these restrictions composition and refinement are similar.
+Preservation of safety across refinement requires only a few
+restrictions to the original\cite{Harel} \SCs (e.g. transitions cannot
+cross containment boundaries arbitrarily), but still allows for both
+parallel and hierarchical composition.  With these restrictions
+composition becomes a refinement, but not all refinements are
+compositions.  Such a unification of composition and refinement can
+lead, not only to code reuse, but reuse of proofs.
 
 
 
