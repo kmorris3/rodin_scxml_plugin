@@ -2,6 +2,7 @@
 
 
 \section{Verification of Safety Properties}
+\label{sec:verificationSafety}
 
 In a state-chart model we naturally wish to verify properties |P| that are expected to hold true in a particular state |S|.
 Hence, all of the safety properties that we consider are of the form: |S=TRUE ⇒ P|, where the antecedent is implicit from the containment of |P| within |S|.
@@ -41,8 +42,7 @@ The |BATTERYOK| sub-state is used in the safety invariant of the |TAKEOFF| and |
 Thus we split the verification into two parts: a \emph{type b} proof to show that the system reacts to the battery charge decreasing below 21\% (an external event) by leaving the  |BATTERYOK| sub-state, and a \emph{type a} proof to show that when the system leaves the |BATTERYOK| state it subsequently (within the run to completion) leaves the |FLY| or |TAKEOFF| states. 
 Both parts are described in more detail as follows.
 
-\paragraph{System Reacts to the Low Battery Charge}%
-\SonComment{Figure 4, decreaseCharge decreases the charge by 10 (should it be 1?), the guard also state that charge is greater than or equal to 10 (should it be 21?)}%
+\paragraph{System Reacts to the Low Battery Charge}
 An external trigger indicates that the battery charge has dropped by 10\% and this is used by a self transition to decrement the controllers data value for charge.
 The |BATTERYOK| state is supposed to indicate that the battery charge is ok ($>$20\%) and to ensure that it does, we add a state invariant to this effect (charge$>$20).
 When charge decreases to 20 (or less), an untriggered transition immediately reacts by switching to the |BATTERYLOW| state.
