@@ -44,7 +44,11 @@ Although the autonomous drone example in this paper is based on the
 example described in~\cite{Syriani_2019}, the definition of refinement
 used in that work is quite different from our own. This forces some
 differences in our refinement rules and consequently the way the
-example is developed. In~\cite{Syriani_2019} ``refinement'' is a
+example is developed. For example, the transition triggered by |toLand| 
+(see ~\ref{fig:drone4} transition from |TAKEOFF| to |DESCEND|) 
+adds new behaviour which enables the drone to go directly from 
+|TAKEOFF| to |DESCEND| with going through |FLY|.
+In~\cite{Syriani_2019} ``refinement'' is a
 transformation of the model which preserves reachability of a state
 with respect to sequences of inputs. This guarantees that a refinement
 in their system will include all the behaviors of the abstraction,
