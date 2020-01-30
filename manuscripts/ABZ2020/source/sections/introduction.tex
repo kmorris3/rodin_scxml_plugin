@@ -4,10 +4,10 @@
 \section{Introduction}
 
 Reactive \SCs are open systems capable of receiving potentially non-deterministic input. 
-This work exposes a shallow embedding of open \SCs\cite{MoSn16,MoSnHo18}\todo{Rob is this the refence you had in mind} semantics in \EventB.
-\SCs provide a graphical language, generalized from state machines, that is popular with engineers, variants of which appear in Matlab Simulink/Stateflow\cite{MATLAB:2019}\todo{Rob is this the refence you had in mind} and the Ansys tools.  
+This work exposes a shallow embedding of open \SCs~\cite{MoSn16,MoSnHo18}\todo{Rob is this the refence you had in mind} semantics in \EventB.
+\SCs provide a graphical language, generalized from state machines, that is popular with engineers, variants of which appear in Matlab Simulink/Stateflow~\cite{MATLAB:2019}\todo{Rob is this the refence you had in mind} and the Ansys tools.  
 Particularly attractive is providing accessibility to abstraction/refinement via Rodin/\EventB which has an intuitive metaphor in the \SC
-semantics\cite{MoSn16,MoSnHo18}.  
+semantics~\cite{MoSn16,MoSnHo18}.  
 The commercial tools have similar ideas expressed as encapsulation and composition but not entailing any formal guarantees. 
 The hope is that engineers can better understand the origin of proof obligations in refinements and achieve formal guarantees earlier in their designs where it is most tractable.
 
@@ -19,15 +19,15 @@ This has the beneficial effect of preserving safety properties from abstraction 
 discharged at the highest tractable level of abstraction.
 It is at the highest level of abstraction that proofs are presumably the easiest to discharge.
 
-Many incompatible definitions of refinement have been posed by others\cite{Syriani_2019,Maraninchi91theargos} and that can lead to confusion.  
+Many incompatible definitions of refinement have been posed by others~\cite{Syriani_2019,Maraninchi91theargos} and that can lead to confusion.  
 Though these separate refinements have different goals, all of which may be attractive to systems designers in different ways, preservation of safety proofs is the goal here. 
 While these other forms of refinement cannot be said to conflict with the one presented here, they will not always preserve safety properties.  
 From the \EventB vernacular it might be better to relabel these other approaches not as methods of model ``refinement'', but rather methods
 of model ``elaboration''.  
 \todo{Karla, Colin: have a look that this sentence, I believe this is supportable, but it might raise hackles }
-\todo{Colin said: It looks good to Son and I - anyway this audience will not object! }
+\todo{Colin said: It looks good to Son and I - anyway this audience will not object! }\todo{Karla said: I like the statementand it is accurate.}
 
-Preservation of safety across refinement requires only a few restrictions to the original\cite{Harel} \SCs (e.g. transitions cannot
+Preservation of safety across refinement requires only a few restrictions to the original~\cite{Harel} \SCs (e.g. transitions cannot
 cross containment boundaries arbitrarily), but still allows for both parallel and hierarchical composition. 
 With these restrictions composition becomes a refinement, but not all refinements are compositions.  
 Such a unification of composition and refinement can lead, not only to code reuse, but reuse of proofs.
