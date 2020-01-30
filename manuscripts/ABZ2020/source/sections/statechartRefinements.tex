@@ -9,7 +9,9 @@ Our system includes three refinement rules.
 \todo{Maybe revised the refinement rules paragraph to follow a 
 format similar to the one used in section 2.2}
 \begin{enumerate}
-\item Guard conditions on a transition can be strengthened;
+\item Guard conditions on a transition can be strengthened; 
+this can done by adding textual guards to the transition, or
+changing the source of the transition to a nested state.
 \item Transitions can have additional actions, provided they do not
   modify variables appearing in the abstraction;
 \item A statechart can be embedded within a state of another
@@ -21,13 +23,13 @@ Via the translation explained in Section~\ref{sec:translation}, these rules
 rely on the usual Event-B proof obligations to ensure that they do
 indeed yield refinements in the Event-B semantics.
 
-If an Event-B model $B$ can be shown (via the construction rules of
+If an Event-B model |B| can be shown (via the construction rules of
 the Event-B language as well as the proof obligations) to refine
-another Event-B model $A$, then we know that every behavior of $B$ is
-also a behavior of $A$. This definition yields a useful principle of
+another Event-B model |A|, then we know that every behavior of |B| is
+also a behavior of |A|. This definition yields a useful principle of
 preservation of safety -- if we can show that a bad thing never
-happens in $A$, then we can add detail via refinements in $B$, knowing
-that the bad thing will continue to never happen in $B$. That is,
+happens in |A|, then we can add detail via refinements in |B|, knowing
+that the bad thing will continue to never happen in |B|. That is,
 Event-B refinements preserve safety properties in the sense
 of~\cite{lamport1977proving}. This makes refinement a useful technique
 in developing safety-critical systems: one can analyze a simpler
