@@ -9,7 +9,7 @@ Therefore, as well as verifying invariant properties, we would like to verify th
 These kind of live responses can not be verified by proof of invariants since they are temporal properties.
 Instead, we can express the property in \LTL  and use the \PROB model checker to verify it.
 
-In general our liveness properties will have the following form:
+In general, our liveness properties will have the following form:
 \begin{center}
   |G([external_trigger_event] => F{predicate})|~,
 \end{center}
@@ -48,6 +48,7 @@ Even if this pre-condition is true when the trigger is raised, another trigger (
 Again we strengthen the pre-condition |off ∉ dt ∪ eQ| of the \LTL expression to avoid this situation.
 \end{itemize}
 After making these changes \PROB was able to exhaustively check the model and confirm that the \LTL property holds.
+\todo{Colin: I think that we should include the complete expression for the property that was proven within ProB}
 
 %%% Local Variables:
 %%% mode: latex
