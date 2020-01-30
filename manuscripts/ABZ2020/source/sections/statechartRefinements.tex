@@ -6,14 +6,14 @@
 Our system includes three refinement rules.
 
 \todo{Geoff: these need more detail probably.}
-\todo{Maybe revised the refinement rules paragraph to follow a 
-format similar to the one used in section 2.2}
 \begin{enumerate}
 \item Guard conditions on a transition can be strengthened; 
 this can done by adding textual guards to the transition, or
 changing the source of the transition to a nested state.
 \item Transitions can have additional actions, provided they do not
-  modify variables appearing in the abstraction;
+  modify variables appearing in the abstraction; this can be 
+  acoomplished by adding texual action to the transition 
+  or by changing the target to nested state.
 \item A statechart can be embedded within a state of another
   statechart -- sometimes called hierarchical composition or
   hierarchical refinement.
