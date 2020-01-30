@@ -12,7 +12,7 @@ this can done by adding textual guards to the transition, or
 changing the source of the transition to a nested state.
 \item Transitions can have additional actions, provided they do not
   modify variables appearing in the abstraction; this can be 
-  acoomplished by adding texual action to the transition 
+  accomplished by adding textual action to the transition 
   or by changing the target to nested state.
 \item A statechart can be embedded within a state of another
   statechart -- sometimes called hierarchical composition or
@@ -46,13 +46,12 @@ used in that work is quite different from our own. This forces some
 differences in our refinement rules and consequently the way the
 example is developed. For example, the transition triggered by |toLand| 
 (see ~\ref{fig:drone4} transition from |TAKEOFF| to |DESCEND|) 
-adds new behaviour which enables the drone to go directly from 
-|TAKEOFF| to |DESCEND| with going through |FLY|.
+adds new behaviour.
 In~\cite{Syriani_2019} ``refinement'' is a
 transformation of the model which preserves reachability of a state
 with respect to sequences of inputs. This guarantees that a refinement
 in their system will include all the behaviors of the abstraction,
-while posssibly adding others. While this notion of refinement seems
+while possibly adding others. While this notion of refinement seems
 useful in certain contexts, unlike refinement in Event-B it does not
 guarantee preservation of safety properties. Therefore it should be
 considered less suited to development of safety-critical systems.
