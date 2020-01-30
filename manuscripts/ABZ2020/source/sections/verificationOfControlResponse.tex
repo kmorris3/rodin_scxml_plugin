@@ -5,8 +5,8 @@
 \label{sec:verificationResponses}
 
 It is sometimes possible to construct a model that satisfies some invariant (e.g. safety) properties, but does not behave in a useful way.
-Therefore, as well as verifying invariant properties, we would like to verify \SonChange{the liveness of the system, or more}{the system's responsiveness.  More} specifically in this case, \SonAdd{we want to ensure }that the controller responds to external triggers to make appropriate modifications to the system variables. 
-These kind of live responses can not be verified by proof of invariants since they \SonChange{involve}{are} temporal properties.
+Therefore, as well as verifying invariant properties, we would like to verify the system's responsiveness.  More specifically in this case, we want to ensure that the controller responds to external triggers to make appropriate modifications to the system variables. 
+These kind of live responses can not be verified by proof of invariants since they are temporal properties.
 Instead, we can express the property in \LTL  and use the \PROB model checker to verify it.
 
 In general our liveness properties will have the following form:
