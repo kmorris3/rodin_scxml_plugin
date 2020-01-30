@@ -94,7 +94,7 @@ The actions of these transitions may also raise triggers of their own.
 
 In the process of refining a model, a designer takes advantage of the non-determinism 
 in the abstraction. When a refinement level for which the designer wants to enforce 
-a requirement is reached, the model needs to be \emph{finalized}. The SCXML translation tool
+a requirement is reached, the model needs to be \emph{finalized} (see Section~\ref{sec:translation} for more on finalisation). The SCXML translation tool
 will then automatically strengthens the guards of events 
 |NoTriggerTransitionEnable| and |futureUntriggeredTransitionSet|, 
 to ensure that the run to completion sequence is not interrupted by non-deterministic behaviour. 
