@@ -20,6 +20,13 @@ invariants
 	
 	// Properties derive from the consistency invariant
 	theorem @LinkedList-active: active_leaf ↦ root ↦ active ◁ container ∈ LinkedList(active)
+	
+	// Two active states s1, s2 cannot have the same container
+	theorem @different_layer: 
+		∀ s1, s2 · s1 ∈ active ∖ {root} ∧ s2 ∈ active ∖ {root} ∧ s1 ≠ s2
+		⇒
+		container(s1) ≠ container(s2)
+				 
 events
 	event INITIALISATION
 	then
