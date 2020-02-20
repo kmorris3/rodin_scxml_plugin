@@ -1,0 +1,47 @@
+/*
+ * This machine captures the semantics of the statemachine as trace of active states.
+ */
+machine m1_statemachine
+sees c1_statemachine c0_3_linkedlist_def
+variables
+	active // The set of active states
+	
+	// The following are auxiliary variables to capture property of the statemachine
+	active_leaf // The current active leaf
+invariants
+	// @active is a set of states
+	@typeof-active: active ⊆ states
+	
+	// @active_leaf is a leaf state
+	@typeof-active_leaf: active_leaf ∈ leaves
+	
+	// Consistency between active and active_leaf	
+	@active-closure: active = cl(container)[{active_leaf}] ∪ {active_leaf}
+	
+	// Properties derive from the consistency invariant
+	theorem @LinkedList-active: active_leaf ↦ root ↦ active ◁ container ∈ LinkedList(active)
+events
+	event INITIALISATION
+	then
+		@update-active: active ≔ init
+		@update-active_leaf: active_leaf ≔ init_leaf
+	end
+	
+	event transition
+	any current_leaf_state new_leaf_state where
+		@grd1: current_leaf_state ∈ active
+		@grd2: current_leaf_state ↦ new_leaf_state ∈ transitions
+
+  		// Copy for automatic proofs
+		theorem @range-preservation: ran(container) = ran(cl(container))
+		
+		theorem @leaves_are_states: leaves ⊆ states
+		
+		// Copy of axioms for automatic proofs
+		theorem @typeof-transitions: transitions ∈ leaves ↔ leaves
+		theorem @typeof-container: container ∈ states ∖ {root} → states
+	then
+		@update-active: active ≔ cl(container)[{new_leaf_state}] ∪ {new_leaf_state}
+		@update-active_leaf: active_leaf ≔ new_leaf_state
+	end
+end
