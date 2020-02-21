@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="3">
+    <org.eventb.core.extendsContext name="_OyHxUFS3EeqnLd8n8l9IfQ" org.eventb.core.target="c0_3_tree_def"/>
+    <org.eventb.core.extendsContext name="_OyHxUVS3EeqnLd8n8l9IfQ" org.eventb.core.target="c0_3_linkedlist_def"/>
+    <org.eventb.core.axiom name="_OyHxUlS3EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="linked_list" org.eventb.core.predicate="∀ Sts, rt, prn · rt ↦ prn ∈ Tree(Sts) ⇒ ( ∀ f, sts · f ∈ Sts ∧ sts = cl(prn)[{f}] ∪ {f} ⇒ f ↦ rt ↦ sts ◁ prn ∈ LinkedList(sts))" org.eventb.core.theorem="true"/>
+</org.eventb.core.contextFile>

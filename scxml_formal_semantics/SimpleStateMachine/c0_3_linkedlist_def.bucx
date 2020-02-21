@@ -21,7 +21,7 @@ axioms
 			fst ∈ Sts ∧
 			lst ∈ Sts ∧
 			lnks ∈ Sts ∖ {lst} ⤖ Sts ∖ {fst} ∧
-			lst ∈ cl(lnks)[{fst}]
+			(fst ≠ lst ⇒ lst ∈ cl(lnks)[{fst}])
 		}
 	)
 
@@ -34,6 +34,6 @@ axioms
 			fst ∈ Sts ∧
 			lst ∈ Sts ∧
 			lnks ∈ Sts ∖ {lst} ⤖ Sts ∖ {fst} ∧
-			lst ∈ cl(lnks)[{fst}]
+			(fst ≠ lst ⇒ lst ∈ cl(lnks)[{fst}])
 		}
 end

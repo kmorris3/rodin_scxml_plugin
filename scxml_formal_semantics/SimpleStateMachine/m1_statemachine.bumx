@@ -2,7 +2,7 @@
  * This machine captures the semantics of the statemachine as trace of active states.
  */
 machine m1_statemachine
-sees c1_statemachine c0_3_linkedlist_def
+sees c1_statemachine c0_4_tree_prop
 variables
 	active // The set of active states
 	
