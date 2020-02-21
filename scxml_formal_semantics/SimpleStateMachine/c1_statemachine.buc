@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="3">
-<org.eventb.core.extendsContext name="_Psk0MFQDEeqwpoNF_IwtQg" org.eventb.core.target="c0_3_tree_def"/>
-<org.eventb.core.extendsContext name="_Psk0MVQDEeqwpoNF_IwtQg" org.eventb.core.target="c0_2_closure_prop"/>
-<org.eventb.core.constant name="_Psk0MlQDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.identifier="states"/>
-<org.eventb.core.constant name="_Psk0M1QDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.identifier="root"/>
-<org.eventb.core.constant name="_Psk0NFQDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.identifier="container"/>
-<org.eventb.core.constant name="_Psk0NVQDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.identifier="leaves"/>
-<org.eventb.core.constant name="_Psk0NlQDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.identifier="transitions"/>
-<org.eventb.core.constant name="_Psk0N1QDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.identifier="init"/>
-<org.eventb.core.constant name="_Psk0OFQDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.identifier="init_leaf"/>
-<org.eventb.core.axiom name="_Psk0OVQDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.label="typeof-states" org.eventb.core.predicate="states ⊆ STATE"/>
-<org.eventb.core.axiom name="_PslbQFQDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.label="tree_structure" org.eventb.core.predicate="root ↦ container ∈ Tree(states)"/>
-<org.eventb.core.axiom name="_PslbQVQDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.label="typeof-root" org.eventb.core.predicate="root ∈ states" org.eventb.core.theorem="true"/>
-<org.eventb.core.axiom name="_PslbQlQDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.label="typeof-container" org.eventb.core.predicate="container ∈ states ∖ {root} → states" org.eventb.core.theorem="true"/>
-<org.eventb.core.axiom name="_PslbQ1QDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.label="root-reachable" org.eventb.core.predicate="∀ state · state ∈ states ∖ {root} ⇒ root ∈ cl(container)[{state}]" org.eventb.core.theorem="true"/>
-<org.eventb.core.axiom name="_PslbRFQDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.label="def-leaves" org.eventb.core.predicate="leaves = states ∖ ran(container)"/>
-<org.eventb.core.axiom name="_PslbRVQDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.label="leaves_are_states" org.eventb.core.predicate="leaves ⊆ states" org.eventb.core.theorem="true"/>
-<org.eventb.core.axiom name="_PsswAFQDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.label="thm12-range_preservation" org.eventb.core.predicate="∀r· ran(r) = ran(cl(r))" org.eventb.core.theorem="true"/>
-<org.eventb.core.axiom name="_PstXEFQDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.label="range-preservation" org.eventb.core.predicate="ran(container) = ran(cl(container))" org.eventb.core.theorem="true"/>
-<org.eventb.core.axiom name="_PstXEVQDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.label="typeof-transitions" org.eventb.core.predicate="transitions ∈ leaves ↔ leaves"/>
-<org.eventb.core.axiom name="_PstXElQDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.label="typeof-init" org.eventb.core.predicate="init ⊆ states"/>
-<org.eventb.core.axiom name="_PstXE1QDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.label="typeof-init_leaf" org.eventb.core.predicate="init_leaf ∈ leaves"/>
-<org.eventb.core.axiom name="_PstXFFQDEeqwpoNF_IwtQg" org.eventb.core.generated="false" org.eventb.core.label="init-closure" org.eventb.core.predicate="init = cl(container)[{init_leaf}] ∪ {init_leaf}"/>
+    <org.eventb.core.extendsContext name="_ktVy0FS0EeqnLd8n8l9IfQ" org.eventb.core.target="c0_3_tree_def"/>
+    <org.eventb.core.constant name="_ktVy0VS0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.identifier="states"/>
+    <org.eventb.core.constant name="_ktVy0lS0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.identifier="root"/>
+    <org.eventb.core.constant name="_ktVy01S0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.identifier="container"/>
+    <org.eventb.core.constant name="_ktWZ4FS0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.identifier="leaves"/>
+    <org.eventb.core.constant name="_ktWZ4VS0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.identifier="transitions"/>
+    <org.eventb.core.constant name="_ktWZ4lS0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.identifier="init"/>
+    <org.eventb.core.constant name="_ktWZ41S0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.identifier="init_leaf"/>
+    <org.eventb.core.axiom name="_ktWZ5FS0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="typeof-states" org.eventb.core.predicate="states ⊆ STATE"/>
+    <org.eventb.core.axiom name="_ktWZ5VS0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="tree_structure" org.eventb.core.predicate="root ↦ container ∈ Tree(states)"/>
+    <org.eventb.core.axiom name="_ktWZ5lS0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="typeof-root" org.eventb.core.predicate="root ∈ states" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_ktXA8FS0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="typeof-container" org.eventb.core.predicate="container ∈ states ∖ {root} → states" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_ktXA8VS0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="root-reachable" org.eventb.core.predicate="∀ state · state ∈ states ∖ {root} ⇒ root ∈ cl(container)[{state}]" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_ktXA8lS0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="def-leaves" org.eventb.core.predicate="leaves = states ∖ ran(container)"/>
+    <org.eventb.core.axiom name="_ktXA81S0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="leaves_are_states" org.eventb.core.predicate="leaves ⊆ states" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_ktXA9FS0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="thm12-range_preservation" org.eventb.core.predicate="∀r· ran(r) = ran(cl(r))" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_ktXA9VS0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="range-preservation" org.eventb.core.predicate="ran(container) = ran(cl(container))" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_ktXoAFS0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="typeof-transitions" org.eventb.core.predicate="transitions ∈ leaves ↔ leaves"/>
+    <org.eventb.core.axiom name="_ktXoAVS0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="typeof-init" org.eventb.core.predicate="init ⊆ states"/>
+    <org.eventb.core.axiom name="_ktXoAlS0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="typeof-init_leaf" org.eventb.core.predicate="init_leaf ∈ leaves"/>
+    <org.eventb.core.axiom name="_ktXoA1S0EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="init-closure" org.eventb.core.predicate="init = cl(container)[{init_leaf}] ∪ {init_leaf}"/>
 </org.eventb.core.contextFile>

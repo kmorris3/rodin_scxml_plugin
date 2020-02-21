@@ -39,10 +39,12 @@ axioms
 	 * The set of all states @Sts is the root @rt and its descendants.
 	 * 
 	 * Proof:
-	 * - LHS is included in RHS:
+	 * - LHS is included in RHS: To prove that every non-root node x in S
+	 * is a descendants of @rt. Property of trees ensure that the root is
+	 * an ancestor of any non-root node, instantiate closure's @thm10-converse
+	 * with r <- prn∼ to obtain cl(prn∼) = (cl(prn))∼
 	 * - RHS is included in LHS: instantiate closure property 
 	 * @thm12-range_preservation with r <-- prn ∼ to have ran(prn∼) = ran(cl(prn∼))
-	 * 
 	 */
 	theorem @all_node: ∀ Sts, rt, prn · rt ↦ prn ∈ Tree(Sts) ⇒
 		Sts = cl(prn ∼ )[{rt}] ∪ {rt}
@@ -55,6 +57,8 @@ axioms
 	 * then every state in @Sts satisfies T
 	 * 
 	 * Proof: 
+	 * Instantiate closure's @thm9-induction with r <- prn∼ and T <- T.
+	 * Instantiate @all_node to obtain Sts = cl(prn ∼ )[{rt}] ∪ {rt}
 	 */
 	theorem @induction-Tree: ∀ Sts, rt, prn · rt ↦ prn ∈ Tree(Sts) ⇒
 		( ∀ T · rt ∈ T ∧ prn ∼[T] ⊆ T ⇒ Sts ⊆ T)

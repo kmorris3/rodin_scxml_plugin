@@ -25,6 +25,9 @@ axioms
 		}
 	)
 
+	/* 
+	 * Typing information.
+	 */
 	theorem @typeof-LinkedList: LinkedList ∈ ℙ(STATE) → ℙ(STATE × STATE × (STATE ↔ STATE))
 	theorem @func-LinkedList: ∀ Sts · LinkedList(Sts) = {
 			fst ↦ lst ↦ lnks ∣
