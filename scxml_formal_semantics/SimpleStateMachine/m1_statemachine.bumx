@@ -26,6 +26,10 @@ invariants
 		∀ s1, s2 · s1 ∈ active ∖ {root} ∧ s2 ∈ active ∖ {root} ∧ s1 ≠ s2
 		⇒
 		container(s1) ≠ container(s2)
+		
+	// If a non-root state is active then the container is also active
+	theorem @container_active:
+		∀ s · s ∈ active ∖ {root} ⇒ container(s) ∈ active
 				 
 events
 	event INITIALISATION

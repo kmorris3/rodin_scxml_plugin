@@ -404,4 +404,561 @@
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
 </org.eventb.core.prProof>
+<org.eventb.core.prProof name="induction-Tree/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="Sts" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="STATE">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p7">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p6"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="remove ¬ in ¬(∀p·¬([[1]]⊆p∧p;p⊆p))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p8"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p8"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="remove ¬ in ¬¬([[1]]⊆[[0]]∧[[0]];[[0]]⊆[[0]])" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p8" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p9"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p10" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p14"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p9" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p15"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p16"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p17"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p7" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p18">
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees Sts)" org.eventb.core.prGoal="p18" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p19">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with Tree=(λSts·⊤ ∣ {rt,prn·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})" org.eventb.core.prGoal="p19" org.eventb.core.prHyps="p12">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p23">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p1" org.eventb.core.prInfHyps="p20"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p22"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p1,p21"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p23" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p24">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p22"/>
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p24" org.eventb.core.prHyps=""/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p25">
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p25" org.eventb.core.prHyps="p1"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1.1.1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1.1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∃p⦂ℙ(STATE×STATE)·¬¬(r⊆p∧p;p⊆p))"/>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})(Sts)={rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn}"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="cl=(λr⦂ℙ(STATE×STATE)·⊤ ∣ inter({p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}))"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Sts∈dom(Tree)"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Sts⊆STATE⇒(∀rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)))"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE)))"/>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Tree(Sts)={rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn}"/>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="Tree∈ℙ(STATE) ⇸ ℙ(STATE × ℙ(STATE × STATE))"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="∀Sts⦂ℙ(STATE),rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE))"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="(∀Sts⦂ℙ(STATE)·Sts∈dom(Tree))∧Tree∈ℙ(STATE) ⇸ ℙ(STATE × ℙ(STATE × STATE))"/>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Sts∈dom(Tree)∧Tree∈ℙ(STATE) ⇸ ℙ(STATE × ℙ(STATE × STATE))"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·⊤⇒(∀rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)))"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p)"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="cl=(λr⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE ∣ inter({p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}))"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒¬(∀p⦂ℙ(STATE×STATE)·¬(r⊆p∧p;p⊆p))"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="Tree=(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·∀p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p⇒cl(r)⊆p"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·⊤⇒(∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p)"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="Sts∈dom(Tree)">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="Tree∈ℙ(STATE) → ℙ(STATE × (STATE ↔ STATE))"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="Tree=(λSts⦂ℙ(STATE)·Sts⊆STATE ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})∈ℙ(STATE) → ℙ(STATE × (STATE ↔ STATE))"/>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="Sts∈dom(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE),p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p⇒cl(r)⊆p"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="induction-Tree/THM" org.eventb.core.confidence="0" org.eventb.core.prFresh="rt,Sts,T,prn" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="STATE" org.eventb.core.psManual="true">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="remove ¬ in ¬(∀p·¬([[1]]⊆p∧p;p⊆p))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p6"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p6"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="remove ¬ in ¬¬([[1]]⊆[[0]]∧[[0]];[[0]]⊆[[0]])" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p7"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p8" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p10"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p11" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p13"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p12" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p14"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p15"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with Tree=(λSts·⊤ ∣ {rt,prn·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p10">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p20">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p16" org.eventb.core.prInfHyps="p17"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p18" org.eventb.core.prInfHyps="p19"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p16,p18"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p20" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p21">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p19"/>
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees Sts,rt,prn)" org.eventb.core.prGoal="p21" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p22">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p22" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p26" org.eventb.core.prHyps="p23,p24,p25">
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees T)" org.eventb.core.prGoal="p26" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p27">
+<org.eventb.core.prIdent name="T" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p27" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p30" org.eventb.core.prHyps="p28,p29"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1.1.1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1.1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∃p⦂ℙ(STATE×STATE)·¬¬(r⊆p∧p;p⊆p))"/>
+<org.eventb.core.prPred name="p28" org.eventb.core.predicate="rt∈T">
+<org.eventb.core.prIdent name="T" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})(Sts)={rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn}"/>
+<org.eventb.core.prPred name="p29" org.eventb.core.predicate="prn∼[T]⊆T">
+<org.eventb.core.prIdent name="T" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="cl=(λr⦂ℙ(STATE×STATE)·⊤ ∣ inter({p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}))"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Sts⊆STATE⇒(∀rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)))"/>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="∀T⦂ℙ(STATE)·rt∈T∧prn∼[T]⊆T⇒Sts⊆T">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="∀Sts⦂ℙ(STATE),rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt ↦ prn∈(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})(Sts)⇒(∀T⦂ℙ(STATE)·rt∈T∧prn∼[T]⊆T⇒Sts⊆T)"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀Sts⦂ℙ(STATE),rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt ↦ prn∈Tree(Sts)⇒(∀T⦂ℙ(STATE)·rt∈T∧prn∼[T]⊆T⇒Sts⊆T)"/>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="∀Sts⦂ℙ(STATE),rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}])⇒(∀T⦂ℙ(STATE)·rt∈T∧prn∼[T]⊆T⇒Sts⊆T)"/>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="rt∈Sts">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE)))"/>
+<org.eventb.core.prPred name="p30" org.eventb.core.predicate="Sts⊆T">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="T" org.eventb.core.type="ℙ(STATE)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Tree(Sts)={rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn}"/>
+<org.eventb.core.prPred name="p27" org.eventb.core.predicate="rt∈T∧prn∼[T]⊆T⇒Sts⊆T">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="T" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="prn∈Sts ∖ {rt} → Sts">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="∀Sts⦂ℙ(STATE),rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE))"/>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}])⇒(∀T⦂ℙ(STATE)·rt∈T∧prn∼[T]⊆T⇒Sts⊆T)">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·⊤⇒(∀rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)))"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p)"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="cl=(λr⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE ∣ inter({p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}))"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒¬(∀p⦂ℙ(STATE×STATE)·¬(r⊆p∧p;p⊆p))"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="Tree=(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·∀p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p⇒cl(r)⊆p"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·⊤⇒(∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p)"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="Tree∈ℙ(STATE) → ℙ(STATE × (STATE ↔ STATE))"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="Tree=(λSts⦂ℙ(STATE)·Sts⊆STATE ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})∈ℙ(STATE) → ℙ(STATE × (STATE ↔ STATE))"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE),p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p⇒cl(r)⊆p"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="all_node/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="rt,Sts,prn" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3" org.eventb.core.prSets="STATE">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p8">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="remove ¬ in ¬(∀p·¬([[1]]⊆p∧p;p⊆p))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p9"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="remove ¬ in ¬¬([[1]]⊆[[0]]∧[[0]];[[0]]⊆[[0]])" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p9" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p10"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p10"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p11" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p13"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p15"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p10" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p16"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p17"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p18"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p19">
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees Sts)" org.eventb.core.prGoal="p19" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p20">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with Tree=(λSts·⊤ ∣ {rt,prn·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})" org.eventb.core.prGoal="p20" org.eventb.core.prHyps="p13">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p24">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p2" org.eventb.core.prInfHyps="p21"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p23"/>
+<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p2,p22"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p24" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p25">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p23"/>
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p25" org.eventb.core.prHyps=""/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p26">
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p26" org.eventb.core.prHyps="p2"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p27">
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees Sts,rt,prn)" org.eventb.core.prGoal="p27" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p28">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p28" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p30" org.eventb.core.prHyps="p29">
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p30" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p31">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with Tree=(λSts·⊤ ∣ {rt,prn·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})" org.eventb.core.prHyps="p13">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p2" org.eventb.core.prInfHyps="p21"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p22" org.eventb.core.prInfHyps="p23"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p29" org.eventb.core.prInfHyps="p32"/>
+<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p2,p22,p29"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p23"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p32" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p33,p34,p35"/>
+<org.eventb.core.prRule name="r9" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p31" org.eventb.core.prHyps="p1">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p36">
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prGoal="p36" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p25">
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p25" org.eventb.core.prHyps=""/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+<org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p37">
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p37" org.eventb.core.prHyps="p1"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1.1.1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1.1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∃p⦂ℙ(STATE×STATE)·¬¬(r⊆p∧p;p⊆p))"/>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})(Sts)={rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn}"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="cl=(λr⦂ℙ(STATE×STATE)·⊤ ∣ inter({p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}))"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Sts∈dom(Tree)"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Sts⊆STATE⇒(∀rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)))"/>
+<org.eventb.core.prPred name="p30" org.eventb.core.predicate="prn∼∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)">
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="cl∈(STATE ↔ STATE) → (STATE ↔ STATE)"/>
+<org.eventb.core.prPred name="p33" org.eventb.core.predicate="rt∈Sts">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE)))"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="(∀Sts⦂ℙ(STATE)·Sts∈dom(Tree))∧Tree∈ℙ(STATE) ⇸ ℙ(STATE × ℙ(STATE × STATE))∧(∀Sts⦂ℙ(STATE),rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt ↦ prn∈Tree(Sts)⇒prn∼∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE))"/>
+<org.eventb.core.prPred name="p29" org.eventb.core.predicate="rt ↦ prn∈Tree(Sts)">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p37" org.eventb.core.predicate="cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)"/>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Tree(Sts)={rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn}"/>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="Tree∈ℙ(STATE) ⇸ ℙ(STATE × ℙ(STATE × STATE))"/>
+<org.eventb.core.prPred name="p34" org.eventb.core.predicate="prn∈Sts ∖ {rt} → Sts">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀Sts⦂ℙ(STATE),rt⦂STATE,prn⦂ℙ(STATE×STATE)·Sts∈dom(Tree)∧Tree∈ℙ(STATE) ⇸ ℙ(STATE × ℙ(STATE × STATE))∧(rt ↦ prn∈Tree(Sts)⇒prn∼∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE))"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="∀Sts⦂ℙ(STATE),rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE))"/>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p35" org.eventb.core.predicate="∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·⊤⇒(∀rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)))"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p)"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="cl=(λr⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE ∣ inter({p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}))"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒¬(∀p⦂ℙ(STATE×STATE)·¬(r⊆p∧p;p⊆p))"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="Tree=(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·∀p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p⇒cl(r)⊆p"/>
+<org.eventb.core.prPred name="p32" org.eventb.core.predicate="rt ↦ prn∈(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})(Sts)">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p27" org.eventb.core.predicate="∀Sts⦂ℙ(STATE),rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt ↦ prn∈Tree(Sts)⇒prn∼∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·⊤⇒(∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p)"/>
+<org.eventb.core.prPred name="p31" org.eventb.core.predicate="prn∼∈dom(cl)">
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="Sts∈dom(Tree)">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p36" org.eventb.core.predicate="prn∼∈STATE ↔ STATE">
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="Tree∈ℙ(STATE) → ℙ(STATE × (STATE ↔ STATE))"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="Tree=(λSts⦂ℙ(STATE)·Sts⊆STATE ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})"/>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})∈ℙ(STATE) → ℙ(STATE × (STATE ↔ STATE))"/>
+<org.eventb.core.prPred name="p28" org.eventb.core.predicate="rt ↦ prn∈Tree(Sts)⇒prn∼∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="Sts∈dom(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE),p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p⇒cl(r)⊆p"/>
+<org.eventb.core.prExpr name="e0" org.eventb.core.expression="STATE ↔ STATE"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+<org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.totalDom:2"/>
+<org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="all_node/THM" org.eventb.core.confidence="0" org.eventb.core.prFresh="rt,Sts,prn" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="STATE">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="remove ¬ in ¬(∀p·¬([[1]]⊆p∧p;p⊆p))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p6"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p6"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="remove ¬ in ¬¬([[1]]⊆[[0]]∧[[0]];[[0]]⊆[[0]])" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p7"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p8" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p10"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p11" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p13"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p12" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p14"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p15"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees Sts,rt,prn)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p16">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p16" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p18" org.eventb.core.prHyps="p17">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with Tree=(λSts·⊤ ∣ {rt,prn·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})" org.eventb.core.prHyps="p10">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p19" org.eventb.core.prInfHyps="p20"/>
+<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p22"/>
+<org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p17" org.eventb.core.prInfHyps="p23"/>
+<org.eventb.core.prHypAction name="DESELECT3" org.eventb.core.prHyps="p19,p21,p17"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p22"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p23" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24,p25,p26"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1.1.1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1.1"/>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
+<org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∃p⦂ℙ(STATE×STATE)·¬¬(r⊆p∧p;p⊆p))"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="Sts=(cl(prn∼))[{rt}]∪{rt}">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})(Sts)={rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn}"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="cl=(λr⦂ℙ(STATE×STATE)·⊤ ∣ inter({p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}))"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Sts⊆STATE⇒(∀rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)))"/>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="rt∈Sts">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE)))"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="rt ↦ prn∈Tree(Sts)">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Tree(Sts)={rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn}"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="rt ↦ prn∈Tree(Sts)⇒Sts=(cl(prn∼))[{rt}]∪{rt}">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="prn∈Sts ∖ {rt} → Sts">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="∀Sts⦂ℙ(STATE),rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE))"/>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·⊤⇒(∀rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)))"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p)"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀Sts⦂ℙ(STATE),rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt ↦ prn∈Tree(Sts)⇒Sts=(cl(prn∼))[{rt}]∪{rt}"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="cl=(λr⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE ∣ inter({p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}))"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒¬(∀p⦂ℙ(STATE×STATE)·¬(r⊆p∧p;p⊆p))"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="Tree=(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·∀p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p⇒cl(r)⊆p"/>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="rt ↦ prn∈(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})(Sts)">
+<org.eventb.core.prIdent name="Sts" org.eventb.core.type="ℙ(STATE)"/>
+<org.eventb.core.prIdent name="prn" org.eventb.core.type="ℙ(STATE×STATE)"/>
+<org.eventb.core.prIdent name="rt" org.eventb.core.type="STATE"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·⊤⇒(∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p)"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="Tree∈ℙ(STATE) → ℙ(STATE × (STATE ↔ STATE))"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="Tree=(λSts⦂ℙ(STATE)·Sts⊆STATE ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})∈ℙ(STATE) → ℙ(STATE × (STATE ↔ STATE))"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE),p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p⇒cl(r)⊆p"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+</org.eventb.core.prProof>
 </org.eventb.core.prFile>
