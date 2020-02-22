@@ -47,8 +47,12 @@ To cater for this we added a pre-condition |BATTERYOK = TRUE ∧ charge ≥10| t
 Even if this pre-condition is true when the trigger is raised, another trigger (e.g. |off|) may already be in the queue and take the controller out of |BATTERYOK| before the |decreaseCharge| trigger is dequeued.
 Again we strengthen the pre-condition |off ∉ dt ∪ eQ| of the \LTL expression to avoid this situation.
 \end{itemize}
-After making these changes \PROB was able to exhaustively check the model and confirm that the \LTL property holds.
-\todo{Colin: I think that we should include the complete expression for the property that was proven within ProB}
+After making these changes the final form of the \LTL property, which \PROB was able to exhaustively check and confirm was as follows:
+\begin{center}
+	|G([ExternalTriggerEvent_decreaseCharge] & {BATTERYOK=TRUE & charge>=10 &|
+		|off/:SCXML_dt\/SCXML_eq} => F {charge < old(charge)})|~.
+\end{center}
+
 
 %%% Local Variables:
 %%% mode: latex
