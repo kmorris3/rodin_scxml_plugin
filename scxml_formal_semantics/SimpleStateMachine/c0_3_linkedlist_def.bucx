@@ -21,16 +21,19 @@ axioms
 			fst ∈ Sts ∧
 			lst ∈ Sts ∧
 			lnks ∈ Sts ∖ {lst} ⤖ Sts ∖ {fst} ∧
-			lst ∈ cl(lnks)[{fst}]
+			(fst ≠ lst ⇒ lst ∈ cl(lnks)[{fst}])
 		}
 	)
 
+	/* 
+	 * Typing information.
+	 */
 	theorem @typeof-LinkedList: LinkedList ∈ ℙ(STATE) → ℙ(STATE × STATE × (STATE ↔ STATE))
 	theorem @func-LinkedList: ∀ Sts · LinkedList(Sts) = {
 			fst ↦ lst ↦ lnks ∣
 			fst ∈ Sts ∧
 			lst ∈ Sts ∧
 			lnks ∈ Sts ∖ {lst} ⤖ Sts ∖ {fst} ∧
-			lst ∈ cl(lnks)[{fst}]
+			(fst ≠ lst ⇒ lst ∈ cl(lnks)[{fst}])
 		}
 end

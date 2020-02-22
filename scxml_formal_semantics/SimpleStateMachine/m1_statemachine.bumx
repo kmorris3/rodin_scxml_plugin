@@ -2,7 +2,7 @@
  * This machine captures the semantics of the statemachine as trace of active states.
  */
 machine m1_statemachine
-sees c1_statemachine c0_3_linkedlist_def
+sees c1_statemachine c0_4_tree_prop
 variables
 	active // The set of active states
 	
@@ -20,6 +20,17 @@ invariants
 	
 	// Properties derive from the consistency invariant
 	theorem @LinkedList-active: active_leaf ↦ root ↦ active ◁ container ∈ LinkedList(active)
+	
+	// Two active states s1, s2 cannot have the same container
+	theorem @different_layer: 
+		∀ s1, s2 · s1 ∈ active ∖ {root} ∧ s2 ∈ active ∖ {root} ∧ s1 ≠ s2
+		⇒
+		container(s1) ≠ container(s2)
+		
+	// If a non-root state is active then the container is also active
+	theorem @container_active:
+		∀ s · s ∈ active ∖ {root} ⇒ container(s) ∈ active
+				 
 events
 	event INITIALISATION
 	then

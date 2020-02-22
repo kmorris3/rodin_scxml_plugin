@@ -2,7 +2,7 @@
  * This context declare the signature of a statemachine
  */
 context c1_statemachine
-extends c0_3_tree_def c0_2_closure_prop
+extends c0_3_tree_def
 
 constants
 	states // The set of states

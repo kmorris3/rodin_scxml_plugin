@@ -2,7 +2,7 @@
  * This context defines the notion of trees on a (sub-)set of states
  */
 context c0_3_tree_def
-extends c0_1_closure_def
+extends c0_2_closure_prop
 
 constants
 	Tree
@@ -23,6 +23,9 @@ axioms
 		}
 	)
 
+	/*
+	 * Typing information
+	 */
 	theorem @typeof-Tree: Tree ∈ ℙ(STATE) → ℙ(STATE × (STATE ↔ STATE))
 	theorem @func-Tree: ∀ Sts · Tree(Sts) = {
 			rt ↦ prn ∣
@@ -30,4 +33,33 @@ axioms
 			prn ∈ Sts ∖ {rt} → Sts ∧
 			( ∀ n · n ∈ Sts ∖ {rt} ⇒ rt ∈ cl(prn)[{n}])
 		}
+	
+	/*
+	 * For a tree represented by @rt and @prn on a set of states @Sts,
+	 * The set of all states @Sts is the root @rt and its descendants.
+	 * 
+	 * Proof:
+	 * - LHS is included in RHS: To prove that every non-root node x in S
+	 * is a descendants of @rt. Property of trees ensure that the root is
+	 * an ancestor of any non-root node, instantiate closure's @thm10-converse
+	 * with r <- prn∼ to obtain cl(prn∼) = (cl(prn))∼
+	 * - RHS is included in LHS: instantiate closure property 
+	 * @thm12-range_preservation with r <-- prn ∼ to have ran(prn∼) = ran(cl(prn∼))
+	 */
+	theorem @all_node: ∀ Sts, rt, prn · rt ↦ prn ∈ Tree(Sts) ⇒
+		Sts = cl(prn ∼ )[{rt}] ∪ {rt}
+
+	/*
+	 * Main induction principle on tree
+	 * For a tree represented by @rt and @prn on a set of states @Sts,
+	 * if the root @rt satisfies properties T (base case), and
+	 *    the children of a state satisfying T also satisfies T (inductive case)
+	 * then every state in @Sts satisfies T
+	 * 
+	 * Proof: 
+	 * Instantiate closure's @thm9-induction with r <- prn∼ and T <- T.
+	 * Instantiate @all_node to obtain Sts = cl(prn ∼ )[{rt}] ∪ {rt}
+	 */
+	theorem @induction-Tree: ∀ Sts, rt, prn · rt ↦ prn ∈ Tree(Sts) ⇒
+		( ∀ T · rt ∈ T ∧ prn ∼[T] ⊆ T ⇒ Sts ⊆ T)
 end
