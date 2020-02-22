@@ -2,9 +2,27 @@ context c0_4_tree_prop
 extends c0_3_tree_def c0_3_linkedlist_def
 
 axioms
-	theorem @irreflexive: ∀ Sts, rt, prn · rt ↦ prn ∈ Tree(Sts) ⇒
-		prn ∩ id = ∅
+	/*
+	 * For a tree represented by @rt and @prn on a set of states @Sts,
+	 * there are no cycles.
+	 * 
+	 * Proof:
+	 * Instantiate tree's @induction-Tree with Sts <- Sts, rt <- rt, 
+	 * prn <- prn, and T <- (Sts \ T) \/ {rt}. Then do case "rt is in T" or not.
+	 */
+	theorem @no-cycles: ∀ Sts, rt, prn · rt ↦ prn ∈ Tree(Sts) ⇒
+		( ∀ T · T ⊆ Sts ∧ T ⊆ prn ∼ [T] ⇒ T = ∅)
 
+	/*
+	 * For a tree represented by @rt and @prn on a set of states @Sts, the
+	 * transitive closure of @prn is irreflexive.
+	 * 
+	 * Proof:
+	 * Instantiate @no-cycles with Sts <- Sts, rt <- rt, prn <- prn.
+	 * Continue the proof by contradiction, i.e. assuming that there is a state
+	 * x where x |-> x is cl(prn).
+	 * Instantiate @no-cylces with T <- cl(prn)~[{x}]
+	 */
 	theorem @closure_irreflexive: ∀ Sts, rt, prn · rt ↦ prn ∈ Tree(Sts) ⇒
 		cl(prn) ∩ id = ∅
 		
