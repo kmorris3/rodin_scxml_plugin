@@ -1,0 +1,86 @@
+% !TEX root = ../main.tex
+
+
+\section{Verification of Safety Properties}
+\label{sec:verificationSafety}
+
+In a state-chart model we naturally wish to verify properties |P| that are expected to hold true in a particular state |S|.
+Hence, all of the safety properties that we consider are of the form: |S=TRUE ⇒ P|, where the antecedent is implicit from the containment of |P| within |S|.
+
+There are two kinds of properties that we might want to verify in an \SCXML state-chart;
+1) properties concerning the values of auxiliary data maintained by the system and 
+2) constraints about the state of another parallel state-chart region.
+
+\SCXML models represent components that react to received triggers and cannot be perfectly synchronised with changes to the monitored properties. 
+Hence, |P| may be temporarily violated until the system reacts by leaving the state |S| in which the property is expected to hold.
+To cater for this we express |P| in a modified form |P'| that allows time for the reaction to take place.
+
+There are two forms of reaction that can be used to exit |S|; 
+a) an untriggered transition, or 
+b) a transition that is triggered by an internally raised trigger.
+For a), the modified property |P'| becomes |P ∨| \emph{untriggered transitions are not complete}, 
+and for b) |P'| becomes |P ∨| \emph{trigger} |t| \emph{is in the internal queue or dequeued}
+(where |t| is the internal trigger raised when the violation of |P| is detected).
+
+%Not sure the following is true so removed it..
+%For properties about the value of auxiliary data, untriggered transitions appear to be more suited because, in this case, there is unlikely to be a natural place to raise an internal trigger when the appropriate conditions arise.
+%For properties about the state of a parallel region either reaction could be used depending on whether the system detects the violation in the state that contains P of the state that P refers to.
+
+In this section we illustrate a typical example of the type of properties that we imagine could be verified in a reactive \SCXML system.
+All of the proof obligations are automatically discharged for our example.
+Since our models are strictly structured and proof obligations will always have this common form, we are optimistic that proofs will always discharge automatically.
+We model the safety property features at an early level of refinement where the models are relatively simple, so that the validity of verification conditions is clear. 
+Detail is then added in later refinements which are proven (automatically) to preserve the previously verified safety properties.
+In our example, some auxiliary data is monitored by one state-chart region and while a parallel region refers to the state of the monitoring region. 
+Hence the reaction consists of an un-triggered transition in the monitoring region which sends an internal trigger to the other region when it leaves the desired monitor state.
+
+For our drone model, the safety property that we wish to verify is that the control system does not continue to take off or fly if the battery charge drops below a certain threshold (say 21\%). 
+By refinement level 1 we have developed the drone's state to the point where we distinguish the |TAKEOFF| and |FLY| states (Figure~\ref{fig:drone1}).
+In refinement level 2 we therefore introduce the battery charge monitoring function along with the associated safety properties.
+A parallel state-chart region, with sub-states |BATTERYOK| and |BATTERYLOW|, is added to the state |OPERATIONAL| (Figure~\ref{fig:drone4}).
+The |BATTERYOK| sub-state is used in the safety invariant of the |TAKEOFF| and |FLY| states.
+Thus we split the verification into two parts: a \emph{type b} proof to show that the system reacts to the battery charge decreasing below 21\% (an external event) by leaving the  |BATTERYOK| sub-state, and a \emph{type a} proof to show that when the system leaves the |BATTERYOK| state it subsequently (within the run to completion) leaves the |FLY| or |TAKEOFF| states. 
+Both parts are described in more detail as follows.
+
+\paragraph{System Reacts to the Low Battery Charge}
+An external trigger indicates that the battery charge has dropped by 10\% and this is used by a self transition to decrement the controllers data value for charge.
+The |BATTERYOK| state is supposed to indicate that the battery charge is ok ($>$20\%) and to ensure that it does, we add a state invariant to this effect (charge$>$20).
+When charge decreases to 20 (or less), an untriggered transition immediately reacts by switching to the |BATTERYLOW| state.
+To ensure that this reaction is not bypassed by the non-determinism that we incorporated to allow for future refinement, we flag it as finalised at refinement level 2.
+Finalisation means that we cannot strengthen its guards in future refinements as is normally permitted, since its reaction is needed to ensure the invariant is preserved.
+After translation to 
+%\UMLB and then \EVENTB
+\EVENTB via \UMLB
+the invariant in state |BATTERYOK| is 
+%|uc = FALSE ∨ charge>20| and after translation to \EVENTB, 
+\begin{center}
+ |(BATTERYOK = TRUE) ⇒ (uc = FALSE ∨ charge>20)|~.
+\end{center}
+The only events that can break this invariant are ones that make the antecedent become true or the consequent become false and we deal with these as follows:
+The transitions that enter state |OPERATIONAL| and initialise the |BATTERY| region by entering |BATTERYOK| (hence making the antecedent become true) contain the guard that |charge>50| (since we do not allow the drone to take off unless the battery is well charged) and hence the invariant is satisfied.
+The self transition that decreases charge (and hence could potentially falsify the consequent) is guarded by |uc = FALSE| since it is a triggered transition, and hence the disjunction in the consequent ensures it remains true.
+The completion event |NoUntriggeredTransitions| of the basis machine resets |uc = TRUE| to indicate completion of the cycle and hence could potentially break the invariant. 
+However, finalising the transition |BATTERYOK_BATTERYLOW| (that leaves |BATTERYOK| when |charge>20| becomes false) means that  the negation of its guard is added to the completion event by the translation.
+Since this transition fires when |BATTERYOK = TRUE| (i.e. its source state) and |charge≤20| the completion event is guarded by |¬(BATTERYOK= TRUE ∧ charge≤20)| which means that it does not fire when it could break the invariant (i.e. forcing the untriggered reaction to fire first).
+
+\paragraph{System Subsequently Leaves the FLY or TAKEOFF States}
+The safety property of the |TAKEOFF| and |FLY| states can now be simply stated as |BATTERYOK = TRUE|. 
+However, since this relies on a particular internal trigger (|toLand|) to make the appropriate reaction, we also need to specify that trigger as an attribute of the invariant in the \SCXML model.
+After translation to \EVENTB via \UMLB the invariant in state |TAKEOFF| becomes 
+\begin{center}
+ |(TAKEOFF = TRUE) ⇒ (toLand∈iQ ∨ toLand∈dt ∨ BATTERYOK=TRUE)|.
+\end{center}
+The invariant for the |FLY| state is similar with a corresponding antecedent.
+The transitions that enter |TAKEOFF| (which make the antecedent true) simultaneously enter |BATTERYOK| ensure the consequent is true.
+The only transition that enters |FLY| (which makes the antecedent of the |FLY| invariant true) comes from the |TAKEOFF| state and hence the consequent is already true.
+The transition that leaves |BATTERYOK| (making the last disjunct of the consequent false) raises the |toLand| trigger making the first disjunct true.
+Some transitions leave the superstates of |BATTERYOK| but these either simultaneously leave |OPERATIONAL| (the superstate of |TAKEOFF| and |FLY|), or re-enter |BATTERYOK|.
+The basis contains an event to dequeue the internal triggers which preserves the overall consequent because establishes the second conjunct as it falsifies the first (i.e. it removes |toLand| from the |iQ| but simultaneously adds it to |dt|).
+The only events that falsify the second conjunct are the transitions triggered by |toLand| which leave the |TAKEOFF| or |FLY| states making the antecedent false.
+
+Hence, invariant properties that follow these suggested patterns are always automatically proven due to simple logic about the changes in state.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:
