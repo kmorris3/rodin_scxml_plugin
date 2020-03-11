@@ -1,0 +1,61 @@
+% !TEX root = ../main.tex
+
+
+\section{Verification of Control Responses}
+\label{sec:verificationResponses}
+
+It is sometimes possible to construct a model that satisfies some invariant (e.g. safety) properties, but does not behave in a useful way.
+Therefore, as well as verifying invariant properties, we would like to verify the system's responsiveness.  More specifically in this case, we want to ensure that the controller responds to external triggers to make appropriate modifications to the system variables. 
+These kind of live responses can not be verified by proof of invariants since they are temporal properties.
+Instead, we can express the property in \LTL  and use the \PROB model checker to verify it.
+
+In general, our liveness properties will have the following form:
+\begin{center}
+  |G([external_trigger_event] => F{predicate})|~,
+\end{center}
+where the predicate concerns variables |v| that the system maintains, and may refer to old values |old(v)| that existed when the external trigger occurred.
+To specify a liveness property to be verified, a special \LTL element is added to the \SCXML model with attributes, property (a string of the above form)  and refinement (an integer indicating the refinement level at which the property should be verified).
+The translator generates a separate `branch' refinement for each \LTL property to be verified. 
+In this special refinement, history variables are added to record the value at the state when the external trigger occurs, of any variables that are referenced as `old' values.
+A text file is automatically generated containing the \LTL property to be checked. 
+
+In this generated version, an assumption of strong fairness is added for all other events in the model.
+(This assumption is stronger than necessary since some events will not affect the outcome, but is easier to generate and is sufficient for our verification aim). 
+For simplicity we omit this assumption from the remaining examples.
+\begin{center}
+  |SF[e1] & SF[e2]... => G([external_trigger _event] => F[predicate])|
+\end{center}
+This property can be copied and pasted into the \PROB model checker \LTL checking text field.
+
+% We illustrate the method with an example of a temporal property that we expect to hold in the drone \SCXML system. 
+% The liveness property that we wish to  verify is that, after an external trigger event |decreaseCharge|, the battery charge value should  decrease in value.
+% \begin{center}
+%   |G ([ExternalTriggerEvent_decreaseCharge] => F {charge < old(charge)})|~.
+% \end{center}
+% At first, we could not verify this property.
+% The counter example traces that \PROB provided gave us a better understanding of the reasons why:
+% \begin{itemize}
+% \item
+% Our model represented the trigger queues abstractly as sets which meant that the |decreaseCharge| trigger may never be dequeued.
+% The standalone version of \PROB allows strong fairness to be specified for particular parameter values but this does not work in the Rodin plug-in for \PROB. 
+% In any case, a more accurate (concrete) representation of the queue fixes the problem and improves our model.
+% \item 
+% The charge is not always decreased in response to the |decreaseCharge| trigger.
+% The controller only monitors battery charge while in the |BATTERYOK| state and discards the trigger in other states.
+% Also, the controller stops decreasing charge when it approaches 0. 
+% To cater for this we added a pre-condition |BATTERYOK = TRUE ∧ charge ≥10| to the \LTL property.
+% \item
+% Even if this pre-condition is true when the trigger is raised, another trigger (e.g. |off|) may already be in the queue and take the controller out of |BATTERYOK| before the |decreaseCharge| trigger is dequeued.
+% Again we strengthen the pre-condition |off ∉ dt ∪ eQ| of the \LTL expression to avoid this situation.
+% \end{itemize}
+% After making these changes the final form of the \LTL property, which \PROB was able to exhaustively check and confirm was as follows:
+% \begin{center}
+% 	|G([ExternalTriggerEvent_decreaseCharge] & {BATTERYOK=TRUE & charge>=10 &|
+% 		|off/:SCXML_dt\/SCXML_eq} => F {charge < old(charge)})|~.
+% \end{center}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:

@@ -1,0 +1,164 @@
+\documentclass[runningheads,a4paper]{llncs}
+
+%%% Some recommended packages.
+%\usepackage{booktabs}   %% For formal tables:
+%                        %% http://ctan.org/pkg/booktabs
+%\usepackage{subcaption} %% For complex figures with subfigures/subcaptions
+%                        %% http://ctan.org/pkg/subcaption
+
+% Packages usually used by soton
+	% Package for input encoding
+	\usepackage[utf8]{inputenc}
+	
+	%\usepackage[T1]{fontenc}
+	%\usepackage{lmodern}
+	
+	% Package for multilingual support, loaded with English support.
+	\usepackage[english]{babel}
+	
+	% Package for fancy quotations
+	\usepackage[autostyle]{csquotes}
+	
+	% Package for URLs
+	\usepackage{url}
+	
+	\usepackage{colourSoton}
+	
+	% Package for hyper-references
+	\usepackage{hyperref}
+	\hypersetup{
+		colorlinks=true,
+		citecolor=red,
+		linkcolor=blue,
+		urlcolor=cyan,
+	}
+	
+	% Package for graphics
+	\usepackage{graphicx}
+	\graphicspath{ {img/} }
+	
+\usepackage[colorinlistoftodos]{todonotes}
+
+% Package for change tracking
+	\usepackage{chgtrk}
+	% \newCTcontributor{Colin}
+	\newCTcontributor{Son}
+	% \newCTcontributor{Michael}
+	
+	% Package for abbreviation
+	\usepackage{abbrev-scxml2020}
+	
+	% Package for standalone source code
+	\usepackage{standalone}
+	
+	% Package for requirements document
+%	\usepackage[compact]{reqdoc}
+	
+	% Package for TikZ pictures
+	\usepackage{tikz}
+	\usetikzlibrary{positioning}
+	\usetikzlibrary{shapes}
+	
+	% Custom pgf pictures
+%	\usepackage{pgf-picture}
+	
+	\usepackage{wrapfig}
+	
+	% Package for listing Event-B code
+	\usepackage[colour]{lstEventB}
+
+	
+% For floating listings
+\usepackage{float}
+\newfloat{lstfloat}{htbp}{lop}
+\floatname{lstfloat}{Listing}
+\def\lstfloatautorefname{Listing} % needed for hyperref/auroref
+	
+	%package for envelope
+	\usepackage{bbding}
+% end of packages used by soton
+
+\begin{document}
+
+% first the title is needed
+\title{Refinement of Reactive Systems} 
+
+% a short form should be given in case it is too long for the running head
+\titlerunning{Refinement of Reactive Systems} 
+
+% the name(s) of the author(s) follow(s) next
+%
+% NB: Chinese authors should write their first names(s) in front of
+% their surnames. This ensures that the names appear correctly in
+% the running heads and the author index.
+%
+\author{ 
+K. Morris \inst{1} 
+\and C. Snook \inst{2}%\textsuperscript{https://orcid.org/0000-0002-0210-0983} 
+\and T.S. Hoang \inst{2}
+\and \\G. Hulette \inst{1}
+\and R. Armstrong \inst{1}
+\and M. Butler \inst{2} 
+}
+
+\authorrunning{Morris, Snook et al.}
+%% (feature abused for this document to repeat the title also on left hand pages)
+
+%
+% the affiliations are given next; don't give your e-mail address
+% unless you accept that it will be published
+\institute{
+	Sandia National Laboratories, 
+	Livermore, California, U.S.A.\\
+	% \email{\{knmorri,rob,ghulett\}@sandia.gov}
+	\and
+	ECS, University of Southampton,
+	Southampton, United Kingdom\\
+	% \email{\{cfs,t.s.hoang,mjb\}@soton.ac.uk}\\
+}
+
+
+%% \maketitle
+%% Note: \maketitle command must come after title commands, author
+%% commands, abstract environment, Computing Classification System
+%% environment and commands, and keywords command.
+\maketitle
+
+
+\input{sections/abstract}
+\input{sections/introduction}
+% \section{Introduction}
+% Text of paper \ldots
+\input{sections/background}
+\input{sections/runToCompletionBasis}
+% \input{sections/descriptionOfSampleApplication}
+\input{sections/translation}
+\input{sections/statechartRefinements}
+\input{sections/verificationOfSafetyProperties}
+\input{sections/verificationOfControlResponse}
+\input{sections/conclusion}
+
+\vspace{6 pt}
+\begin{scriptsize}
+	
+	\par
+	\noindent
+	All data supporting this study are openly available from the University of Southampton repository at
+	http://doi.org/10.5258/SOTON/D0?? (Temporary link: https://tinyurl.com/droneModel)\\
+	
+	% \par
+	% \noindent
+	% \textbf{Acknowledgements} The authors would like to thank ???
+	
+\end{scriptsize}
+
+
+\bibliographystyle{plain}
+\bibliography{SCXMLREF}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
