@@ -26,32 +26,32 @@ For simplicity we omit this assumption from the remaining examples.
 \end{center}
 This property can be copied and pasted into the \PROB model checker \LTL checking text field.
 
-We illustrate the method with an example of a temporal property that we expect to hold in the drone \SCXML system. 
-The liveness property that we wish to  verify is that, after an external trigger event |decreaseCharge|, the battery charge value should  decrease in value.
-\begin{center}
-  |G ([ExternalTriggerEvent_decreaseCharge] => F {charge < old(charge)})|~.
-\end{center}
-At first, we could not verify this property.
-The counter example traces that \PROB provided gave us a better understanding of the reasons why:
-\begin{itemize}
-\item
-Our model represented the trigger queues abstractly as sets which meant that the |decreaseCharge| trigger may never be dequeued.
-The standalone version of \PROB allows strong fairness to be specified for particular parameter values but this does not work in the Rodin plug-in for \PROB. 
-In any case, a more accurate (concrete) representation of the queue fixes the problem and improves our model.
-\item 
-The charge is not always decreased in response to the |decreaseCharge| trigger.
-The controller only monitors battery charge while in the |BATTERYOK| state and discards the trigger in other states.
-Also, the controller stops decreasing charge when it approaches 0. 
-To cater for this we added a pre-condition |BATTERYOK = TRUE ∧ charge ≥10| to the \LTL property.
-\item
-Even if this pre-condition is true when the trigger is raised, another trigger (e.g. |off|) may already be in the queue and take the controller out of |BATTERYOK| before the |decreaseCharge| trigger is dequeued.
-Again we strengthen the pre-condition |off ∉ dt ∪ eQ| of the \LTL expression to avoid this situation.
-\end{itemize}
-After making these changes the final form of the \LTL property, which \PROB was able to exhaustively check and confirm was as follows:
-\begin{center}
-	|G([ExternalTriggerEvent_decreaseCharge] & {BATTERYOK=TRUE & charge>=10 &|
-		|off/:SCXML_dt\/SCXML_eq} => F {charge < old(charge)})|~.
-\end{center}
+% We illustrate the method with an example of a temporal property that we expect to hold in the drone \SCXML system. 
+% The liveness property that we wish to  verify is that, after an external trigger event |decreaseCharge|, the battery charge value should  decrease in value.
+% \begin{center}
+%   |G ([ExternalTriggerEvent_decreaseCharge] => F {charge < old(charge)})|~.
+% \end{center}
+% At first, we could not verify this property.
+% The counter example traces that \PROB provided gave us a better understanding of the reasons why:
+% \begin{itemize}
+% \item
+% Our model represented the trigger queues abstractly as sets which meant that the |decreaseCharge| trigger may never be dequeued.
+% The standalone version of \PROB allows strong fairness to be specified for particular parameter values but this does not work in the Rodin plug-in for \PROB. 
+% In any case, a more accurate (concrete) representation of the queue fixes the problem and improves our model.
+% \item 
+% The charge is not always decreased in response to the |decreaseCharge| trigger.
+% The controller only monitors battery charge while in the |BATTERYOK| state and discards the trigger in other states.
+% Also, the controller stops decreasing charge when it approaches 0. 
+% To cater for this we added a pre-condition |BATTERYOK = TRUE ∧ charge ≥10| to the \LTL property.
+% \item
+% Even if this pre-condition is true when the trigger is raised, another trigger (e.g. |off|) may already be in the queue and take the controller out of |BATTERYOK| before the |decreaseCharge| trigger is dequeued.
+% Again we strengthen the pre-condition |off ∉ dt ∪ eQ| of the \LTL expression to avoid this situation.
+% \end{itemize}
+% After making these changes the final form of the \LTL property, which \PROB was able to exhaustively check and confirm was as follows:
+% \begin{center}
+% 	|G([ExternalTriggerEvent_decreaseCharge] & {BATTERYOK=TRUE & charge>=10 &|
+% 		|off/:SCXML_dt\/SCXML_eq} => F {charge < old(charge)})|~.
+% \end{center}
 
 
 %%% Local Variables:
