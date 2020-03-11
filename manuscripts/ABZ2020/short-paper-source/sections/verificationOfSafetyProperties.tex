@@ -26,13 +26,14 @@ and for b) |P'| becomes |P ∨| \emph{trigger} |t| \emph{is in the internal queu
 %For properties about the value of auxiliary data, untriggered transitions appear to be more suited because, in this case, there is unlikely to be a natural place to raise an internal trigger when the appropriate conditions arise.
 %For properties about the state of a parallel region either reaction could be used depending on whether the system detects the violation in the state that contains P of the state that P refers to.
 
-In this section we illustrate a typical example of the type of properties that we imagine could be verified in a reactive \SCXML system.
-All of the proof obligations are automatically discharged for our example.
-Since our models are strictly structured and proof obligations will always have this common form, we are optimistic that proofs will always discharge automatically.
-We model the safety property features at an early level of refinement where the models are relatively simple, so that the validity of verification conditions is clear. 
-Detail is then added in later refinements which are proven (automatically) to preserve the previously verified safety properties.
-In our example, some auxiliary data is monitored by one state-chart region and while a parallel region refers to the state of the monitoring region. 
-Hence the reaction consists of an un-triggered transition in the monitoring region which sends an internal trigger to the other region when it leaves the desired monitor state.
+\todo{Insert a general form of the sort of properties we can verify and discuss} 
+% In this section we illustrate a typical example of the type of properties that we imagine could be verified in a reactive \SCXML system.
+% All of the proof obligations are automatically discharged for our example.
+% Since our models are strictly structured and proof obligations will always have this common form, we are optimistic that proofs will always discharge automatically.
+% We model the safety property features at an early level of refinement where the models are relatively simple, so that the validity of verification conditions is clear. 
+% Detail is then added in later refinements which are proven (automatically) to preserve the previously verified safety properties.
+% In our example, some auxiliary data is monitored by one state-chart region and while a parallel region refers to the state of the monitoring region. 
+% Hence the reaction consists of an un-triggered transition in the monitoring region which sends an internal trigger to the other region when it leaves the desired monitor state.
 
 % For our drone model, the safety property that we wish to verify is that the control system does not continue to take off or fly if the battery charge drops below a certain threshold (say 21\%). 
 % By refinement level 1 we have developed the drone's state to the point where we distinguish the |TAKEOFF| and |FLY| states (Figure~\ref{fig:drone1}).
