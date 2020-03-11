@@ -4,15 +4,20 @@
 % \label{sec:eventb}
 
 \todo{Make this section of only one paragraph. And pointing out Event-B and UML-B}
+
 \paragraph{Event-B} is a formal method for system
-design~\cite{abrial10:_model_event_b,hoang13:_introd_event_b_model_method}.  It uses \emph{refinement} to introduce system details gradually into the
-formal model.  An \EventB model contains two parts: \emph{contexts} and \emph{machines}. 
-Contexts contain \emph{carrier sets}, \emph{constants}, and \emph{axioms} constraining 
-the carrier sets and constants.  Machines contain \emph{variables} |v|, \emph{invariants} |I(v)| 
-constraining the variables, and \emph{events}. An event consists of a guard 
-denoting its enabled-condition and an action defining the value of variables after the event is executed.  
-In general, an event |e| has the form: |any t where G(t, v) then S(t, v) end| where |t| 
-are the event parameters, |G(t, v)| is the guard of the event, and |S(t, v)| is the action of the event.
+design~\cite{abrial10:_model_event_b,hoang13:_introd_event_b_model_method}.
+It uses \emph{refinement} to introduce system details gradually into
+the formal model.  An \EventB model contains two parts:
+\emph{contexts} and \emph{machines}.  Contexts contain \emph{carrier
+  sets}, \emph{constants}, and \emph{axioms} constraining the carrier
+sets and constants.  Machines contain \emph{variables} |v|,
+\emph{invariants} |I(v)| constraining the variables, and
+\emph{events}. An event consists of a guard denoting its
+enabled-condition and an action defining the value of variables after
+the event is executed.  In general, an event |e| has the form: |any t where G(t, v) then S(t, v) end| where |t| are the event parameters,
+|G(t, v)| is the guard of the event, and |S(t, v)| is the action of
+the event.
 % \begin{center}
   % |any t where G(t, v) then S(t, v) end|
 %& \inlineevent{\Be}{}{\Bt}{G(\Bt,\Bv)}{}{S(\Bt,\Bv)}
@@ -30,16 +35,16 @@ are the event parameters, |G(t, v)| is the guard of the event, and |S(t, v)| is 
 %The action of an event comprises of one or more assignments, each of them has one of the following forms: (1) |v := E(t, v)|, (2) |v :: E(t, v)|, and (3) |v :∣ P(t, v)|.  Assignments of form (1) are deterministic, assign the value of expression |E(t, v)| to |v|.  Assignments of forms (2) and (3) are non-deterministic. (2) assigns any value from the set |E(t,v)| to |v|, while (3) assigns any value satisfied predicate |P(t,v)| to |v|.
 %A machine in \EventB corresponds to a transition system
 %where \emph{variables} represent the states and \emph{events} specify
-%the transitions.  Note that invariants |I(v)| are inductive, i.e., they must be \emph{maintained} by all events. This is more strict than general safety properties which hold for all reachable states of the \EventB machine.  
-% This is also the difference between verifying the consistency of \EventB machines using theorem proving and model checking (e.g., \PROB) techniques: model checkers explore all reachable states of the system while interpreting the invariants as safety properties.  
+%the transitions.  Note that invariants |I(v)| are inductive, i.e., they must be \emph{maintained} by all events. This is more strict than general safety properties which hold for all reachable states of the \EventB machine.
+% This is also the difference between verifying the consistency of \EventB machines using theorem proving and model checking (e.g., \PROB) techniques: model checkers explore all reachable states of the system while interpreting the invariants as safety properties.
 
-Machines can be refined by adding more details.  Refinement can be done by extending the machine 
-to include additional variables (\emph{superposition refinement}) representing new features of 
-the system, or by replacing some (abstract) variables by new (concrete) variables (\emph{data refinement}).  
-% More information about \EventB can be found in~\cite{hoang13:_introd_event_b_model_method}.  
-\EventB is supported by the Rodin Platform (Rodin\footnote{An extensible toolkit which includes 
-facilities for modelling, verifying the consistency of models using theorem proving and model 
-checking techniques, and validating models with simulation-based approaches.})~\cite{abrial10:_rodin}.
+Machines can be refined by adding more details.  Refinement can be done by extending the machine
+to include additional variables (\emph{superposition refinement}) representing new features of
+the system, or by replacing some (abstract) variables by new (concrete) variables (\emph{data refinement}).
+% More information about \EventB can be found in~\cite{hoang13:_introd_event_b_model_method}.
+%% \EventB is supported by the Rodin Platform (Rodin\footnote{An extensible toolkit which includes
+%% facilities for modelling, verifying the consistency of models using theorem proving and model
+%% checking techniques, and validating models with simulation-based approaches.})~\cite{abrial10:_rodin}.
 
 % In \EventB the run to completion pseudocode of Listing~\ref{lst:scxml-r2c} could be represented (somewhat abstractly) as shown in Listing~\ref{lst:eventb-r2c}.
 % \begin{lstlisting}[caption={Run to completion pseudocode in \EventB},label={lst:eventb-r2c}, language=Event-B, escapechar=|, frame=single, float=t]
@@ -74,11 +79,11 @@ checking techniques, and validating models with simulation-based approaches.})~\
 %     execute(EQ.dequeue)  // Execute and dequeue from the external triggers queue
 %     UC := FALSE // Re-enable firing of un-triggered transitions
 % end
-% \end{lstlisting}	
-% Here, |IQ| and |EQ| are queues of internally and externally, raised triggers, |untriggered| selects a set of currently enabled un-triggered transitions, |dequeue| retrieves the next trigger from the given queue and selects the set of transitions that become enabled by it and |execute| fires the given set of transitions. 
+% \end{lstlisting}
+% Here, |IQ| and |EQ| are queues of internally and externally, raised triggers, |untriggered| selects a set of currently enabled un-triggered transitions, |dequeue| retrieves the next trigger from the given queue and selects the set of transitions that become enabled by it and |execute| fires the given set of transitions.
 % Note that this is an abstract representation where each event (|FireUntriggered|, |FireInternallyTriggered|, and |FireExternallyTriggered|) would be specialised to select a particular set of transitions that can be fired in parallel and |execute()| would be replaced by actions that encode the state changes made by those transitions.
 % Representing the condition \textbf{untriggered\_enabled} (Line 3 in Listing~\ref{lst:scxml-r2c}) is cumbersome since we would need to write a conjunction of all the possible un-triggered guards. Instead we introduce a dummy un-triggered event that is only fired when no other selection of un-triggered transitions are available and sets a boolean flag, |UC|, to indicate that none of the real un-triggered events was fired and a trigger needs to be consumed.
- 
+
 % Note that causing all of the
 % transitions to simultaneously and atomically fire for each event is a
 % further semantic choice.  Transitions associated with |FireUntriggered|,

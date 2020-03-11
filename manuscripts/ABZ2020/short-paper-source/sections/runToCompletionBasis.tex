@@ -3,35 +3,39 @@
 
 \section{Run To Completion}
 \label{sec:run-completion}
-The run to completion semantics is specified via an abstract basis that is extended by the model. 
-Figure~\ref{fig:basis} shows a statechart representation of how the basis enforces 
-the run to completion semantics on the model transitions. 
+The run to completion semantics is specified via an abstract basis that is extended by the model.
 
-\begin{figure}[!h]
-	\vspace{-.4cm}
-	\centering
-	\includegraphics[width=0.99\textwidth, trim=30 50 60 0]{figures/Picture6.png}
-	\caption{Abstract representation of run to completion basis}
-	\label{fig:basis}
-	\vspace{-.4cm}
-\end{figure}
 
-% The translation from \SCXML to \EVENTB is based on an abstract `basis' that models the `run to completion' semantics. 
-The specification of this basis consists of an \EVENTB \emph{context} and \emph{machine} that are 
-the same for all input models and are refined by the specific output of the translation.  
-% The basis context, Listing~\ref{lst:BasisContext}, introduces a given set of all 
-The basis context introduces a set of all possible triggers, |SCXML_TRIGGER|.  
-This set is partitioned into internal and external triggers 
-(e.g |FutureInternalTrigger| and |FutureExternalTrigger| respectively), 
-some of which will be introduced in future refinements. 
-Each refinement partitions these trigger sets further to introduce concrete triggers, 
-leaving a new abstract set to represent the remaining triggers yet to be introduced. 
-For simplicity, this section describes the run to completion basis 
-that is modelled using sets to abstractly represent the trigger queues. 
-In Section~\ref{sec:verificationResponses} we will discuss the limitations of this 
-abstraction and the ways in which they can be overcome.
-% For example, the IDS model introduces a specific internal trigger, \textbf{spi\_done},  by partitioning |SCXML_FutureInternalTrigger| into the singleton \textbf{\{spi\_done\}} and a new set, |SCXML_FutureInternalTrigger0|, representing the remainder. 
- % as shown in line~\ref{line:refPartition} of Listing~\ref{lst:SecBotCont0}. 
+%% Figure~\ref{fig:basis} shows a statechart representation of how the basis enforces
+%% the run to completion semantics on the model transitions.
+
+%% \begin{figure}[!h]
+%% 	\vspace{-.4cm}
+%% 	\centering
+%% 	\includegraphics[width=0.99\textwidth, trim=30 50 60 0]{figures/Picture6.png}
+%% 	\caption{Abstract representation of run to completion basis}
+%% 	\label{fig:basis}
+%% 	\vspace{-.4cm}
+%% \end{figure}
+
+% The translation from \SCXML to \EVENTB is based on an abstract `basis' that models the `run to completion' semantics.
+The specification of this basis consists of an \EVENTB \emph{context} and \emph{machine} that are
+the same for all input models and are refined by the specific output of the translation.
+% The basis context, Listing~\ref{lst:BasisContext}, introduces a given set of all
+The basis context introduces a set of all possible triggers, |SCXML_TRIGGER|.
+This set is partitioned into internal and external triggers
+(e.g |FutureInternalTrigger| and |FutureExternalTrigger| respectively),
+some of which will be introduced in future refinements.
+Each refinement partitions these trigger sets further to introduce concrete triggers,
+leaving a new abstract set to represent the remaining triggers yet to be introduced.
+
+%% For simplicity, this section describes the run to completion basis
+%% that is modelled using sets to abstractly represent the trigger queues.
+
+%% In Section~\ref{sec:verificationResponses} we will discuss the limitations of this
+%% abstraction and the ways in which they can be overcome.
+% For example, the IDS model introduces a specific internal trigger, \textbf{spi\_done},  by partitioning |SCXML_FutureInternalTrigger| into the singleton \textbf{\{spi\_done\}} and a new set, |SCXML_FutureInternalTrigger0|, representing the remainder.
+ % as shown in line~\ref{line:refPartition} of Listing~\ref{lst:SecBotCont0}.
 
 % \begin{lstlisting}[caption={Abstract basis context},label={lst:BasisContext}, language=Event-B, escapechar=|, frame=single, basicstyle=\rmfamily\scriptsize, belowskip=-2.0 \baselineskip, float=t]
 % context
@@ -40,19 +44,19 @@ abstraction and the ways in which they can be overcome.
 % 	SCXML_TRIGGER	 // all possible triggers
 % constants
 % 	SCXML_FutureInternalTrigger	 // all possible internal triggers
-% 	SCXML_FutureExternalTrigger	 // all possible external triggers  
+% 	SCXML_FutureExternalTrigger	 // all possible external triggers
 % axioms
-% 	partition(SCXML_TRIGGER, SCXML_FutureInternalTrigger, SCXML_FutureExternalTrigger) 
+% 	partition(SCXML_TRIGGER, SCXML_FutureInternalTrigger, SCXML_FutureExternalTrigger)
 % end
-% \end{lstlisting}	
+% \end{lstlisting}
 
 % \begin{lstlisting}[caption={Context for \IDS abstract model},label={lst:SecBotCont0}, language=Event-B, escapechar=|, frame=single]
 % context
 % 	IDS_Model_0_ctx //(generated from:/IDS_generated/secbot.scxml)
 % extends
-% 	basis_c 
+% 	basis_c
 % constants
-% 	SCXML_FutureInternalTrigger0	
+% 	SCXML_FutureInternalTrigger0
 % 	SCXML_FutureExternalTrigger0
 % 	spi_done	 	//trigger
 % axioms
@@ -61,58 +65,61 @@ abstraction and the ways in which they can be overcome.
 % end
 % \end{lstlisting}
 
-% The basis machine, part of which is shown in Listing~\ref{lst:BasisMachine}, declares variables 
-Each of the transitions in the basis (see Figure~\ref{fig:basis}) 
-represents an abstract event of the basis machine that
-describes the generic behaviour of models under a run to completion semantics.
-These events provide an abstraction that defines the altering of trigger queues 
-and completion flag. In order to preserve refinement rules, 
-which prohibit the modification of existing variables,
-all future events generated by translation of the specific \SCXML model, 
-must refine the abstract events of the basis.
-The basis machine also declares variables that correspond 
-to the triggers ready to dequeue at any given time, |dt|,
-the queue with internal triggers raised by actions within the model, |iQ|, 
-the external triggers queue with triggers raised by the environment, |eQ|,
-and a flag, |uc|, that signals when a run to completion macro-step has been completed 
-(no un-triggered transitions are enabled). 
+% The basis machine, part of which is shown in Listing~\ref{lst:BasisMachine}, declares variables
 
+%% Each of the transitions in the basis (see Figure~\ref{fig:basis})
+%% represents an abstract event of the basis machine that
+%% describes the generic behaviour of models under a run to completion semantics.
+%% These events provide an abstraction that defines the altering of trigger queues
+%% and completion flag. In order to preserve refinement rules,
+%% which prohibit the modification of existing variables,
+%% all future events generated by translation of the specific \SCXML model,
+%% must refine the abstract events of the basis.
+The basis machine declares variables that correspond to the triggers
+ready to dequeue at any given time, |dt|, the queue with internal
+triggers raised by actions within the model, |iQ|, the external
+triggers queue with triggers raised by the environment, |eQ|, and a
+flag, |uc|, that signals when a run to completion macro-step has been
+completed (no un-triggered transitions are enabled).
 
-In the |Initialisation| event, all trigger queues are emptied 
+In the |Initialisation| event, all trigger queues are emptied
 and |uc| is set to |FALSE| so that un-triggered transitions are dealt with via the
 |futureUntriggeredTransitionSet| event, which may also raise internal triggers.
 This will subsequently enable completion and reset the |uc| flag to |TRUE|.
-The abstract event |futureRaiseExternalTrigger| represents the raising 
-of an external trigger (this transition is not shown in the diagram).    
+The abstract event |futureRaiseExternalTrigger| represents the raising
+of an external trigger. % (this transition is not shown in the diagram).
 After completion, raised triggers are dealt with by moving them to the dequeuing queue, |dt|.
-Internal triggers have a higher priority, since the external trigger queue is only dequeued if 
-the |iQ| is empty (see |dequeueExternalTriggered| and |dequeueInternalTriggered| in Figure~\ref{fig:basis}).
-The abstract event |futureTriggeredTransitions| represents a combination 
+Internal triggers have a higher priority, since the external trigger queue is only dequeued if
+the |iQ| is empty. %(see |dequeueExternalTriggered| and |dequeueInternalTriggered| in Figure~\ref{fig:basis}).
+The abstract event |futureTriggeredTransitions| represents a combination
 of transitions that are triggered by the trigger presently ready to dequeue, |dt|.
 The actions of these transitions may also raise triggers of their own.
 
 
-In the process of refining a model, a designer takes advantage of the non-determinism 
-in the abstraction. When a refinement level for which the designer wants to enforce 
-a requirement is reached, the model needs to be \emph{finalized} (see Section~\ref{sec:translation} for more on finalisation). The SCXML translation tool
-will then automatically strengthens the guards of events 
-|NoTriggerTransitionEnable| and |futureUntriggeredTransitionSet|, 
-to ensure that the run to completion sequence is not interrupted by non-deterministic behaviour. 
-The guards of event |NoTriggerTransitionEnable| are strengthened by 
-adding the conjunction of the negated guards of all transitions triggered by |dt|.
-In the case of the |futureUntriggeredTransitionSet| event, guard strengthening is 
-achieved by adding the conjunction of the negated guards of all untriggered transitions.
+In the process of refining a model, a designer takes advantage of the non-determinism
+in the abstraction. When a refinement level for which the designer wants to enforce
+a requirement is reached, the model needs to be \emph{finalized}. '
+%(see Section~\ref{sec:translation} for more on finalisation).
+The SCXML translation tool will then automatically strengthens the
+guards of events |NoTriggerTransitionEnable| and
+|futureUntriggeredTransitionSet|, to ensure that the run to completion
+sequence is not interrupted by non-deterministic behaviour.  The
+guards of event |NoTriggerTransitionEnable| are strengthened by adding
+the conjunction of the negated guards of all transitions triggered by
+|dt|.  In the case of the |futureUntriggeredTransitionSet| event,
+guard strengthening is achieved by adding the conjunction of the
+negated guards of all untriggered transitions.
 
-% The basis machine declares variables 
-% that correspond to the triggers present in the queue at any given time, and a flag, |SCXML_uc|, that signals when a run to completion macro-step has been completed (no un-triggered transitions are enabled). 
-% After initialisation, both trigger queues are empty and |SCXML_uc| is set to |FALSE| so that un-triggered transitions are dealt with. 
+% The basis machine declares variables
+% that correspond to the triggers present in the queue at any given time, and a flag, |SCXML_uc|, that signals when a run to completion macro-step has been completed (no un-triggered transitions are enabled).
+% After initialisation, both trigger queues are empty and |SCXML_uc| is set to |FALSE| so that un-triggered transitions are dealt with.
 % The basis machine provides events that describe the generic behavior of models that follow the run to completion semantics in terms of altering the trigger queues and completion flag.
 % Since new events introduced in a refinement cannot modify existing variables, all future events generated by translation of the specific \SCXML model, will refine these abstract events.
-% The abstract event, |SCXML_futureRaiseExternalTrigger| represents the raising of an external trigger (this transition is not shown in the diagram).    
-% The abstract event, |SCXML_futureInternalTransitionSet| represents a combination of transitions that are triggered by an internal trigger. 
+% The abstract event, |SCXML_futureRaiseExternalTrigger| represents the raising of an external trigger (this transition is not shown in the diagram).
+% The abstract event, |SCXML_futureInternalTransitionSet| represents a combination of transitions that are triggered by an internal trigger.
 
 
-% The guards of this event ensure prior completion of the previous macro-step. 
+% The guards of this event ensure prior completion of the previous macro-step.
 % A similar event, |SCXML_futureExternalTransitionSet| (not shown) represents a combination of transitions that are triggered by an external trigger and has the additional guard that the internal trigger queue is empty.
 % These two triggered transition events reset the completion flag to ensure that any un-triggered transitions that may have become enabled have a chance to fire next.
 % The abstract event |SCXML_futureUntriggeredTransitionSet| represents a combination of transitions that are un-triggered and may only be fired when the completion flag is unset (FALSE).
@@ -142,7 +149,7 @@ achieved by adding the conjunction of the negated guards of all untriggered tran
 % 	typeof_SCXML_dt   :   	SCXML_dt ⊆ SCXML_TRIGGER	   //   dequeued triggers
 % 	oneDequeuedTrigger   :   	SCXML_dt≠∅ ⇒(∃t·SCXML_dt={t})	   //   at most one dequeued trigger
 % EVENTS
-% 	INITIALISATION      
+% 	INITIALISATION
 % 		BEGIN
 % 			init_SCXML_iq   :   	SCXML_iq ≔ ∅	   //   internal Q is initially empty
 % 			init_SCXML_eq   :   	SCXML_eq ≔ ∅	   //   external Q is initially empty
@@ -199,7 +206,7 @@ achieved by adding the conjunction of the negated guards of all untriggered tran
 % 			SCXML_raiseInternalTriggers   :   	SCXML_iq ≔ SCXML_iq ∪ SCXML_raisedTriggers
 % 	END
 
-% 	SCXML_noTriggeredTransitionsEnabled      	   //   <INTERNAL> <PRIORITY=9>  - 
+% 	SCXML_noTriggeredTransitionsEnabled      	   //   <INTERNAL> <PRIORITY=9>  -
 % 		WHEN
 % 			SCXML_isNotComplete   :   	SCXML_uc = FALSE
 % 			SCXML_hasDequeuedTriggers   :   	SCXML_dt≠ ∅
@@ -207,7 +214,7 @@ achieved by adding the conjunction of the negated guards of all untriggered tran
 % 			SCXML_clearDequeuedTriggers   :   	SCXML_dt≔  ∅
 % 	END
 
-% 	SCXML_futureUntriggeredTransitionSet      
+% 	SCXML_futureUntriggeredTransitionSet
 % 		ANY
 % 			SCXML_raisedTriggers
 % 		WHERE
@@ -232,10 +239,10 @@ achieved by adding the conjunction of the negated guards of all untriggered tran
 
 % \begin{lstfloat}[!tb]
 % \begin{lstlisting}[caption={Event-B event corresponding to internal triggered transition to \textbf{Wait50ms} state in refinement level 1 shown in Fig.~\ref{fig:ASIC}}, label={lst:SecBotMach0},language=Event-B, escapechar=|, frame=single, belowskip=-2.0 \baselineskip]
-% spi_done__InitialiseSensor_Wait50ms:	
-% refines SCXML_futureInternalTransitionSet 
+% spi_done__InitialiseSensor_Wait50ms:
+% refines SCXML_futureInternalTransitionSet
 % any SCXML_it SCXML_raisedTriggers where
-% SCXML_it  ∈ SCXML_iq 
+% SCXML_it  ∈ SCXML_iq
 % SCXML_uc = TRUE
 % SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger
 % InitialiseSensor = TRUE
