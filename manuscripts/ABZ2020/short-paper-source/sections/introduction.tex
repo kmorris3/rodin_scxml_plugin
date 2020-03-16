@@ -3,11 +3,9 @@
 
 \section{Introduction}
 
-Reactive \SCs are open systems capable of receiving potentially
-non-deterministic input.  This work exposes a shallow embedding of
-open \SCs~\cite{MoSn16,MoSnHo18} semantics in \EventB.  \SCs provide a
-graphical language, generalized from state machines, that is popular
-with engineers, variants of which appear in Matlab
+Reactive \SCs are open systems capable of receiving potentially non-deterministic input.  
+This work, which builds on our previous work~\cite{MoSn16,MoSnHo18}, exposes a shallow embedding of open \SCs semantics in \EventB. 
+\SCs provide a graphical language, generalized from state machines, that is popular with engineers, variants of which appear in Matlab
 Simulink/Stateflow~\cite{MATLAB:2019} and the Ansys tools.
 Particularly attractive is providing accessibility to
 abstraction/refinement via Rodin/\EventB which has an intuitive
@@ -18,17 +16,19 @@ can better understand the origin of proof obligations in refinements
 and achieve formal guarantees earlier in their designs where it is
 most tractable.
 
-Previous work has developed a number of different semantics all with
-different purposes and
-outcomes~\cite{Syriani_2019,Harel,Maraninchi91theargos}.  Because this
-work is focused on a mapping to \EventB, safety property preserving
+Related work has developed a number of different semantics all with
+different purposes and outcomes~\cite{Syriani_2019,Harel,Maraninchi91theargos}.  
+Because our contribution is focused on a mapping to \EventB, safety property preserving
 refinement is key.  \EventB provides not only a definition of
 refinement but a rubric for finding valid refinements and this is
-carried over into the \SCs work presented here.  In our version of \SC
+carried over into the \SCs work presented here.  
+In our version of \SC
 semantics, refinement means a subsetting of traces from an
-abstraction.  This has the beneficial effect of preserving safety
+abstraction.  
+This has the beneficial effect of preserving safety
 properties from abstraction to refinement and permits proofs to be
-discharged at the highest tractable level of abstraction.  It is at
+discharged at the highest tractable level of abstraction.  
+It is at
 the highest level of abstraction that proofs are presumably the
 easiest to discharge.
 
