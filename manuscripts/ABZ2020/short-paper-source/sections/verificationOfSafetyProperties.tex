@@ -4,7 +4,6 @@
 \section{Verification of Safety Properties}
 \label{sec:verificationSafety}
 
-\todo{Merge the 2 verification section into one. And just the general form of the properties that can discharge automatically}
 In a state-chart model we naturally wish to verify properties |P|, about other parallel statechart regions and auxiliary data, that are expected to hold true in a particular state |S|.
 Hence, all of the safety properties that we consider are of the form: |S=TRUE ⇒ P|, where the antecedent is implicit from the containment of |P| within |S|.
 %
@@ -26,7 +25,7 @@ and for b) |P'| becomes |P ∨| \emph{trigger} |t| \emph{is in the internal queu
 %For properties about the value of auxiliary data, untriggered transitions appear to be more suited because, in this case, there is unlikely to be a natural place to raise an internal trigger when the appropriate conditions arise.
 %For properties about the state of a parallel region either reaction could be used depending on whether the system detects the violation in the state that contains P of the state that P refers to.
 
-\todo{Insert a general form of the sort of properties we can verify and discuss} 
+
 % In this section we illustrate a typical example of the type of properties that we imagine could be verified in a reactive \SCXML system.
 % All of the proof obligations are automatically discharged for our example.
 % Since our models are strictly structured and proof obligations will always have this common form, we are optimistic that proofs will always discharge automatically.
