@@ -5,7 +5,8 @@
 \label{sec:verificationResponses}
 
 It is sometimes possible to construct a model that satisfies some invariant (e.g. safety) properties, but does not behave in a useful way.
-Therefore, as well as verifying invariant properties, we would like to verify the system's responsiveness.  More specifically in this case, we want to ensure that the controller responds to external triggers to make appropriate modifications to the system variables. 
+Therefore, as well as verifying invariant properties, we would like to verify the system's responsiveness. 
+More specifically in this case, we want to ensure that the controller responds to external triggers to make appropriate modifications to the system variables. 
 These kind of live responses can not be verified by proof of invariants since they are temporal properties.
 Instead, we can express the property in \LTL  and use the \PROB model checker to verify it.
 
@@ -21,11 +22,12 @@ A text file is automatically generated containing the \LTL property to be checke
 
 In this generated version, an assumption of strong fairness is added for all other events in the model.
 (This assumption is stronger than necessary since some events will not affect the outcome, but is easier to generate and is sufficient for our verification aim). 
-For simplicity we omit this assumption from the remaining examples.
+%For simplicity we omit this assumption from the remaining examples.
 \begin{center}
   |SF[e1] & SF[e2]... => G([external_trigger _event] => F[predicate])|
 \end{center}
-This property can be copied and pasted into the \PROB model checker \LTL checking text field.
+This property is then verified using the \LTL facility of the \PROB model checker.
+%This property can be copied and pasted into the \PROB model checker \LTL checking text field.
 
 % We illustrate the method with an example of a temporal property that we expect to hold in the drone \SCXML system. 
 % The liveness property that we wish to  verify is that, after an external trigger event |decreaseCharge|, the battery charge value should  decrease in value.

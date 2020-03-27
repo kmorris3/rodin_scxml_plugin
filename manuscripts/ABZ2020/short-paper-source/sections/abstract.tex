@@ -1,12 +1,11 @@
 % !TEX root = ../main.tex
 \begin{abstract}
-	Statechart notations  with `run to completion' semantics, are popular with engineers for designing controllers that react to environment events with a sequence of state transitions. 
+	Statechart notations  with `run to completion' semantics, are popular with engineers for designing controllers that respond to events in the environment with a sequence of state transitions. 
 	However, they lack formal refinement and rigorous verification methods.   
 	\EventB, on the other hand, is based on refinement from an initial abstraction and is designed to make formal verification by automatic theorem provers feasible. 
 	We introduce a notion of refinement into a `run to completion' statechart modelling notation, and leverage \EventB's tool support for theorem proving. 
 	We describe the difficulties in translating `run to completion' semantics into \EventB refinements and suggest a solution.
-	We illustrate our approach and show how critical (e.g. safety) invariant properties can be verified by proof despite the reactive nature of the system.
-	We also show how behavioural aspects of the system can be verified by testing the expected reactions using a temporal logic model checking approach.
+	We outline how safety and liveness properties could be verified.
 
 \keywords{run-to-completion, statecharts, refinement}
 \end{abstract}
