@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="true" org.eventb.emf.persistence.generator_ID="http://emf.eventb.org/models/core/machine/2014::Machine::m_scxml_statemachine" version="5">
+    <org.eventb.core.seesContext name="_LC95YHniEeqCyvJFqfliTQ" org.eventb.core.target="c_scxml_statemachine"/>
+    <org.eventb.core.seesContext name="_LC95YXniEeqCyvJFqfliTQ" org.eventb.core.target="c0_4_tree_prop"/>
+    <org.eventb.core.variable name="_LC95YnniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="sm_active"/>
+    <org.eventb.core.variable name="_LC-gcHniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="sm_active_leaf"/>
+    <org.eventb.core.variable name="_LC-gcXniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="scxml_iq"/>
+    <org.eventb.core.variable name="_LC-gcnniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="scxml_eq"/>
+    <org.eventb.core.variable name="_LC-gc3niEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="scxml_dt"/>
+    <org.eventb.core.variable name="_LC-gdHniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="scxml_uc"/>
+    <org.eventb.core.invariant name="_LC-gdXniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="sm_typeof-active" org.eventb.core.predicate="sm_active ⊆ states"/>
+    <org.eventb.core.invariant name="_LC-gdnniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="sm_typeof-active_leaf" org.eventb.core.predicate="sm_active_leaf ∈ leaves"/>
+    <org.eventb.core.invariant name="_LC_HgHniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="sm_active-closure" org.eventb.core.predicate="sm_active = cl(container)[{sm_active_leaf}] ∪ {sm_active_leaf}"/>
+    <org.eventb.core.invariant name="_LC_HgXniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="sm_LinkedList-active" org.eventb.core.predicate="sm_active_leaf ↦ root ↦ sm_active ◁ container ∈ LinkedList(sm_active)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.invariant name="_LC_HgnniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="sm_different_layer" org.eventb.core.predicate="∀ s1, s2 · s1 ∈ sm_active ∖ {root} ∧ s2 ∈ sm_active ∖ {root} ∧ s1 ≠ s2 ⇒ container(s1) ≠ container(s2)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.invariant name="_LC_Hg3niEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="sm_container_active" org.eventb.core.predicate="∀ s · s ∈ sm_active ∖ {root} ⇒ container(s) ∈ sm_active" org.eventb.core.theorem="true"/>
+    <org.eventb.core.invariant name="_LC_HhHniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_iq" org.eventb.core.predicate="scxml_iq ∈ ℙ(InternalTriggers)"/>
+    <org.eventb.core.invariant name="_LC_HhXniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_eq" org.eventb.core.predicate="scxml_eq ∈ ℙ(ExternalTriggers)"/>
+    <org.eventb.core.invariant name="_LC_HhnniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_dt" org.eventb.core.predicate="scxml_dt ∈ deQueue"/>
+    <org.eventb.core.invariant name="_LC_Hh3niEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_uc" org.eventb.core.predicate="scxml_uc ∈ BOOL"/>
+    <org.eventb.core.event name="_LC_ukHniEeqCyvJFqfliTQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_LC_ukXniEeqCyvJFqfliTQ" org.eventb.core.assignment="sm_active ≔ init" org.eventb.core.generated="true" org.eventb.core.label="sm_update-active"/>
+        <org.eventb.core.action name="_LC_uknniEeqCyvJFqfliTQ" org.eventb.core.assignment="sm_active_leaf ≔ init_leaf" org.eventb.core.generated="true" org.eventb.core.label="sm_update-active_leaf"/>
+        <org.eventb.core.action name="_LC_uk3niEeqCyvJFqfliTQ" org.eventb.core.assignment="scxml_iq ≔ ∅" org.eventb.core.generated="true" org.eventb.core.label="scxml_iq_init"/>
+        <org.eventb.core.action name="_LC_ulHniEeqCyvJFqfliTQ" org.eventb.core.assignment="scxml_eq ≔ ∅" org.eventb.core.generated="true" org.eventb.core.label="scxml_eq_init"/>
+        <org.eventb.core.action name="_LC_ulXniEeqCyvJFqfliTQ" org.eventb.core.assignment="scxml_dt ≔ ∅" org.eventb.core.generated="true" org.eventb.core.label="scxml_dt_init"/>
+        <org.eventb.core.action name="_LC_ulnniEeqCyvJFqfliTQ" org.eventb.core.assignment="scxml_uc ≔ FALSE" org.eventb.core.generated="true" org.eventb.core.label="scxml_uc_init"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_LC_ul3niEeqCyvJFqfliTQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="raiseExternalTrigger">
+        <org.eventb.core.parameter name="_LC_umHniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="scxml_t"/>
+        <org.eventb.core.guard name="_LDAVoHniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_t" org.eventb.core.predicate="scxml_t ∈ ExternalTriggers"/>
+        <org.eventb.core.action name="_LDAVoXniEeqCyvJFqfliTQ" org.eventb.core.assignment="scxml_eq ≔ scxml_eq ∪ {scxml_t}" org.eventb.core.generated="true" org.eventb.core.label="scxml_eq_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_LDAVonniEeqCyvJFqfliTQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="dequeueExternal">
+        <org.eventb.core.parameter name="_LDAVo3niEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="scxml_t"/>
+        <org.eventb.core.parameter name="_LDAVpHniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="scxml_new_eq"/>
+        <org.eventb.core.guard name="_LDAVpXniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_t" org.eventb.core.predicate="scxml_t ∈ scxml_eq"/>
+        <org.eventb.core.guard name="_LDAVpnniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_new_eq" org.eventb.core.predicate="scxml_new_eq = scxml_eq ∖ {scxml_t}"/>
+        <org.eventb.core.guard name="_LDAVp3niEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_dt" org.eventb.core.predicate="scxml_dt = ∅"/>
+        <org.eventb.core.guard name="_LDAVqHniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_uc" org.eventb.core.predicate="scxml_uc = TRUE"/>
+        <org.eventb.core.guard name="_LDAVqXniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_iq" org.eventb.core.predicate="scxml_iq = ∅"/>
+        <org.eventb.core.action name="_LDAVqnniEeqCyvJFqfliTQ" org.eventb.core.assignment="scxml_dt ≔ {scxml_t}" org.eventb.core.generated="true" org.eventb.core.label="scxml_dt_set"/>
+        <org.eventb.core.action name="_LDAVq3niEeqCyvJFqfliTQ" org.eventb.core.assignment="scxml_eq ≔ scxml_new_eq" org.eventb.core.generated="true" org.eventb.core.label="scxml_eq_set"/>
+        <org.eventb.core.action name="_LDA8sHniEeqCyvJFqfliTQ" org.eventb.core.assignment="scxml_uc ≔ FALSE" org.eventb.core.generated="true" org.eventb.core.label="scxml_uc_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_LDA8sXniEeqCyvJFqfliTQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="dequeueInternal">
+        <org.eventb.core.parameter name="_LDA8snniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="scxml_t"/>
+        <org.eventb.core.parameter name="_LDA8s3niEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="scxml_new_eq"/>
+        <org.eventb.core.guard name="_LDA8tHniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_t" org.eventb.core.predicate="scxml_t ∈ scxml_iq"/>
+        <org.eventb.core.guard name="_LDA8tXniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_new_eq" org.eventb.core.predicate="scxml_new_eq = scxml_eq ∖ {scxml_t}"/>
+        <org.eventb.core.guard name="_LDA8tnniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_dt" org.eventb.core.predicate="scxml_dt = ∅"/>
+        <org.eventb.core.guard name="_LDA8t3niEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_uc" org.eventb.core.predicate="scxml_uc = TRUE"/>
+        <org.eventb.core.action name="_LDA8uHniEeqCyvJFqfliTQ" org.eventb.core.assignment="scxml_dt ≔ {scxml_t}" org.eventb.core.generated="true" org.eventb.core.label="scxml_dt_set"/>
+        <org.eventb.core.action name="_LDA8uXniEeqCyvJFqfliTQ" org.eventb.core.assignment="scxml_eq ≔ scxml_new_eq" org.eventb.core.generated="true" org.eventb.core.label="scxml_eq_set"/>
+        <org.eventb.core.action name="_LDA8unniEeqCyvJFqfliTQ" org.eventb.core.assignment="scxml_uc ≔ FALSE" org.eventb.core.generated="true" org.eventb.core.label="scxml_uc_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_LDBjwHniEeqCyvJFqfliTQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="triggeredTransition">
+        <org.eventb.core.parameter name="_LDBjwXniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="sm_current_leaf_state"/>
+        <org.eventb.core.parameter name="_LDBjwnniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="sm_new_leaf_state"/>
+        <org.eventb.core.parameter name="_LDBjw3niEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="scxml_t"/>
+        <org.eventb.core.parameter name="_LDBjxHniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="scxml_R"/>
+        <org.eventb.core.guard name="_LDBjxXniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="sm_grd1" org.eventb.core.predicate="sm_current_leaf_state ∈ sm_active"/>
+        <org.eventb.core.guard name="_LDBjxnniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="sm_grd2" org.eventb.core.predicate="sm_current_leaf_state ↦ sm_new_leaf_state ∈ transitions"/>
+        <org.eventb.core.guard name="_LDBjx3niEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="sm_range-preservation" org.eventb.core.predicate="ran(container) = ran(cl(container))" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_LDBjyHniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="sm_leaves_are_states" org.eventb.core.predicate="leaves ⊆ states" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_LDBjyXniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="sm_typeof-transitions" org.eventb.core.predicate="transitions ∈ leaves ↔ leaves" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_LDBjynniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="sm_typeof-container" org.eventb.core.predicate="container ∈ states ∖ {root} → states" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_LDCK0HniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_t" org.eventb.core.predicate="scxml_t ∈ scxml_dt"/>
+        <org.eventb.core.guard name="_LDCK0XniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_R" org.eventb.core.predicate="scxml_R ⊆ InternalTriggers"/>
+        <org.eventb.core.guard name="_LDF1MHniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_uc" org.eventb.core.predicate="scxml_uc = FALSE"/>
+        <org.eventb.core.guard name="_LDF1MXniEeqCyvJFqfliTQ" org.eventb.core.generated="false" org.eventb.core.label="is_triggered" org.eventb.core.predicate="sm_current_leaf_state ↦ sm_new_leaf_state∈dom(triggeredTransitions)"/>
+        <org.eventb.core.guard name="_LDGcQHniEeqCyvJFqfliTQ" org.eventb.core.generated="false" org.eventb.core.label="trigger" org.eventb.core.predicate="triggeredTransitions(sm_current_leaf_state ↦ sm_new_leaf_state) = scxml_t"/>
+        <org.eventb.core.action name="_LDGcQXniEeqCyvJFqfliTQ" org.eventb.core.assignment="sm_active ≔ cl(container)[{sm_new_leaf_state}] ∪ {sm_new_leaf_state}" org.eventb.core.generated="true" org.eventb.core.label="sm_update-active"/>
+        <org.eventb.core.action name="_LDGcQnniEeqCyvJFqfliTQ" org.eventb.core.assignment="sm_active_leaf ≔ sm_new_leaf_state" org.eventb.core.generated="true" org.eventb.core.label="sm_update-active_leaf"/>
+        <org.eventb.core.action name="_LDGcQ3niEeqCyvJFqfliTQ" org.eventb.core.assignment="scxml_dt ≔ ∅" org.eventb.core.generated="true" org.eventb.core.label="scxml_dt_set"/>
+        <org.eventb.core.action name="_LDGcRHniEeqCyvJFqfliTQ" org.eventb.core.assignment="scxml_iq ≔ scxml_iq ∪ scxml_R" org.eventb.core.generated="true" org.eventb.core.label="scxml_iq_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_LDGcRXniEeqCyvJFqfliTQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="completeTriggered">
+        <org.eventb.core.parameter name="_LDGcRnniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="scxml_t"/>
+        <org.eventb.core.guard name="_LDGcR3niEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_t" org.eventb.core.predicate="scxml_t ∈ scxml_dt"/>
+        <org.eventb.core.guard name="_LDGcSHniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_uc" org.eventb.core.predicate="scxml_uc = FALSE"/>
+        <org.eventb.core.action name="_LDGcSXniEeqCyvJFqfliTQ" org.eventb.core.assignment="scxml_dt ≔ ∅" org.eventb.core.generated="true" org.eventb.core.label="scxml_dt_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_LDHDUHniEeqCyvJFqfliTQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="untriggeredTransition">
+        <org.eventb.core.parameter name="_LDHDUXniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="sm_current_leaf_state"/>
+        <org.eventb.core.parameter name="_LDHDUnniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="sm_new_leaf_state"/>
+        <org.eventb.core.parameter name="_LDHDU3niEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.identifier="scxml_R"/>
+        <org.eventb.core.guard name="_LDHDVHniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="sm_grd1" org.eventb.core.predicate="sm_current_leaf_state ∈ sm_active"/>
+        <org.eventb.core.guard name="_LDHDVXniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="sm_grd2" org.eventb.core.predicate="sm_current_leaf_state ↦ sm_new_leaf_state ∈ transitions"/>
+        <org.eventb.core.guard name="_LDHDVnniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="sm_range-preservation" org.eventb.core.predicate="ran(container) = ran(cl(container))" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_LDHDV3niEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="sm_leaves_are_states" org.eventb.core.predicate="leaves ⊆ states" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_LDHDWHniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="sm_typeof-transitions" org.eventb.core.predicate="transitions ∈ leaves ↔ leaves" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_LDHDWXniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="sm_typeof-container" org.eventb.core.predicate="container ∈ states ∖ {root} → states" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_LDHDWnniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_dt" org.eventb.core.predicate="scxml_dt = ∅"/>
+        <org.eventb.core.guard name="_LDHDW3niEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_R" org.eventb.core.predicate="scxml_R ⊆ InternalTriggers"/>
+        <org.eventb.core.guard name="_LDHqYHniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_uc" org.eventb.core.predicate="scxml_uc = FALSE"/>
+        <org.eventb.core.guard name="_LDHqYXniEeqCyvJFqfliTQ" org.eventb.core.generated="false" org.eventb.core.label="not_triggered" org.eventb.core.predicate="sm_current_leaf_state ↦ sm_new_leaf_state ∉ dom(triggeredTransitions)"/>
+        <org.eventb.core.action name="_LDHqYnniEeqCyvJFqfliTQ" org.eventb.core.assignment="sm_active ≔ cl(container)[{sm_new_leaf_state}] ∪ {sm_new_leaf_state}" org.eventb.core.generated="true" org.eventb.core.label="sm_update-active"/>
+        <org.eventb.core.action name="_LDHqY3niEeqCyvJFqfliTQ" org.eventb.core.assignment="sm_active_leaf ≔ sm_new_leaf_state" org.eventb.core.generated="true" org.eventb.core.label="sm_update-active_leaf"/>
+        <org.eventb.core.action name="_LDHqZHniEeqCyvJFqfliTQ" org.eventb.core.assignment="scxml_iq ≔ scxml_iq ∪ scxml_R" org.eventb.core.generated="true" org.eventb.core.label="scxml_iq_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_LDHqZXniEeqCyvJFqfliTQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="completeUntriggered">
+        <org.eventb.core.guard name="_LDHqZnniEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_dt" org.eventb.core.predicate="scxml_dt = ∅"/>
+        <org.eventb.core.guard name="_LDHqZ3niEeqCyvJFqfliTQ" org.eventb.core.generated="true" org.eventb.core.label="scxml_uc" org.eventb.core.predicate="scxml_uc = FALSE"/>
+        <org.eventb.core.action name="_LDHqaHniEeqCyvJFqfliTQ" org.eventb.core.assignment="scxml_uc ≔ TRUE" org.eventb.core.generated="true" org.eventb.core.label="scxml_uc_set"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>
