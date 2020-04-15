@@ -1,0 +1,12 @@
+/*
+ * This context declares the set of triggers
+ * @author cfsnook
+ */
+context c0_0_triggers
+sets
+	TRIGGERS // The set of triggers
+constants
+	InternalTriggers ExternalTriggers
+axioms
+	@triggerKinds: partition (TRIGGERS, InternalTriggers, ExternalTriggers)
+end

@@ -1,0 +1,96 @@
+machine m0_scxml 
+sees c0_2_dequeue
+
+variables
+	iq
+	eq
+	dt
+	uc
+	
+invariants
+	@iq: iq ∈ ℙ(InternalTriggers)
+	@eq: eq ∈ ℙ(ExternalTriggers)
+	@dt: dt ∈ deQueue
+	@uc: uc ∈ BOOL
+	
+events
+
+	event INITIALISATION
+	then
+		@iq_init:	iq ≔ ∅ 
+		@eq_init: 	eq ≔ ∅
+		@dt_init:	dt ≔ ∅
+		@uc_init: 	uc ≔ FALSE
+	end
+	
+	event raiseExternalTrigger
+	any t where
+		@t:			t ∈ ExternalTriggers
+	then
+		@eq_set:		eq ≔ eq ∪ {t}
+	end
+	
+	event dequeueExternal
+	any t new_eq where 
+		@t: 			t ∈ eq
+		@new_eq:		new_eq = eq ∖ {t}
+		@dt:			dt = ∅
+		@uc:			uc = TRUE
+		@iq:			iq = ∅
+	then 
+		@dt_set: 	dt ≔ {t}
+		@eq_set:		eq ≔ new_eq 
+		@uc_set:		uc ≔ FALSE
+	end
+	
+	event dequeueInternal
+	any t new_eq where 
+		@t: 			t ∈ iq
+		@new_eq:		new_eq = eq ∖ {t}
+		@dt:			dt = ∅
+		@uc:			uc = TRUE 
+	then 
+		@dt_set: 	dt ≔ {t}
+		@eq_set:		eq ≔ new_eq 
+		@uc_set:		uc ≔ FALSE
+	end
+	
+	event triggeredTransition 
+	any t R
+	where 
+		@t: 			t ∈ dt
+		@R:			R ⊆ InternalTriggers
+		@uc:			uc = FALSE			//do we need this? 
+	then 
+		@dt_set: 	dt ≔ ∅
+		@iq_set:		iq ≔ iq ∪ R		//raised triggers
+	end
+	
+	event completeTriggered
+		any t where 
+		@t: 			t ∈ dt
+		@uc:			uc = FALSE			//do we need this? 
+	then 
+		@dt_set: 	dt ≔ ∅
+	end
+	
+	event untriggeredTransition
+	any R
+	where 
+		@dt: 		dt = ∅
+		@R:			R ⊆ InternalTriggers
+		@uc:			uc = FALSE		
+	then 
+		@iq_set:		iq ≔ iq ∪ R		//raised triggers
+	end
+	
+	event completeUntriggered
+	where
+		@dt: 		dt = ∅
+		@uc:			uc = FALSE
+	then
+		@uc_set:		uc ≔ TRUE
+	end
+	
+end
+
