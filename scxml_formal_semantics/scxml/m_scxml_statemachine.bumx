@@ -1,5 +1,5 @@
 machine m_scxml_statemachine
-includes m0_scxml as scxml
+includes scxml_m0_scxml as scxml
 includes SimpleStateMachine.m1_statemachine as sm
 
 sees c_scxml_statemachine c0_4_tree_prop

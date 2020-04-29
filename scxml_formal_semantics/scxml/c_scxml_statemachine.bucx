@@ -3,7 +3,7 @@
  * @author cfsnook
  */
 context c_scxml_statemachine 
-extends c0_2_dequeue c1_statemachine
+extends scxml_c0_2_dequeue c1_statemachine
 constants
 	triggeredTransitions // trigger - transition relationship
 axioms
