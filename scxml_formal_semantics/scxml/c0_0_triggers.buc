@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="3">
-    <org.eventb.core.carrierSet name="_ZuHEgHmoEeqCyvJFqfliTQ" org.eventb.core.generated="false" org.eventb.core.identifier="TRIGGERS"/>
-    <org.eventb.core.constant name="_ZuHEgXmoEeqCyvJFqfliTQ" org.eventb.core.generated="false" org.eventb.core.identifier="InternalTriggers"/>
-    <org.eventb.core.constant name="_ZuHEgnmoEeqCyvJFqfliTQ" org.eventb.core.generated="false" org.eventb.core.identifier="ExternalTriggers"/>
-    <org.eventb.core.axiom name="_ZuHEg3moEeqCyvJFqfliTQ" org.eventb.core.generated="false" org.eventb.core.label="triggerKinds" org.eventb.core.predicate="partition (TRIGGERS, InternalTriggers, ExternalTriggers)"/>
-</org.eventb.core.contextFile>

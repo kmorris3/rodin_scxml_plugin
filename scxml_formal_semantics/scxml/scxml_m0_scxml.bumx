@@ -1,5 +1,5 @@
-machine m0_scxml 
-sees c0_2_dequeue
+machine scxml_m0_scxml 
+sees scxml_c0_2_dequeue
 
 variables
 	iq

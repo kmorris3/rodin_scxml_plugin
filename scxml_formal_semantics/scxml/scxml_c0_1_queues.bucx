@@ -2,8 +2,8 @@
  * This context declares queues of triggers
  * @author cfsnook
  */
-context c0_1_queues 
-extends c0_0_triggers
+context scxml_c0_1_queues 
+extends scxml_c0_0_triggers
 constants
 	InternalQueue // The internal queues of triggers
 	ExternalQueue // The external queues of triggers

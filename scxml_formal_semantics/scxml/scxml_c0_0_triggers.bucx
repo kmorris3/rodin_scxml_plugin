@@ -2,7 +2,7 @@
  * This context declares the set of triggers
  * @author cfsnook
  */
-context c0_0_triggers
+context scxml_c0_0_triggers
 sets
 	TRIGGERS // The set of triggers
 constants
