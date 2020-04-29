@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="3">
-    <org.eventb.core.extendsContext name="_9yai0IoHEeq_bvuispR0HA" org.eventb.core.target="scxml_c0_2_dequeue"/>
-    <org.eventb.core.extendsContext name="_9yai0YoHEeq_bvuispR0HA" org.eventb.core.target="c1_statemachine"/>
-    <org.eventb.core.constant name="_9yai0ooHEeq_bvuispR0HA" org.eventb.core.generated="false" org.eventb.core.identifier="triggeredTransitions"/>
-    <org.eventb.core.axiom name="_9yai04oHEeq_bvuispR0HA" org.eventb.core.generated="false" org.eventb.core.label="tr_tr" org.eventb.core.predicate="triggeredTransitions ∈ leaves×leaves ⇸ TRIGGERS"/>
+<org.eventb.core.extendsContext name="_fZ7wYIomEeqRUvZAacZ5Jg" org.eventb.core.target="scxml_c0_2_dequeue"/>
+<org.eventb.core.extendsContext name="_fZ7wYYomEeqRUvZAacZ5Jg" org.eventb.core.target="c1_statemachine"/>
+<org.eventb.core.constant name="_fZ7wYoomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.identifier="triggeredTransitions"/>
+<org.eventb.core.axiom name="_fZ7wY4omEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.label="tr_tr" org.eventb.core.predicate="triggeredTransitions ∈ transitions ⇸ TRIGGERS"/>
 </org.eventb.core.contextFile>
