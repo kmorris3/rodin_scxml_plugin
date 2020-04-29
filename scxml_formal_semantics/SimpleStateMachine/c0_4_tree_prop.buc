@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="3">
-    <org.eventb.core.extendsContext name="_KyZMIFVWEeqnLd8n8l9IfQ" org.eventb.core.target="c0_3_tree_def"/>
-    <org.eventb.core.extendsContext name="_KyZMIVVWEeqnLd8n8l9IfQ" org.eventb.core.target="c0_3_linkedlist_def"/>
-    <org.eventb.core.axiom name="_KyZMIlVWEeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="irreflexive" org.eventb.core.predicate="∀ Sts, rt, prn · rt ↦ prn ∈ Tree(Sts) ⇒ prn ∩ id = ∅" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_KyZMI1VWEeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="closure_irreflexive" org.eventb.core.predicate="∀ Sts, rt, prn · rt ↦ prn ∈ Tree(Sts) ⇒ cl(prn) ∩ id = ∅" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_KyZMJFVWEeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="linked_list" org.eventb.core.predicate="∀ Sts, rt, prn · rt ↦ prn ∈ Tree(Sts) ⇒ ( ∀ f, sts · f ∈ Sts ∧ sts = cl(prn)[{f}] ∪ {f} ⇒ f ↦ rt ↦ sts ◁ prn ∈ LinkedList(sts))" org.eventb.core.theorem="true"/>
+    <org.eventb.core.extendsContext name="_KlDboFXCEeqnLd8n8l9IfQ" org.eventb.core.target="c0_3_tree_def"/>
+    <org.eventb.core.extendsContext name="_KlDboVXCEeqnLd8n8l9IfQ" org.eventb.core.target="c0_3_linkedlist_def"/>
+    <org.eventb.core.axiom name="_KlDbolXCEeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="no-cycles" org.eventb.core.predicate="∀ Sts, rt, prn · rt ↦ prn ∈ Tree(Sts) ⇒ ( ∀ T · T ⊆ Sts ∧ T ⊆ prn ∼ [T] ⇒ T = ∅)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_KlDbo1XCEeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="closure_irreflexive" org.eventb.core.predicate="∀ Sts, rt, prn · rt ↦ prn ∈ Tree(Sts) ⇒ cl(prn) ∩ id = ∅" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_KlECsFXCEeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="linked_list" org.eventb.core.predicate="∀ Sts, rt, prn · rt ↦ prn ∈ Tree(Sts) ⇒ ( ∀ f, sts · f ∈ Sts ∧ sts = cl(prn)[{f}] ∪ {f} ⇒ f ↦ rt ↦ sts ◁ prn ∈ LinkedList(sts))" org.eventb.core.theorem="true"/>
 </org.eventb.core.contextFile>
