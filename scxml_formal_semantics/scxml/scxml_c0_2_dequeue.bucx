@@ -2,11 +2,11 @@
  * This context declares the dequeued triggers
  * @author cfsnook
  */
-context c0_2_dequeue 
-extends c0_1_queues
+context scxml_c0_2_dequeue 
+extends scxml_c0_1_queues
 constants
 	deQueue // dequeued triggers
 axioms
-	@deQ_1: 		deQueue = ∅ ∪ {t · t ∈ TRIGGERS ∣ {t} }
+	@deQ_1: 		deQueue = {∅} ∪ {t · t ∈ TRIGGERS ∣ {t} }
 	theorem	@deQ_2: 		∅ ∈ deQueue 
 end
