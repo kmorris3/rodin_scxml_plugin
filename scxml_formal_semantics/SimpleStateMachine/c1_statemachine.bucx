@@ -3,7 +3,8 @@
  */
 context c1_statemachine
 extends c0_3_tree_def
-
+sets
+	TRANSITION // The set of all transitions
 constants
 	states // The set of states
 	root // The root state
@@ -11,6 +12,8 @@ constants
 	
 	leaves // The set of leaf states
 	transitions // The set of transitions
+	source // The source of each transition
+	target // The target of each transition
 
 	init // The initial states
 	init_leaf // The initial leaf
@@ -35,7 +38,12 @@ axioms
 	theorem @range-preservation: ran(container) = ran(cl(container))
 	
 	// Transitions are relation between leaf states
-	@typeof-transitions: transitions ∈ leaves ↔ leaves
+	theorem @typeof-transitions: transitions ⊆ TRANSITION
+	@typeof-source: source ∈ transitions → states // The source can be any state (non-deterministic)
+	@typeof-target: target ∈ transitions → states // The target can be any state (non-deterministic)
+	
+	// Parallel states:
+	// transitions : POW(states) <-> POW(leaves) 
 	
 	@typeof-init: init ⊆ states
 	@typeof-init_leaf: init_leaf ∈ leaves
