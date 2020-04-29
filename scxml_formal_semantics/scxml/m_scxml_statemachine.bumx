@@ -27,8 +27,8 @@ events
 	synchronises scxml.triggeredTransition
 	synchronises sm.transition
 	where 
-		@is_triggered:	sm_current_leaf_state ↦ sm_new_leaf_state∈dom(triggeredTransitions)
-		@trigger:		triggeredTransitions(sm_current_leaf_state ↦ sm_new_leaf_state) = scxml_t 
+		@is_triggered:	sm_transition ∈ dom(triggeredTransitions)
+		@trigger:		triggeredTransitions(sm_transition) = scxml_t 
 	end
 	
 	event completeTriggered
@@ -39,7 +39,7 @@ events
 	synchronises scxml.untriggeredTransition
 	synchronises sm.transition
 	where 
-		@not_triggered: 	sm_current_leaf_state ↦ sm_new_leaf_state ∉ dom(triggeredTransitions)
+		@not_triggered: 	sm_transition ∉ dom(triggeredTransitions)
 	end
 	
 	event completeUntriggered

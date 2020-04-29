@@ -7,5 +7,5 @@ extends scxml_c0_2_dequeue c1_statemachine
 constants
 	triggeredTransitions // trigger - transition relationship
 axioms
-	@tr_tr: 	triggeredTransitions ∈ leaves×leaves ⇸ TRIGGERS 
+	@tr_tr: 	triggeredTransitions ∈ transitions ⇸ TRIGGERS 
 end

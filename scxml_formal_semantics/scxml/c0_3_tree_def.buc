@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="3">
-    <org.eventb.core.extendsContext name="_3gaOsIoGEeq_bvuispR0HA" org.eventb.core.target="c0_2_closure_prop"/>
-    <org.eventb.core.constant name="_3ga1wIoGEeq_bvuispR0HA" org.eventb.core.generated="false" org.eventb.core.identifier="Tree"/>
-    <org.eventb.core.axiom name="_3ga1wYoGEeq_bvuispR0HA" org.eventb.core.generated="false" org.eventb.core.label="def-Tree" org.eventb.core.predicate="Tree = ( λ Sts · Sts ⊆ STATE ∣ { rt ↦ prn ∣ rt ∈ Sts ∧ prn ∈ Sts ∖ {rt} → Sts ∧ ( ∀ n · n ∈ Sts ∖ {rt} ⇒ rt ∈ cl(prn)[{n}]) } )"/>
-    <org.eventb.core.axiom name="_3ga1wooGEeq_bvuispR0HA" org.eventb.core.generated="false" org.eventb.core.label="typeof-Tree" org.eventb.core.predicate="Tree ∈ ℙ(STATE) → ℙ(STATE × (STATE ↔ STATE))" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_3ga1w4oGEeq_bvuispR0HA" org.eventb.core.generated="false" org.eventb.core.label="func-Tree" org.eventb.core.predicate="∀ Sts · Tree(Sts) = { rt ↦ prn ∣ rt ∈ Sts ∧ prn ∈ Sts ∖ {rt} → Sts ∧ ( ∀ n · n ∈ Sts ∖ {rt} ⇒ rt ∈ cl(prn)[{n}]) }" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_3ga1xIoGEeq_bvuispR0HA" org.eventb.core.generated="false" org.eventb.core.label="all_node" org.eventb.core.predicate="∀ Sts, rt, prn · rt ↦ prn ∈ Tree(Sts) ⇒ Sts = cl(prn ∼ )[{rt}] ∪ {rt}" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_3ga1xYoGEeq_bvuispR0HA" org.eventb.core.generated="false" org.eventb.core.label="induction-Tree" org.eventb.core.predicate="∀ Sts, rt, prn · rt ↦ prn ∈ Tree(Sts) ⇒ ( ∀ T · rt ∈ T ∧ prn ∼[T] ⊆ T ⇒ Sts ⊆ T)" org.eventb.core.theorem="true"/>
+<org.eventb.core.extendsContext name="_Ow6IoIomEeqRUvZAacZ5Jg" org.eventb.core.target="c0_2_closure_prop"/>
+<org.eventb.core.constant name="_Ow6IoYomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.identifier="Tree"/>
+<org.eventb.core.axiom name="_Ow6IooomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.label="def-Tree" org.eventb.core.predicate="Tree = ( λ Sts · Sts ⊆ STATE ∣ { rt ↦ prn ∣ rt ∈ Sts ∧ prn ∈ Sts ∖ {rt} → Sts ∧ ( ∀ n · n ∈ Sts ∖ {rt} ⇒ rt ∈ cl(prn)[{n}]) } )"/>
+<org.eventb.core.axiom name="_Ow6Io4omEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.label="typeof-Tree" org.eventb.core.predicate="Tree ∈ ℙ(STATE) → ℙ(STATE × (STATE ↔ STATE))" org.eventb.core.theorem="true"/>
+<org.eventb.core.axiom name="_Ow6IpIomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.label="func-Tree" org.eventb.core.predicate="∀ Sts · Tree(Sts) = { rt ↦ prn ∣ rt ∈ Sts ∧ prn ∈ Sts ∖ {rt} → Sts ∧ ( ∀ n · n ∈ Sts ∖ {rt} ⇒ rt ∈ cl(prn)[{n}]) }" org.eventb.core.theorem="true"/>
+<org.eventb.core.axiom name="_Ow6IpYomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.label="all_node" org.eventb.core.predicate="∀ Sts, rt, prn · rt ↦ prn ∈ Tree(Sts) ⇒ Sts = cl(prn ∼ )[{rt}] ∪ {rt}" org.eventb.core.theorem="true"/>
+<org.eventb.core.axiom name="_Ow6IpoomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.label="induction-Tree" org.eventb.core.predicate="∀ Sts, rt, prn · rt ↦ prn ∈ Tree(Sts) ⇒ ( ∀ T · rt ∈ T ∧ prn ∼[T] ⊆ T ⇒ Sts ⊆ T)" org.eventb.core.theorem="true"/>
 </org.eventb.core.contextFile>
