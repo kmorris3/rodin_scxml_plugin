@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="3">
-    <org.eventb.core.extendsContext name="_yJtJ8FS3EeqnLd8n8l9IfQ" org.eventb.core.target="c0_1_closure_def"/>
-    <org.eventb.core.constant name="_yJtJ8VS3EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.identifier="LinkedList"/>
-    <org.eventb.core.axiom name="_yJtJ8lS3EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="def-LinkedList" org.eventb.core.predicate="LinkedList = ( λ Sts · Sts ⊆ STATE ∣ { fst ↦ lst ↦ lnks ∣ fst ∈ Sts ∧ lst ∈ Sts ∧ lnks ∈ Sts ∖ {lst} ⤖ Sts ∖ {fst} ∧ (fst ≠ lst ⇒ lst ∈ cl(lnks)[{fst}]) } )"/>
-    <org.eventb.core.axiom name="_yJtJ81S3EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="typeof-LinkedList" org.eventb.core.predicate="LinkedList ∈ ℙ(STATE) → ℙ(STATE × STATE × (STATE ↔ STATE))" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_yJtxAFS3EeqnLd8n8l9IfQ" org.eventb.core.generated="false" org.eventb.core.label="func-LinkedList" org.eventb.core.predicate="∀ Sts · LinkedList(Sts) = { fst ↦ lst ↦ lnks ∣ fst ∈ Sts ∧ lst ∈ Sts ∧ lnks ∈ Sts ∖ {lst} ⤖ Sts ∖ {fst} ∧ (fst ≠ lst ⇒ lst ∈ cl(lnks)[{fst}]) }" org.eventb.core.theorem="true"/>
+    <org.eventb.core.extendsContext name="_BFzgsI3uEeqclcC7UP0ENA" org.eventb.core.target="c0_1_closure_def"/>
+    <org.eventb.core.constant name="_BFzgsY3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="LinkedList"/>
+    <org.eventb.core.axiom name="_BF0HwI3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="def-LinkedList" org.eventb.core.predicate="LinkedList = ( λ Sts · Sts ⊆ STATE ∣ { fst ↦ lst ↦ lnks ∣ fst ∈ Sts ∧ lst ∈ Sts ∧ lnks ∈ Sts ∖ {lst} ⤖ Sts ∖ {fst} ∧ (fst ≠ lst ⇒ lst ∈ cl(lnks)[{fst}]) } )"/>
+    <org.eventb.core.axiom name="_BF0HwY3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="typeof-LinkedList" org.eventb.core.predicate="LinkedList ∈ ℙ(STATE) → ℙ(STATE × STATE × (STATE ↔ STATE))" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_BF0Hwo3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="func-LinkedList" org.eventb.core.predicate="∀ Sts · LinkedList(Sts) = { fst ↦ lst ↦ lnks ∣ fst ∈ Sts ∧ lst ∈ Sts ∧ lnks ∈ Sts ∖ {lst} ⤖ Sts ∖ {fst} ∧ (fst ≠ lst ⇒ lst ∈ cl(lnks)[{fst}]) }" org.eventb.core.theorem="true"/>
 </org.eventb.core.contextFile>

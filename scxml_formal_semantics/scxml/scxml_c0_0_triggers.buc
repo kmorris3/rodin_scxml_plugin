@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="3">
+<<<<<<< Updated upstream
 <org.eventb.core.carrierSet name="_OxD5oIomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.identifier="TRIGGERS"/>
 <org.eventb.core.constant name="_OxD5oYomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.identifier="InternalTriggers"/>
 <org.eventb.core.constant name="_OxD5ooomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.identifier="ExternalTriggers"/>
 <org.eventb.core.axiom name="_OxD5o4omEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.label="triggerKinds" org.eventb.core.predicate="partition (TRIGGERS, InternalTriggers, ExternalTriggers)"/>
+=======
+    <org.eventb.core.carrierSet name="_BTW0gI3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="TRIGGERS"/>
+    <org.eventb.core.constant name="_BTW0gY3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="InternalTriggers"/>
+    <org.eventb.core.constant name="_BTW0go3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="ExternalTriggers"/>
+    <org.eventb.core.axiom name="_BTXbkI3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="triggerKinds" org.eventb.core.predicate="partition (TRIGGERS, InternalTriggers, ExternalTriggers)"/>
+>>>>>>> Stashed changes
 </org.eventb.core.contextFile>

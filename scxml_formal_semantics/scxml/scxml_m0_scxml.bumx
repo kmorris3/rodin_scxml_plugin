@@ -1,48 +1,53 @@
 machine scxml_m0_scxml 
-sees scxml_c0_2_dequeue
+sees scxml_c0_3_models
+  
+records
+record r extends SCXMLMODEL
+	iq : InternalQueue
+	eq : ExternalQueue
+	dt : deQueue
+	uc : BOOL
 
-variables
-	iq
-	eq
-	dt
-	uc
-	
-invariants
-	@iq: iq ∈ ℙ(InternalTriggers)
-	@eq: eq ∈ ℙ(ExternalTriggers)
-	@dt: dt ∈ deQueue
-	@uc: uc ∈ BOOL
+//variables
+//	iq eq dt uc
+//		
+//invariants
+//	@iq: iq ∈ SCXML → InternalQueue
+//	@eq: eq ∈ SCXML → ExternalQueue
+//	@dt: dt ∈ SCXML → deQueue
+//	@uc: uc ∈ SCXML → BOOL
 	
 events
 
 	event INITIALISATION
 	then
-		@iq_init:	iq ≔ ∅ 
-		@eq_init: 	eq ≔ ∅
-		@dt_init:	dt ≔ ∅
-		@uc_init: 	uc ≔ FALSE
+		@iq_init:	iq ≔ SCXML × ∅ 
+		@eq_init: 	eq ≔ SCXML × ∅
+		@dt_init:	dt ≔ SCXML × ∅
+		@uc_init: 	uc ≔ SCXML × FALSE
 	end
-	
+
 	event raiseExternalTrigger
-	any t where
-		@t:			t ∈ ExternalTriggers
+	any m t where
+		@m:			m ∈ SCXML ℕ1
+		@t:			t ∈ externalTriggers(m)
 	then
-		@eq_set:		eq ≔ eq ∪ {t}
+		@eq_set:		m.eq ≔ m.eq ∪ {t}
 	end
-	
+
 	event dequeueExternal
-	any t new_eq where 
-		@t: 			t ∈ eq
-		@new_eq:		new_eq = eq ∖ {t}
-		@dt:			dt = ∅
-		@uc:			uc = TRUE
-		@iq:			iq = ∅
+	any m t new_eq where 
+		@t: 			t ∈ m.eq
+		@new_eq:		new_eq = m.eq ∖ {t}
+		@dt:			m.dt = ∅
+		@uc:			m.uc = TRUE
+		@iq:			m.iq = ∅
 	then 
-		@dt_set: 	dt ≔ {t}
-		@eq_set:		eq ≔ new_eq 
-		@uc_set:		uc ≔ FALSE
+		@dt_set: 	m.dt ≔ {t}
+		@eq_set:		m.eq ≔ new_eq 
+		@uc_set:		m.uc ≔ FALSE
 	end
-	
+
 	event dequeueInternal
 	any t new_eq where 
 		@t: 			t ∈ iq

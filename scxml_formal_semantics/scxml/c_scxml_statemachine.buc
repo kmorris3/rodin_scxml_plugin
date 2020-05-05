@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="3">
+<<<<<<< Updated upstream
 <org.eventb.core.extendsContext name="_fZ7wYIomEeqRUvZAacZ5Jg" org.eventb.core.target="scxml_c0_2_dequeue"/>
 <org.eventb.core.extendsContext name="_fZ7wYYomEeqRUvZAacZ5Jg" org.eventb.core.target="c1_statemachine"/>
 <org.eventb.core.constant name="_fZ7wYoomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.identifier="triggeredTransitions"/>
 <org.eventb.core.axiom name="_fZ7wY4omEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.label="tr_tr" org.eventb.core.predicate="triggeredTransitions ∈ transitions ⇸ TRIGGERS"/>
+=======
+    <org.eventb.core.extendsContext name="_BTGV0I3uEeqclcC7UP0ENA" org.eventb.core.target="scxml_c0_2_dequeue"/>
+    <org.eventb.core.extendsContext name="_BTGV0Y3uEeqclcC7UP0ENA" org.eventb.core.target="c1_statemachine"/>
+    <org.eventb.core.constant name="_BTG84I3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="triggeredTransitions"/>
+    <org.eventb.core.axiom name="_BTG84Y3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="tr_tr" org.eventb.core.predicate="triggeredTransitions ∈ leaves×leaves ⇸ TRIGGERS"/>
+>>>>>>> Stashed changes
 </org.eventb.core.contextFile>

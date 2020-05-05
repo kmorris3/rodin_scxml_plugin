@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< Updated upstream
 <org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="5">
 <org.eventb.core.seesContext name="_OwqRAIomEeqRUvZAacZ5Jg" org.eventb.core.target="scxml_c0_2_dequeue"/>
 <org.eventb.core.variable name="_OwqRAYomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.identifier="iq"/>
@@ -70,4 +71,83 @@
 <org.eventb.core.guard name="_OwvJh4omEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc = FALSE"/>
 <org.eventb.core.action name="_OwvwkIomEeqRUvZAacZ5Jg" org.eventb.core.assignment="uc ≔ TRUE" org.eventb.core.generated="false" org.eventb.core.label="uc_set"/>
 </org.eventb.core.event>
+=======
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="true" org.eventb.emf.persistence.generator_ID="http://emf.eventb.org/models/core/machine/2014::Machine::scxml_m0_scxml" version="5">
+    <org.eventb.core.seesContext name="_Bv0uEI3uEeqclcC7UP0ENA" org.eventb.core.target="scxml_c0_3_models"/>
+    <ac.soton.eventb.emf.core.extension.persistence.serialisedExtension ac.soton.eventb.emf.core.extension.persistence.eClassifier="Record" ac.soton.eventb.emf.core.extension.persistence.ePackageURI="http://soton.ac.uk/models/eventb/record/2019" ac.soton.eventb.emf.core.extension.persistence.serialised="&lt;record:Record xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:record=&quot;http://soton.ac.uk/models/eventb/record/2019&quot; name=&quot;r&quot; subsets=&quot;platform:/resource/scxml/scxml_c0_3_models.buc#http://soton.ac.uk/models/eventb/record/2019::Record::scxml_c0_3_models.SCXMLMODEL&quot;&gt;&#10;  &lt;annotations source=&quot;http:///org/eventb/core/RodinInternalAnnotations&quot;&gt;&#10;    &lt;details key=&quot;name&quot; value=&quot;_Bv1VII3uEeqclcC7UP0ENA&quot;/&gt;&#10;  &lt;/annotations&gt;&#10;  &lt;fields name=&quot;iq&quot; type=&quot;InternalQueue&quot;/&gt;&#10;  &lt;fields name=&quot;eq&quot; type=&quot;ExternalQueue&quot;/&gt;&#10;  &lt;fields name=&quot;dt&quot; type=&quot;deQueue&quot;/&gt;&#10;  &lt;fields name=&quot;uc&quot; type=&quot;BOOL&quot;/&gt;&#10;&lt;/record:Record&gt;&#10;" name="_Bv1VII3uEeqclcC7UP0ENA" org.eventb.core.generated="false"/>
+    <org.eventb.core.variable name="_Bv18MI3uEeqclcC7UP0ENA" org.eventb.core.comment="record translation variable" org.eventb.core.generated="true" org.eventb.core.identifier="r"/>
+    <org.eventb.core.variable name="_Bv18MY3uEeqclcC7UP0ENA" org.eventb.core.comment="record field translation variable" org.eventb.core.generated="true" org.eventb.core.identifier="iq"/>
+    <org.eventb.core.variable name="_Bv18Mo3uEeqclcC7UP0ENA" org.eventb.core.comment="record field translation variable" org.eventb.core.generated="true" org.eventb.core.identifier="eq"/>
+    <org.eventb.core.variable name="_Bv18M43uEeqclcC7UP0ENA" org.eventb.core.comment="record field translation variable" org.eventb.core.generated="true" org.eventb.core.identifier="dt"/>
+    <org.eventb.core.variable name="_Bv18NI3uEeqclcC7UP0ENA" org.eventb.core.comment="record field translation variable" org.eventb.core.generated="true" org.eventb.core.identifier="uc"/>
+    <org.eventb.core.invariant name="_Bv18NY3uEeqclcC7UP0ENA" org.eventb.core.comment="record translation invariant" org.eventb.core.generated="true" org.eventb.core.label="inv_r" org.eventb.core.predicate="r ⊆ SCXMLMODEL"/>
+    <org.eventb.core.invariant name="_Bv2jQI3uEeqclcC7UP0ENA" org.eventb.core.comment="record field translation invariant" org.eventb.core.generated="true" org.eventb.core.label="inv_r_iq" org.eventb.core.predicate="iq ∈ r → InternalQueue"/>
+    <org.eventb.core.invariant name="_Bv2jQY3uEeqclcC7UP0ENA" org.eventb.core.comment="record field translation invariant" org.eventb.core.generated="true" org.eventb.core.label="inv_r_eq" org.eventb.core.predicate="eq ∈ r → ExternalQueue"/>
+    <org.eventb.core.invariant name="_Bv2jQo3uEeqclcC7UP0ENA" org.eventb.core.comment="record field translation invariant" org.eventb.core.generated="true" org.eventb.core.label="inv_r_dt" org.eventb.core.predicate="dt ∈ r → deQueue"/>
+    <org.eventb.core.invariant name="_Bv3KUI3uEeqclcC7UP0ENA" org.eventb.core.comment="record field translation invariant" org.eventb.core.generated="true" org.eventb.core.label="inv_r_uc" org.eventb.core.predicate="uc ∈ r → BOOL"/>
+    <org.eventb.core.event name="_Bv3KUY3uEeqclcC7UP0ENA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_Bv3KUo3uEeqclcC7UP0ENA" org.eventb.core.assignment="iq ≔ SCXML × ∅" org.eventb.core.generated="false" org.eventb.core.label="iq_init"/>
+        <org.eventb.core.action name="_Bv3KU43uEeqclcC7UP0ENA" org.eventb.core.assignment="eq ≔ SCXML × ∅" org.eventb.core.generated="false" org.eventb.core.label="eq_init"/>
+        <org.eventb.core.action name="_Bv3xYI3uEeqclcC7UP0ENA" org.eventb.core.assignment="dt ≔ SCXML × ∅" org.eventb.core.generated="false" org.eventb.core.label="dt_init"/>
+        <org.eventb.core.action name="_Bv3xYY3uEeqclcC7UP0ENA" org.eventb.core.assignment="uc ≔ SCXML × FALSE" org.eventb.core.generated="false" org.eventb.core.label="uc_init"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_Bv4YcI3uEeqclcC7UP0ENA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="raiseExternalTrigger">
+        <org.eventb.core.parameter name="_Bv4YcY3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="m"/>
+        <org.eventb.core.parameter name="_Bv4Yco3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="t"/>
+        <org.eventb.core.guard name="_Bv4Yc43uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="m" org.eventb.core.predicate="m ∈ SCXML ℕ1"/>
+        <org.eventb.core.guard name="_Bv4YdI3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="t" org.eventb.core.predicate="t ∈ externalTriggers(m)"/>
+        <org.eventb.core.action name="_Bv4_gI3uEeqclcC7UP0ENA" org.eventb.core.assignment="m·eq ≔ m·eq ∪ {t}" org.eventb.core.generated="false" org.eventb.core.label="eq_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_Bv4_gY3uEeqclcC7UP0ENA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="dequeueExternal">
+        <org.eventb.core.parameter name="_Bv4_go3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="m"/>
+        <org.eventb.core.parameter name="_Bv4_g43uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="t"/>
+        <org.eventb.core.parameter name="_Bv5mkI3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="new_eq"/>
+        <org.eventb.core.guard name="_Bv5mkY3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="t" org.eventb.core.predicate="t ∈ m·eq"/>
+        <org.eventb.core.guard name="_Bv5mko3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="new_eq" org.eventb.core.predicate="new_eq = m·eq ∖ {t}"/>
+        <org.eventb.core.guard name="_Bv5mk43uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="dt" org.eventb.core.predicate="m·dt = ∅"/>
+        <org.eventb.core.guard name="_Bv6NoI3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="m·uc = TRUE"/>
+        <org.eventb.core.guard name="_Bv6NoY3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="iq" org.eventb.core.predicate="m·iq = ∅"/>
+        <org.eventb.core.action name="_Bv6Noo3uEeqclcC7UP0ENA" org.eventb.core.assignment="m·dt ≔ {t}" org.eventb.core.generated="false" org.eventb.core.label="dt_set"/>
+        <org.eventb.core.action name="_Bv6No43uEeqclcC7UP0ENA" org.eventb.core.assignment="m·eq ≔ new_eq" org.eventb.core.generated="false" org.eventb.core.label="eq_set"/>
+        <org.eventb.core.action name="_Bv6NpI3uEeqclcC7UP0ENA" org.eventb.core.assignment="m·uc ≔ FALSE" org.eventb.core.generated="false" org.eventb.core.label="uc_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_Bv60sI3uEeqclcC7UP0ENA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="dequeueInternal">
+        <org.eventb.core.parameter name="_Bv60sY3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="t"/>
+        <org.eventb.core.parameter name="_Bv60so3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="new_eq"/>
+        <org.eventb.core.guard name="_Bv7bwI3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="t" org.eventb.core.predicate="t ∈ iq"/>
+        <org.eventb.core.guard name="_Bv7bwY3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="new_eq" org.eventb.core.predicate="new_eq = eq ∖ {t}"/>
+        <org.eventb.core.guard name="_Bv7bwo3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="dt" org.eventb.core.predicate="dt = ∅"/>
+        <org.eventb.core.guard name="_Bv7bw43uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc = TRUE"/>
+        <org.eventb.core.action name="_Bv7bxI3uEeqclcC7UP0ENA" org.eventb.core.assignment="dt ≔ {t}" org.eventb.core.generated="false" org.eventb.core.label="dt_set"/>
+        <org.eventb.core.action name="_Bv8C0I3uEeqclcC7UP0ENA" org.eventb.core.assignment="eq ≔ new_eq" org.eventb.core.generated="false" org.eventb.core.label="eq_set"/>
+        <org.eventb.core.action name="_Bv8C0Y3uEeqclcC7UP0ENA" org.eventb.core.assignment="uc ≔ FALSE" org.eventb.core.generated="false" org.eventb.core.label="uc_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_Bv8C0o3uEeqclcC7UP0ENA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="triggeredTransition">
+        <org.eventb.core.parameter name="_Bv8C043uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="t"/>
+        <org.eventb.core.parameter name="_Bv8p4I3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="R"/>
+        <org.eventb.core.guard name="_Bv8p4Y3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="t" org.eventb.core.predicate="t ∈ dt"/>
+        <org.eventb.core.guard name="_Bv8p4o3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="R" org.eventb.core.predicate="R ⊆ InternalTriggers"/>
+        <org.eventb.core.guard name="_Bv8p443uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc = FALSE"/>
+        <org.eventb.core.action name="_Bv8p5I3uEeqclcC7UP0ENA" org.eventb.core.assignment="dt ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="dt_set"/>
+        <org.eventb.core.action name="_Bv9Q8I3uEeqclcC7UP0ENA" org.eventb.core.assignment="iq ≔ iq ∪ R" org.eventb.core.generated="false" org.eventb.core.label="iq_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_Bv9Q8Y3uEeqclcC7UP0ENA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="completeTriggered">
+        <org.eventb.core.parameter name="_Bv9Q8o3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="t"/>
+        <org.eventb.core.guard name="_Bv9Q843uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="t" org.eventb.core.predicate="t ∈ dt"/>
+        <org.eventb.core.guard name="_Bv94AI3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc = FALSE"/>
+        <org.eventb.core.action name="_Bv94AY3uEeqclcC7UP0ENA" org.eventb.core.assignment="dt ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="dt_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_Bv94Ao3uEeqclcC7UP0ENA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="untriggeredTransition">
+        <org.eventb.core.parameter name="_Bv94A43uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="R"/>
+        <org.eventb.core.guard name="_Bv94BI3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="dt" org.eventb.core.predicate="dt = ∅"/>
+        <org.eventb.core.guard name="_Bv-fEI3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="R" org.eventb.core.predicate="R ⊆ InternalTriggers"/>
+        <org.eventb.core.guard name="_Bv-fEY3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc = FALSE"/>
+        <org.eventb.core.action name="_Bv-fEo3uEeqclcC7UP0ENA" org.eventb.core.assignment="iq ≔ iq ∪ R" org.eventb.core.generated="false" org.eventb.core.label="iq_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_Bv-fE43uEeqclcC7UP0ENA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="completeUntriggered">
+        <org.eventb.core.guard name="_Bv_GII3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="dt" org.eventb.core.predicate="dt = ∅"/>
+        <org.eventb.core.guard name="_Bv_GIY3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc = FALSE"/>
+        <org.eventb.core.action name="_Bv_tMI3uEeqclcC7UP0ENA" org.eventb.core.assignment="uc ≔ TRUE" org.eventb.core.generated="false" org.eventb.core.label="uc_set"/>
+    </org.eventb.core.event>
+>>>>>>> Stashed changes
 </org.eventb.core.machineFile>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="3">
+<<<<<<< Updated upstream
 <org.eventb.core.extendsContext name="_OxCEcIomEeqRUvZAacZ5Jg" org.eventb.core.target="c0_0_states"/>
 <org.eventb.core.constant name="_OxCrgIomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.identifier="cl"/>
 <org.eventb.core.axiom name="_OxCrgYomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.label="def-cl" org.eventb.core.predicate="cl = (λ r · r ∈ STATE ↔ STATE ∣ inter({p ∣ r ⊆ p ∧ p;p ⊆ p}))"/>
@@ -7,4 +8,13 @@
 <org.eventb.core.axiom name="_OxCrg4omEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.label="thm1-cl_strengthen" org.eventb.core.predicate="∀ r· r ⊆ cl(r)" org.eventb.core.theorem="true"/>
 <org.eventb.core.axiom name="_OxCrhIomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.label="thm2-cl_transitivity" org.eventb.core.predicate="∀ r·cl(r);cl(r) ⊆ cl(r)" org.eventb.core.theorem="true"/>
 <org.eventb.core.axiom name="_OxCrhYomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.label="thm3-cl_minimal" org.eventb.core.predicate="∀ r·(∀ p· r⊆p ∧ p;p⊆p ⇒ cl(r)⊆p)" org.eventb.core.theorem="true"/>
+=======
+    <org.eventb.core.extendsContext name="_BTA2QI3uEeqclcC7UP0ENA" org.eventb.core.target="c0_0_states"/>
+    <org.eventb.core.constant name="_BTA2QY3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="cl"/>
+    <org.eventb.core.axiom name="_BTA2Qo3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="def-cl" org.eventb.core.predicate="cl = (λ r · r ∈ STATE ↔ STATE ∣ inter({p ∣ r ⊆ p ∧ p;p ⊆ p}))"/>
+    <org.eventb.core.axiom name="_BTA2Q43uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="typeof-cl" org.eventb.core.predicate="cl ∈ (STATE ↔ STATE) → (STATE ↔ STATE)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_BTBdUI3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="thm1-cl_strengthen" org.eventb.core.predicate="∀ r· r ⊆ cl(r)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_BTBdUY3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="thm2-cl_transitivity" org.eventb.core.predicate="∀ r·cl(r);cl(r) ⊆ cl(r)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_BTBdUo3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="thm3-cl_minimal" org.eventb.core.predicate="∀ r·(∀ p· r⊆p ∧ p;p⊆p ⇒ cl(r)⊆p)" org.eventb.core.theorem="true"/>
+>>>>>>> Stashed changes
 </org.eventb.core.contextFile>
