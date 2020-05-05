@@ -1,5 +1,3 @@
 SF(SCXML_futureRaiseExternalTrigger) & SF(SCXML_dequeueInternalTrigger) & SF(SCXML_dequeueExternalTrigger) & SF(SCXML_futureTriggeredTransitionSet) & SF(SCXML_noTriggeredTransitionsEnabled) & SF(SCXML_futureUntriggeredTransitionSet) & SF(SCXML_NoUntriggeredTransitions) & SF(ExternalTriggerEvent_toTakeoff) & SF(ExternalTriggerEvent_off) & SF(ExternalTriggerEvent_on) & SF(ExternalTriggerEvent_Landed) &
 SF(ExternalTriggerEvent_decreaseCharge) &
-SF(toTakeoff__OPERATIONAL_OPERATIONAL) & SF(decreaseCharge__BATTERYOK_BATTERYOK) & SF(SHUTDOWN_OFF) & SF(toTakeoff__START_OPERATIONAL) & SF(off__OPERATIONAL_SHUTDOWN) & SF(toLand__TAKEOFF_DESCEND) & SF(on__OFF_START) & SF(toFly__TAKEOFF_FLY) & SF(Landed__DESCEND_LANDED) & SF(toLand__FLY_DESCEND) & SF(BATTERYOK_BATTERYLOW)
-=> 
-G ([ExternalTriggerEvent_decreaseCharge] & {BATTERYOK = TRUE & charge >=10 & off/:SCXML_dt\/SCXML_eq} => F {charge < old_charge})
+SF(toTakeoff__OPERATIONAL_OPERATIONAL) & SF(decreaseCharge__BATTERYOK_BATTERYOK) & SF(SHUTDOWN_OFF) & SF(toTakeoff__START_OPERATIONAL) & SF(off__OPERATIONAL_SHUTDOWN) & SF(toLand__TAKEOFF_DESCEND) & SF(on__OFF_START) & SF(toFly__TAKEOFF_FLY) & SF(Landed__DESCEND_LANDED) & SF(toLand__FLY_DESCEND) & SF(BATTERYOK_BATTERYLOW)=> G ([ExternalTriggerEvent_decreaseCharge] & {BATTERYOK = TRUE & charge >=10 & off/:SCXML_dt\/SCXML_eq} => F {charge < old_charge})

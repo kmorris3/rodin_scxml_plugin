@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="3">
-<<<<<<< Updated upstream
 <org.eventb.core.extendsContext name="_Ow4TcIomEeqRUvZAacZ5Jg" org.eventb.core.target="scxml_c0_0_triggers"/>
 <org.eventb.core.constant name="_Ow4TcYomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.identifier="InternalQueue"/>
 <org.eventb.core.constant name="_Ow4TcoomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.identifier="ExternalQueue"/>
 <org.eventb.core.axiom name="_Ow4Tc4omEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.label="intQ" org.eventb.core.predicate="InternalQueue = ℙ(InternalTriggers)"/>
 <org.eventb.core.axiom name="_Ow4TdIomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.label="extQ" org.eventb.core.predicate="ExternalQueue = ℙ(ExternalTriggers)"/>
-=======
-    <org.eventb.core.extendsContext name="_BS79wI3uEeqclcC7UP0ENA" org.eventb.core.target="scxml_c0_0_triggers"/>
-    <org.eventb.core.constant name="_BS79wY3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="InternalQueue"/>
-    <org.eventb.core.constant name="_BS79wo3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="ExternalQueue"/>
-    <org.eventb.core.axiom name="_BS8k0I3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="intQ" org.eventb.core.predicate="InternalQueue = ℙ(InternalTriggers)"/>
-    <org.eventb.core.axiom name="_BS8k0Y3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.label="extQ" org.eventb.core.predicate="ExternalQueue = ℙ(ExternalTriggers)"/>
->>>>>>> Stashed changes
 </org.eventb.core.contextFile>

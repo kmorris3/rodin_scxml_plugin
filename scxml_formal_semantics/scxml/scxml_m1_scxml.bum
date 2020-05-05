@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="5">
-<<<<<<< Updated upstream
 <org.eventb.core.refinesMachine name="_OwVg4IomEeqRUvZAacZ5Jg" org.eventb.core.target="scxml_m0_scxml"/>
 <org.eventb.core.seesContext name="_OwVg4YomEeqRUvZAacZ5Jg" org.eventb.core.target="scxml_c0_2_dequeue"/>
 <org.eventb.core.variable name="_OwVg4oomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.identifier="iq"/>
@@ -29,34 +28,4 @@
 <org.eventb.core.event name="_OwWvCIomEeqRUvZAacZ5Jg" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="completeUntriggered">
 <org.eventb.core.refinesEvent name="_OwXWEIomEeqRUvZAacZ5Jg" org.eventb.core.target="completeUntriggered"/>
 </org.eventb.core.event>
-=======
-    <org.eventb.core.refinesMachine name="_BSaZUI3uEeqclcC7UP0ENA" org.eventb.core.target="scxml_m0_scxml"/>
-    <org.eventb.core.seesContext name="_BSbAYI3uEeqclcC7UP0ENA" org.eventb.core.target="scxml_c0_2_dequeue"/>
-    <org.eventb.core.variable name="_BSbAYY3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="iq"/>
-    <org.eventb.core.variable name="_BSbAYo3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="eq"/>
-    <org.eventb.core.variable name="_BSbAY43uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="dt"/>
-    <org.eventb.core.variable name="_BSbncI3uEeqclcC7UP0ENA" org.eventb.core.generated="false" org.eventb.core.identifier="uc"/>
-    <org.eventb.core.event name="_BSbncY3uEeqclcC7UP0ENA" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION"/>
-    <org.eventb.core.event name="_BSbnco3uEeqclcC7UP0ENA" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="raiseExternalTrigger">
-        <org.eventb.core.refinesEvent name="_BSbnc43uEeqclcC7UP0ENA" org.eventb.core.target="raiseExternalTrigger"/>
-    </org.eventb.core.event>
-    <org.eventb.core.event name="_BScOgI3uEeqclcC7UP0ENA" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="dequeueExternal">
-        <org.eventb.core.refinesEvent name="_BScOgY3uEeqclcC7UP0ENA" org.eventb.core.target="dequeueExternal"/>
-    </org.eventb.core.event>
-    <org.eventb.core.event name="_BScOgo3uEeqclcC7UP0ENA" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="dequeueInternal">
-        <org.eventb.core.refinesEvent name="_BScOg43uEeqclcC7UP0ENA" org.eventb.core.target="dequeueInternal"/>
-    </org.eventb.core.event>
-    <org.eventb.core.event name="_BScOhI3uEeqclcC7UP0ENA" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="triggeredTransition">
-        <org.eventb.core.refinesEvent name="_BSc1kI3uEeqclcC7UP0ENA" org.eventb.core.target="triggeredTransition"/>
-    </org.eventb.core.event>
-    <org.eventb.core.event name="_BSc1kY3uEeqclcC7UP0ENA" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="completeTriggered">
-        <org.eventb.core.refinesEvent name="_BSc1ko3uEeqclcC7UP0ENA" org.eventb.core.target="completeTriggered"/>
-    </org.eventb.core.event>
-    <org.eventb.core.event name="_BSc1k43uEeqclcC7UP0ENA" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="untriggeredTransition">
-        <org.eventb.core.refinesEvent name="_BSdcoI3uEeqclcC7UP0ENA" org.eventb.core.target="untriggeredTransition"/>
-    </org.eventb.core.event>
-    <org.eventb.core.event name="_BSdcoY3uEeqclcC7UP0ENA" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="completeUntriggered">
-        <org.eventb.core.refinesEvent name="_BSdcoo3uEeqclcC7UP0ENA" org.eventb.core.target="completeUntriggered"/>
-    </org.eventb.core.event>
->>>>>>> Stashed changes
 </org.eventb.core.machineFile>
