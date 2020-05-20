@@ -1,0 +1,80 @@
+machine m2_refined_statemachine
+refines m1_statemachine
+sees c2_statemachine c0_4_tree_prop
+variables
+	refined_active
+	refined_active_leaf
+	
+invariants
+	// @active is a set of states
+	theorem @typeof-active: refined_active ⊆ refined_states
+	
+	// @active_leaf is a leaf state
+	theorem @typeof-active_leaf: refined_active_leaf ∈ refined_leaves
+	
+	// Consistency between active and active_leaf	
+	theorem @active-closure: refined_active = cl(refined_container)[{refined_active_leaf}] ∪ {refined_active_leaf}
+	
+	// Properties derive from the consistency invariant
+	theorem @LinkedList-refined_active: refined_active_leaf ↦ refined_root ↦ (refined_active ◁ refined_container) ∈ LinkedList(refined_active)
+	
+	// Two active states s1, s2 cannot have the same container
+	theorem @different_layer: 
+		∀ s1, s2 · s1 ∈ refined_active ∖ {refined_root} ∧ s2 ∈ refined_active ∖ {refined_root} ∧ s1 ≠ s2
+		⇒
+		refined_container(s1) ≠ refined_container(s2)
+
+	// If a non-root state is active then the container is also active
+	theorem @refined_container_active:
+		∀ s · s ∈ refined_active ∖ {refined_root} ⇒ refined_container(s) ∈ refined_active
+		
+	@gluing-active: active = refined_active ∩ states
+events
+	event INITIALISATION
+	then
+		@update-refined_active: refined_active ≔ refined_init
+		@update-refined_active_leaf: refined_active_leaf ≔ refined_init_leaf
+	end
+
+	event old_transition
+	refines transition
+	any
+		refined_transition
+		refined_new_leaf_state
+	where
+		@typeof-refined_transition: refined_transition ∈ refined_transitions
+		@typeof-old_transition: refined_transition ∈ dom(transition_link)
+		@refined_source-active: refined_source(refined_transition) ∈ refined_active
+		@typeof-refined_new_leaf_state: refined_new_leaf_state ∈ refined_leaves
+		@refined_new_leaf_state: refined_new_leaf_state ≠ target(refined_transition) ⇒ refined_new_leaf_state ↦ refined_target(refined_transition) ∈ cl(refined_container)
+		theorem @range-preservation: ran(refined_container) = ran(cl(refined_container))
+		theorem @refined_leaves_are_states: refined_leaves ⊆ refined_states
+		theorem @typeof-refined_container: refined_container ∈ refined_states ∖ {refined_root} → refined_states
+	then
+		@update-refined_active: refined_active ≔ cl(refined_container)[{refined_new_leaf_state}] ∪ {refined_new_leaf_state}
+		@update-refined_active_leaf: refined_active_leaf ≔ refined_new_leaf_state
+	with
+		@transition: transition = transition_link(refined_transition)
+		@new_leaf_state: new_leaf_state ∈ (cl(refined_container)[{refined_new_leaf_state}] ∪ {refined_new_leaf_state})
+						 ∩ leaves
+	end
+
+	event new_transition
+	any
+		refined_transition
+		refined_new_leaf_state
+	where
+		@typeof-refined_transition: refined_transition ∈ refined_transitions
+		@typeof-old_transition: refined_transition ∉ dom(transition_link)
+		@refined_source-active: refined_source(refined_transition) ∈ refined_active
+		@typeof-refined_new_leaf_state: refined_new_leaf_state ∈ refined_leaves
+		@refined_new_leaf_state: refined_new_leaf_state ≠ target(refined_transition) ⇒ refined_new_leaf_state ↦ refined_target(refined_transition) ∈ cl(refined_container)
+		theorem @range-preservation: ran(refined_container) = ran(cl(refined_container))
+		theorem @refined_leaves_are_states: refined_leaves ⊆ refined_states
+		theorem @typeof-refined_container: refined_container ∈ refined_states ∖ {refined_root} → refined_states
+	then
+		@update-refined_active: refined_active ≔ cl(refined_container)[{refined_new_leaf_state}] ∪ {refined_new_leaf_state}
+		@update-refined_active_leaf: refined_active_leaf ≔ refined_new_leaf_state
+	end
+
+end

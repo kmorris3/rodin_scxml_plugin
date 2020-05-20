@@ -109,8 +109,8 @@
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒cl(r);cl(r)⊆cl(r)"/>
         <org.eventb.core.prPred name="p9" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·cl(r);r⊆cl(r)"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="thm2/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="r" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="STATE_MACHINE">
         <org.eventb.core.lang name="L"/>
@@ -231,8 +231,8 @@
         <org.eventb.core.prPred name="p7" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒cl(r);cl(r)⊆cl(r)"/>
         <org.eventb.core.prPred name="p11" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·cl(r);r⊆cl(r)"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="thm3/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="r" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="STATE_MACHINE">
         <org.eventb.core.lang name="L"/>
@@ -363,8 +363,8 @@
         <org.eventb.core.prPred name="p7" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒cl(r);cl(r)⊆cl(r)"/>
         <org.eventb.core.prPred name="p13" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·cl(r);r⊆cl(r)"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="thm4/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="r,T" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="STATE_MACHINE">
         <org.eventb.core.lang name="L"/>
@@ -533,10 +533,10 @@
             <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(STATE_MACHINE×STATE_MACHINE)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p15" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·cl(r);r⊆cl(r)"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="thm5/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="r" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="STATE_MACHINE">
         <org.eventb.core.lang name="L"/>
@@ -712,8 +712,8 @@
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒(∀p⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r⊆p∧p;r⊆p⇒cl(r)⊆p)"/>
         <org.eventb.core.prPred name="p7" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒cl(r);cl(r)⊆cl(r)"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="thm6/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="r" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="STATE_MACHINE">
         <org.eventb.core.lang name="L"/>
@@ -1421,10 +1421,10 @@
         <org.eventb.core.prPred name="p15" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒cl(r∼)=(cl(r))∼"/>
         <org.eventb.core.prPred name="p7" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒cl(r);cl(r)⊆cl(r)"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀r⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r∈STATE_MACHINE ↔ STATE_MACHINE⇒(∀p⦂ℙ(STATE_MACHINE×STATE_MACHINE)·r⊆p⇒cl(r)⊆cl(p))"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="axm1_cl_strengthen/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="r" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="STATE_MACHINE">
         <org.eventb.core.lang name="L"/>
