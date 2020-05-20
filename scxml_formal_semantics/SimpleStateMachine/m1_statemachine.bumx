@@ -39,7 +39,10 @@ events
 	end
 	
 	event transition
-	any transition new_leaf_state where
+	any
+		transition
+		new_leaf_state
+	where
 		@typeof-transition: transition ∈ transitions
 		@source-active: source(transition) ∈ active
 		@typeof-new_leaf_state: new_leaf_state ∈ leaves

@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="5">
-    <org.eventb.core.seesContext name="_1hf-EIoeEeqZCP77Jeo1XA" org.eventb.core.target="c1_statemachine"/>
-    <org.eventb.core.seesContext name="_1hglIIoeEeqZCP77Jeo1XA" org.eventb.core.target="c0_4_tree_prop"/>
-    <org.eventb.core.variable name="_1hglIYoeEeqZCP77Jeo1XA" org.eventb.core.generated="false" org.eventb.core.identifier="active"/>
-    <org.eventb.core.variable name="_1hglIooeEeqZCP77Jeo1XA" org.eventb.core.generated="false" org.eventb.core.identifier="active_leaf"/>
-    <org.eventb.core.invariant name="_1hglI4oeEeqZCP77Jeo1XA" org.eventb.core.generated="false" org.eventb.core.label="typeof-active" org.eventb.core.predicate="active ⊆ states"/>
-    <org.eventb.core.invariant name="_1hglJIoeEeqZCP77Jeo1XA" org.eventb.core.generated="false" org.eventb.core.label="typeof-active_leaf" org.eventb.core.predicate="active_leaf ∈ leaves"/>
-    <org.eventb.core.invariant name="_1hglJYoeEeqZCP77Jeo1XA" org.eventb.core.generated="false" org.eventb.core.label="active-closure" org.eventb.core.predicate="active = cl(container)[{active_leaf}] ∪ {active_leaf}"/>
-    <org.eventb.core.invariant name="_1hglJooeEeqZCP77Jeo1XA" org.eventb.core.generated="false" org.eventb.core.label="LinkedList-active" org.eventb.core.predicate="active_leaf ↦ root ↦ (active ◁ container) ∈ LinkedList(active)" org.eventb.core.theorem="true"/>
-    <org.eventb.core.invariant name="_1hglJ4oeEeqZCP77Jeo1XA" org.eventb.core.generated="false" org.eventb.core.label="different_layer" org.eventb.core.predicate="∀ s1, s2 · s1 ∈ active ∖ {root} ∧ s2 ∈ active ∖ {root} ∧ s1 ≠ s2 ⇒ container(s1) ≠ container(s2)" org.eventb.core.theorem="true"/>
-    <org.eventb.core.invariant name="_1hglKIoeEeqZCP77Jeo1XA" org.eventb.core.generated="false" org.eventb.core.label="container_active" org.eventb.core.predicate="∀ s · s ∈ active ∖ {root} ⇒ container(s) ∈ active" org.eventb.core.theorem="true"/>
-    <org.eventb.core.event name="_1hglKYoeEeqZCP77Jeo1XA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
-        <org.eventb.core.action name="_1hglKooeEeqZCP77Jeo1XA" org.eventb.core.assignment="active ≔ init" org.eventb.core.generated="false" org.eventb.core.label="update-active"/>
-        <org.eventb.core.action name="_1hhMMIoeEeqZCP77Jeo1XA" org.eventb.core.assignment="active_leaf ≔ init_leaf" org.eventb.core.generated="false" org.eventb.core.label="update-active_leaf"/>
+    <org.eventb.core.seesContext name="_lp7cYJUqEeqVWNGLW8IFGA" org.eventb.core.target="c1_statemachine"/>
+    <org.eventb.core.seesContext name="_lp7cYZUqEeqVWNGLW8IFGA" org.eventb.core.target="c0_4_tree_prop"/>
+    <org.eventb.core.variable name="_lp8DcJUqEeqVWNGLW8IFGA" org.eventb.core.generated="false" org.eventb.core.identifier="active"/>
+    <org.eventb.core.variable name="_lp8DcZUqEeqVWNGLW8IFGA" org.eventb.core.generated="false" org.eventb.core.identifier="active_leaf"/>
+    <org.eventb.core.invariant name="_lp8DcpUqEeqVWNGLW8IFGA" org.eventb.core.generated="false" org.eventb.core.label="typeof-active" org.eventb.core.predicate="active ⊆ states"/>
+    <org.eventb.core.invariant name="_lp8Dc5UqEeqVWNGLW8IFGA" org.eventb.core.generated="false" org.eventb.core.label="typeof-active_leaf" org.eventb.core.predicate="active_leaf ∈ leaves"/>
+    <org.eventb.core.invariant name="_lp8DdJUqEeqVWNGLW8IFGA" org.eventb.core.generated="false" org.eventb.core.label="active-closure" org.eventb.core.predicate="active = cl(container)[{active_leaf}] ∪ {active_leaf}"/>
+    <org.eventb.core.invariant name="_lp8DdZUqEeqVWNGLW8IFGA" org.eventb.core.generated="false" org.eventb.core.label="LinkedList-active" org.eventb.core.predicate="active_leaf ↦ root ↦ (active ◁ container) ∈ LinkedList(active)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.invariant name="_lp8qgJUqEeqVWNGLW8IFGA" org.eventb.core.generated="false" org.eventb.core.label="different_layer" org.eventb.core.predicate="∀ s1, s2 · s1 ∈ active ∖ {root} ∧ s2 ∈ active ∖ {root} ∧ s1 ≠ s2 ⇒ container(s1) ≠ container(s2)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.invariant name="_lp8qgZUqEeqVWNGLW8IFGA" org.eventb.core.generated="false" org.eventb.core.label="container_active" org.eventb.core.predicate="∀ s · s ∈ active ∖ {root} ⇒ container(s) ∈ active" org.eventb.core.theorem="true"/>
+    <org.eventb.core.event name="_lp8qgpUqEeqVWNGLW8IFGA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_lp9RkJUqEeqVWNGLW8IFGA" org.eventb.core.assignment="active ≔ init" org.eventb.core.generated="false" org.eventb.core.label="update-active"/>
+        <org.eventb.core.action name="_lp9RkZUqEeqVWNGLW8IFGA" org.eventb.core.assignment="active_leaf ≔ init_leaf" org.eventb.core.generated="false" org.eventb.core.label="update-active_leaf"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="_1hhMMYoeEeqZCP77Jeo1XA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="transition">
-        <org.eventb.core.parameter name="_1hhMMooeEeqZCP77Jeo1XA" org.eventb.core.generated="false" org.eventb.core.identifier="transition"/>
-        <org.eventb.core.parameter name="_1hhMM4oeEeqZCP77Jeo1XA" org.eventb.core.generated="false" org.eventb.core.identifier="new_leaf_state"/>
-        <org.eventb.core.guard name="_1hhzQIoeEeqZCP77Jeo1XA" org.eventb.core.generated="false" org.eventb.core.label="typeof-transition" org.eventb.core.predicate="transition ∈ transitions"/>
-        <org.eventb.core.guard name="_1hhzQYoeEeqZCP77Jeo1XA" org.eventb.core.generated="false" org.eventb.core.label="source-active" org.eventb.core.predicate="source(transition) ∈ active"/>
-        <org.eventb.core.guard name="_1hhzQooeEeqZCP77Jeo1XA" org.eventb.core.generated="false" org.eventb.core.label="typeof-new_leaf_state" org.eventb.core.predicate="new_leaf_state ∈ leaves"/>
-        <org.eventb.core.guard name="_1hhzQ4oeEeqZCP77Jeo1XA" org.eventb.core.generated="false" org.eventb.core.label="new_leaf_state" org.eventb.core.predicate="new_leaf_state ≠ target(transition) ⇒ new_leaf_state ↦ target(transition) ∈ cl(container)"/>
-        <org.eventb.core.guard name="_1hhzRIoeEeqZCP77Jeo1XA" org.eventb.core.generated="false" org.eventb.core.label="range-preservation" org.eventb.core.predicate="ran(container) = ran(cl(container))" org.eventb.core.theorem="true"/>
-        <org.eventb.core.guard name="_1hhzRYoeEeqZCP77Jeo1XA" org.eventb.core.generated="false" org.eventb.core.label="leaves_are_states" org.eventb.core.predicate="leaves ⊆ states" org.eventb.core.theorem="true"/>
-        <org.eventb.core.guard name="_1hiaUIoeEeqZCP77Jeo1XA" org.eventb.core.generated="false" org.eventb.core.label="typeof-container" org.eventb.core.predicate="container ∈ states ∖ {root} → states" org.eventb.core.theorem="true"/>
-        <org.eventb.core.action name="_1hiaUYoeEeqZCP77Jeo1XA" org.eventb.core.assignment="active ≔ cl(container)[{new_leaf_state}] ∪ {new_leaf_state}" org.eventb.core.generated="false" org.eventb.core.label="update-active"/>
-        <org.eventb.core.action name="_1hiaUooeEeqZCP77Jeo1XA" org.eventb.core.assignment="active_leaf ≔ new_leaf_state" org.eventb.core.generated="false" org.eventb.core.label="update-active_leaf"/>
+    <org.eventb.core.event name="_lp9RkpUqEeqVWNGLW8IFGA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="transition">
+        <org.eventb.core.parameter name="_lp9Rk5UqEeqVWNGLW8IFGA" org.eventb.core.generated="false" org.eventb.core.identifier="transition"/>
+        <org.eventb.core.parameter name="_lp9RlJUqEeqVWNGLW8IFGA" org.eventb.core.generated="false" org.eventb.core.identifier="new_leaf_state"/>
+        <org.eventb.core.guard name="_lp9RlZUqEeqVWNGLW8IFGA" org.eventb.core.generated="false" org.eventb.core.label="typeof-transition" org.eventb.core.predicate="transition ∈ transitions"/>
+        <org.eventb.core.guard name="_lp_t0JUqEeqVWNGLW8IFGA" org.eventb.core.generated="false" org.eventb.core.label="source-active" org.eventb.core.predicate="source(transition) ∈ active"/>
+        <org.eventb.core.guard name="_lp_t0ZUqEeqVWNGLW8IFGA" org.eventb.core.generated="false" org.eventb.core.label="typeof-new_leaf_state" org.eventb.core.predicate="new_leaf_state ∈ leaves"/>
+        <org.eventb.core.guard name="_lp_t0pUqEeqVWNGLW8IFGA" org.eventb.core.generated="false" org.eventb.core.label="new_leaf_state" org.eventb.core.predicate="new_leaf_state ≠ target(transition) ⇒ new_leaf_state ↦ target(transition) ∈ cl(container)"/>
+        <org.eventb.core.guard name="_lqAU4JUqEeqVWNGLW8IFGA" org.eventb.core.generated="false" org.eventb.core.label="range-preservation" org.eventb.core.predicate="ran(container) = ran(cl(container))" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_lqAU4ZUqEeqVWNGLW8IFGA" org.eventb.core.generated="false" org.eventb.core.label="leaves_are_states" org.eventb.core.predicate="leaves ⊆ states" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_lqAU4pUqEeqVWNGLW8IFGA" org.eventb.core.generated="false" org.eventb.core.label="typeof-container" org.eventb.core.predicate="container ∈ states ∖ {root} → states" org.eventb.core.theorem="true"/>
+        <org.eventb.core.action name="_lqAU45UqEeqVWNGLW8IFGA" org.eventb.core.assignment="active ≔ cl(container)[{new_leaf_state}] ∪ {new_leaf_state}" org.eventb.core.generated="false" org.eventb.core.label="update-active"/>
+        <org.eventb.core.action name="_lqAU5JUqEeqVWNGLW8IFGA" org.eventb.core.assignment="active_leaf ≔ new_leaf_state" org.eventb.core.generated="false" org.eventb.core.label="update-active_leaf"/>
     </org.eventb.core.event>
 </org.eventb.core.machineFile>

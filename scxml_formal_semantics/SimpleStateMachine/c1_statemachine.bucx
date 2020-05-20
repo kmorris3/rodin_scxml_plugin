@@ -6,6 +6,7 @@ extends c0_3_tree_def
 sets
 	TRANSITION // The set of all transitions
 constants
+	STATE_MACHINE // The "type" of State machines
 	states // The set of states
 	root // The root state
 	container // The container relationship between states
@@ -18,11 +19,23 @@ constants
 	init // The initial states
 	init_leaf // The initial leaf
 axioms
+	// Definition of STATE_MACHINE using set comprehension
+	@def-STATE_MACHINE: STATE_MACHINE = {
+		S ↦ r ↦ c ↦ T ↦ s ↦ t ∣
+		S ⊆ STATE ∧
+		r ↦ c ∈ Tree(S) ∧
+		T ⊆ TRANSITION ∧
+		s ∈ T → S ∧
+		t ∈ T → S
+	}
+	
+	@statemachine: states ↦ root ↦ container ↦ transitions ↦ source ↦ target ∈ STATE_MACHINE
+	
 	// @states is a set of states
-	@typeof-states: states ⊆ STATE
+	theorem @typeof-states: states ⊆ STATE
 	
 	// @root and @container form a tree on @states
-	@tree_structure: root ↦ container ∈ Tree(states)
+	theorem @tree_structure: root ↦ container ∈ Tree(states)
 	
 	// Derivable properties from definition of Tree
 	theorem @typeof-root: root ∈ states
@@ -39,8 +52,8 @@ axioms
 	
 	// Transitions are relation between leaf states
 	theorem @typeof-transitions: transitions ⊆ TRANSITION
-	@typeof-source: source ∈ transitions → states // The source can be any state (non-deterministic)
-	@typeof-target: target ∈ transitions → states // The target can be any state (non-deterministic)
+	theorem @typeof-source: source ∈ transitions → states // The source can be any state (non-deterministic)
+	theorem @typeof-target: target ∈ transitions → states // The target can be any state (non-deterministic)
 	
 	// Parallel states:
 	// transitions : POW(states) <-> POW(leaves) 
