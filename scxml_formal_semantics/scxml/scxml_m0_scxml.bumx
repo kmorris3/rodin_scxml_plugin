@@ -1,5 +1,5 @@
 machine scxml_m0_scxml 
-sees scxml_c0_2_dequeue
+sees scxml_c0_abstract
 
 variables
 	iq
@@ -8,9 +8,10 @@ variables
 	uc
 	
 invariants
-	@iq: iq ∈ ℙ(InternalTriggers)
-	@eq: eq ∈ ℙ(ExternalTriggers)
+	@iq: iq ∈ ℙ(AbstractInternalTriggers)
+	@eq: eq ∈ ℙ(AbstractExternalTriggers)
 	@dt: dt ∈ deQueue
+	@dtwd: dt ⊆ AbstractInternalTriggers ∪ AbstractExternalTriggers
 	@uc: uc ∈ BOOL
 	
 events
@@ -25,7 +26,7 @@ events
 	
 	event raiseExternalTrigger
 	any t where
-		@t:			t ∈ ExternalTriggers
+		@t:			t ∈ AbstractExternalTriggers
 	then
 		@eq_set:		eq ≔ eq ∪ {t}
 	end
@@ -59,8 +60,8 @@ events
 	any t R
 	where 
 		@t: 			t ∈ dt
-		@R:			R ⊆ InternalTriggers
-		@uc:			uc = FALSE			//do we need this? 
+		theorem @uc:		uc = FALSE	//sanity check
+		@R:			R ⊆ AbstractInternalTriggers
 	then 
 		@dt_set: 	dt ≔ ∅
 		@iq_set:		iq ≔ iq ∪ R		//raised triggers
@@ -78,8 +79,8 @@ events
 	any R
 	where 
 		@dt: 		dt = ∅
-		@R:			R ⊆ InternalTriggers
 		@uc:			uc = FALSE		
+		@R:			R ⊆ AbstractInternalTriggers
 	then 
 		@iq_set:		iq ≔ iq ∪ R		//raised triggers
 	end
