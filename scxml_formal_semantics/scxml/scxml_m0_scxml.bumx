@@ -45,14 +45,14 @@ events
 	end
 	
 	event dequeueInternal
-	any t new_eq where 
+	any t new_iq where 
 		@t: 			t ∈ iq
-		@new_eq:		new_eq = eq ∖ {t}
 		@dt:			dt = ∅
 		@uc:			uc = TRUE 
+		@new_iq:		new_iq = iq ∖ {t}
 	then 
 		@dt_set: 	dt ≔ {t}
-		@eq_set:		eq ≔ new_eq 
+		@eq_set:		iq ≔ new_iq 
 		@uc_set:		uc ≔ FALSE
 	end
 	
