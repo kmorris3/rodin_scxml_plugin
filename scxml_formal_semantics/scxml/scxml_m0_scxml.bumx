@@ -6,11 +6,11 @@ variables
 	eq
 	dt
 	uc
-	
+
 invariants
 	@iq: iq ∈ ℙ(AbstractInternalTriggers)
 	@eq: eq ∈ ℙ(AbstractExternalTriggers)
-	@dt: dt ∈ deQueue
+	@dt: dt ∈ DeQueueType
 	@dtwd: dt ⊆ AbstractInternalTriggers ∪ AbstractExternalTriggers
 	@uc: uc ∈ BOOL
 	
