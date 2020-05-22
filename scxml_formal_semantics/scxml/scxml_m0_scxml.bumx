@@ -96,5 +96,14 @@ events
 		@uc_set:		uc ≔ TRUE
 	end
 	
+//	event futureTransition	//needed if we allow adding raising of abstract internal triggers in later refinements
+//	any R
+//	where 
+//		@R:			R ⊆ AbstractInternalTriggers
+//		@uc:			uc = FALSE		
+//	then 
+//		@iq_set:		iq ≔ iq ∪ R		//raised triggers
+//	end
+	
 end
 
