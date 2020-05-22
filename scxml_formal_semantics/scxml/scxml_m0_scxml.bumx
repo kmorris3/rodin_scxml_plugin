@@ -14,6 +14,9 @@ invariants
 	@dtwd: dt ⊆ AbstractInternalTriggers ∪ AbstractExternalTriggers
 	@uc: uc ∈ BOOL
 	
+	@firingTriggered: dt ≠ ∅ ⇒ uc=FALSE		//just a sanity check
+	@readyToDequeue: uc=TRUE ⇒ dt = ∅		//just a sanity check
+		
 events
 
 	event INITIALISATION
@@ -33,22 +36,22 @@ events
 	
 	event dequeueExternal
 	any t new_eq where 
+		@uc:			uc = TRUE
+		theorem @dt:		dt = ∅	//sanity check
 		@t: 			t ∈ eq
 		@new_eq:		new_eq = eq ∖ {t}
-		@dt:			dt = ∅
-		@uc:			uc = TRUE
 		@iq:			iq = ∅
 	then 
 		@dt_set: 	dt ≔ {t}
 		@eq_set:		eq ≔ new_eq 
 		@uc_set:		uc ≔ FALSE
 	end
-	
+
 	event dequeueInternal
 	any t new_iq where 
+		@uc:			uc = TRUE
+		theorem @dt:		dt = ∅	//sanity check
 		@t: 			t ∈ iq
-		@dt:			dt = ∅
-		@uc:			uc = TRUE 
 		@new_iq:		new_iq = iq ∖ {t}
 	then 
 		@dt_set: 	dt ≔ {t}
@@ -70,7 +73,7 @@ events
 	event completeTriggered
 		any t where 
 		@t: 			t ∈ dt
-		@uc:			uc = FALSE			//do we need this? 
+		theorem @uc:		uc = FALSE	//sanity check			 
 	then 
 		@dt_set: 	dt ≔ ∅
 	end
