@@ -129,19 +129,18 @@ events
 		@R:			R = R1 ∩ AbstractInternalTriggers 	//cannot remove raised triggers and can only add new triggers
 	end
 
-	event newTriggeredTransition 
-	any t R
+	event newTriggeredTransition refines futureTransition
+	any t R1
 	where 
 		@t: 			t ∈ dt_r
 		theorem @uc:		uc_r = FALSE			//sanity check
 		@new_t:		t ∉ (AbstractInternalTriggers ∪ AbstractExternalTriggers)
-		//we would like to be able to raise abstract internal triggers before we introduce the transitions that raise them
-		//to do this we would need an abstract 'future transition' event to refine here. 
-		//For now we only allow new triggers to be raised.
-		@R:			R ⊆ RefinedInternalTriggers \ AbstractInternalTriggers		//NOTE - this is more restricted than our drone example
+		@R:			R1 ⊆ RefinedInternalTriggers 	
 	then 
 		@dt_set: 	dt_r ≔ ∅
-		@iq_set:		iq_r ≔ iq_r ∪ R		//raised triggers
+		@iq_set:		iq_r ≔ iq_r ∪ R1		//raised triggers
+	with
+		@R:			R = R1 ∩ AbstractInternalTriggers 	//cannot remove raised triggers and can only add new triggers
 	end
 	
 	event oldCompleteTriggered refines completeTriggered		//discard dequeued trigger
@@ -158,7 +157,7 @@ events
 		@t: 			t ∈ dt_r
 		theorem @uc:		uc_r = FALSE			//sanity check
 		@new_t:		t ∉ (AbstractInternalTriggers ∪ AbstractExternalTriggers)
-	then 
+	then
 		@dt_set: 	dt_r ≔ ∅
 	end
 
@@ -186,4 +185,14 @@ events
 		@uc_set:		uc_r ≔ TRUE
 	end
 
+	event futureTransition refines futureTransition	//needed if we allow adding raising of abstract internal triggers in later refinements
+	any R1
+	where 
+		@R:			R1 ⊆ RefinedInternalTriggers
+		@uc:			uc_r = FALSE		
+	then 
+		@iq_set:		iq_r ≔ iq_r ∪ R1		//raised triggers
+	with
+		@R:			R = R1 ∩ AbstractInternalTriggers 	//cannot remove raised triggers and can only add new triggers
+	end
 end
