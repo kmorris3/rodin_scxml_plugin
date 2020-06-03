@@ -35,27 +35,25 @@ events
 	end
 	
 	event dequeueExternal
-	any t new_eq where 
+	any t where 
 		@uc:			uc = TRUE
 		theorem @dt:		dt = ∅	//sanity check
 		@t: 			t ∈ eq
-		@new_eq:		new_eq = eq ∖ {t}
 		@iq:			iq = ∅
 	then 
 		@dt_set: 	dt ≔ {t}
-		@eq_set:		eq ≔ new_eq 
+		@eq_set:		eq ≔ eq ∖ {t}
 		@uc_set:		uc ≔ FALSE
 	end
-
+	
 	event dequeueInternal
-	any t new_iq where 
+	any t where 
 		@uc:			uc = TRUE
 		theorem @dt:		dt = ∅	//sanity check
 		@t: 			t ∈ iq
-		@new_iq:		new_iq = iq ∖ {t}
 	then 
 		@dt_set: 	dt ≔ {t}
-		@eq_set:		iq ≔ new_iq 
+		@eq_set:		iq ≔ iq ∖ {t} 
 		@uc_set:		uc ≔ FALSE
 	end
 	
@@ -94,6 +92,14 @@ events
 		@uc:			uc = FALSE
 	then
 		@uc_set:		uc ≔ TRUE
+	end
+	
+	event futureDequeue	//needed to allow for future triggers starting a run
+	where 
+		@dt: 		dt = ∅
+		@uc:			uc = TRUE		
+	then 
+		@iq_set:		uc ≔ FALSE	
 	end
 	
 	event futureTransition	//needed if we allow adding raising of abstract internal triggers in later refinements

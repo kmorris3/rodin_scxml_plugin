@@ -15,7 +15,7 @@ invariants
 	@uc_r: uc_r ∈ BOOL
 	
 	@firingTriggered: dt_r ≠ ∅ ⇒ uc_r=FALSE		//just a sanity check
-	@readyToDequeue: uc_r=TRUE => dt_r = ∅		//just a sanity check
+	theorem @readyToDequeue: uc_r=TRUE ⇒ dt_r = ∅		//just a sanity check
 	
 	//we only add new triggers to the internal queue
 	@iq_r_glue: iq = iq_r ∩ AbstractInternalTriggers	
@@ -30,8 +30,11 @@ invariants
  	// 	(uc=TRUE ⇒ uc_r=TRUE). 
  	// However, since this is the wrong way round for refinement, we allow for early completion in the
  	// abstraction by adding non-deterministic completions. Hence uc_r=uc. 
+	// We also need non-deterministic future deQueue events to allow for the introduction of new events that 
+	// set uc_r=FALSE
  	@uc_r_glue: uc_r = uc	//Doesn't prove INV - new dequeue events set uc_r to TRUE
- 	
+ 	//Also tried:
+  	//@uc_r_glue: dt_r=∅ ⇒ uc_r = uc	//Doesn't prove INV - new transitions set dt_r=∅
  	//@uc_r_glue:  uc_r=TRUE ⇒ uc=TRUE  // Doesn't prove GRD - untriggered transitions and completion are guarded by uc=FALSE
 
 events
@@ -52,57 +55,50 @@ events
 	
 	event raiseNewExternalTrigger
 	any t where
-		@t:			t ∈ RefinedExternalTriggers\AbstractExternalTriggers
+		@t:			t ∈ RefinedExternalTriggers∖AbstractExternalTriggers
 	then
 		@eq_set:		eq_r ≔ eq_r ∪ {t}
 	end
 
 	event dequeueOldExternal refines dequeueExternal
-	any t new_eq1 where 
+	any t where 
 		@uc:			uc_r = TRUE
 		theorem @dt:		dt_r = ∅	//sanity check
 		@t: 			t ∈ eq_r
 		@old_t:		t ∈ AbstractExternalTriggers
-		@new_eq1:	new_eq1 = eq_r ∖ {t}
 		@iq:			iq_r = ∅
 	then 
 		@dt_set: 	dt_r ≔ {t}
-		@eq_set:		eq_r ≔ new_eq1 
+		@eq_set:		eq_r ≔ eq_r ∖ {t} 
 		@uc_set:		uc_r ≔ FALSE
-	with
-		@new_eq:		new_eq = new_eq1 ∩ AbstractExternalTriggers
 	end
 	
-	event dequeueNewExternal
-	any t new_eq where 
+	event dequeueNewExternal refines futureDequeue
+	any t where 
 		@uc:			uc_r = TRUE
 		theorem @dt:		dt_r = ∅	//sanity check
 		@t: 			t ∈ eq_r
 		@new_t:		t ∉ AbstractExternalTriggers
-		@new_eq:		new_eq = eq_r ∖ {t}
 		@iq:			iq_r = ∅
 	then 
 		@dt_set: 	dt_r ≔ {t}
-		@eq_set:		eq_r ≔ new_eq 
+		@eq_set:		eq_r ≔ eq_r ∖ {t} 
 		@uc_set:		uc_r ≔ FALSE
 	end
 
 	event dequeueOldInternal refines dequeueInternal
-	any t new_iq1 where 
+	any t where 
 	 	@uc:			uc_r = TRUE
 		theorem @dt:		dt_r = ∅	//sanity check
 		@t: 			t ∈ iq_r
 		@old_t:		t ∈ AbstractInternalTriggers
-		@new_iq1:	new_iq1 = iq_r ∖ {t}
 	then 
 		@dt_set: 	dt_r ≔ {t}
-		@eq_set:		iq_r ≔ new_iq1 
+		@eq_set:		iq_r ≔ iq_r ∖ {t} 
 		@uc_set:		uc_r ≔ FALSE
-	with
-		@new_iq:		new_iq = new_iq1 ∩ AbstractInternalTriggers
 	end
 
-	event dequeueNewInternal
+	event dequeueNewInternal refines futureDequeue
 	any t new_iq where 
 		@uc:			uc_r = TRUE
 		theorem @dt:		dt_r = ∅	//sanity check
@@ -185,6 +181,14 @@ events
 		@uc_set:		uc_r ≔ TRUE
 	end
 
+	event futureDequeue refines futureDequeue	//needed to allow for future triggers starting a run
+	where 
+		@dt: 		dt_r = ∅
+		@uc:			uc_r = TRUE		
+	then 
+		@iq_set:		uc_r ≔ FALSE	
+	end
+	
 	event futureTransition refines futureTransition	//needed if we allow adding raising of abstract internal triggers in later refinements
 	any R1
 	where 
