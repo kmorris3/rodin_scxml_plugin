@@ -6,9 +6,13 @@ variables
 	eq_r
 	dt_r
 	uc_r
-	dt_aux
 events
-	event INITIALISATION extends INITIALISATION
+	event INITIALISATION
+	then
+		@iq_r_init:	iq_r ≔ ∅ 
+		@eq_r_init: 	eq_r ≔ ∅
+		@dt_r_init:	dt_r ≔ ∅
+		@uc_r_init: 	uc_r ≔ FALSE
 	end
 
 	event raiseExternalTrigger refines raiseOldExternalTrigger raiseNewExternalTrigger
@@ -27,7 +31,6 @@ events
 		@dt_set: 	dt_r ≔ {t}
 		@eq_set:		eq_r ≔ eq_r ∖ {t} 
 		@uc_set:		uc_r ≔ FALSE
-		@dt_aux_set: 	dt_aux ≔ {t}
 	end
 
 	event dequeueInternal refines dequeueOldInternal dequeueNewInternal
@@ -38,7 +41,6 @@ events
 		@dt_set: 	dt_r ≔ {t}
 		@eq_set:		iq_r ≔ iq_r ∖ {t} 
 		@uc_set:		uc_r ≔ FALSE
-		@dt_aux_set: 	dt_aux ≔ {t}
 	end
 
 	event triggeredTransition refines oldTriggeredTransition newTriggeredTransition
@@ -74,7 +76,6 @@ events
 		@uc:			uc_r = FALSE			//this one is needed!!
 	then
 		@uc_set:		uc_r ≔ TRUE
-		@dt_aux_clr: 	dt_aux ≔ ∅
 	end
 
 	event futureTransition extends futureTransition
