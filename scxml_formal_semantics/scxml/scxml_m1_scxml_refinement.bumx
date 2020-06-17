@@ -14,7 +14,7 @@ invariants
 	@dt_r: dt_r ∈ DeQueueType
 	@dtwd: dt_r ⊆ RefinedInternalTriggers ∪ RefinedExternalTriggers
 	@uc_r: uc_r ∈ BOOL
-	@dt_aux: dt_aux ∈ DeQueueType
+	@dt_aux: dt_aux ∈ DeQueueType ∪ {{nullTrigger}}
 
 	@firingTriggered: dt_r ≠ ∅ ⇒ uc_r=FALSE		//just a sanity check
 	theorem @readyToDequeue: uc_r=TRUE ⇒ dt_r = ∅		//just a sanity check
@@ -39,9 +39,10 @@ invariants
 	@uuu: uc_r = FALSE ⇔ dt_aux ≠∅
 	@vvv: dt_r ≠∅ ⇒ dt_r = dt_aux
   	@www: dt_aux=∅ ⇒ uc=TRUE	
-  	@xxx: dt_aux ⊈ (AbstractInternalTriggers ∪ AbstractExternalTriggers) ⇒ uc = TRUE
+  	@xxx: dt_aux ⊈ (AbstractInternalTriggers ∪ AbstractExternalTriggers ∪ {nullTrigger}) ⇒ uc = TRUE
   	@yyy: dt_aux ⊆ (AbstractInternalTriggers ∪ AbstractExternalTriggers) ∧ dt_aux≠∅ ⇒ uc_r=uc
  	//@uc_r_glue:  uc_r=TRUE ⇒ uc=TRUE  // Doesn't prove GRD - untriggered transitions and completion are guarded by uc=FALSE
+ 	@zzz: dt_aux={nullTrigger} ⇒ uc = FALSE
  	
 events
 	event INITIALISATION
@@ -50,9 +51,7 @@ events
 		@eq_r_init: 	eq_r ≔ ∅
 		@dt_r_init:	dt_r ≔ ∅
 		@uc_r_init: 	uc_r ≔ FALSE
-		@aux_init: dt_aux :∈ {t · t ∈ AbstractInternalTriggers ∪ AbstractExternalTriggers ∣ {t} }
-		//we start in a state where dt_aux should not be empty
-
+		@aux_init: dt_aux ≔ {nullTrigger}
 	end
 
 	event raiseOldExternalTrigger refines raiseExternalTrigger
@@ -180,7 +179,7 @@ events
 		@dt: 		dt_r = ∅
 		@uc:			uc_r = FALSE				//this one is needed!!
 		@R:			R1 ⊆ RefinedInternalTriggers
-		@dt_aux: dt_aux ⊆ (AbstractInternalTriggers ∪ AbstractExternalTriggers)
+		@dt_aux: dt_aux ⊆ (AbstractInternalTriggers ∪ AbstractExternalTriggers ∪ {nullTrigger})
 	then 
 		@iq_set:		iq_r ≔ iq_r ∪ R1		//raised triggers
 	with
@@ -193,7 +192,7 @@ events
 		@dt: 		dt_r = ∅
 		@uc:			uc_r = FALSE				//this one is needed!!
 		@R:			R1 ⊆ RefinedInternalTriggers
-		@dt_aux: dt_aux ⊈ (AbstractInternalTriggers ∪ AbstractExternalTriggers)
+		@dt_aux: dt_aux ⊈ (AbstractInternalTriggers ∪ AbstractExternalTriggers ∪ {nullTrigger})
 	then 
 		@iq_set:		iq_r ≔ iq_r ∪ R1		//raised triggers
 	with
@@ -204,7 +203,7 @@ events
 	where
 		@dt: 		dt_r = ∅
 		@uc:			uc_r = FALSE			//this one is needed!
-		@old_t:		dt_aux ⊆ (AbstractInternalTriggers ∪ AbstractExternalTriggers)
+		@old_t:		dt_aux ⊆ (AbstractInternalTriggers ∪ AbstractExternalTriggers ∪ {nullTrigger})
 	then
 		@uc_set:		uc_r ≔ TRUE
 		@dt_aux_clr: 	dt_aux ≔ ∅
@@ -214,7 +213,7 @@ events
 	where
 		@dt: 		dt_r = ∅
 		@uc:			uc_r = FALSE			//this one is needed!!
-		@new_t:		dt_aux ⊈ (AbstractInternalTriggers ∪ AbstractExternalTriggers)
+		@new_t:		dt_aux ⊈ (AbstractInternalTriggers ∪ AbstractExternalTriggers ∪ {nullTrigger})
 	then
 		@uc_set:		uc_r ≔ TRUE
 		@dt_aux_clr: 	dt_aux ≔ ∅

@@ -7,6 +7,9 @@ sets
 	TRIGGERS // The set of triggers
 constants
 	InternalTriggers ExternalTriggers
+	nullTrigger
 axioms
-	@triggerKinds: partition (TRIGGERS, InternalTriggers, ExternalTriggers)
+	@triggerKinds: partition (TRIGGERS, InternalTriggers, ExternalTriggers, {nullTrigger})
+	theorem @nte: nullTrigger ∉ ExternalTriggers
+	theorem @nti: nullTrigger ∉ InternalTriggers
 end
