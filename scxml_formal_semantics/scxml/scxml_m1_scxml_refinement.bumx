@@ -110,15 +110,14 @@ events
 	end
 
 	event dequeueNewInternal //refines futureDequeue
-	any t new_iq where 
+	any t where 
 		@uc:			uc_r = TRUE
 		theorem @dt:		dt_r = ∅	//sanity check
 		@t: 			t ∈ iq_r
 		@new_t:		t ∉ AbstractInternalTriggers
-		@new_iq:		new_iq = iq_r ∖ {t}
 	then 
 		@dt_set: 	dt_r ≔ {t}
-		@eq_set:		iq_r ≔ new_iq 
+		@eq_set:		iq_r ≔ iq_r ∖ {t}
 		@uc_set:		uc_r ≔ FALSE
 		@dt_aux_set: 	dt_aux ≔ {t}
 	end
