@@ -2,18 +2,24 @@
 <org.eventb.core.prFile version="1">
     <org.eventb.core.prProof name="deQ_2/THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="TRIGGERS">
         <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TRIGGERS,InternalTriggers,ExternalTriggers))" org.eventb.core.prHyps="">
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TRIGGERS,InternalTriggers,ExternalTriggers,{nullTrigger}))" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4"/>
-                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p3,p4"/>
-                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4,p5,p6"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p3,p4,p5,p6"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
-                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with DeQueueType={∅}∪{t·⊤ ∣ {t}}" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p5">
-                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6">
-                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="">
-                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p7">
-                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p7" org.eventb.core.prHyps=""/>
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p6"/>
+                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p8" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'">
+                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with DeQueueType={∅}∪{t·⊤ ∣ {t}}" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p9">
+                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p10">
+                                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="">
+                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                            </org.eventb.core.prAnte>
+                                        </org.eventb.core.prRule>
                                     </org.eventb.core.prAnte>
                                 </org.eventb.core.prRule>
                             </org.eventb.core.prAnte>
@@ -28,23 +34,41 @@
             <org.eventb.core.prIdent name="ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
             <org.eventb.core.prIdent name="InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="⊤"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="TRIGGERS=InternalTriggers∪ExternalTriggers">
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬nullTrigger∈ExternalTriggers">
+            <org.eventb.core.prIdent name="ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="nullTrigger∉InternalTriggers">
+            <org.eventb.core.prIdent name="InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬nullTrigger∈InternalTriggers">
+            <org.eventb.core.prIdent name="InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="nullTrigger∉ExternalTriggers">
+            <org.eventb.core.prIdent name="ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈{∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·⊤ ∣ {t}}"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="TRIGGERS=InternalTriggers∪ExternalTriggers∪{nullTrigger}">
             <org.eventb.core.prIdent name="ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
             <org.eventb.core.prIdent name="InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈{∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·⊤ ∣ {t}}"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∣ {t}}"/>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggers,ExternalTriggers)">
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·⊤ ∣ {t}}"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggers,ExternalTriggers,{nullTrigger})">
             <org.eventb.core.prIdent name="ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
             <org.eventb.core.prIdent name="InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·⊤ ∣ {t}}"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
     </org.eventb.core.prProof>
 </org.eventb.core.prFile>
