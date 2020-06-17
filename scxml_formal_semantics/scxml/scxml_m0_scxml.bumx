@@ -94,13 +94,13 @@ events
 		@uc_set:		uc ≔ TRUE
 	end
 	
-	event futureDequeue	//needed to allow for future triggers starting a run
-	where 
-		@dt: 		dt = ∅
-		@uc:			uc = TRUE		
-	then 
-		@iq_set:		uc ≔ FALSE	
-	end
+//	event futureDequeue	//needed to allow for future triggers starting a run
+//	where 
+//		@dt: 		dt = ∅
+//		@uc:			uc = TRUE		
+//	then 
+//		@iq_set:		uc ≔ FALSE	
+//	end
 	
 	event futureTransition	//needed if we allow adding raising of abstract internal triggers in later refinements
 	any R
