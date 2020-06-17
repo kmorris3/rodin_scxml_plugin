@@ -50,7 +50,8 @@ events
 		@eq_r_init: 	eq_r ≔ ∅
 		@dt_r_init:	dt_r ≔ ∅
 		@uc_r_init: 	uc_r ≔ FALSE
-		@aux_init: dt_aux ≔ ∅  //problem.. we start in a state where dt_aux should not be empty
+		@aux_init: dt_aux :∈ {t · t ∈ AbstractInternalTriggers ∪ AbstractExternalTriggers ∣ {t} }
+		//we start in a state where dt_aux should not be empty
 
 	end
 
