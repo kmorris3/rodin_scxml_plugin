@@ -198,7 +198,7 @@ events
 		@R:			R = R1 ∩ AbstractInternalTriggers 	//cannot remove raised triggers and can only add new triggers
 	end
 	
-	event completeUntriggered refines completeUntriggered
+	event oldCompleteUntriggered refines completeUntriggered
 	where
 		@dt: 		dt_r = ∅
 		@uc:			uc_r = FALSE			//this one is needed!
