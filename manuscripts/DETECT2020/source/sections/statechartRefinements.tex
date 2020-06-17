@@ -1,0 +1,57 @@
+% !TEX root = ../main.tex
+
+\section{Statechart Refinement}
+\label{sec:scref}
+
+Our system includes three refinement rules.
+
+\begin{enumerate}
+\item Guard conditions on a transition can be strengthened; 
+this can done by adding textual guards to the transition, or
+changing the source of the transition to a nested state.
+\item Transitions can have additional actions, provided they do not
+  modify variables appearing in the abstraction; this can be 
+  accomplished by adding textual action to the transition 
+  or by changing the target to nested state.
+\item A statechart can be embedded within a state of another
+  statechart -- sometimes called hierarchical composition or
+  hierarchical refinement.
+\end{enumerate}
+
+Via the translation explained in Section~\ref{sec:translation}, these rules
+rely on the usual Event-B proof obligations to ensure that they do
+indeed yield refinements in the Event-B semantics.
+
+If an Event-B model |B| can be shown (via the construction rules of
+the Event-B language as well as the proof obligations) to refine
+another Event-B model |A|, then we know that every behavior of |B| is
+also a behavior of |A|. This definition yields a useful principle of
+preservation of safety -- if we can show that a bad thing never
+happens in |A|, then we can add detail via refinements in |B|, knowing
+that the bad thing will continue to never happen in |B|. That is,
+Event-B refinements preserve safety properties in the sense
+of~\cite{lamport1977proving}. This makes refinement a useful technique
+in developing safety-critical systems: one can analyze a simpler
+abstract model for critical safety properties and then add detail to
+the model via refinements, secure in the knowledge that the safety
+properties will be preserved.
+
+Event-B refinements have also been shown to preserve some liveness
+properties, under certain conditions~\cite{hoang2016ltl}.
+
+Although the autonomous drone example in this paper is based on the
+example described in~\cite{Syriani_2019}, the definition of refinement
+used in that work is quite different from our own. This forces some
+differences in our refinement rules and consequently the way the
+example is developed. For example, the transition triggered by |toLand| 
+(see ~\ref{fig:drone4} transition from |TAKEOFF| to |DESCEND|) 
+adds new behaviour.
+In~\cite{Syriani_2019} ``refinement'' is a
+transformation of the model which preserves reachability of a state
+with respect to sequences of inputs. This guarantees that a refinement
+in their system will include all the behaviors of the abstraction,
+while possibly adding others. While this notion of refinement seems
+useful in certain contexts, unlike refinement in Event-B it does not
+guarantee preservation of safety properties. Therefore it should be
+considered less suited to development of safety-critical systems.
+
