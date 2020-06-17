@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="3">
-<org.eventb.core.extendsContext name="_OwyM0IomEeqRUvZAacZ5Jg" org.eventb.core.target="scxml_c0_1_queues"/>
-<org.eventb.core.constant name="_OwyM0YomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.identifier="deQueue"/>
-<org.eventb.core.axiom name="_OwyM0oomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.label="deQ_1" org.eventb.core.predicate="deQueue = {∅} ∪ {t · t ∈ TRIGGERS ∣ {t} }"/>
-<org.eventb.core.axiom name="_Owyz4IomEeqRUvZAacZ5Jg" org.eventb.core.generated="false" org.eventb.core.label="deQ_2" org.eventb.core.predicate="∅ ∈ deQueue" org.eventb.core.theorem="true"/>
-</org.eventb.core.contextFile>
