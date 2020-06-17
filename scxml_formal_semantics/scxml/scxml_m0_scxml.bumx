@@ -106,7 +106,7 @@ events
 	any R
 	where 
 		@R:			R ⊆ AbstractInternalTriggers
-		@uc:			uc = FALSE		
+		@uc:			uc = TRUE		
 	then 
 		@iq_set:		iq ≔ iq ∪ R		//raised triggers
 	end

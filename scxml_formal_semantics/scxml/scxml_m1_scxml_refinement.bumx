@@ -193,7 +193,7 @@ events
 	any R1
 	where 
 		@R:			R1 ⊆ RefinedInternalTriggers
-		@uc:			uc_r = FALSE		
+		@uc:			uc_r = TRUE	
 	then 
 		@iq_set:		iq_r ≔ iq_r ∪ R1		//raised triggers
 	with
