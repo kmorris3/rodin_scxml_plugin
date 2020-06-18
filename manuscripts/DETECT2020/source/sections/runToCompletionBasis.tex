@@ -3,7 +3,7 @@
 
 \section{Run To Completion}
 \label{sec:run-completion}
-The run to completion semantics is specified via an abstract basis that is extended by the model. 
+The run to completion semantics is specified via an abstract basis that is extended by the model~\cite{MoSnHo18,MoSnHo-ABZ2020}. \todo{Added a reference to previous papers}
 Figure~\ref{fig:basis} shows a statechart representation of how the basis enforces 
 the run to completion semantics on the model transitions. 
 
@@ -94,8 +94,8 @@ The actions of these transitions may also raise triggers of their own.
 
 In the process of refining a model, a designer takes advantage of the non-determinism 
 in the abstraction. When a refinement level for which the designer wants to enforce 
-a requirement is reached, the model needs to be \emph{finalized} (see Section~\ref{sec:translation} for more on finalisation). The SCXML translation tool
-will then automatically strengthens the guards of events 
+a requirement is reached, the model needs to be \emph{finalized} (see Section~\ref{sec:translation} for more on finalisation). The \SCXML translation tool
+will then automatically strengthened the guards of events 
 |NoTriggerTransitionEnable| and |futureUntriggeredTransitionSet|, 
 to ensure that the run to completion sequence is not interrupted by non-deterministic behaviour. 
 The guards of event |NoTriggerTransitionEnable| are strengthen by 

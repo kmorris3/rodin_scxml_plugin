@@ -20,27 +20,28 @@ A transition may fire in parallel with transitions of parallel nested state-mach
 	\item
 Finally the \UMLB state-machine is translated into \EVENTB by programmatically invoking the \UMLB translator.
 \end{itemize}
-Further details of the translation are given in~\cite{MoSn16,MoSnHo18}.
-New features of the translation added since~\cite{MoSnHo18} are as follows:
-\begin{description}
-\item[Trigger queues in basis:]
-  \begin{sloppypar}
-    The encoding of trigger queues in the abstract basis machine has been improved so that triggers are properly dequeued before potential use,
-    which allows triggers to be discarded if the controller cannot respond to them. 
-    This more accurately reflects the \SCXML semantics and was necessary in order to model the new drone case study properly.
-  \end{sloppypar}
+Further details of the translation are given in~\cite{MoSn16,MoSnHo18,MoSnHo-ABZ2020}.
+\CTcomment{Deleted section listing all new feature in the translator since this is the ABZ paper.}
+% New features of the translation added since~\cite{MoSnHo18} are as follows:
+% \begin{description}
+% \item[Trigger queues in basis:]
+%   \begin{sloppypar}
+%     The encoding of trigger queues in the abstract basis machine has been improved so that triggers are properly dequeued before potential use,
+%     which allows triggers to be discarded if the controller cannot respond to them. 
+%     This more accurately reflects the \SCXML semantics and was necessary in order to model the new drone case study properly.
+%   \end{sloppypar}
 
-\item[Finalisation:] Transitions can be flagged as finalised which means their guards can not be strengthened in subsequent refinements. This allows them to `enforced' when they are enabled (i.e. completion cannot occur until they have fired) which is needed for verification. 
+% \item[Finalisation:] Transitions can be flagged as finalised which means their guards can not be strengthened in subsequent refinements. This allows them to `enforced' when they are enabled (i.e. completion cannot occur until they have fired) which is needed for verification. 
 
-\item[Restricted raising of internal triggers:] Once a trigger is introduced it must immediately be raised at that refinement level by any transitions that wish to do so. It cannot be raised in later refinements except by newly introduced transitions. This restriction was necessary to make simulation more useful by removing non-deterministic raising of triggers in anticipation of refinements.
+% \item[Restricted raising of internal triggers:] Once a trigger is introduced it must immediately be raised at that refinement level by any transitions that wish to do so. It cannot be raised in later refinements except by newly introduced transitions. This restriction was necessary to make simulation more useful by removing non-deterministic raising of triggers in anticipation of refinements.
 
-\item[Context instantiation:] The axioms of the basis context, that allow future triggers to be added, has been improved so that \PROB can automatically create an instantiation. 
+% \item[Context instantiation:] The axioms of the basis context, that allow future triggers to be added, has been improved so that \PROB\footnote{ProB is an animator, constraint solver and model checker for the B-Method. https://www3.hhu.de/stups/prob} can automatically create an instantiation. 
 
-\end{description}
+% \end{description}
 
 A tool to automatically translate \SCXML models into \UMLB has been produced. 
 The tool is based on the \EMF and uses an \SCXML meta-model provided by Sirius~\cite{siriuswebsite} which has good support for extensibility. 
-The \UMLB state-machine is subsequently translated into \EVENTB using the standard \UMLB translation~\cite{snook14:_b_statem} which provides variables to model the current state and guards and actions to model the state changes that transitions perform.
+The \UMLB state-machine is subsequently translated into \EVENTB using the standard \UMLB translation~\cite{snook14:iumlbStatem} which provides variables to model the current state and guards and actions to model the state changes that transitions perform.
 
 %%% Local Variables:
 %%% mode: latex

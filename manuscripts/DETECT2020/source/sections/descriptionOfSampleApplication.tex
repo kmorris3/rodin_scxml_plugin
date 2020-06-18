@@ -41,20 +41,20 @@ behavior in the abstraction.
 	\vspace{-.4cm}
 \end{figure} 
 
-% \todo{We are over by a little over a quater page. One way to deal with it is to remove this figure} 
-Figure~\ref{fig:drone2} shows the first refinement of the model, as we refine the parent state |TAKEOFF|
-by introducing child states and new model variables, similar to 
-Rule 2 \emph{basic-to-or state rule} defined by Syriani et al.~\cite{Syriani_2019}
-As part of this refinement we introduced an untriggered transition responsible for 
-raising the |toFly| internal trigger, and therefore removed some of the non-determinisms in the abstraction.
+% \todo{We are over by a little over a quater page. One way to deal with it is to remove this figure}
+\CTcomment{Removing one of the figures to reduce page count. Updates to next paragraph to agree with figure.} 
+% Figure~\ref{fig:drone2} shows the first refinement of the model, as we refine the parent state |TAKEOFF|
+% by introducing child states and new model variables, similar to 
+% Rule 2 \emph{basic-to-or state rule} defined by Syriani et al.~\cite{Syriani_2019}
+% As part of this refinement we introduced an untriggered transition responsible for 
+% raising the |toFly| internal trigger, and therefore removed some of the non-determinisms in the abstraction.
 
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=0.95\textwidth]{figures/Picture2.png}
-	\caption{Statechart of drone application. Refinement level introducing details for take off.}
-	\label{fig:drone2}
-\end{figure} 
-
+% \begin{figure}[!h]
+% 	\centering
+% 	\includegraphics[width=0.95\textwidth]{figures/Picture2.png}
+% 	\caption{Statechart of drone application. Refinement level introducing details for take off.}
+% 	\label{fig:drone2}
+% \end{figure} 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.95\textwidth]{figures/Picture5.png}
@@ -64,7 +64,13 @@ raising the |toFly| internal trigger, and therefore removed some of the non-dete
 	\label{fig:drone4}
 \end{figure} 
 
-Figure~\ref{fig:drone4} shows two subsequent refinements to the drone model.
+Figure~\ref{fig:drone4} shows three subsequent refinements to the drone model. The first refinement of the model is shown in beige, as we refine the parent state |TAKEOFF|
+by introducing child states and new model variables, similar to 
+Rule 2 \emph{basic-to-or state rule} defined by Syriani et al.~\cite{Syriani_2019}
+As part of this refinement we introduced an untriggered transition responsible for 
+raising the |toFly| internal trigger, and therefore removed some of the non-determinisms in the abstraction.
+
+% Figure~\ref{fig:drone4} shows two subsequent refinements to the drone model.
 The second refinement, the details of which are shown in green in Figure~\ref{fig:drone4}, 
 extends the capabilities within |OPERATIONAL| by making it a parallel
 state that controls flying and battery related functionality. 
@@ -72,7 +78,7 @@ This is the same as Rule 4 \emph{and-state rule} defined by Syriani et al.~\cite
 The charge within the drone battery is control by the parallel |BATTERYOP| state. 
 The functionality is modeled by introducing a new model variable, |charge|, which is decreased as 
 a response to the internal trigger |decreaseCharge|. The aforementioned trigger, is raised non-deterministically by some 
-unspecified internal functionality. Our statechart semantics support transition refinement, as such
+unspecified internal functionality. Our statechart semantics supports transition refinement, as such
 we are able to modified previously defined transitions. In particular, this type of refinement allow
 us to add guards and/or actions to previously defined transitions. The strengthening of guards, or additional 
 actions are expressed in term of new model variables that contribute implementation details to the model.
