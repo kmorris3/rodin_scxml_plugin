@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;ac.soton.xeventb.xcontext.base" org.eventb.core.generated="false" version="3">
+    <org.eventb.core.extendsContext name="_xtdY4LB3Eeqz6I-l8XobaA" org.eventb.core.target="c0_1_closure_def"/>
+    <org.eventb.core.constant name="_xtdY4bB3Eeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="LinkedList"/>
+    <org.eventb.core.axiom name="_xtdY4rB3Eeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="def-LinkedList" org.eventb.core.predicate="LinkedList = ( λ Sts · Sts ⊆ STATE ∣ { fst ↦ lst ↦ lnks ∣ fst ∈ Sts ∧ lst ∈ Sts ∧ lnks ∈ Sts ∖ {lst} ⤖ Sts ∖ {fst} ∧ (fst ≠ lst ⇒ lst ∈ cl(lnks)[{fst}]) } )"/>
+    <org.eventb.core.axiom name="_xtd_8LB3Eeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="typeof-LinkedList" org.eventb.core.predicate="LinkedList ∈ ℙ(STATE) → ℙ(STATE × STATE × (STATE ↔ STATE))" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_xtd_8bB3Eeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="func-LinkedList" org.eventb.core.predicate="∀ Sts · LinkedList(Sts) = { fst ↦ lst ↦ lnks ∣ fst ∈ Sts ∧ lst ∈ Sts ∧ lnks ∈ Sts ∖ {lst} ⤖ Sts ∖ {fst} ∧ (fst ≠ lst ⇒ lst ∈ cl(lnks)[{fst}]) }" org.eventb.core.theorem="true"/>
+</org.eventb.core.contextFile>

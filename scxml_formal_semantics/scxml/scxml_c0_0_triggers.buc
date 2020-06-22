@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;ac.soton.xeventb.xcontext.base" org.eventb.core.generated="false" version="3">
+    <org.eventb.core.carrierSet name="__hnpULCYEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="TRIGGERS"/>
+    <org.eventb.core.constant name="__hnpUbCYEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="InternalTriggers"/>
+    <org.eventb.core.constant name="__hnpUrCYEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="ExternalTriggers"/>
+    <org.eventb.core.constant name="__hnpU7CYEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="nullTrigger"/>
+    <org.eventb.core.axiom name="__hnpVLCYEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="triggerKinds" org.eventb.core.predicate="partition (TRIGGERS, InternalTriggers, ExternalTriggers, {nullTrigger})"/>
+    <org.eventb.core.axiom name="__hnpVbCYEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="nte" org.eventb.core.predicate="nullTrigger ∉ ExternalTriggers" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="__hoQYLCYEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="nti" org.eventb.core.predicate="nullTrigger ∉ InternalTriggers" org.eventb.core.theorem="true"/>
+</org.eventb.core.contextFile>

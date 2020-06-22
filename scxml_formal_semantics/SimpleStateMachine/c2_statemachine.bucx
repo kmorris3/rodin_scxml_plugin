@@ -35,7 +35,7 @@ axioms
 	  	source(transition_link(rt)) ∈ cl(refined_container)[{source(rt)}] ∪ {source(rt)}
 	  	// The refined source can be more deterministic than abstract source
 	  	// That is the source of the abstract transition is either the same as 
-	  	// that of the refined transition or it is an ancester of that. 
+	  	// that of the refined transition or it is an ancestor of that. 
 	@linking-target_old_transition: ∀rt · rt ∈ dom(transition_link) ⇒
 	  	target(transition_link(rt)) ∈ cl(refined_container)[{target(rt)}] ∪ {target(rt)}
 	@linking-source_target_new_transition: ∀rt · rt ∉ dom(transition_link) ⇒ 

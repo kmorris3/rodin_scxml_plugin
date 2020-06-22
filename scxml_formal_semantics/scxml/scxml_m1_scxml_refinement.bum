@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd;ac.soton.xeventb.xmachine.base" org.eventb.core.generated="false" version="5">
+    <org.eventb.core.refinesMachine name="_PzIhQLCfEeqz6I-l8XobaA" org.eventb.core.target="scxml_m0_scxml"/>
+    <org.eventb.core.seesContext name="_PzJIULCfEeqz6I-l8XobaA" org.eventb.core.target="scxml_c1_refined"/>
+    <org.eventb.core.variable name="_PzJIUbCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="iq_r"/>
+    <org.eventb.core.variable name="_PzJIUrCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="eq_r"/>
+    <org.eventb.core.variable name="_PzJIU7CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="dt_r"/>
+    <org.eventb.core.variable name="_PzJIVLCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="uc_r"/>
+    <org.eventb.core.variable name="_PzK9gLCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="dt_aux"/>
+    <org.eventb.core.invariant name="_PzK9gbCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="iq_r" org.eventb.core.predicate="iq_r ∈ ℙ(RefinedInternalTriggers)"/>
+    <org.eventb.core.invariant name="_PzK9grCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="eq_r" org.eventb.core.predicate="eq_r ∈ ℙ(RefinedExternalTriggers)"/>
+    <org.eventb.core.invariant name="_PzK9g7CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="dt_r" org.eventb.core.predicate="dt_r ∈ DeQueueType"/>
+    <org.eventb.core.invariant name="_PzLkkLCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="dtwd" org.eventb.core.predicate="dt_r ⊆ RefinedInternalTriggers ∪ RefinedExternalTriggers"/>
+    <org.eventb.core.invariant name="_PzLkkbCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="uc_r" org.eventb.core.predicate="uc_r ∈ BOOL"/>
+    <org.eventb.core.invariant name="_PzLkkrCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="dt_aux" org.eventb.core.predicate="dt_aux ∈ DeQueueType ∪ {{nullTrigger}}"/>
+    <org.eventb.core.invariant name="_PzLkk7CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="firingTriggered" org.eventb.core.predicate="dt_r ≠ ∅ ⇒ uc_r=FALSE"/>
+    <org.eventb.core.invariant name="_PzLklLCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="readyToDequeue" org.eventb.core.predicate="uc_r=TRUE ⇒ dt_r = ∅" org.eventb.core.theorem="true"/>
+    <org.eventb.core.invariant name="_PzLklbCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="iq_r_glue" org.eventb.core.predicate="iq = iq_r ∩ AbstractInternalTriggers"/>
+    <org.eventb.core.invariant name="_PzMLoLCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="eq_r_glue" org.eventb.core.predicate="eq = eq_r ∩ AbstractExternalTriggers"/>
+    <org.eventb.core.invariant name="_PzMLobCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="dt_r_glue" org.eventb.core.predicate="dt_r ⊆ (AbstractInternalTriggers ∪ AbstractExternalTriggers) ⇒ dt_r = dt"/>
+    <org.eventb.core.invariant name="_PzMLorCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="dt_r_glue2" org.eventb.core.predicate="dt_r ⊈ (AbstractInternalTriggers ∪ AbstractExternalTriggers) ⇒ dt = ∅"/>
+    <org.eventb.core.invariant name="_PzMLo7CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="uuu" org.eventb.core.predicate="uc_r = FALSE ⇔ dt_aux ≠∅"/>
+    <org.eventb.core.invariant name="_PzMLpLCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="vvv" org.eventb.core.predicate="dt_r ≠∅ ⇒ dt_r = dt_aux"/>
+    <org.eventb.core.invariant name="_PzMysLCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="www" org.eventb.core.predicate="dt_aux=∅ ⇒ uc=TRUE"/>
+    <org.eventb.core.invariant name="_PzMysbCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="xxx" org.eventb.core.predicate="dt_aux ⊈ (AbstractInternalTriggers ∪ AbstractExternalTriggers ∪ {nullTrigger}) ⇒ uc = TRUE"/>
+    <org.eventb.core.invariant name="_PzMysrCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="yyy" org.eventb.core.predicate="dt_aux ⊆ (AbstractInternalTriggers ∪ AbstractExternalTriggers) ∧ dt_aux≠∅ ⇒ uc_r=uc"/>
+    <org.eventb.core.invariant name="_PzMys7CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="zzz" org.eventb.core.predicate="dt_aux={nullTrigger} ⇒ uc = FALSE"/>
+    <org.eventb.core.event name="_PzMytLCfEeqz6I-l8XobaA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_PzNZwLCfEeqz6I-l8XobaA" org.eventb.core.assignment="iq_r ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="iq_r_init"/>
+        <org.eventb.core.action name="_PzNZwbCfEeqz6I-l8XobaA" org.eventb.core.assignment="eq_r ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="eq_r_init"/>
+        <org.eventb.core.action name="_PzNZwrCfEeqz6I-l8XobaA" org.eventb.core.assignment="dt_r ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="dt_r_init"/>
+        <org.eventb.core.action name="_PzNZw7CfEeqz6I-l8XobaA" org.eventb.core.assignment="uc_r ≔ FALSE" org.eventb.core.generated="false" org.eventb.core.label="uc_r_init"/>
+        <org.eventb.core.action name="_PzNZxLCfEeqz6I-l8XobaA" org.eventb.core.assignment="dt_aux ≔ {nullTrigger}" org.eventb.core.generated="false" org.eventb.core.label="aux_init"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_PzNZxbCfEeqz6I-l8XobaA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="raiseOldExternalTrigger">
+        <org.eventb.core.refinesEvent name="_PzNZxrCfEeqz6I-l8XobaA" org.eventb.core.target="raiseExternalTrigger"/>
+        <org.eventb.core.parameter name="_PzNZx7CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="t"/>
+        <org.eventb.core.guard name="_PzOA0LCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="t" org.eventb.core.predicate="t ∈ AbstractExternalTriggers"/>
+        <org.eventb.core.action name="_PzOA0bCfEeqz6I-l8XobaA" org.eventb.core.assignment="eq_r ≔ eq_r ∪ {t}" org.eventb.core.generated="false" org.eventb.core.label="eq_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_PzOA0rCfEeqz6I-l8XobaA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="raiseNewExternalTrigger">
+        <org.eventb.core.parameter name="_PzOA07CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="t"/>
+        <org.eventb.core.guard name="_PzOA1LCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="t" org.eventb.core.predicate="t ∈ RefinedExternalTriggers∖AbstractExternalTriggers"/>
+        <org.eventb.core.action name="_PzOA1bCfEeqz6I-l8XobaA" org.eventb.core.assignment="eq_r ≔ eq_r ∪ {t}" org.eventb.core.generated="false" org.eventb.core.label="eq_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_PzOA1rCfEeqz6I-l8XobaA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="dequeueOldExternal">
+        <org.eventb.core.refinesEvent name="_PzOA17CfEeqz6I-l8XobaA" org.eventb.core.target="dequeueExternal"/>
+        <org.eventb.core.parameter name="_PzOA2LCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="t"/>
+        <org.eventb.core.guard name="_PzOA2bCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc_r = TRUE"/>
+        <org.eventb.core.guard name="_PzOn4LCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="dt" org.eventb.core.predicate="dt_r = ∅" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_PzOn4bCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="t" org.eventb.core.predicate="t ∈ eq_r"/>
+        <org.eventb.core.guard name="_PzOn4rCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="old_t" org.eventb.core.predicate="t ∈ AbstractExternalTriggers"/>
+        <org.eventb.core.guard name="_PzOn47CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="iq" org.eventb.core.predicate="iq_r = ∅"/>
+        <org.eventb.core.action name="_PzOn5LCfEeqz6I-l8XobaA" org.eventb.core.assignment="dt_r ≔ {t}" org.eventb.core.generated="false" org.eventb.core.label="dt_set"/>
+        <org.eventb.core.action name="_PzOn5bCfEeqz6I-l8XobaA" org.eventb.core.assignment="eq_r ≔ eq_r ∖ {t}" org.eventb.core.generated="false" org.eventb.core.label="eq_set"/>
+        <org.eventb.core.action name="_PzOn5rCfEeqz6I-l8XobaA" org.eventb.core.assignment="uc_r ≔ FALSE" org.eventb.core.generated="false" org.eventb.core.label="uc_set"/>
+        <org.eventb.core.action name="_PzOn57CfEeqz6I-l8XobaA" org.eventb.core.assignment="dt_aux ≔ {t}" org.eventb.core.generated="false" org.eventb.core.label="dt_aux_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_PzOn6LCfEeqz6I-l8XobaA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="dequeueNewExternal">
+        <org.eventb.core.parameter name="_PzOn6bCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="t"/>
+        <org.eventb.core.guard name="_PzOn6rCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc_r = TRUE"/>
+        <org.eventb.core.guard name="_PzPO8LCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="dt" org.eventb.core.predicate="dt_r = ∅" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_PzPO8bCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="t" org.eventb.core.predicate="t ∈ eq_r"/>
+        <org.eventb.core.guard name="_PzPO8rCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="new_t" org.eventb.core.predicate="t ∉ AbstractExternalTriggers"/>
+        <org.eventb.core.guard name="_PzPO87CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="iq" org.eventb.core.predicate="iq_r = ∅"/>
+        <org.eventb.core.action name="_PzPO9LCfEeqz6I-l8XobaA" org.eventb.core.assignment="dt_r ≔ {t}" org.eventb.core.generated="false" org.eventb.core.label="dt_set"/>
+        <org.eventb.core.action name="_PzPO9bCfEeqz6I-l8XobaA" org.eventb.core.assignment="eq_r ≔ eq_r ∖ {t}" org.eventb.core.generated="false" org.eventb.core.label="eq_set"/>
+        <org.eventb.core.action name="_PzPO9rCfEeqz6I-l8XobaA" org.eventb.core.assignment="uc_r ≔ FALSE" org.eventb.core.generated="false" org.eventb.core.label="uc_set"/>
+        <org.eventb.core.action name="_PzPO97CfEeqz6I-l8XobaA" org.eventb.core.assignment="dt_aux ≔ {t}" org.eventb.core.generated="false" org.eventb.core.label="dt_aux_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_PzPO-LCfEeqz6I-l8XobaA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="dequeueOldInternal">
+        <org.eventb.core.refinesEvent name="_PzPO-bCfEeqz6I-l8XobaA" org.eventb.core.target="dequeueInternal"/>
+        <org.eventb.core.parameter name="_PzP2ALCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="t"/>
+        <org.eventb.core.guard name="_PzP2AbCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc_r = TRUE"/>
+        <org.eventb.core.guard name="_PzP2ArCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="dt" org.eventb.core.predicate="dt_r = ∅" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_PzP2A7CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="t" org.eventb.core.predicate="t ∈ iq_r"/>
+        <org.eventb.core.guard name="_PzP2BLCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="old_t" org.eventb.core.predicate="t ∈ AbstractInternalTriggers"/>
+        <org.eventb.core.action name="_PzP2BbCfEeqz6I-l8XobaA" org.eventb.core.assignment="dt_r ≔ {t}" org.eventb.core.generated="false" org.eventb.core.label="dt_set"/>
+        <org.eventb.core.action name="_PzP2BrCfEeqz6I-l8XobaA" org.eventb.core.assignment="iq_r ≔ iq_r ∖ {t}" org.eventb.core.generated="false" org.eventb.core.label="eq_set"/>
+        <org.eventb.core.action name="_PzP2B7CfEeqz6I-l8XobaA" org.eventb.core.assignment="uc_r ≔ FALSE" org.eventb.core.generated="false" org.eventb.core.label="uc_set"/>
+        <org.eventb.core.action name="_PzP2CLCfEeqz6I-l8XobaA" org.eventb.core.assignment="dt_aux ≔ {t}" org.eventb.core.generated="false" org.eventb.core.label="dt_aux_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_PzP2CbCfEeqz6I-l8XobaA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="dequeueNewInternal">
+        <org.eventb.core.parameter name="_PzP2CrCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="t"/>
+        <org.eventb.core.guard name="_PzQdELCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc_r = TRUE"/>
+        <org.eventb.core.guard name="_PzQdEbCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="dt" org.eventb.core.predicate="dt_r = ∅" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_PzQdErCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="t" org.eventb.core.predicate="t ∈ iq_r"/>
+        <org.eventb.core.guard name="_PzQdE7CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="new_t" org.eventb.core.predicate="t ∉ AbstractInternalTriggers"/>
+        <org.eventb.core.action name="_PzQdFLCfEeqz6I-l8XobaA" org.eventb.core.assignment="dt_r ≔ {t}" org.eventb.core.generated="false" org.eventb.core.label="dt_set"/>
+        <org.eventb.core.action name="_PzQdFbCfEeqz6I-l8XobaA" org.eventb.core.assignment="iq_r ≔ iq_r ∖ {t}" org.eventb.core.generated="false" org.eventb.core.label="eq_set"/>
+        <org.eventb.core.action name="_PzQdFrCfEeqz6I-l8XobaA" org.eventb.core.assignment="uc_r ≔ FALSE" org.eventb.core.generated="false" org.eventb.core.label="uc_set"/>
+        <org.eventb.core.action name="_PzQdF7CfEeqz6I-l8XobaA" org.eventb.core.assignment="dt_aux ≔ {t}" org.eventb.core.generated="false" org.eventb.core.label="dt_aux_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_PzQdGLCfEeqz6I-l8XobaA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="oldTriggeredTransition">
+        <org.eventb.core.refinesEvent name="_PzREILCfEeqz6I-l8XobaA" org.eventb.core.target="triggeredTransition"/>
+        <org.eventb.core.parameter name="_PzREIbCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="t"/>
+        <org.eventb.core.parameter name="_PzREIrCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="R1"/>
+        <org.eventb.core.guard name="_PzREI7CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="t" org.eventb.core.predicate="t ∈ dt_r"/>
+        <org.eventb.core.guard name="_PzREJLCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc_r = FALSE" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_PzREJbCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="old_t" org.eventb.core.predicate="t ∈ (AbstractInternalTriggers ∪ AbstractExternalTriggers)"/>
+        <org.eventb.core.guard name="_PzREJrCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="R1" org.eventb.core.predicate="R1 ⊆ RefinedInternalTriggers"/>
+        <org.eventb.core.witness name="_PzREJ7CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="R" org.eventb.core.predicate="R = R1 ∩ AbstractInternalTriggers"/>
+        <org.eventb.core.action name="_PzRrMLCfEeqz6I-l8XobaA" org.eventb.core.assignment="dt_r ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="dt_set"/>
+        <org.eventb.core.action name="_PzRrMbCfEeqz6I-l8XobaA" org.eventb.core.assignment="iq_r ≔ iq_r ∪ R1" org.eventb.core.generated="false" org.eventb.core.label="iq_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_PzRrMrCfEeqz6I-l8XobaA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="newTriggeredTransition">
+        <org.eventb.core.refinesEvent name="_PzRrM7CfEeqz6I-l8XobaA" org.eventb.core.target="futureTransition"/>
+        <org.eventb.core.parameter name="_PzRrNLCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="t"/>
+        <org.eventb.core.parameter name="_PzRrNbCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="R1"/>
+        <org.eventb.core.guard name="_PzRrNrCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="t" org.eventb.core.predicate="t ∈ dt_r"/>
+        <org.eventb.core.guard name="_PzRrN7CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc_r = FALSE" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_PzRrOLCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="new_t" org.eventb.core.predicate="t ∉ (AbstractInternalTriggers ∪ AbstractExternalTriggers)"/>
+        <org.eventb.core.guard name="_PzRrObCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="R" org.eventb.core.predicate="R1 ⊆ RefinedInternalTriggers"/>
+        <org.eventb.core.witness name="_PzRrOrCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="R" org.eventb.core.predicate="R = R1 ∩ AbstractInternalTriggers"/>
+        <org.eventb.core.action name="_PzSSQLCfEeqz6I-l8XobaA" org.eventb.core.assignment="dt_r ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="dt_set"/>
+        <org.eventb.core.action name="_PzSSQbCfEeqz6I-l8XobaA" org.eventb.core.assignment="iq_r ≔ iq_r ∪ R1" org.eventb.core.generated="false" org.eventb.core.label="iq_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_PzSSQrCfEeqz6I-l8XobaA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="oldCompleteTriggered">
+        <org.eventb.core.refinesEvent name="_PzSSQ7CfEeqz6I-l8XobaA" org.eventb.core.target="completeTriggered"/>
+        <org.eventb.core.parameter name="_PzSSRLCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="t"/>
+        <org.eventb.core.guard name="_PzSSRbCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="t" org.eventb.core.predicate="t ∈ dt_r"/>
+        <org.eventb.core.guard name="_PzSSRrCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc_r = FALSE" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_PzSSR7CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="old_t" org.eventb.core.predicate="t ∈ (AbstractInternalTriggers ∪ AbstractExternalTriggers)"/>
+        <org.eventb.core.action name="_PzSSSLCfEeqz6I-l8XobaA" org.eventb.core.assignment="dt_r ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="dt_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_PzSSSbCfEeqz6I-l8XobaA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="newCompleteTriggered">
+        <org.eventb.core.parameter name="_PzSSSrCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="t"/>
+        <org.eventb.core.guard name="_PzS5ULCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="t" org.eventb.core.predicate="t ∈ dt_r"/>
+        <org.eventb.core.guard name="_PzS5UbCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc_r = FALSE" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_PzS5UrCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="new_t" org.eventb.core.predicate="t ∉ (AbstractInternalTriggers ∪ AbstractExternalTriggers)"/>
+        <org.eventb.core.action name="_PzS5U7CfEeqz6I-l8XobaA" org.eventb.core.assignment="dt_r ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="dt_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_PzS5VLCfEeqz6I-l8XobaA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="oldUntriggeredTransition">
+        <org.eventb.core.refinesEvent name="_PzS5VbCfEeqz6I-l8XobaA" org.eventb.core.target="untriggeredTransition"/>
+        <org.eventb.core.parameter name="_PzS5VrCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="R1"/>
+        <org.eventb.core.guard name="_PzS5V7CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="dt" org.eventb.core.predicate="dt_r = ∅"/>
+        <org.eventb.core.guard name="_PzS5WLCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc_r = FALSE"/>
+        <org.eventb.core.guard name="_PzTgYLCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="R" org.eventb.core.predicate="R1 ⊆ RefinedInternalTriggers"/>
+        <org.eventb.core.guard name="_PzTgYbCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="dt_aux" org.eventb.core.predicate="dt_aux ⊆ (AbstractInternalTriggers ∪ AbstractExternalTriggers ∪ {nullTrigger})"/>
+        <org.eventb.core.witness name="_PzTgYrCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="R" org.eventb.core.predicate="R = R1 ∩ AbstractInternalTriggers"/>
+        <org.eventb.core.action name="_PzUHcLCfEeqz6I-l8XobaA" org.eventb.core.assignment="iq_r ≔ iq_r ∪ R1" org.eventb.core.generated="false" org.eventb.core.label="iq_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_PzUHcbCfEeqz6I-l8XobaA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="newUntriggeredTransition">
+        <org.eventb.core.refinesEvent name="_PzUHcrCfEeqz6I-l8XobaA" org.eventb.core.target="futureTransition"/>
+        <org.eventb.core.parameter name="_PzUHc7CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="R1"/>
+        <org.eventb.core.guard name="_PzUugLCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="dt" org.eventb.core.predicate="dt_r = ∅"/>
+        <org.eventb.core.guard name="_PzUugbCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc_r = FALSE"/>
+        <org.eventb.core.guard name="_PzUugrCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="R" org.eventb.core.predicate="R1 ⊆ RefinedInternalTriggers"/>
+        <org.eventb.core.guard name="_PzUug7CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="dt_aux" org.eventb.core.predicate="dt_aux ⊈ (AbstractInternalTriggers ∪ AbstractExternalTriggers ∪ {nullTrigger})"/>
+        <org.eventb.core.witness name="_PzUuhLCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="R" org.eventb.core.predicate="R = R1 ∩ AbstractInternalTriggers"/>
+        <org.eventb.core.action name="_PzUuhbCfEeqz6I-l8XobaA" org.eventb.core.assignment="iq_r ≔ iq_r ∪ R1" org.eventb.core.generated="false" org.eventb.core.label="iq_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_PzUuhrCfEeqz6I-l8XobaA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="oldCompleteUntriggered">
+        <org.eventb.core.refinesEvent name="_PzVVkLCfEeqz6I-l8XobaA" org.eventb.core.target="completeUntriggered"/>
+        <org.eventb.core.guard name="_PzVVkbCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="dt" org.eventb.core.predicate="dt_r = ∅"/>
+        <org.eventb.core.guard name="_PzVVkrCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc_r = FALSE"/>
+        <org.eventb.core.guard name="_PzV8oLCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="old_t" org.eventb.core.predicate="dt_aux ⊆ (AbstractInternalTriggers ∪ AbstractExternalTriggers ∪ {nullTrigger})"/>
+        <org.eventb.core.action name="_PzV8obCfEeqz6I-l8XobaA" org.eventb.core.assignment="uc_r ≔ TRUE" org.eventb.core.generated="false" org.eventb.core.label="uc_set"/>
+        <org.eventb.core.action name="_PzWjsLCfEeqz6I-l8XobaA" org.eventb.core.assignment="dt_aux ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="dt_aux_clr"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_PzWjsbCfEeqz6I-l8XobaA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="newCompleteUntriggered">
+        <org.eventb.core.guard name="_PzWjsrCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="dt" org.eventb.core.predicate="dt_r = ∅"/>
+        <org.eventb.core.guard name="_PzXKwLCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc_r = FALSE"/>
+        <org.eventb.core.guard name="_PzXKwbCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="new_t" org.eventb.core.predicate="dt_aux ⊈ (AbstractInternalTriggers ∪ AbstractExternalTriggers ∪ {nullTrigger})"/>
+        <org.eventb.core.action name="_PzXKwrCfEeqz6I-l8XobaA" org.eventb.core.assignment="uc_r ≔ TRUE" org.eventb.core.generated="false" org.eventb.core.label="uc_set"/>
+        <org.eventb.core.action name="_PzXKw7CfEeqz6I-l8XobaA" org.eventb.core.assignment="dt_aux ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="dt_aux_clr"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_PzXKxLCfEeqz6I-l8XobaA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="futureTransition">
+        <org.eventb.core.refinesEvent name="_PzXx0LCfEeqz6I-l8XobaA" org.eventb.core.target="futureTransition"/>
+        <org.eventb.core.parameter name="_PzXx0bCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="R1"/>
+        <org.eventb.core.guard name="_PzXx0rCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="R" org.eventb.core.predicate="R1 ⊆ RefinedInternalTriggers"/>
+        <org.eventb.core.guard name="_PzXx07CfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="uc" org.eventb.core.predicate="uc_r = TRUE"/>
+        <org.eventb.core.witness name="_PzXx1LCfEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="R" org.eventb.core.predicate="R = R1 ∩ AbstractInternalTriggers"/>
+        <org.eventb.core.action name="_PzXx1bCfEeqz6I-l8XobaA" org.eventb.core.assignment="iq_r ≔ iq_r ∪ R1" org.eventb.core.generated="false" org.eventb.core.label="iq_set"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>

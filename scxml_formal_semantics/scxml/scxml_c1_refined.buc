@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;ac.soton.xeventb.xcontext.base" org.eventb.core.generated="false" version="3">
+    <org.eventb.core.extendsContext name="_xrMvELB3Eeqz6I-l8XobaA" org.eventb.core.target="scxml_c0_abstract"/>
+    <org.eventb.core.constant name="_xrMvEbB3Eeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="RefinedInternalTriggers"/>
+    <org.eventb.core.constant name="_xrMvErB3Eeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="RefinedExternalTriggers"/>
+    <org.eventb.core.axiom name="_xrMvE7B3Eeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="rit" org.eventb.core.predicate="RefinedInternalTriggers ⊆ InternalTriggers"/>
+    <org.eventb.core.axiom name="_xrNWILB3Eeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="ret" org.eventb.core.predicate="RefinedExternalTriggers ⊆ ExternalTriggers"/>
+    <org.eventb.core.axiom name="_xrNWIbB3Eeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="rit1" org.eventb.core.predicate="AbstractInternalTriggers ⊆ RefinedInternalTriggers"/>
+    <org.eventb.core.axiom name="_xrNWIrB3Eeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="ret1" org.eventb.core.predicate="AbstractExternalTriggers ⊆ RefinedExternalTriggers"/>
+</org.eventb.core.contextFile>
