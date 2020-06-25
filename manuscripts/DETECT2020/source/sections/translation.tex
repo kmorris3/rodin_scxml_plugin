@@ -3,17 +3,18 @@
 \section{\SCXML Translation to \EventB}
 \label{sec:translation}
 
-The translation of a specific \SCXML model to \UMLB and subsequently to \EventB, comprises the following stages: 
+The translation of a specific \SCXML model to \UMLB and  \EventB, comprises the following stages: 
 \begin{itemize}
 	\item 
 Firstly, a basis machine and context are created to embody the semantics of the \SCXML language (Section~\ref{sec:run-completion}).
 The basis provides variables and events to model the queue of triggers as well as abstract versions of events to model transitions firing.
 The basis is independent of the particular \SCXML model which is added in subsequent refinements.
 	\item 
-Secondly, all possible combinations of transitions that can fire together are calculated and corresponding events are generated, at appropriate refinement levels, that refine the abstract basis events.  
+Secondly, all possible combinations of each set of transitions that can fire together are calculated and corresponding events are generated, at appropriate refinement levels, that refine the abstract basis events.
+The transitions that can fire together are those that are triggered by the same trigger (or are both untriggered) and are in different parallel (`and') sub-states.
 If these transitions raise internal triggers, a guard, (e.g. |{i1, i2, ...} <: raisedTrigger|, where |i1, i2, ...| have been added to the internal triggers set), is introduced to define the raised triggers parameter. 
 The subset allows more triggers to be raised in later refinements.
-For triggered transitions, the trigger is specified by a guard that defines the value of the trigger parameter.\todo{COLIN: Explain how to elaborate all possible combinations of transitions} 
+For triggered transitions, the trigger is specified by a guard that defines the value of the trigger parameter. 
 	\item 
 Thirdly, the \SCXML state-chart is translated into a corresponding \UMLB state-machine whose transitions elaborate (i.e. add state change details to) the transition combination events that the transition may be involved in.
 A transition may fire in parallel with transitions of parallel nested state-machines that have the same (possibly null) trigger.
