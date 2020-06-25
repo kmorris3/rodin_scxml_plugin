@@ -13,7 +13,7 @@ There are two kinds of properties that we might want to verify in an \SCXML stat
 
 \SCXML models represent components that react to received triggers and cannot be perfectly synchronised with changes to the monitored properties. 
 Hence, |P| may be temporarily violated until the system reacts by leaving the state |S| in which the property is expected to hold.
-To cater for this we express |P| in a modified form |P'| that allows time for the reaction to take place. \todo{COLIN: P is check in stable states that are reachable according to the run-to-completion}
+To cater for this we express |P| in a modified form |P'| that allows time for the reaction to take place. 
 
 There are two forms of reaction that can be used to exit |S|; 
 a) an untriggered transition, or 
@@ -21,6 +21,7 @@ b) a transition that is triggered by an internally raised trigger.
 For a), the modified property |P'| becomes |P ∨| \emph{untriggered transitions are not complete}, 
 and for b) |P'| becomes |P ∨| \emph{trigger} |t| \emph{is in the internal queue or dequeued}
 (where |t| is the internal trigger raised when the violation of |P| is detected).
+Hence P is checked only in stable states that are reachable according to the run-to-completion semantics.
 
 %Not sure the following is true so removed it..
 %For properties about the value of auxiliary data, untriggered transitions appear to be more suited because, in this case, there is unlikely to be a natural place to raise an internal trigger when the appropriate conditions arise.
