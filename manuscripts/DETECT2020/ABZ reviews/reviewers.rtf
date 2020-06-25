@@ -2,10 +2,10 @@
 {\fonttbl\f0\fnil\fcharset0 Calibri;}
 {\colortbl;\red255\green255\blue255;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;
 \red255\green255\blue11;\red255\green255\blue255;\red254\green255\blue10;\red255\green255\blue255;\red0\green0\blue0;
-\red255\green255\blue255;\red251\green0\blue7;\red252\green41\blue19;}
+\red255\green255\blue255;\red255\green255\blue255;\red251\green0\blue7;\red252\green41\blue19;}
 {\*\expandedcolortbl;;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c1\c1;\cssrgb\c100000\c100000\c99985;
 \cssrgb\c100000\c100000\c0;\cssrgb\c100000\c100000\c99956;\cssrgb\c99555\c99475\c0;\cssrgb\c100000\c100000\c99941;\cssrgb\c0\c1\c1;
-\cssrgb\c100000\c100000\c99971;\cssrgb\c100000\c12195\c0;\cssrgb\c100000\c25745\c7993;}
+\cssrgb\c100000\c100000\c99971;\cssrgb\c100000\c100000\c99910;\cssrgb\c100000\c12195\c0;\cssrgb\c100000\c25745\c7993;}
 \paperw11900\paperh16840\margl1440\margr1440\vieww16340\viewh17660\viewkind0
 \deftab720
 \pard\pardeftab720\partightenfactor0
@@ -56,46 +56,46 @@
 \'a0\'a0\'a0 ----- TEXT:\
 \'a0\'a0\'a0 The paper presents an application of Event-B as a verification back-end for statecharts restricted to certain elicitation laws. My intuition is that the restriction is overly onerous but the paper does lack explicit discussion of this.\
 \'a0\'a0\'a0\
-\'a0\'a0\'a0\'a0As is very common with translational semantics, the difficult bit is how to communicate verification results in a way intelligible to users trained in the source (here, statecharts) notation. The authors do not address this issue.\
-\'a0\'a0\'a0\
+\cf2 \cb7 \'a0\'a0\'a0\'a0As is very common with translational semantics, the difficult bit is how to communicate verification results in a way intelligible to users trained in the source (here, statecharts) notation. The authors do not address this issue.\
+\'a0\'a0\'a0\cf3 \cb1 \
 \'a0\'a0\'a0\'a0On the whole it is a fairly solid work. Personally, rather than seeing it as a way to verify statechart-driven process (something that I believe would not work in practice due to the feedback issue) I think it is, alongside with some related UML-B work, a great way to document Event-B models. Event-B is not the most legible notation and having statecharts as a way to control and document refinement seems a sound decision that can help domain experts to assess models and tick off some boxes for certification.\
 \'a0\'a0\'a0\
-\cf9 \cb11 \'a0\'a0\'a0\'a0The liveness checks solution seems a bit of an afterthought. Given controlled manner of chart eloboartion I wonder if it can be integrated within the eloboration process.\cf3 \cb1 \
+\cf9 \cb12 \'a0\'a0\'a0\'a0The liveness checks solution seems a bit of an afterthought. Given controlled manner of chart eloboartion I wonder if it can be integrated within the eloboration process.\cf3 \cb1 \
 \'a0\'a0\'a0\
 \'a0\'a0\'a0\'a0There are some suprising design decisions in the semantics (e.g., using a negation of 'other' event guards) that either need an explanation or revision.\
 \'a0\'a0\'a0\
-\cf9 \cb12 \'a0\'a0\'a0\'a0The paper starts great but then the narrative gets choppier. What I persnally wished for is see more statecharts illustrations for the example. Section 7 desperately needs some improvement in the area.\cf3 \cb1 \
+\cf9 \cb13 \'a0\'a0\'a0\'a0The paper starts great but then the narrative gets choppier. What I persnally wished for is see more statecharts illustrations for the example. Section 7 desperately needs some improvement in the area.\cf3 \cb1 \
 \'a0\'a0\'a0\
 \'a0\'a0\'a0\'a0Other comments:\
 \'a0\'a0\'a0\
-\cf9 \cb11 \'a0\'a0\'a0\'a0"but a rubric for finding valid refinements" - to me this oversells what Event-B offers. Certain forms of refinement are hard due to an interaction of semantics and prover capabilities. But not all "inelegant" models are bad and not all "elegant" models are good.\cf3 \cb1 \
+\cf9 \cb12 \'a0\'a0\'a0\'a0"but a rubric for finding valid refinements" - to me this oversells what Event-B offers. Certain forms of refinement are hard due to an interaction of semantics and prover capabilities. But not all "inelegant" models are bad and not all "elegant" models are good.\cf3 \cb1 \
 \'a0\'a0\'a0\
-\cf9 \cb11 \'a0\'a0\'a0\'a0In the background section, please include a sample of statechart model and describe the visual notation.\cf3 \cb1 \
+\cf9 \cb12 \'a0\'a0\'a0\'a0In the background section, please include a sample of statechart model and describe the visual notation.\cf3 \cb1 \
 \'a0\'a0\'a0\
-\'a0\'a0\cf9 \cb11 \'a0\'a0"It is at the highest level of abstraction that proofs are presumably the easiest to\
+\'a0\'a0\cf9 \cb12 \'a0\'a0"It is at the highest level of abstraction that proofs are presumably the easiest to\
 \'a0\'a0\'a0 discharge." - but at the price (usually worth paying) of invariant preservation proofs.\cf3 \cb1 \
 \'a0\'a0\'a0\
-\cf9 \cb11 \'a0\'a0\'a0\'a0"preservation of safety proofs is the goal here." - this can confuse many readers. Event-B uses a syntactic form of forward simulation, a fairly common criterion for symbolic transition systems. The safety proofs business is simply entailed by the transitivity of simulation.\cf3 \cb1 \
+\cf9 \cb12 \'a0\'a0\'a0\'a0"preservation of safety proofs is the goal here." - this can confuse many readers. Event-B uses a syntactic form of forward simulation, a fairly common criterion for symbolic transition systems. The safety proofs business is simply entailed by the transitivity of simulation.\cf3 \cb1 \
 \'a0\'a0\'a0\
-\'a0\'a0\'a0\cf9 \cb11 \'a0Fig. 1 is very hard to uncipher. Prepend with definitions and types of all the identifiers. A petri net could be an apt illustration for what is happening here.\
+\'a0\'a0\'a0\cf9 \cb12 \'a0Fig. 1 is very hard to uncipher. Prepend with definitions and types of all the identifiers. A petri net could be an apt illustration for what is happening here.\
 \cf3 \cb1 \'a0\'a0\'a0\
 \'a0\'a0\'a0\'a0"In order to preserve refinement rules, which prohibit the modication of existing variables,... " - that's a huge oversimplification.\
 \'a0\'a0\'a0\'a0\
 \'a0\'a0\'a0\'a0"by adding the conjunction of the negated guards of all transitions triggered by dt" - or negation of disjunction of such guards. Either way the result is outright disastrous for large models (20-50 events) as a guard is typically a conjunction of 3-10 predicates. That would introduce 20-50 hypotheses each being a disjunction made of 3-10 parts. That is way beyond what rewrite-based provers can handle.\
 \'a0\'a0\'a0\
-\cf9 \cb11 \'a0\'a0\'a0\'a0Fig.2: why only some states are elaborated? What's the half-arrow notation?\cf3 \cb1 \
+\cf9 \cb12 \'a0\'a0\'a0\'a0Fig.2: why only some states are elaborated? What's the half-arrow notation?\cf3 \cb1 \
 \'a0\'a0\'a0\
 \'a0\'a0\'a0\'a0"The translation of a specific SCXML" - mention the target of your translation\
 \'a0\'a0\'a0\
-\'a0\'a0\'a0\'a0\cf9 \cb11 "a basis machine and context are created" - I was expecting to find a use of the theory plugin here, any particular reason not to?\cf3 \cb1 \
+\'a0\'a0\'a0\'a0\cf9 \cb12 "a basis machine and context are created" - I was expecting to find a use of the theory plugin here, any particular reason not to?\cf3 \cb1 \
 \'a0\'a0\'a0\
 \'a0\'a0\'a0\'a0"all possible combinations ... are calculated" - calculated how? It would appear you need to partition predicates into mutually satisfiable clusters - a very hard thing to do.\
 \'a0\'a0\'a0\
-\cf9 \cb11 \'a0\'a0\'a0\'a0For the statechart refinement laws can you provide a brief analysis of completeness (or how restrictive it is compared to informal elaboration)?\cf3 \cb1 \
+\cf9 \cb12 \'a0\'a0\'a0\'a0For the statechart refinement laws can you provide a brief analysis of completeness (or how restrictive it is compared to informal elaboration)?\cf3 \cb1 \
 \'a0\'a0\'a0\
-\cf9 \cb11 \'a0\'a0\'a0\'a0Rule 3 requires some complicated renaming/nested binding of identifiers?\
+\cf9 \cb12 \'a0\'a0\'a0\'a0Rule 3 requires some complicated renaming/nested binding of identifiers?\
 \'a0\'a0\'a0\cf3 \cb1 \
-\'a0\cf9 \cb11 \'a0\'a0\'a0Section 7 is hard to follow. I understand there are space constraints but scuh narrative detached from charts and models is really dry and hard to process. Possibly give a link to an external appendix?\cf3 \cb1 \
+\'a0\cf9 \cb12 \'a0\'a0\'a0Section 7 is hard to follow. I understand there are space constraints but scuh narrative detached from charts and models is really dry and hard to process. Possibly give a link to an external appendix?\cf3 \cb1 \
 \'a0\'a0\'a0\
 \'a0\'a0\'a0\'a0"It is sometimes possible to construct a model that satisfies some invariant (e.g.\
 \'a0\'a0\'a0 safety) properties, but does not behave in a useful way" - that's a major understatement :). I would prefer to take a view that a model is not _adequate_ (a common term for what you describe) unless it is shown to be so.\
@@ -127,8 +127,8 @@
 \'a0\'a0\'a0\'a0Cons:\
 \cf2 \cb7 \'a0\'a0\'a0 - the paper is too late in acknowledging that it builds on [12] which already defines statechart refinement through an Event-B embedding, and has a very similar abstract. Not sufficiently made clear whether the additional features on top of p9 are valuable other than as technicalities.\cf3 \cb1 \
 \'a0\'a0\cf2 \cb7 \'a0 - the title is far too general, and wrongfooted me. At the bottom of page 1, refinement is trace inclusion which is typically too weak for reactive systems. The paper does not convey to me why "run to completion" relates to "reactive" as I understand it, where the latter is that we don't only care what happens when the system has finished its run but also what choices it might have faced on the way.\
-\cf4 \cb11 \'a0\cf9 \cb11 \'a0\'a0 - the contrast between "refinement" as elaboration in [4] and Event-B as claimed in Section 1 is undermined by the second sentence of the Event-B section 2.2\cf3 \cb1 \
-\'a0\cf9 \cb11 \'a0\'a0 - discussion at top of page 10 ("trace inclusion is safety property preservation") is very well-known territory\
+\cf4 \cb12 \'a0\cf9 \cb12 \'a0\'a0 - the contrast between "refinement" as elaboration in [4] and Event-B as claimed in Section 1 is undermined by the second sentence of the Event-B section 2.2\cf3 \cb1 \
+\'a0\cf9 \cb12 \'a0\'a0 - discussion at top of page 10 ("trace inclusion is safety property preservation") is very well-known territory\
 \'a0\'a0\'a0 - Event-B refinement does not actually guarantee trace inclusion unless no new events are introduced; this is treated very implicitly only\cf3 \cb1 \
 \'a0\'a0\'a0 \cf3 \cb7 - The comment about liveness on p10 is weak, and the treatment of liveness that turns up too late in this paper looks clunky (pasting things into a text field?), does [7] really do it in the same way?\cf3 \cb1 \
 \'a0\'a0\'a0\
