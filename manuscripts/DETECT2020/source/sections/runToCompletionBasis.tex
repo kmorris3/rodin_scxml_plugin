@@ -84,9 +84,11 @@ Completion of triggered and untriggered transitions may be non-deterministically
 In the process of refining a model, a designer takes advantage of this non-determinism in the abstraction by adding nested sub-states and explicit guards to transitions. 
 When a refinement level is reached where the designer wants to enforce a requirement (i.e. prevent it being bypassed by a non-deterministic completion), the model needs to be \emph{finalized} (see Section~\ref{sec:translation} for more on finalisation). 
 The \SCXML translation tool will then automatically strengthened the guards of events |NoTriggerTransitionEnable| and |futureUntriggeredTransitionSet|, to ensure that the run to completion sequence is not interrupted by non-deterministic behaviour. 
-The guard of |NoTriggerTransitionEnable| is strengthened by adding the conjunction of the negated guards of all transitions triggered by |dt|.
-The guard of |futureUntriggeredTransitionSet| is strengthened by adding the conjunction of the negated guards of all untriggered transitions.
-\todo{COLIN: add a sentence to explain why you need the conjunction  of the negation of the guards}\todo{SON: Add an explanation of why the conjuction of the negation of the guards is not a problem since the properties have already been proven. It is used just to facilitate a more comprehensive the animation}
+To do this we need to guard completion so that it cannot happen while any relevant transition is still enabled.
+To finalise a triggered transition, the guard of |NoTriggerTransitionEnable| is strengthened by adding the conjunction of the negated guards of all transitions that can fire in parallel with the transition being finalised.
+(To fire in parallel a transition must be in a parallel region of the state-chart and be triggered by the same trigger).
+Similarly the guard of |futureUntriggeredTransitionSet| is strengthened by adding the conjunction of the negated guards of all untriggered transitions that can fire in parallel.
+\todo{SON: Add an explanation of why the conjuction of the negation of the guards is not a problem since the properties have already been proven. It is used just to facilitate a more comprehensive the animation}
 % The basis machine declares variables 
 % that correspond to the triggers present in the queue at any given time, and a flag, |SCXML_uc|, that signals when a run to completion macro-step has been completed (no un-triggered transitions are enabled). 
 % After initialisation, both trigger queues are empty and |SCXML_uc| is set to |FALSE| so that un-triggered transitions are dealt with. 
