@@ -13,7 +13,7 @@ There are two kinds of properties that we might want to verify in an \SCXML stat
 
 \SCXML models represent components that react to received triggers and cannot be perfectly synchronised with changes to the monitored properties. 
 Hence, |P| may be temporarily violated until the system reacts by leaving the state |S| in which the property is expected to hold.
-To cater for this we express |P| in a modified form |P'| that allows time for the reaction to take place.
+To cater for this we express |P| in a modified form |P'| that allows time for the reaction to take place. \todo{COLIN: P is check in stable states that are reachable according to the run-to-completion}
 
 There are two forms of reaction that can be used to exit |S|; 
 a) an untriggered transition, or 

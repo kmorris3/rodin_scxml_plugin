@@ -2,7 +2,7 @@
 
 \section{\SCXML Translation}
 \label{sec:translation}
-
+\todo{KARLA: title “SCXML Translation to Event-B” revised first sentence as well}
 The translation of a specific \SCXML model comprises the following stages: 
 \begin{itemize}
 	\item 
@@ -13,7 +13,7 @@ The basis is independent of the particular \SCXML model which is added in subseq
 Secondly, all possible combinations of transitions that can fire together are calculated and corresponding events are generated, at appropriate refinement levels, that refine the abstract basis events.  
 If these transitions raise internal triggers, a guard, (e.g. |{i1, i2, ...} <: raisedTrigger|, where |i1, i2, ...| have been added to the internal triggers set), is introduced to define the raised triggers parameter. 
 The subset allows more triggers to be raised in later refinements.
-For triggered transitions, the trigger is specified by a guard that defines the value of the trigger parameter. 
+For triggered transitions, the trigger is specified by a guard that defines the value of the trigger parameter.\todo{COLIN: Explain how to elaborate all possible combinations of transitions} 
 	\item 
 Thirdly, the \SCXML state-chart is translated into a corresponding \UMLB state-machine whose transitions elaborate (i.e. add state change details to) the transition combination events that the transition may be involved in.
 A transition may fire in parallel with transitions of parallel nested state-machines that have the same (possibly null) trigger.
@@ -21,7 +21,7 @@ A transition may fire in parallel with transitions of parallel nested state-mach
 Finally the \UMLB state-machine is translated into \EVENTB by programmatically invoking the \UMLB translator.
 \end{itemize}
 % Further details of the translation are given in~\cite{MoSn16,MoSnHo18,MoSnHo-ABZ2020}.
-\CTcomment{Deleted section listing all new feature in the translator since this is the ABZ paper.}
+
 % New features of the translation added since~\cite{MoSnHo18} are as follows:
 % \begin{description}
 % \item[Trigger queues in basis:]
