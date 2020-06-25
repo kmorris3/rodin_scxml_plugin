@@ -58,7 +58,7 @@
 \'a0\'a0\'a0\
 \cf2 \cb7 \'a0\'a0\'a0\'a0As is very common with translational semantics, the difficult bit is how to communicate verification results in a way intelligible to users trained in the source (here, statecharts) notation. The authors do not address this issue.\
 \'a0\'a0\'a0\cf3 \cb1 \
-\'a0\'a0\'a0\'a0On the whole it is a fairly solid work. Personally, rather than seeing it as a way to verify statechart-driven process (something that I believe would not work in practice due to the feedback issue) I think it is, alongside with some related UML-B work, a great way to document Event-B models. Event-B is not the most legible notation and having statecharts as a way to control and document refinement seems a sound decision that can help domain experts to assess models and tick off some boxes for certification.\
+\cf9 \cb12 \'a0\'a0\'a0\'a0On the whole it is a fairly solid work. Personally, rather than seeing it as a way to verify statechart-driven process (something that I believe would not work in practice due to the feedback issue) I think it is, alongside with some related UML-B work, a great way to document Event-B models. Event-B is not the most legible notation and having statecharts as a way to control and document refinement seems a sound decision that can help domain experts to assess models and tick off some boxes for certification.\cf3 \cb1 \
 \'a0\'a0\'a0\
 \cf9 \cb12 \'a0\'a0\'a0\'a0The liveness checks solution seems a bit of an afterthought. Given controlled manner of chart eloboartion I wonder if it can be integrated within the eloboration process.\cf3 \cb1 \
 \'a0\'a0\'a0\
@@ -79,8 +79,8 @@
 \'a0\'a0\'a0\
 \'a0\'a0\'a0\cf9 \cb12 \'a0Fig. 1 is very hard to uncipher. Prepend with definitions and types of all the identifiers. A petri net could be an apt illustration for what is happening here.\
 \cf3 \cb1 \'a0\'a0\'a0\
-\'a0\'a0\'a0\'a0"In order to preserve refinement rules, which prohibit the modication of existing variables,... " - that's a huge oversimplification.\
-\'a0\'a0\'a0\'a0\
+\cf2 \cb7 \'a0\'a0\'a0\'a0"In order to preserve refinement rules, which prohibit the modication of existing variables,... " - that's a huge oversimplification.\
+\'a0\cf3 \cb1 \'a0\'a0\'a0\
 \'a0\'a0\'a0\'a0"by adding the conjunction of the negated guards of all transitions triggered by dt" - or negation of disjunction of such guards. Either way the result is outright disastrous for large models (20-50 events) as a guard is typically a conjunction of 3-10 predicates. That would introduce 20-50 hypotheses each being a disjunction made of 3-10 parts. That is way beyond what rewrite-based provers can handle.\
 \'a0\'a0\'a0\
 \cf9 \cb12 \'a0\'a0\'a0\'a0Fig.2: why only some states are elaborated? What's the half-arrow notation?\cf3 \cb1 \
