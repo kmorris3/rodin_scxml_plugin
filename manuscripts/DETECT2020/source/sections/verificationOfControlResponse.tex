@@ -3,10 +3,11 @@
 
 \section{Verification of Control Responses}
 \label{sec:verificationResponses}
-\todo{COLIN: Revised sentence to capture the following, verification that a model satisfy some invariant e.g safetly property does not guarantee that the model behaves in a useful way}
-It is sometimes possible to construct a model that satisfies some invariant (e.g. safety) properties, but does not behave in a useful way.
-Therefore, as well as verifying invariant properties, we would like to verify the system's responsiveness.  More specifically in this case, we want to ensure that the controller responds to external triggers to make appropriate modifications to the system variables. 
+A model that has been proven to satisfy some invariant (e.g. safety) properties, may still not behave in a useful way.
+Therefore, as well as verifying invariant properties, we would like to verify the system's responsiveness.  
+More specifically in this case, we want to ensure that the controller responds to external triggers to make appropriate modifications to the system variables. 
 These kind of live responses can not be verified by proof of invariants since they are temporal properties.
+\todo{son: say why we do not prove liveness}
 Instead, we can express the property in \LTL  and use the \PROB\footnote{ProB is an animator, constraint solver and model checker for the B-Method. https://www3.hhu.de/stups/prob} model checker to verify it.
 
 In general, our liveness properties will have the following form:
