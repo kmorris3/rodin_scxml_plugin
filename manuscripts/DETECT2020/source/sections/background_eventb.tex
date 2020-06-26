@@ -37,12 +37,11 @@ to include additional variables (\emph{superposition refinement}) representing n
 the system, or by replacing some (abstract) variables by new (concrete) variables (\emph{data refinement}).  
 % More information about \EventB can be found
 % in~\cite{hoang13:_introd_event_b_model_method}.
-Refinement in \EventB is reasoned on an event basis.  A (concrete) event |f|
-refines an (abstract) event |e| if whenever |f| is enabled then |e| is
-also enabled (guard strengthening), and the action of |f| can be
-simulated by |e|.  More information about \EventB refinement can be
+Refinement in \EventB is reasoned on an event basis.  
+A (concrete) event |f| refines an (abstract) event |e| if whenever |f| is enabled then |e| is also enabled (guard strengthening), and the action of |f| is the same or equivalent to |e| (where equivalence is given by some relationship defined in the invariants). 
+New events are said to refine `skip' (an implicit abstract event that did nothing), and therefore do not alter abstract variables.
+ More information about \EventB refinement can be
 found in~\cite{abrial10:_model_event_b}.
-\SonCommentTo{Colin}{Can you check if it makes sense.}
 \EventB is supported by the Rodin Platform (Rodin\footnote{An extensible toolkit which includes 
 facilities for modelling, verifying the consistency of models using theorem proving and model 
 checking techniques, and validating models with simulation-based approaches.})~\cite{abrial10:_rodin}.
