@@ -6,9 +6,13 @@
 A model that has been proven to satisfy some invariant (e.g. safety) properties, may still not behave in a useful way.
 Therefore, as well as verifying invariant properties, we would like to verify the system's responsiveness.  
 More specifically in this case, we want to ensure that the controller responds to external triggers to make appropriate modifications to the system variables. 
-These kind of live responses can not be verified by proof of invariants since they are temporal properties.
-\todo{son: say why we do not prove liveness}
-Instead, we can express the property in \LTL  and use the \PROB\footnote{ProB is an animator, constraint solver and model checker for the B-Method. https://www3.hhu.de/stups/prob} model checker to verify it.
+These kind of live responses can not be verified by proof of
+invariants since they are temporal properties.  While \EventB refinements
+have also been shown to preserve some liveness properties, under
+certain conditions~\cite{hoang2016ltl}, there are not yet efficient
+supporting tools for the technique.
+\SonCommentTo{Colin}{Will this clear enough?}
+As a result, we can express the property in \LTL  and use the \PROB\footnote{ProB is an animator, constraint solver and model checker for the B-Method. https://www3.hhu.de/stups/prob} model checker to verify it.
 
 In general, our liveness properties will have the following form:
 \begin{center}
