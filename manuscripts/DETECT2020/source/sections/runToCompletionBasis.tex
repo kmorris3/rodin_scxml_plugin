@@ -88,7 +88,17 @@ To do this we need to guard completion so that it cannot happen while any releva
 To finalise a triggered transition, the guard of |NoTriggerTransitionEnable| is strengthened by adding the conjunction of the negated guards of all transitions that can fire in parallel with the transition being finalised.
 (To fire in parallel a transition must be in a parallel region of the state-chart and be triggered by the same trigger).
 Similarly the guard of |futureUntriggeredTransitionSet| is strengthened by adding the conjunction of the negated guards of all untriggered transitions that can fire in parallel.
-\todo{SON: Add an explanation of why the conjuction of the negation of the guards is not a problem since the properties have already been proven. It is used just to facilitate a more comprehensive the animation}
+The finalisation of many transitions potentially contribute to
+|NoTriggerTransitionEnable| and |futureUntriggeredTransitionSet| a
+considerable number of new negated guards, each of them is the
+negation of the conjunctions the guards of the finalised transition.
+This can make reasoning about the model much harder.  However, often
+transition finalisation occurs and later level of refinement where
+properties are already proved in earlier (and simpler) abstract
+model.  Introducing new guards to an event are valid refinment and
+their purpose is mainly for the purpose of validation of the model
+using animation.
+\SonCommentTo{Colin}{Is this sufficient?}
 % The basis machine declares variables 
 % that correspond to the triggers present in the queue at any given time, and a flag, |SCXML_uc|, that signals when a run to completion macro-step has been completed (no un-triggered transitions are enabled). 
 % After initialisation, both trigger queues are empty and |SCXML_uc| is set to |FALSE| so that un-triggered transitions are dealt with. 
