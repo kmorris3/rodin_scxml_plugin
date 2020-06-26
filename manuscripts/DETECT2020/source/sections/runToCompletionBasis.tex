@@ -68,12 +68,11 @@ the queue of internal triggers raised by actions within the model, |iQ|,
 the queue of external triggers raised by the environment, |eQ|,
 and a flag, |uc|, that signals when a run to completion macro-step has been completed 
 (no un-triggered transitions are enabled). 
-Note that, for convenience, the currently dequeued trigger is modelled as a singleton set which may be empty (i.e. consumed) or contain the single trigger that is to be consumed.
+Note that, for convenience, the currently dequeued trigger is modelled as a singleton set which may be empty (i.e. consumed) or contain the single trigger to be consumed.
 
-After the |Initialisation| event, both trigger queues and the dequeued trigger are empty and |uc| is set to |FALSE| so that un-triggered transitions are dealt with via the |futureUntriggeredTransitionSet| event, which may raise internal triggers.
+The trigger queues and dequeued trigger are initialised to empty and |uc| is set to |FALSE| so that un-triggered transitions are dealt with via the |futureUntriggeredTransitionSet| event.
 This will subsequently enable completion and reset the |uc| flag to |TRUE|.
 The abstract event |futureRaiseExternalTrigger| represents the raising  of an external trigger (not shown in the diagram).    
-
 After completion, a queued trigger can be prepared for consumption by moving it to the dequeued trigger, |dt|.
 Internal triggers have a higher priority, since the external trigger queue is only dequeued if the |iQ| is empty (see |dequeueExternalTriggered| and |dequeueInternalTriggered| in Figure~\ref{fig:basis}).
 The abstract event |futureTriggeredTransitions| represents a combination of transitions that are triggered by the dequeued trigger, |dt|.

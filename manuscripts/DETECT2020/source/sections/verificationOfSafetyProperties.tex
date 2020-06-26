@@ -6,15 +6,12 @@
 
 In a state-chart model we naturally wish to verify properties |P| that are expected to hold true in a particular state |S|.
 Hence, all of the safety properties that we consider are of the form: |S=TRUE ⇒ P|, where the antecedent is implicit from the containment of |P| within |S|.
-
 There are two kinds of properties that we might want to verify in an \SCXML state-chart;
 1) properties concerning the values of auxiliary data maintained by the system and 
 2) constraints about the state of another parallel state-chart region.
-
 \SCXML models represent components that react to received triggers and cannot be perfectly synchronised with changes to the monitored properties. 
 Hence, |P| may be temporarily violated until the system reacts by leaving the state |S| in which the property is expected to hold.
 To cater for this we express |P| in a modified form |P'| that allows time for the reaction to take place. 
-
 There are two forms of reaction that can be used to exit |S|; 
 a) an untriggered transition, or 
 b) a transition that is triggered by an internally raised trigger.
