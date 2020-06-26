@@ -2,12 +2,12 @@
 {\fonttbl\f0\fnil\fcharset0 Calibri;}
 {\colortbl;\red255\green255\blue255;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;
 \red255\green255\blue11;\red255\green255\blue255;\red254\green255\blue10;\red255\green255\blue255;\red0\green0\blue0;
-\red255\green255\blue255;\red255\green255\blue255;\red251\green0\blue7;\red255\green255\blue255;\red252\green41\blue19;
-}
+\red255\green255\blue255;\red0\green0\blue0;\red251\green0\blue7;\red255\green255\blue255;\red255\green255\blue255;
+\red252\green41\blue19;\red236\green255\blue191;}
 {\*\expandedcolortbl;;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c1\c1;\cssrgb\c100000\c100000\c99985;
 \cssrgb\c100000\c100000\c0;\cssrgb\c100000\c100000\c99956;\cssrgb\c99555\c99475\c0;\cssrgb\c100000\c100000\c99941;\cssrgb\c0\c1\c1;
-\cssrgb\c100000\c100000\c99971;\cssrgb\c100000\c100000\c99910;\cssrgb\c100000\c12195\c0;\cssrgb\c100000\c100000\c99926;\cssrgb\c100000\c25745\c7993;
-}
+\cssrgb\c100000\c100000\c99971;\cssrgb\c0\c1\c1;\cssrgb\c100000\c12195\c0;\cssrgb\c100000\c100000\c99910;\cssrgb\c100000\c100000\c99926;
+\cssrgb\c100000\c25745\c7993;\cssrgb\c94001\c100000\c79269;}
 \paperw11900\paperh16840\margl1440\margr1440\vieww16340\viewh17660\viewkind0
 \deftab720
 \pard\pardeftab720\partightenfactor0
@@ -36,7 +36,7 @@
 \'a0\'a0\'a0\'a0(2) 2.2: It needs concise but detailed explanation of the Event-B refinement so that the discussions afterwards are more understandable. e.g.] refinement is defined in term of forward simulation, the event is a basic linguistic component to be refined, how the guard strengthening is\
 \'a0\'a0\'a0 related to the superposition refinement, \'85\cf3 \cb1 \
 \'a0\'a0\'a0\
-\'a0\'a0\'a0\'a0(3) 4: There are several sentences referring to the method in Syriani et al. [4], but they do not provide any significant information to those not familiar with the work in [4]. All are suggested to move to the last paragraph in Section 6, which already has come summary discussion connecting to the work [4].\
+\cf2 \cb7 \'a0\'a0\'a0\'a0(3) 4: There are several sentences referring to the method in Syriani et al. [4], but they do not provide any significant information to those not familiar with the work in [4]. All are suggested to move to the last paragraph in Section 6, which already has come summary discussion connecting to the work [4].\cf3 \cb1 \
 \'a0\'a0\'a0\
 \cf2 \cb7 \'a0\'a0\'a0\cf2 \cb7 \'a0(4) 5: The word \'93ProB\'94 appeared suddenly here. It must be accompanied with appropriate references.\cf9 \cb2 \
 \'a0\'a0\'a0\cf3 \cb1 \
@@ -56,7 +56,7 @@
 \'a0\'a0\'a0 ----------- Overall evaluation -----------\
 \'a0\'a0\'a0 SCORE: 1 (weak accept)\
 \'a0\'a0\'a0 ----- TEXT:\
-\'a0\'a0\'a0 The paper presents an application of Event-B as a verification back-end for statecharts restricted to certain elicitation laws. My intuition is that the restriction is overly onerous but the paper does lack explicit discussion of this.\
+\cf11 \cb12 \'a0\'a0\'a0 The paper presents an application of Event-B as a verification back-end for statecharts restricted to certain elicitation laws. My intuition is that the restriction is overly onerous but the paper does lack explicit discussion of this.\cf3 \cb1 \
 \'a0\'a0\'a0\
 \cf2 \cb7 \'a0\'a0\'a0\'a0As is very common with translational semantics, the difficult bit is how to communicate verification results in a way intelligible to users trained in the source (here, statecharts) notation. The authors do not address this issue.\
 \'a0\'a0\'a0\cf3 \cb1 \
@@ -66,7 +66,7 @@
 \'a0\'a0\'a0\
 \cf2 \cb7 \'a0\'a0\'a0\'a0There are some suprising design decisions in the semantics (e.g., using a negation of 'other' event guards) that either need an explanation or revision.\cf3 \cb1 \
 \'a0\'a0\'a0\
-\cf9 \cb14 \'a0\'a0\'a0\'a0The paper starts great but then the narrative gets choppier. What I persnally wished for is see more statecharts illustrations for the example. Section 7 desperately needs some improvement in the area.\cf3 \cb1 \
+\cf9 \cb15 \'a0\'a0\'a0\'a0The paper starts great but then the narrative gets choppier. What I persnally wished for is see more statecharts illustrations for the example. Section 7 desperately needs some improvement in the area.\cf3 \cb1 \
 \'a0\'a0\'a0\
 \'a0\'a0\'a0\'a0Other comments:\
 \'a0\'a0\'a0\
@@ -102,8 +102,8 @@
 \cf2 \cb7 \'a0\'a0\'a0\'a0"It is sometimes possible to construct a model that satisfies some invariant (e.g.\
 \'a0\'a0\'a0 safety) properties, but does not behave in a useful way" - that's a major understatement :). I would prefer to take a view that a model is not _adequate_ (a common term for what you describe) unless it is shown to be so.\cf3 \cb1 \
 \'a0\'a0\'a0\
-\'a0\'a0\'a0\'a0Any reason liveness proof cannot be dealt with in Rodin via proof obligations? Two of the co-authors have publications describing such techniques ;)\
-\'a0\'a0\'a0\
+\'a0\cf2 \cb7 \'a0\'a0\'a0Any reason liveness proof cannot be dealt with in Rodin via proof obligations? Two of the co-authors have publications describing such techniques ;)\
+\'a0\cf3 \cb1 \'a0\'a0\
 \'a0\'a0\'a0\'a0Models could be better commented.\
 \'a0\'a0\'a0\
 \'a0\'a0\'a0\'a0Please include a paragraph detailing plugin versions necessary to properly study the project.\
@@ -123,8 +123,8 @@
 \'a0\'a0\'a0 SCORE: 0 (borderline paper)\
 \'a0\'a0\'a0 ----- TEXT:\
 \'a0\'a0\'a0 Pros:\
-\'a0\'a0\'a0 - the statecharts community may want this kind of refinement (I'm not part of that so won't be able to say)\
-\'a0\'a0\'a0 - the example is reasonably complex and interesting\
+\cf9 \cb16 \'a0\'a0\'a0 - the statecharts community may want this kind of refinement (I'm not part of that so won't be able to say)\
+\'a0\'a0\'a0 - the example is reasonably complex and interesting\cf3 \cb1 \
 \'a0\'a0\'a0\
 \'a0\'a0\'a0\'a0Cons:\
 \cf2 \cb7 \'a0\'a0\'a0 - the paper is too late in acknowledging that it builds on [12] which already defines statechart refinement through an Event-B embedding, and has a very similar abstract. Not sufficiently made clear whether the additional features on top of p9 are valuable other than as technicalities.\cf3 \cb1 \
