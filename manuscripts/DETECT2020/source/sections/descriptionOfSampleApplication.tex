@@ -6,7 +6,7 @@ To illustrate the development and analysis process of a design using the previou
 state-chart semantics, we will discuss a quadrotor helicopter or quadrotor application similar to 
 the one presented by Syriani et al.~\cite{Syriani_2019}. The application will focus on the incremental 
 design of some of the drone's required functionality.
-The constructed model must obey state-chart refinement rules that are proven within the Rodin tool.
+The constructed model must obey state-chart refinement rules listed in Section~\ref{sec:intro}, these rules are proven within the Rodin tool.
 The structure of the state-chart for this model at each subsequent abstraction level restricts further the
 development of the model to refinements that obey the rules. This will allow us to prove properties 
 of the model in a very strategic fashion, as properties proven of early abstraction levels 
@@ -67,14 +67,14 @@ behavior in the abstraction.
 \end{figure} 
 
 Figure~\ref{fig:drone4} shows three subsequent refinements to the drone model. The first refinement of the model is shown in beige, as we refine the parent state |TAKEOFF|
-by introducing child states and new model variables, similar to 
+by applying \emph{Rule B and C}. Under these rules we introduce child states and new model variables, similar to 
 Rule 2 \emph{basic-to-or state rule} defined by Syriani et al.~\cite{Syriani_2019}
 As part of this refinement we introduced an untriggered transition responsible for 
 raising the |toFly| internal trigger, and therefore removed some of the non-determinisms in the abstraction.
 
 % Figure~\ref{fig:drone4} shows two subsequent refinements to the drone model.
 The second refinement, the details of which are shown in green in Figure~\ref{fig:drone4}, 
-extends the capabilities within |OPERATIONAL| by making it a parallel
+extends the capabilities within |OPERATIONAL| by using \emph{Rule C} to make it a parallel
 state that controls flying and battery related functionality. 
 This is the same as Rule 4 \emph{and-state rule} defined by Syriani et al.~\cite{Syriani_2019}.
 The charge within the drone battery is control by the parallel |BATTERYOP| state. 
@@ -82,8 +82,8 @@ The functionality is modeled by introducing a new model variable, |charge|, whic
 a response to the internal trigger |decreaseCharge|. The aforementioned trigger, is raised non-deterministically by some 
 unspecified internal functionality. Our state-chart semantics supports transition refinement, as such
 we are able to modified previously defined transitions. In particular, this type of refinement allow
-us to add guards and/or actions to previously defined transitions. The strengthening of guards, or additional 
-actions are expressed in term of new model variables that contribute implementation details to the model.
+us to add guards and/or actions to previously defined transitions. The strengthening of guards, \emph{Rule A}, or additional 
+actions, \emph{Rule B}, are expressed in term of new model variables that contribute implementation details to the model.
 To ensure the drone operates with enough battery power we strengthen the guards of transitions 
 to the |FLY| and |TAKEOFF| states.
 As part of this design stage we introduce a requirement to constrain drone operation 
@@ -99,7 +99,7 @@ to a battery charge of at least 20\% capacity. This can be expressed as
 % \end{figure} 
 
 Figure~\ref{fig:drone4} shows the third refinement of the drone model, with features added in lilac.
-At this stage we introduce additional implementation details to ensure that under special 
+At this stage we use \emph{Rule C} to introduce additional implementation details to ensure that under special 
 circumstances (e.g. sensing of adverse environment or unexpected battery dropped) the drone is able 
 to circumvent flying and proceed to an emergency landing. The previously described requirement can be
 expressed as

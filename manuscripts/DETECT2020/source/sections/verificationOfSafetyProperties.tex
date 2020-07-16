@@ -45,7 +45,7 @@ An external trigger indicates that the battery charge has dropped by 10\% and th
 The |BATTERYOK| state is supposed to indicate that the battery charge is ok ($>$20\%) and to ensure that it does, we add a state invariant to this effect (charge$>$20).
 When charge decreases to 20 (or less), an untriggered transition immediately reacts by switching to the |BATTERYLOW| state.
 To ensure that this reaction is not bypassed by the non-determinism that we incorporated to allow for future refinement, we flag it as finalised at refinement level 2.
-Finalisation means that we cannot strengthen its guards in future refinements as is normally permitted, since its reaction is needed to ensure the invariant is preserved. If the finalization is unacceptable, the property would not be verifiable at that refinement level and it will need to be verified in later refinements.
+Finalisation means that we cannot strengthen its guards in future refinements as is normally permitted, since its reaction is needed to ensure the invariant is preserved. If the user forgoes the finalization, the property would not be verifiable at that refinement level and it will need to be verified in later refinements.
 After translation to 
 %\UMLB and then \EVENTB
 \EVENTB via \UMLB

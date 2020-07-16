@@ -5,14 +5,14 @@
 
 The work we will present here includes three refinement rules.
 \begin{enumerate}
-\item Guard conditions on a transition can be strengthened; 
+\item  \emph{Rule A:} Guard conditions on a transition can be strengthened; 
 this can be done by adding textual guards to the transition, or
 changing the source of the transition to a nested state.
-\item Transitions can have additional actions, provided they do not
+\item \emph{Rule B:} Transitions can have additional actions, provided they do not
   modify variables appearing in the abstraction; this can be 
   accomplished by adding textual action to the transition 
   or by changing the target to nested state.
-\item A state-chart can be embedded within a state of another
+\item \emph{Rule C:} A state-chart can be embedded within a state of another
   state-chart -- sometimes called hierarchical composition or
   hierarchical refinement.
 \end{enumerate}
