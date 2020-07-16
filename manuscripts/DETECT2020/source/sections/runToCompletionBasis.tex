@@ -91,7 +91,7 @@ To finalise a triggered transition, the guard of |NoTriggerTransitionEnable| is 
 Similarly the guard of |futureUntriggeredTransitionSet| is strengthened by adding the conjunction of the negated guards of all untriggered transitions that can fire in parallel.
 It may seem that finalisation could cause an unmanageable explosion of guards.
 However, in practice, for most systems, the number of transitions that can fire in parallel is limited (especially for triggered transitions).
-Transition finalisation can be left until it is needed for the proof of a particular property and does not generate any new proof obligations since adding guards is a trivial refinement step.
+Transition finalisation can be left until it is needed for the proof of a particular property and does not generate any new proof obligations since adding guards is a trivial refinement step.\todo{Colin: Give reason why the number of events that fire in parallel are limited}
 Finalisation is also needed in order to remove non-deterministic behaviours when the model is animated for validation purposes.
 
 % The basis machine declares variables 
