@@ -84,7 +84,7 @@ The actions of these transitions may also raise triggers of their own in the int
 
 Completion of triggered and untriggered transitions may be non-deterministically premature to allow future refinements to strengthen the guards of transitions (i.e. to disable them resulting in an earlier completion).
 In the process of refining a model, a designer takes advantage of this non-determinism in the abstraction by adding nested sub-states and explicit guards to transitions. 
-When a refinement level is reached where the designer wants to enforce a requirement (i.e. prevent it being bypassed by a non-deterministic completion), the model needs to be \emph{finalized} (see Section~\ref{sec:translation} for more on finalisation). 
+When a refinement level is reached where the designer wants to enforce a requirement (i.e. prevent it being bypassed by a non-deterministic completion), the model needs to be \emph{finalised} (see Section~\ref{sec:translation} for more on finalisation). 
 The \SCXML translation tool will then automatically strengthen the guards of events |NoTriggerTransitionEnable| and |futureUntriggeredTransitionSet|, to ensure that the run to completion sequence is not interrupted by non-deterministic behaviour. 
 To do this we need to guard completion so that it cannot happen while any relevant transition is still enabled.
 To finalise a triggered transition, the guard of |NoTriggerTransitionEnable| is strengthened by adding the conjunction of the negated guards of all transitions that can fire in parallel with the transition being finalised.
