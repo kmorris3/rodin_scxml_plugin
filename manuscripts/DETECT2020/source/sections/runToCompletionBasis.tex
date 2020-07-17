@@ -86,13 +86,14 @@ Completion of triggered and untriggered transitions may be non-deterministically
 In the process of refining a model, a designer takes advantage of this non-determinism in the abstraction by adding nested sub-states and explicit guards to transitions. 
 When a refinement level is reached where the designer wants to enforce a requirement (i.e. prevent it being bypassed by a non-deterministic completion), the model needs to be \emph{finalized} (see Section~\ref{sec:translation} for more on finalisation). 
 The \SCXML translation tool will then automatically strengthen the guards of events |NoTriggerTransitionEnable| and |futureUntriggeredTransitionSet|, to ensure that the run to completion sequence is not interrupted by non-deterministic behaviour. 
-To do this we need to guard completion so that it cannot happen while any relevant transition is still enabled.
+To do this we need to guard on completion so that it cannot happen while any relevant transition is still enabled.
 To finalise a triggered transition, the guard of |NoTriggerTransitionEnable| is strengthened by adding the conjunction of the negated guards of all transitions that can fire in parallel with the transition being finalised.
-(To fire in parallel a transition must be in a parallel region of the state-chart and be triggered by the same trigger).
+%(To fire in parallel a transition must be in a parallel region of the state-chart and be triggered by the same trigger).
 Similarly the guard of |futureUntriggeredTransitionSet| is strengthened by adding the conjunction of the negated guards of all untriggered transitions that can fire in parallel.
 It may seem that finalisation could cause an unmanageable explosion of guards.
-However, in practice, for most systems, the number of transitions that can fire in parallel is limited (especially for triggered transitions).
-Transition finalisation can be left until it is needed for the proof of a particular property and does not generate any new proof obligations since adding guards is a trivial refinement step.\todo{Colin: Give reason why the number of events that fire in parallel are limited}
+However, to fire in parallel, transitions must be contained in parallel regions and also be enabled by the same trigger (or be un-triggered).
+In practice, since most systems do not contain many parallel regions, the number of transitions that can fire in parallel is limited.
+Transition finalisation can be left until it is needed for the proof of a particular property and does not generate any new proof obligations since adding guards is a trivial refinement step.
 Finalisation is also needed in order to remove non-deterministic behaviours when the model is animated for validation purposes.
 
 % The basis machine declares variables 
