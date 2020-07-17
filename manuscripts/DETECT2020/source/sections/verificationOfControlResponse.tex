@@ -34,8 +34,9 @@ The liveness property that we wish to  verify is that, after an external trigger
 \begin{center}
   |G ([ExternalTriggerEvent_decreaseCharge] => F {charge < old(charge)})|~.
 \end{center}
-At first, we could not verify this property.
-The counter example traces that \PROB provided gave us a better understanding of the reasons why. The property as stated is too strongh for model, there are additional conditions that need to be considered as part of the antecedent.
+However, we could not verify this property.
+The counter example traces that \PROB provided gave us a better understanding of the reasons why. 
+The property as stated is too strong (i.e. not true) for our model; there are additional conditions that need to be considered and added as part of the antecedent.
 \begin{itemize}
 \item
 Our model represented the trigger queues abstractly as sets which meant that the |decreaseCharge| trigger may never be dequeued.
