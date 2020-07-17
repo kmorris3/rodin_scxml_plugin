@@ -26,8 +26,9 @@ some of which will be introduced in future refinements.
 Each refinement partitions these trigger sets further to introduce concrete triggers, 
 leaving a new abstract set to represent the remaining triggers yet to be introduced. 
 For clarity, we use sets to abstractly represent the trigger queues.
-This does not affect verification in our case study, except for fairness of trigger consumption.
-It would be relatively straight forward to enhance the translation to model the trigger queues. 
+This does not affect safety verification but forces us to introduce fairness assumptions regarding trigger consumption in order to verify liveness properties.
+It would be relatively straight forward to properly model the trigger queues which are an implementation of this fairness property. 
+
 %In Section~\ref{sec:verificationResponses} we will discuss the limitations of this  abstraction and the ways in which they can be overcome.
 % For example, the IDS model introduces a specific internal trigger, \textbf{spi\_done},  by partitioning |SCXML_FutureInternalTrigger| into the singleton \textbf{\{spi\_done\}} and a new set, |SCXML_FutureInternalTrigger0|, representing the remainder. 
  % as shown in line~\ref{line:refPartition} of Listing~\ref{lst:SecBotCont0}. 
