@@ -2,7 +2,7 @@
  * This context declares the dequeued triggers
  * @author cfsnook
  */
-context c_scxml_statemachine 
+context c0_scxml_statemachine 
 extends scxml_c0_abstract c1_statemachine
 constants
 	triggeredTransitions // trigger - transition relationship
