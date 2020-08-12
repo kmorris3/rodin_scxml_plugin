@@ -1,0 +1,7 @@
+This project combines the scxml and statemachine formal semantics models using inclusion
+
+Note that only the composed machines and contexts are committed in the git repo.
+The scxml and statemachine  bumx are referenced from their respective repositories, however, the contexts of those included machines current do not reference across project boundaries. Therefore they must be manually copied into this project.
+
+Note that since it is a Xtext project you need to copy the bumx and bucx files otherwise extends does not work.
+
