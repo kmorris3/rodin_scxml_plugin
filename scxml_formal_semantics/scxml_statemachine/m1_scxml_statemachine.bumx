@@ -86,10 +86,14 @@ events
 
 	event oldCompleteUntriggered refines completeUntriggered
 	synchronises scxml.oldCompleteUntriggered
+	where
+		@finalisedFired: source[refinedFinalisedTransitions] ∩ sm_refined_active = ∅
 	end
 	
 	event newCompleteUntriggered
 	synchronises scxml.newCompleteUntriggered
+	where
+		@finalisedFired: source[refinedFinalisedTransitions] ∩ sm_refined_active = ∅
 	end
 
 end
