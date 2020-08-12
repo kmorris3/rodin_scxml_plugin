@@ -1,0 +1,12 @@
+context c1_scxml_statemachine
+extends c0_scxml_statemachine scxml_c1_refined c2_statemachine
+	
+constants
+	refinedFinalisedTransitions
+	
+axioms
+@finalised: 		∀tr· tr ∈ finalisedTransitions ⇒ refined_source(tr)=source(tr)
+@refinedF:		finalisedTransitions ⊆ refinedFinalisedTransitions
+@refinedfinalised_tr: 	refinedFinalisedTransitions ⊆ transitions
+	
+end

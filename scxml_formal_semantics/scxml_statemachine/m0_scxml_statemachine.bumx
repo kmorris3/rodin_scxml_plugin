@@ -33,6 +33,8 @@ events
 	
 	event completeTriggered
 	synchronises scxml.completeTriggered
+	where
+		@finalisedFired: source[finalisedTransitions] ∩ sm_active = ∅
 	end
 	
 	event untriggeredTransition
@@ -44,6 +46,8 @@ events
 	
 	event completeUntriggered
 	synchronises scxml.completeUntriggered
+	where
+		@finalisedFired: source[finalisedTransitions] ∩ sm_active = ∅
 	end
 	
 end

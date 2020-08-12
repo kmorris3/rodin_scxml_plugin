@@ -1,0 +1,95 @@
+machine m1_scxml_statemachine
+includes scxml.scxml_m1_scxml_refinement as scxml
+includes SimpleStateMachine.m2_refined_statemachine as sm
+
+refines m0_scxml_statemachine
+
+sees c1_scxml_statemachine c0_4_tree_prop
+
+variables
+	sm_active
+	sm_active_leaf
+	scxml_iq
+	scxml_eq
+	scxml_dt
+	scxml_uc
+	
+events
+	event INITIALISATION extends INITIALISATION
+	end
+
+	event raiseOldExternalTrigger refines raiseExternalTrigger
+	synchronises scxml.raiseOldExternalTrigger
+	end
+	
+	event raiseNewExternalTrigger
+	synchronises scxml.raiseNewExternalTrigger
+	end
+
+	event dequeueOldExternal refines dequeueExternal
+	synchronises scxml.dequeueOldExternal
+	end
+	
+	event dequeueNewExternal
+	synchronises scxml.dequeueNewExternal
+	end
+
+	event dequeueOldInternal refines dequeueInternal
+	synchronises scxml.dequeueOldInternal
+	end
+	
+	event dequeueNewInternal
+	synchronises scxml.dequeueNewInternal
+	end
+	
+	event oldTriggeredTransition refines triggeredTransition
+	synchronises scxml.oldTriggeredTransition
+	synchronises sm.old_transition
+	where 
+		@is_triggered:	sm_refined_transition ∈ dom(triggeredTransitions)
+		@trigger:		triggeredTransitions(sm_refined_transition) = scxml_t
+	end
+	
+	event newTriggeredTransition
+	synchronises scxml.newTriggeredTransition
+	synchronises sm.new_transition
+	where 
+		@is_triggered:	sm_refined_transition ∈ dom(triggeredTransitions)
+		@trigger:		triggeredTransitions(sm_refined_transition) = scxml_t 
+	end
+
+	event oldCompleteTriggered refines completeTriggered
+	synchronises scxml.oldCompleteTriggered
+	where
+		@finalisedFired: source[refinedFinalisedTransitions] ∩ sm_refined_active = ∅
+	end
+	
+	event newCompleteTriggered
+	synchronises scxml.newCompleteTriggered
+	where
+		@finalisedFired: source[refinedFinalisedTransitions] ∩ sm_refined_active = ∅
+	end
+
+	event oldUntriggeredTransition refines untriggeredTransition
+	synchronises scxml.oldUntriggeredTransition
+	synchronises sm.old_transition
+	where 
+		@not_triggered: 	sm_refined_transition ∉ dom(triggeredTransitions)
+	end
+	
+	event newUntriggeredTransition
+	synchronises scxml.newUntriggeredTransition
+	synchronises sm.new_transition
+	where 
+		@not_triggered: 	sm_refined_transition ∉ dom(triggeredTransitions)
+	end
+
+	event oldCompleteUntriggered refines completeUntriggered
+	synchronises scxml.oldCompleteUntriggered
+	end
+	
+	event newCompleteUntriggered
+	synchronises scxml.newCompleteUntriggered
+	end
+
+end
