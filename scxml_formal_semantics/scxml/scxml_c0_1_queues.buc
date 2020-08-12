@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;ac.soton.xeventb.xcontext.base" org.eventb.core.generated="false" version="3">
-    <org.eventb.core.extendsContext name="_xr-yMLB3Eeqz6I-l8XobaA" org.eventb.core.target="scxml_c0_0_triggers"/>
-    <org.eventb.core.constant name="_xr_ZQLB3Eeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="InternalQueue"/>
-    <org.eventb.core.constant name="_xr_ZQbB3Eeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="ExternalQueue"/>
-    <org.eventb.core.axiom name="_xr_ZQrB3Eeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="intQ" org.eventb.core.predicate="InternalQueue = ℙ(InternalTriggers)"/>
-    <org.eventb.core.axiom name="_xr_ZQ7B3Eeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="extQ" org.eventb.core.predicate="ExternalQueue = ℙ(ExternalTriggers)"/>
-</org.eventb.core.contextFile>
