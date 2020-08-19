@@ -32,13 +32,13 @@ axioms
 	@linking-container: container ⊆ refined_container
 	@linking-transitions: transition_link ∈ refined_transitions ⇸ transitions // abstract transitions can be removed
 	@linking-source_old_transition: ∀rt · rt ∈ dom(transition_link) ⇒ // @rt is a refined transition with an abstract counterpart.
-	  	source(transition_link(rt)) ∈ cl(refined_container)[{source(rt)}] ∪ {source(rt)}
+	  	source(transition_link(rt)) ∈ cl(refined_container)[{refined_source(rt)}] ∪ {refined_source(rt)}
 	  	// The refined source can be more deterministic than abstract source
 	  	// That is the source of the abstract transition is either the same as 
 	  	// that of the refined transition or it is an ancestor of that. 
 	@linking-target_old_transition: ∀rt · rt ∈ dom(transition_link) ⇒
-	  	target(transition_link(rt)) ∈ cl(refined_container)[{target(rt)}] ∪ {target(rt)}
-	@linking-source_target_new_transition: ∀rt · rt ∉ dom(transition_link) ⇒ 
-		cl(refined_container)[{source(rt)}] ∩ states = cl(refined_container)[{target(rt)}] ∩ states
+	  	target(transition_link(rt)) ∈ cl(refined_container)[{refined_target(rt)}] ∪ {refined_target(rt)}
+	@linking-source_target_new_transition: ∀rt · rt ∈ refined_transitions ∧ rt ∉ dom(transition_link) ⇒
+	 	cl(refined_container)[{refined_source(rt)}] ∩ states = cl(refined_container)[{refined_target(rt)}] ∩ states
 	  	
 end
