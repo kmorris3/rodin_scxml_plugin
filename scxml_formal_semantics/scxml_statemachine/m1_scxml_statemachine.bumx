@@ -70,14 +70,14 @@ events
 	synchronises oldUntriggeredTransition
 	synchronises old_transition
 	where 
-		@not_triggered: 	refined_transition ∉ dom(triggeredTransitions)
+		@not_triggered: 	refined_transition ∉ dom(refinedTriggeredTransitions)
 	end
 	
 	event newUntriggeredTransition refines futureTransition
 	synchronises newUntriggeredTransition
 	synchronises new_transition
 	where 
-		@not_triggered: 	refined_transition ∉ dom(triggeredTransitions)
+		@not_triggered: 	refined_transition ∉ dom(refinedTriggeredTransitions)
 	end
 
 	event oldCompleteUntriggered refines completeUntriggered
