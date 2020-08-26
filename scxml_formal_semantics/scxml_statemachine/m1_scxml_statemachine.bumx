@@ -1,99 +1,95 @@
 machine m1_scxml_statemachine
-includes scxml.scxml_m1_scxml_refinement as scxml
-includes SimpleStateMachine.m2_refined_statemachine as sm
-
+includes scxml.scxml_m1_scxml_refinement
+includes SimpleStateMachine.m2_refined_statemachine
+ 
 refines m0_scxml_statemachine
 
 sees c1_scxml_statemachine c0_4_tree_prop
-
-variables
-	sm_active
-	sm_active_leaf
-	scxml_iq
-	scxml_eq
-	scxml_dt
-	scxml_uc
 	
-events
-	event INITIALISATION extends INITIALISATION
+events 
+	event INITIALISATION
+	synchronises INITIALISATION
+	then
+		@update-refined_active: refined_active ≔ refined_init
+		@update-refined_active_leaf: refined_active_leaf ≔ refined_init_leaf
 	end
 
 	event raiseOldExternalTrigger refines raiseExternalTrigger
-	synchronises scxml.raiseOldExternalTrigger
+	synchronises raiseOldExternalTrigger
 	end
 	
 	event raiseNewExternalTrigger
-	synchronises scxml.raiseNewExternalTrigger
+	synchronises raiseNewExternalTrigger
 	end
 
 	event dequeueOldExternal refines dequeueExternal
-	synchronises scxml.dequeueOldExternal
+	synchronises dequeueOldExternal
 	end
 	
 	event dequeueNewExternal
-	synchronises scxml.dequeueNewExternal
+	synchronises dequeueNewExternal
 	end
 
 	event dequeueOldInternal refines dequeueInternal
-	synchronises scxml.dequeueOldInternal
+	synchronises dequeueOldInternal
 	end
 	
 	event dequeueNewInternal
-	synchronises scxml.dequeueNewInternal
+	synchronises dequeueNewInternal
 	end
 	
 	event oldTriggeredTransition refines triggeredTransition
-	synchronises scxml.oldTriggeredTransition
-	synchronises sm.old_transition
+	synchronises oldTriggeredTransition
+	synchronises old_transition
 	where 
-		@is_triggered:	sm_refined_transition ∈ dom(triggeredTransitions)
-		@trigger:		triggeredTransitions(sm_refined_transition) = scxml_t
+		@is_triggered:	refined_transition ∈ dom(triggeredTransitions)
+		@trigger:		triggeredTransitions(refined_transition) = t
 	end
 	
-	event newTriggeredTransition
-	synchronises scxml.newTriggeredTransition
-	synchronises sm.new_transition
+	event newTriggeredTransition  refines futureTransition
+	synchronises newTriggeredTransition
+	synchronises new_transition
 	where 
-		@is_triggered:	sm_refined_transition ∈ dom(triggeredTransitions)
-		@trigger:		triggeredTransitions(sm_refined_transition) = scxml_t 
+		@is_triggered:	refined_transition ∈ dom(triggeredTransitions)
+		@trigger:		triggeredTransitions(refined_transition) = t 
 	end
 
 	event oldCompleteTriggered refines completeTriggered
-	synchronises scxml.oldCompleteTriggered
+	synchronises oldCompleteTriggered
 	where
-		@finalisedFired: source[refinedFinalisedTransitions] ∩ sm_refined_active = ∅
+		@finalisedFired: source[refinedFinalisedTransitions] ∩ refined_active = ∅
 	end
 	
 	event newCompleteTriggered
-	synchronises scxml.newCompleteTriggered
+	synchronises newCompleteTriggered
 	where
-		@finalisedFired: source[refinedFinalisedTransitions] ∩ sm_refined_active = ∅
+		@finalisedFired: source[refinedFinalisedTransitions] ∩ refined_active = ∅
 	end
 
 	event oldUntriggeredTransition refines untriggeredTransition
-	synchronises scxml.oldUntriggeredTransition
-	synchronises sm.old_transition
+	synchronises oldUntriggeredTransition
+	synchronises old_transition
 	where 
-		@not_triggered: 	sm_refined_transition ∉ dom(triggeredTransitions)
+		@not_triggered: 	refined_transition ∉ dom(triggeredTransitions)
 	end
 	
-	event newUntriggeredTransition
-	synchronises scxml.newUntriggeredTransition
-	synchronises sm.new_transition
+	event newUntriggeredTransition refines futureTransition
+	synchronises newUntriggeredTransition
+	synchronises new_transition
 	where 
-		@not_triggered: 	sm_refined_transition ∉ dom(triggeredTransitions)
+		@not_triggered: 	refined_transition ∉ dom(triggeredTransitions)
 	end
 
 	event oldCompleteUntriggered refines completeUntriggered
-	synchronises scxml.oldCompleteUntriggered
+	synchronises oldCompleteUntriggered
 	where
-		@finalisedFired: source[refinedFinalisedTransitions] ∩ sm_refined_active = ∅
+		@finalisedFired: source[refinedFinalisedTransitions] ∩ refined_active = ∅
 	end
 	
 	event newCompleteUntriggered
-	synchronises scxml.newCompleteUntriggered
+	synchronises newCompleteUntriggered
 	where
-		@finalisedFired: source[refinedFinalisedTransitions] ∩ sm_refined_active = ∅
+		@finalisedFired: source[refinedFinalisedTransitions] ∩ refined_active = ∅
 	end
 
 end
