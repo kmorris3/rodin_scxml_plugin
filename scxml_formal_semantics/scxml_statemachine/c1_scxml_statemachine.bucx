@@ -3,10 +3,15 @@ extends c0_scxml_statemachine scxml_c1_refined c2_statemachine
 	
 constants
 	refinedFinalisedTransitions
+	refinedTriggeredTransitions
 	
 axioms
 @finalised: 		∀tr· tr ∈ finalisedTransitions ⇒ refined_source(tr)=source(tr)
 @refinedF:		finalisedTransitions ⊆ refinedFinalisedTransitions
 @refinedfinalised_tr: 	refinedFinalisedTransitions ⊆ transitions
-	
+@refinedtr_tr: 	refinedTriggeredTransitions ∈ refined_transitions ⇸ TRIGGERS 
+@domaintr:	transition_link[dom(refinedTriggeredTransitions)] = dom(triggeredTransitions)
+@linkingtr_tr: 	∀t·t∈dom(transition_link) ∧ t∈dom(refinedTriggeredTransitions) ⇒		//refined transitions have the same trigger as their abstract counterpart
+					 refinedTriggeredTransitions(t)=triggeredTransitions(transition_link(t))
+
 end
