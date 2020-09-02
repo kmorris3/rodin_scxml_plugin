@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;ac.soton.xeventb.xcontext.base" org.eventb.core.generated="false" version="3">
-    <org.eventb.core.extendsContext name="_aEYRILCrEeqz6I-l8XobaA" org.eventb.core.target="c1_statemachine"/>
-    <org.eventb.core.constant name="_aEY4MLCrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="refined_states"/>
-    <org.eventb.core.constant name="_aEZfQLCrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="refined_root"/>
-    <org.eventb.core.constant name="_aEZfQbCrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="refined_container"/>
-    <org.eventb.core.constant name="_aEZfQrCrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="refined_leaves"/>
-    <org.eventb.core.constant name="_aEZfQ7CrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="refined_transitions"/>
-    <org.eventb.core.constant name="_aEZfRLCrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="refined_source"/>
-    <org.eventb.core.constant name="_aEZfRbCrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="refined_target"/>
-    <org.eventb.core.constant name="_aEZfRrCrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="refined_init"/>
-    <org.eventb.core.constant name="_aEaGULCrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="refined_init_leaf"/>
-    <org.eventb.core.constant name="_aEaGUbCrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.identifier="transition_link"/>
-    <org.eventb.core.axiom name="_aEaGUrCrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="refined_statemachine" org.eventb.core.predicate="refined_states ↦ refined_root ↦ refined_container ↦ refined_transitions ↦ refined_source ↦ refined_target ∈ STATE_MACHINE"/>
-    <org.eventb.core.axiom name="_aEaGU7CrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="def-refined_leaves" org.eventb.core.predicate="refined_leaves = refined_states ∖ ran(refined_container)"/>
-    <org.eventb.core.axiom name="_aEaGVLCrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="typeof-refined_init" org.eventb.core.predicate="refined_init ⊆ refined_states"/>
-    <org.eventb.core.axiom name="_aEaGVbCrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="typeof-refined_init_leaf" org.eventb.core.predicate="refined_init_leaf ∈ refined_leaves"/>
-    <org.eventb.core.axiom name="_aEaGVrCrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="refined_init-closure" org.eventb.core.predicate="refined_init = cl(refined_container)[{refined_init_leaf}] ∪ {refined_init_leaf}"/>
-    <org.eventb.core.axiom name="_aEaGV7CrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="linking-states" org.eventb.core.predicate="states ⊆ refined_states"/>
-    <org.eventb.core.axiom name="_aEatYLCrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="linking-root" org.eventb.core.predicate="root = refined_root"/>
-    <org.eventb.core.axiom name="_aEatYbCrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="linking-container" org.eventb.core.predicate="container ⊆ refined_container"/>
-    <org.eventb.core.axiom name="_aEatYrCrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="linking-transitions" org.eventb.core.predicate="transition_link ∈ refined_transitions ⇸ transitions"/>
-    <org.eventb.core.axiom name="_aEatY7CrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="linking-source_old_transition" org.eventb.core.predicate="∀rt · rt ∈ dom(transition_link) ⇒ source(transition_link(rt)) ∈ cl(refined_container)[{source(rt)}] ∪ {source(rt)}"/>
-    <org.eventb.core.axiom name="_aEatZLCrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="linking-target_old_transition" org.eventb.core.predicate="∀rt · rt ∈ dom(transition_link) ⇒ target(transition_link(rt)) ∈ cl(refined_container)[{target(rt)}] ∪ {target(rt)}"/>
-    <org.eventb.core.axiom name="_aEatZbCrEeqz6I-l8XobaA" org.eventb.core.generated="false" org.eventb.core.label="linking-source_target_new_transition" org.eventb.core.predicate="∀rt · rt ∉ dom(transition_link) ⇒ cl(refined_container)[{source(rt)}] ∩ states = cl(refined_container)[{target(rt)}] ∩ states"/>
+    <org.eventb.core.extendsContext name="_HzqoMO0XEeqscuQxuEkk3A" org.eventb.core.target="c1_statemachine"/>
+    <org.eventb.core.constant name="_HzqoMe0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.identifier="refined_states"/>
+    <org.eventb.core.constant name="_HzqoMu0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.identifier="refined_root"/>
+    <org.eventb.core.constant name="_HzrPQO0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.identifier="refined_container"/>
+    <org.eventb.core.constant name="_HzrPQe0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.identifier="refined_leaves"/>
+    <org.eventb.core.constant name="_Hzr2UO0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.identifier="refined_transitions"/>
+    <org.eventb.core.constant name="_Hzr2Ue0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.identifier="refined_source"/>
+    <org.eventb.core.constant name="_Hzr2Uu0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.identifier="refined_target"/>
+    <org.eventb.core.constant name="_Hzr2U-0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.identifier="refined_init"/>
+    <org.eventb.core.constant name="_Hzr2VO0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.identifier="refined_init_leaf"/>
+    <org.eventb.core.constant name="_Hzr2Ve0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.identifier="transition_link"/>
+    <org.eventb.core.axiom name="_Hzr2Vu0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.label="refined_statemachine" org.eventb.core.predicate="refined_states ↦ refined_root ↦ refined_container ↦ refined_transitions ↦ refined_source ↦ refined_target ∈ STATE_MACHINE"/>
+    <org.eventb.core.axiom name="_Hzr2V-0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.label="def-refined_leaves" org.eventb.core.predicate="refined_leaves = refined_states ∖ ran(refined_container)"/>
+    <org.eventb.core.axiom name="_Hzr2WO0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.label="typeof-refined_init" org.eventb.core.predicate="refined_init ⊆ refined_states"/>
+    <org.eventb.core.axiom name="_Hzr2We0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.label="typeof-refined_init_leaf" org.eventb.core.predicate="refined_init_leaf ∈ refined_leaves"/>
+    <org.eventb.core.axiom name="_HzsdYO0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.label="refined_init-closure" org.eventb.core.predicate="refined_init = cl(refined_container)[{refined_init_leaf}] ∪ {refined_init_leaf}"/>
+    <org.eventb.core.axiom name="_HzsdYe0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.label="linking-states" org.eventb.core.predicate="states ⊆ refined_states"/>
+    <org.eventb.core.axiom name="_HzsdYu0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.label="linking-init" org.eventb.core.predicate="init = refined_init ∩ states"/>
+    <org.eventb.core.axiom name="_HzsdY-0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.label="linking-root" org.eventb.core.predicate="root = refined_root"/>
+    <org.eventb.core.axiom name="_HzsdZO0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.label="linking-container" org.eventb.core.predicate="container ⊆ refined_container"/>
+    <org.eventb.core.axiom name="_HzsdZe0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.label="linking-transitions" org.eventb.core.predicate="transition_link ∈ refined_transitions ⇸ transitions"/>
+    <org.eventb.core.axiom name="_HzsdZu0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.label="linking-source_old_transition" org.eventb.core.predicate="∀rt · rt ∈ dom(transition_link) ⇒ source(transition_link(rt)) ∈ cl(refined_container)[{source(rt)}] ∪ {source(rt)}"/>
+    <org.eventb.core.axiom name="_HzsdZ-0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.label="linking-target_old_transition" org.eventb.core.predicate="∀rt · rt ∈ dom(transition_link) ⇒ target(transition_link(rt)) ∈ cl(refined_container)[{target(rt)}] ∪ {target(rt)}"/>
+    <org.eventb.core.axiom name="_HztEcO0XEeqscuQxuEkk3A" org.eventb.core.generated="false" org.eventb.core.label="linking-source_target_new_transition" org.eventb.core.predicate="∀rt · rt ∉ dom(transition_link) ⇒ cl(refined_container)[{source(rt)}] ∩ states = cl(refined_container)[{target(rt)}] ∩ states"/>
 </org.eventb.core.contextFile>

@@ -28,6 +28,7 @@ axioms
 	
 	// Linking refined_statemachine and statemachine
 	@linking-states: states ⊆ refined_states
+	@linking-init: init = refined_init ∩ states //ADDED CFS 2/9/20
 	@linking-root: root = refined_root
 	@linking-container: container ⊆ refined_container
 	@linking-transitions: transition_link ∈ refined_transitions ⇸ transitions // abstract transitions can be removed
