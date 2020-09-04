@@ -36,6 +36,7 @@ Here we make use of \UMLB's state-machine translation but provide a completely d
 % variables S1 S2
 % invariants 
 % 	TRUE !: {S1, S2} => partition({TRUE}, {S1}/\{TRUE}, {S2}/\{TRUE})
+%   //At most one of the states is TRUE at the time
 % events
 %     INITIALISATION: begin S1, S2 := TRUE, FALSE end
 %     e: when S1 = TRUE then S1, S2 ≔ FALSE, TRUE  end
