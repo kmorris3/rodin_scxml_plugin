@@ -18,7 +18,7 @@ events
 		@update-active: active ≔ init
 		@update-active_leaf: active_leaf ≔ init_leaf
 	end
-	
+ 
 	event raiseExternalTrigger
 	synchronises raiseExternalTrigger
 	end

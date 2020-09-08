@@ -26,11 +26,21 @@ axioms
 	@typeof-refined_init_leaf: refined_init_leaf ∈ refined_leaves
 	@refined_init-closure: refined_init = cl(refined_container)[{refined_init_leaf}] ∪ {refined_init_leaf}
 	
+		// @root and @container form a tree on @states
+	theorem @rtree_structure: root ↦ refined_container ∈ Tree(refined_states)
+	
+	// Derivable properties from definition of Tree
+	theorem @rtypeof-root: root ∈ refined_states
+	theorem @rtypeof-container: refined_container ∈ refined_states ∖ {root} → refined_states
+	theorem @rroot-reachable: ∀ state · state ∈ refined_states ∖ {root} ⇒ root ∈ cl(refined_container)[{state}]
+	
+	
 	// Linking refined_statemachine and statemachine
 	@linking-states: states ⊆ refined_states
 	@linking-init: init = refined_init ∩ states //ADDED CFS 2/9/20
 	@linking-root: root = refined_root
 	@linking-container: container ⊆ refined_container
+	@linking-container2: container = states ◁ refined_container
 	@linking-transitions: transition_link ∈ refined_transitions ⇸ transitions // abstract transitions can be removed
 	@linking-source_old_transition: ∀rt · rt ∈ dom(transition_link) ⇒ // @rt is a refined transition with an abstract counterpart.
 	  	source(transition_link(rt)) ∈ cl(refined_container)[{source(rt)}] ∪ {source(rt)}

@@ -563,6 +563,9 @@
         <org.eventb.core.prPred name="p48" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·cl(r);r⊆cl(r)"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀rt⦂TRANSITION·rt∈dom(transition_link)⇒transition_link∈TRANSITION ⇸ TRANSITION∧transition_link(rt)∈dom(source)∧source∈TRANSITION ⇸ STATE∧refined_container∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧rt∈dom(source)"/>
         <org.eventb.core.prPred name="p77" org.eventb.core.predicate="refined_init⊆refined_states"/>
+        <org.eventb.core.prPred name="p80" org.eventb.core.predicate="init=((cl(refined_container))[{refined_init_leaf}]∪{refined_init_leaf})∩states">
+            <org.eventb.core.prIdent name="init" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p62" org.eventb.core.predicate="states∈dom(Tree)">
             <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
         </org.eventb.core.prPred>
@@ -618,6 +621,9 @@
         <org.eventb.core.prPred name="p19" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Sts⊆STATE⇒(∀rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)))"/>
         <org.eventb.core.prPred name="p52" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE),T⦂ℙ(STATE)·r[T]⊆T⇒(cl(r))[T]⊆T"/>
         <org.eventb.core.prPred name="p44" org.eventb.core.predicate="cl∈(STATE ↔ STATE) → (STATE ↔ STATE)"/>
+        <org.eventb.core.prPred name="p79" org.eventb.core.predicate="init=refined_init∩states">
+            <org.eventb.core.prIdent name="init" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p74" org.eventb.core.predicate="source∈TRANSITION ⇸ STATE"/>
         <org.eventb.core.prPred name="p73" org.eventb.core.predicate="init=(cl(container))[{init_leaf}]∪{init_leaf}">
             <org.eventb.core.prIdent name="container" org.eventb.core.type="ℙ(STATE×STATE)"/>
@@ -644,9 +650,6 @@
         <org.eventb.core.prPred name="p72" org.eventb.core.predicate="init_leaf∈leaves">
             <org.eventb.core.prIdent name="init_leaf" org.eventb.core.type="STATE"/>
             <org.eventb.core.prIdent name="leaves" org.eventb.core.type="ℙ(STATE)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p79" org.eventb.core.predicate="init⊆refined_init">
-            <org.eventb.core.prIdent name="init" org.eventb.core.type="ℙ(STATE)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p35" org.eventb.core.predicate="STATE_MACHINE={S⦂ℙ(STATE),r⦂STATE,c⦂ℙ(STATE×STATE),T⦂ℙ(TRANSITION),s⦂ℙ(TRANSITION×STATE),t⦂ℙ(TRANSITION×STATE)·r ↦ c∈Tree(S)∧s∈T → S∧t∈T → S ∣ S ↦ r ↦ c ↦ T ↦ s ↦ t}">
             <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
@@ -676,9 +679,6 @@
         <org.eventb.core.prPred name="p45" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r⊆cl(r)"/>
         <org.eventb.core.prPred name="p34" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·⊤⇒(∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p)"/>
         <org.eventb.core.prPred name="p50" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·cl(r)=r∪(r;cl(r))"/>
-        <org.eventb.core.prPred name="p80" org.eventb.core.predicate="init⊆(cl(refined_container))[{refined_init_leaf}]∪{refined_init_leaf}">
-            <org.eventb.core.prIdent name="init" org.eventb.core.type="ℙ(STATE)"/>
-        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p56" org.eventb.core.predicate="Tree∈ℙ(STATE) → ℙ(STATE × (STATE ↔ STATE))">
             <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
         </org.eventb.core.prPred>
@@ -687,17 +687,17 @@
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p8" org.eventb.core.predicate="refined_leaves=refined_states ∖ ran(refined_container)"/>
         <org.eventb.core.prPred name="p18" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE),p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p⇒cl(r)⊆p"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-        <org.eventb.core.prReas name="r10" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
-        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
         <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r10" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
         <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
         <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="linking-target_old_transition/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9" org.eventb.core.prSets="STATE,TRANSITION">
         <org.eventb.core.lang name="L"/>
@@ -972,6 +972,9 @@
             <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p43" org.eventb.core.predicate="refined_init⊆refined_states"/>
+        <org.eventb.core.prPred name="p46" org.eventb.core.predicate="init=((cl(refined_container))[{refined_init_leaf}]∪{refined_init_leaf})∩states">
+            <org.eventb.core.prIdent name="init" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p12" org.eventb.core.predicate="∀rt⦂TRANSITION·rt∉dom(transition_link)⇒⊤∧⊤∧rt∈dom(source)∧source∈TRANSITION ⇸ STATE∧rt∈dom(target)∧target∈TRANSITION ⇸ STATE"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀rt⦂TRANSITION·rt∉dom(transition_link)⇒refined_container∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧rt∈dom(source)∧source∈TRANSITION ⇸ STATE∧rt∈dom(target)∧target∈TRANSITION ⇸ STATE"/>
         <org.eventb.core.prPred name="p29" org.eventb.core.predicate="transitions⊆TRANSITION"/>
@@ -997,6 +1000,9 @@
             <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p17" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Sts⊆STATE⇒(∀rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)))"/>
+        <org.eventb.core.prPred name="p45" org.eventb.core.predicate="init=refined_init∩states">
+            <org.eventb.core.prIdent name="init" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p49" org.eventb.core.predicate="source∈TRANSITION ⇸ STATE"/>
         <org.eventb.core.prPred name="p47" org.eventb.core.predicate="(cl(refined_container))[{refined_init_leaf}]⊆refined_states"/>
         <org.eventb.core.prPred name="p6" org.eventb.core.predicate="target∈transitions → states"/>
@@ -1007,9 +1013,6 @@
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)"/>
         <org.eventb.core.prPred name="p28" org.eventb.core.predicate="states⊆STATE"/>
         <org.eventb.core.prPred name="p36" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p"/>
-        <org.eventb.core.prPred name="p45" org.eventb.core.predicate="init⊆refined_init">
-            <org.eventb.core.prIdent name="init" org.eventb.core.type="ℙ(STATE)"/>
-        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p33" org.eventb.core.predicate="STATE_MACHINE={S⦂ℙ(STATE),r⦂STATE,c⦂ℙ(STATE×STATE),T⦂ℙ(TRANSITION),s⦂ℙ(TRANSITION×STATE),t⦂ℙ(TRANSITION×STATE)·r ↦ c∈Tree(S)∧s∈T → S∧t∈T → S ∣ S ↦ r ↦ c ↦ T ↦ s ↦ t}">
             <org.eventb.core.prIdent name="STATE_MACHINE" org.eventb.core.type="ℙ(ℙ(STATE)×STATE×ℙ(STATE×STATE)×ℙ(TRANSITION)×ℙ(TRANSITION×STATE)×ℙ(TRANSITION×STATE))"/>
             <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
@@ -1030,22 +1033,19 @@
             <org.eventb.core.prIdent name="rt" org.eventb.core.type="TRANSITION"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p19" org.eventb.core.predicate="∀rt⦂TRANSITION·¬rt∈dom(transition_link)⇒rt∈dom(source)∧source∈TRANSITION ⇸ STATE∧rt∈dom(target)∧target∈TRANSITION ⇸ STATE"/>
-        <org.eventb.core.prPred name="p46" org.eventb.core.predicate="init⊆(cl(refined_container))[{refined_init_leaf}]∪{refined_init_leaf}">
-            <org.eventb.core.prIdent name="init" org.eventb.core.type="ℙ(STATE)"/>
-        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p24" org.eventb.core.predicate="Tree=(λSts⦂ℙ(STATE)·Sts⊆STATE ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})">
             <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="refined_leaves=refined_states ∖ ran(refined_container)"/>
         <org.eventb.core.prPred name="p16" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE),p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p⇒cl(r)⊆p"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
-        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
         <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
     </org.eventb.core.prProof>
 </org.eventb.core.prFile>

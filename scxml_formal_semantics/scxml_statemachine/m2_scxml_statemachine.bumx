@@ -1,7 +1,7 @@
 machine m2_scxml_statemachine
 includes scxml.scxml_m2_scxml_refinement
 includes SimpleStateMachine.m3_refined_statemachine
- 
+
 refines m1_scxml_statemachine
 
 sees c1_scxml_statemachine c0_4_tree_prop
