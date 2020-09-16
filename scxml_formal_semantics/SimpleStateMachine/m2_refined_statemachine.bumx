@@ -46,7 +46,7 @@ events
 		@typeof-old_transition: refined_transition ∈ dom(transition_link)
 		@refined_source-active: refined_source(refined_transition) ∈ refined_active
 		@typeof-refined_new_leaf_state: refined_new_leaf_state ∈ refined_leaves
-		@refined_new_leaf_state: refined_new_leaf_state ≠ target(refined_transition) ⇒ refined_new_leaf_state ↦ refined_target(refined_transition) ∈ cl(refined_container)
+		@refined_new_leaf_state: refined_new_leaf_state ≠ refined_target(refined_transition) ⇒ refined_new_leaf_state ↦ refined_target(refined_transition) ∈ cl(refined_container)
 		theorem @range-preservation: ran(refined_container) = ran(cl(refined_container))
 		theorem @refined_leaves_are_states: refined_leaves ⊆ refined_states
 		theorem @typeof-refined_container: refined_container ∈ refined_states ∖ {refined_root} → refined_states
@@ -68,7 +68,7 @@ events
 		@typeof-old_transition: refined_transition ∉ dom(transition_link)
 		@refined_source-active: refined_source(refined_transition) ∈ refined_active
 		@typeof-refined_new_leaf_state: refined_new_leaf_state ∈ refined_leaves
-		@refined_new_leaf_state: refined_new_leaf_state ≠ target(refined_transition) ⇒ refined_new_leaf_state ↦ refined_target(refined_transition) ∈ cl(refined_container)
+		@refined_new_leaf_state: refined_new_leaf_state ≠ refined_target(refined_transition) ⇒ refined_new_leaf_state ↦ refined_target(refined_transition) ∈ cl(refined_container)
 		theorem @range-preservation: ran(refined_container) = ran(cl(refined_container))
 		theorem @refined_leaves_are_states: refined_leaves ⊆ refined_states
 		theorem @typeof-refined_container: refined_container ∈ refined_states ∖ {refined_root} → refined_states
