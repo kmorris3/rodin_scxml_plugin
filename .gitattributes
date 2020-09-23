@@ -1,0 +1,4 @@
+*.jpg filter=lfs diff=lfs merge=lfs
+*.jar filter=lfs diff=lfs merge=lfs
+*.docx filter=lfs diff=lfs merge=lfs -text
+*.pptx filter=lfs diff=lfs merge=lfs -text
