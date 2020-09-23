@@ -1,0 +1,67 @@
+/*
+ * This context is a copy of statemachine with every variables and constants prefixed with "cnc_"
+ * Ideally, this should be done by an "instantiation+renaming" plug-in.
+ * This machine is CORRECT-BY-CONSTRUCTION
+ */
+machine cnc_statemachine
+sees cnc_statemachine_ctx c0_4_tree_prop
+variables
+	cnc_active // The set of active states
+	
+	// The following are auxiliary variables to capture property of the statemachine
+	cnc_active_leaf // The current active leaf
+invariants
+	// @active is a set of states
+	@typeof-active: cnc_active ⊆ cnc_states
+	
+	// @active_leaf is a leaf state
+	@typeof-active_leaf: cnc_active_leaf ∈ cnc_leaves
+	
+	// Consistency between active and active_leaf	
+	@active-closure: cnc_active = cl(cnc_container)[{cnc_active_leaf}] ∪ {cnc_active_leaf}
+	
+	// Properties derive from the consistency invariant
+	theorem @LinkedList-active: cnc_active_leaf ↦ cnc_root ↦ (cnc_active ◁ cnc_container) ∈ LinkedList(cnc_active)
+	
+	// Two active states s1, s2 cannot have the same container
+	theorem @different_layer: 
+		∀ s1, s2 · s1 ∈ cnc_active ∖ {cnc_root} ∧ s2 ∈ cnc_active ∖ {cnc_root} ∧ s1 ≠ s2
+		⇒
+		cnc_container(s1) ≠ cnc_container(s2)
+
+	// If a non-root state is active then the container is also active
+	theorem @container_active:
+		∀ s · s ∈ cnc_active ∖ {cnc_root} ⇒ cnc_container(s) ∈ cnc_active
+				 
+events
+	event INITIALISATION
+	then
+		@update-active: cnc_active ≔ cnc_init
+		@update-active_leaf: cnc_active_leaf ≔ cnc_init_leaf
+	end
+	
+	event transition
+	any
+		cnc_transition
+		cnc_new_leaf_state
+	where
+		@typeof-transition: cnc_transition ∈ cnc_transitions
+		@source-active: cnc_source(cnc_transition) ∈ cnc_active
+		@typeof-new_leaf_state: cnc_new_leaf_state ∈ cnc_leaves
+		// The new leaf is either the target of the transition 
+		// or it is a child of the target transition.
+		@new_leaf_state: cnc_new_leaf_state ≠ cnc_target(cnc_transition) ⇒
+				cnc_new_leaf_state ↦ cnc_target(cnc_transition) ∈ cl(cnc_container)
+		
+  		// Copy for automatic proofs
+		theorem @range-preservation: ran(cnc_container) = ran(cl(cnc_container))
+		
+		theorem @leaves_are_states: cnc_leaves ⊆ cnc_states
+		
+		// Copy of axioms for automatic proofs
+		theorem @typeof-container: cnc_container ∈ cnc_states ∖ {cnc_root} → cnc_states
+	then
+		@update-active: cnc_active ≔ cl(cnc_container)[{cnc_new_leaf_state}] ∪ {cnc_new_leaf_state}
+		@update-active_leaf: cnc_active_leaf ≔ cnc_new_leaf_state
+	end
+end

@@ -1,5 +1,5 @@
 machine m2_refined_statemachine
-refines m1_statemachine
+refines m0_statemachine
 sees c2_statemachine c0_4_tree_prop
 variables
 	refined_active

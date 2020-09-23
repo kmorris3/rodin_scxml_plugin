@@ -1,0 +1,67 @@
+/*
+ * This context is a copy of statemachine with every variables and constants prefixed with "abs_"
+ * Ideally, this should be done by an "instantiation+renaming" plug-in.
+ * This machine is CORRECT-BY-CONSTRUCTION
+ */
+machine abs_statemachine
+sees abs_statemachine_ctx c0_4_tree_prop
+variables
+	abs_active // The set of active states
+	
+	// The following are auxiliary variables to capture property of the statemachine
+	abs_active_leaf // The current active leaf
+invariants
+	// @active is a set of states
+	@typeof-active: abs_active ⊆ abs_states
+	
+	// @active_leaf is a leaf state
+	@typeof-active_leaf: abs_active_leaf ∈ abs_leaves
+	
+	// Consistency between active and active_leaf	
+	@active-closure: abs_active = cl(abs_container)[{abs_active_leaf}] ∪ {abs_active_leaf}
+	
+	// Properties derive from the consistency invariant
+	theorem @LinkedList-active: abs_active_leaf ↦ abs_root ↦ (abs_active ◁ abs_container) ∈ LinkedList(abs_active)
+	
+	// Two active states s1, s2 cannot have the same container
+	theorem @different_layer: 
+		∀ s1, s2 · s1 ∈ abs_active ∖ {abs_root} ∧ s2 ∈ abs_active ∖ {abs_root} ∧ s1 ≠ s2
+		⇒
+		abs_container(s1) ≠ abs_container(s2)
+
+	// If a non-root state is active then the container is also active
+	theorem @container_active:
+		∀ s · s ∈ abs_active ∖ {abs_root} ⇒ abs_container(s) ∈ abs_active
+				 
+events
+	event INITIALISATION
+	then
+		@update-active: abs_active ≔ abs_init
+		@update-active_leaf: abs_active_leaf ≔ abs_init_leaf
+	end
+	
+	event transition
+	any
+		abs_transition
+		abs_new_leaf_state
+	where
+		@typeof-transition: abs_transition ∈ abs_transitions
+		@source-active: abs_source(abs_transition) ∈ abs_active
+		@typeof-new_leaf_state: abs_new_leaf_state ∈ abs_leaves
+		// The new leaf is either the target of the transition 
+		// or it is a child of the target transition.
+		@new_leaf_state: abs_new_leaf_state ≠ abs_target(abs_transition) ⇒
+				abs_new_leaf_state ↦ abs_target(abs_transition) ∈ cl(abs_container)
+		
+  		// Copy for automatic proofs
+		theorem @range-preservation: ran(abs_container) = ran(cl(abs_container))
+		
+		theorem @leaves_are_states: abs_leaves ⊆ abs_states
+		
+		// Copy of axioms for automatic proofs
+		theorem @typeof-container: abs_container ∈ abs_states ∖ {abs_root} → abs_states
+	then
+		@update-active: abs_active ≔ cl(abs_container)[{abs_new_leaf_state}] ∪ {abs_new_leaf_state}
+		@update-active_leaf: abs_active_leaf ≔ abs_new_leaf_state
+	end
+end
