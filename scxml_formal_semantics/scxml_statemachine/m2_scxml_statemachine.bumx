@@ -30,8 +30,8 @@ events
 	synchronises triggeredTransition
 	synchronises transition
 	where 
-		@is_triggered:	refined_transition ∈ dom(triggeredTransitions)
-		@trigger:		triggeredTransitions(refined_transition) = t
+		@is_triggered:	refined_transition ∈ dom(refinedTriggeredTransitions)
+		@trigger:		refinedTriggeredTransitions(refined_transition) = t
 	end
 
 	event completeTriggered refines oldCompleteTriggered newCompleteTriggered
@@ -44,7 +44,7 @@ events
 	synchronises untriggeredTransition
 	synchronises transition
 	where 
-		@not_triggered: 	refined_transition ∉ dom(triggeredTransitions)
+		@not_triggered: 	refined_transition ∉ dom(refinedTriggeredTransitions)
 	end
 
 	event completeUntriggered refines oldCompleteUntriggered newCompleteUntriggered
