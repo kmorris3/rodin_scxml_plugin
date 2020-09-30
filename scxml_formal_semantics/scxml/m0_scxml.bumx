@@ -1,0 +1,52 @@
+machine m0_scxml 
+includes abs_scxml
+sees abs_scxml_ctx
+
+events
+
+	event INITIALISATION
+	synchronises INITIALISATION
+	end
+	
+	event raiseExternalTrigger
+	synchronises raiseExternalTrigger
+	end
+	
+	event dequeueExternal
+	synchronises dequeueExternal
+	end
+	
+	event dequeueInternal
+	synchronises dequeueInternal
+	end
+	
+	event triggeredTransition 
+	synchronises triggeredTransition
+	end
+	
+	event completeTriggered
+	synchronises triggeredTransition
+	end
+	
+	event untriggeredTransition
+	synchronises untriggeredTransition
+	end
+	
+	event completeUntriggered
+	synchronises completeUntriggered
+	end
+	
+//	event futureDequeue	//needed to allow for future triggers starting a run
+//	where 
+//		@dt: 		dt = ∅
+//		@uc:			uc = TRUE		
+//	then 
+//		@iq_set:		uc ≔ FALSE	
+//	end
+	
+	event futureTransition	//needed if we allow adding raising of abstract internal triggers in later refinements
+	synchronises futureTransition
+	end
+	
+end
+

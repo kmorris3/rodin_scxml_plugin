@@ -1,0 +1,12 @@
+context scxml_ctx
+extends scxml_c0_2_dequeue 
+
+constants 
+	InternalTriggers
+	ExternalTriggers
+
+axioms
+	@typeof_IT: InternalTriggers ⊆ InternalTriggerType
+	@typeof_XT: ExternalTriggers ⊆ ExternalTriggerType
+
+end

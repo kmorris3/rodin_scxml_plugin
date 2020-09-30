@@ -1,0 +1,17 @@
+/*
+ * This context is a copy of scxml_ctx with every constants prefixed with "abs_"
+ * Ideally, this should be done by an "instantiation" plug-in.
+ * This context is CORRECT-BY-CONSTRUCTION
+ */
+context abs_scxml_ctx
+extends scxml_c0_2_dequeue
+
+constants 
+	abs_InternalTriggers
+	abs_ExternalTriggers
+
+axioms
+	@typeof_IT: abs_InternalTriggers ⊆ InternalTriggerType
+	@typeof_XT: abs_ExternalTriggers ⊆ ExternalTriggerType
+
+end

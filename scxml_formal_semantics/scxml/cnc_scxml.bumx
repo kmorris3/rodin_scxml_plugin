@@ -1,0 +1,120 @@
+/*
+ * This context is a copy of scxml with every variables and constants prefixed with "cnc_"
+ * Ideally, this should be done by an "instantiation+renaming" plug-in.
+ * This machine is CORRECT-BY-CONSTRUCTION
+ */
+machine cnc_scxml
+sees cnc_scxml_ctx
+
+variables
+	cnc_internal_queue
+	cnc_external_queue
+	cnc_dequeue_trigger
+	cnc_untriggered_completed
+
+invariants
+	@internal_queue: 			cnc_internal_queue ∈ ℙ(cnc_InternalTriggers)
+	@external_queue: 			cnc_external_queue ∈ ℙ(cnc_ExternalTriggers)
+	@dequeue_trigger: 			cnc_dequeue_trigger ∈ DeQueueType
+	@dequeue_triggerwd: 			cnc_dequeue_trigger ⊆ cnc_InternalTriggers ∪ cnc_ExternalTriggers
+	@untriggered_completed: 		cnc_untriggered_completed ∈ BOOL
+	
+	@firingTriggered: 			cnc_dequeue_trigger ≠ ∅ ⇒ cnc_untriggered_completed=FALSE		//just a sanity check
+	theorem @readyToDequeue:		cnc_untriggered_completed=TRUE ⇒ cnc_dequeue_trigger = ∅		//just a sanity check
+		
+events
+
+	event INITIALISATION
+	then
+		@internal_queue_init:			cnc_internal_queue ≔ ∅ 
+		@external_queue_init: 			cnc_external_queue ≔ ∅
+		@dequeue_trigger_init:			cnc_dequeue_trigger ≔ ∅
+		@untriggered_completed_init: 	cnc_untriggered_completed ≔ FALSE
+	end
+	
+	event raiseExternalTrigger
+	any cnc_trigger where
+		@trigger: 				cnc_trigger ∈ cnc_ExternalTriggers
+	then
+		@external_queue_set:		cnc_external_queue ≔ cnc_external_queue ∪ {cnc_trigger}
+	end
+	
+	event dequeueExternal
+	any cnc_trigger where 
+		@untriggered_completed:		cnc_untriggered_completed = TRUE
+		theorem @dequeue_trigger:	cnc_dequeue_trigger = ∅	//sanity check
+		@trigger: 					cnc_trigger ∈ cnc_external_queue
+		@internal_queue:				cnc_internal_queue = ∅
+	then 
+		@dequeue_trigger_set: 		cnc_dequeue_trigger ≔ {cnc_trigger}
+		@external_queue_set:			cnc_external_queue ≔ cnc_external_queue ∖ {cnc_trigger}
+		@untriggered_completed_set:	cnc_untriggered_completed ≔ FALSE
+	end
+	
+	event dequeueInternal
+	any cnc_trigger where 
+		@untriggered_completed:		cnc_untriggered_completed = TRUE
+		theorem @dequeue_trigger:	cnc_dequeue_trigger = ∅	//sanity check
+		@trigger: 					cnc_trigger ∈ cnc_internal_queue
+	then 
+		@dequeue_trigger_set: 		cnc_dequeue_trigger ≔ {cnc_trigger}
+		@external_queue_set:			cnc_internal_queue ≔ cnc_internal_queue ∖ {cnc_trigger} 
+		@untriggered_completed_set:	cnc_untriggered_completed ≔ FALSE
+	end
+	
+	event triggeredTransition 
+	any cnc_trigger cnc_raised_triggers
+	where 
+		@trigger: 						cnc_trigger ∈ cnc_dequeue_trigger
+		theorem @untriggered_completed:	cnc_untriggered_completed = FALSE	//sanity check
+		@raised_triggers:				cnc_raised_triggers ⊆ cnc_InternalTriggers
+	then 
+		@dequeue_trigger_set: 			cnc_dequeue_trigger ≔ ∅
+		@internal_queue_set:				cnc_internal_queue ≔ cnc_internal_queue ∪ cnc_raised_triggers		//raised triggers
+	end
+	
+	event completeTriggered
+	any cnc_trigger where 
+		@trigger: 						cnc_trigger ∈ cnc_dequeue_trigger
+		theorem @untriggered_completed:	cnc_untriggered_completed = FALSE	//sanity check			 
+	then 
+		@dequeue_trigger_set: 			cnc_dequeue_trigger ≔ cnc_dequeue_trigger ∖ {cnc_trigger}
+	end
+	
+	event untriggeredTransition
+	any cnc_raised_triggers
+	where 
+		@dequeue_trigger: 		cnc_dequeue_trigger = ∅
+		@untriggered_completed:	cnc_untriggered_completed = FALSE		
+		@new_raised_trigger:		cnc_raised_triggers ⊆ cnc_InternalTriggers
+	then 
+		@internal_queue_set:		cnc_internal_queue ≔ cnc_internal_queue ∪ cnc_raised_triggers		//raised triggers
+	end
+	
+	event completeUntriggered
+	where
+		@dequeue_trigger: 			cnc_dequeue_trigger = ∅
+		@untriggered_completed:		cnc_untriggered_completed = FALSE
+	then
+		@untriggered_completed_set:	cnc_untriggered_completed ≔ TRUE
+	end
+	
+//	event futureDequeue	//needed to allow for future triggers starting a run
+//	where 
+//		@dequeue_trigger: 		dequeue_trigger = ∅
+//		@untriggered_completed:			untriggered_completed = TRUE		
+//	then 
+//		@internal_queue_set:		untriggered_completed ≔ FALSE	
+//	end
+	
+	event futureTransition	//needed if we allow adding raising of abstract internal triggers in later refinements
+	any cnc_raised_triggers
+	where 
+		@raised_triggers:		cnc_raised_triggers ⊆ cnc_InternalTriggers
+		@untriggered_completed:	cnc_untriggered_completed = TRUE		
+	then 
+		@internal_queue_set:		cnc_internal_queue ≔ cnc_internal_queue ∪ cnc_raised_triggers		//raised triggers
+	end
+	
+end
+

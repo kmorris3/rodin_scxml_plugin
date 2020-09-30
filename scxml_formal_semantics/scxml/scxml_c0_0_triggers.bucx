@@ -6,10 +6,10 @@ context scxml_c0_0_triggers
 sets
 	TRIGGERS // The set of triggers
 constants
-	InternalTriggers ExternalTriggers
+	InternalTriggerType ExternalTriggerType
 	nullTrigger
 axioms
-	@triggerKinds: partition (TRIGGERS, InternalTriggers, ExternalTriggers, {nullTrigger})
-	theorem @nte: nullTrigger ∉ ExternalTriggers
-	theorem @nti: nullTrigger ∉ InternalTriggers
+	@triggerKinds: partition (TRIGGERS, InternalTriggerType, ExternalTriggerType, {nullTrigger})
+	theorem @nte: nullTrigger ∉ ExternalTriggerType
+	theorem @nti: nullTrigger ∉ InternalTriggerType
 end
