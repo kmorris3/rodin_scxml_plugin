@@ -10,17 +10,17 @@ variables
 	abs_internal_queue
 	abs_external_queue
 	abs_dequeue_trigger
-	abs_untriggered_completed
+	abs_completed
 
 invariants
 	@internal_queue: 			abs_internal_queue ∈ ℙ(abs_InternalTriggers)
 	@external_queue: 			abs_external_queue ∈ ℙ(abs_ExternalTriggers)
 	@dequeue_trigger: 			abs_dequeue_trigger ∈ DeQueueType
 	@dequeue_triggerwd: 			abs_dequeue_trigger ⊆ abs_InternalTriggers ∪ abs_ExternalTriggers
-	@untriggered_completed: 		abs_untriggered_completed ∈ BOOL
+	@completed: 		abs_completed ∈ BOOL
 	
-	@firingTriggered: 			abs_dequeue_trigger ≠ ∅ ⇒ abs_untriggered_completed=FALSE		//just a sanity check
-	theorem @readyToDequeue:		abs_untriggered_completed=TRUE ⇒ abs_dequeue_trigger = ∅		//just a sanity check
+	@firingTriggered: 			abs_dequeue_trigger ≠ ∅ ⇒ abs_completed=FALSE		//just a sanity check
+	theorem @readyToDequeue:		abs_completed=TRUE ⇒ abs_dequeue_trigger = ∅		//just a sanity check
 		
 events
 
@@ -29,89 +29,89 @@ events
 		@internal_queue_init:			abs_internal_queue ≔ ∅ 
 		@external_queue_init: 			abs_external_queue ≔ ∅
 		@dequeue_trigger_init:			abs_dequeue_trigger ≔ ∅
-		@untriggered_completed_init: 	abs_untriggered_completed ≔ FALSE
+		@completed_init: 	abs_completed ≔ FALSE
 	end
 	
-	event raiseExternalTrigger
+	event abs_raiseExternalTrigger
 	any abs_trigger where
 		@trigger: 				abs_trigger ∈ abs_ExternalTriggers
 	then
 		@external_queue_set:		abs_external_queue ≔ abs_external_queue ∪ {abs_trigger}
 	end
 	
-	event dequeueExternal
+	event abs_dequeueExternalTrigger
 	any abs_trigger where 
-		@untriggered_completed:		abs_untriggered_completed = TRUE
+		@completed:		abs_completed = TRUE
 		theorem @dequeue_trigger:	abs_dequeue_trigger = ∅	//sanity check
 		@trigger: 					abs_trigger ∈ abs_external_queue
 		@internal_queue:				abs_internal_queue = ∅
 	then 
 		@dequeue_trigger_set: 		abs_dequeue_trigger ≔ {abs_trigger}
 		@external_queue_set:			abs_external_queue ≔ abs_external_queue ∖ {abs_trigger}
-		@untriggered_completed_set:	abs_untriggered_completed ≔ FALSE
+		@completed_set:	abs_completed ≔ FALSE
 	end
 	
-	event dequeueInternal
+	event abs_dequeueInternalTrigger
 	any abs_trigger where 
-		@untriggered_completed:		abs_untriggered_completed = TRUE
+		@completed:		abs_completed = TRUE
 		theorem @dequeue_trigger:	abs_dequeue_trigger = ∅	//sanity check
 		@trigger: 					abs_trigger ∈ abs_internal_queue
 	then 
 		@dequeue_trigger_set: 		abs_dequeue_trigger ≔ {abs_trigger}
 		@external_queue_set:			abs_internal_queue ≔ abs_internal_queue ∖ {abs_trigger} 
-		@untriggered_completed_set:	abs_untriggered_completed ≔ FALSE
+		@completed_set:	abs_completed ≔ FALSE
 	end
 	
-	event triggeredTransition 
+	event abs_triggeredStep
 	any abs_trigger abs_raised_triggers
 	where 
 		@trigger: 						abs_trigger ∈ abs_dequeue_trigger
-		theorem @untriggered_completed:	abs_untriggered_completed = FALSE	//sanity check
+		theorem @completed:	abs_completed = FALSE	//sanity check
 		@raised_triggers:				abs_raised_triggers ⊆ abs_InternalTriggers
 	then 
 		@dequeue_trigger_set: 			abs_dequeue_trigger ≔ ∅
 		@internal_queue_set:				abs_internal_queue ≔ abs_internal_queue ∪ abs_raised_triggers		//raised triggers
 	end
 	
-	event completeTriggered
+	event abs_discardTrigger
 	any abs_trigger where 
 		@trigger: 						abs_trigger ∈ abs_dequeue_trigger
-		theorem @untriggered_completed:	abs_untriggered_completed = FALSE	//sanity check			 
+		theorem @completed:	abs_completed = FALSE	//sanity check			 
 	then 
 		@dequeue_trigger_set: 			abs_dequeue_trigger ≔ abs_dequeue_trigger ∖ {abs_trigger}
 	end
 	
-	event untriggeredTransition
+	event abs_untriggeredStep
 	any abs_raised_triggers
 	where 
 		@dequeue_trigger: 		abs_dequeue_trigger = ∅
-		@untriggered_completed:	abs_untriggered_completed = FALSE		
+		@completed:	abs_completed = FALSE		
 		@new_raised_trigger:		abs_raised_triggers ⊆ abs_InternalTriggers
 	then 
 		@internal_queue_set:		abs_internal_queue ≔ abs_internal_queue ∪ abs_raised_triggers		//raised triggers
 	end
 	
-	event completeUntriggered
+	event abs_completion
 	where
 		@dequeue_trigger: 			abs_dequeue_trigger = ∅
-		@untriggered_completed:		abs_untriggered_completed = FALSE
+		@completed:		abs_completed = FALSE
 	then
-		@untriggered_completed_set:	abs_untriggered_completed ≔ TRUE
+		@completed_set:	abs_completed ≔ TRUE
 	end
 	
 //	event futureDequeue	//needed to allow for future triggers starting a run
 //	where 
 //		@dequeue_trigger: 		dequeue_trigger = ∅
-//		@untriggered_completed:			untriggered_completed = TRUE		
+//		@completed:			completed = TRUE		
 //	then 
-//		@internal_queue_set:		untriggered_completed ≔ FALSE	
+//		@internal_queue_set:		completed ≔ FALSE	
 //	end
 	
-	event futureTransition	//needed if we allow adding raising of abstract internal triggers in later refinements
+	event abs_futureStep	//needed if we allow adding raising of abstract internal triggers in later refinements
 	any abs_raised_triggers
 	where 
 		@raised_triggers:		abs_raised_triggers ⊆ abs_InternalTriggers
-		@untriggered_completed:	abs_untriggered_completed = TRUE		
+		@completed:	abs_completed = TRUE		
 	then 
 		@internal_queue_set:		abs_internal_queue ≔ abs_internal_queue ∪ abs_raised_triggers		//raised triggers
 	end

@@ -9,9 +9,10 @@ extends scxml_c0_2_dequeue
 constants 
 	abs_InternalTriggers
 	abs_ExternalTriggers
-
+	abs_Triggers
 axioms
 	@typeof_IT: abs_InternalTriggers ⊆ InternalTriggerType
 	@typeof_XT: abs_ExternalTriggers ⊆ ExternalTriggerType
+	@def_T: abs_Triggers = abs_InternalTriggers ∪ abs_ExternalTriggers
 
 end

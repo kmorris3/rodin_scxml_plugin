@@ -1,32 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.prFile version="1">
-    <org.eventb.core.prProof name="nt/THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="TRIGGERS">
-        <org.eventb.core.lang name="L"/>
-        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TRIGGERS,InternalTriggers,ExternalTriggers,{nullTrigger}))" org.eventb.core.prHyps="">
-            <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p2,p3,p4,p5"/>
-                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p2,p3,p4,p5"/>
-                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p5">
-                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="p5"/>
-                    </org.eventb.core.prAnte>
-                </org.eventb.core.prRule>
-            </org.eventb.core.prAnte>
-            <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
-        </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
-        <org.eventb.core.prIdent name="InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
-        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="InternalTriggers∩ExternalTriggers=(∅ ⦂ ℙ(TRIGGERS))"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬nullTrigger∈ExternalTriggers"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬nullTrigger∈InternalTriggers"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="nullTrigger∉ExternalTriggers"/>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="TRIGGERS=InternalTriggers∪ExternalTriggers∪{nullTrigger}"/>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggers,ExternalTriggers,{nullTrigger})"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-    </org.eventb.core.prProof>
     <org.eventb.core.prProof name="nti/THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="TRIGGERS">
         <org.eventb.core.lang name="L"/>
         <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger}))" org.eventb.core.prHyps="">

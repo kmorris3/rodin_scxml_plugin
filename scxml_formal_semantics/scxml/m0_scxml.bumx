@@ -8,32 +8,32 @@ events
 	synchronises INITIALISATION
 	end
 	
-	event raiseExternalTrigger
-	synchronises raiseExternalTrigger
+	event abs_raiseExternalTrigger
+	synchronises abs_raiseExternalTrigger
 	end
 	
-	event dequeueExternal
-	synchronises dequeueExternal
+	event abs_dequeueExternalTrigger
+	synchronises abs_dequeueExternalTrigger
 	end
 	
-	event dequeueInternal
-	synchronises dequeueInternal
+	event abs_dequeueInternalTrigger
+	synchronises abs_dequeueInternalTrigger
 	end
 	
-	event triggeredTransition 
-	synchronises triggeredTransition
+	event abs_triggeredStep
+	synchronises abs_triggeredStep
 	end
 	
-	event completeTriggered
-	synchronises triggeredTransition
+	event abs_discardTrigger
+	synchronises abs_discardTrigger
 	end
 	
-	event untriggeredTransition
-	synchronises untriggeredTransition
+	event abs_untriggeredStep
+	synchronises abs_untriggeredStep
 	end
 	
-	event completeUntriggered
-	synchronises completeUntriggered
+	event abs_completion
+	synchronises abs_completion
 	end
 	
 //	event futureDequeue	//needed to allow for future triggers starting a run
@@ -44,8 +44,8 @@ events
 //		@iq_set:		uc ≔ FALSE	
 //	end
 	
-	event futureTransition	//needed if we allow adding raising of abstract internal triggers in later refinements
-	synchronises futureTransition
+	event abs_futureStep	//needed if we allow adding raising of abstract internal triggers in later refinements
+	synchronises abs_futureStep
 	end
 	
 end

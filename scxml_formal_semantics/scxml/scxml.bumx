@@ -1,21 +1,26 @@
+/*
+ * This machine model the semantics for a SCXML model.
+ *  
+ * @author cfs
+ */
 machine scxml
 sees scxml_ctx
 
 variables
-	internal_queue
-	external_queue
-	dequeue_trigger
-	untriggered_completed
+	internal_queue // The queue of raised internal triggers
+	external_queue // The queue of raised external triggers
+	dequeue_trigger // The current dequeue trigger or none
+	completed // Flag indicating that a run has been completed
 
 invariants
 	@internal_queue: 			internal_queue ∈ ℙ(InternalTriggers)
 	@external_queue: 			external_queue ∈ ℙ(ExternalTriggers)
 	@dequeue_trigger: 			dequeue_trigger ∈ DeQueueType
 	@dequeue_triggerwd: 			dequeue_trigger ⊆ InternalTriggers ∪ ExternalTriggers
-	@untriggered_completed: 		untriggered_completed ∈ BOOL
+	@typeof_completed: 			completed ∈ BOOL
 	
-	@firingTriggered: 			dequeue_trigger ≠ ∅ ⇒ untriggered_completed=FALSE		//just a sanity check
-	theorem @readyToDequeue:		untriggered_completed=TRUE ⇒ dequeue_trigger = ∅		//just a sanity check
+	@firingTriggered: 			dequeue_trigger ≠ ∅ ⇒ completed=FALSE		//just a sanity check
+	theorem @readyToDequeue:		completed=TRUE ⇒ dequeue_trigger = ∅		//just a sanity check
 		
 events
 
@@ -24,7 +29,7 @@ events
 		@internal_queue_init:			internal_queue ≔ ∅ 
 		@external_queue_init: 			external_queue ≔ ∅
 		@dequeue_trigger_init:			dequeue_trigger ≔ ∅
-		@untriggered_completed_init: 	untriggered_completed ≔ FALSE
+		@completed_init: 	completed ≔ FALSE
 	end
 	
 	event raiseExternalTrigger
@@ -34,79 +39,79 @@ events
 		@external_queue_set:		external_queue ≔ external_queue ∪ {trigger}
 	end
 	
-	event dequeueExternal
+	event dequeueExternalTrigger
 	any trigger where 
-		@untriggered_completed:		untriggered_completed = TRUE
+		@completed:		completed = TRUE
 		theorem @dequeue_trigger:	dequeue_trigger = ∅	//sanity check
 		@trigger: 					trigger ∈ external_queue
 		@internal_queue:				internal_queue = ∅
 	then 
 		@dequeue_trigger_set: 		dequeue_trigger ≔ {trigger}
 		@external_queue_set:			external_queue ≔ external_queue ∖ {trigger}
-		@untriggered_completed_set:	untriggered_completed ≔ FALSE
+		@completed_set:	completed ≔ FALSE
 	end
 	
-	event dequeueInternal
+	event dequeueInternalTrigger
 	any trigger where 
-		@untriggered_completed:		untriggered_completed = TRUE
+		@completed:					completed = TRUE
 		theorem @dequeue_trigger:	dequeue_trigger = ∅	//sanity check
 		@trigger: 					trigger ∈ internal_queue
 	then 
 		@dequeue_trigger_set: 		dequeue_trigger ≔ {trigger}
 		@external_queue_set:			internal_queue ≔ internal_queue ∖ {trigger} 
-		@untriggered_completed_set:	untriggered_completed ≔ FALSE
+		@completed_set:				completed ≔ FALSE
 	end
 	
-	event triggeredTransition 
+	event triggeredStep 
 	any trigger raised_triggers
 	where 
-		@trigger: 						trigger ∈ dequeue_trigger
-		theorem @untriggered_completed:	untriggered_completed = FALSE	//sanity check
-		@raised_triggers:				raised_triggers ⊆ InternalTriggers
+		@trigger: 				trigger ∈ dequeue_trigger
+		theorem @completed:		completed = FALSE	//sanity check
+		@raised_triggers:		raised_triggers ⊆ InternalTriggers
 	then 
-		@dequeue_trigger_set: 			dequeue_trigger ≔ ∅
-		@internal_queue_set:				internal_queue ≔ internal_queue ∪ raised_triggers		//raised triggers
+		@dequeue_trigger_set: 	dequeue_trigger ≔ dequeue_trigger ∖ {trigger}
+		@internal_queue_set:		internal_queue ≔ internal_queue ∪ raised_triggers		//raised triggers
 	end
 	
-	event completeTriggered
+	event discardTrigger
 	any trigger where 
 		@trigger: 						trigger ∈ dequeue_trigger
-		theorem @untriggered_completed:	untriggered_completed = FALSE	//sanity check			 
+		theorem @completed:	completed = FALSE	//sanity check			 
 	then 
 		@dequeue_trigger_set: 			dequeue_trigger ≔ dequeue_trigger ∖ {trigger}
 	end
 	
-	event untriggeredTransition
+	event untriggeredStep
 	any raised_triggers
 	where 
 		@dequeue_trigger: 		dequeue_trigger = ∅
-		@untriggered_completed:	untriggered_completed = FALSE		
+		@completed:				completed = FALSE		
 		@new_raised_trigger:		raised_triggers ⊆ InternalTriggers
 	then 
 		@internal_queue_set:		internal_queue ≔ internal_queue ∪ raised_triggers		//raised triggers
 	end
 	
-	event completeUntriggered
+	event completion
 	where
-		@dequeue_trigger: 			dequeue_trigger = ∅
-		@untriggered_completed:		untriggered_completed = FALSE
+		@dequeue_trigger: 	dequeue_trigger = ∅
+		@completed:			completed = FALSE
 	then
-		@untriggered_completed_set:	untriggered_completed ≔ TRUE
+		@completed_set:		completed ≔ TRUE
 	end
 	
 //	event futureDequeue	//needed to allow for future triggers starting a run
 //	where 
 //		@dequeue_trigger: 		dequeue_trigger = ∅
-//		@untriggered_completed:			untriggered_completed = TRUE		
+//		@completed:			completed = TRUE		
 //	then 
-//		@internal_queue_set:		untriggered_completed ≔ FALSE	
+//		@internal_queue_set:		completed ≔ FALSE	
 //	end
 	
-	event futureTransition	//needed if we allow adding raising of abstract internal triggers in later refinements
+	event futureStep 	//needed if we allow adding raising of abstract internal triggers in later refinements
 	any raised_triggers
 	where 
 		@raised_triggers:		raised_triggers ⊆ InternalTriggers
-		@untriggered_completed:	untriggered_completed = TRUE		
+		@completed:				completed = TRUE		
 	then 
 		@internal_queue_set:		internal_queue ≔ internal_queue ∪ raised_triggers		//raised triggers
 	end

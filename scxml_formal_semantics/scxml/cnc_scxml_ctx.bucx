@@ -9,9 +9,10 @@ extends scxml_c0_2_dequeue
 constants 
 	cnc_InternalTriggers
 	cnc_ExternalTriggers
-
+	cnc_Triggers
 axioms
 	@typeof_IT: cnc_InternalTriggers ⊆ InternalTriggerType
 	@typeof_XT: cnc_ExternalTriggers ⊆ ExternalTriggerType
+	@def_T: cnc_Triggers = cnc_InternalTriggers ∪ cnc_ExternalTriggers
 
 end
