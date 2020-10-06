@@ -1,0 +1,26 @@
+context gluing_statemachine
+extends abs_statemachine_ctx cnc_statemachine_ctx
+
+constants
+	transition_link
+axioms	
+	// Linking abs_statemachine and cnc_statemachine
+	@linking-states: abs_states ⊆ cnc_states
+	@linking-init: abs_init = cnc_init ∩ abs_states //ADDED CFS 2/9/20
+	@linking-root: abs_root = cnc_root
+	@linking-container: abs_container ⊆ cnc_container
+
+	// can introduce new concrete transition, can split abstract transitions, abstract transitions can be removed
+	@linking-transitions: transition_link ∈ cnc_transitions ⇸ abs_transitions 
+
+	@linking-source_old_transition: ∀rt · rt ∈ dom(transition_link) ⇒ // @rt is a refined transition with an abstract counterpart.
+	  	abs_source(transition_link(rt)) ∈ cl(cnc_container)[{cnc_source(rt)}] ∪ {cnc_source(rt)}
+	  	// The refined source can be more deterministic than abstract source
+	  	// That is the source of the abstract transition is either the same as 
+	  	// that of the refined transition or it is an ancestor of that. 
+	@linking-target_old_transition: ∀rt · rt ∈ dom(transition_link) ⇒
+	  	abs_target(transition_link(rt)) ∈ cl(cnc_container)[{cnc_target(rt)}] ∪ {cnc_target(rt)}
+	@linking-source_target_new_transition: ∀rt · rt ∈ cnc_transitions ∧ rt ∉ dom(transition_link) ⇒
+	 	cl(cnc_container)[{cnc_source(rt)}] ∩ abs_states = cl(cnc_container)[{cnc_target(rt)}] ∩ abs_states
+
+end

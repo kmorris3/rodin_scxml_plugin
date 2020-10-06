@@ -1,0 +1,14 @@
+/*
+ * This context declares queues of triggers
+ * @author cfsnook
+ */
+context scxml_c0_1_queues 
+extends scxml_c0_0_triggers
+constants
+	InternalQueueType // The internal queues of triggers
+	ExternalQueueType // The external queues of triggers
+axioms
+	@intQ: InternalQueueType = ℙ(InternalTriggerType)
+	@extQ: ExternalQueueType = ℙ(ExternalTriggerType)
+
+end

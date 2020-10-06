@@ -1,0 +1,53 @@
+/*
+ * This context is a copy of statemachine_ctx with every constants prefixed with "cnc_"
+ * Ideally, this should be done by an "instantiation" plug-in.
+ * This context is CORRECT-BY-CONSTRUCTION
+ */
+context cnc_statemachine_ctx
+extends c1_statemachine
+constants
+	cnc_states // The set of states
+	cnc_root // The root state
+	cnc_container // The container relationship between states
+	
+	cnc_leaves // The set of leaf states
+	cnc_transitions // The set of transitions
+	cnc_source // The source of each transition
+	cnc_target // The target of each transition
+
+	cnc_init // The initial states
+	cnc_init_leaf // The initial leaf
+axioms	
+	@cnc_statemachine: cnc_states ↦ cnc_root ↦ cnc_container ↦ cnc_transitions ↦ cnc_source ↦ cnc_target ∈ STATE_MACHINE
+	
+	// @states is a set of states
+	theorem @typeof-states: cnc_states ⊆ STATE
+	
+	// @root and @container form a tree on @states
+	theorem @tree_structure: cnc_root ↦ cnc_container ∈ Tree(cnc_states)
+	
+	// Derivable properties from definition of Tree
+	theorem @typeof-root: cnc_root ∈ cnc_states
+	theorem @typeof-container: cnc_container ∈ cnc_states ∖ {cnc_root} → cnc_states
+	theorem @root-reachable: ∀ state · state ∈ cnc_states ∖ {cnc_root} ⇒ cnc_root ∈ cl(cnc_container)[{state}]
+	
+	// The set of leaf states are those in @states and
+	// does not contain any other state.
+	@def-leaves: cnc_leaves = cnc_states ∖ ran(cnc_container)
+	theorem @leaves_are_states: cnc_leaves ⊆ cnc_states
+  	// Copy for automatic proofs
+  	theorem @thm12-range_preservation: ∀r· ran(r) = ran(cl(r))
+	theorem @range-preservation: ran(cnc_container) = ran(cl(cnc_container))
+	
+	// Transitions are relation between leaf states
+	theorem @typeof-transitions: cnc_transitions ⊆ TRANSITION
+	theorem @typeof-source: cnc_source ∈ cnc_transitions → cnc_states // The source can be any state (non-deterministic)
+	theorem @typeof-target: cnc_target ∈ cnc_transitions → cnc_states // The target can be any state (non-deterministic)
+	
+	// Parallel states:
+	// transitions : POW(states) <-> POW(leaves) 
+	
+	@typeof-init: cnc_init ⊆ cnc_states
+	@typeof-init_leaf: cnc_init_leaf ∈ cnc_leaves
+	@init-closure: cnc_init = cl(cnc_container)[{cnc_init_leaf}] ∪ {cnc_init_leaf}
+end

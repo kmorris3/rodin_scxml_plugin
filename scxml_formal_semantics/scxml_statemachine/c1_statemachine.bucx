@@ -1,0 +1,21 @@
+/*
+ * This context declare the signature of a statemachine
+ */
+context c1_statemachine
+extends c0_3_tree_def
+sets
+	TRANSITION // The set of all transitions
+constants
+	STATE_MACHINE // The "type" of State machines
+axioms
+	// Definition of STATE_MACHINE using set comprehension
+	@def-STATE_MACHINE: STATE_MACHINE = {
+		S ↦ r ↦ c ↦ T ↦ s ↦ t ∣
+		S ⊆ STATE ∧
+		r ↦ c ∈ Tree(S) ∧
+		T ⊆ TRANSITION ∧
+		s ∈ T → S ∧
+		t ∈ T → S
+	}
+	
+end
