@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+    <org.eventb.core.prProof name="readyToDequeue/THM"/>
+    <org.eventb.core.prProof name="INITIALISATION/internal_queue/INV"/>
+    <org.eventb.core.prProof name="INITIALISATION/external_queue/INV"/>
+    <org.eventb.core.prProof name="INITIALISATION/dequeue_trigger/INV"/>
+    <org.eventb.core.prProof name="INITIALISATION/dequeue_triggerwd/INV"/>
+    <org.eventb.core.prProof name="INITIALISATION/firingTriggered/INV"/>
+    <org.eventb.core.prProof name="cnc_raiseExternalTrigger/external_queue/INV"/>
+    <org.eventb.core.prProof name="cnc_raiseExternalTrigger/MRG"/>
+    <org.eventb.core.prProof name="cnc_dequeueExternalTrigger/external_queue/INV"/>
+    <org.eventb.core.prProof name="cnc_dequeueExternalTrigger/dequeue_trigger/INV"/>
+    <org.eventb.core.prProof name="cnc_dequeueExternalTrigger/dequeue_triggerwd/INV"/>
+    <org.eventb.core.prProof name="cnc_dequeueExternalTrigger/firingTriggered/INV"/>
+    <org.eventb.core.prProof name="cnc_dequeueExternalTrigger/MRG"/>
+    <org.eventb.core.prProof name="cnc_dequeueInternalTrigger/internal_queue/INV"/>
+    <org.eventb.core.prProof name="cnc_dequeueInternalTrigger/dequeue_trigger/INV"/>
+    <org.eventb.core.prProof name="cnc_dequeueInternalTrigger/dequeue_triggerwd/INV"/>
+    <org.eventb.core.prProof name="cnc_dequeueInternalTrigger/firingTriggered/INV"/>
+    <org.eventb.core.prProof name="cnc_dequeueInternalTrigger/MRG"/>
+    <org.eventb.core.prProof name="cnc_triggeredStep/internal_queue/INV"/>
+    <org.eventb.core.prProof name="cnc_triggeredStep/dequeue_trigger/INV"/>
+    <org.eventb.core.prProof name="cnc_triggeredStep/dequeue_triggerwd/INV"/>
+    <org.eventb.core.prProof name="cnc_triggeredStep/firingTriggered/INV"/>
+    <org.eventb.core.prProof name="cnc_triggeredStep/MRG"/>
+    <org.eventb.core.prProof name="cnc_discardTrigger/dequeue_trigger/INV"/>
+    <org.eventb.core.prProof name="cnc_discardTrigger/dequeue_triggerwd/INV"/>
+    <org.eventb.core.prProof name="cnc_discardTrigger/firingTriggered/INV"/>
+    <org.eventb.core.prProof name="cnc_discardTrigger/MRG"/>
+    <org.eventb.core.prProof name="cnc_untriggeredStep/internal_queue/INV"/>
+    <org.eventb.core.prProof name="cnc_untriggeredStep/MRG"/>
+    <org.eventb.core.prProof name="cnc_completion/firingTriggered/INV"/>
+    <org.eventb.core.prProof name="cnc_completion/MRG"/>
+    <org.eventb.core.prProof name="cnc_futureStep/internal_queue/INV"/>
+</org.eventb.core.prFile>

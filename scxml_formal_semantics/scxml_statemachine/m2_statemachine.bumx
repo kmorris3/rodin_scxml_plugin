@@ -1,0 +1,19 @@
+/*
+ * This machine captures the semantics of the statemachine as trace of active states.
+ */
+machine m2_statemachine
+refines m1_statemachine
+includes cnc_statemachine
+ 
+sees c0_4_tree_prop gluing_statemachine_ctx
+			 
+events
+	event INITIALISATION
+	synchronises INITIALISATION
+	end
+	
+	event cnc_transition refines old_transition new_transition
+	synchronises cnc_transition // This is the concrete transition
+	end
+
+end

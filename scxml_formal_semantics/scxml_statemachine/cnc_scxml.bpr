@@ -1,0 +1,1486 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+    <org.eventb.core.prProof name="readyToDequeue/THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p10,p15,p7,p2,p4,p5,p6,p1,p8,p9"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p16,p3,p11,p13,p12,p14,p10,p15,p7,p2,p4,p5,p6,p1,p8,p9">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cnc_completed∈BOOL"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/internal_queue/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType">
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)">
+            <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)">
+            <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="nullTrigger∉InternalTriggerType">
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers">
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/external_queue/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType">
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)">
+            <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)">
+            <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="nullTrigger∉InternalTriggerType">
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers">
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/dequeue_trigger/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0"/>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/dequeue_triggerwd/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType">
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)">
+            <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)">
+            <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="nullTrigger∉InternalTriggerType">
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers">
+            <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/firingTriggered/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType">
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)">
+            <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))≠(∅ ⦂ ℙ(TRIGGERS))⇒FALSE=FALSE"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)">
+            <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="nullTrigger∉InternalTriggerType">
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers">
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_raiseExternalTrigger/external_queue/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p12,p16,p9,p2,p5,p6,p8,p1,p10,p11,p17,p13,p14,p15,p4"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p3,p7,p12,p16,p9,p2,p5,p6,p8,p1,p10,p11,p17,p13,p14,p15,p4">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_trigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="cnc_trigger∈cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cnc_external_queue∪{cnc_trigger}∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_dequeueExternalTrigger/dequeue_trigger/THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p16,p8,p2,p5,p6,p7,p1,p9,p10,p17,p3,p12,p14,p13,p15,p4"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p18,p11,p16,p8,p2,p5,p6,p7,p1,p9,p10,p17,p3,p12,p14,p13,p15,p4">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_completed∈BOOL"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="cnc_completed=TRUE"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_dequeueExternalTrigger/external_queue/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p13,p19,p10,p2,p6,p7,p8,p1,p11,p12,p20,p14,p17,p16,p18,p5"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p3,p21,p9,p15,p4,p13,p19,p10,p2,p6,p7,p8,p1,p11,p12,p20,p14,p17,p16,p18,p5">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_trigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="cnc_internal_queue=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_trigger∈cnc_external_queue"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_completed∈BOOL"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cnc_external_queue ∖ {cnc_trigger}∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="cnc_completed=TRUE"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_dequeueExternalTrigger/dequeue_trigger/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p6,p7,p8,p9,p10,p4,p11,p12,p5,p13,p14,p2,p15,p16,p17,p18"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC4" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC4"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_trigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType">
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)">
+            <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))">
+            <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)">
+            <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers">
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="{cnc_trigger}∈DeQueueType"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_trigger∈cnc_external_queue"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_completed∈BOOL">
+            <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers">
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE">
+            <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)">
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_dequeueExternalTrigger/dequeue_triggerwd/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p13,p19,p10,p2,p6,p7,p8,p1,p11,p12,p20,p3,p14,p16,p18,p5"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p17,p21,p9,p15,p4,p13,p19,p10,p2,p6,p7,p8,p1,p11,p12,p20,p3,p14,p16,p18,p5">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_trigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="cnc_internal_queue=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="{cnc_trigger}⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_trigger∈cnc_external_queue"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_completed∈BOOL"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="cnc_completed=TRUE"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_dequeueExternalTrigger/firingTriggered/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="cnc_trigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType">
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)">
+            <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)">
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))">
+            <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+            <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)">
+            <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="nullTrigger∉InternalTriggerType">
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers">
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_completed∈BOOL">
+            <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers">
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)">
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="{cnc_trigger}≠(∅ ⦂ ℙ(TRIGGERS))⇒FALSE=FALSE"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_dequeueInternalTrigger/dequeue_trigger/THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p16,p8,p2,p5,p6,p7,p1,p9,p10,p17,p3,p12,p14,p13,p15,p4"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p18,p11,p16,p8,p2,p5,p6,p7,p1,p9,p10,p17,p3,p12,p14,p13,p15,p4">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_completed∈BOOL"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="cnc_completed=TRUE"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_dequeueInternalTrigger/internal_queue/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p13,p18,p10,p2,p6,p7,p8,p1,p11,p12,p3,p14,p16,p15,p17,p4"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p19,p20,p9,p5,p13,p18,p10,p2,p6,p7,p8,p1,p11,p12,p3,p14,p16,p15,p17,p4">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_trigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="cnc_trigger∈cnc_internal_queue"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cnc_internal_queue ∖ {cnc_trigger}∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_completed∈BOOL"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="cnc_completed=TRUE"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_dequeueInternalTrigger/dequeue_trigger/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p5,p7,p8,p9,p10,p4,p11,p1,p12,p13,p6,p14,p15,p16,p17,p18"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC4" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC4"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_trigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)">
+            <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)">
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))">
+            <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_trigger∈cnc_internal_queue"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)">
+            <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType">
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers">
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="{cnc_trigger}∈DeQueueType"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_completed∈BOOL">
+            <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers">
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE">
+            <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_dequeueInternalTrigger/dequeue_triggerwd/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p13,p18,p10,p2,p6,p7,p8,p1,p11,p12,p19,p3,p14,p15,p17,p4"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p16,p20,p9,p5,p13,p18,p10,p2,p6,p7,p8,p1,p11,p12,p19,p3,p14,p15,p17,p4">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_trigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="cnc_trigger∈cnc_internal_queue"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="{cnc_trigger}⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_completed∈BOOL"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="cnc_completed=TRUE"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_dequeueInternalTrigger/firingTriggered/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="cnc_trigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType">
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)">
+            <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)">
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))">
+            <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+            <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)">
+            <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="nullTrigger∉InternalTriggerType">
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers">
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_completed∈BOOL">
+            <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers">
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)">
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="{cnc_trigger}≠(∅ ⦂ ℙ(TRIGGERS))⇒FALSE=FALSE"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_triggeredStep/completed/THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p12,p17,p9,p2,p6,p7,p8,p1,p10,p11,p18,p3,p13,p15,p14,p16,p5"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p4,p12,p17,p9,p2,p6,p7,p8,p1,p10,p11,p18,p3,p13,p15,p14,p16,p5">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_trigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="cnc_trigger∈cnc_dequeue_trigger"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_completed∈BOOL"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_triggeredStep/internal_queue/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p12,p19,p9,p2,p6,p7,p8,p1,p10,p11,p3,p15,p17,p16,p18,p5"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p20,p4,p14,p13,p12,p19,p9,p2,p6,p7,p8,p1,p10,p11,p3,p15,p17,p16,p18,p5">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_raised_triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_trigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="cnc_trigger∈cnc_dequeue_trigger"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_raised_triggers⊆cnc_InternalTriggers"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cnc_internal_queue∪cnc_raised_triggers∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_completed∈BOOL"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_triggeredStep/dequeue_trigger/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p0"/>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_triggeredStep/dequeue_triggerwd/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType">
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)">
+            <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)">
+            <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))">
+            <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+            <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)">
+            <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="nullTrigger∉InternalTriggerType">
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers">
+            <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_completed∈BOOL">
+            <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE">
+            <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+            <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)">
+            <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_triggeredStep/firingTriggered/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP (trivial)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType">
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)">
+            <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)">
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))">
+            <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)">
+            <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="nullTrigger∉InternalTriggerType">
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers">
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType">
+            <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+            <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_completed∈BOOL"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers">
+            <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)">
+            <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_discardTrigger/completed/THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p12,p17,p9,p2,p6,p7,p8,p1,p10,p11,p18,p3,p13,p15,p14,p16,p5"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p4,p12,p17,p9,p2,p6,p7,p8,p1,p10,p11,p18,p3,p13,p15,p14,p16,p5">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_trigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="cnc_trigger∈cnc_dequeue_trigger"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_completed∈BOOL"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_discardTrigger/dequeue_trigger/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p12,p18,p9,p2,p6,p7,p8,p1,p10,p11,p19,p3,p16,p15,p17,p5"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p13,p4,p14,p12,p18,p9,p2,p6,p7,p8,p1,p10,p11,p19,p3,p16,p15,p17,p5">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_trigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="cnc_trigger∈cnc_dequeue_trigger"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cnc_dequeue_trigger ∖ {cnc_trigger}∈DeQueueType"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_completed∈BOOL"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_discardTrigger/dequeue_triggerwd/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p12,p18,p9,p2,p6,p7,p8,p1,p10,p11,p19,p3,p14,p15,p17,p5"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p16,p4,p13,p12,p18,p9,p2,p6,p7,p8,p1,p10,p11,p19,p3,p14,p15,p17,p5">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_trigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="cnc_trigger∈cnc_dequeue_trigger"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_completed∈BOOL"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cnc_dequeue_trigger ∖ {cnc_trigger}⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_discardTrigger/firingTriggered/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p12,p18,p9,p2,p6,p7,p8,p1,p10,p11,p19,p3,p14,p16,p15,p5"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p17,p4,p13,p12,p18,p9,p2,p6,p7,p8,p1,p10,p11,p19,p3,p14,p16,p15,p5">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_trigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="cnc_trigger∈cnc_dequeue_trigger"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cnc_dequeue_trigger ∖ {cnc_trigger}≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_completed∈BOOL"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_untriggeredStep/internal_queue/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p12,p19,p9,p2,p5,p6,p7,p1,p10,p11,p3,p15,p17,p16,p18,p4"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p20,p8,p14,p13,p12,p19,p9,p2,p5,p6,p7,p1,p10,p11,p3,p15,p17,p16,p18,p4">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_raised_triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_raised_triggers⊆cnc_InternalTriggers"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cnc_internal_queue∪cnc_raised_triggers∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_completed∈BOOL"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_completion/firingTriggered/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p12,p18,p9,p2,p5,p6,p7,p1,p10,p11,p19,p3,p14,p16,p15,p4"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p17,p8,p13,p12,p18,p9,p2,p5,p6,p7,p1,p10,p11,p19,p3,p14,p16,p15,p4">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒TRUE=FALSE"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_completed∈BOOL"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="cnc_futureStep/internal_queue/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19" org.eventb.core.prSets="TRIGGERS">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'">
+                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p17,p8,p2,p5,p6,p7,p1,p9,p10,p3,p13,p15,p14,p16,p4"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p18,p12,p19,p11,p17,p8,p2,p5,p6,p7,p1,p9,p10,p3,p13,p15,p14,p16,p4">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
+                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
+        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_completed" org.eventb.core.type="BOOL"/>
+        <org.eventb.core.prIdent name="cnc_dequeue_trigger" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_external_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_internal_queue" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="cnc_raised_triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="cnc_external_queue∈ℙ(cnc_ExternalTriggers)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="cnc_completed=TRUE⇒cnc_dequeue_trigger=(∅ ⦂ ℙ(TRIGGERS))"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="cnc_raised_triggers⊆cnc_InternalTriggers"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="cnc_dequeue_trigger∈DeQueueType"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="cnc_internal_queue∪cnc_raised_triggers∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="cnc_completed∈BOOL"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="cnc_dequeue_trigger⊆cnc_InternalTriggers∪cnc_ExternalTriggers"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="cnc_dequeue_trigger≠(∅ ⦂ ℙ(TRIGGERS))⇒cnc_completed=FALSE"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="cnc_internal_queue∈ℙ(cnc_InternalTriggers)"/>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="cnc_completed=TRUE"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
+    </org.eventb.core.prProof>
+</org.eventb.core.prFile>

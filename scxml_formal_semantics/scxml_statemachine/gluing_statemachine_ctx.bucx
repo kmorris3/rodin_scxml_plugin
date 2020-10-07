@@ -1,4 +1,4 @@
-context gluing_statemachine
+context gluing_statemachine_ctx
 extends abs_statemachine_ctx cnc_statemachine_ctx
 
 constants

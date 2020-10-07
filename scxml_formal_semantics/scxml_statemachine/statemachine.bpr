@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+    <org.eventb.core.prProof name="active-closure/WD"/>
+    <org.eventb.core.prProof name="LinkedList-active/WD"/>
+    <org.eventb.core.prProof name="LinkedList-active/THM"/>
+    <org.eventb.core.prProof name="different_layer/WD"/>
+    <org.eventb.core.prProof name="different_layer/THM"/>
+    <org.eventb.core.prProof name="container_active/WD"/>
+    <org.eventb.core.prProof name="container_active/THM"/>
+    <org.eventb.core.prProof name="INITIALISATION/typeof-active/INV"/>
+    <org.eventb.core.prProof name="INITIALISATION/typeof-active_leaf/INV"/>
+    <org.eventb.core.prProof name="INITIALISATION/active-closure/INV"/>
+    <org.eventb.core.prProof name="transition/source-active/WD"/>
+    <org.eventb.core.prProof name="transition/new_leaf_state/WD"/>
+    <org.eventb.core.prProof name="transition/range-preservation/WD"/>
+    <org.eventb.core.prProof name="transition/range-preservation/THM"/>
+    <org.eventb.core.prProof name="transition/leaves_are_states/THM"/>
+    <org.eventb.core.prProof name="transition/typeof-container/THM"/>
+    <org.eventb.core.prProof name="transition/typeof-active/INV"/>
+    <org.eventb.core.prProof name="transition/typeof-active_leaf/INV"/>
+    <org.eventb.core.prProof name="transition/active-closure/INV"/>
+    <org.eventb.core.prProof name="transition/update-active/WD"/>
+</org.eventb.core.prFile>

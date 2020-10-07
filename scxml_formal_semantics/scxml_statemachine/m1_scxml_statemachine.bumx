@@ -1,0 +1,74 @@
+machine m1_scxml_statemachine
+refines m0_scxml_statemachine
+
+/*
+ * This machine refines the joined scxml and statemachine models of m0_scxml_statemachine
+ * 
+ * 
+ */
+  
+includes m1_scxml 
+includes m1_statemachine
+
+sees gluing_scxml_statemachine_ctx c0_4_tree_prop
+ 
+events
+	event INITIALISATION
+	synchronises INITIALISATION
+	//synchronises INITIALISATION
+	then
+		@update-active: cnc_active ≔ cnc_init					//copied from cnc_scxml_statemachine
+		@update-active_leaf: cnc_active_leaf ≔ cnc_init_leaf	//copied from cnc_scxml_statemachine
+	end
+
+	event old_raiseExternalTrigger refines abs_raiseExternalTrigger
+	synchronises old_raiseExternalTrigger
+	end
+	
+	event new_raiseExternalTrigger
+	synchronises new_raiseExternalTrigger
+	end
+	
+	event old_dequeueExternalTrigger refines abs_dequeueExternalTrigger
+	synchronises old_dequeueExternalTrigger
+	end
+	
+	event cnc_dequeueExternalTrigger
+	synchronises cnc_dequeueExternalTrigger
+	end
+	
+	event cnc_dequeueInternalTrigger
+	synchronises cnc_dequeueInternalTrigger
+	end
+	
+	event cnc_triggeredStep
+	synchronises cnc_triggeredStep
+	synchronises transition
+	end
+	
+	event cnc_discardTrigger
+	synchronises cnc_discardTrigger
+	end
+	
+	event cnc_untriggeredStep
+	synchronises cnc_untriggeredStep
+	synchronises transition
+	end
+	
+	event cnc_completion
+	synchronises cnc_completion
+	end
+	
+//	event futureDequeue	//needed to allow for future triggers starting a run
+//	where 
+//		@dt: 		dt = ∅
+//		@uc:			uc = TRUE		
+//	then 
+//		@iq_set:		uc ≔ FALSE	
+//	end
+	
+	event cnc_futureStep	//needed if we allow adding raising of abstract internal triggers in later refinements
+	synchronises cnc_futureStep
+	end
+
+end

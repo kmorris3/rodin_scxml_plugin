@@ -1,0 +1,15 @@
+context gluing_scxml_statemachine_ctx
+extends
+	abs_scxml_statemachine_ctx
+	cnc_scxml_statemachine_ctx
+	gluing_statemachine_ctx
+	//gluing_scxml_ctx	//not needed so far
+axioms
+@finalised: 	∀tr· tr ∈ abs_finalisedTransitions ⇒ cnc_source(tr)=abs_source(tr)  //guards of finalised transitions cannot be strengthened
+@refinedF:		abs_finalisedTransitions ⊆ cnc_finalisedTransitions					//once finalised, always finalised 
+
+@domaintr:		transition_link[dom(cnc_triggeredTransitions)] = dom(abs_triggeredTransitions)
+@linkingtr_tr: 	∀t·t∈dom(transition_link) ∧ t∈dom(cnc_triggeredTransitions) ⇒		//refined transitions have the same trigger as their abstract counterpart
+					 cnc_triggeredTransitions(t)=abs_triggeredTransitions(transition_link(t))
+					 
+end

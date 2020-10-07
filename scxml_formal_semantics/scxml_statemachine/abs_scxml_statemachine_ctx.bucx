@@ -1,0 +1,10 @@
+context abs_scxml_statemachine_ctx
+extends abs_scxml_ctx abs_statemachine_ctx
+
+constants
+	abs_triggeredTransitions // trigger - transition relationship
+	abs_finalisedTransitions   // the transitions which can no longer be refined
+axioms
+	@tr_tr: 	abs_triggeredTransitions ∈ abs_transitions ⇸ abs_Triggers //was TRIGGERS ?
+	@finalised_tr: 	abs_finalisedTransitions ⊆ abs_transitions
+end
