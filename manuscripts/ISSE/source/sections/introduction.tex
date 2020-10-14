@@ -3,6 +3,18 @@
 
 \section{Introduction}
 \label{sec:intro}
+
+\KarlaInlineComment{New context for journal article:}
+\KarlaInlineComment{ We simulate the translation with the scenario checker. It automatically runs to completion (events are annotated as internal and prioritised)
+ This shows the main intended R2C behaviour for a refinement level.
+ Other behaviours are possible depending on future refinement - e.g. a completion can occur without taking enabled transitions if in future we might strengthen a guard.
+ 	these can be explored by single event stepping without the scenario checker big step.}
+
+\KarlaInlineComment{ Implementing a queue for the triggers }
+
+\KarlaInlineComment{ Proving liveness properties instead of model checking it }
+
+
 %Reactive \SCs are open systems capable of receiving potentially non-deterministic input. 
 %This work exposes a shallow embedding of open \SCs~\cite{MoSn16,MoSnHo18,MoSnHo-ABZ2020} semantics in \EventB.
 \SCs provide a graphical language, generalized from state machines, that is popular with engineers.
@@ -39,11 +51,6 @@ Section~\ref{sec:verificationSafety} illustrates our approach to verifying safet
 %% We prove properties in early refinements - because easier to see - (so far fully automatic - try proving battery inv in later refinement)
 %% 	although we put everything in the same model we envisage gradual construction	
 %% 	we could also build a Sirius tool that can show views at each refinement.
-
-%% We simulate the translation with the scenario checker. It automatically runs to completion (events are annotated as internal and prioritised)
-%% This shows the main intended R2C behaviour for a refinement level.
-%% Other behaviours are possible depending on future refinement - e.g. a completion can occur without taking enabled transitions if in future we might strengthen a guard.
-%% 	these can be explored by single event stepping without the scenario checker big step.
 
 %% proof forces us to finalise transitions..
 %% 	.. i.e. to remove non-determinism that allows for some future refinement.
