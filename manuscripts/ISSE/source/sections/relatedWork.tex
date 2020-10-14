@@ -1,0 +1,53 @@
+% !TEX root = ../main.tex
+
+%\section{Related Work}
+%\label{sec:relatedWork}
+
+The work we will present here includes three refinement rules.
+\begin{enumerate}
+\item  \emph{Rule A:} Guard conditions on a transition can be strengthened; 
+this can be done by adding textual guards to the transition, or
+changing the source of the transition to a nested state.
+\item \emph{Rule B:} Transitions can have additional actions, provided they do not
+  modify variables appearing in the abstraction; this can be 
+  accomplished by adding textual action to the transition 
+  or by changing the target to nested state.
+\item \emph{Rule C:} A state-chart can be embedded within a state of another
+  state-chart -- sometimes called hierarchical composition or
+  hierarchical refinement.
+\end{enumerate}
+Via the translation explained in Section~\ref{sec:translation}, these rules
+rely on the usual \EventB proof obligations to ensure that they do
+indeed yield refinements in the \EventB semantics.
+If an \EventB model |B| can be shown (via the construction rules of
+the \EventB language as well as the proof obligations) to refine
+another \EventB model |A|, then we know that every behavior of |B| is
+also a behavior of |A|. This definition yields a useful principle of
+preservation of safety -- if we can show that a bad thing never
+happens in |A|, then we can add detail via refinements in |B|, knowing
+that the bad thing will continue to never happen in |B|. That is,
+\EventB refinements preserve safety properties in the sense
+of~\cite{lamport1977proving}. This makes refinement a useful technique
+in developing safety-critical systems: one can analyze a simpler
+abstract model for critical safety properties and then add detail to
+the model via refinements, secure in the knowledge that the safety
+properties will be preserved.
+
+Although the autonomous drone example in this paper is based on the
+example described in~\cite{Syriani_2019}, the definition of refinement
+used in that work is quite different from our own. This forces some
+differences in our refinement rules and consequently the way the
+example is developed.  In~\cite{Syriani_2019} ``refinement'' is a
+transformation of the model which preserves reachability of a state
+with respect to sequences of inputs. However, this also allows the
+possibility of introducing new behaviors in the concrete model that
+the abstraction does not exhibit (more details are in
+Section~\ref{sec:descr-sample-appl}). While this notion of refinement
+seems useful in certain contexts, unlike refinement in \EventB it does
+not guarantee preservation of safety properties. Therefore it should
+be considered less suited to development of safety-critical systems.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:
