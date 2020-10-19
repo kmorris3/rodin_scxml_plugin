@@ -1,25 +1,18 @@
 machine m0_scxml_statemachine
-
+ 
 /*
- * This machine joins the scxml and statemachine models together
+ * This machine represents the abstract refinement level of a joined scxml and statemachine model
  * 
- * This means that we synchronise the scxml step events with the staatemachine transition events.
- * 
+ * Since we have already done the renamed join in abs_scxml_statemachine it is just a promotion of that machine
  * 
  */
-  
-includes m0_scxml 
-includes m0_statemachine
-
+ 
+includes abs_scxml_statemachine
 sees abs_scxml_statemachine_ctx c0_4_tree_prop
  
 events
 	event INITIALISATION
 	synchronises INITIALISATION
-	//synchronises INITIALISATION
-	then
-		@update-active: abs_active ≔ abs_init					//copied from abs_scxml_statemachine
-		@update-active_leaf: abs_active_leaf ≔ abs_init_leaf	//copied from abs_scxml_statemachine
 	end
 
 	event abs_raiseExternalTrigger
@@ -34,31 +27,21 @@ events
 	synchronises abs_dequeueInternalTrigger
 	end
 	
-	event abs_triggeredStep
-	synchronises abs_triggeredStep
-	synchronises transition
+	event abs_triggeredTransition
+	synchronises abs_triggeredTransition
 	end
 	
 	event abs_discardTrigger
 	synchronises abs_discardTrigger
 	end
 	
-	event abs_untriggeredStep
-	synchronises abs_untriggeredStep
-	synchronises transition
+	event abs_untriggeredTransition
+	synchronises abs_untriggeredTransition
 	end
 	
 	event abs_completion
 	synchronises abs_completion
 	end
-	
-//	event futureDequeue	//needed to allow for future triggers starting a run
-//	where 
-//		@dt: 		dt = ∅
-//		@uc:			uc = TRUE		
-//	then 
-//		@iq_set:		uc ≔ FALSE	
-//	end
 	
 	event abs_futureStep	//needed if we allow adding raising of abstract internal triggers in later refinements
 	synchronises abs_futureStep

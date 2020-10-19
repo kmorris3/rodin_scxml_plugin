@@ -1,13 +1,15 @@
 machine cnc_scxml_statemachine
 
 /*
- * This machine joins the scxml and statemachine models together
+ * This machine provides a renamed concrete version of a joined scxml and statemachine model.
  * 
- * This means that we synchronise the scxml step events with the staatemachine transition events.
+ * Idealing this would just rename an instantiation of the already joined scxml_statemachine.
+ * However, since there are some issues with renamed inclusion, for now we take an alternative 
+ * route of re-joining the already renamed scxml and statemachine models
  * 
  * 
  */
-  
+
 includes cnc_scxml 
 includes cnc_statemachine
 
@@ -40,7 +42,7 @@ events
 	where
 		@is_triggered:	cnc_transition ∈ dom(cnc_triggeredTransitions)
 		@this_trigger:		cnc_triggeredTransitions(cnc_transition) = cnc_trigger 
-	end
+	end 
 	
 	event cnc_discardTrigger
 	synchronises cnc_discardTrigger
@@ -48,7 +50,7 @@ events
 		@finalisedFired: cnc_source[cnc_finalisedTransitions] ∩ cnc_active = ∅
 	end
 	
-	event cnc_untriggeredStep
+	event cnc_untriggeredTransition
 	synchronises cnc_untriggeredStep
 	synchronises cnc_transition
 	where 
@@ -60,10 +62,6 @@ events
 	where
 		@finalisedFired: cnc_source[cnc_finalisedTransitions] ∩ cnc_active = ∅
 	end
-	
-//	event futureDequeue	//needed to allow for future triggers starting a run
-//	synchronises futureDequeue	
-//	end
 	
 	event cnc_futureStep	//needed if we allow adding raising of abstract internal triggers in later refinements
 	synchronises cnc_futureStep
