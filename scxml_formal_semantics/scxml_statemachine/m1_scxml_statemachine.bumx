@@ -1,24 +1,25 @@
 machine m1_scxml_statemachine
 refines m0_scxml_statemachine
-
+ 
 /*
- * This machine refines the joined scxml and statemachine models of m0_scxml_statemachine
+ * This machine represents the refinement of a joined scxml and statemachine model
  * 
- * 
+ * Since we need the refinement stuff from the scxml and statemachines... 
+ * it has to use m1_scxml and m1_statemachine
  */
   
-includes m1_scxml 
+includes m1_scxml
 includes m1_statemachine
+//includes cnc_scxml_statemachine
 
 sees gluing_scxml_statemachine_ctx c0_4_tree_prop
  
 events
 	event INITIALISATION
 	synchronises INITIALISATION
-	//synchronises INITIALISATION
 	then
-		@update-active: cnc_active ≔ cnc_init					//copied from cnc_scxml_statemachine
-		@update-active_leaf: cnc_active_leaf ≔ cnc_init_leaf	//copied from cnc_scxml_statemachine
+		@update-active: cnc_active ≔ cnc_init
+		@update-active_leaf: cnc_active_leaf ≔ cnc_init_leaf
 	end
 
 	event old_raiseExternalTrigger refines abs_raiseExternalTrigger
@@ -33,41 +34,71 @@ events
 	synchronises old_dequeueExternalTrigger
 	end
 	
-	event cnc_dequeueExternalTrigger
-	synchronises cnc_dequeueExternalTrigger
+	event new_dequeueExternalTrigger
+	synchronises new_dequeueExternalTrigger
 	end
 	
-	event cnc_dequeueInternalTrigger
-	synchronises cnc_dequeueInternalTrigger
+	event old_dequeueInternalTrigger refines abs_dequeueInternalTrigger
+	synchronises old_dequeueInternalTrigger
 	end
 	
-	event cnc_triggeredStep
-	synchronises cnc_triggeredStep
-	synchronises transition
+	event new_dequeueInternalTrigger
+	synchronises new_dequeueInternalTrigger
 	end
 	
-	event cnc_discardTrigger
-	synchronises cnc_discardTrigger
+	event old_triggeredTransition refines abs_triggeredTransition
+	synchronises old_triggeredStep
+	synchronises old_transition
+		where
+		@is_triggered:	cnc_transition ∈ dom(cnc_triggeredTransitions)
+		@this_trigger:		cnc_triggeredTransitions(cnc_transition) = cnc_trigger 
 	end
 	
-	event cnc_untriggeredStep
-	synchronises cnc_untriggeredStep
-	synchronises transition
+	event new_triggeredTransition refines abs_futureStep
+	synchronises new_triggeredStep
+	synchronises new_transition
+		where
+		@is_triggered:	cnc_transition ∈ dom(cnc_triggeredTransitions)
+		@this_trigger:		cnc_triggeredTransitions(cnc_transition) = cnc_trigger 
 	end
 	
-	event cnc_completion
-	synchronises cnc_completion
+	event old_discardTrigger refines abs_discardTrigger
+	synchronises old_discardTrigger
+	where
+		@finalisedFired: cnc_source[cnc_finalisedTransitions] ∩ cnc_active = ∅
 	end
 	
-//	event futureDequeue	//needed to allow for future triggers starting a run
-//	where 
-//		@dt: 		dt = ∅
-//		@uc:			uc = TRUE		
-//	then 
-//		@iq_set:		uc ≔ FALSE	
-//	end
+	event new_discardTrigger
+	synchronises new_discardTrigger
+	where
+		@finalisedFired: cnc_source[cnc_finalisedTransitions] ∩ cnc_active = ∅
+	end
 	
-	event cnc_futureStep	//needed if we allow adding raising of abstract internal triggers in later refinements
+	event old_untriggeredTransition refines abs_untriggeredTransition
+	synchronises old_untriggeredStep
+	synchronises old_transition
+		where 
+		@not_triggered: 	cnc_transition ∉ dom(cnc_triggeredTransitions)
+	end
+	
+	event new_untriggeredTransition refines abs_futureStep
+	synchronises new_untriggeredStep
+	synchronises new_transition
+		where 
+		@not_triggered: 	cnc_transition ∉ dom(cnc_triggeredTransitions)
+	end
+	
+	event old_completion refines abs_completion
+	synchronises old_completion
+		where
+		@finalisedFired: cnc_source[cnc_finalisedTransitions] ∩ cnc_active = ∅
+	end
+	
+	event new_completion
+	synchronises new_completion
+	end
+	
+	event cnc_futureStep refines abs_futureStep	//needed if we allow adding raising of abstract internal triggers in later refinements
 	synchronises cnc_futureStep
 	end
 
