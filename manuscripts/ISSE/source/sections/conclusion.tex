@@ -13,12 +13,12 @@ We also demonstrate a complementary process for verifying expected reactions to 
 Another kind of liveness property that would be useful to verify is that the `run' converges to completion.
 I.e. transition loops and raised internal triggers do not introduce endless live-lock, but eventually terminate to allow the next external trigger to be consumed.
 This could also be verified using the \LTL model checker, however, in future work we will adopt the techniques suggested in~\cite{hudon16:_unit_b_method} to verify liveness properties using the theorem provers.
-
 These verifications do not validate that the model behaviour is useful.
 For this, the SCXML model should be animated so that its behaviour can be observed by a domain expert.
-Elsewhere~\cite{snook20JSA} we have developed a `Scenario Checker' tool and methods for animating pre-defined domain specific scenarios at various levels of abstract.
-In future work we will demonstrate the use of this tool for automatically executing the run to completion.
-In future work, we also intend to formalise the semantics of our extended \SCXML notation in order to define its notion of refinement and correspondence to \EventB. 
+Elsewhere~\cite{snook20JSA} we have developed a `Scenario Checker' tool and methods for animating pre-defined domain specific scenarios at various levels of abstraction.
+We demonstrate the use of this tool for automatically executing the run to completion in order to validate that the expected behaviour is emerging and is useful.
+
+In future work, we intend to formalise the semantics of our extended \SCXML notation in order to define its notion of refinement and correspondence to \EventB. 
 
 
 
