@@ -5,9 +5,12 @@ extends
 	gluing_statemachine_ctx 
 	//gluing_scxml_ctx	//not needed so far
 axioms
-@finalised: 	∀tr· tr ∈ abs_finalisedTransitions ⇒ cnc_source[{tr}]=abs_source[{tr}]  //guards of finalised transitions cannot be strengthened
-@refinedF:		abs_finalisedTransitions ⊆ cnc_finalisedTransitions					//once finalised, always finalised 
- 
+//@finalised: 	∀tr· tr ∈ abs_finalisedTransitions ⇒ cnc_source[{tr}]=abs_source[{tr}]  //guards of finalised transitions cannot be strengthened
+//@refinedF:		abs_finalisedTransitions ⊆ cnc_finalisedTransitions					//once finalised, always finalised 
+@refinedF:		abs_finalisedTransitions ⊆ transition_link[cnc_finalisedTransitions]					//once finalised, always finalised 
+@finalised: 	∀t·t∈dom(transition_link) ∧ t ∈ cnc_finalisedTransitions ∧ transition_link(t) ∈ abs_finalisedTransitions ⇒
+					 cnc_source[{t}]=abs_source[{transition_link(t)}]  //guards of finalised transitions cannot be strengthened
+
 // These axioms ensure that a triggered transition remains triggered in refinements and an untriggered transition remains untriggered
 // this is needed for refinement. Note that the original axiom, domaintr, is not strong enough because transitionlink is not injective.
 // The two replacement axioms are sufficient for automatic proof of the GD POs for the abstract triggered/untriggered condition.
