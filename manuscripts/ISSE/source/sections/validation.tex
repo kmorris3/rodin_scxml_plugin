@@ -15,9 +15,19 @@ Events may be annotated as \emph{internal} to indicate that they should be fired
 Internal events may also be prioritised to give a simple representation of process order in the controller (even if it is left non-deterministic in the model).
 The user only has to select external events that trigger the controllers responses.
 Since our \SCXML derived models already contain an implementation of run to completion the support provided by the Scenario Checker is sufficient to validate this behaviour.
-Internal variables that represent the controllers processing (in our case the \SCXML statechart states) can be annotated as \emph{private} so that only controller output is checked during replay.
+If desired, internal variables that represent the controllers processing (e.g. the \SCXML statechart states) can be annotated as \emph{private} so that only controller output is checked during replay.
 To help visualise the state of the model, the generated \UMLB state-machine is animated during the scenario validation.
+
 In Figure~\ref{fig:scenarioChecker} we show a previously recorded scenario being played back on the drone model.
+The main (top-left) editing view shows the state-machine being animated; the model is currently in the fly state.
+The bottom left view is the scenario checker control panel.
+The top button shows that a pre-recorded scenario is being played back and beside it the enabled external operations are greyed out since manual selection is disabled during playback.
+The main button to be used is the \emph{Big Step} button which fires the next step of the scenario.
+The bottom-right view shows the history, listing the operations that have already been played.
+This is the same as the \PROB history view (top-right), but organises operations into big step runs (an external followed by a sequence of internal operations.
+The bottom-middle view shows the state of the main variables and compares to the state when the scenario was recorded.
+In the example, a discrepancy has been detected since non-determinism in the raised triggers allowed |DESCEND| to be reached when the scenario was recorded, but the playback has chosen to enter |FLY| instead.
+
 
 \begin{figure}[!h]
 	\centering
