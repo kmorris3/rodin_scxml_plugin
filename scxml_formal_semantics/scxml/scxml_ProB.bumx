@@ -1,0 +1,37 @@
+machine scxml_ProB
+refines scxml
+sees scxml_ctx_ProB
+variables
+	internal_queue
+	external_queue
+	dequeue_trigger
+	completed
+events
+	event INITIALISATION extends INITIALISATION
+	end
+
+	event raiseExternalTrigger extends raiseExternalTrigger
+	end
+
+	event dequeueExternalTrigger extends dequeueExternalTrigger
+	end
+
+	event dequeueInternalTrigger extends dequeueInternalTrigger
+	end
+
+	event triggeredStep extends triggeredStep
+	end
+
+	event discardTrigger extends discardTrigger
+	end
+
+	event untriggeredStep extends untriggeredStep
+	end
+
+	event completion extends completion
+	end
+
+	event futureStep extends futureStep
+	end
+
+end
