@@ -7,8 +7,11 @@ context scxml_c0_1_queues
 extends scxml_c0_0_triggers
 
 constants
-	Seq
-	Seq_length
+	Seq			// Sequences
+	Seq_length	// Sequence length
+	Seq_append	// Sequence append
+	Seq_head	// Head of sequences
+	Seq_tail	// Tail of sequences
 	InternalQueueType // The internal queues of triggers
 	ExternalQueueType // The external queues of triggers
 axioms
@@ -22,7 +25,27 @@ axioms
 	theorem @Seq_length-type: Seq_length ∈ Seq(TRIGGERS) → ℕ
 	theorem @Seq_length-card: ∀n, s · n ∈ ℕ ∧ s ∈ 0 ‥ n − 1 → TRIGGERS ⇒ card(s) = n
 	
-	@intQ: InternalQueueType = ℙ(InternalTriggerType)
-	@extQ: ExternalQueueType = ℙ(ExternalTriggerType)
+	// Definition of Seq_append
+	@Seq_append-def: Seq_append = (λ s1 ↦ s2 · s1 ∈ Seq(TRIGGERS) ∧ s2 ∈ Seq(TRIGGERS) ∣
+		{ i ↦ v ∣ i ∈ 0 ‥ Seq_length(s1) + Seq_length(s2) − 1 ∧
+			(i < Seq_length(s1) ⇒ v = s1(i)) ∧
+			(i ≥ Seq_length(s1) ⇒ v = s2(i − Seq_length(s1)))
+		}
+	)
+	theorem @Seq_append-type: Seq_append ∈ Seq(TRIGGERS) × Seq(TRIGGERS) → Seq(TRIGGERS)
+	
+	// Definition of Seq_head
+	@Seq_head-def: Seq_head = (λs · s ∈ Seq(TRIGGERS) ∧ s ≠ ∅ ∣ s(0))
+	theorem @Seq_head-type: Seq_head ∈ Seq(TRIGGERS) ∖ {∅} → TRIGGERS
+	
+	@Seq_tail-def: Seq_tail = (λs · s ∈ Seq(TRIGGERS) ∧ s ≠ ∅ ∣
+		{i ↦ v ∣ i ∈ 0 ‥ Seq_length(s) − 2 ∧ v = s(i+1)}
+	)
+	theorem @Seq_tail-type: Seq_tail ∈ Seq(TRIGGERS) ∖ {∅} → Seq(TRIGGERS)
+	
+	
+	
+	@intQ: InternalQueueType = Seq(InternalTriggerType)
+	@extQ: ExternalQueueType = Seq(ExternalTriggerType)
 
 end
