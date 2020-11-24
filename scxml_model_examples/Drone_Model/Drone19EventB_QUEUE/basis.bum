@@ -24,11 +24,13 @@
     <org.eventb.core.event name="_4KDMwOYfEemvmYCWQGpCPA" org.eventb.core.comment="abstract basis of future event to raise an external trigger" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="SCXML_futureRaiseExternalTrigger">
         <org.eventb.core.parameter name="_4KDz0OYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_raisedTriggers"/>
         <org.eventb.core.guard name="_4KDz0eYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.generated="false" org.eventb.core.label="typeof_SCXML_raisedTriggers" org.eventb.core.predicate="SCXML_raisedTriggers ⊆ SCXML_FutureExternalTrigger"/>
-        <org.eventb.core.action name="_4KEa4OYfEemvmYCWQGpCPA" org.eventb.core.assignment="SCXML_eq ≔ SCXML_eq  SCXML_eq_ext" org.eventb.core.comment="extend the external queue" org.eventb.core.generated="false" org.eventb.core.label="SCXML_raiseExternalTriggers"/>
+        <org.eventb.core.action name="_4KEa4OYfEemvmYCWQGpCPA" org.eventb.core.assignment="SCXML_eq ≔ SCXML_eq ∪ SCXML_eq_ext" org.eventb.core.comment="extend the external queue" org.eventb.core.generated="false" org.eventb.core.label="SCXML_raiseExternalTriggers"/>
         <org.eventb.core.parameter name="_4KEa4OYfEemvmYCWQGpCPB" org.eventb.core.comment="local var to specify the non-det order of the queue extension" org.eventb.core.identifier="SCXML_eq_ext"/>
-        <org.eventb.core.guard name="_4KEa4OYfEemvmYCWQGpCPC" org.eventb.core.label="typeof_queue_extensions" org.eventb.core.predicate="SCXML_eq_ext ∈ ℕ ⤀ SCXML_raisedTriggers"/>
+        <org.eventb.core.guard name="_4KEa4OYfEemvmYCWQGpCPC" org.eventb.core.label="typeof_queue_extensions" org.eventb.core.predicate="SCXML_eq_ext ∈ ℕ ⤀  SCXML_raisedTriggers"/>
+        <org.eventb.core.guard name="_4KEa4OYfEemvmYCWQGpCPF" org.eventb.core.label="queue_extension_injective" org.eventb.core.predicate="SCXML_eq_ext ∈ ℕ ⤔  SCXML_raisedTriggers"/>
         <org.eventb.core.guard name="_4KEa4OYfEemvmYCWQGpCPE" org.eventb.core.label="queue_extension_is_finite" org.eventb.core.predicate="finite(SCXML_eq_ext)"/>
-        <org.eventb.core.guard name="_4KEa4OYfEemvmYCWQGpCPD" org.eventb.core.label="queue_extension_extends_sequeuce" org.eventb.core.predicate=" SCXML_raisedTriggers≠∅ ∧ SCXML_eq≠∅ ⇒ min(dom(SCXML_eq_ext)) &gt; max(dom(SCXML_eq))"/>
+        <org.eventb.core.guard name="_4KEa4OYfEemvmYCWQGpCPD" org.eventb.core.label="queue_extension_extends_sequeuce" org.eventb.core.predicate=" SCXML_raisedTriggers≠∅ ∧ SCXML_eq≠∅ ⇒ min(dom(SCXML_eq_ext)) = max(dom(SCXML_eq))+1 "/>
+        <org.eventb.core.guard name="_4KEa4OYfEemvmYCWQGpCPG" org.eventb.core.comment="SCXML_raisedTriggers≠∅ ∧ SCXML_eq=∅ ⇒ min(dom(SCXML_eq_ext)) = 0" org.eventb.core.label="grd1" org.eventb.core.predicate="SCXML_raisedTriggers≠∅ ∧ SCXML_eq=∅ ⇒ min(dom(SCXML_eq_ext)) = 0"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="_4KEa4eYfEemvmYCWQGpCPA" org.eventb.core.comment="&lt;INTERNAL&gt;&lt;PRIORITY=9&gt;" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="SCXML_dequeueInternalTrigger">
         <org.eventb.core.parameter name="_4KFB8OYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_it"/>
@@ -58,11 +60,12 @@
         <org.eventb.core.guard name="_4KQBEOYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_isNotComplete" org.eventb.core.predicate="SCXML_uc = FALSE"/>
         <org.eventb.core.guard name="_4KQoIOYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_raisedTriggers" org.eventb.core.predicate="SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger"/>
         <org.eventb.core.action name="_4KRPMOYfEemvmYCWQGpCPA" org.eventb.core.assignment="SCXML_dt≔  ∅" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_clearDequeuedTriggers"/>
-        <org.eventb.core.action name="_4KRPMeYfEemvmYCWQGpCPA" org.eventb.core.assignment="SCXML_iq ≔ SCXML_iq  SCXML_iq_ext" org.eventb.core.comment="" org.eventb.core.generated="false" org.eventb.core.label="SCXML_raiseInternalTriggers"/>
+        <org.eventb.core.action name="_4KRPMeYfEemvmYCWQGpCPA" org.eventb.core.assignment="SCXML_iq ≔ SCXML_iq ∪ SCXML_iq_ext" org.eventb.core.comment="" org.eventb.core.generated="false" org.eventb.core.label="SCXML_raiseInternalTriggers"/>
         <org.eventb.core.parameter name="_4KRPMeYfEemvmYCWQGpCPB" org.eventb.core.identifier="SCXML_iq_ext"/>
         <org.eventb.core.guard name="_4KRPMeYfEemvmYCWQGpCPC" org.eventb.core.label="typeof_queue_extensions" org.eventb.core.predicate="SCXML_iq_ext ∈ ℕ ⤀ SCXML_raisedTriggers"/>
         <org.eventb.core.guard name="grd1" org.eventb.core.label="queue_extension_is_finite" org.eventb.core.predicate="finite(SCXML_iq_ext)"/>
-        <org.eventb.core.guard name="grd2" org.eventb.core.label="queue_extension_extends_sequeuce" org.eventb.core.predicate=" SCXML_raisedTriggers≠∅ ∧ SCXML_iq≠∅ ⇒ min(dom(SCXML_iq_ext)) &gt; max(dom(SCXML_iq))"/>
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="queue_extension_extends_sequeuce" org.eventb.core.predicate=" SCXML_raisedTriggers≠∅ ∧ SCXML_iq≠∅ ⇒ min(dom(SCXML_iq_ext)) = max(dom(SCXML_iq))+1"/>
+        <org.eventb.core.guard name="_4KRPMeYfEemvmYCWQGpCPD" org.eventb.core.label="grd1" org.eventb.core.predicate="SCXML_raisedTriggers≠∅ ∧ SCXML_iq=∅ ⇒ min(dom(SCXML_iq_ext)) = 0"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="_4KSdUOYfEemvmYCWQGpCPA" org.eventb.core.comment="&lt;INTERNAL&gt;&lt;PRIORITY=9&gt;  - " org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="true" org.eventb.core.label="SCXML_noTriggeredTransitionsEnabled">
         <org.eventb.core.guard name="_4KTEYOYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_isNotComplete" org.eventb.core.predicate="SCXML_uc = FALSE"/>
@@ -74,11 +77,12 @@
         <org.eventb.core.guard name="_4KU5kOYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_isNotComplete" org.eventb.core.predicate="SCXML_uc = FALSE"/>
         <org.eventb.core.guard name="_4KU5keYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_hasNoDequeuedTriggers" org.eventb.core.predicate="SCXML_dt=  ∅"/>
         <org.eventb.core.guard name="_4KVgoOYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_raisedTriggers" org.eventb.core.predicate="SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger"/>
-        <org.eventb.core.action name="_4KVgoeYfEemvmYCWQGpCPA" org.eventb.core.assignment="SCXML_iq ≔ SCXML_iq  SCXML_iq_ext" org.eventb.core.comment="" org.eventb.core.generated="false" org.eventb.core.label="SCXML_raiseInternalTriggers"/>
+        <org.eventb.core.action name="_4KVgoeYfEemvmYCWQGpCPA" org.eventb.core.assignment="SCXML_iq ≔ SCXML_iq ∪ SCXML_iq_ext" org.eventb.core.comment="" org.eventb.core.generated="false" org.eventb.core.label="SCXML_raiseInternalTriggers"/>
         <org.eventb.core.parameter name="_4KVgoeYfEemvmYCWQGpCPB" org.eventb.core.identifier="SCXML_iq_ext"/>
         <org.eventb.core.guard name="_4KVgoeYfEemvmYCWQGpCPC" org.eventb.core.label="typeof_queue_extensions" org.eventb.core.predicate="SCXML_iq_ext ∈ ℕ ⤀ SCXML_raisedTriggers"/>
         <org.eventb.core.guard name="grd1" org.eventb.core.label="queue_extension_is_finite" org.eventb.core.predicate="finite(SCXML_iq_ext)"/>
-        <org.eventb.core.guard name="grd2" org.eventb.core.label="queue_extension_extends_sequeuce" org.eventb.core.predicate=" SCXML_raisedTriggers≠∅ ∧ SCXML_iq≠∅ ⇒ min(dom(SCXML_iq_ext)) &gt; max(dom(SCXML_iq))"/>
+        <org.eventb.core.guard name="grd2" org.eventb.core.label="queue_extension_extends_sequeuce" org.eventb.core.predicate=" SCXML_raisedTriggers≠∅ ∧ SCXML_iq≠∅ ⇒ min(dom(SCXML_iq_ext)) &gt; max(dom(SCXML_iq))+1"/>
+        <org.eventb.core.guard name="_4KVgoeYfEemvmYCWQGpCPD" org.eventb.core.label="grd1" org.eventb.core.predicate="SCXML_raisedTriggers≠∅ ∧ SCXML_iq=∅ ⇒ min(dom(SCXML_iq_ext)) = 0" org.eventb.core.theorem="true"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="_4KVgouYfEemvmYCWQGpCPA" org.eventb.core.comment="&lt;INTERNAL&gt;&lt;PRIORITY=9&gt;" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="true" org.eventb.core.label="SCXML_NoUntriggeredTransitions">
         <org.eventb.core.guard name="_4KWHsOYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="SCXML_isNotComplete" org.eventb.core.predicate="SCXML_uc = FALSE"/>
