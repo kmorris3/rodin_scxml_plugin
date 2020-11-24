@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="ASCII"?>
+<oracle:Oracle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oracle="http://soton.ac.uk/models/eventb/oracle">
+  <runs name="Scenario">
+    <entries xsi:type="oracle:Step" clock="-1" machine="drone_2" Name="SETUP_CONTEXT"/>
+    <entries xsi:type="oracle:Snapshot" clock="-1" machine="drone_2" result="true">
+      <values value="{decreaseCharge}" key="SCXML_FutureExternalTrigger1"/>
+      <values value="{Landed,decreaseCharge}" key="SCXML_FutureExternalTrigger0"/>
+      <values value="{toFly,toLand}" key="SCXML_FutureInternalTrigger"/>
+      <values value="{toFly,toLand}" key="SCXML_FutureInternalTrigger0"/>
+      <values value="&#x2205;" key="SCXML_FutureInternalTrigger1"/>
+      <values value="&#x2205;" key="SCXML_FutureInternalTrigger2"/>
+      <values value="{toTakeoff,Landed,decreaseCharge,off,on}" key="SCXML_FutureExternalTrigger"/>
+      <values value="&#x2205;" key="SCXML_FutureExternalTrigger2"/>
+    </entries>
+    <entries xsi:type="oracle:Step" clock="0" machine="drone_2" Name="INITIALISATION"/>
+    <entries xsi:type="oracle:Snapshot" clock="0" machine="drone_2" result="true">
+      <values value="0" key="getGPS_y"/>
+      <values value="0" key="getGPS_z"/>
+      <values value="0" key="getGPS_x"/>
+      <values value="&#x2205;" key="SCXML_eq"/>
+      <values value="FALSE" key="BATTERYLOW"/>
+      <values value="TRUE" key="OFF"/>
+      <values value="&#x2205;" key="SCXML_iq"/>
+      <values value="FALSE" key="FLY"/>
+      <values value="FALSE" key="SHUTDOWN"/>
+      <values value="FALSE" key="DESCEND"/>
+      <values value="FALSE" key="TAKEOFF"/>
+      <values value="FALSE" key="BATTERY"/>
+      <values value="FALSE" key="LANDED"/>
+      <values value="22" key="charge"/>
+      <values value="&#x2205;" key="SCXML_dt"/>
+      <values value="TRUE" key="SCXML_uc"/>
+      <values value="FALSE" key="BATTERYOK"/>
+      <values value="FALSE" key="START"/>
+      <values value="FALSE" key="OPERATIONAL"/>
+    </entries>
+    <entries xsi:type="oracle:Step" clock="1" machine="drone_2" Name="ExternalTriggerEvent_on">
+      <Args>{on}</Args>
+    </entries>
+    <entries xsi:type="oracle:Snapshot" clock="1" machine="drone_2" result="true">
+      <values value="&#x2205;" key="SCXML_eq"/>
+      <values value="&#x2205;" key="SCXML_dt"/>
+      <values value="TRUE" key="SCXML_uc"/>
+      <values value="FALSE" key="OFF"/>
+      <values value="60" key="charge"/>
+      <values value="TRUE" key="START"/>
+    </entries>
+    <entries xsi:type="oracle:Step" clock="2" machine="drone_2" Name="ExternalTriggerEvent_toTakeoff">
+      <Args>{toTakeoff}</Args>
+    </entries>
+    <entries xsi:type="oracle:Snapshot" clock="2" machine="drone_2" result="true">
+      <values value="&#x2205;" key="SCXML_eq"/>
+      <values value="&#x2205;" key="SCXML_dt"/>
+      <values value="TRUE" key="SCXML_uc"/>
+      <values value="TRUE" key="TAKEOFF"/>
+      <values value="TRUE" key="BATTERY"/>
+      <values value="TRUE" key="BATTERYOK"/>
+      <values value="FALSE" key="START"/>
+      <values value="TRUE" key="OPERATIONAL"/>
+    </entries>
+    <entries xsi:type="oracle:Step" clock="3" machine="drone_2" Name="ExternalTriggerEvent_decreaseCharge">
+      <Args>{decreaseCharge}</Args>
+    </entries>
+    <entries xsi:type="oracle:Snapshot" clock="3" machine="drone_2" result="true">
+      <values value="&#x2205;" key="SCXML_eq"/>
+      <values value="&#x2205;" key="SCXML_dt"/>
+      <values value="FALSE" key="SCXML_uc"/>
+      <values value="50" key="charge"/>
+    </entries>
+    <entries xsi:type="oracle:Step" clock="4" machine="drone_2" Name="SCXML_futureUntriggeredTransitionSet">
+      <Args>{toFly}</Args>
+    </entries>
+    <entries xsi:type="oracle:Snapshot" clock="4" machine="drone_2" result="true">
+      <values value="&#x2205;" key="SCXML_iq"/>
+      <values value="TRUE" key="SCXML_uc"/>
+      <values value="&#x2205;" key="SCXML_dt"/>
+      <values value="TRUE" key="FLY"/>
+      <values value="FALSE" key="TAKEOFF"/>
+    </entries>
+    <entries xsi:type="oracle:Step" clock="5" machine="drone_2" Name="ExternalTriggerEvent_decreaseCharge">
+      <Args>{decreaseCharge}</Args>
+    </entries>
+    <entries xsi:type="oracle:Snapshot" clock="5" machine="drone_2" result="true">
+      <values value="&#x2205;" key="SCXML_eq"/>
+      <values value="&#x2205;" key="SCXML_dt"/>
+      <values value="TRUE" key="SCXML_uc"/>
+      <values value="40" key="charge"/>
+    </entries>
+    <entries xsi:type="oracle:Step" clock="6" machine="drone_2" Name="ExternalTriggerEvent_decreaseCharge">
+      <Args>{decreaseCharge}</Args>
+    </entries>
+    <entries xsi:type="oracle:Snapshot" clock="6" machine="drone_2" result="true">
+      <values value="&#x2205;" key="SCXML_eq"/>
+      <values value="&#x2205;" key="SCXML_dt"/>
+      <values value="TRUE" key="SCXML_uc"/>
+      <values value="30" key="charge"/>
+    </entries>
+    <entries xsi:type="oracle:Step" clock="7" machine="drone_2" Name="ExternalTriggerEvent_decreaseCharge">
+      <Args>{decreaseCharge}</Args>
+    </entries>
+    <entries xsi:type="oracle:Snapshot" clock="7" machine="drone_2" result="true">
+      <values value="&#x2205;" key="SCXML_eq"/>
+      <values value="&#x2205;" key="SCXML_dt"/>
+      <values value="FALSE" key="SCXML_uc"/>
+      <values value="20" key="charge"/>
+    </entries>
+  </runs>
+</oracle:Oracle>

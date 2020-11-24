@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.comment="(generated from SCXML file: /Drone19EventB_QUEUE2/drone_Fig19_EventB_BAT.scxml)" org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="true" version="3">
+    <org.eventb.core.extendsContext name="_4LWNQOYfEemvmYCWQGpCPA" org.eventb.core.target="drone_0_ctx"/>
+    <org.eventb.core.constant name="_4LWNQeYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureInternalTrigger1"/>
+    <org.eventb.core.constant name="_4LWNQuYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureExternalTrigger1"/>
+    <org.eventb.core.constant name="_4LWNQ-YfEemvmYCWQGpCPA" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="toFly"/>
+    <org.eventb.core.constant name="_4LW0UOYfEemvmYCWQGpCPA" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="Landed"/>
+    <org.eventb.core.constant name="_4LW0UeYfEemvmYCWQGpCPA" org.eventb.core.comment="trigger" org.eventb.core.generated="true" org.eventb.core.identifier="toLand"/>
+    <org.eventb.core.axiom name="_4LW0UuYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_FutureExternalTrigger1" org.eventb.core.predicate="partition(SCXML_FutureExternalTrigger0,SCXML_FutureExternalTrigger1,{Landed})"/>
+    <org.eventb.core.axiom name="_4LW0U-YfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="typeof_SCXML_FutureInternalTrigger1" org.eventb.core.predicate="partition(SCXML_FutureInternalTrigger0,SCXML_FutureInternalTrigger1,{toFly},{toLand})"/>
+    <org.eventb.core.axiom name="_4LXbYOYfEemvmYCWQGpCPA" org.eventb.core.comment="help ProB" org.eventb.core.generated="true" org.eventb.core.label="ProBSetup_SCXML_TRIGGER1" org.eventb.core.predicate="partition(SCXML_TRIGGER,{toTakeoff},{off},{on},{Landed},{toFly},{toLand}, SCXML_FutureExternalTrigger1, SCXML_FutureInternalTrigger1)"/>
+</org.eventb.core.contextFile>

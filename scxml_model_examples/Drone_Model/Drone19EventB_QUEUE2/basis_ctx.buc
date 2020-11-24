@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.comment="(generated for SCXML)" org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" version="3">
+    <org.eventb.core.carrierSet name="_4JyHAOYfEemvmYCWQGpCPA" org.eventb.core.comment="all possible triggers" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_TRIGGER"/>
+    <org.eventb.core.constant name="_4JzVIOYfEemvmYCWQGpCPA" org.eventb.core.comment="all possible internal triggers" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureInternalTrigger"/>
+    <org.eventb.core.constant name="_4Jz8MOYfEemvmYCWQGpCPA" org.eventb.core.comment="all possible external triggers" org.eventb.core.generated="true" org.eventb.core.identifier="SCXML_FutureExternalTrigger"/>
+    <org.eventb.core.axiom name="_4Jz8MeYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="axm1" org.eventb.core.predicate="partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger)"/>
+    <org.eventb.core.axiom name="_5ZrCoCBBEeuhho5A2-LUQA" org.eventb.core.generated="false" org.eventb.core.label="finite triggers" org.eventb.core.predicate="finite(SCXML_TRIGGER)"/>
+    <org.eventb.core.constant name="_WoFtwC5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.identifier="Seq"/>
+    <org.eventb.core.constant name="_WoFtwS5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.identifier="Seq_length"/>
+    <org.eventb.core.constant name="_WoFtwi5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.identifier="Seq_append"/>
+    <org.eventb.core.constant name="_WoFtwy5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.identifier="Seq_concat"/>
+    <org.eventb.core.constant name="_WoFtxC5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.identifier="Seq_head"/>
+    <org.eventb.core.constant name="_WoFtxS5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.identifier="Seq_tail"/>
+    <org.eventb.core.constant name="_WoFtxi5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.identifier="InternalQueueType"/>
+    <org.eventb.core.constant name="_WoFtxy5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.identifier="ExternalQueueType"/>
+    <org.eventb.core.axiom name="_WoFtyC5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="Seq-def" org.eventb.core.predicate="Seq = (λT · T ⊆ SCXML_TRIGGER ∣ {n, s · n ∈ ℕ ∧ s ∈ 0 ‥ n − 1 → T ∣ s})"/>
+    <org.eventb.core.axiom name="_WoGU0C5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="Seq-type" org.eventb.core.predicate="Seq ∈ ℙ(SCXML_TRIGGER) → ℙ(ℕ ⇸ SCXML_TRIGGER)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_WoHi8C5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="Seq-finite" org.eventb.core.predicate="∀s · s ∈ Seq(SCXML_TRIGGER) ⇒ finite(s)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_WoHi8S5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="Seq_length-def" org.eventb.core.predicate="Seq_length = (λs · s ∈ Seq(SCXML_TRIGGER) ∣ card(s))"/>
+    <org.eventb.core.axiom name="_WoHi8i5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="Seq_length-type" org.eventb.core.predicate="Seq_length ∈ Seq(SCXML_TRIGGER) → ℕ" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_WoHi8y5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="Seq_length-card" org.eventb.core.predicate="∀n, s · n ∈ ℕ ∧ s ∈ 0 ‥ n − 1 → SCXML_TRIGGER ⇒ card(s) = n" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_WoHi9C5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="Seq_append-def" org.eventb.core.predicate="Seq_append = (λ s ↦ t · s ∈ Seq(SCXML_TRIGGER) ∧ t ∈ SCXML_TRIGGER ∣ { i ↦ v ∣ i ∈ 0 ‥ Seq_length(s) ∧ (i &lt; Seq_length(s) ⇒ v = s(i)) ∧ (i = Seq_length(s) ⇒ v = t) } )"/>
+    <org.eventb.core.axiom name="_WoHi9S5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="Seq_append-type" org.eventb.core.predicate="Seq_append ∈ Seq(SCXML_TRIGGER) × SCXML_TRIGGER → Seq(SCXML_TRIGGER)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_WoIKAC5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="Seq_concat-def" org.eventb.core.predicate="Seq_concat = (λ s1 ↦ s2 · s1 ∈ Seq(SCXML_TRIGGER) ∧ s2 ∈ Seq(SCXML_TRIGGER) ∣ { i ↦ v ∣ i ∈ 0 ‥ Seq_length(s1) + Seq_length(s2) − 1 ∧ (i &lt; Seq_length(s1) ⇒ v = s1(i)) ∧ (i ≥ Seq_length(s1) ⇒ v = s2(i − Seq_length(s1))) } )"/>
+    <org.eventb.core.axiom name="_WoIKAS5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="Seq_concat-type" org.eventb.core.predicate="Seq_concat ∈ Seq(SCXML_TRIGGER) × Seq(SCXML_TRIGGER) → Seq(SCXML_TRIGGER)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_WoIKAi5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="Seq_head-def" org.eventb.core.predicate="Seq_head = (λs · s ∈ Seq(SCXML_TRIGGER) ∧ s ≠ ∅ ∣ s(0))"/>
+    <org.eventb.core.axiom name="_WoIKAy5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="Seq_head-type" org.eventb.core.predicate="Seq_head ∈ Seq(SCXML_TRIGGER) ∖ {∅} → SCXML_TRIGGER" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_WoIKBC5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="Seq_tail-def" org.eventb.core.predicate="Seq_tail = (λs · s ∈ Seq(SCXML_TRIGGER) ∧ s ≠ ∅ ∣ {i ↦ v ∣ i ∈ 0 ‥ Seq_length(s) − 2 ∧ v = s(i+1)} )"/>
+    <org.eventb.core.axiom name="_WoIKBS5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="Seq_tail-type" org.eventb.core.predicate="Seq_tail ∈ Seq(SCXML_TRIGGER) ∖ {∅} → Seq(SCXML_TRIGGER)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_WoIxEC5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="intQ" org.eventb.core.predicate="InternalQueueType = Seq(SCXML_FutureInternalTrigger)"/>
+    <org.eventb.core.axiom name="_WoIxES5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="extQ" org.eventb.core.predicate="ExternalQueueType = Seq(SCXML_FutureExternalTrigger)"/>
+</org.eventb.core.contextFile>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<oracle:Oracle xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oracle="http://soton.ac.uk/models/eventb/oracle">
+  <runs name="UML-B">
+    <entries xsi:type="oracle:Step" clock="0" machine="drone_1" Name="INITIALISATION"/>
+    <entries xsi:type="oracle:Snapshot" clock="0" machine="drone_1" result="true">
+      <values value="&#x2205;" key="SCXML_FutureExternalTrigger1"/>
+      <values value="0" key="getGPS_y"/>
+      <values value="{Landed}" key="SCXML_FutureExternalTrigger0"/>
+      <values value="0" key="getGPS_z"/>
+      <values value="FALSE" key="LANDED"/>
+      <values value="0" key="getGPS_x"/>
+      <values value="{toFly,toLand}" key="SCXML_FutureInternalTrigger0"/>
+      <values value="&#x2205;" key="SCXML_FutureInternalTrigger1"/>
+      <values value="FALSE" key="SCXML_uc"/>
+      <values value="&#x2205;" key="SCXML_eq"/>
+      <values value="TRUE" key="OFF"/>
+      <values value="&#x2205;" key="SCXML_iq"/>
+      <values value="FALSE" key="FLY"/>
+      <values value="FALSE" key="START"/>
+      <values value="FALSE" key="SHUTDOWN"/>
+      <values value="FALSE" key="OPERATIONAL"/>
+      <values value="FALSE" key="DESCEND"/>
+      <values value="FALSE" key="TAKEOFF"/>
+    </entries>
+    <entries xsi:type="oracle:Step" clock="1" machine="drone_1" Name="ExternalTriggerEvent_toTakeoff">
+      <Args>{toTakeoff}</Args>
+    </entries>
+    <entries xsi:type="oracle:Snapshot" clock="1" machine="drone_1" result="true">
+      <values value="TRUE" key="SCXML_uc"/>
+      <values value="{toTakeoff}" key="SCXML_eq"/>
+    </entries>
+    <entries xsi:type="oracle:Step" clock="2" machine="drone_1" Name="ExternalTriggerEvent_toTakeoff">
+      <Args>{toTakeoff}</Args>
+    </entries>
+  </runs>
+</oracle:Oracle>
