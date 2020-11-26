@@ -43,13 +43,13 @@
         <org.eventb.core.refinesEvent name="_4Lf-QOYfEemvmYCWQGpCPA" org.eventb.core.target="SCXML_futureRaiseExternalTrigger"/>
         <org.eventb.core.guard name="_4Lf-QeYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.generated="false" org.eventb.core.label="typeof_SCXML_raisedTriggers2" org.eventb.core.predicate="SCXML_raisedTrigger ∈ SCXML_FutureExternalTrigger2"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="_4LglUOYfEemvmYCWQGpCPA" org.eventb.core.comment="&lt;INTERNAL&gt;&lt;PRIORITY=9&gt;" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="SCXML_dequeueInternalTrigger">
+    <org.eventb.core.event name="_4LglUOYfEemvmYCWQGpCPA" org.eventb.core.comment="&lt;INTERNAL&gt;&lt;PRIORITY=9&gt;" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="SCXML_dequeueInternalTrigger">
         <org.eventb.core.refinesEvent name="_4LglUeYfEemvmYCWQGpCPA" org.eventb.core.target="SCXML_dequeueInternalTrigger"/>
     </org.eventb.core.event>
     <org.eventb.core.event name="_4LglUuYfEemvmYCWQGpCPA" org.eventb.core.comment="&lt;INTERNAL&gt;&lt;PRIORITY=9&gt;" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="SCXML_dequeueExternalTrigger">
         <org.eventb.core.refinesEvent name="_4LglU-YfEemvmYCWQGpCPA" org.eventb.core.target="SCXML_dequeueExternalTrigger"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="_4LhMYOYfEemvmYCWQGpCPA" org.eventb.core.comment="abstract basis of future event representing triggered transitions" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="SCXML_futureTriggeredTransitionSet">
+    <org.eventb.core.event name="_4LhMYOYfEemvmYCWQGpCPA" org.eventb.core.comment="abstract basis of future event representing triggered transitions" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="SCXML_futureTriggeredTransitionSet">
         <org.eventb.core.refinesEvent name="_4LhMYeYfEemvmYCWQGpCPA" org.eventb.core.target="SCXML_futureTriggeredTransitionSet"/>
         <org.eventb.core.guard name="_4LhMYuYfEemvmYCWQGpCPA" org.eventb.core.comment="future transitions may not be triggered by already defined triggers" org.eventb.core.generated="true" org.eventb.core.label="SCXML_triggersInThisRefinement_2" org.eventb.core.predicate="SCXML_trigger∉ {decreaseCharge}"/>
     </org.eventb.core.event>
@@ -58,8 +58,9 @@
         <org.eventb.core.guard name="_4LhzcuYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="completeFinalisedTranstion_toLand__TAKEOFF_DESCEND" org.eventb.core.predicate="¬(TAKEOFF= TRUE ∧ toLand∈SCXML_dt)"/>
         <org.eventb.core.guard name="_4LiagOYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.generated="true" org.eventb.core.label="completeFinalisedTranstion_toLand__FLY_DESCEND" org.eventb.core.predicate="¬(FLY= TRUE ∧ toLand∈SCXML_dt)"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="_4LiageYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="SCXML_futureUntriggeredTransitionSet">
+    <org.eventb.core.event name="_4LiageYfEemvmYCWQGpCPA" org.eventb.core.comment="" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="SCXML_futureUntriggeredTransitionSet">
         <org.eventb.core.refinesEvent name="_4LiaguYfEemvmYCWQGpCPA" org.eventb.core.target="SCXML_futureUntriggeredTransitionSet"/>
+        <org.eventb.core.guard name="_qqcCEC9rEeuA7oboPvUhLA" org.eventb.core.comment="" org.eventb.core.generated="false" org.eventb.core.label="P2O" org.eventb.core.predicate="⊤ "/>
     </org.eventb.core.event>
     <org.eventb.core.event name="_4LjBkOYfEemvmYCWQGpCPA" org.eventb.core.comment="&lt;INTERNAL&gt;&lt;PRIORITY=9&gt;" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="SCXML_NoUntriggeredTransitions">
         <org.eventb.core.refinesEvent name="_4LjBkeYfEemvmYCWQGpCPA" org.eventb.core.target="SCXML_NoUntriggeredTransitions"/>
@@ -117,7 +118,7 @@
         <org.eventb.core.refinesEvent name="_4LohIuYfEemvmYCWQGpCPA" org.eventb.core.target="on__OFF_START"/>
         <org.eventb.core.action name="_UxVhMBwhEeqGyqVawERsSA" org.eventb.core.assignment="charge :∈  60‥80" org.eventb.core.comment="SCXML transition assign" org.eventb.core.generated="true" org.eventb.core.label="on__OFF_START_act_0" org.eventb.emf.persistence.generator_ID="ac.soton.eventb.statemachines._4CpkQOYfEemvmYCWQGpCPA" org.eventb.emf.persistence.priority="10"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="_4LpIMOYfEemvmYCWQGpCPA" org.eventb.core.comment="&lt;INTERNAL&gt;&lt;PRIORITY=2&gt;  INTERNAL TRIGGERED TRANSITIONS " org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="true" org.eventb.core.label="toFly__TAKEOFF_FLY">
+    <org.eventb.core.event name="_4LpIMOYfEemvmYCWQGpCPA" org.eventb.core.comment="&lt;INTERNAL&gt;&lt;PRIORITY=2&gt;  INTERNAL TRIGGERED TRANSITIONS " org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="toFly__TAKEOFF_FLY">
         <org.eventb.core.refinesEvent name="_4LpIMeYfEemvmYCWQGpCPA" org.eventb.core.target="toFly__TAKEOFF_FLY"/>
         <org.eventb.core.guard name="_UxVhMRwhEeqGyqVawERsSA" org.eventb.core.generated="true" org.eventb.core.label="check_charge" org.eventb.core.predicate="charge&gt;40" org.eventb.emf.persistence.generator_ID="ac.soton.eventb.statemachines._4CpkQOYfEemvmYCWQGpCPA" org.eventb.emf.persistence.priority="10"/>
     </org.eventb.core.event>
