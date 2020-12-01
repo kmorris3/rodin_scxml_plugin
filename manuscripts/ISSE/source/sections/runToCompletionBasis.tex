@@ -16,22 +16,19 @@ the run to completion semantics on the model transitions.
 	\vspace{-.4cm}
 \end{figure}
 
-% The translation from \SCXML to \EVENTB is based on an abstract `basis' that models the `run to completion' semantics. 
 The specification of this basis consists of an \EVENTB \emph{context} and \emph{machine} that are 
 the same for all input models and are refined by the specific output of the translation.  
-% The basis context, Listing~\ref{lst:BasisContext}, introduces a given set of all 
 The basis context introduces a set of all possible triggers, |SCXML_TRIGGER| which is partitioned into internal and external triggers 
 (e.g |FutureInternalTrigger| and |FutureExternalTrigger| respectively), 
 some of which will be introduced in future refinements. 
-Each refinement partitions these trigger sets further to introduce concrete triggers, 
+At each refinement these trigger sets are further partitioned to introduce more concrete triggers, 
 leaving a new abstract set to represent the remaining triggers yet to be introduced. 
-For clarity, we use sets to abstractly represent the trigger queues.
-This does not affect safety verification but forces us to introduce fairness assumptions regarding trigger consumption in order to verify liveness properties.
-It would be relatively straight forward to properly model the trigger queues which are an implementation of this fairness property. 
+\ColinInlineComment{changed here to introduce sequences for queues}
+The context also models \emph{sequences} of triggers as a data type to be used for the trigger queues.
+Our initial work modelled queues abstractly as sets of triggers which was adequate for most verification purposes but does not enforce fairness on trigger consumption. 
+Hence we were forced to introduce fairness assumptions regarding trigger consumption in order to verify liveness properties.
+In this paper we introduce sequences to properly model the trigger queues which are an implementation of this fairness property. 
 
-%In Section~\ref{sec:verificationResponses} we will discuss the limitations of this  abstraction and the ways in which they can be overcome.
-% For example, the IDS model introduces a specific internal trigger, \textbf{spi\_done},  by partitioning |SCXML_FutureInternalTrigger| into the singleton \textbf{\{spi\_done\}} and a new set, |SCXML_FutureInternalTrigger0|, representing the remainder. 
- % as shown in line~\ref{line:refPartition} of Listing~\ref{lst:SecBotCont0}. 
 
 % \begin{lstlisting}[caption={Abstract basis context},label={lst:BasisContext}, language=Event-B, escapechar=|, frame=single, basicstyle=\rmfamily\scriptsize, belowskip=-2.0 \baselineskip, float=t]
 % context
