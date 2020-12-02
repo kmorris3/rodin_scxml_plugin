@@ -25,7 +25,7 @@ Hence P is checked only in stable states that are reachable according to the run
 %For properties about the state of a parallel region either reaction could be used depending on whether the system detects the violation in the state that contains P of the state that P refers to.
 
 In this section we illustrate a typical example of the type of properties that we imagine could be verified in a reactive \SCXML system.
-All of the proof obligations are automatically discharged for our example.
+All of the proof obligations are automatically discharged for our example\footnote{We use a strong prover configuration including AtelierB provers and SMT solvers}.
 Since our models are strictly structured and proof obligations will always have this common form, we are optimistic that proofs will always discharge automatically.
 We model the safety property features at an early level of refinement where the models are relatively simple, so that the validity of verification conditions is clear. 
 Detail is then added in later refinements which are proven (automatically) to preserve the previously verified safety properties.

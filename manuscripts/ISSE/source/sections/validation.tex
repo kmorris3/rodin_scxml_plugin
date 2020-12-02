@@ -3,6 +3,7 @@
 
 \section{Validation}
 \label{sec:validation}
+\ColinInlineComment{To have a useful validation we need to supress the non-deterministic stuff for refinement.. can we use the same special versions as we do for the LTL?}
 
 One of the attractions of `run to completion' style modelling languages such as \SCXML is their execution semantics which provides a method for animating models to validate their behaviour.
 Our approach to \SCXML refinement retains a single \SCXML final model which can be animated using the existing \SCXML animation tools.
@@ -37,7 +38,8 @@ In the example, a discrepancy has been detected since non-determinism in the rai
 \end{figure}
 
 While the scenario checker allows us to animate the expected run to completion behaviour, recall that, unless the transitions have all been finalised (i.e. no further refinement is permitted),  other behaviours are possible due to the non-deterministic completion incorporated in case transition guards are later strengthened. 
-The scenario checker allows the run to completion (i.e. internal events) to be overridden in order to explore these behaviours at an abstract level.
+\ColinInlineComment{To explore these behaviours, we can animate the main version of the machine (i.e. not the special version without non-determinstic features}
+%The scenario checker allows the run to completion (i.e. internal events) to be overridden in order to explore these behaviours at an abstract level.
  
 
 %%% Local Variables:

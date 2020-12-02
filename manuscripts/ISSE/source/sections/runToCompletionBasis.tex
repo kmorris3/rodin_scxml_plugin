@@ -7,6 +7,8 @@ The run to completion semantics is specified via an abstract basis that is exten
 Figure~\ref{fig:basis} shows a state-chart representation of how the basis enforces 
 the run to completion semantics on the model transitions. 
 
+\ColinInlineComment{the Fig.1 needs updating wrt to queues.. e.g. eQ and iQ should be content(eQ) and content(iQ).
+	also NoTriggeredTransitionsEnable should be NoTriggeredTransitionsEnabled}
 \begin{figure}[!h]
 	\vspace{-.4cm}
 	\centering
@@ -28,20 +30,24 @@ The context also models \emph{sequences} of triggers as a data type to be used f
 Our initial work modelled queues abstractly as sets of triggers which was adequate for most verification purposes but does not enforce fairness on trigger consumption. 
 Hence we were forced to introduce fairness assumptions regarding trigger consumption in order to verify liveness properties.
 In this paper we introduce sequences to properly model the trigger queues which are an implementation of this fairness property. 
+Note that the queue also enables the same trigger to be raised twice in the queue which was not possible in a set.
 
 
-% \begin{lstlisting}[caption={Abstract basis context},label={lst:BasisContext}, language=Event-B, escapechar=|, frame=single, basicstyle=\rmfamily\scriptsize, belowskip=-2.0 \baselineskip, float=t]
-% context
-% 	basis_c 	// (generated for SCXML)
-% sets
-% 	SCXML_TRIGGER	 // all possible triggers
-% constants
-% 	SCXML_FutureInternalTrigger	 // all possible internal triggers
-% 	SCXML_FutureExternalTrigger	 // all possible external triggers  
-% axioms
-% 	partition(SCXML_TRIGGER, SCXML_FutureInternalTrigger, SCXML_FutureExternalTrigger) 
-% end
-% \end{lstlisting}	
+ \begin{lstlisting}[caption={Abstract basis context},label={lst:BasisContext}, language=Event-B, escapechar=|, frame=single, basicstyle=\rmfamily\scriptsize, belowskip=-2.0 \baselineskip, float=t]
+ context
+ 	basis_c 	// (generated for SCXML)
+ sets
+ 	SCXML_TRIGGER	 // all possible triggers
+ constants
+ 	SCXML_FutureInternalTrigger	 // all possible internal triggers
+ 	SCXML_FutureExternalTrigger	 // all possible external triggers  
+ axioms
+ 	partition(SCXML_TRIGGER, SCXML_FutureInternalTrigger, SCXML_FutureExternalTrigger) 
+ end
+ \end{lstlisting}	
+ 
+\ColinInlineComment{shall we add the sequences to the basis context?}
+\ColinInlineComment{shall we add the basis machine?(or parts of)}
 
 % \begin{lstlisting}[caption={Context for \IDS abstract model},label={lst:SecBotCont0}, language=Event-B, escapechar=|, frame=single]
 % context
@@ -70,23 +76,23 @@ and a flag, |uc|, that signals when a run to completion macro-step has been comp
 (no un-triggered transitions are enabled). 
 Note that, for convenience, the currently dequeued trigger is modelled as a singleton set which may be empty (i.e. consumed) or contain the single trigger to be consumed.
 
-The trigger queues and dequeued trigger are initialised to empty and |uc| is set to |FALSE| so that un-triggered transitions are dealt with via the |futureUntriggeredTransitionSet| event.
+The trigger queues and dequeued trigger are initialised to empty and |uc| is set to |FALSE| so that any enabled un-triggered transitions are dealt with via the |futureUntriggeredTransitionSet| event when the system first starts (see Listing~\ref{lst:scxml-r2c}).
 This will subsequently enable completion and reset the |uc| flag to |TRUE|.
 The abstract event |futureRaiseExternalTrigger| represents the raising  of an external trigger (not shown in the diagram).    
 After completion, a queued trigger can be prepared for consumption by moving it to the dequeued trigger, |dt|.
 Internal triggers have a higher priority, since the external trigger queue is only dequeued if the |iQ| is empty (see |dequeueExternalTriggered| and |dequeueInternalTriggered| in Figure~\ref{fig:basis}).
-The abstract event |futureTriggeredTransitions| represents a combination of transitions that are triggered by the dequeued trigger, |dt|.
+The abstract event |futureTriggeredTransitions| represents a combination of parallel transitions that are simultaneously triggered by the dequeued trigger, |dt|.
 The actions of these transitions may also raise triggers of their own in the internal trigger queue |iQ|.
 
 
 Completion of triggered and untriggered transitions may be non-deterministically premature to allow future refinements to strengthen the guards of transitions (i.e. to disable them resulting in an earlier completion).
 In the process of refining a model, a designer takes advantage of this non-determinism in the abstraction by adding nested sub-states and explicit guards to transitions. 
 When a refinement level is reached where the designer wants to enforce a requirement (i.e. prevent it being bypassed by a non-deterministic completion), the model needs to be \emph{finalised} (see Section~\ref{sec:translation} for more on finalisation). 
-The \SCXML translation tool will then automatically strengthen the guards of events |NoTriggerTransitionEnable| and |futureUntriggeredTransitionSet|, to ensure that the run to completion sequence is not interrupted by non-deterministic behaviour. 
+The \SCXML translation tool will then automatically strengthen the guards of events |NoTriggeredTransitionEnabled| and |futureUntriggeredTransitionSet|, to ensure that the run to completion sequence is not interrupted by non-deterministic behaviour. 
 To do this we need to guard completion so that it cannot happen while any relevant transition is still enabled.
-To finalise a triggered transition, the guard of |NoTriggerTransitionEnable| is strengthened by adding the conjunction of the negated guards of all transitions that can fire in parallel with the transition being finalised.
+To finalise a triggered transition, the guard of |NoTriggeredTransitionEnabled| is strengthened by adding the conjunction of the negated guards of all transitions that can fire in parallel with the transition being finalised.
 %(To fire in parallel a transition must be in a parallel region of the state-chart and be triggered by the same trigger).
-Similarly the guard of |futureUntriggeredTransitionSet| is strengthened by adding the conjunction of the negated guards of all untriggered transitions that can fire in parallel.
+Similarly, to finalise an untriggered transition, the guard of |futureUntriggeredTransitionSet| is strengthened by adding the conjunction of the negated guards of all untriggered transitions that can fire in parallel.
 It may seem that finalisation could cause an unmanageable explosion of guards.
 However, to fire in parallel, transitions must be contained in parallel regions and also be enabled by the same trigger (or be un-triggered).
 In practice, since most systems do not contain many parallel regions, the number of transitions that can fire in parallel is limited.

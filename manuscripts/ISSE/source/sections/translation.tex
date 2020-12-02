@@ -1,8 +1,8 @@
 % !TEX root = ../main.tex
 
-\section{\SCXML Translation to \EventB}
+\section{\SCXML Translation to \UMLB/\EventB}
 \label{sec:translation}
-
+\ColinInlineComment{Shall we expand the translation? Add some UML-B? }
 The translation of a specific \SCXML model to \UMLB and  \EventB, comprises the following stages: 
 \begin{itemize}
 	\item 
@@ -44,6 +44,7 @@ A tool to automatically translate \SCXML source models into \UMLB has been produ
 The tool is based on the \EMF and uses an \SCXML meta-model provided by Sirius~\cite{siriuswebsite} which has good support for extensibility. 
 The \UMLB state-machine is subsequently translated into \EVENTB using the standard \UMLB translation which provides variables to model the current state and guards and actions to model the state changes that transitions perform.
  Further details of the translation are given in~\cite{MoSnHo18,MoSnHo-ABZ2020}.
+ \ColinInlineComment{I think it may have changed a bit since these refs.. and we don't want to give the impression that there is nothing new here}
 
 %%% Local Variables:
 %%% mode: latex

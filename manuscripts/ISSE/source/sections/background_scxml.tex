@@ -6,26 +6,30 @@
 \SCXML is a modelling language based on Harel state-charts with facilities for adding data elements that are modified by transition actions and used in conditions for their firing~\cite{scxmlwebsite}. \SCXML follows a `run to completion' semantics, where trigger events\footnote{In \SCXML the triggers are called `events', however, we refer to them as `triggers' to avoid confusion with \EventB} may be needed to enable transitions. Trigger events are queued when they are raised, and then one is de-queued and consumed by firing all the transitions that it enables, followed by any (un-triggered) transitions that then become enabled due to the change of state caused by the initial transition firing. This is repeated until no transitions are enabled, and then the next trigger is de-queued and consumed. There are two kinds of triggers: internal triggers are raised by transitions and external triggers are raised by the environment (non-deterministicly for the purpose of our analysis). 
 An external trigger may only be consumed when the internal trigger queue has been emptied.
 We chose \SCXML as our source language because it is relatively simple compared to some run to completion modelling languages yet has a well defined action language and simulation tool support.
-% \todo{I think we should remove this listing and just reference one of our old papers}
-% \begin{lstlisting}[caption=Pseudocode for 'run to completion',label={lst:scxml-r2c}, frame=single]
-% while running:
-% 	while completion = false
-% 		if untriggered_enabled
-% 			execute(untriggered())
-% 		elseif IQ /= {}
-% 			execute(internal(IQ.dequeue)) 
-% 		else
-% 			completion = true
-% 		endif
-% 	endwhile
-% 	if EQ /= {}
-% 		execute(EQ.dequeue) 
-% 		completion = false
-% 	endif
-% endwhile 
-% \end{lstlisting}
 
-% Listing~\ref{lst:scxml-r2c} shows a pseudocode representation of the run to completion semantics as defined within the latest W3C recommendation document~\cite{scxmlwebsite}. Here IQ and EQ are the triggers present in the internal and external queues respectively. We adopt the commonly used terminology where a single transition is called a \emph{micro-step} and a complete run (between de-queueing external triggers) is referred to as a \emph{macro-step}.
+\ColinInlineComment{I have added the pseudocode back in because i like it (we removed it for space for detect) }
+
+Listing~\ref{lst:scxml-r2c} shows a pseudocode representation of the run to completion semantics as defined within the latest W3C recommendation document~\cite{scxmlwebsite}. Here IQ and EQ are the triggers present in the internal and external queues respectively. We adopt the commonly used terminology where a single transition is called a \emph{micro-step} and a complete run (between de-queueing external triggers) is referred to as a \emph{macro-step}.
+
+ \begin{lstlisting}[caption=Pseudocode for 'run to completion',label={lst:scxml-r2c}, frame=single]
+ while running:
+ 	while completion = false
+ 		if untriggered_enabled
+ 			execute(untriggered())
+ 		elseif IQ /= {}
+ 			execute(internal(IQ.dequeue)) 
+ 		else
+ 			completion = true
+ 		endif
+ 	endwhile
+ 	if EQ /= {}
+ 		execute(EQ.dequeue) 
+ 		completion = false
+ 	endif
+ endwhile 
+ \end{lstlisting}
+
+
 
 %%% Local Variables: 
 %%% mode: latex
