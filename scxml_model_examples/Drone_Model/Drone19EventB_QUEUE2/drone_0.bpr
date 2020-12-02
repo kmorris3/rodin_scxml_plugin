@@ -2147,4 +2147,9 @@
     <org.eventb.core.prProof name="ExternalTriggerEvent_on/queue_extension_extends_sequeuce/WD"/>
     <org.eventb.core.prProof name="ExternalTriggerEvent_on/queue_extension_extends_sequeuce/GRD"/>
     <org.eventb.core.prProof name="ExternalTriggerEvent_on/grd1/GRD"/>
+    <org.eventb.core.prProof name="SCXML_futureTriggeredTransitionSet/PO/WD"/>
+    <org.eventb.core.prProof name="toTakeoff__OPERATIONAL_OPERATIONAL/PO/WD"/>
+    <org.eventb.core.prProof name="toTakeoff__START_OPERATIONAL/PO/WD"/>
+    <org.eventb.core.prProof name="off__OPERATIONAL_SHUTDOWN/PO/WD"/>
+    <org.eventb.core.prProof name="on__OFF_START/PO/WD"/>
 </org.eventb.core.prFile>
