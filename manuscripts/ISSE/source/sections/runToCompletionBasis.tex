@@ -95,7 +95,7 @@ This will subsequently enable completion and reset the |uc| flag to |TRUE|.
 The abstract event |futureRaiseExternalTrigger| represents the raising  of an external trigger (not shown in the diagram).    
 After completion, a queued trigger can be prepared for consumption by moving it to the dequeued trigger, |dt|.
 Internal triggers have a higher priority, since the external trigger queue is only dequeued if the |iQ| is empty (see |dequeueExternalTriggered| and |dequeueInternalTriggered| in Figure~\ref{fig:basis}).
-The abstract event |futureTriggeredTransitions| represents a combination of parallel transitions that are simultaneously triggered by the dequeued trigger, |dt|.
+The abstract event |futureTriggeredTransitionSet| represents a combination of parallel transitions that are simultaneously triggered by the dequeued trigger, |dt|.
 The actions of these transitions may also raise triggers of their own in the internal trigger queue |iQ|.
 
 
