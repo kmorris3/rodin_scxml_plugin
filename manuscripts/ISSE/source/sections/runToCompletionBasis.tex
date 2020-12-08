@@ -18,54 +18,68 @@ the run to completion semantics on the model transitions.
 	\vspace{-.4cm}
 \end{figure}
 
-The specification of this basis consists of an \EVENTB \emph{context} and \emph{machine} that are 
-the same for all input models and are refined by the specific output of the translation.  
-The basis context introduces a set of all possible triggers, |SCXML_TRIGGER| which is partitioned into internal and external triggers 
+The specification of this basis consists of an \EVENTB \emph{context} and \emph{machine} that are the same for all input models and are refined by the specific output of the translation.  
+The basis context (\ref{lst:BasisContext}) introduces a set of all possible triggers, |SCXML_TRIGGER| which is partitioned into internal and external triggers 
 (e.g |FutureInternalTrigger| and |FutureExternalTrigger| respectively), 
 some of which will be introduced in future refinements. 
 At each refinement these trigger sets are further partitioned to introduce more concrete triggers, 
 leaving a new abstract set to represent the remaining triggers yet to be introduced. 
-\ColinInlineComment{changed here to introduce sequences for queues}
+
 The context also models \emph{sequences} of triggers as a data type to be used for the trigger queues.
 Our initial work modelled queues abstractly as sets of triggers which was adequate for most verification purposes but does not enforce fairness on trigger consumption. 
 Hence we were forced to introduce fairness assumptions regarding trigger consumption in order to verify liveness properties.
 In this paper we introduce sequences to properly model the trigger queues which are an implementation of this fairness property. 
 Note that the queue also enables the same trigger to be raised twice in the queue which was not possible in a set.
+The constant |Seq| returns the set of all possible sequences of a given subset of triggers and is defined using lambda calculus.
+Constant functions are also defined for the usual operations on sequences: 
+\emph{length} of a given sequence, 
+\emph{append} a trigger to the end of a sequence to give a new sequence, 
+\emph{concat}enate two sequences to give a new sequence, 
+return the trigger at the \emph{head} of a sequence, 
+return the sequence that makes up the \emph{tail} of a sequence and 
+return the \emph{content} (set of triggers) involved in a sequence. 
+The Basis context also defines several theorem properties about sequences that are needed to discharge proof obligations.
+These are omitted from Listing~\ref{lst:BasisContext} for brevity.
 
+\ColinInlineComment{I changed the comments to a command in order to get them to align.  Is there a better way? make them green?}
+\newcommand*{\Comment}[1]{\color{green!50!black}\hfill\makebox[0.6\textwidth][l]{#1}}%
 
- \begin{lstlisting}[caption={Abstract basis context},label={lst:BasisContext}, language=Event-B, escapechar=|, frame=single, basicstyle=\rmfamily\scriptsize, belowskip=-2.0 \baselineskip, float=t]
+ \begin{lstlisting}[caption={Abstract basis context},label={lst:BasisContext}, language=Event-B, tabsize=8, escapechar=€, frame=single, basicstyle=\rmfamily\scriptsize, belowskip=-2.0 \baselineskip, float=t]
  context
- 	basis_c 	// (generated for SCXML)
+ 	basis_c 	€\Comment{// (generated for SCXML)}€
  sets
- 	SCXML_TRIGGER	 // all possible triggers
+ 	SCXML_TRIGGER	 €\Comment{// all possible triggers}€
  constants
- 	SCXML_FutureInternalTrigger	 // all possible internal triggers
- 	SCXML_FutureExternalTrigger	 // all possible external triggers  
+ 	FutureInternalTrigger	€\Comment{// all possible internal triggers}€
+ 	FutureExternalTrigger	€\Comment{// all possible external triggers}€
+ 	Seq							€\Comment{// return all possible sequences of given set of triggers}€
+ 	Seq_length					€\Comment{// return the length of a sequence of triggers}€
+ 	Seq_append					€\Comment{// return the result of appending trigger to a sequence}€
+ 	Seq_concat					€\Comment{// return the concatenation of two sequences of triggers}€
+ 	Seq_head					€\Comment{// return the trigger at head of a sequence of triggers}€
+ 	Seq_tail					€\Comment{// return the sequence at tail of a sequence of triggers}€
+ 	Seq_content					€\Comment{// return the set of triggers in a sequence of triggers}€
+ 	InternalQueueType			€\Comment{// type of internal queues}€
+ 	ExternalQueueType			€\Comment{// type of external queues}€
+ 	
  axioms
- 	partition(SCXML_TRIGGER, SCXML_FutureInternalTrigger, SCXML_FutureExternalTrigger) 
+ 	partition(SCXML_TRIGGER, FutureInternalTrigger, FutureExternalTrigger) 
+ 	Seq = (λT · T ⊆ SCXML_TRIGGER ∣ {n, s · n ∈ ℕ ∧ s ∈ 0 ‥ n − 1 → T ∣ s})
+ 	Seq_length = (λs · s ∈ Seq(SCXML_TRIGGER) ∣ card(s))
+ 	Seq_append = (λ s ↦ t · s ∈ Seq(SCXML_TRIGGER) ∧ t ∈ SCXML_TRIGGER ∣ 
+ 		{i↦v ∣ i ∈ 0 ‥ Seq_length(s) ∧ (i < Seq_length(s) ⇒ v = s(i)) ∧ (i = Seq_length(s) ⇒ v = t) } )
+	Seq_concat = (λ s1 ↦ s2 · s1 ∈ Seq(SCXML_TRIGGER) ∧ s2 ∈ Seq(SCXML_TRIGGER) ∣ 
+		{i↦v ∣ i ∈ 0 ‥ Seq_length(s1) + Seq_length(s2) − 1 ∧ (i < Seq_length(s1) ⇒ 
+									v = s1(i)) ∧ (i ≥ Seq_length(s1) ⇒ v = s2(i − Seq_length(s1))) } )
+	Seq_head = (λs · s ∈ Seq(SCXML_TRIGGER) ∧ s ≠ ∅ ∣ s(0))								
+	Seq_tail = (λs· s∈Seq(SCXML_TRIGGER) ∧ s≠∅ ∣ {i↦v ∣ i∈0‥Seq_length(s)−2 ∧ v=s(i+1)} )	
+	Seq_content = (λs · s ∈ Seq(SCXML_TRIGGER) ∣ ran(s))
+	InternalQueueType = Seq(FutureInternalTrigger)
+	ExternalQueueType = Seq(FutureExternalTrigger)
  end
  \end{lstlisting}	
- 
-\ColinInlineComment{shall we add the sequences to the basis context?}
-\ColinInlineComment{shall we add the basis machine?(or parts of)}
 
-% \begin{lstlisting}[caption={Context for \IDS abstract model},label={lst:SecBotCont0}, language=Event-B, escapechar=|, frame=single]
-% context
-% 	IDS_Model_0_ctx //(generated from:/IDS_generated/secbot.scxml)
-% extends
-% 	basis_c 
-% constants
-% 	SCXML_FutureInternalTrigger0	
-% 	SCXML_FutureExternalTrigger0
-% 	spi_done	 	//trigger
-% axioms
-% 	SCXML_FutureExternalTrigger0=SCXML_FutureExternalTrigger
-% 	partition(SCXML_FutureInternalTrigger, SCXML_FutureInternalTrigger0,{spi_done}) |\label{line:refPartition}|
-% end
-% \end{lstlisting}
-
-% The basis machine, part of which is shown in Listing~\ref{lst:BasisMachine}, declares variables 
-Each of the transitions in the basis (see Figure~\ref{fig:basis}) represents an abstract event of the basis machine that describes the generic behaviour of models under a run to completion semantics.
+Each of the transitions in the basis (see Figure~\ref{fig:basis}) represents an abstract event of the basis machine (Listing~\ref{lst:BasisMachine}) that describes the generic behaviour of models under a run to completion semantics.
 These events provide an abstraction that defines the altering of trigger queues and completion flag. 
 \EventB refinement rules prohibit new events from modifying abstract variables (i.e. new events refine `skip').
 Hence, since \SCXML transitions need to modify the trigger queues etc., used to capture the \SCXML run to completion semantics, all events generated by translation of the specific \SCXML model,  must refine abstract events introduced for this purpose in the basis.
@@ -88,11 +102,11 @@ The actions of these transitions may also raise triggers of their own in the int
 Completion of triggered and untriggered transitions may be non-deterministically premature to allow future refinements to strengthen the guards of transitions (i.e. to disable them resulting in an earlier completion).
 In the process of refining a model, a designer takes advantage of this non-determinism in the abstraction by adding nested sub-states and explicit guards to transitions. 
 When a refinement level is reached where the designer wants to enforce a requirement (i.e. prevent it being bypassed by a non-deterministic completion), the model needs to be \emph{finalised} (see Section~\ref{sec:translation} for more on finalisation). 
-The \SCXML translation tool will then automatically strengthen the guards of events |NoTriggeredTransitionEnabled| and |futureUntriggeredTransitionSet|, to ensure that the run to completion sequence is not interrupted by non-deterministic behaviour. 
+The \SCXML translation tool will then automatically strengthen the guards of events |noTriggeredTransitionsEnabled| and |noUntriggeredTransitionsEnabled|, to ensure that the run to completion sequence is not interrupted by non-deterministic behaviour. 
 To do this we need to guard completion so that it cannot happen while any relevant transition is still enabled.
-To finalise a triggered transition, the guard of |NoTriggeredTransitionEnabled| is strengthened by adding the conjunction of the negated guards of all transitions that can fire in parallel with the transition being finalised.
+To finalise a triggered transition, the guard of |noTriggeredTransitionsEnabled| is strengthened by adding the conjunction of the negated guards of all transitions that can fire in parallel with the transition being finalised.
 %(To fire in parallel a transition must be in a parallel region of the state-chart and be triggered by the same trigger).
-Similarly, to finalise an untriggered transition, the guard of |futureUntriggeredTransitionSet| is strengthened by adding the conjunction of the negated guards of all untriggered transitions that can fire in parallel.
+Similarly, to finalise an untriggered transition, the guard of |noUntriggeredTransitionsEnabled| is strengthened by adding the conjunction of the negated guards of all untriggered transitions that can fire in parallel.
 It may seem that finalisation could cause an unmanageable explosion of guards.
 However, to fire in parallel, transitions must be contained in parallel regions and also be enabled by the same trigger (or be un-triggered).
 In practice, since most systems do not contain many parallel regions, the number of transitions that can fire in parallel is limited.
@@ -119,112 +133,63 @@ Finalisation is also needed in order to remove non-deterministic behaviours when
 
 
 
-% \begin{lstfloat}[!tb]
-% \begin{lstlisting}[caption={Abstract basis machine (part of)}, label={lst:BasisMachine},language=Event-B, escapechar=|, frame=single, basicstyle=\rmfamily\scriptsize, belowskip=-2.0 \baselineskip]
-% MACHINE
-% 	basis	   //   (generated for SCXML)
-% SEES
-% 	basis_ctx
-% VARIABLES
-% 	SCXML_iq	   //   internal trigger queue
-% 	SCXML_eq	   //   external trigger queue
-% 	SCXML_uc	   //   run to completion flag
-% 	SCXML_dt	   //   dequeued trigger for this run
-% INVARIANTS
-% 	typeof_SCXML_iq   :   	SCXML_iq ⊆ SCXML_FutureInternalTrigger	   //   internal trigger queue
-% 	typeof_SCXML_eq   :   	SCXML_eq ⊆ SCXML_FutureExternalTrigger	   //   external trigger queue
-% 	disjointQueues   :   	SCXML_iq ∩ SCXML_eq= ∅	   //   queues are disjoint
-% 	typeof_SCXML_uc   :   	SCXML_uc ∈ BOOL	   //   completion flag
-% 	typeof_SCXML_dt   :   	SCXML_dt ⊆ SCXML_TRIGGER	   //   dequeued triggers
-% 	oneDequeuedTrigger   :   	SCXML_dt≠∅ ⇒(∃t·SCXML_dt={t})	   //   at most one dequeued trigger
-% EVENTS
-% 	INITIALISATION      
-% 		BEGIN
-% 			init_SCXML_iq   :   	SCXML_iq ≔ ∅	   //   internal Q is initially empty
-% 			init_SCXML_eq   :   	SCXML_eq ≔ ∅	   //   external Q is initially empty
-% 			SCXML_setNotComplete   :   	SCXML_uc ≔ FALSE	   //   completion is initially FALSE
-% 			init_SCXML_dt   :   	SCXML_dt ≔ ∅	   //   dequeued triggers is initially empty
-% 	END
+ \begin{lstfloat}[!tb]
+ \begin{lstlisting}[caption={Abstract basis machine}, label={lst:BasisMachine},language=Event-B, escapechar=€, frame=single, basicstyle=\rmfamily\scriptsize, belowskip=-2.0 \baselineskip]
+ MACHINE	basis	   €\Comment{//   (generated for SCXML)}€
+ SEES    	basis_ctx
+ VARIABLES
+ €~~€	iQ	   €\Comment{//   internal trigger queue}€
+ €~~€	eQ	   €\Comment{//   external trigger queue}€
+ €~~€	uc	   €\Comment{//   run to completion flag}€
+ €~~€	dt	   €\Comment{//   dequeued trigger for this run}€
+ INVARIANTS
+ €~~€	iQ ∈ InternalQueueType	   	€\Comment{//   internal queue}€
+ €~~€	eQ ∈ ExternalQueueType	   	€\Comment{//   external queue}€
+ €~~€	uc ∈ BOOL	   				€\Comment{//   completion flag}€
+ €~~€	dt ⊆ SCXML_TRIGGER	   		€\Comment{//   dequeued trigger}€
+ €~~€	dt≠∅ ⇒(∃t·dt={t})			€\Comment{//   at most one dequeued trigger}€
+ EVENTS
+ 	INITIALISATION   €\Comment{// queues empty, completion false, no dequeued triggers}€
+ 			iQ, eQ, uc, dt ≔ ∅,	∅, FALSE, ∅  
+ 	END
 
-% 	SCXML_futureRaiseExternalTrigger      	   //   abstract basis of future event to raise an external trigger
-% 		ANY
-% 			SCXML_raisedTriggers
-% 		WHERE
-% 			typeof_SCXML_raisedTriggers   :   	SCXML_raisedTriggers ⊆ SCXML_FutureExternalTrigger
-% 		THEN
-% 			SCXML_raiseExternalTriggers   :   	SCXML_eq ≔ SCXML_eq ∪ SCXML_raisedTriggers
-% 	END
+ 	futureRaiseExternalTrigger      	   €\Comment{//basis of future event to raise an external trigger}€
+ 		ANY 	raisedTrigger	WHERE raisedTrigger ∈ FutureExternalTrigger
+ 		THEN	eQ≔append(eQ ↦ raisedTrigger)
+ 	END
 
-% 	SCXML_dequeueInternalTrigger      	   //   <INTERNAL> <PRIORITY=9>
-% 		ANY
-% 			SCXML_it
-% 		WHERE
-% 			typeof_SCXML_it   :   	SCXML_it  ∈ SCXML_iq
-% 			SCXML_hasNoDequeuedTriggers   :   	SCXML_dt=  ∅
-% 			SCXML_isComplete   :   	SCXML_uc = TRUE
-% 		THEN
-% 			SCXML_storeDequeuedTrigger   :   	SCXML_dt ≔ {SCXML_it}
-% 			SCXML_consumeDequeuedTrigger   :   	SCXML_iq ≔ SCXML_iq ∖ {SCXML_it}
-% 			SCXML_setNotComplete   :   	SCXML_uc ≔ FALSE
-% 	END
+ 	dequeueInternalTrigger      	   €\Comment{//event to dequeue an internal trigger}€ 
+ 		WHEN	iQ≠∅ & dt=∅ & uc=TRUE 
+ 		THEN	dt≔{head(iQ)}∣  iQ≔tail(iQ) ∣  uc≔FALSE
+ 	END
 
-% 	SCXML_dequeueExternalTrigger      	   //   <INTERNAL> <PRIORITY=9>
-% 		ANY
-% 			SCXML_et
-% 		WHERE
-% 			typeof_SCXML_et   :   	SCXML_et  ∈ SCXML_eq
-% 			SCXML_hasNoDequeuedTriggers   :   	SCXML_dt=  ∅
-% 			SCXML_isComplete   :   	SCXML_uc = TRUE
-% 			SCXML_internalQEmpty   :   	SCXML_iq = ∅
-% 		THEN
-% 			SCXML_storeDequeuedTrigger   :   	SCXML_dt ≔ {SCXML_et}
-% 			SCXML_consumeDequeuedTrigger   :   	SCXML_eq ≔ SCXML_eq ∖ {SCXML_et}
-% 			SCXML_setNotComplete   :   	SCXML_uc ≔ FALSE
-% 	END
+ 	dequeueExternalTrigger      	   €\Comment{//event to dequeue an external trigger}€ 
+ 		WHEN	eQ≠∅ & dt=∅ & uc=TRUE & iqQ∅
+		THEN	dt≔{head(eQ)}∣ eQ≔tail(eQ) ∣ uc≔FALSE
+ 	END
 
-% 	SCXML_futureTriggeredTransitionSet      	   //   abstract basis of future event representing triggered transitions
-% 		ANY
-% 			SCXML_trigger
-% 			SCXML_raisedTriggers
-% 		WHERE
-% 			typeof_SCXML_trigger   :   	SCXML_trigger ∈ SCXML_dt
-% 			SCXML_isNotComplete   :   	SCXML_uc = FALSE
-% 			typeof_SCXML_raisedTriggers   :   	SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger
-% 		THEN
-% 			SCXML_clearDequeuedTriggers   :   	SCXML_dt≔  ∅
-% 			SCXML_raiseInternalTriggers   :   	SCXML_iq ≔ SCXML_iq ∪ SCXML_raisedTriggers
-% 	END
+ 	futureTriggeredTransitionSet      	€\Comment{//basis of future event representing triggered transitions}€
+ 		ANY trigger, raisedTriggers WHERE trigger ∈ dt & uc = FALSE & raisedTriggers ∈ Seq(FutureInternalTrigger)
+ 		THEN	dt≔∅ ∣ iQ≔concat(iQ↦raisedTriggers)
+ 	END
 
-% 	SCXML_noTriggeredTransitionsEnabled      	   //   <INTERNAL> <PRIORITY=9>  - 
-% 		WHEN
-% 			SCXML_isNotComplete   :   	SCXML_uc = FALSE
-% 			SCXML_hasDequeuedTriggers   :   	SCXML_dt≠ ∅
-% 		THEN
-% 			SCXML_clearDequeuedTriggers   :   	SCXML_dt≔  ∅
-% 	END
+ 	noTriggeredTransitionsEnabled      	€\Comment{//event to fire when no triggered transitions enabled}€ 
+ 		WHEN 	uc=FALSE & dt≠∅
+ 		THEN	dt≔∅
+ 	END
 
-% 	SCXML_futureUntriggeredTransitionSet      
-% 		ANY
-% 			SCXML_raisedTriggers
-% 		WHERE
-% 			SCXML_isNotComplete   :   	SCXML_uc = FALSE
-% 			SCXML_hasNoDequeuedTriggers   :   	SCXML_dt=  ∅
-% 			typeof_SCXML_raisedTriggers   :   	SCXML_raisedTriggers ⊆ SCXML_FutureInternalTrigger
-% 		THEN
-% 			SCXML_raiseInternalTriggers   :   	SCXML_iq ≔ SCXML_iq ∪ SCXML_raisedTriggers
-% 	END
+ 	futureUntriggeredTransitionSet      €\Comment{//basis of future event representing untriggered transitions}€
+ 		ANY	raisedTriggers	WHERE	uc=FALSE & dt=∅ & raisedTriggers∈Seq(FutureInternalTrigger)
+ 		THEN iQ≔concat(iQ↦raisedTriggers)
+ 	END
 
-% 	SCXML_NoUntriggeredTransitions      	   //   <INTERNAL> <PRIORITY=9>
-% 		WHEN
-% 			SCXML_isNotComplete   :   	SCXML_uc = FALSE
-% 			SCXML_hasNoDequeuedTriggers   :   	SCXML_dt=  ∅
-% 		THEN
-% 			SCXML_setComplete   :   	SCXML_uc ≔ TRUE
-% 	END
-
-% END
-% \end{lstlisting}
-% \end{lstfloat}
+ 	noUntriggeredTransitionsEnabled      €\Comment{//event fired when no untriggered transitions enabled}€
+ 		WHEN	uc=FALSE & dt=∅
+ 		THEN	uc≔TRUE
+ 	END
+ END
+ \end{lstlisting}
+ \end{lstfloat}
 
 % \begin{lstfloat}[!tb]
 % \begin{lstlisting}[caption={Event-B event corresponding to internal triggered transition to \textbf{Wait50ms} state in refinement level 1 shown in Fig.~\ref{fig:ASIC}}, label={lst:SecBotMach0},language=Event-B, escapechar=|, frame=single, belowskip=-2.0 \baselineskip]
