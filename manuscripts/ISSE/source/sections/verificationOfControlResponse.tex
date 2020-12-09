@@ -3,7 +3,7 @@
 
 \section{Verification of Control Responses}
 \label{sec:verificationResponses}
-\ColinInlineComment{We have some updates to this section... can we relax SF now we have queues?}
+\ColinInlineComment{We have some updates to this section... can we relax SF now we have queues? MAYBE WEAK FAIRNESS IS ENOUGH}
 \ColinInlineComment{We also need to show termination i.e. iQ=empty  and  uc=TRUE... to do this we need to stop future triggers (FT=empty and disable Future UntriggeredTransitions)  and stop external triggers from taking over! i.e. we need a separate machine that gets rid of all the non-determistic stuff thats there for future refinement. This is ok because we only verify this for the current level of the model.. models (hence refinements) are not guaranteed to have these termination properties}   
 
 A model that has been proven to satisfy some invariant (e.g. safety) properties, may still not behave in a useful way.
