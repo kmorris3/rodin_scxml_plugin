@@ -160,32 +160,32 @@ Finalisation is also needed in order to remove non-deterministic behaviours when
 
  	dequeueInternalTrigger      	   €\Comment{//event to dequeue an internal trigger}€ 
  		WHEN	iQ≠∅ & dt=∅ & uc=TRUE 
- 		THEN	dt≔{head(iQ)}∣  iQ≔tail(iQ) ∣  uc≔FALSE
+ 		THEN	dt, iQ, uc ≔ {head(iQ)}, tail(iQ), FALSE
  	END
 
  	dequeueExternalTrigger      	   €\Comment{//event to dequeue an external trigger}€ 
  		WHEN	eQ≠∅ & dt=∅ & uc=TRUE & iqQ∅
-		THEN	dt≔{head(eQ)}∣ eQ≔tail(eQ) ∣ uc≔FALSE
+		THEN	dt, eQ, uc ≔ {head(eQ)}, tail(eQ), FALSE
  	END
 
  	futureTriggeredTransitionSet      	€\Comment{//basis of future event representing triggered transitions}€
  		ANY trigger, raisedTriggers WHERE trigger ∈ dt & uc = FALSE & raisedTriggers ∈ Seq(FutureInternalTrigger)
- 		THEN	dt≔∅ ∣ iQ≔concat(iQ↦raisedTriggers)
+ 		THEN	dt, iQ ≔ ∅ , concat(iQ↦raisedTriggers)
  	END
 
  	noTriggeredTransitionsEnabled      	€\Comment{//event to fire when no triggered transitions enabled}€ 
  		WHEN 	uc=FALSE & dt≠∅
- 		THEN	dt≔∅
+ 		THEN	dt ≔ ∅
  	END
 
  	futureUntriggeredTransitionSet      €\Comment{//basis of future event representing untriggered transitions}€
  		ANY	raisedTriggers	WHERE	uc=FALSE & dt=∅ & raisedTriggers∈Seq(FutureInternalTrigger)
- 		THEN iQ≔concat(iQ↦raisedTriggers)
+ 		THEN iQ ≔ concat(iQ↦raisedTriggers)
  	END
 
  	noUntriggeredTransitionsEnabled      €\Comment{//event fired when no untriggered transitions enabled}€
  		WHEN	uc=FALSE & dt=∅
- 		THEN	uc≔TRUE
+ 		THEN	uc ≔ TRUE
  	END
  END
  \end{lstlisting}
