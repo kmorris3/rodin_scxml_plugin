@@ -6,13 +6,13 @@
 \ColinInlineComment{To have a useful validation we need to supress the non-deterministic stuff for refinement.. can we use the same special versions as we do for the LTL?}
 
 One of the attractions of `run to completion' style modelling languages such as \SCXML is their execution semantics which provides a method for animating models to validate their behaviour.
-Our approach to \SCXML refinement retains a single \SCXML final model which can be animated using the existing \SCXML animation tools.
-However, we would like to validate the developing \UMLB model at intermediate refinement levels.
+Our approach to \SCXML refinement results in a single \SCXML final model which can be animated using the existing \SCXML animation tools.
+However, we would like to validate the developing \UMLB model at intermediate refinement levels. \ColinComment{why? Is it not sufficient to animate the \SCXML}
 
 In previous work~\cite{snook20JSA} we have developed a scenario-based approach to formal modelling using abstract scenarios to validate abstract models.
 The method is supported by a `Scenario Checker' tool, based on the \PROB model checker, that allows scenarios to be recorded and then replayed to check that important state has not changed since the original run of the scenario.
 The Scenario Checker supports the concept of a controller executing a process in response to changes in the environment which is similar to the run to completion concept addressed in our work here.
-Events may be annotated as \emph{internal} to indicate that they should be fired automatically if enabled until none are enabled. 
+Events may be annotated as \emph{internal} to indicate that, when enabled, they should be fired automatically until none remain.
 Internal events may also be prioritised to give a simple representation of process order in the controller (even if it is left non-deterministic in the model).
 The user only has to select external events that trigger the controllers responses.
 Since our \SCXML derived models already contain an implementation of run to completion the support provided by the Scenario Checker is sufficient to validate this behaviour.
