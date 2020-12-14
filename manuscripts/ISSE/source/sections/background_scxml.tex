@@ -3,7 +3,14 @@
 \subsection{SCXML}
 \label{sec:scxml}
 
-\SCXML is a modelling language based on Harel state-charts with facilities for adding data elements that are modified by transition actions and used in conditions for their firing~\cite{scxmlwebsite}. \SCXML follows a `run to completion' semantics, where trigger events\footnote{In \SCXML the triggers are called `events', however, we refer to them as `triggers' to avoid confusion with \EventB} may be needed to enable transitions. Trigger events are queued when they are raised, and then one is de-queued and consumed by firing all the transitions that it enables, followed by any (un-triggered) transitions that then become enabled due to the change of state caused by the initial transition firing. This is repeated until no transitions are enabled, and then the next trigger is de-queued and consumed. There are two kinds of triggers: internal triggers are raised by transitions and external triggers are raised by the environment (non-deterministicly for the purpose of our analysis). 
+\SCXML is a modelling language based on Harel state-charts with facilities for adding data elements that are modified by transition actions and used in conditions for their firing~\cite{scxmlwebsite}. 
+\SCXML follows a `run to completion' semantics, where trigger events\footnote{In \SCXML the triggers are called `events', however, we refer to them as `triggers' to avoid confusion with \EventB} may be needed to enable transitions.
+Trigger events are queued when they are raised, and then one is de-queued and consumed by firing all the transitions that it enables, followed by firing the un-triggered transitions that become enabled due to the change of state caused by the initial transition firing.
+This is repeated until no transitions are enabled, and then the next trigger is de-queued and consumed.
+Note that the enabledness of transitions is calculated batch-wise at each step, not after each and every transition.
+Hence the set of parallel transitions that are enabled by a trigger is calculated and then only those are fired, irrespective of whether firing one may disable or enable another.
+Similarly, the set of parallel untriggered transitions to be fired is calculated at each iteration before any is fired.
+There are two kinds of triggers: internal triggers are raised by transitions and external triggers are raised by the environment (non-deterministicly for the purpose of our analysis). 
 An external trigger may only be consumed when the internal trigger queue has been emptied.
 We chose \SCXML as our source language because it is relatively simple compared to some run to completion modelling languages yet has a well defined action language and simulation tool support.
 
