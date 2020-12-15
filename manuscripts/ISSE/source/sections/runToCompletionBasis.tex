@@ -95,7 +95,9 @@ This will subsequently enable completion and reset the |uc| flag to |TRUE|.
 The abstract event |futureRaiseExternalTrigger| represents the raising  of an external trigger (not shown in the diagram).    
 After completion, a queued trigger can be prepared for consumption by moving it to the dequeued trigger, |dt|.
 Internal triggers have a higher priority, since the external trigger queue is only dequeued if the |iQ| is empty (see |dequeueExternalTriggered| and |dequeueInternalTriggered| in Figure~\ref{fig:basis}).
-The abstract event |futureTriggeredTransitionSet| represents a combination of parallel transitions that are simultaneously triggered by the dequeued trigger, |dt|.
+The abstract event |futureTriggeredTransitionSet| represents a combination of parallel transitions that may be simultaneously triggered by the dequeued trigger, |dt|.
+When the actual example \SCXML is translated, a separate refinement of this abstract event will be generated for each subset of the set of parallel transitions that could fire in parallel in order to cater for all possibilities of enablement, however, as the model is refined some combinations may be eliminated as the guards are strengthened.
+This approach to generating an event for each possible combination of each set of transitions that could fire in parallel is needed because of the batch enabling semantics of the SCXML run to completion (see Section~\ref{sec:scxml}).
 The actions of these transitions may also raise triggers of their own in the internal trigger queue |iQ|.
 
 

@@ -52,7 +52,7 @@ The tool is based on the \EMF and uses an \SCXML meta-model provided by Sirius~\
 The \UMLB state-machine is subsequently translated into \EVENTB using the standard \UMLB translation which provides variables to model the current state and guards and actions to model the state changes that transitions perform.
 % Further details of the translation are given in~\cite{MoSnHo18,MoSnHo-ABZ2020}.
 
-Figure~\ref{fig:drone2UMLB} shows the UML-B model of the drone at refinement level 2 (equivalent to \ref{fig:drone4} without the detail inside TAKEOFF).
+Figure~\ref{fig:drone2UMLB} shows the UML-B model of the drone at refinement level 2 (equivalent to Figure \ref{fig:drone4} without the detail inside TAKEOFF).
 The structure of the state-machine is similar to the \SCXML version with purple shading indicating the previously added states and light blue shading indicating the detail added at this refinement level.
 State invariants (properties that should hold while that state is active) are shown in |TAKEOFF|, |FLY| and |BATTERYOK|.
 Verification of these invariants is discussed in Section~\ref{sec:verificationSafety}.

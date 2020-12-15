@@ -3,11 +3,16 @@
 \subsection{SCXML}
 \label{sec:scxml}
 
-\SCXML is a modelling language based on Harel state-charts with facilities for adding data elements that are modified by transition actions and used in conditions for their firing~\cite{scxmlwebsite}. \SCXML follows a `run to completion' semantics, where trigger events\footnote{In \SCXML the triggers are called `events', however, we refer to them as `triggers' to avoid confusion with \EventB} may be needed to enable transitions. Trigger events are queued when they are raised, and then one is de-queued and consumed by firing all the transitions that it enables, followed by any (un-triggered) transitions that then become enabled due to the change of state caused by the initial transition firing. This is repeated until no transitions are enabled, and then the next trigger is de-queued and consumed. There are two kinds of triggers: internal triggers are raised by transitions and external triggers are raised by the environment (non-deterministicly for the purpose of our analysis). 
+\SCXML is a modelling language based on Harel state-charts with facilities for adding data elements that are modified by transition actions and used in conditions for their firing~\cite{scxmlwebsite}. 
+\SCXML follows a `run to completion' semantics, where trigger events\footnote{In \SCXML the triggers are called `events', however, we refer to them as `triggers' to avoid confusion with \EventB} may be needed to enable transitions.
+Trigger events are queued when they are raised, and then one is de-queued and consumed by firing all the transitions that it enables, followed by firing the un-triggered transitions that become enabled due to the change of state caused by the initial transition firing.
+This is repeated until no transitions are enabled, and then the next trigger is de-queued and consumed.
+Note that the enabledness of transitions is calculated batch-wise at each step, not after each and every transition.
+Hence the set of parallel transitions that are enabled by a trigger is calculated and then only those are fired, irrespective of whether firing one may disable or enable another.
+Similarly, the set of parallel untriggered transitions to be fired is calculated at each iteration before any is fired.
+There are two kinds of triggers: internal triggers are raised by transitions and external triggers are raised by the environment (non-deterministicly for the purpose of our analysis). 
 An external trigger may only be consumed when the internal trigger queue has been emptied.
 We chose \SCXML as our source language because it is relatively simple compared to some run to completion modelling languages yet has a well defined action language and simulation tool support.
-
-\ColinInlineComment{I have added the pseudocode back in because i like it (we removed it for space for detect) }
 
 Listing~\ref{lst:scxml-r2c} shows a pseudocode representation of the run to completion semantics as defined within the latest W3C recommendation document~\cite{scxmlwebsite}. Here IQ and EQ are the triggers present in the internal and external queues respectively. We adopt the commonly used terminology where a single transition is called a \emph{micro-step} and a complete run (between de-queueing external triggers) is referred to as a \emph{macro-step}.
 
@@ -29,6 +34,11 @@ Listing~\ref{lst:scxml-r2c} shows a pseudocode representation of the run to comp
  endwhile 
  \end{lstlisting}
 
+\SCXML does not contain any notion of refinement. 
+A single model contains all details to the finest level hence making it difficult to verify and validate that the model behaves safely and as intended.
+Our aim in this work is to support formal refinement of \SCXML models so that verification can be carried out at abstract levels before all details are present.
+However, applying the refinement rules in the presence of the run to completion semantics is not straightforward.
+For example, if we apply Rule A (see Section~\ref{sec:intro}) to a transition, it is more easily disabled causing the run to complete earlier (i.e. completion has a weaker guard), breaking Rule A.
 
 
 %%% Local Variables: 
