@@ -25,14 +25,16 @@
     <org.eventb.core.axiom name="_WoIKAy5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="Seq_head-type" org.eventb.core.predicate="Seq_head ∈ Seq(SCXML_TRIGGER) ∖ {∅} → SCXML_TRIGGER" org.eventb.core.theorem="true"/>
     <org.eventb.core.axiom name="_WoIKBC5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="Seq_tail-def" org.eventb.core.predicate="Seq_tail = (λs · s ∈ Seq(SCXML_TRIGGER) ∧ s ≠ ∅ ∣ {i ↦ v ∣ i ∈ 0 ‥ Seq_length(s) − 2 ∧ v = s(i+1)} )"/>
     <org.eventb.core.axiom name="_WoIKBS5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="Seq_tail-type" org.eventb.core.predicate="Seq_tail ∈ Seq(SCXML_TRIGGER) ∖ {∅} → Seq(SCXML_TRIGGER)" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_WoIxES5dEeuetqa88bjbPj" org.eventb.core.label="Seq_content-def" org.eventb.core.predicate="Seq_content = (λs · s ∈ Seq(SCXML_TRIGGER) ∣ ran(s))"/>
-    <org.eventb.core.axiom name="_WoIxES5dEeuetqa88bjbPk" org.eventb.core.label="Seq_content-type" org.eventb.core.predicate="Seq_content ∈ Seq(SCXML_TRIGGER) → ℙ(SCXML_TRIGGER)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_WoIxES5dEeuetqa88bjbPj" org.eventb.core.generated="false" org.eventb.core.label="Seq_content-def" org.eventb.core.predicate="Seq_content = (λs · s ∈ Seq(SCXML_TRIGGER) ∣ ran(s))"/>
+    <org.eventb.core.axiom name="_WoIxES5dEeuetqa88bjbPk" org.eventb.core.generated="false" org.eventb.core.label="Seq_content-type" org.eventb.core.predicate="Seq_content ∈ Seq(SCXML_TRIGGER) → ℙ(SCXML_TRIGGER)" org.eventb.core.theorem="true"/>
     <org.eventb.core.axiom name="_0xNO0C9MEeuA7oboPvUhLA" org.eventb.core.generated="false" org.eventb.core.label="th_headUtail" org.eventb.core.predicate="∀s·s∈Seq(SCXML_TRIGGER)  ⇒ ran(s) = {Seq_head(s)} ∪ ran(Seq_tail(s))" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_WoIxES5dEeuetqa88bjbPi" org.eventb.core.label="th_concat" org.eventb.core.predicate="∀s1,s2·s1∈Seq(SCXML_TRIGGER) ∧ s2∈Seq(SCXML_TRIGGER) ⇒ ran(Seq_concat(s1↦s2)) = ran(s1) ∪ ran(s2)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_WoIxES5dEeuetqa88bjbPi" org.eventb.core.generated="false" org.eventb.core.label="th_concat" org.eventb.core.predicate="∀s1,s2·s1∈Seq(SCXML_TRIGGER) ∧ s2∈Seq(SCXML_TRIGGER) ⇒ ran(Seq_concat(s1↦s2)) = ran(s1) ∪ ran(s2)" org.eventb.core.theorem="true"/>
     <org.eventb.core.axiom name="_WoIxEC5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="intQ" org.eventb.core.predicate="InternalQueueType = Seq(SCXML_FutureInternalTrigger)"/>
     <org.eventb.core.axiom name="_WoIxES5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.label="extQ" org.eventb.core.predicate="ExternalQueueType = Seq(SCXML_FutureExternalTrigger)"/>
-    <org.eventb.core.axiom name="_WoIxES5dEeuetqa88bjbPh" org.eventb.core.label="axm2" org.eventb.core.predicate="InternalQueueType ⊆ Seq(SCXML_TRIGGER)"/>
-    <org.eventb.core.constant name="_WoIxES5dEeuetqa88bjbPl" org.eventb.core.identifier="Seq_content"/>
+    <org.eventb.core.axiom name="_WoIxES5dEeuetqa88bjbPh" org.eventb.core.generated="false" org.eventb.core.label="axm2" org.eventb.core.predicate="InternalQueueType ⊆ Seq(SCXML_TRIGGER)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.constant name="_WoIxES5dEeuetqa88bjbPl" org.eventb.core.generated="false" org.eventb.core.identifier="Seq_content"/>
     <org.eventb.core.constant name="_WoFtxi5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.identifier="InternalQueueType"/>
     <org.eventb.core.constant name="_WoFtxy5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.identifier="ExternalQueueType"/>
+    <org.eventb.core.axiom name="_WoIxES5dEeuetqa88bjbPm" org.eventb.core.label="th_headContent" org.eventb.core.predicate="∀s, T · T ⊆ SCXML_TRIGGER ∧ s ∈ Seq(T) ∧ s ≠ ∅ ⇒ Seq_head(s) ∈ T" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_WoIxES5dEeuetqa88bjbPn" org.eventb.core.label="th_lengthTail" org.eventb.core.predicate="∀s· s ∈ Seq(SCXML_TRIGGER) ∧ s ≠ ∅ ⇒ Seq_length(Seq_tail(s)) = Seq_length(s) − 1" org.eventb.core.theorem="true"/>
 </org.eventb.core.contextFile>
