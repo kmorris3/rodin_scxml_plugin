@@ -26,7 +26,7 @@ At each refinement these trigger sets are further partitioned to introduce more 
 leaving a new abstract set to represent the remaining triggers yet to be introduced. 
 
 The context also models \emph{sequences} of triggers as a data type to be used for the trigger queues.
-Our initial work modelled queues abstractly as sets of triggers which was adequate for most verification purposes but does not enforce fairness on trigger consumption. 
+Our initial work modelled queues abstractly as sets of triggers which was adequate for most verification purposes but does not enforce fairness on trigger consumption~\cite{MoSnHo18,MoSnHo-ABZ2020,detect2020}. 
 Hence we were forced to introduce fairness assumptions regarding trigger consumption in order to verify liveness properties.
 In this paper we introduce sequences to properly model the trigger queues which are an implementation of this fairness property. 
 Note that the queue also enables the same trigger to be raised twice in the queue which was not possible in a set.
@@ -88,11 +88,11 @@ the queue of internal triggers raised by actions within the model, |iQ|,
 the queue of external triggers raised by the environment, |eQ|,
 and a flag, |uc|, that signals when a run to completion macro-step has been completed 
 (no un-triggered transitions are enabled). 
-Note that, for convenience, the currently dequeued trigger is modelled as a singleton set which may be empty (i.e. consumed) or contain the single trigger to be consumed.
+Note that, for convenience, the currently dequeued trigger, |dt|, is modelled as a singleton set which may be empty (i.e. consumed) or contain the single trigger to be consumed.
 
 The trigger queues and dequeued trigger are initialised to empty and |uc| is set to |FALSE| so that any enabled un-triggered transitions are dealt with via the |futureUntriggeredTransitionSet| event when the system first starts (see Listing~\ref{lst:scxml-r2c}).
 This will subsequently enable completion and reset the |uc| flag to |TRUE|.
-The abstract event |futureRaiseExternalTrigger| represents the raising  of an external trigger (not shown in the diagram).    
+The abstract event |futureRaiseExternalTrigger| represents the raising  of an external trigger (not shown in figure~\ref{fig:basis}).    
 After completion, a queued trigger can be prepared for consumption by moving it to the dequeued trigger, |dt|.
 Internal triggers have a higher priority, since the external trigger queue is only dequeued if the |iQ| is empty (see |dequeueExternalTriggered| and |dequeueInternalTriggered| in Figure~\ref{fig:basis}).
 The abstract event |futureTriggeredTransitionSet| represents a combination of parallel transitions that may be simultaneously triggered by the dequeued trigger, |dt|.
