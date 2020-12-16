@@ -1,16 +1,130 @@
 % !TEX root = ../main.tex
-
-
 \section{Verification of Control Responses}
 \label{sec:verificationResponses}
-\ColinInlineComment{We have some updates to this section... can we relax SF now we have queues? MAYBE WEAK FAIRNESS IS ENOUGH}
-\ColinInlineComment{We also need to show termination i.e. iQ=empty  and  uc=TRUE... to do this we need to stop future triggers (FT=empty and disable Future UntriggeredTransitions)  and stop external triggers from taking over! i.e. we need a separate machine that gets rid of all the non-determistic stuff thats there for future refinement. This is ok because we only verify this for the current level of the model.. models (hence refinements) are not guaranteed to have these termination properties}   
 
 A model that has been proven to satisfy some invariant (e.g. safety) properties, may still not behave in a useful way.
 Therefore, as well as verifying invariant properties, we would like to verify the system's responsiveness.  
 That is, we want to ensure that the controller responds to external triggers to make appropriate modifications to the system variables. 
-These kind of live responses are difficult to prove via invariant preservation since they are temporal properties. 
-While \EventB refinements have also been shown to preserve some liveness properties under certain conditions~\cite{hoang2016ltl}, there are not yet efficient supporting tools for the technique.
+These kind of live responses are difficult to prove via invariant
+preservation since they are temporal properties.  In this section, we
+present our approach to very the responsive properties of the system.
+
+
+% Different set of events
+In our \EventB model, the events can be separated into the following
+categories
+\begin{itemize}
+\item \emph{Extenal events}: These events raise external triggers,
+  e.g. |ExternalTriggerEvent_toTakeoff|,
+  |ExternalTriggerEvent_decreaseCharge| etc.
+  
+\item \emph{Future events}: These events might raise external triggers or
+  internal triggers, i.e., |SCXML_futureRaiseExternalTrigger|,
+  |SCXML_futureTriggeredTransitionSet|, and
+  |SCXML_futureUntriggeredTransitionSet|.  The purpose of these events
+  is for future introduction of more system details via refinement.
+  
+\item \emph{Dequeue External Trigger} (i.e.,
+  |SCXML_dequeueExternalTrigger|): This event dequeue the head of the
+  external triggers queue (if any) and will start a run. This event
+  can be seen in Figure~\ref{fig:basis}.
+
+\item \emph{Internal events}: These events belong to the internal of
+  the system to accommodate the runs for external extriggers.  These
+  events can be seen in different groups as in Figure~\ref{fig:basis}.
+  \begin{itemize}
+  \item \emph{Dequeue Internal Trigger} (i.e.,
+    |SCXML_dequeueInternalTrigger|)
+    
+  \item \emph{Fire Triggered}. Triggered events corresponding
+    to the dequeued (external or internal) trigger.
+
+  \item \emph{No Triggered Enabled}, i.e., |SCXML_noTriggeredTransitionsEnabled|. 
+    This event will move system from the \emph{Firing Triggered} state to
+    the \emph{Firing Untriggered} state in the case where no triggered
+    events are enabled.
+    
+  \item \emph{Fire Untriggered}.  Untriggered events in the systems.
+
+  \item \emph{Completion event}, i.e.,
+    |SCXML_noUntriggeredTransitionsEnabled|. This event will move the
+    system from \emph{Firing Untriggered} state to the \emph{Ready to
+      Dequeue} state in the case where no untriggered events are enabled.
+\end{itemize}
+\end{itemize}
+\SonInlineComment{We only need to ignore the futureRaisedTriggers events}
+
+
+
+\ColinInlineComment{We have some updates to this section... can we relax SF now we have queues? MAYBE WEAK FAIRNESS IS ENOUGH}
+\SonInlineComment{What fairness assumption that we are going to use here.}
+
+\subsection{Termination of Responses for External Triggers}
+\label{sec:contr-rema-resp}
+
+In this sections, we discuss our verification for the termination of
+responses to external triggers, that is for every dequeued external
+trigger, eventually, the systems will completely process this external
+trigger and return to the state where a new external trigger (if any)
+can be processed.  Formally, the property can be specified as
+follows. For all external trigger |t|, i.e., |t !: ExternalTriggers|, 
+\begin{center}
+  |G(dt = {t} => F(iQ = {} & uc = TRUE & dt = {})|~,
+\end{center}
+where $G$ denotes the \emph{globally} temporary operator and $F$
+denotes the \emph{finally} temporal operator.  Notice that when |uc = TRUE & dt = {}|, the system is in the |READY TO DE-QUEUE| state
+(Figure~\ref{fig:basis}).  Given |iQ = {}|, the system will stay in
+this |READY TO DE-QUEUE| state until an external trigger is dequeued.
+\begin{center}
+  |G(t = head(eQ) => F(iQ = {} & uc = TRUE & dt = {})|~,
+\end{center}
+Subsequently, we can have
+\begin{center}
+  |G(t !: eQ => F(iQ = {} & uc = TRUE & dt = {})|~,
+\end{center}
+\SonComment{Number these and create theorems}
+
+\begin{theorem}
+  For all external trigger |t !: ExternalTriggers|, we have
+  \begin{center}
+    |G(dt = {t} => F(iQ = {} & uc = TRUE & dt = {})|~.
+  \end{center}
+\end{theorem}
+
+\begin{theorem}
+  Under the condition |!not(iQ = {} & uc = TRUE & dt = {})|, the system is
+  deadlock-free, i.e., there is one internal events
+  \SonComment{What are internal events} that is enabled.
+\end{theorem}
+\begin{proof}
+  Construction of the model.
+\end{proof}
+
+\begin{corollary}
+  Under the condition |!not(iQ = {} & uc = TRUE & dt = {})|, assuming that
+  the internal events are strongly fair, eventually, one of the
+  internal events is taken.
+  \begin{center}
+    |G(!not(iQ = {} & uc = TRUE & dt = {})) => F([iE])|~.
+  \end{center}
+\end{corollary}
+
+
+\begin{theorem}
+  \begin{center}
+    |G(!not(iQ = {} & uc = TRUE & dt = {})) => F(!not(e(iE))|~.
+  \end{center}
+\end{theorem}
+
+
+\ColinInlineComment{We also need to show termination i.e. iQ=empty  and  uc=TRUE... to do this we need to stop future triggers (FT=empty and disable Future UntriggeredTransitions)  and stop external triggers from taking over! i.e. we need a separate machine that gets rid of all the non-determistic stuff thats there for future refinement. This is ok because we only verify this for the current level of the model.. models (hence refinements) are not guaranteed to have these termination properties}   
+
+
+\subsection{Correct Responses to External Triggers}
+\label{sec:corr-resp-extern}
+
+While \EventB refinements have also been shown to preserve some liveness properties under certain conditions~\cite{hoang2016ltl}, there are not yet efficient supporting tools for the technique.%
+\SonComment{We probably need to move this to related work}
 Instead, we can express the property in \LTL  and use the \PROB\footnote{ProB is an animator, constraint solver and model checker for the B-Method. https://www3.hhu.de/stups/prob} model checker to verify it.
 
 In general, our liveness properties will have the following form:
