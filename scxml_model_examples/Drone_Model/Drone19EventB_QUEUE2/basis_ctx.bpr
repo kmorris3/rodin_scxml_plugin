@@ -176,38 +176,39 @@
         <org.eventb.core.prPred name="p9" org.eventb.core.predicate="Seq∈ℙ(SCXML_TRIGGER) ⇸ ℙ(ℙ(ℤ × SCXML_TRIGGER))"/>
         <org.eventb.core.prPred name="p12" org.eventb.core.predicate="(λs⦂ℙ(ℤ×SCXML_TRIGGER)·s∈Seq(SCXML_TRIGGER) ∣ card(s))∈Seq(SCXML_TRIGGER) → ℕ"/>
         <org.eventb.core.prPred name="p20" org.eventb.core.predicate="(λs⦂ℙ(ℤ×SCXML_TRIGGER)·∃n⦂ℤ·n∈ℕ∧s∈0 ‥ n − 1 → SCXML_TRIGGER ∣ card(s))∈{n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → SCXML_TRIGGER ∣ s} → ℕ"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
     </org.eventb.core.prProof>
-    <org.eventb.core.prProof name="Seq_length-card/WD" org.eventb.core.confidence="0" org.eventb.core.prFresh="s,n" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="SCXML_TRIGGER">
+    <org.eventb.core.prProof name="Seq_length-card/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="s,n" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9" org.eventb.core.prSets="SCXML_TRIGGER">
         <org.eventb.core.lang name="L"/>
         <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SCXML_TRIGGER,SCXML_FutureInternalTrigger,SCXML_FutureExternalTrigger))" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4,p5"/>
-                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p4,p5"/>
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p10,p11"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p10,p11"/>
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="p8,p9" org.eventb.core.prInfHyps="p7"/>
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p9" org.eventb.core.prHyps="p3,p7" org.eventb.core.prInfHyps="p12"/>
                         <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
                             <org.eventb.core.prAnte name="'">
-                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p10"/>
+                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p12" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p13"/>
                                 <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
                                     <org.eventb.core.prAnte name="'">
-                                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p11"/>
+                                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p8" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p14"/>
                                         <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees n,s)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p12">
+                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p15">
                                                 <org.eventb.core.prIdent name="n" org.eventb.core.type="ℤ"/>
                                                 <org.eventb.core.prIdent name="s" org.eventb.core.type="ℙ(ℤ×SCXML_TRIGGER)"/>
-                                                <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p12" org.eventb.core.prHyps="">
-                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p15" org.eventb.core.prHyps="p13,p14">
-                                                        <org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with Seq_length=(λs·s∈Seq(SCXML_TRIGGER) ∣ card(s))" org.eventb.core.prHyps="p1">
+                                                <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p15" org.eventb.core.prHyps="">
+                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p18" org.eventb.core.prHyps="p16,p17">
+                                                        <org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with Seq_length=(λs·s∈Seq(SCXML_TRIGGER) ∣ card(s))" org.eventb.core.prHyps="p2">
                                                             <org.eventb.core.prAnte name="'">
-                                                                <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p16" org.eventb.core.prInfHyps="p17"/>
-                                                                <org.eventb.core.prHypAction name="DESELECT1" org.eventb.core.prHyps="p16"/>
-                                                                <org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with Seq=(λT·⊤ ∣ {n,s·n∈ℕ∧s∈0 ‥ n − 1 → T ∣ s})" org.eventb.core.prHyps="p11">
+                                                                <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p5" org.eventb.core.prInfHyps="p19"/>
+                                                                <org.eventb.core.prHypAction name="DESELECT1" org.eventb.core.prHyps="p5"/>
+                                                                <org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with Seq=(λT·⊤ ∣ {n,s·n∈ℕ∧s∈0 ‥ n − 1 → T ∣ s})" org.eventb.core.prHyps="p14">
                                                                     <org.eventb.core.prAnte name="'">
                                                                         <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p18" org.eventb.core.prInfHyps="p19"/>
                                                                         <org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p10" org.eventb.core.prInfHyps="p20"/>
@@ -216,9 +217,10 @@
                                                                         <org.eventb.core.prHypAction name="DESELECT4" org.eventb.core.prHyps="p18,p10,p1,p17"/>
                                                                         <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
                                                                             <org.eventb.core.prAnte name="'">
-                                                                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p20" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
-                                                                                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p21" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
-                                                                                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p22" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
+                                                                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p21" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
+                                                                                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p22" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p25"/>
+                                                                                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p23" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p26"/>
+                                                                                <org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ProB (no enumeration / all cases checked)" org.eventb.core.prGoal="p18" org.eventb.core.prHyps="p23,p16,p20,p24,p3,p4,p12,p21,p6,p14,p8,p10,p22,p9,p1,p2,p11,p13,p25,p5,p17,p7,p19,p26"/>
                                                                             </org.eventb.core.prAnte>
                                                                         </org.eventb.core.prRule>
                                                                     </org.eventb.core.prAnte>
@@ -238,29 +240,26 @@
             </org.eventb.core.prAnte>
             <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
+        <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
         <org.eventb.core.prIdent name="Seq" org.eventb.core.type="ℙ(ℙ(SCXML_TRIGGER)×ℙ(ℙ(ℤ×SCXML_TRIGGER)))"/>
         <org.eventb.core.prIdent name="Seq_length" org.eventb.core.type="ℙ(ℙ(ℤ×SCXML_TRIGGER)×ℤ)"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="n∈ℕ">
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="n∈ℕ">
             <org.eventb.core.prIdent name="n" org.eventb.core.type="ℤ"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="Seq=(λT⦂ℙ(SCXML_TRIGGER)·⊤ ∣ {n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → T ∣ s})"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger">
-            <org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
-            <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="Seq_length=(λs⦂ℙ(ℤ×SCXML_TRIGGER)·s∈(λT⦂ℙ(SCXML_TRIGGER)·⊤ ∣ {n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → T ∣ s})(SCXML_TRIGGER) ∣ card(s))"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="finite(SCXML_TRIGGER)"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="Seq=(λT⦂ℙ(SCXML_TRIGGER)·⊤ ∣ {n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → T ∣ s})"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="SCXML_TRIGGER=SCXML_FutureInternalTrigger∪SCXML_FutureExternalTrigger"/>
+        <org.eventb.core.prPred name="p22" org.eventb.core.predicate="Seq_length=(λs⦂ℙ(ℤ×SCXML_TRIGGER)·s∈(λT⦂ℙ(SCXML_TRIGGER)·⊤ ∣ {n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → T ∣ s})(SCXML_TRIGGER) ∣ card(s))"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → SCXML_TRIGGER⇒finite(s)"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="finite(s)">
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="finite(s)">
             <org.eventb.core.prIdent name="s" org.eventb.core.type="ℙ(ℤ×SCXML_TRIGGER)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="Seq∈ℙ(SCXML_TRIGGER) → ℙ(ℕ ⇸ SCXML_TRIGGER)"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))">
-            <org.eventb.core.prIdent name="SCXML_FutureExternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
-            <org.eventb.core.prIdent name="SCXML_FutureInternalTrigger" org.eventb.core.type="ℙ(SCXML_TRIGGER)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p24" org.eventb.core.predicate="Seq_length=(λs⦂ℙ(ℤ×SCXML_TRIGGER)·∃n⦂ℤ·n∈ℕ∧s∈0 ‥ n − 1 → SCXML_TRIGGER ∣ card(s))"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="Seq_length∈Seq(SCXML_TRIGGER) → ℕ"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="s∈0 ‥ n − 1 → SCXML_TRIGGER">
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="Seq∈ℙ(SCXML_TRIGGER) → ℙ(ℕ ⇸ SCXML_TRIGGER)"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="SCXML_FutureInternalTrigger∩SCXML_FutureExternalTrigger=(∅ ⦂ ℙ(SCXML_TRIGGER))"/>
+        <org.eventb.core.prPred name="p25" org.eventb.core.predicate="Seq_length=(λs⦂ℙ(ℤ×SCXML_TRIGGER)·∃n⦂ℤ·n∈ℕ∧s∈0 ‥ n − 1 → SCXML_TRIGGER ∣ card(s))"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="Seq_length∈Seq(SCXML_TRIGGER) → ℕ"/>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="s∈0 ‥ n − 1 → SCXML_TRIGGER">
             <org.eventb.core.prIdent name="n" org.eventb.core.type="ℤ"/>
             <org.eventb.core.prIdent name="s" org.eventb.core.type="ℙ(ℤ×SCXML_TRIGGER)"/>
         </org.eventb.core.prPred>
@@ -801,7 +800,8 @@
         <org.eventb.core.prPred name="p12" org.eventb.core.predicate="∀s⦂ℙ(ℤ×SCXML_TRIGGER),t⦂SCXML_TRIGGER·⊤∧⊤∧(s∈Seq(SCXML_TRIGGER)∧t∈SCXML_TRIGGER⇒(∀i⦂ℤ·s∈dom(Seq_length)∧Seq_length∈ℙ(ℤ × SCXML_TRIGGER) ⇸ ℤ∧(i∈0 ‥ Seq_length(s)∧i&lt;Seq_length(s)⇒i∈dom(s)∧s∈ℤ ⇸ SCXML_TRIGGER)))"/>
         <org.eventb.core.prPred name="p19" org.eventb.core.predicate="∀s⦂ℙ(ℤ×SCXML_TRIGGER)·s∈Seq(SCXML_TRIGGER)⇒s∈dom(Seq_length)∧Seq_length∈ℙ(ℤ × SCXML_TRIGGER) ⇸ ℤ∧(∀i⦂ℤ·i∈0 ‥ Seq_length(s)∧i&lt;Seq_length(s)⇒i∈dom(s)∧s∈ℤ ⇸ SCXML_TRIGGER)"/>
         <org.eventb.core.prPred name="p33" org.eventb.core.predicate="(λs⦂ℙ(ℤ×SCXML_TRIGGER)·∃n⦂ℤ·n∈ℕ∧s∈0 ‥ n − 1 → SCXML_TRIGGER ∣ card(s))∈{n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → SCXML_TRIGGER ∣ s} → ℕ"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
@@ -1522,7 +1522,8 @@
         <org.eventb.core.prPred name="p44" org.eventb.core.predicate="Seq_concat=(λs1⦂ℙ(ℤ×SCXML_TRIGGER) ↦ s2⦂ℙ(ℤ×SCXML_TRIGGER)·(∃n⦂ℤ·n∈ℕ∧s1∈0 ‥ n − 1 → SCXML_TRIGGER)∧(∃n⦂ℤ·n∈ℕ∧s2∈0 ‥ n − 1 → SCXML_TRIGGER) ∣ {i⦂ℤ,v⦂SCXML_TRIGGER·i∈0 ‥ card(s1)+card(s2) − 1∧(i&lt;card(s1)⇒v=s1(i))∧(i≥card(s1)⇒v=s2(i − card(s1))) ∣ i ↦ v})"/>
         <org.eventb.core.prPred name="p43" org.eventb.core.predicate="(λs⦂ℙ(ℤ×SCXML_TRIGGER)·∃n⦂ℤ·n∈ℕ∧s∈0 ‥ n − 1 → SCXML_TRIGGER ∣ card(s))∈{n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → SCXML_TRIGGER ∣ s} → ℕ"/>
         <org.eventb.core.prPred name="p39" org.eventb.core.predicate="Seq_concat∈(λT⦂ℙ(SCXML_TRIGGER)·⊤ ∣ {n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → T ∣ s})(SCXML_TRIGGER) × (λT⦂ℙ(SCXML_TRIGGER)·⊤ ∣ {n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → T ∣ s})(SCXML_TRIGGER) → (λT⦂ℙ(SCXML_TRIGGER)·⊤ ∣ {n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → T ∣ s})(SCXML_TRIGGER)"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
@@ -1993,7 +1994,8 @@
         <org.eventb.core.prPred name="p55" org.eventb.core.predicate="Seq_concat=(λs1⦂ℙ(ℤ×SCXML_TRIGGER) ↦ s2⦂ℙ(ℤ×SCXML_TRIGGER)·(∃n⦂ℤ·n∈ℕ∧s1∈0 ‥ n − 1 → SCXML_TRIGGER)∧(∃n⦂ℤ·n∈ℕ∧s2∈0 ‥ n − 1 → SCXML_TRIGGER) ∣ {i⦂ℤ,v⦂SCXML_TRIGGER·i∈0 ‥ card(s1)+card(s2) − 1∧(i&lt;card(s1)⇒v=s1(i))∧(i≥card(s1)⇒v=s2(i − card(s1))) ∣ i ↦ v})"/>
         <org.eventb.core.prPred name="p54" org.eventb.core.predicate="(λs⦂ℙ(ℤ×SCXML_TRIGGER)·∃n⦂ℤ·n∈ℕ∧s∈0 ‥ n − 1 → SCXML_TRIGGER ∣ card(s))∈{n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → SCXML_TRIGGER ∣ s} → ℕ"/>
         <org.eventb.core.prPred name="p43" org.eventb.core.predicate="Seq_concat∈(λT⦂ℙ(SCXML_TRIGGER)·⊤ ∣ {n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → T ∣ s})(SCXML_TRIGGER) × (λT⦂ℙ(SCXML_TRIGGER)·⊤ ∣ {n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → T ∣ s})(SCXML_TRIGGER) → (λT⦂ℙ(SCXML_TRIGGER)·⊤ ∣ {n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → T ∣ s})(SCXML_TRIGGER)"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
@@ -2599,7 +2601,8 @@
         <org.eventb.core.prPred name="p65" org.eventb.core.predicate="Seq_concat=(λs1⦂ℙ(ℤ×SCXML_TRIGGER) ↦ s2⦂ℙ(ℤ×SCXML_TRIGGER)·(∃n⦂ℤ·n∈ℕ∧s1∈0 ‥ n − 1 → SCXML_TRIGGER)∧(∃n⦂ℤ·n∈ℕ∧s2∈0 ‥ n − 1 → SCXML_TRIGGER) ∣ {i⦂ℤ,v⦂SCXML_TRIGGER·i∈0 ‥ card(s1)+card(s2) − 1∧(i&lt;card(s1)⇒v=s1(i))∧(i≥card(s1)⇒v=s2(i − card(s1))) ∣ i ↦ v})"/>
         <org.eventb.core.prPred name="p64" org.eventb.core.predicate="(λs⦂ℙ(ℤ×SCXML_TRIGGER)·∃n⦂ℤ·n∈ℕ∧s∈0 ‥ n − 1 → SCXML_TRIGGER ∣ card(s))∈{n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → SCXML_TRIGGER ∣ s} → ℕ"/>
         <org.eventb.core.prPred name="p51" org.eventb.core.predicate="Seq_concat∈(λT⦂ℙ(SCXML_TRIGGER)·⊤ ∣ {n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → T ∣ s})(SCXML_TRIGGER) × (λT⦂ℙ(SCXML_TRIGGER)·⊤ ∣ {n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → T ∣ s})(SCXML_TRIGGER) → (λT⦂ℙ(SCXML_TRIGGER)·⊤ ∣ {n⦂ℤ,s⦂ℙ(ℤ×SCXML_TRIGGER)·n∈ℕ∧s∈0 ‥ n − 1 → T ∣ s})(SCXML_TRIGGER)"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
