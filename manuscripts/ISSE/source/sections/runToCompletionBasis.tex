@@ -19,7 +19,7 @@ the run to completion semantics on the model transitions.
 \end{figure}
 
 The specification of this basis consists of an \EVENTB \emph{context} and \emph{machine} that are the same for all input models and are refined by the specific output of the translation.  
-The basis context (\ref{lst:BasisContext}) introduces a set of all possible triggers, |SCXML_TRIGGER| which is partitioned into internal and external triggers 
+The basis context, shown in listing \ref{lst:BasisContext}, introduces a set of all possible triggers, |SCXML_TRIGGER| which is partitioned into internal and external triggers 
 (e.g |FutureInternalTrigger| and |FutureExternalTrigger| respectively), 
 some of which will be introduced in future refinements. 
 At each refinement these trigger sets are further partitioned to introduce more concrete triggers, 
