@@ -65,13 +65,11 @@ Since this transition fires when |BATTERYOK = TRUE| (i.e. its source state) and 
 The safety property of the |TAKEOFF| and |FLY| states can now be simply stated as |BATTERYOK = TRUE|. 
 However, since this relies on a particular internal trigger (|toLand|) to make the appropriate reaction, we also need to specify that trigger as an attribute of the invariant in the \SCXML model.
 After translation to \EVENTB via \UMLB the invariant in state |TAKEOFF| becomes 
+
 \begin{center}
- |(TAKEOFF = TRUE) ⇒ (toLand∈iQ ∨ toLand∈dt ∨ BATTERYOK=TRUE)|.
+ |(TAKEOFF = TRUE) ⇒ (toLand !: content(iQ) ∨ toLand∈dt ∨ BATTERYOK=TRUE)|.
 \end{center}
-\KarlaInlineComment{I think the property needs to be revised}
-\begin{center}
- |(TAKEOFF = TRUE) ⇒ ({toLand} <: content(iQ) ∨ toLand∈dt ∨ BATTERYOK=TRUE)|.
-\end{center}
+
 The invariant for the |FLY| state is similar with a corresponding antecedent.
 The transitions that enter |TAKEOFF| (which make the antecedent true) simultaneously enter |BATTERYOK| ensure the consequent is true.
 The only transition that enters |FLY| (which makes the antecedent of the |FLY| invariant true) comes from the |TAKEOFF| state and hence the consequent is already true.

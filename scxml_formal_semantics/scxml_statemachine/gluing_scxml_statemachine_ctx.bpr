@@ -1,75 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.prFile version="1">
-    <org.eventb.core.prProof name="finalised/WD" org.eventb.core.confidence="0" org.eventb.core.prFresh="tr" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46,p47,p48,p49,p50,p51,p52,p53,p54,p55,p56,p57,p58,p59,p60,p61,p62,p63,p64,p65,p66,p67,p68,p69,p70,p71,p72,p73,p74,p75,p76,p77,p78,p79,p80" org.eventb.core.prSets="STATE,TRANSITION,TRIGGERS">
+    <org.eventb.core.prProof name="finalised/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="t" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="TRANSITION">
         <org.eventb.core.lang name="L"/>
         <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger}))" org.eventb.core.prHyps="">
             <org.eventb.core.prAnte name="'">
-                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p81,p82,p83,p84"/>
-                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p81,p82,p83,p84"/>
+                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4,p5,p6"/>
+                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p3,p4,p5,p6"/>
                 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
                     <org.eventb.core.prAnte name="'">
-                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="p60" org.eventb.core.prInfHyps="p85"/>
-                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p49" org.eventb.core.prHyps="p18" org.eventb.core.prInfHyps="p86"/>
+                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="p9" org.eventb.core.prInfHyps="p8"/>
+                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p10" org.eventb.core.prHyps="p12" org.eventb.core.prInfHyps="p11"/>
                         <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
                             <org.eventb.core.prAnte name="'">
-                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p84"/>
-                                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p83"/>
-                                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p59" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p87"/>
-                                <org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p36" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p88"/>
-                                <org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p9" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p89"/>
-                                <org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p85" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p90"/>
-                                <org.eventb.core.prHypAction name="REWRITE6" org.eventb.core.prHidden="p86" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p91"/>
+                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p6"/>
+                                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+                                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p16"/>
+                                <org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p18"/>
+                                <org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p20"/>
+                                <org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p8" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p21"/>
+                                <org.eventb.core.prHypAction name="REWRITE6" org.eventb.core.prHidden="p11" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
                                 <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="remove ¬ in ¬(∀p·¬([[1]]⊆p∧p;p⊆p))" org.eventb.core.prHyps="">
                                     <org.eventb.core.prAnte name="'">
-                                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p87" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p92"/>
-                                        <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p92"/>
+                                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p23"/>
+                                        <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p23"/>
                                         <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="remove ¬ in ¬¬([[1]]⊆[[0]]∧[[0]];[[0]]⊆[[0]])" org.eventb.core.prHyps="">
                                             <org.eventb.core.prAnte name="'">
-                                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p92" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p93"/>
-                                                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p93"/>
+                                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p23" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24"/>
+                                                <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p24"/>
                                                 <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
                                                     <org.eventb.core.prAnte name="'">
-                                                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p70" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p94"/>
-                                                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p79" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p95"/>
-                                                        <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p96"/>
-                                                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p97"/>
-                                                        <org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p98"/>
-                                                        <org.eventb.core.prHypAction name="HIDE5" org.eventb.core.prHyps="p99"/>
-                                                        <org.eventb.core.prHypAction name="HIDE6" org.eventb.core.prHyps="p100"/>
-                                                        <org.eventb.core.prHypAction name="REWRITE7" org.eventb.core.prHidden="p90" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p101"/>
-                                                        <org.eventb.core.prHypAction name="REWRITE8" org.eventb.core.prHidden="p91" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p102"/>
-                                                        <org.eventb.core.prHypAction name="REWRITE9" org.eventb.core.prHidden="p93" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p103"/>
+                                                        <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p25" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p26"/>
+                                                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p27" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p28"/>
+                                                        <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p29" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p30"/>
+                                                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p31"/>
+                                                        <org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p32"/>
+                                                        <org.eventb.core.prHypAction name="HIDE5" org.eventb.core.prHyps="p33"/>
+                                                        <org.eventb.core.prHypAction name="HIDE6" org.eventb.core.prHyps="p34"/>
+                                                        <org.eventb.core.prHypAction name="REWRITE7" org.eventb.core.prHidden="p21" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p35"/>
+                                                        <org.eventb.core.prHypAction name="REWRITE8" org.eventb.core.prHidden="p22" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p36"/>
+                                                        <org.eventb.core.prHypAction name="REWRITE9" org.eventb.core.prHidden="p24" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37"/>
                                                         <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
                                                             <org.eventb.core.prAnte name="'">
-                                                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p96" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p104"/>
-                                                                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p101" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p105"/>
-                                                                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p102" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p106"/>
-                                                                <org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p103" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p107"/>
-                                                                <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees tr)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p108">
-                                                                        <org.eventb.core.prIdent name="tr" org.eventb.core.type="TRANSITION"/>
-                                                                        <org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p108" org.eventb.core.prHyps="">
-                                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p110" org.eventb.core.prHyps="p109">
-                                                                                <org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p110" org.eventb.core.prHyps="">
-                                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p111"/>
-                                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p112">
-                                                                                        <org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p112" org.eventb.core.prHyps="p17"/>
-                                                                                    </org.eventb.core.prAnte>
-                                                                                    <org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p113">
-                                                                                        <org.eventb.core.prRule name="r9" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="sl/ds" org.eventb.core.prHyps="">
-                                                                                            <org.eventb.core.prAnte name="'">
-                                                                                                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p47,p26,p27,p66,p37,p24,p53,p52,p73,p57,p42,p20,p58,p74,p43,p51,p63,p1,p39,p76,p14,p34,p8,p65,p40,p54,p18,p32,p10,p68,p29,p44,p55,p2,p60,p50,p45,p12,p56,p30,p41,p28,p64,p5,p67,p25,p22,p77,p75,p38,p31,p33,p35,p15,p48,p17,p46,p78,p23,p21,p80,p72,p71,p16,p61,p3,p69,p62,p11,p88,p89,p94,p95,p104,p105,p106"/>
-                                                                                                <org.eventb.core.prRule name="r10" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="CVC3" org.eventb.core.prGoal="p113" org.eventb.core.prHyps="p81,p82,p83,p84,p107,p109,p47,p26,p27,p66,p37,p24,p53,p52,p73,p57,p42,p20,p58,p74,p43,p51,p63,p1,p39,p76,p14,p34,p8,p65,p40,p54,p18,p32,p10,p68,p29,p44,p55,p2,p60,p50,p45,p12,p56,p30,p41,p28,p64,p5,p67,p25,p22,p77,p75,p38,p31,p33,p35,p15,p48,p17,p46,p78,p23,p21,p80,p72,p71,p16,p61,p3,p69,p62,p11,p88,p89,p94,p95,p104,p105,p106">
-                                                                                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R1000"/>
-                                                                                                    <org.eventb.core.prString name=".config_id" org.eventb.core.prSValue="CVC3"/>
-                                                                                                </org.eventb.core.prRule>
-                                                                                            </org.eventb.core.prAnte>
-                                                                                        </org.eventb.core.prRule>
-                                                                                    </org.eventb.core.prAnte>
-                                                                                    <org.eventb.core.prAnte name="*" org.eventb.core.prGoal="p114">
-                                                                                        <org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p114" org.eventb.core.prHyps="p50"/>
-                                                                                    </org.eventb.core.prAnte>
-                                                                                </org.eventb.core.prRule>
+                                                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p30" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
+                                                                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p35" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
+                                                                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p36" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p40"/>
+                                                                <org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p37" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p41"/>
+                                                                <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees t)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p42">
+                                                                        <org.eventb.core.prIdent name="t" org.eventb.core.type="TRANSITION"/>
+                                                                        <org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p42" org.eventb.core.prHyps="">
+                                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p45" org.eventb.core.prHyps="p43,p44">
+                                                                                <org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p45" org.eventb.core.prHyps="p1"/>
                                                                             </org.eventb.core.prAnte>
                                                                         </org.eventb.core.prRule>
                                                                     </org.eventb.core.prAnte>
@@ -91,180 +72,200 @@
             </org.eventb.core.prAnte>
             <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
         </org.eventb.core.prRule>
-        <org.eventb.core.prIdent name="DeQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
-        <org.eventb.core.prIdent name="ExternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
-        <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
-        <org.eventb.core.prIdent name="InternalQueueType" org.eventb.core.type="ℙ(ℙ(TRIGGERS))"/>
-        <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
-        <org.eventb.core.prIdent name="STATE_MACHINE" org.eventb.core.type="ℙ(ℙ(STATE)×STATE×ℙ(STATE×STATE)×ℙ(TRANSITION)×ℙ(TRANSITION×STATE)×ℙ(TRANSITION×STATE))"/>
-        <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
-        <org.eventb.core.prIdent name="abs_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
-        <org.eventb.core.prIdent name="abs_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
-        <org.eventb.core.prIdent name="abs_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
-        <org.eventb.core.prIdent name="abs_container" org.eventb.core.type="ℙ(STATE×STATE)"/>
-        <org.eventb.core.prIdent name="abs_finalisedTransitions" org.eventb.core.type="ℙ(TRANSITION)"/>
-        <org.eventb.core.prIdent name="abs_init" org.eventb.core.type="ℙ(STATE)"/>
-        <org.eventb.core.prIdent name="abs_init_leaf" org.eventb.core.type="STATE"/>
-        <org.eventb.core.prIdent name="abs_leaves" org.eventb.core.type="ℙ(STATE)"/>
-        <org.eventb.core.prIdent name="abs_root" org.eventb.core.type="STATE"/>
-        <org.eventb.core.prIdent name="abs_source" org.eventb.core.type="ℙ(TRANSITION×STATE)"/>
-        <org.eventb.core.prIdent name="abs_states" org.eventb.core.type="ℙ(STATE)"/>
-        <org.eventb.core.prIdent name="abs_target" org.eventb.core.type="ℙ(TRANSITION×STATE)"/>
         <org.eventb.core.prIdent name="abs_transitions" org.eventb.core.type="ℙ(TRANSITION)"/>
-        <org.eventb.core.prIdent name="abs_triggeredTransitions" org.eventb.core.type="ℙ(TRANSITION×TRIGGERS)"/>
-        <org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
-        <org.eventb.core.prIdent name="cnc_ExternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
-        <org.eventb.core.prIdent name="cnc_InternalTriggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
-        <org.eventb.core.prIdent name="cnc_Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
-        <org.eventb.core.prIdent name="cnc_container" org.eventb.core.type="ℙ(STATE×STATE)"/>
         <org.eventb.core.prIdent name="cnc_finalisedTransitions" org.eventb.core.type="ℙ(TRANSITION)"/>
-        <org.eventb.core.prIdent name="cnc_init" org.eventb.core.type="ℙ(STATE)"/>
-        <org.eventb.core.prIdent name="cnc_init_leaf" org.eventb.core.type="STATE"/>
-        <org.eventb.core.prIdent name="cnc_leaves" org.eventb.core.type="ℙ(STATE)"/>
-        <org.eventb.core.prIdent name="cnc_root" org.eventb.core.type="STATE"/>
-        <org.eventb.core.prIdent name="cnc_source" org.eventb.core.type="ℙ(TRANSITION×STATE)"/>
-        <org.eventb.core.prIdent name="cnc_states" org.eventb.core.type="ℙ(STATE)"/>
-        <org.eventb.core.prIdent name="cnc_target" org.eventb.core.type="ℙ(TRANSITION×STATE)"/>
         <org.eventb.core.prIdent name="cnc_transitions" org.eventb.core.type="ℙ(TRANSITION)"/>
-        <org.eventb.core.prIdent name="cnc_triggeredTransitions" org.eventb.core.type="ℙ(TRANSITION×TRIGGERS)"/>
-        <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
         <org.eventb.core.prIdent name="transition_link" org.eventb.core.type="ℙ(TRANSITION×TRANSITION)"/>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·dom(r)=dom(cl(r))"/>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="abs_container∈dom(cl)"/>
-        <org.eventb.core.prPred name="p92" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∃p⦂ℙ(STATE×STATE)·¬¬(r⊆p∧p;p⊆p))"/>
-        <org.eventb.core.prPred name="p94" org.eventb.core.predicate="cl=(λr⦂ℙ(STATE×STATE)·⊤ ∣ inter({p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}))"/>
-        <org.eventb.core.prPred name="p102" org.eventb.core.predicate="∀S⦂ℙ(STATE)·⊤⇒S∈dom(Tree)"/>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Sts⊆STATE⇒(∀rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)))"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="cnc_ExternalTriggers⊆ExternalTriggerType"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="∀Sts⦂ℙ(STATE),rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt ↦ prn∈Tree(Sts)⇒(∀T⦂ℙ(STATE)·rt∈T∧prn∼[T]⊆T⇒Sts⊆T)"/>
-        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="∀rt⦂TRANSITION·rt∈dom(transition_link)⇒abs_target(transition_link(rt))∈(cl(cnc_container))[{cnc_target(rt)}]∪{cnc_target(rt)}"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="abs_init⊆abs_states"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="STATE_MACHINE={S⦂ℙ(STATE),r⦂STATE,c⦂ℙ(STATE×STATE),T⦂ℙ(TRANSITION),s⦂ℙ(TRANSITION×STATE),t⦂ℙ(TRANSITION×STATE)·S⊆STATE∧r ↦ c∈Tree(S)∧T⊆TRANSITION∧s∈T → S∧t∈T → S ∣ S ↦ r ↦ c ↦ T ↦ s ↦ t}"/>
-        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="ran(cnc_container)=ran(cl(cnc_container))"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="abs_init=cnc_init∩abs_states"/>
-        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="cnc_source∈cnc_transitions → cnc_states"/>
-        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="Tree∈ℙ(STATE) ⇸ ℙ(STATE × ℙ(STATE × STATE))"/>
-        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·cl(r);r⊆cl(r)"/>
-        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="cnc_init=(cl(cnc_container))[{cnc_init_leaf}]∪{cnc_init_leaf}"/>
-        <org.eventb.core.prPred name="p22" org.eventb.core.predicate="cnc_root ↦ cnc_container∈Tree(cnc_states)"/>
-        <org.eventb.core.prPred name="p23" org.eventb.core.predicate="cnc_init_leaf∈cnc_leaves"/>
-        <org.eventb.core.prPred name="p114" org.eventb.core.predicate="abs_source∈TRANSITION ⇸ STATE"/>
-        <org.eventb.core.prPred name="p24" org.eventb.core.predicate="abs_ExternalTriggers⊆ExternalTriggerType"/>
-        <org.eventb.core.prPred name="p27" org.eventb.core.predicate="DeQueueType={∅ ⦂ ℙ(TRIGGERS)}∪{t⦂TRIGGERS·t∈TRIGGERS ∖ {nullTrigger} ∣ {t}}"/>
-        <org.eventb.core.prPred name="p28" org.eventb.core.predicate="abs_finalisedTransitions⊆abs_transitions"/>
-        <org.eventb.core.prPred name="p113" org.eventb.core.predicate="tr∈dom(abs_source)">
-            <org.eventb.core.prIdent name="tr" org.eventb.core.type="TRANSITION"/>
+        <org.eventb.core.prPred name="p23" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∃p⦂ℙ(STATE×STATE)·¬¬(r⊆p∧p;p⊆p))">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p29" org.eventb.core.predicate="abs_leaves=abs_states ∖ ran(abs_container)"/>
-        <org.eventb.core.prPred name="p30" org.eventb.core.predicate="abs_init=(cl(abs_container))[{abs_init_leaf}]∪{abs_init_leaf}"/>
-        <org.eventb.core.prPred name="p31" org.eventb.core.predicate="∀state⦂STATE·state∈cnc_states ∖ {cnc_root}⇒cnc_root∈(cl(cnc_container))[{state}]"/>
-        <org.eventb.core.prPred name="p85" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Sts⊆STATE⇒(∀rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)∧⊤))"/>
-        <org.eventb.core.prPred name="p93" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p)"/>
-        <org.eventb.core.prPred name="p35" org.eventb.core.predicate="cnc_leaves⊆cnc_states"/>
-        <org.eventb.core.prPred name="p37" org.eventb.core.predicate="abs_InternalTriggers⊆InternalTriggerType"/>
-        <org.eventb.core.prPred name="p41" org.eventb.core.predicate="abs_triggeredTransitions∈abs_transitions ⇸ abs_Triggers"/>
-        <org.eventb.core.prPred name="p42" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE),p⦂ℙ(STATE×STATE)·r⊆p⇒cl(r)⊆cl(p)"/>
-        <org.eventb.core.prPred name="p110" org.eventb.core.predicate="tr∈dom(cnc_source)∧cnc_source∈TRANSITION ⇸ STATE∧tr∈dom(abs_source)∧abs_source∈TRANSITION ⇸ STATE">
-            <org.eventb.core.prIdent name="tr" org.eventb.core.type="TRANSITION"/>
+        <org.eventb.core.prPred name="p42" org.eventb.core.predicate="t∈dom(transition_link)∧t∈cnc_finalisedTransitions⇒transition_link∈TRANSITION ⇸ TRANSITION">
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="TRANSITION"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p86" org.eventb.core.predicate="∀S⦂ℙ(STATE)·S⊆STATE⇒S∈dom(Tree)∧⊤"/>
-        <org.eventb.core.prPred name="p43" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·cl(r)=(cl(r);r)∪r"/>
-        <org.eventb.core.prPred name="p44" org.eventb.core.predicate="abs_leaves⊆abs_states"/>
-        <org.eventb.core.prPred name="p48" org.eventb.core.predicate="cnc_container∈dom(cl)"/>
-        <org.eventb.core.prPred name="p105" org.eventb.core.predicate="∀Sts⦂ℙ(STATE),rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl))"/>
-        <org.eventb.core.prPred name="p106" org.eventb.core.predicate="∀S⦂ℙ(STATE)·S∈dom(Tree)"/>
-        <org.eventb.core.prPred name="p90" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Sts⊆STATE⇒(∀rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)))"/>
-        <org.eventb.core.prPred name="p51" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE),T⦂ℙ(STATE)·r[T]⊆T⇒(cl(r))[T]⊆T"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀tr⦂TRANSITION·tr∈abs_finalisedTransitions⇒tr∈dom(cnc_source)∧cnc_source∈TRANSITION ⇸ STATE∧tr∈dom(abs_source)∧abs_source∈TRANSITION ⇸ STATE"/>
-        <org.eventb.core.prPred name="p54" org.eventb.core.predicate="abs_states∈dom(Tree)"/>
-        <org.eventb.core.prPred name="p55" org.eventb.core.predicate="ran(abs_container)=ran(cl(abs_container))"/>
-        <org.eventb.core.prPred name="p56" org.eventb.core.predicate="abs_init_leaf∈abs_leaves"/>
-        <org.eventb.core.prPred name="p57" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·cl(r);cl(r)⊆cl(r)"/>
-        <org.eventb.core.prPred name="p58" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r;cl(r)⊆cl(r)"/>
-        <org.eventb.core.prPred name="p61" org.eventb.core.predicate="abs_root=cnc_root"/>
-        <org.eventb.core.prPred name="p62" org.eventb.core.predicate="∀rt⦂TRANSITION·rt∈dom(transition_link)⇒abs_source(transition_link(rt))∈(cl(cnc_container))[{cnc_source(rt)}]∪{cnc_source(rt)}"/>
-        <org.eventb.core.prPred name="p63" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·cl(r∼)=(cl(r))∼"/>
-        <org.eventb.core.prPred name="p100" org.eventb.core.predicate="cnc_transitions⊆TRANSITION"/>
-        <org.eventb.core.prPred name="p104" org.eventb.core.predicate="STATE_MACHINE={S⦂ℙ(STATE),r⦂STATE,c⦂ℙ(STATE×STATE),T⦂ℙ(TRANSITION),s⦂ℙ(TRANSITION×STATE),t⦂ℙ(TRANSITION×STATE)·r ↦ c∈Tree(S)∧s∈T → S∧t∈T → S ∣ S ↦ r ↦ c ↦ T ↦ s ↦ t}"/>
-        <org.eventb.core.prPred name="p67" org.eventb.core.predicate="cnc_Triggers=cnc_InternalTriggers∪cnc_ExternalTriggers"/>
-        <org.eventb.core.prPred name="p101" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·⊤⇒(∀rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)))"/>
-        <org.eventb.core.prPred name="p70" org.eventb.core.predicate="cl=(λr⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE ∣ inter({p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}))"/>
-        <org.eventb.core.prPred name="p109" org.eventb.core.predicate="tr∈abs_finalisedTransitions">
-            <org.eventb.core.prIdent name="tr" org.eventb.core.type="TRANSITION"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="∀S⦂ℙ(STATE)·S⊆STATE⇒S∈dom(Tree)∧Tree∈ℙ(STATE) ⇸ ℙ(STATE × ℙ(STATE × STATE))">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p87" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒¬(∀p⦂ℙ(STATE×STATE)·¬(r⊆p∧p;p⊆p))"/>
-        <org.eventb.core.prPred name="p95" org.eventb.core.predicate="Tree=(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})"/>
-        <org.eventb.core.prPred name="p111" org.eventb.core.predicate="tr∈dom(cnc_source)">
-            <org.eventb.core.prIdent name="tr" org.eventb.core.type="TRANSITION"/>
+        <org.eventb.core.prPred name="p26" org.eventb.core.predicate="cl=(λr⦂ℙ(STATE×STATE)·⊤ ∣ inter({p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}))">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p73" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r⊆cl(r)"/>
-        <org.eventb.core.prPred name="p74" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·cl(r)=r∪(r;cl(r))"/>
-        <org.eventb.core.prPred name="p103" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·⊤⇒(∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p)"/>
-        <org.eventb.core.prPred name="p82" org.eventb.core.predicate="InternalTriggerType∩ExternalTriggerType=(∅ ⦂ ℙ(TRIGGERS))"/>
-        <org.eventb.core.prPred name="p75" org.eventb.core.predicate="cnc_root∈cnc_states"/>
-        <org.eventb.core.prPred name="p78" org.eventb.core.predicate="cnc_init⊆cnc_states"/>
-        <org.eventb.core.prPred name="p79" org.eventb.core.predicate="Tree=(λSts⦂ℙ(STATE)·Sts⊆STATE ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})"/>
-        <org.eventb.core.prPred name="p88" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE),p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p⇒cl(r)⊆p"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="abs_container⊆cnc_container"/>
-        <org.eventb.core.prPred name="p83" org.eventb.core.predicate="¬nullTrigger∈InternalTriggerType"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="nullTrigger∉InternalTriggerType"/>
-        <org.eventb.core.prPred name="p97" org.eventb.core.predicate="abs_states⊆STATE"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})"/>
-        <org.eventb.core.prPred name="p84" org.eventb.core.predicate="¬nullTrigger∈ExternalTriggerType"/>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="∀rt⦂TRANSITION·rt∈cnc_transitions∧rt∉dom(transition_link)⇒(cl(cnc_container))[{cnc_source(rt)}]∩abs_states=(cl(cnc_container))[{cnc_target(rt)}]∩abs_states"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="abs_container∈abs_states ∖ {abs_root} → abs_states"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Tree(Sts)={rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn}"/>
-        <org.eventb.core.prPred name="p96" org.eventb.core.predicate="STATE_MACHINE={S⦂ℙ(STATE),r⦂STATE,c⦂ℙ(STATE×STATE),T⦂ℙ(TRANSITION),s⦂ℙ(TRANSITION×STATE),t⦂ℙ(TRANSITION×STATE)·⊤∧r ↦ c∈Tree(S)∧⊤∧s∈T → S∧t∈T → S ∣ S ↦ r ↦ c ↦ T ↦ s ↦ t}"/>
-        <org.eventb.core.prPred name="p98" org.eventb.core.predicate="abs_transitions⊆TRANSITION"/>
-        <org.eventb.core.prPred name="p89" org.eventb.core.predicate="∀rt⦂TRANSITION·rt∈cnc_transitions∧¬rt∈dom(transition_link)⇒(cl(cnc_container))[{cnc_source(rt)}]∩abs_states=(cl(cnc_container))[{cnc_target(rt)}]∩abs_states"/>
-        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType"/>
-        <org.eventb.core.prPred name="p25" org.eventb.core.predicate="cnc_states ↦ cnc_root ↦ cnc_container ↦ cnc_transitions ↦ cnc_source ↦ cnc_target∈STATE_MACHINE"/>
-        <org.eventb.core.prPred name="p26" org.eventb.core.predicate="ExternalQueueType=ℙ(ExternalTriggerType)"/>
-        <org.eventb.core.prPred name="p99" org.eventb.core.predicate="cnc_states⊆STATE"/>
-        <org.eventb.core.prPred name="p32" org.eventb.core.predicate="abs_root∈abs_states"/>
-        <org.eventb.core.prPred name="p33" org.eventb.core.predicate="cnc_leaves=cnc_states ∖ ran(cnc_container)"/>
-        <org.eventb.core.prPred name="p34" org.eventb.core.predicate="∀Sts⦂ℙ(STATE),rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt ↦ prn∈Tree(Sts)⇒Sts=(cl(prn∼))[{rt}]∪{rt}"/>
-        <org.eventb.core.prPred name="p36" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·∀p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p⇒cl(r)⊆p"/>
-        <org.eventb.core.prPred name="p38" org.eventb.core.predicate="cnc_container∈cnc_states ∖ {cnc_root} → cnc_states"/>
-        <org.eventb.core.prPred name="p39" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·ran(r)=ran(cl(r))"/>
-        <org.eventb.core.prPred name="p40" org.eventb.core.predicate="abs_root ↦ abs_container∈Tree(abs_states)"/>
-        <org.eventb.core.prPred name="p108" org.eventb.core.predicate="tr∈abs_finalisedTransitions⇒tr∈dom(cnc_source)∧cnc_source∈TRANSITION ⇸ STATE∧tr∈dom(abs_source)∧abs_source∈TRANSITION ⇸ STATE">
-            <org.eventb.core.prIdent name="tr" org.eventb.core.type="TRANSITION"/>
+        <org.eventb.core.prPred name="p36" org.eventb.core.predicate="∀S⦂ℙ(STATE)·⊤⇒S∈dom(Tree)">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p45" org.eventb.core.predicate="abs_target∈abs_transitions → abs_states"/>
-        <org.eventb.core.prPred name="p46" org.eventb.core.predicate="cnc_target∈cnc_transitions → cnc_states"/>
-        <org.eventb.core.prPred name="p47" org.eventb.core.predicate="InternalQueueType=ℙ(InternalTriggerType)"/>
-        <org.eventb.core.prPred name="p49" org.eventb.core.predicate="∀S⦂ℙ(STATE)·S⊆STATE⇒S∈dom(Tree)∧Tree∈ℙ(STATE) ⇸ ℙ(STATE × ℙ(STATE × STATE))"/>
-        <org.eventb.core.prPred name="p50" org.eventb.core.predicate="abs_source∈abs_transitions → abs_states"/>
-        <org.eventb.core.prPred name="p52" org.eventb.core.predicate="cl∈(STATE ↔ STATE) → (STATE ↔ STATE)"/>
-        <org.eventb.core.prPred name="p53" org.eventb.core.predicate="abs_Triggers=abs_InternalTriggers∪abs_ExternalTriggers"/>
-        <org.eventb.core.prPred name="p91" org.eventb.core.predicate="∀S⦂ℙ(STATE)·S⊆STATE⇒S∈dom(Tree)"/>
-        <org.eventb.core.prPred name="p59" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE)))"/>
-        <org.eventb.core.prPred name="p60" org.eventb.core.predicate="cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)"/>
-        <org.eventb.core.prPred name="p107" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p"/>
-        <org.eventb.core.prPred name="p64" org.eventb.core.predicate="cnc_InternalTriggers⊆InternalTriggerType"/>
-        <org.eventb.core.prPred name="p81" org.eventb.core.predicate="TRIGGERS=InternalTriggerType∪ExternalTriggerType∪{nullTrigger}"/>
-        <org.eventb.core.prPred name="p112" org.eventb.core.predicate="cnc_source∈TRANSITION ⇸ STATE"/>
-        <org.eventb.core.prPred name="p65" org.eventb.core.predicate="abs_states ↦ abs_root ↦ abs_container ↦ abs_transitions ↦ abs_source ↦ abs_target∈STATE_MACHINE"/>
-        <org.eventb.core.prPred name="p66" org.eventb.core.predicate="(∅ ⦂ ℙ(TRIGGERS))∈DeQueueType"/>
-        <org.eventb.core.prPred name="p68" org.eventb.core.predicate="∀state⦂STATE·state∈abs_states ∖ {abs_root}⇒abs_root∈(cl(abs_container))[{state}]"/>
-        <org.eventb.core.prPred name="p69" org.eventb.core.predicate="transition_link∈cnc_transitions ⇸ abs_transitions"/>
-        <org.eventb.core.prPred name="p71" org.eventb.core.predicate="abs_states⊆cnc_states"/>
-        <org.eventb.core.prPred name="p72" org.eventb.core.predicate="cnc_finalisedTransitions⊆cnc_transitions"/>
-        <org.eventb.core.prPred name="p76" org.eventb.core.predicate="Tree∈ℙ(STATE) → ℙ(STATE × (STATE ↔ STATE))"/>
-        <org.eventb.core.prPred name="p77" org.eventb.core.predicate="cnc_states∈dom(Tree)"/>
-        <org.eventb.core.prPred name="p80" org.eventb.core.predicate="cnc_triggeredTransitions∈cnc_transitions ⇸ cnc_Triggers"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+        <org.eventb.core.prPred name="p39" org.eventb.core.predicate="∀Sts⦂ℙ(STATE),rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl))">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p40" org.eventb.core.predicate="∀S⦂ℙ(STATE)·S∈dom(Tree)">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Sts⊆STATE⇒(∀rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)))">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Sts⊆STATE⇒(∀rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)∧cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)))">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬nullTrigger∈InternalTriggerType">
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="TRIGGERS" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="nullTrigger∉InternalTriggerType">
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="TRIGGERS" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p31" org.eventb.core.predicate="abs_states⊆STATE">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="abs_states" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(TRIGGERS,InternalTriggerType,ExternalTriggerType,{nullTrigger})">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="TRIGGERS" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬nullTrigger∈ExternalTriggerType">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="TRIGGERS" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="∀rt⦂TRANSITION·rt∈cnc_transitions∧rt∉dom(transition_link)⇒(cl(cnc_container))[{cnc_source(rt)}]∩abs_states=(cl(cnc_container))[{cnc_target(rt)}]∩abs_states">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="abs_states" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
+            <org.eventb.core.prIdent name="cnc_container" org.eventb.core.type="ℙ(STATE×STATE)"/>
+            <org.eventb.core.prIdent name="cnc_source" org.eventb.core.type="ℙ(TRANSITION×STATE)"/>
+            <org.eventb.core.prIdent name="cnc_target" org.eventb.core.type="ℙ(TRANSITION×STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p22" org.eventb.core.predicate="∀S⦂ℙ(STATE)·S⊆STATE⇒S∈dom(Tree)">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p43" org.eventb.core.predicate="t∈dom(transition_link)">
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="TRANSITION"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE)))">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="cl∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p29" org.eventb.core.predicate="STATE_MACHINE={S⦂ℙ(STATE),r⦂STATE,c⦂ℙ(STATE×STATE),T⦂ℙ(TRANSITION),s⦂ℙ(TRANSITION×STATE),t⦂ℙ(TRANSITION×STATE)·S⊆STATE∧r ↦ c∈Tree(S)∧T⊆TRANSITION∧s∈T → S∧t∈T → S ∣ S ↦ r ↦ c ↦ T ↦ s ↦ t}">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="STATE_MACHINE" org.eventb.core.type="ℙ(ℙ(STATE)×STATE×ℙ(STATE×STATE)×ℙ(TRANSITION)×ℙ(TRANSITION×STATE)×ℙ(TRANSITION×STATE))"/>
+            <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p30" org.eventb.core.predicate="STATE_MACHINE={S⦂ℙ(STATE),r⦂STATE,c⦂ℙ(STATE×STATE),T⦂ℙ(TRANSITION),s⦂ℙ(TRANSITION×STATE),t⦂ℙ(TRANSITION×STATE)·⊤∧r ↦ c∈Tree(S)∧⊤∧s∈T → S∧t∈T → S ∣ S ↦ r ↦ c ↦ T ↦ s ↦ t}">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="STATE_MACHINE" org.eventb.core.type="ℙ(ℙ(STATE)×STATE×ℙ(STATE×STATE)×ℙ(TRANSITION)×ℙ(TRANSITION×STATE)×ℙ(TRANSITION×STATE))"/>
+            <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p32" org.eventb.core.predicate="abs_transitions⊆TRANSITION"/>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="∀rt⦂TRANSITION·rt∈cnc_transitions∧¬rt∈dom(transition_link)⇒(cl(cnc_container))[{cnc_source(rt)}]∩abs_states=(cl(cnc_container))[{cnc_target(rt)}]∩abs_states">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="abs_states" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
+            <org.eventb.core.prIdent name="cnc_container" org.eventb.core.type="ℙ(STATE×STATE)"/>
+            <org.eventb.core.prIdent name="cnc_source" org.eventb.core.type="ℙ(TRANSITION×STATE)"/>
+            <org.eventb.core.prIdent name="cnc_target" org.eventb.core.type="ℙ(TRANSITION×STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="Tree∈ℙ(STATE) ⇸ ℙ(STATE × ℙ(STATE × STATE))">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="nullTrigger∉ExternalTriggerType">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="TRIGGERS" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p34" org.eventb.core.predicate="cnc_transitions⊆TRANSITION"/>
+        <org.eventb.core.prPred name="p41" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p38" org.eventb.core.predicate="STATE_MACHINE={S⦂ℙ(STATE),r⦂STATE,c⦂ℙ(STATE×STATE),T⦂ℙ(TRANSITION),s⦂ℙ(TRANSITION×STATE),t⦂ℙ(TRANSITION×STATE)·r ↦ c∈Tree(S)∧s∈T → S∧t∈T → S ∣ S ↦ r ↦ c ↦ T ↦ s ↦ t}">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="STATE_MACHINE" org.eventb.core.type="ℙ(ℙ(STATE)×STATE×ℙ(STATE×STATE)×ℙ(TRANSITION)×ℙ(TRANSITION×STATE)×ℙ(TRANSITION×STATE))"/>
+            <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀t⦂TRANSITION·t∈dom(transition_link)∧t∈cnc_finalisedTransitions⇒transition_link∈TRANSITION ⇸ TRANSITION"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="TRIGGERS=InternalTriggerType∪ExternalTriggerType∪{nullTrigger}">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="TRIGGERS" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p33" org.eventb.core.predicate="cnc_states⊆STATE">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="cnc_states" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·Sts⊆STATE⇒(∀rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)∧⊤))">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p35" org.eventb.core.predicate="∀Sts⦂ℙ(STATE)·⊤⇒(∀rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts⇒(∀n⦂STATE·n∈Sts ∖ {rt}⇒prn∈dom(cl)))">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="transition_link∈cnc_transitions ⇸ abs_transitions"/>
+        <org.eventb.core.prPred name="p24" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p)">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p25" org.eventb.core.predicate="cl=(λr⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE ∣ inter({p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}))">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p45" org.eventb.core.predicate="transition_link∈TRANSITION ⇸ TRANSITION"/>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒¬(∀p⦂ℙ(STATE×STATE)·¬(r⊆p∧p;p⊆p))">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p28" org.eventb.core.predicate="Tree=(λSts⦂ℙ(STATE)·⊤ ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
+            <org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·∀p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p⇒cl(r)⊆p">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p37" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE)·⊤⇒(∃p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p)">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="InternalTriggerType∩ExternalTriggerType=(∅ ⦂ ℙ(TRIGGERS))">
+            <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
+            <org.eventb.core.prIdent name="TRIGGERS" org.eventb.core.type="ℙ(TRIGGERS)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p44" org.eventb.core.predicate="t∈cnc_finalisedTransitions">
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="TRANSITION"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p27" org.eventb.core.predicate="Tree=(λSts⦂ℙ(STATE)·Sts⊆STATE ∣ {rt⦂STATE,prn⦂ℙ(STATE×STATE)·rt∈Sts∧prn∈Sts ∖ {rt} → Sts∧(∀n⦂STATE·n∈Sts ∖ {rt}⇒rt∈(cl(prn))[{n}]) ∣ rt ↦ prn})">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
+            <org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="∀S⦂ℙ(STATE)·S⊆STATE⇒S∈dom(Tree)∧⊤">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="Tree" org.eventb.core.type="ℙ(ℙ(STATE)×ℙ(STATE×ℙ(STATE×STATE)))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="∀r⦂ℙ(STATE×STATE),p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p⇒cl(r)⊆p">
+            <org.eventb.core.prIdent name="STATE" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="cl" org.eventb.core.type="ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE))"/>
+        </org.eventb.core.prPred>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
-        <org.eventb.core.prReas name="r10" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
-        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="linkingtr_tr/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="t" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6" org.eventb.core.prSets="TRANSITION,TRIGGERS">
         <org.eventb.core.lang name="L"/>
