@@ -7,8 +7,6 @@ The run to completion semantics is specified via an abstract basis that is exten
 Figure~\ref{fig:basis} shows a state-chart representation of how the basis enforces 
 the run to completion semantics on the model transitions. 
 
-\ColinInlineComment{the Fig.1 needs updating wrt to queues.. e.g. eQ and iQ should be content(eQ) and content(iQ).
-	also NoTriggeredTransitionsEnable should be NoTriggeredTransitionsEnabled}
 \begin{figure}[!h]
 	\vspace{-.4cm}
 	\centering
@@ -41,7 +39,6 @@ return the \emph{content} (set of triggers) involved in a sequence.
 The Basis context also defines several theorem properties about sequences that are needed to discharge proof obligations.
 These are omitted from Listing~\ref{lst:BasisContext} for brevity.
 
-\ColinInlineComment{I changed the comments to a command in order to get them to align.  Is there a better way? }
 \newcommand*{\Comment}[1]{\color{green!50!black}\hfill\makebox[0.6\textwidth][l]{#1}}%
 
  \begin{lstlisting}[caption={Abstract basis context},label={lst:BasisContext}, language=Event-B, tabsize=8, escapechar=€, frame=single, basicstyle=\rmfamily\scriptsize, belowskip=-2.0 \baselineskip, float=t]
@@ -53,27 +50,27 @@ These are omitted from Listing~\ref{lst:BasisContext} for brevity.
  	FutureInternalTrigger	€\Comment{// all possible internal triggers}€
  	FutureExternalTrigger	€\Comment{// all possible external triggers}€
  	Seq							€\Comment{// return all possible sequences of given set of triggers}€
- 	Seq_length					€\Comment{// return the length of a sequence of triggers}€
- 	Seq_append					€\Comment{// return the result of appending trigger to a sequence}€
- 	Seq_concat					€\Comment{// return the concatenation of two sequences of triggers}€
- 	Seq_head					€\Comment{// return the trigger at head of a sequence of triggers}€
- 	Seq_tail					€\Comment{// return the sequence at tail of a sequence of triggers}€
- 	Seq_content					€\Comment{// return the set of triggers in a sequence of triggers}€
+ 	length					€\Comment{// return the length of a sequence of triggers}€
+ 	append					€\Comment{// return the result of appending trigger to a sequence}€
+ 	concat					€\Comment{// return the concatenation of two sequences of triggers}€
+ 	head					€\Comment{// return the trigger at head of a sequence of triggers}€
+ 	tail					€\Comment{// return the sequence at tail of a sequence of triggers}€
+ 	content					€\Comment{// return the set of triggers in a sequence of triggers}€
  	InternalQueueType			€\Comment{// type of internal queues}€
  	ExternalQueueType			€\Comment{// type of external queues}€
  	
  axioms
  	partition(SCXML_TRIGGER, FutureInternalTrigger, FutureExternalTrigger) 
  	Seq = (λT · T ⊆ SCXML_TRIGGER ∣ {n, s · n ∈ ℕ ∧ s ∈ 0 ‥ n − 1 → T ∣ s})
- 	Seq_length = (λs · s ∈ Seq(SCXML_TRIGGER) ∣ card(s))
- 	Seq_append = (λ s ↦ t · s ∈ Seq(SCXML_TRIGGER) ∧ t ∈ SCXML_TRIGGER ∣ 
- 		{i↦v ∣ i ∈ 0 ‥ Seq_length(s) ∧ (i < Seq_length(s) ⇒ v = s(i)) ∧ (i = Seq_length(s) ⇒ v = t) } )
-	Seq_concat = (λ s1 ↦ s2 · s1 ∈ Seq(SCXML_TRIGGER) ∧ s2 ∈ Seq(SCXML_TRIGGER) ∣ 
-		{i↦v ∣ i ∈ 0 ‥ Seq_length(s1) + Seq_length(s2) − 1 ∧ (i < Seq_length(s1) ⇒ 
-									v = s1(i)) ∧ (i ≥ Seq_length(s1) ⇒ v = s2(i − Seq_length(s1))) } )
-	Seq_head = (λs · s ∈ Seq(SCXML_TRIGGER) ∧ s ≠ ∅ ∣ s(0))								
-	Seq_tail = (λs· s∈Seq(SCXML_TRIGGER) ∧ s≠∅ ∣ {i↦v ∣ i∈0‥Seq_length(s)−2 ∧ v=s(i+1)} )	
-	Seq_content = (λs · s ∈ Seq(SCXML_TRIGGER) ∣ ran(s))
+ 	length = (λs · s ∈ Seq(SCXML_TRIGGER) ∣ card(s))
+ 	append = (λ s ↦ t · s ∈ Seq(SCXML_TRIGGER) ∧ t ∈ SCXML_TRIGGER ∣ 
+ 		{i↦v ∣ i ∈ 0 ‥ length(s) ∧ (i < length(s) ⇒ v = s(i)) ∧ (i = length(s) ⇒ v = t) } )
+	concat = (λ s1 ↦ s2 · s1 ∈ Seq(SCXML_TRIGGER) ∧ s2 ∈ Seq(SCXML_TRIGGER) ∣ 
+		{i↦v ∣ i ∈ 0 ‥ length(s1) + length(s2) − 1 ∧ (i < length(s1) ⇒ 
+									v = s1(i)) ∧ (i ≥ length(s1) ⇒ v = s2(i − length(s1))) } )
+	head = (λs · s ∈ Seq(SCXML_TRIGGER) ∧ s ≠ ∅ ∣ s(0))								
+	tail = (λs· s∈Seq(SCXML_TRIGGER) ∧ s≠∅ ∣ {i↦v ∣ i∈0‥length(s)−2 ∧ v=s(i+1)} )	
+	content = (λs · s ∈ Seq(SCXML_TRIGGER) ∣ ran(s))
 	InternalQueueType = Seq(FutureInternalTrigger)
 	ExternalQueueType = Seq(FutureExternalTrigger)
  end
