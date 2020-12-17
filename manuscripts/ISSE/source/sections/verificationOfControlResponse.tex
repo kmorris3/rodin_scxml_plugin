@@ -61,11 +61,12 @@ categories.
   \end{itemize}
 \end{itemize}
 
-\begin{theorem}[System Events are Relative Deadlock-Free]
+\begin{theorem}[Internal Events are Relative Deadlock-Free]
+  \label{thm:Internal-DLF}
   Under the condition that %
-  |eQ /= {} !or iQ /= {} !or uc = FALSE !or dt /= {}|, %
-  the system events are deadlock-free, i.e., there must be
-  one system event is enabled.
+  |iQ /= {} !or uc = FALSE !or dt /= {}|, %
+  the internal events are deadlock-free, i.e., there must be
+  one internal event is enabled.
 \end{theorem}
 \begin{proof}
   This is based on the generation of our \EventB model (according to
@@ -76,10 +77,8 @@ categories.
   \begin{itemize}
   \item When the system is in the \emph{Ready to De-queue} state, %
     |uc = TRUE & dt = {}|.  %
-    In the case where |iQ /= {}|, the |dequeueInternalTrigger| event
-    is enabled. In the case where |iQ = {}|, according to our
-    assumption, we have |eQ /= {}|, hence |dequeueExternalTrigger|
-    event is enabled.
+    ccording to our assumption, we have |iQ /= {}|, hence
+    |dequeueInternalTrigger| event is enabled.
     
   \item When the system is in the \emph{Firing Triggered} state,
     either one of the triggered events is enabled or the
@@ -87,28 +86,77 @@ categories.
     
   \item Similarly, when the system is in the \emph{Firing Untriggered}
       state, either one of the untriggered events is enabled or the
-      |noUntriggeredTransitionsEnabled| event is enabled.
+      |noUntriggeredTransitionsEnabled| event is enabled.  
+  \end{itemize}
+\end{proof}
+    
+\begin{corollary}[System Events are Relative Deadlock-Free]
+  Under the condition that %
+  |eQ /= {} !or iQ /= {} !or uc = FALSE !or dt /= {}|, %
+  the system events are deadlock-free, i.e., there must be
+  one system event is enabled.
+\end{corollary}
+\begin{proof}
+  This is based on the generation of our \EventB model (according to
+  the basis structure as seen in Figure~\ref{fig:basis}) and
+  Theorem~\ref{thm:Internal-DLF}.
+  \begin{itemize}
+  \item In the case where |iQ /= {} !or uc = FALSE !or dt /= {}|,
+    according to Theorem~\ref{thm:Internal-DLF}, one of the internal
+    event is enabled.
+    
+  \item Otherwise, i.e., |iQ = {} & uc = TRUE & dt = {}|, according to
+    our assumption, |eQ /= {}|. In this case, the
+    |dequeueExternalTrigger| event is enabled.
 \end{itemize}
 \end{proof}
 
-
+In order to reason about any liveness/responsiveness properties, we
+have to make assumptions about how often an event will be invoked.
+Here, we assume that all the system events are strongly fair.
 \begin{assumption}[Strongly Fair System Events]
-  We assume that the systems event that is |dequeueExternalTrigger|
-  and \emph{internal events} are strongly fair, i.e., if a system event is
-  enabled infinitely often, eventually, they will be taken.
+  \label{asm:SF}
+  We assume that the systems event, i.e., |dequeueExternalTrigger|
+  and \emph{internal events} are strongly fair, i.e., if a system
+  event is enabled infinitely often, eventually, it will be eventually
+  invoked.
 \end{assumption}
+
 \ColinInlineComment{We have some updates to this section... can we relax SF now we have queues? MAYBE WEAK FAIRNESS IS ENOUGH}
 \SonInlineComment{If the model are deterministic, WF would be enough.}
 
 \subsection{Termination of Responses for External Triggers}
 \label{sec:contr-rema-resp}
 
-In this sections, we discuss our verification for the termination of
-responses to external triggers, that is for every dequeued external
-trigger, eventually, the systems will completely process this external
-trigger and return to the state where a new external trigger (if any)
-can be processed.  Formally, the property can be specified as
-follows. For all external trigger |t|, i.e., |t !: ExternalTriggers|, 
+We start first by proving that it is always the case that the system
+will comeback to the \emph{Ready to De-queue} state and |iQ = {}|,
+i.e., it is ready to dequeue an external trigger (if any).  This is
+stated as the following theorem.
+\begin{theorem}[Responsive to De-queue External Trigger]
+  The system is always eventually empty the internal queue and come to
+  the \emph{Ready to De-queue} state.  This is formalised as
+  \begin{center}
+    |GF(iQ = {} & uc = TRUE & dt = {})|~.
+  \end{center}
+\end{theorem}
+\begin{proof}
+  Assuming that the properties is not satisified, i.e., eventually,
+  it is always the case that |iQ /= {} !or  uc = FALSE !or dt /=
+  {})|. This can be formalised as follows.
+  \begin{center}
+    |FG(iQ /= {} !or uc = FALSE !or dt /= {})|~.    
+  \end{center}
+  According to Theorem~\ref{thm:Internal-DLF}, the internal events
+  there for will always deadlock-free, and as a result, at least one
+  of the event is enabled infinitely often.
+\end{proof}
+
+
+In this sections, that is for every dequeued external trigger,
+eventually, the systems will completely process this external trigger
+and return to the state where a new external trigger (if any) can be
+processed.  Formally, the property can be specified as follows. For
+all external trigger |t|, i.e., |t !: ExternalTriggers|,
 \begin{center}
   |G(dt = {t} => F(iQ = {} & uc = TRUE & dt = {})|~,
 \end{center}
