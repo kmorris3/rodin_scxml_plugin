@@ -214,7 +214,8 @@ Moreover, for a set of events, the variants $V_1, V_2, ...$ are combined into a
 lexicographic variant, i.e., $(V_1, V_2, ...)$ with $V_1$ has a higher
 priority than $V_2$, etc. An vent is said to decrease this
 lexicographic variant if it either decreases $V_1$ or if it keeps
-$V_1$ the same and decreases $V_2$, so on and so forth.
+$V_1$ the same and decreases $V_2$, so on and so forth.  Lexicographic
+variants are supported in the latest Rodin version 3.5.
 
 Our generic approach to contruct a lexicographic variant is according
 to the following order and the role for each variant.
@@ -253,6 +254,49 @@ to be convergence later.
 \SonInlineComment{We might need to discuss the effect of future events
 with the later variants.}
 
+% Order of the variants
+We now discuss the specific variants for the Drone example based on
+the actual state-chart as showed in Figure~\ref{fig:drone4}.  The
+varants are for the internally triggered events and untriggered
+events. The lexicographic order of the variant use to prove the
+convergence of the events depending (1) on the \emph{nested structure}
+of the transitions and (2) on the \emph{order of the transitions} with
+the same nested level.  For example, the variant for proving the
+convergence for the transition from |SHUTDOWN| to |OFF| will have a
+higher priority than the one for the transition from |TAKEOFF| to
+|FLY|, and this variant subsequently has higher priority than the one
+for the transition from |CLIMB| to |HOVER|.  Furtheremore the variant
+for proving the convergence for the transition from |TAKEOFF| to |FLY|
+has higher priority than the one for the transition from |FLY| to
+|DESCEND|.
+
+% Shape of the variants
+The translation of SCXML state-chart into UML-B/\EventB represents each
+state by a Boolean variable, |TRUE| if the system in that state and
+|FALSE| otherwise. As a result, the variant for proving the convegence
+of an event going out of a state |S| can be |{S, FALSE}|: the
+transition ``decreases'' the value of the variant from |{TRUE, FALSE}|
+to |FALSE|.
+
+Based on the above analysis, the variants that we used for proving the
+convergence of the internally triggered events and untriggered events
+in the Drone example are.
+\begin{itemize}
+\item |{SHUTDOWN, FALSE}|
+
+\item |{TAKEOFF, FALSE}|
+
+\item |{FLY, FALSE}|
+
+\item |{BATTERYOK, FALSE}|
+
+\item |{CLIMB, FALSE}|
+
+\item |{CLIMB2, FALSE}|
+\end{itemize}
+
+This variant proof are available in the Rodin archieve at \url{...}
+\SonComment{To put the URL of the model}.
 
 
 \subsection{Correct Responses to External Triggers}
