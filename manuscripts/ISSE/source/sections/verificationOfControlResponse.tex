@@ -190,18 +190,68 @@ convergence.  This is stated as the following theorem.
   \item If |t /= head(eQ)|, an occurance of |dequeueExternalTrigger|
     will move |t| closer to be the head of the external queue |eQ| and
     eventually it will be come the head of the queue and subsequently
-    be processed eventually
+    be processed eventually.
   \end{itemize}
 \end{proof}
 
 \subsubsection{Proof of Convergence}
 \label{sec:proof-convergence}
+The responsiveness to external triggers presented in the previous
+Subsection relies on the proof of convergence for internal events. The
+proof of convergence will need to be done for each individual SCXML
+diagram as it does not hold priori.  We present a generic approach to
+reason about the proof of convergence relying on lexicographic as
+follow.
 
 Standard technique for proving event convergence is based on
 variants.  In particular, given a variant, if all events guarantee to
 ``decrease'' the variant and the variant is bounded below the set of
-events converge.
+events converge.  A variant in \EventB can be a natural number
+(bounded bellow by |0|) or a finite set (bounded below by the empty
+set |{}|).
 
+Moreover, for a set of events, the variants $V_1, V_2, ...$ are combined into a
+lexicographic variant, i.e., $(V_1, V_2, ...)$ with $V_1$ has a higher
+priority than $V_2$, etc. An vent is said to decrease this
+lexicographic variant if it either decreases $V_1$ or if it keeps
+$V_1$ the same and decreases $V_2$, so on and so forth.
+
+Our generic approach to contruct a lexicographic variant is according
+to the following order and the role for each variant.
+\begin{itemize}
+\item $V_{externalTriggered}$ = |dt /\ ExternalTrigger|.  This variant
+  is used to prove the convergence for any externally triggered events
+  (i.e., triggered event by some external trigger). These event remove
+  the external trigger from |dt| hence ``decrease'' |dt| to the empty
+  set.
+
+\item Variants based on the state machine to prove the convergence of
+  internally triggered events and untriggered events.  This depends on
+  the SCXML diagram and we will illustrate this on the example later.
+  
+\item $V_{dequeueInternalTrigger}$ = |length(iQ)|.  This variant is
+  used to prove the convergence of the |dequeueInternalTrigger| event.
+  Since this event remove the head of the |iQ|, it decreases the
+  length of the |iQ| trivially.  While other events might increase
+  |iQ|, by raising new internal triggers. However, these events should
+  have been proved to be convergence using higher-priority variants.
+  
+\item $V_{noTriggeredTransitions}$ = |dt|.  This variant is used to
+  prove the convergence of the |noTriggeredTransitionsEnabled| event.
+  The event discard the trigger in |dt| hence ``decrase'' |dt| to the
+  empty set.
+  
+\item $V_{noUntriggeredTranstitions}$ = |{uc, TRUE}|.  This variant is
+  used to prove the convergence of the
+  |noUntriggeredTransitionsEnabled| event.  The event changes |uc|
+  flag from |FALSE| to |TRUE|, hence ``decrease'' the variant from
+  |{FALSE, TRUE}| to |{TRUE}|.
+\end{itemize}
+Note that we do not attempt to prove the convergence of any future
+events here. Instead, we assume that these future events will be prove
+to be convergence later.
+\SonInlineComment{We might need to discuss the effect of future events
+with the later variants.}
 
 
 
