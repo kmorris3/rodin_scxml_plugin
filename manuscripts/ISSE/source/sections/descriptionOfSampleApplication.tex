@@ -4,45 +4,37 @@
 
 To illustrate the development and analysis process of a design using the previously described 
 state-chart semantics, we will discuss a quadrotor helicopter or quadrotor application similar to 
-the one presented by Syriani et al.~\cite{Syriani_2019}. The application will focus on the incremental 
-design of some of the drone's required functionality.
+the one presented by Syriani et al.~\cite{Syriani_2019}. 
+The application will focus on the incremental design of some of the drone's required functionality.
 The constructed model must obey state-chart refinement rules listed in Section~\ref{sec:intro}, these rules are proven within the Rodin tool.
-The structure of the state-chart for this model at each subsequent abstraction level restricts further the
-development of the model to refinements that obey the rules. This will allow us to prove properties 
-of the model in a very strategic fashion, as properties proven of early abstraction levels 
-are preserved in later refinements.
+The structure of the state-chart for this model at each subsequent abstraction level restricts further the development of the model to refinements that obey the rules. 
+This will allow us to prove properties of the model in a very strategic fashion, as properties proven of early abstraction levels are preserved in later refinements.
 
-The first abstraction of the model shown in Figure~\ref{fig:drone1} captures the basic 
-functionality of the drone. The model's initial state is |OFF| and as a result of the |on| and 
-|toTakeoff| external triggers it transitions to the |START| and |OPERATIONAL| states 
-respectively\footnote{Transitions in Figures~\ref{fig:drone1}--\ref{fig:drone4} are labeled with trigger names
+The initial abstraction and first refinement of the model, shown in Figure~\ref{fig:drone1}, captures the basic functionality of the drone. 
+The model's initial state is |OFF| and as a result of the |on| and  |toTakeoff| external triggers it transitions to the |START| and |OPERATIONAL| states respectively\footnote{Transitions in Figures~\ref{fig:drone1}--\ref{fig:drone4} are labeled with trigger names
 (e.g. toTakeoff, toFly) not with event names as it is in \UMLB.}. 
 The drone reacts to the |off| external trigger by shutting down and subsequently transitioning to the |OFF| state.
-Within the |OPERATIONAL| state the drone will transition to |FLY|, |DESCEND| or |LANDED| 
-state after the internal trigger |toFly|, |toLand| or |landed| is raised, respectively. 
-In this abstraction, these internal triggers are raised non-deterministically 
-in the system by functionality not currently defined.
+In the first refinement, using \emph{Rule C}, details are added within the |OPERATIONAL| state as follows.
+Within the |OPERATIONAL| state the drone will transition to |FLY| or |DESCEND| after the internal trigger |toFly| or |toLand| is raised, respectively. 
+In this abstraction, these internal triggers are raised non-deterministically in the system by functionality not currently defined.
 As additional details are incorporated into the model in later refinements some of that non-determinism is 
 removed and replaced by transitions with actions that raised the previously defined internal triggers.
-It should be noted that this abstraction of the drone model includes a transition 
-from |TAKEOFF| to |DESCEND| (dashed transition in Figure~\ref{fig:drone1}). 
-This allows for the drone to respond to a |toLand| trigger if it encounters some 
-problems while in the |TAKEOFF| state. Syriani et al.~\cite{Syriani_2019} introduces this transition 
-in later refinements under Rule 8 \emph{path refinement rule}. This rule is inconsistent with our rules 
-of refinement as it results in a concrete event with no corresponding 
-behavior in the abstraction.
-
+A further external trigger, |landed|, directs the system to progress to the |LANDED| state.
+It should be noted that this abstraction of the drone model includes a transition from |TAKEOFF| to |DESCEND| (dashed transition in Figure~\ref{fig:drone1}). 
+This allows for the drone to respond to a |toLand| trigger if it encounters some problems while in the |TAKEOFF| state.
+Syriani et al.~\cite{Syriani_2019} introduces this transition in later refinements under Rule 8 \emph{path refinement rule}. 
+This rule is inconsistent with our rules of refinement as it results in a concrete event with no corresponding behavior in the abstraction.
+\ColinInlineComment{Fig 2 actually shows two levels - drone 0 and drone 1. I have corrected the text, could you change the colours of the substates}
 % \begin{figure}[!h]
 \begin{figure}[]
 	\vspace{-.4cm}
 	\centering
 	\includegraphics[width=0.90\textwidth, trim=0 40 0 0]{figures/Picture1.png}
-	\caption{State-chart of drone application. Abstract level including only generic behavior. }
+	\caption{State-chart of drone application. Abstract level including only generic start/shutdown behavior and first refinement introducing main operational sub-states. }
 	\label{fig:drone1}
 	\vspace{-.4cm}
 \end{figure} 
 
-% \todo{We are over by a little over a quater page. One way to deal with it is to remove this figure}
 
 % Figure~\ref{fig:drone2} shows the first refinement of the model, as we refine the parent state |TAKEOFF|
 % by introducing child states and new model variables, similar to 
@@ -57,40 +49,40 @@ behavior in the abstraction.
 % 	\label{fig:drone2}
 % \end{figure} 
 % \begin{figure}[!h]
+\ColinInlineComment{Fig 3 guards are incorrect.. 2 transitions to OPERATIONAL s.b. charge>50, transition to FLY s.b. change >40}
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.90\textwidth, trim=0 30 0 0]{figures/Picture5.png}
-	\caption{State-chart of drone application. Refinement level introducing details for take off (shown in beige).
-	Refinement level for battery consumption functionality (shown in green).
-	Refinement level for descending capabilities, in case of emergency (shown in lilac).}
+	\caption{State-chart of drone application. 
+		2nd refinement for battery monitoring functionality (shown in green).
+		3rd refinement introducing details for take off (shown in beige).
+		4th refinement level to allow cancelling during take-off (shown in lilac).}
 	\label{fig:drone4}
 \end{figure} 
 
-Figure~\ref{fig:drone4} shows three subsequent refinements to the drone model. The first refinement of the model is shown in beige, as we refine the parent state |TAKEOFF|
-by applying \emph{Rule B and C}. Under these rules we introduce child states and new model variables, similar to 
-Rule 2 \emph{basic-to-or state rule} defined by Syriani et al.~\cite{Syriani_2019}
-As part of this refinement we introduced an untriggered transition responsible for 
-raising the |toFly| internal trigger, and therefore removed some of the non-determinisms in the abstraction.
-
+Figure~\ref{fig:drone4} builds on Figure~\ref{fig:drone4} to show three more refinements to the drone model. 
 % Figure~\ref{fig:drone4} shows two subsequent refinements to the drone model.
-The second refinement, the details of which are shown in green in Figure~\ref{fig:drone4}, 
-extends the capabilities within |OPERATIONAL| by using \emph{Rule C} to make it a parallel
-state that controls flying and battery related functionality. 
+The second refinement (shown in green in Figure~\ref{fig:drone4}) extends the capabilities within |OPERATIONAL| by using \emph{Rule C} to make it a parallel state that controls flying and battery related functionality. 
 This is the same as Rule 4 \emph{and-state rule} defined by Syriani et al.~\cite{Syriani_2019}.
-The charge within the drone battery is control by the parallel |BATTERYOP| state. 
-The functionality is modeled by introducing a new model variable, |charge|, which is decreased as 
-a response to the internal trigger |decreaseCharge|. The aforementioned trigger, is raised non-deterministically by some 
-unspecified internal functionality. Our state-chart semantics supports transition refinement, as such
-we are able to modified previously defined transitions. In particular, this type of refinement allow
-us to add guards and/or actions to previously defined transitions. The strengthening of guards, \emph{Rule A}, or additional 
-actions, \emph{Rule B}, are expressed in term of new model variables that contribute implementation details to the model.
-To ensure the drone operates with enough battery power we strengthen the guards of transitions 
-to the |FLY| and |TAKEOFF| states.
-As part of this design stage we introduce a requirement to constrain drone operation 
-to a battery charge of at least 20\% capacity. This can be expressed as
+The charge within the drone battery is monitored by the parallel |BATTERYOP| state. 
+A new ancillary variable, |charge|, is introduced to keep track of the amount of charge left in the drone.
+It is decreased by a self-transition on state |BATTERYOK| in response to an external trigger |decreaseCharge|. 
+%As part of this design stage we introduce a requirement to constrain drone flying operation to a battery charge of at least 20\% capacity.
+If the battery monitor works correctly we would expect the battery charge to have at least 20\% capacity while in the state |BATTERYOK|.
+This can be expressed as an invariant property:
 \begin{center}
-  |(BATTERYOK = TRUE) => charge > 20|\% .
+	|(BATTERYOK = TRUE) => charge > 20|\% .
 \end{center}
+When the monitored charge drops to 20\% or less, the |BATTERY| state-chart raises the internal trigger |toLand|, which will cause a reaction in the |FLYOP| start-chart to bring it out of |TAKEOFF| or |FLY| and into |DESCEND| (hence removing some of the non-determinism concerning where |toLand| is raised).
+While in the |TAKEOFF| state we would expect the battery monitor to be in the |BATTERYOK| state or to have raised a |toLand| trigger.
+\begin{center}
+	|(TAKEOFF = TRUE) => (BATTERYOK = TRUE ∨ toLand)|~.
+\end{center}
+%The aforementioned trigger, is raised non-deterministically by some unspecified internal functionality .
+%Our state-chart semantics supports transition refinement, which allows us to modify previously defined transitions, by adding guards \emph{Rule A} and/or actions \emph{Rule B} that modify new variables that contribute implementation details to the model. 
+To ensure the drone only enters |TAKEOFF| or |FLY| with enough battery power we strengthen the guards of transitions to the |FLY| and |TAKEOFF| states (\emph{Rule A}).
+We will discuss how these state invariant properties are verified in Section~\ref{sec:verificationSafety}.
+
 % \begin{figure}[!h]
 % 	\centering
 % 	\includegraphics[width=0.95\textwidth]{figures/Picture3.png}
@@ -98,24 +90,26 @@ to a battery charge of at least 20\% capacity. This can be expressed as
 % 	\label{fig:drone3}
 % \end{figure} 
 
-Figure~\ref{fig:drone4} shows the third refinement of the drone model, with features added in lilac.
-At this stage we use \emph{Rule C} to introduce additional implementation details to ensure that under special 
-circumstances (e.g. sensing of adverse environment or unexpected battery dropped) the drone is able 
-to circumvent flying and proceed to an emergency landing. The previously described requirement can be
-expressed as
-\begin{center}
-  |(TAKEOFF = TRUE) => (BATTERYOK = TRUE ∨ toLand)|~.
-\end{center}
-To implement this new capability in the design the internal trigger |cancel| is introduced.
-The internal trigger |cancel| can be raised non-deterministically by some sensing capability, 
-the details of which are not currently implemented. If the trigger is raised, the climbing process 
-must be aborted and the drone descending sequence shall start. This refinement level is done differently 
-from Syriani et al.~\cite{Syriani_2019}, which follows Rule 7 \emph{state extension rule}. 
-The aforementioned rule requires a data remapping of the abstract states |TAKEOFF|, |CLIMB| and |HOVER|,
-which should be distinct from the states in this refinement, as the state |ABORT| is introduced.
-In contrast, we implement this refinement using a rule similar to Syriani et al.'s 
-Rule 2 \emph{basic-to-or state rule}, which introduces the concrete states |CLIMB2| and |ABORT| 
-to the abstract state |CLIMB|.
+The third refinement of the model (shown in beige) refines the state |TAKEOFF| by applying \emph{Rule B and C}. 
+Under these rules we introduce child states and new model variables, similar to Rule 2 \emph{basic-to-or state rule} defined by Syriani et al.~\cite{Syriani_2019}
+As part of this refinement we introduced an untriggered transition responsible for raising the |toFly| internal trigger, and therefore removed some of the non-determinisms concerning this trigger.
+
+The fourth refinement of the drone model (shown) in lilac) uses \emph{Rule C} to introduce additional implementation details to 
+allow a take-off to be cancelled in response to an external trigger |cancel|.
+%ensure that under special 
+%circumstances (e.g. sensing of adverse environment or unexpected battery dropped) the drone is able 
+%to circumvent flying and proceed to an emergency landing. The previously described requirement can be
+%expressed as
+%\begin{center}
+%  |(TAKEOFF = TRUE) => (BATTERYOK = TRUE ∨ toLand)|~.
+%\end{center}
+%To implement this new capability in the design the internal trigger |cancel| is introduced.
+%The internal trigger |cancel| can be raised non-deterministically by some sensing capability, 
+%the details of which are not currently implemented. 
+If the trigger is raised, the climbing process must be aborted and the drone descending sequence shall start. 
+This refinement level is done differently to Syriani et al.~\cite{Syriani_2019}, which follows Rule 7 \emph{state extension rule}. 
+The aforementioned rule requires a data remapping of the abstract states |TAKEOFF|, |CLIMB| and |HOVER|, which should be distinct from the states in this  refinement, as the state |ABORT| is introduced.
+In contrast, we implement this refinement using a rule similar to Syriani et al.'s  Rule 2 \emph{basic-to-or state rule}, which introduces the concrete states |CLIMB2| and |ABORT| to the abstract state |CLIMB|.
 
 
 % Syriani et al. refinement rules
