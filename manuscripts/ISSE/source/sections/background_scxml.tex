@@ -14,9 +14,7 @@ There are two kinds of triggers: internal triggers are raised by transitions and
 An external trigger may only be consumed when the internal trigger queue has been emptied.
 We chose \SCXML as our source language because it is relatively simple compared to some run to completion modelling languages yet has a well defined action language and simulation tool support.
 
-Listing~\ref{lst:scxml-r2c} shows a pseudocode representation of the run to completion semantics as defined within the latest W3C recommendation document~\cite{scxmlwebsite}. Here IQ and EQ are the triggers present in the internal and external queues respectively. We adopt the commonly used terminology where a single transition is called a \emph{micro-step} and a complete run (between de-queueing external triggers) is referred to as a \emph{macro-step}.
-
- \begin{lstlisting}[caption=Pseudocode for 'run to completion',label={lst:scxml-r2c}, frame=single]
+\begin{lstlisting}[caption=Pseudocode for 'run to completion',label={lst:scxml-r2c}, frame=single, float=h]
  while running:
  	while completion = false
  		if untriggered_enabled
@@ -33,6 +31,8 @@ Listing~\ref{lst:scxml-r2c} shows a pseudocode representation of the run to comp
  	endif
  endwhile 
  \end{lstlisting}
+
+Listing~\ref{lst:scxml-r2c} shows a pseudocode representation of the run to completion semantics as defined within the latest W3C recommendation document~\cite{scxmlwebsite}. Here IQ and EQ are the triggers present in the internal and external queues respectively. We adopt the commonly used terminology where a single transition is called a \emph{micro-step} and a complete run (between de-queueing external triggers) is referred to as a \emph{macro-step}.
 
 \SCXML does not contain any notion of refinement. 
 A single model contains all details to the finest level hence making it difficult to verify and validate that the model behaves safely and as intended.
