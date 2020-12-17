@@ -7,7 +7,6 @@
 One of the attractions of `run to completion' style modelling languages such as \SCXML is their execution semantics which provides a method for animating models to validate their behaviour.
 Our approach to \SCXML refinement results in a single \SCXML final model which can be animated using the existing \SCXML animation tools.
 However, we would like to validate the developing \UMLB model at intermediate refinement levels. 
-\ColinComment{why? Is it not sufficient to animate the \SCXML}
 
 In previous work~\cite{snook20JSA} we have developed a scenario-based approach to formal modelling using abstract scenarios to validate abstract models.
 The method is supported by a `Scenario Checker' tool, based on the \PROB model checker, that allows scenarios to be recorded and then replayed to check that important state has not changed since the original run of the scenario.
@@ -19,31 +18,43 @@ Since our \SCXML derived models already contain an implementation of run to comp
 If desired, internal variables that represent the controllers processing (e.g. the variables that model the \SCXML run to completion variables) can be annotated as \emph{private} so that only the application state is checked during replay.
 To help visualise the state of the model, the generated \UMLB state-machine is animated during the scenario validation.
 
-In Figure~\ref{fig:scenarioChecker_recording_drone1} we show a scenario being recorded.
-
-
-
- played back on the drone model.
-The main (top-left) editing view shows the state-machine being animated; the model is currently in the fly state.
-The bottom left view is the scenario checker control panel.
-The top button shows that a pre-recorded scenario is being played back and beside it the enabled external operations are greyed out since manual selection is disabled during playback.
-The main button to be used is the \emph{Big Step} button which fires the next step of the scenario.
-The bottom-right view shows the history, listing the operations that have already been played.
-This is the same as the \PROB history view (top-right), but organises operations into big step runs (an external followed by a sequence of internal operations.
-The bottom-middle view shows the state of the main variables and compares to the state when the scenario was recorded.
-In the example, a discrepancy has been detected since non-determinism in the raised triggers allowed |DESCEND| to be reached when the scenario was recorded, but the playback has chosen to enter |FLY| instead.
-
-
-\begin{figure}[!h]
+\begin{figure}[!th]
 	\centering
 	\includegraphics[width=0.90\textwidth, trim=30 50 60 0]{figures/scenarioChecker_recording_drone1.png}
-	\caption{Using Scenario Checker to validate behaviour}
-	\label{fig:scenarioChecker_recording_drone1}
+	\caption{Using Scenario Checker to validate behaviour of refinement 1- recording}
+	\label{fig:scenarioCheckerRecordingDrone1}
 \end{figure}
 
-While the scenario checker allows us to animate the expected run to completion behaviour, recall that, unless the transitions have all been finalised (i.e. no further refinement is permitted),  other behaviours are possible due to the non-deterministic completion incorporated in case transition guards are later strengthened. 
-\ColinInlineComment{To explore these behaviours, we can animate the main version of the machine (i.e. not the special version without non-determinstic features}
-%The scenario checker allows the run to completion (i.e. internal events) to be overridden in order to explore these behaviours at an abstract level.
+Figure~\ref{fig:scenarioCheckerRecordingDrone1} shows a scenario being recorded.
+The main (top-left) editing view shows the state-machine being animated; the model is currently in the |DESCEND| state.
+The bottom left view is the scenario checker control panel where external events can be fired to start a run to completion.
+In our model, only the External trigger raising events (representing the environment) are enabled.
+The main button to be used is the \emph{Big Step} button which fires the selected external event and then automatically fires internal events until non are enabled.
+The right hand view shows the scenario checker console, listing each big step and its run to completion in terms of internal events.
+The bottom centre view shows the state of the system at the end of the last run.
+
+\begin{figure}[!th]
+	\centering
+	\includegraphics[width=0.90\textwidth, trim=30 50 60 0]{figures/scenarioChecker_playback_drone1.png}
+	\caption{Using Scenario Checker to validate behaviour of refinement 1 - playback }
+	\label{fig:scenarioCheckerPlaybackDrone1}
+\end{figure}
+
+Figure~\ref{fig:scenarioCheckerRecordingDrone1} shows the recorded scenario being played back.
+In the control panel, external events are greyed out as they are being selected from the recording each time the \emph{Big Step} button is pressed. 
+The state view shows a discrepancy from when the scenario was recorded, and the state-machine is in the |FLY| state instead of the |DESCEND| state.
+Comparing the history in the console panels reveals that cause: an internal trigger, |toLand|, was non-deterministically raised during recording but not during playback.
+This is because the model allows for future raising of internal triggers in later refinements.
+
+\begin{figure}[!th]
+\centering
+\includegraphics[width=0.90\textwidth, trim=30 50 60 0]{figures/scenarioChecker_playback_drone3.png}
+\caption{Using Scenario Checker to validate behaviour of refinement 3 - playback}
+\label{fig:scenarioCheckerPlaybackDrone3}
+\end{figure}
+
+Figure~\ref{fig:scenarioCheckerPlaybackDrone3} shows the scenario being played back at a later refinement where the raising of the |toFly| and |toLand| internal triggers has been defined. 
+While the scenario checker allows us to animate that the main expected run to completion behaviour is possible, recall that, unless the transitions have all been finalised (i.e. no further refinement is permitted),  other behaviours are possible due to the non-deterministic completion incorporated in case transition guards are later strengthened. 
  
 
 %%% Local Variables:
