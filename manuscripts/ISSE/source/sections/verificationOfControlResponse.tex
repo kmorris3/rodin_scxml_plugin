@@ -128,85 +128,81 @@ Here, we assume that all the system events are strongly fair.
 \subsection{Termination of Responses for External Triggers}
 \label{sec:contr-rema-resp}
 
+We first define the notion of event convergence.
+\begin{definition}[Event Convergence]
+  \label{def:conv}
+  A set of events is said to be convergent if there cannot exist an
+  infinite sequence of events from the set.  As a result, for every
+  event in the set, there can only be a finite sequence of them.
+\end{definition}
+
 We start first by proving that it is always the case that the system
 will comeback to the \emph{Ready to De-queue} state and |iQ = {}|,
-i.e., it is ready to dequeue an external trigger (if any).  This is
-stated as the following theorem.
-\begin{theorem}[Responsive to De-queue External Trigger]
-  The system is always eventually empty the internal queue and come to
-  the \emph{Ready to De-queue} state.  This is formalised as
+i.e., it is ready to dequeue an external trigger (if any).  This
+property is guaranteed under the assumption of internal event
+convergence.  This is stated as the following theorem.
+\begin{theorem}[Finite Internal Events]
+  \label{thm:finite-internal-events}
+  Given that the internal events are convergent, the system
+  is always eventually empty the internal queue and come to the
+  \emph{Ready to De-queue} state.  This is formalised as
   \begin{center}
     |GF(iQ = {} & uc = TRUE & dt = {})|~.
   \end{center}
 \end{theorem}
 \begin{proof}
   Assuming that the properties is not satisified, i.e., eventually,
-  it is always the case that |iQ /= {} !or  uc = FALSE !or dt /=
-  {})|. This can be formalised as follows.
+  it is always the case that %
+  |iQ /= {} !or  uc = FALSE !or dt /=  {})|.  %
+  This can be formalised as follows.
   \begin{center}
     |FG(iQ /= {} !or uc = FALSE !or dt /= {})|~.    
   \end{center}
   According to Theorem~\ref{thm:Internal-DLF}, the internal events
   there for will always deadlock-free, and as a result, at least one
-  of the event is enabled infinitely often.
+  of the internal event is enabled infinitely often. Under
+  Assumption~\ref{asm:SF}, this internal event will eventually be
+  invoked infinitely often.  Under convergence assumption for internal
+  events, and according to Definition~\ref{def:conv}, there cannot be
+  an infinite occurrances of internal events, which leads to
+  contradition.
 \end{proof}
 
 
-In this sections, that is for every dequeued external trigger,
-eventually, the systems will completely process this external trigger
-and return to the state where a new external trigger (if any) can be
-processed.  Formally, the property can be specified as follows. For
-all external trigger |t|, i.e., |t !: ExternalTriggers|,
-\begin{center}
-  |G(dt = {t} => F(iQ = {} & uc = TRUE & dt = {})|~,
-\end{center}
-where $G$ denotes the \emph{globally} temporary operator and $F$
-denotes the \emph{finally} temporal operator.  Notice that when |uc = TRUE & dt = {}|, the system is in the |READY TO DE-QUEUE| state
-(Figure~\ref{fig:basis}).  Given |iQ = {}|, the system will stay in
-this |READY TO DE-QUEUE| state until an external trigger is dequeued.
-\begin{center}
-  |G(t = head(eQ) => F(iQ = {} & uc = TRUE & dt = {})|~,
-\end{center}
-Subsequently, we can have
-\begin{center}
-  |G(t !: eQ => F(iQ = {} & uc = TRUE & dt = {})|~,
-\end{center}
-\SonComment{Number these and create theorems}
-
-\begin{theorem}
-  For all external trigger |t !: ExternalTriggers|, we have
+\begin{theorem}[Responsiveness to External Triggers]
+  If an external trigger in the queue, then eventually, it will be dequeue.
   \begin{center}
-    |G(dt = {t} => F(iQ = {} & uc = TRUE & dt = {})|~.
+    |G(t !: content(eQ) => F([dequeueExternalTrigger.t]))|~,
   \end{center}
-\end{theorem}
-
-\begin{theorem}
-  Under the condition |!not(iQ = {} & uc = TRUE & dt = {})|, the system is
-  deadlock-free, i.e., there is one internal events
-  \SonComment{What are internal events} that is enabled.
+  where we use |[dequeueExternalTrigger.t]| to denote the occurance of
+  |dequeueExternalTrigger| with parameter |t|, i.e., |t| is processed.
 \end{theorem}
 \begin{proof}
-  Construction of the model.
+  Assuming that |t !: content(eQ)|. Since |eQ /= {}| and according to
+  Theorem~\ref{thm:finite-internal-events}, we have that
+  |dequeueExternalTrigger| is enabled infinitely often.  Since this
+  event is strongly fair (Assumption~\ref{asm:SF}), it is taken
+  eventually. We have two cases.
+  \begin{itemize}
+  \item If |t = head(eQ)|, it means we have
+    |[dequeueExternalTrigger.t]|
+    
+  \item If |t /= head(eQ)|, an occurance of |dequeueExternalTrigger|
+    will move |t| closer to be the head of the external queue |eQ| and
+    eventually it will be come the head of the queue and subsequently
+    be processed eventually
+  \end{itemize}
 \end{proof}
 
-\begin{corollary}
-  Under the condition |!not(iQ = {} & uc = TRUE & dt = {})|, assuming that
-  the internal events are strongly fair, eventually, one of the
-  internal events is taken.
-  \begin{center}
-    |G(!not(iQ = {} & uc = TRUE & dt = {})) => F([iE])|~.
-  \end{center}
-\end{corollary}
+\subsubsection{Proof of Convergence}
+\label{sec:proof-convergence}
+
+Standard technique for proving event convergence is based on
+variants.  In particular, given a variant, if all events guarantee to
+``decrease'' the variant and the variant is bounded below the set of
+events converge.
 
 
-\begin{theorem}
-  \begin{center}
-    |G(!not(iQ = {} & uc = TRUE & dt = {})) => F(!not(e(iE))|~.
-  \end{center}
-\end{theorem}
-
-
-\ColinInlineComment{We also need to show termination i.e. iQ=empty  and  uc=TRUE... to do this we need to stop future triggers (FT=empty and disable Future UntriggeredTransitions)  and stop external triggers from taking over! i.e. we need a separate machine that gets rid of all the non-determistic stuff thats there for future refinement. This is ok because we only verify this for the current level of the model.. models (hence refinements) are not guaranteed to have these termination properties}   
 
 
 \subsection{Correct Responses to External Triggers}
