@@ -12,52 +12,93 @@ present our approach to very the responsive properties of the system.
 
 % Different set of events
 In our \EventB model, the events can be separated into the following
-categories
+categories.
 \begin{itemize}
-\item \emph{Extenal events}: These events raise external triggers,
-  e.g. |ExternalTriggerEvent_toTakeoff|,
-  |ExternalTriggerEvent_decreaseCharge| etc.
+\item \emph{Extenal events}: These events raise external triggers
+  including |futureRaiseExternalTrigger|, |ExternalTriggerEvent_toTakeoff|,
+  |ExternalTriggerEvent_decreaseCharge|, etc.
   
-\item \emph{Future events}: These events might raise external triggers or
-  internal triggers, i.e., |SCXML_futureRaiseExternalTrigger|,
-  |SCXML_futureTriggeredTransitionSet|, and
-  |SCXML_futureUntriggeredTransitionSet|.  The purpose of these events
-  is for future introduction of more system details via refinement.
-  
-\item \emph{Dequeue External Trigger} (i.e.,
-  |SCXML_dequeueExternalTrigger|): This event dequeue the head of the
-  external triggers queue (if any) and will start a run. This event
-  can be seen in Figure~\ref{fig:basis}.
-
-\item \emph{Internal events}: These events belong to the internal of
-  the system to accommodate the runs for external extriggers.  These
-  events can be seen in different groups as in Figure~\ref{fig:basis}.
+\item \emph{System events}: Events other than external events are
+  called system events. They are the event of the system responding to
+  the exernal triggers (creating different runs).  These events can be
+  seen in Figure~\ref{fig:basis} and are categorised as follow.
   \begin{itemize}
-  \item \emph{Dequeue Internal Trigger} (i.e.,
-    |SCXML_dequeueInternalTrigger|)
+  \item \emph{Future system events}: These events might internal
+    triggers, i.e.,, |futureTriggeredTransitionSet|, and
+    |futureUntriggeredTransitionSet|.  The purpose of these events is
+    for future introduction of more system details via refinement.
     
-  \item \emph{Fire Triggered}. Triggered events corresponding
-    to the dequeued (external or internal) trigger.
+  \item \emph{Dequeue External Trigger} (i.e.,
+    |dequeueExternalTrigger|): This event dequeue the head of the
+    external triggers queue (if any) and will start a run.
 
-  \item \emph{No Triggered Enabled}, i.e., |SCXML_noTriggeredTransitionsEnabled|. 
-    This event will move system from the \emph{Firing Triggered} state to
-    the \emph{Firing Untriggered} state in the case where no triggered
-    events are enabled.
+  \item \emph{Internal system events}: These events belong to the
+    internal of the system to accommodate the runs for external
+    extriggers.  These events can be seen in different groups as in
+    Figure~\ref{fig:basis}.
+    \begin{itemize}
+    \item \emph{Dequeue Internal Trigger} (i.e.,
+      |dequeueInternalTrigger|). This event dequeue the head of the
+      internal triggers queue (if any) and will start a run.
     
-  \item \emph{Fire Untriggered}.  Untriggered events in the systems.
+    \item \emph{Triggered}. Triggered events corresponding to the
+      dequeued (external or internal) trigger.
 
-  \item \emph{Completion event}, i.e.,
-    |SCXML_noUntriggeredTransitionsEnabled|. This event will move the
-    system from \emph{Firing Untriggered} state to the \emph{Ready to
-      Dequeue} state in the case where no untriggered events are enabled.
+    \item \emph{Discard Trigger}, i.e.,
+      |noTriggeredTransitionsEnabled|.  This event will move system
+      from the \emph{Firing Triggered} state to the \emph{Firing
+        Untriggered} state in the case where no triggered events are
+      enabled.
+    
+    \item \emph{Untriggered}.  Untriggered events in the systems.
+
+    \item \emph{Completion event}, i.e.,
+      |noUntriggeredTransitionsEnabled|. This event will move the
+      system from \emph{Firing Untriggered} state to the \emph{Ready
+        to De-queue} state in the case where no untriggered events are
+      enabled.
+    \end{itemize}
+  \end{itemize}
 \end{itemize}
+
+\begin{theorem}[System Events are Relative Deadlock-Free]
+  Under the condition that %
+  |eQ /= {} !or iQ /= {} !or uc = FALSE !or dt /= {}|, %
+  the system events are deadlock-free, i.e., there must be
+  one system event is enabled.
+\end{theorem}
+\begin{proof}
+  This is based on the generation of our \EventB model (according to
+  the basis structure as seen in Figure~\ref{fig:basis}).  In
+  particular, we consider the different cases corresponding to the
+  different ``states'', i.e., \emph{Ready to De-queue}, \emph{Firing
+    Triggered}, and \emph{Firing Untriggered}.
+  \begin{itemize}
+  \item When the system is in the \emph{Ready to De-queue} state, %
+    |uc = TRUE & dt = {}|.  %
+    In the case where |iQ /= {}|, the |dequeueInternalTrigger| event
+    is enabled. In the case where |iQ = {}|, according to our
+    assumption, we have |eQ /= {}|, hence |dequeueExternalTrigger|
+    event is enabled.
+    
+  \item When the system is in the \emph{Firing Triggered} state,
+    either one of the triggered events is enabled or the
+    |noTriggeredTransitionsEnabled| event is enabled.
+    
+  \item Similarly, when the system is in the \emph{Firing Untriggered}
+      state, either one of the untriggered events is enabled or the
+      |noUntriggeredTransitionsEnabled| event is enabled.
 \end{itemize}
-\SonInlineComment{We only need to ignore the futureRaisedTriggers events}
+\end{proof}
 
 
-
+\begin{assumption}[Strongly Fair System Events]
+  We assume that the systems event that is |dequeueExternalTrigger|
+  and \emph{internal events} are strongly fair, i.e., if a system event is
+  enabled infinitely often, eventually, they will be taken.
+\end{assumption}
 \ColinInlineComment{We have some updates to this section... can we relax SF now we have queues? MAYBE WEAK FAIRNESS IS ENOUGH}
-\SonInlineComment{What fairness assumption that we are going to use here.}
+\SonInlineComment{If the model are deterministic, WF would be enough.}
 
 \subsection{Termination of Responses for External Triggers}
 \label{sec:contr-rema-resp}
