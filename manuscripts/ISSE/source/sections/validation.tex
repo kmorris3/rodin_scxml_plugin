@@ -40,7 +40,7 @@ The bottom centre view shows the state of the system at the end of the last run.
 	\label{fig:scenarioCheckerPlaybackDrone1}
 \end{figure}
 
-Figure~\ref{fig:scenarioCheckerRecordingDrone1} shows the recorded scenario being played back.
+Figure~\ref{fig:scenarioCheckerPlaybackDrone1} shows the recorded scenario being played back.
 In the control panel, external events are greyed out as they are being selected from the recording each time the \emph{Big Step} button is pressed. 
 The state view shows a discrepancy from when the scenario was recorded, and the state-machine is in the |FLY| state instead of the |DESCEND| state.
 Comparing the history in the console panels reveals that cause: an internal trigger, |toLand|, was non-deterministically raised during recording but not during playback.
