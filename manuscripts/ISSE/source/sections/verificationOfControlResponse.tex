@@ -2,27 +2,30 @@
 \section{Verification of Control Responses}
 \label{sec:verificationResponses}
 
-A model that has been proven to satisfy some invariant (e.g. safety) properties, 
+A model that has been proven to satisfy some safety (e.g., invariant) properties, 
 may still not behave in a useful way.
 Therefore, as well as verifying invariant properties, we would like to verify 
-the system's responsiveness. That is, we want to ensure that the controller 
+the system's liveness properties (e.g., responsiveness). That is, we want to ensure that the controller 
 responds to external triggers and makes appropriate modifications to the system variables. 
-These kind of live responses are difficult to prove via invariant
+These kind of liveness properties are difficult to prove via invariant
 preservation since they are temporal properties.  In this section, we
 present our approach to verify the responsive properties of the system.
 
+We first start with some generic properties of our generated \EventB
+model and the fairness assumption about event execution.  We then
+discuss the proof for termination of responses for external triggers
+in Section~\ref{sec:contr-rema-resp} and correctness of the responses
+for external triggers in Section~\ref{sec:corr-resp-extern}.
 
 % Different set of events
 In our \EventB model, the events can be separated into the following
 categories.
 \begin{itemize}
-\item \emph{External events}: These events raise external triggers
-  including |futureRaiseExternalTrigger|, |ExternalTriggerEvent_toTakeoff|,
-  |ExternalTriggerEvent_decreaseCharge|, etc.
+\item \emph{External events}: These events raise external triggers.
   
 \item \emph{System events}: Events other than external events are
   called system events. They are the events by which the system responds to
-  the external triggers (creating different runs).  These events can be
+  the external triggers (by creating different runs).  These events can be
   seen in Figure~\ref{fig:basis} and are categorised as follow.
   \begin{itemize}
   \item \emph{Future system events}: These events might raise internal
@@ -30,31 +33,31 @@ categories.
     |futureUntriggeredTransitionSet|.  The purpose of these events is
     to enable future introduction of more system details via refinement.
     
-  \item \emph{Dequeue external trigger events} (i.e.,
-    |dequeueExternalTriggered|): These events dequeue the head of the
-    external triggers queue (if any) and will start a run.
+  \item \emph{The dequeue external trigger event} (i.e.,
+    |dequeueExternalTriggered|): These events dequeue the
+    external trigger queue and will start a run.
 
   \item \emph{Internal system events}: These events belong to the
     internal behavior of the system to accommodate the runs for external
     triggers.  These events can be seen in different groups as in
     Figure~\ref{fig:basis}.
     \begin{itemize}
-    \item \emph{Dequeue internal trigger events} (i.e.,
-      |dequeueInternalTriggered|): These events dequeue the head of the
-      internal triggers queue (if any) and will start a run.
+    \item \emph{The dequeue internal trigger event} (i.e.,
+      |dequeueInternalTriggered|): These events dequeue the
+      internal triggers queue and will start a run.
     
     \item \emph{Triggered events}: The events corresponding to the
-      dequeued of (external or internal) triggers.
+     event fired by (external or internal) triggers.
 
-    \item \emph{Discard trigger events} (i.e.,
+    \item \emph{The discard trigger event} (i.e.,
       |noTriggeredTransitionsEnabled|):  This event will move the system
-      from the |FIRIGIN TRIGGERED| state to the |FIRING UNTRIGGERED| state 
+      from the |FIRING TRIGGERED| state to the |FIRING UNTRIGGERED| state 
       in the case where no triggered events are enabled.
     
     \item \emph{Untriggered events}:  These are all the untriggered 
     events in the systems.
 
-    \item \emph{Completion events} (i.e.,
+    \item \emph{The completion event} (i.e.,
       |noUntriggeredTransitionsEnabled|): This event will move the
       system from |FIRING UNTRIGGERED| state to the |READY TO DE-QUEUE|
       state in the case where no untriggered events are
@@ -74,22 +77,24 @@ categories.
   This is based on the generation of our \EventB model (according to
   the basis structure as seen in Figure~\ref{fig:basis}).  In
   particular, we consider the different cases corresponding to the
-  different ``states'', i.e., |READY TO DE-QUEUE|, |FIRIGIN TRIGGERED|
-  , and |FIRING UNTRIGGERED|.
+  different ``states'', i.e., |READY TO DE-QUEUE|, |FIRING TRIGGERED|,
+  and |FIRING UNTRIGGERED|.
   \begin{itemize}
-  \item When the system is in the |READY TO DE-QUEUE| state, %
+  \item When the system is in the |READY TO DE-QUEUE| state, we know
+    that %
     |uc = TRUE & dt = {}|.  %
-    according to our assumption, we have |iQ /= {}|, hence
+    According to our assumption, we then have |iQ /= {}|, hence
     |dequeueInternalTrigger| event is enabled.
     
-  \item When the system is in the |FIRIGIN TRIGGERED| state,
+  \item When the system is in the |FIRING TRIGGERED| state,
     either one of the triggered events is enabled or the
     |noTriggeredTransitionsEnabled| event is enabled.
     
   \item Similarly, when the system is in the |FIRING UNTRIGGERED|
-      state, either one of the untriggered events is enabled or the
-      |noUntriggeredTransitionsEnabled| event is enabled.  
+    state, either one of the untriggered events is enabled or the
+    |noUntriggeredTransitionsEnabled| event is enabled.  
   \end{itemize}
+  \qed
 \end{proof}
     
 \begin{corollary}[System Events are Relative Deadlock-Free]
@@ -110,7 +115,8 @@ categories.
   \item Otherwise, i.e., |iQ = {} & uc = TRUE & dt = {}|, according to
     our assumption, |eQ /= {}|. In this case, the
     |dequeueExternalTriggered| event is enabled.
-\end{itemize}
+  \end{itemize}
+  \qed
 \end{proof}
 
 In order to reason about any liveness/responsiveness properties, we
@@ -118,14 +124,12 @@ have to make assumptions about how often an event will be invoked.
 Here, we assume that all the system events are strongly fair.
 \begin{assumption}[Strongly Fair System Events]
   \label{asm:SF}
-  We assume that system events, i.e., |dequeueExternalTriggered|
-  and \emph{internal system events} are strongly fair, i.e., if a system
+  We assume that all system events are strongly fair, i.e., if a system
   event is enabled infinitely often, eventually, it will be eventually
-  invoked.
+  fired.
 \end{assumption}
-
-\ColinInlineComment{We have some updates to this section... can we relax SF now we have queues? MAYBE WEAK FAIRNESS IS ENOUGH}
-\SonInlineComment{If the model are deterministic, WF would be enough.}
+This assumption will ensure that the system will response no matter
+how often the external triggers are raised by the external events.
 
 \subsection{Termination of Responses for External Triggers}
 \label{sec:contr-rema-resp}
