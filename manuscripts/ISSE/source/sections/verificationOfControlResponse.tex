@@ -134,12 +134,19 @@ how often the external triggers are raised by the external events.
 \subsection{Termination of Responses for External Triggers}
 \label{sec:contr-rema-resp}
 
-We first define the notion of event convergence.
+We first define the notion of event convergence and event
+anticipation.
 \begin{definition}[Event Convergence]
   \label{def:conv}
-  A set of events is said to be convergent if there cannot exist an
-  infinite sequence of events from the set.  As a result, for every
-  event in the set, there can only be a finite sequence of them.
+  A set of events is said to be convergent if they all \emph{decrease}
+  a variant according to some well-founded order.
+\end{definition}
+
+\begin{definition}[Event Anticipation]
+  \label{def:anticipated}
+  Given a set of convergent events with respect to a variant,
+  another set of events is anticipated with respect to the
+  same variant if they \emph{do not increase} the variant.
 \end{definition}
 
 We start first by proving that it is always the case that the system
@@ -147,11 +154,12 @@ will comeback to the |READY TO DE-QUEUE| state and |iQ = {}|,
 i.e., it is ready to dequeue an external trigger (if any).  This
 property is guaranteed under the assumption of internal event
 convergence.  This is stated as the following theorem.
-\begin{theorem}[Finite Internal Events]
+\begin{theorem}[Termination of Internal System Events]
   \label{thm:finite-internal-events}
-  Given that the internal events are convergent, the system's 
-  internal queue is always eventually empty and the system transitions to the
-  \emph{Ready to De-queue} state.  This is formalised as
+  Given that the internal events are convergent and the external
+  events are anticipated, the system's internal queue is always
+  eventually empty and the system transitions to the \emph{Ready to
+    De-queue} state, i.e.,
   \begin{center}
     |GF(iQ = {} & uc = TRUE & dt = {})|~.
   \end{center}
@@ -159,41 +167,45 @@ convergence.  This is stated as the following theorem.
 \begin{proof}
   Assuming that the properties is not satisfied, i.e., eventually,
   it is always the case that %
-  |iQ /= {} !or  uc = FALSE !or dt /=  {})|.  %
+  |iQ /= {} !or  uc = FALSE !or dt /=  {}|.  %
   This can be formalised as follows.
   \begin{center}
     |FG(iQ /= {} !or uc = FALSE !or dt /= {})|~.    
   \end{center}
-  According to Theorem~\ref{thm:Internal-DLF}, the internal events
+  Notice that in the state satisfying this condition, the
+  |dequeueExternalTrigger| event is disabled.  Furthermore, according
+  to Theorem~\ref{thm:Internal-DLF}, the internal events
   will always be deadlock-free, and as a result, at least one
-  of the internal event is enabled infinitely often. Under
-  Assumption~\ref{asm:SF}, this internal event will eventually be
-  invoked infinitely often.  Under convergence assumption for internal
-  events, and according to Definition~\ref{def:conv}, there cannot be
-  an infinite occurrence of internal events, which leads to
-  contradiction.
+  of the internal event is enabled infinitely often. According to
+  Definition~\ref{def:conv}, the variant will be decreased infinitely
+  which violate the condition that the variant is defined on an
+  well-founded order.  Notice that the external events are
+  anticipated to ensure that the variant does not increase, hence
+  interfere with the convergence of the internal events.
 \end{proof}
 
 \begin{theorem}[Responsiveness to External Triggers]
   \label{thm:resp-ext-trg}
   If an external trigger is in the queue, then eventually, it will be dequeue.
   \begin{center}
-    |G(t !: content(eQ) => F([dequeueExternalTriggered.t]))|~,
+    |G([externalTrigger.t] => F([dequeueExternalTrigger.t]))|~,
   \end{center}
-  where we use |[dequeueExternalTriggered.t]| to denote the occurrence of
-  |dequeueExternalTriggered| with parameter |t|, i.e., |t| is processed.
+  where we use |externalTrigger.t|
+  (resp. |[dequeueExternalTrigger.t]|) to denote the occurrence of
+  |externalTrigger| (resp. |dequeueExternalTrigger|) with parameter |t|.
 \end{theorem}
 \begin{proof}
-  Assuming that |t !: content(eQ)|. Since |eQ /= {}| and according to
-  Theorem~\ref{thm:finite-internal-events}, we have that
-  |dequeueExternalTriggered| is enabled infinitely often.  Since this
-  event is strongly fair (Assumption~\ref{asm:SF}), it is taken
-  eventually. We have two cases.
+  Assuming that |[externalTrigger.t]| hence |t !: content(eQ)|, i.e.,
+  |eQ /= {}|.  According to Theorem~\ref{thm:finite-internal-events},
+  we have that |dequeueExternalTrigger| is enabled infinitely often.
+  Since |dequeueExternalTrigger| is strongly fair
+  (Assumption~\ref{asm:SF}), it is taken eventually. We have two
+  cases.
   \begin{itemize}
   \item If |t = head(eQ)|, it means we have
-    |[dequeueExternalTriggered.t]|
+    |[dequeueExternalTrigger.t]|
     
-  \item If |t /= head(eQ)|, an occurrence of |dequeueExternalTriggered|
+  \item If |t /= head(eQ)|, an occurrence of |dequeueExternalTrigger|
     will move |t| closer to be the head of the external queue |eQ| and
     eventually it will become the head of the queue and subsequently
     be processed eventually.
@@ -203,20 +215,15 @@ convergence.  This is stated as the following theorem.
 \subsubsection{Proof of Convergence}
 \label{sec:proof-convergence}
 The responsiveness to external triggers presented in the previous
-Subsection relies on the proof of convergence for internal events. The
-proof of convergence will need to be done for each individual SCXML
-diagram as it does not hold priori.  We present a generic approach to
-reason about the proof of convergence relying on lexicographic as
-follow.
+section relies on the proof of convergence for internal system events
+and anticipation of external events. The proof of convergence will
+need to be done for each individual SCXML state chart as it does not
+hold priori.  We present a generic approach to reason about the proof
+of convergence relying on lexicographic as follow.
 
-A standard technique for proving event convergence is based on
-variants.  In particular, given a variant, if all events guarantee to
-``decrease'' the variant and the variant is bounded below the set of
-events converge.  A variant in \EventB can be a natural number
-(bounded bellow by |0|) or a finite set (bounded below by the empty
-set |{}|).
-
-Moreover, for a set of events, the variants $V_1, V_2, ...$ are combined into a
+A variant in \EventB can be a natural number (bounded bellow by |0|)
+or a finite set (bounded below by the empty set |{}|).  Moreover, for
+a set of events, the variants $V_1, V_2, ...$ are combined into a
 lexicographic variant, i.e., $(V_1, V_2, ...)$ with $V_1$ has a higher
 priority than $V_2$, etc. An vent is said to decrease this
 lexicographic variant if it either decreases $V_1$ or if it keeps
@@ -338,7 +345,7 @@ we expect to hold in the drone \SCXML system.  The liveness property
 that we wish to verify is that, after an external trigger event
 |decreaseCharge|, the battery charge value should decrease in value, i.e.,
 \begin{center}
-  |G ([ExternalTriggerEvent_decreaseCharge] => F {charge < OLD_charge})|~.
+  |G ([ExternalTriggerEvent_decreaseCharge] => F {charge < old(charge)})|~.
 \end{center}
 As discussed in~\cite{detect2020}, this above properties is too strong
 and does not hold for the SCXML Drone model.  We have to weaken the
