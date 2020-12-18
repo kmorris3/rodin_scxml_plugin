@@ -302,10 +302,12 @@ This variant proof are available in the Rodin archieve at \url{...}
 \subsection{Correct Responses to External Triggers}
 \label{sec:corr-resp-extern}
 
-While \EventB refinements have also been shown to preserve some liveness properties under certain conditions~\cite{hoang2016ltl}, there are not yet efficient supporting tools for the technique.%
-\SonComment{We probably need to move this to related work}
-Instead, we can express the property in \LTL  and use the \PROB\footnote{ProB is an animator, constraint solver and model checker for the B-Method. https://www3.hhu.de/stups/prob} model checker to verify it.
+% While \EventB refinements have also been shown to preserve some liveness properties under certain conditions~\cite{hoang2016ltl}, there are not yet efficient supporting tools for the technique.%
+% % \SonComment{We probably need to move this to related work}
 
+% Instead, we can express the property in \LTL  and use the \PROB\footnote{ProB is an animator, constraint solver and model checker for the B-Method. https://www3.hhu.de/stups/prob} model checker to verify it.
+In our current apporach, we express liveness properties in \LTL  and use the 
+\PROB model checker to verify them.
 In general, our liveness properties will have the following form:
 \begin{center}
   |G([external_trigger_event] => F{predicate})|~,

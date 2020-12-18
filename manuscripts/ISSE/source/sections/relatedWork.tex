@@ -31,7 +31,14 @@ of~\cite{lamport1977proving}. This makes refinement a useful technique
 in developing safety-critical systems: one can analyze a simpler
 abstract model for critical safety properties and then add detail to
 the model via refinements, secure in the knowledge that the safety
-properties will be preserved.
+properties will be preserved. While \EventB refinements have also been 
+shown to preserve some liveness properties under certain 
+conditions~\cite{hoang2016ltl}, there are not yet efficient supporting 
+tools for the technique. Instead, we can express the property in \LTL  
+and use the \PROB\footnote{ProB is an animator, constraint solver and 
+model checker for the B-Method. https://www3.hhu.de/stups/prob} 
+model checker to verify it, as we have shown in previous work~\cite{detect2020}.
+
 
 Although the autonomous drone example in this paper is based on the
 example described in~\cite{Syriani_2019}, the definition of refinement
