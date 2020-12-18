@@ -16,28 +16,31 @@ changing the source of the transition to a nested state.
   state-chart -- sometimes called hierarchical composition or
   hierarchical refinement.
 \end{enumerate}
-Via the translation explained in Section~\ref{sec:translation}, these rules
-rely on the usual \EventB proof obligations to ensure that they do
-indeed yield refinements in the \EventB semantics.
-If an \EventB model |B| can be shown (via the construction rules of
-the \EventB language as well as the proof obligations) to refine
-another \EventB model |A|, then we know that every behavior of |B| is
-also a behavior of |A|. This definition yields a useful principle of
-preservation of safety -- if we can show that a bad thing never
-happens in |A|, then we can add detail via refinements in |B|, knowing
-that the bad thing will continue to never happen in |B|. That is,
-\EventB refinements preserve safety properties in the sense
+Via the translation explained in Section~\ref{sec:translation}, these
+rules rely on the usual \EventB proof obligations to ensure that they
+do indeed yield refinements in the \EventB semantics.  If an \EventB
+model |B| can be shown (via the construction rules of the \EventB
+language as well as the proof obligations) to refine another \EventB
+model |A|, then we know that every behavior of |B| is also a behavior
+of |A|. This definition yields a useful principle of preservation of
+safety -- if we can show that a bad thing never happens in |A|, then
+we can add detail via refinements in |B|, knowing that the bad thing
+will continue to never happen in |B|. That is, \EventB refinements
+preserve safety properties in the sense
 of~\cite{lamport1977proving}. This makes refinement a useful technique
 in developing safety-critical systems: one can analyze a simpler
 abstract model for critical safety properties and then add detail to
 the model via refinements, secure in the knowledge that the safety
-properties will be preserved. While \EventB refinements have also been 
-shown to preserve some liveness properties under certain 
-conditions~\cite{hoang2016ltl}, there are not yet efficient supporting 
-tools for the technique. Instead, we can express the property in \LTL  
-and use the \PROB\footnote{ProB is an animator, constraint solver and 
-model checker for the B-Method. https://www3.hhu.de/stups/prob} 
-model checker to verify it, as we have shown in previous work~\cite{detect2020}.
+properties will be preserved. While \EventB refinements have also been
+shown to preserve some liveness properties under certain
+conditions~\cite{hoang2016ltl}, there are not yet efficient supporting
+tools for the technique. Instead, we can express the property in \LTL
+and use the \PROB\footnote{ProB is an animator, constraint solver and
+  model checker for the B-Method. https://www3.hhu.de/stups/prob}
+model checker to verify it, as we have shown in previous
+work~\cite{detect2020}.  In this paper, we outline a proof of liveness
+properties that relies on reasoning about deadlock-freeness and event
+convergence.
 
 
 Although the autonomous drone example in this paper is based on the
