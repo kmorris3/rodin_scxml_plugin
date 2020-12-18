@@ -170,8 +170,8 @@ convergence.  This is stated as the following theorem.
   contradiction.
 \end{proof}
 
-
 \begin{theorem}[Responsiveness to External Triggers]
+  \label{thm:resp-ext-trg}
   If an external trigger is in the queue, then eventually, it will be dequeue.
   \begin{center}
     |G(t !: content(eQ) => F([dequeueExternalTriggered.t]))|~,
@@ -303,22 +303,177 @@ This variant proof are available in the Rodin archive associated with this study
 
 \subsection{Correct Responses to External Triggers}
 \label{sec:corr-resp-extern}
-\KarlaComment{Son: this section needs to be updated based on the proofs above,
-but I am not following all the details of section 8.1}
-% While \EventB refinements have also been shown to preserve some liveness properties under certain conditions~\cite{hoang2016ltl}, there are not yet efficient supporting tools for the technique.%
-% % \SonComment{We probably need to move this to related work}
+In the previous section, we showed the reasoning about the
+responsiveness of the system to external triggers.  However, we also
+need to prove that the response to the external triggers are as
+expected.  In our conference paper~\cite{detect2020}, we illustrate
+the use of ProB model checker to reason about such a property.  Here,
+we show how we can prove such a property.
 
-% Instead, we can express the property in \LTL  and use the \PROB\footnote{ProB is an animator, constraint solver and model checker for the B-Method. https://www3.hhu.de/stups/prob} model checker to verify it.
-In our current approach, we express liveness properties in \LTL  and use the 
-\PROB model checker to verify them.
-In general, our liveness properties will have the following form:
+\SonInlineComment{We should probably move this to the discussion}
+While \EventB refinements have also been shown to preserve some liveness properties under certain conditions~\cite{hoang2016ltl}, there are not yet efficient supporting tools for the technique.%
+\SonComment{We probably need to move this to related work}
+Instead, we can express the property in \LTL  and use the \PROB\footnote{ProB is an animator, constraint solver and model checker for the B-Method. https://www3.hhu.de/stups/prob} model checker to verify it.
+
+Once again, we assume that the system events are strongly fair as in
+Assumption~\ref{asm:SF}.  In general, our correct-response properties
+will have the following form:
 \begin{center}
   |G([external_trigger_event] => F{predicate})|~,
 \end{center}
-where the predicate concerns variables |v| that the system maintains, and may refer to old values |old(v)| that existed when the external trigger occurred.
+where the predicate concerns variables |v| that the system maintains,
+and may refer to old values |old_v| that existed when the external
+trigger occurred.  The translator generates a separate `branch'
+refinement for each \LTL property to be verified.  In this special
+refinement, history variables are added to record the value at the
+state when the external trigger occurs, of any variables that are
+referenced as `old' values.
+
+We illustrate the method with an example of a temporal property that
+we expect to hold in the drone \SCXML system.  The liveness property
+that we wish to verify is that, after an external trigger event
+|decreaseCharge|, the battery charge value should decrease in value, i.e.,
+\begin{center}
+  |G ([ExternalTriggerEvent_decreaseCharge] => F {charge < OLD_charge})|~.
+\end{center}
+As discussed in~\cite{detect2020}, this above properties is too strong
+and does not hold for the SCXML Drone model.  We have to weaken the
+property to state that the expected behaviour only achieved if the
+external trigger is raised at the right time as specified as %
+|{BATTERYOK=TRUE & charge>20}|, %
+and there are no external conflict triggers in processing or that has been
+raised, i.e. %
+|off /: dt \/ content{eQ}|.%
+The property can be formalised as follows
+
+\noindent|G([ExternalTriggerEvent_decreaseCharge] & |\\
+|{BATTERYOK=TRUE & charge>20 &|\\
+  |off/:dt & off /: content(eQ)}|\\
+|=> F {charge < old(charge)})|~.
+
+In order to prove the above property, we first recall the definition
+of \textbf{unless} property.
+\begin{definition}[Unless Properties~\cite{hudon16:_unit_b_method}]
+An \emph{unless property} of the
+following form
+\begin{center}
+  |P| \textbf{unless} |Q|
+\end{center}
+means that if |P| holds then it will hold continously unless |Q| hold.
+\end{definition}
+
+We restate the \emph{Unless rule} (Theorem 1
+in~\cite{hudon16:_unit_b_method}) here.
+\begin{theorem}{Unless rule}
+  \label{thm:unless-rule}
+  An event system satisfies the unless property |P| \textbf{unless}
+  |Q|, if for every event, if it starts in a state satisfying %
+  |P & !not Q|, %
+  it will end up in a state satisfying %
+  |P !or Q|.  %
+\end{theorem}
+
+Coming back to our example, we first prove that the \EventB model
+satisfies the following relevant \textbf{unless} property.
+\begin{theorem}
+  \label{thm:unless}
+  The drone system satisfies the property the following \textbf{unless}
+  property.
+
+  \noindent|BATTERYOK = TRUE & charge > 20 & decreaseCharge !: content(eQ) & | \\
+  |off /: dt & (! i . eQ(i) = off => (#j. eQ(j) = decreaseCharge & j < i))|\\
+  \textbf{unless} \\
+  |BATTERYOK = TRUE & charge > 20 & dt = {decreaseCharge}|\\
+\end{theorem}
+\begin{proof}[Sketch]
+ The proof of this relies on Theorem~\ref{thm:unless-rule}, i.e.,
+ reasoning per event.  The encoding of the proof obligations are
+ available from the Rodin archive. We informally explain why this
+ property holds for different class of events below.
+ \begin{itemize}
+ \item \emph{External events}: The external events raise new external
+   trigger and append the new trigger to |eQ|. Given that
+   |decreaseCharge| is already in |eQ|, even if the new trigger is
+   |off|, this trigger cannot over take |decreaseCharge| in the queue,
+   i.e., it is alway behind |decreaseCharge|. These external events
+   therefore maintains the left-hand side of the \textbf{unless} property.
+   
+ \item \emph{Dequeue external trigger}: If the dequeued external
+   trigger is |decreaseCharge|, we will have |dt = {decreaseCharge}|,
+   hence we establish the right-hand side of the unless property.
+   If it is not |decreaseCharge|, it also cannot be |off| (as any
+   |off| trigger in |eQ| has to be behind a |decreaseCharge|
+   trigger). As a result, the condition that |off| is behind
+   |decreaseCharge| in the remaining queue is maintained and also that
+   |off| cannot be in |dt| after the event execution.
+   
+ \item \emph{Internal system events}: For the internal systems events,
+   we separate them into those that are outside the |BATTERY| state
+   and those that are inside of the |BATTERY| state.
+   \begin{itemize}
+   \item For those that are outside the |BATTERY| state, they
+     maintain the left handside of the unless property trivially. (by
+     not effecting the external queue or the relevant state, here
+     |BATTERY| or the |charge|
+     
+   \item For the self-transition which is triggered by
+     |decreaseCharge|, the proof of the unless property is trivial,
+     since we assume the negation of the right-hand side of the unless
+     property, including that that |decreaseCharge| is not in |dt|.
+     
+   \item For the transition from |BATTERYOK| to |BATTERYLOW|, the
+     proof of the unless property is also trivial, since we assume the
+     left-hand side of the unless property, including that |charge > 20|.
+   \end{itemize}
+ \end{itemize}
+\end{proof}
+Theorem~\ref{thm:unless} means that the system will continuously
+satisfies the following conditions:
+\begin{itemize}
+\item in the |BATTERYOK| state~,
+  
+\item |charge| is more than |20|~,
+  
+\item |decreaseCharge| is in the external queue |eQ|~.
+  
+\item |off| is not in |dt|~.
+  
+\item if |off| is in the external queue |eQ| then it is behind a
+  |decreaseCharge| trigger~.
+\end{itemize}
+\textbf{unless} a state satisifying the following conditions is
+reached:
+\begin{itemize}
+\item in the |BATTERYOK| state~,
+  
+\item |charge| is more than |20|~,
+  
+\item |decreaseCharge| is in |dt|.
+\end{itemize}
+
+Coming back to our property and assume that
+|[ExternalTriggerEvent_decreaseCharge]| happens at the right time.
+Moreover, according to Theorem~\ref{thm:resp-ext-trg}, eventually, we
+have |[dequeueExternalTrigger.decreaseCharge]| (and %
+|dt = {decreaseCharge}|), %
+i.e., |decreaseCharge| is dequeued from the |eQ| into |dt|. And at
+that time, according to Theorem~\ref{thm:unless}, we also have
+|BATTERYOK = TRUE| and |charge > 20|. That ensure that the triggered
+transition event for |decreaseCharge| is enabled and will be
+eventually taken and decrease the |charge| value accordingly.
+
+
+% \begin{center}
+%   |G([ExternalTriggerEvent_decreaseCharge] & {BATTERYOK=TRUE & charge>=10 &|
+%     |off/:dt\/content(eQ)}|
+%   |=> ({BATTERYOK=TRUE & charge>=10 & off /: dt & decreaseCharge :
+%     content(eQ) & (! i . eQ(i) = off => (#j . eQ(j) = decreaseCharge &
+%     j < i))} U {decreaseCharge =
+%   head(eQ)}|
+% \end{center}
+
 To specify a liveness property to be verified, a special \LTL element is added to the \SCXML model with attributes, property (a string of the above form)  and refinement (an integer indicating the refinement level at which the property should be verified).
-The translator generates a separate `branch' refinement for each \LTL property to be verified. 
-In this special refinement, history variables are added to record the value at the state when the external trigger occurs, of any variables that are referenced as `old' values.
+
 A text file is automatically generated containing the \LTL property to be checked. 
 In this generated version, an assumption of strong fairness is added for all other events in the model.
 Without this assumption, the system may never achieve the expected response to a trigger. 
@@ -330,34 +485,30 @@ For simplicity we omit this assumption from the remaining examples.
 \end{center}
 This property can be added into the ProB model checker LTL formula text field.
 
-We illustrate the method with an example of a temporal property that we expect to hold in the drone \SCXML system. 
-The liveness property that we wish to  verify is that, after an external trigger event |decreaseCharge|, the battery charge value should  decrease in value.
-\begin{center}
-  |G ([ExternalTriggerEvent_decreaseCharge] => F {charge < old(charge)})|~.
-\end{center}
-However, we could not verify this property.
-The counter example traces that \PROB provided gave us a better understanding of the reasons why. 
-The property as stated is too strong (i.e. not true) for our model; there are additional conditions that need to be considered and added as part of the antecedent.
-\begin{itemize}
-\item
-Our model represented the trigger queues abstractly as sets which meant that the |decreaseCharge| trigger may never be dequeued.
-The standalone version of \PROB allows strong fairness to be specified for particular parameter values but this does not work in the Rodin plug-in for \PROB. 
-In any case, a more accurate (concrete) representation of the queue fixes the problem and improves our model.
-\item 
-The charge is not always decreased in response to the |decreaseCharge| trigger.
-The controller only monitors battery charge while in the |BATTERYOK| state and discards the trigger in other states.
-Also, the controller stops decreasing charge when it approaches 0. 
-To cater for this we added a pre-condition |BATTERYOK = TRUE ∧ charge ≥10| to the \LTL property.
-\item
-Even if this pre-condition is true when the trigger is raised, another trigger (e.g. |off|) may already be in the queue and take the controller out of |BATTERYOK| before the |decreaseCharge| trigger is dequeued.
-Again we strengthen the pre-condition |off ∉ dt ∪ eQ| of the \LTL expression to avoid this situation.
-\end{itemize}
-After making these changes the final form of the \LTL property, which \PROB was able to exhaustively check and confirm was as follows:
-\begin{center}
-	|G([ExternalTriggerEvent_decreaseCharge] & {BATTERYOK=TRUE & charge>=10 &|
-		|off/:SCXML_dt\/SCXML_eq} => F {charge < old(charge)})|~.
-\end{center}
-
+% However, we could not verify this property.
+% The counter example traces that \PROB provided gave us a better understanding of the reasons why. 
+% The property as stated is too strong (i.e. not true) for our model; there are additional conditions that need to be considered and added as part of the antecedent.
+% \begin{itemize}
+% \item
+% Our model represented the trigger queues abstractly as sets which meant that the |decreaseCharge| trigger may never be dequeued.
+% The standalone version of \PROB allows strong fairness to be specified for particular parameter values but this does not work in the Rodin plug-in for \PROB. 
+% In any case, a more accurate (concrete) representation of the queue fixes the problem and improves our model.
+% \item 
+% The charge is not always decreased in response to the |decreaseCharge| trigger.
+% The controller only monitors battery charge while in the |BATTERYOK| state and discards the trigger in other states.
+% Also, the controller stops decreasing charge when it approaches 0. 
+% To cater for this we added a pre-condition %
+% |BATTERYOK = TRUE ∧ charge > 20| %
+% to the \LTL property.
+% \item
+% Even if this pre-condition is true when the trigger is raised, another trigger (e.g. |off|) may already be in the queue and take the controller out of |BATTERYOK| before the |decreaseCharge| trigger is dequeued.
+% Again we strengthen the pre-condition |off ∉ dt ∪ eQ| of the \LTL expression to avoid this situation.
+% \end{itemize}
+% After making these changes the final form of the \LTL property, which \PROB was able to exhaustively check and confirm was as follows:
+% \begin{center}
+% 	|G([ExternalTriggerEvent_decreaseCharge] & {BATTERYOK=TRUE & charge>=10 &|
+% 		|off/:SCXML_dt\/SCXML_eq} => F {charge < old(charge)})|~.
+% \end{center}
 
 %%% Local Variables:
 %%% mode: latex
