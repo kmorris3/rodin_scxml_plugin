@@ -10,7 +10,7 @@ The constructed model must obey state-chart refinement rules listed in Section~\
 The structure of the state-chart for this model at each subsequent abstraction level restricts further the development of the model to refinements that obey the rules. 
 This will allow us to prove properties of the model in a very strategic fashion, as properties proven of early abstraction levels are preserved in later refinements.
 
-The initial abstraction and first refinement of the model, shown in Figure~\ref{fig:drone1}, captures the basic functionality of the drone. 
+The initial abstraction and first refinement of the model, shown in Figure~\ref{fig:drone1}, capture the basic functionality of the drone. 
 The model's initial state is |OFF| and as a result of the |on| and  |toTakeoff| external triggers it transitions to the |START| and |OPERATIONAL| states respectively\footnote{Transitions in Figures~\ref{fig:drone1}--\ref{fig:drone4} are labeled with trigger names
 (e.g. toTakeoff, toFly) not with event names as it is in \UMLB.}. 
 The drone reacts to the |off| external trigger by shutting down and subsequently transitioning to the |OFF| state.
@@ -24,13 +24,13 @@ It should be noted that this abstraction of the drone model includes a transitio
 This allows for the drone to respond to a |toLand| trigger if it encounters some problems while in the |TAKEOFF| state.
 Syriani et al.~\cite{Syriani_2019} introduces this transition in later refinements under Rule 8 \emph{path refinement rule}. 
 This rule is inconsistent with our rules of refinement as it results in a concrete event with no corresponding behavior in the abstraction.
-\ColinInlineComment{Fig 2 actually shows two levels - drone 0 and drone 1. I have corrected the text, could you change the colours of the substates}
+
 % \begin{figure}[!h]
 \begin{figure}[]
 	\vspace{-.4cm}
 	\centering
 	\includegraphics[width=0.90\textwidth, trim=0 40 0 0]{figures/Picture1.png}
-	\caption{State-chart of drone application. Abstract level including only generic start/shutdown behavior and first refinement introducing main operational sub-states. }
+	\caption{State-chart of drone application. Abstract level including only generic start/shutdown behavior (shown in blue). The first refinement introducing main operational sub-states, is shown in gray. }
 	\label{fig:drone1}
 	\vspace{-.4cm}
 \end{figure} 
@@ -49,7 +49,7 @@ This rule is inconsistent with our rules of refinement as it results in a concre
 % 	\label{fig:drone2}
 % \end{figure} 
 % \begin{figure}[!h]
-\ColinInlineComment{Fig 3 guards are incorrect.. 2 transitions to OPERATIONAL s.b. charge>50, transition to FLY s.b. change >40}
+
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.90\textwidth, trim=0 30 0 0]{figures/Picture5.png}
