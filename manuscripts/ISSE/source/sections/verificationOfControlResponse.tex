@@ -188,11 +188,12 @@ stated as the following theorem.
   well-founded order.  Notice that the external events are
   anticipated to ensure that the variant does not increase, hence
   does not interfere with the convergence of the internal events.
+  \qed
 \end{proof}
 
 \begin{theorem}[Responsiveness to External Triggers]
   \label{thm:resp-ext-trg}
-  If an external trigger is in the queue, then eventually, it will be dequeue.
+  If an external trigger is raised, then eventually, it will be dequeue.
   \begin{center}
     |G([externalTrigger.t] => F([dequeueExternalTrigger.t]))|~,
   \end{center}
@@ -356,23 +357,23 @@ that we wish to verify is that, after an external trigger event
   |G ([ExternalTriggerEvent_decreaseCharge] => F {charge < old(charge)})|~.
 \end{center}
 As discussed in~\cite{detect2020}, this above properties is too strong
-and does not hold for the SCXML Drone model.  We have to weaken the
+and does not hold for the SCXML drone model.  We have to weaken the
 property to state that the expected behaviour only achieved if the
 external trigger is raised at the right time as specified as %
 |{BATTERYOK=TRUE & charge>20}|, %
-and there are no external conflict triggers in processing or that has been
-raised, i.e. %
-|off /: dt \/ content{eQ}|.%
+and there are no external conflict triggers, here |off|, in processing
+or that has been raised, i.e., %
+|off /: dt \/ content{eQ}|.  %
 The property can be formalised as follows
 
-\noindent|G([ExternalTriggerEvent_decreaseCharge] & |\\
-|{BATTERYOK=TRUE & charge>20 &|\\
-  |off/:dt & off /: content(eQ)}|\\
-|=> F {charge < old(charge)})|~.
-
+\begin{center}
+  |G([ExternalTriggerEvent_decreaseCharge] & |\\
+  |{BATTERYOK=TRUE & charge>20 & off/:dt & off /: content(eQ)}|\\
+  |=> F {charge < old(charge)})|~.
+\end{center}
 In order to prove the above property, we first recall the definition
-of \textbf{unless} property.
-\begin{definition}[Unless Properties~\cite{hudon16:_unit_b_method}]
+of \textbf{unless} property~\cite{hudon16:_unit_b_method}.
+\begin{definition}[Unless Properties]
 An \emph{unless property} of the
 following form
 \begin{center}
@@ -399,13 +400,15 @@ satisfies the following important \textbf{unless} property.
   The drone system satisfies the property the following \textbf{unless}
   property.
 
-  \noindent|BATTERYOK = TRUE & charge > 20 & decreaseCharge !: content(eQ) & | \\
-  |off /: dt & (! i . eQ(i) = off => (#j. eQ(j) = decreaseCharge & j < i))|\\
-  \textbf{unless} \\
-  |BATTERYOK = TRUE & charge > 20 & dt = {decreaseCharge}|\\
+  \begin{center}
+    |BATTERYOK = TRUE & charge > 20 & decreaseCharge !: content(eQ) & | \\
+    |off /: dt & (! i . eQ(i) = off => (#j. eQ(j) = decreaseCharge & j < i))|\\
+    \textbf{unless} \\
+    |BATTERYOK = TRUE & charge > 20 & dt = {decreaseCharge}|\\
+  \end{center}
 \end{theorem}
 \begin{proof}[Sketch]
- The proof of this relies on Theorem~\ref{thm:unless-rule}, i.e.,
+ The proof relies on Theorem~\ref{thm:unless-rule}, i.e.,
  reasoning per event.  The encoding of the proof obligations are
  available from the Rodin archive. We informally explain why this
  property holds for different class of events below.
@@ -470,8 +473,8 @@ satisfies the following conditions:
 \item |decreaseCharge| is in |dt|.
 \end{itemize}
 
-Coming back to our correct-response property and assume that the
-system is at the right time and the
+Coming back to the proof for our correct-response property and assume
+that the system is at the right time and the
 |[ExternalTriggerEvent_decreaseCharge]| event happens.  Notice that at
 that particular moment, the left-hand side of the progress property in
 Theorem~\ref{thm:unless} is also satisfied.  According to

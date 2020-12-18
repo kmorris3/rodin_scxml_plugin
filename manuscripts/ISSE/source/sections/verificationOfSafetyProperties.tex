@@ -67,7 +67,11 @@ However, since this relies on a particular internal trigger (|toLand|) to make t
 After translation to \EVENTB via \UMLB the invariant in state |TAKEOFF| becomes 
 
 \begin{center}
- |(TAKEOFF = TRUE) ⇒ (toLand !: content(iQ) ∨ toLand∈dt ∨ BATTERYOK=TRUE)|.
+  |(TAKEOFF = TRUE)|
+
+  |⇒|
+
+  |(toLand !: content(iQ) ∨ toLand∈dt ∨ BATTERYOK=TRUE)|.
 \end{center}
 
 The invariant for the |FLY| state is similar with a corresponding antecedent.
