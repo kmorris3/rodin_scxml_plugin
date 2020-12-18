@@ -17,7 +17,7 @@ the run to completion semantics on the model transitions.
 \end{figure}
 
 The specification of this basis consists of an \EVENTB \emph{context} and \emph{machine} that are the same for all input models and are refined by the specific output of the translation.  
-The basis context, shown in listing \ref{lst:BasisContext}, introduces a set of all possible triggers, |SCXML_TRIGGER| which is partitioned into internal and external triggers 
+The basis context, shown in Listing~\ref{lst:BasisContext}, introduces a set of all possible triggers, |SCXML_TRIGGER| which is partitioned into internal and external triggers 
 (e.g |FutureInternalTrigger| and |FutureExternalTrigger| respectively), 
 some of which will be introduced in future refinements. 
 At each refinement these trigger sets are further partitioned to introduce more concrete triggers, 
@@ -89,7 +89,7 @@ Note that, for convenience, the currently dequeued trigger, |dt|, is modelled as
 
 The trigger queues and dequeued trigger are initialised to empty and |uc| is set to |FALSE| so that any enabled un-triggered transitions are dealt with via the |futureUntriggeredTransitionSet| event when the system first starts (see Listing~\ref{lst:scxml-r2c}).
 This will subsequently enable completion and reset the |uc| flag to |TRUE|.
-The abstract event |futureRaiseExternalTrigger| represents the raising  of an external trigger (not shown in figure~\ref{fig:basis}).    
+The abstract event |futureRaiseExternalTrigger| represents the raising  of an external trigger (not shown in Figure~\ref{fig:basis}).    
 After completion, a queued trigger can be prepared for consumption by moving it to the dequeued trigger, |dt|.
 Internal triggers have a higher priority, since the external trigger queue is only dequeued if the |iQ| is empty (see |dequeueExternalTriggered| and |dequeueInternalTriggered| in Figure~\ref{fig:basis}).
 The abstract event |futureTriggeredTransitionSet| represents a combination of parallel transitions that may be simultaneously triggered by the dequeued trigger, |dt|.
