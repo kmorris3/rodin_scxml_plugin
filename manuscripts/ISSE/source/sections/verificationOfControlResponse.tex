@@ -6,7 +6,7 @@ A model that has been proven to satisfy some invariant (e.g. safety) properties,
 may still not behave in a useful way.
 Therefore, as well as verifying invariant properties, we would like to verify 
 the system's responsiveness. That is, we want to ensure that the controller 
-responds to external triggers to make appropriate modifications to the system variables. 
+responds to external triggers and makes appropriate modifications to the system variables. 
 These kind of live responses are difficult to prove via invariant
 preservation since they are temporal properties.  In this section, we
 present our approach to verify the responsive properties of the system.
@@ -43,15 +43,15 @@ categories.
       |dequeueInternalTriggered|): These events dequeue the head of the
       internal triggers queue (if any) and will start a run.
     
-    \item \emph{Triggered events}. These events corresponding to the
+    \item \emph{Triggered events}: The events corresponding to the
       dequeued of (external or internal) triggers.
 
-    \item \emph{Discard Trigger} (i.e.,
+    \item \emph{Discard trigger events} (i.e.,
       |noTriggeredTransitionsEnabled|):  This event will move the system
       from the |FIRIGIN TRIGGERED| state to the |FIRING UNTRIGGERED| state 
       in the case where no triggered events are enabled.
     
-    \item \emph{Untriggered events}.  These are all the untriggered 
+    \item \emph{Untriggered events}:  These are all the untriggered 
     events in the systems.
 
     \item \emph{Completion events} (i.e.,
@@ -63,12 +63,12 @@ categories.
   \end{itemize}
 \end{itemize}
 
-\begin{theorem}[Internal Events are Relative Deadlock-Free]
+\begin{theorem}[Internal System Events are Relative Deadlock-Free]
   \label{thm:Internal-DLF}
   Under the condition that %
   |iQ /= {} !or uc = FALSE !or dt /= {}|, %
-  the internal events are deadlock-free, i.e., there must be
-  one internal event enabled.
+  the internal system events are deadlock-free, i.e., there must be
+  one internal system event enabled.
 \end{theorem}
 \begin{proof}
   This is based on the generation of our \EventB model (according to
@@ -77,7 +77,7 @@ categories.
   different ``states'', i.e., |READY TO DE-QUEUE|, |FIRIGIN TRIGGERED|
   , and |FIRING UNTRIGGERED|.
   \begin{itemize}
-  \item When the system is in the \emph{Ready to De-queue} state, %
+  \item When the system is in the |READY TO DE-QUEUE| state, %
     |uc = TRUE & dt = {}|.  %
     according to our assumption, we have |iQ /= {}|, hence
     |dequeueInternalTrigger| event is enabled.
@@ -109,7 +109,7 @@ categories.
     
   \item Otherwise, i.e., |iQ = {} & uc = TRUE & dt = {}|, according to
     our assumption, |eQ /= {}|. In this case, the
-    |dequeueExternalTrigger| event is enabled.
+    |dequeueExternalTriggered| event is enabled.
 \end{itemize}
 \end{proof}
 
@@ -118,8 +118,8 @@ have to make assumptions about how often an event will be invoked.
 Here, we assume that all the system events are strongly fair.
 \begin{assumption}[Strongly Fair System Events]
   \label{asm:SF}
-  We assume that the systems event, i.e., |dequeueExternalTrigger|
-  and \emph{internal events} are strongly fair, i.e., if a system
+  We assume that system events, i.e., |dequeueExternalTriggered|
+  and \emph{internal system events} are strongly fair, i.e., if a system
   event is enabled infinitely often, eventually, it will be eventually
   invoked.
 \end{assumption}
@@ -145,8 +145,8 @@ property is guaranteed under the assumption of internal event
 convergence.  This is stated as the following theorem.
 \begin{theorem}[Finite Internal Events]
   \label{thm:finite-internal-events}
-  Given that the internal events are convergent, the system
-  is always eventually empty the internal queue and come to the
+  Given that the internal events are convergent, the system's 
+  internal queue is always eventually empty and the system transitions to the
   \emph{Ready to De-queue} state.  This is formalised as
   \begin{center}
     |GF(iQ = {} & uc = TRUE & dt = {})|~.
@@ -174,22 +174,22 @@ convergence.  This is stated as the following theorem.
 \begin{theorem}[Responsiveness to External Triggers]
   If an external trigger is in the queue, then eventually, it will be dequeue.
   \begin{center}
-    |G(t !: content(eQ) => F([dequeueExternalTrigger.t]))|~,
+    |G(t !: content(eQ) => F([dequeueExternalTriggered.t]))|~,
   \end{center}
-  where we use |[dequeueExternalTrigger.t]| to denote the occurrence of
-  |dequeueExternalTrigger| with parameter |t|, i.e., |t| is processed.
+  where we use |[dequeueExternalTriggered.t]| to denote the occurrence of
+  |dequeueExternalTriggered| with parameter |t|, i.e., |t| is processed.
 \end{theorem}
 \begin{proof}
   Assuming that |t !: content(eQ)|. Since |eQ /= {}| and according to
   Theorem~\ref{thm:finite-internal-events}, we have that
-  |dequeueExternalTrigger| is enabled infinitely often.  Since this
+  |dequeueExternalTriggered| is enabled infinitely often.  Since this
   event is strongly fair (Assumption~\ref{asm:SF}), it is taken
   eventually. We have two cases.
   \begin{itemize}
   \item If |t = head(eQ)|, it means we have
-    |[dequeueExternalTrigger.t]|
+    |[dequeueExternalTriggered.t]|
     
-  \item If |t /= head(eQ)|, an occurrence of |dequeueExternalTrigger|
+  \item If |t /= head(eQ)|, an occurrence of |dequeueExternalTriggered|
     will move |t| closer to be the head of the external queue |eQ| and
     eventually it will become the head of the queue and subsequently
     be processed eventually.
@@ -205,7 +205,7 @@ diagram as it does not hold priori.  We present a generic approach to
 reason about the proof of convergence relying on lexicographic as
 follow.
 
-Standard technique for proving event convergence is based on
+A standard technique for proving event convergence is based on
 variants.  In particular, given a variant, if all events guarantee to
 ``decrease'' the variant and the variant is bounded below the set of
 events converge.  A variant in \EventB can be a natural number
@@ -232,19 +232,19 @@ to the following order and the rule for each variant.
   internally triggered events and untriggered events.  This depends on
   the SCXML diagram and we will illustrate this on the example later.
   
-\item $V_{dequeueInternalTrigger}$ = |length(iQ)|.  This variant is
-  used to prove the convergence of the |dequeueInternalTrigger| event.
+\item $V_{dequeueInternalTriggered}$ = |length(iQ)|.  This variant is
+  used to prove the convergence of the |dequeueInternalTriggered| event.
   Since this event remove the head of the |iQ|, it decreases the
   length of the |iQ| trivially.  While other events might increase
   |iQ|, by raising new internal triggers. However, these events should
   have been proved to converge using higher-priority variants.
   
-\item $V_{noTriggeredTransitions}$ = |dt|.  This variant is used to
+\item $V_{noTriggeredTransitionsEnabled}$ = |dt|.  This variant is used to
   prove the convergence of the |noTriggeredTransitionsEnabled| event.
   The event discard the trigger in |dt| hence ``decrease'' |dt| to the
   empty set.
   
-\item $V_{noUntriggeredTranstitions}$ = |{uc, TRUE}|.  This variant is
+\item $V_{noUntriggeredTranstitionsEnabled}$ = |{uc, TRUE}|.  This variant is
   used to prove the convergence of the
   |noUntriggeredTransitionsEnabled| event.  The event changes |uc|
   flag from |FALSE| to |TRUE|, hence ``decrease'' the variant from

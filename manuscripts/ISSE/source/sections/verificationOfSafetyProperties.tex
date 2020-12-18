@@ -57,7 +57,7 @@ the invariant in state |BATTERYOK| is
 The only events that can break this invariant are ones that make the antecedent become true or the consequent become false and we deal with these as follows:
 The transitions that enter state |OPERATIONAL| and initialise the |BATTERY| region by entering |BATTERYOK| (hence making the antecedent become true) contain the guard that |charge>50| (since we do not allow the drone to take off unless the battery is well charged) and hence the invariant is satisfied.
 The self transition that decreases charge (and hence could potentially falsify the consequent) is guarded by |uc = FALSE| since it is a triggered transition, and hence the disjunction in the consequent ensures it remains true.
-The completion event |NoUntriggeredTransitions| of the basis machine resets |uc = TRUE| to indicate completion of the cycle and hence could potentially break the invariant. 
+The completion event |NoUntriggeredTransitionsEnabled| of the basis machine resets |uc = TRUE| to indicate completion of the cycle and hence could potentially break the invariant. 
 However, finalising the transition |BATTERYOK_BATTERYLOW| (that leaves |BATTERYOK| when |charge>20| becomes false) means that  the negation of its guard is added to the completion event by the translation.
 Since this transition fires when |BATTERYOK = TRUE| (i.e. its source state) and |charge≤20| the completion event is guarded by |¬(BATTERYOK= TRUE ∧ charge≤20)| which means that it does not fire when it could break the invariant (i.e. forcing the untriggered reaction to fire first).
 

@@ -157,12 +157,12 @@ Finalisation is also needed in order to remove non-deterministic behaviours when
  		THEN	eQ≔append(eQ ↦ raisedTrigger)
  	END
 
- 	dequeueInternalTrigger      	   €\Comment{//event to dequeue an internal trigger}€ 
+ 	dequeueInternalTriggered      	   €\Comment{//event to dequeue an internal trigger}€ 
  		WHEN	iQ≠∅ & dt=∅ & uc=TRUE 
  		THEN	dt, iQ, uc ≔ {head(iQ)}, tail(iQ), FALSE
  	END
 
- 	dequeueExternalTrigger      	   €\Comment{//event to dequeue an external trigger}€ 
+ 	dequeueExternalTriggered      	   €\Comment{//event to dequeue an external trigger}€ 
  		WHEN	eQ≠∅ & dt=∅ & uc=TRUE & iqQ∅
 		THEN	dt, eQ, uc ≔ {head(eQ)}, tail(eQ), FALSE
  	END
