@@ -35,6 +35,7 @@
     <org.eventb.core.constant name="_WoIxES5dEeuetqa88bjbPl" org.eventb.core.generated="false" org.eventb.core.identifier="Seq_content"/>
     <org.eventb.core.constant name="_WoFtxi5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.identifier="InternalQueueType"/>
     <org.eventb.core.constant name="_WoFtxy5dEeuetqa88bjbPg" org.eventb.core.generated="false" org.eventb.core.identifier="ExternalQueueType"/>
-    <org.eventb.core.axiom name="_WoIxES5dEeuetqa88bjbPm" org.eventb.core.label="th_headContent" org.eventb.core.predicate="∀s, T · T ⊆ SCXML_TRIGGER ∧ s ∈ Seq(T) ∧ s ≠ ∅ ⇒ Seq_head(s) ∈ T" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_WoIxES5dEeuetqa88bjbPn" org.eventb.core.label="th_lengthTail" org.eventb.core.predicate="∀s· s ∈ Seq(SCXML_TRIGGER) ∧ s ≠ ∅ ⇒ Seq_length(Seq_tail(s)) = Seq_length(s) − 1" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_WoIxES5dEeuetqa88bjbPm" org.eventb.core.generated="false" org.eventb.core.label="th_headContent" org.eventb.core.predicate="∀s, T · T ⊆ SCXML_TRIGGER ∧ s ∈ Seq(T) ∧ s ≠ ∅ ⇒ Seq_head(s) ∈ T" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_WoIxES5dEeuetqa88bjbPn" org.eventb.core.generated="false" org.eventb.core.label="th_lengthTail" org.eventb.core.predicate="∀s· s ∈ Seq(SCXML_TRIGGER) ∧ s ≠ ∅ ⇒ Seq_length(Seq_tail(s)) = Seq_length(s) − 1" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_WoIxES5dEeuetqa88bjbPo" org.eventb.core.generated="false" org.eventb.core.label="th_contentAppend" org.eventb.core.predicate="∀s, e · s ∈ Seq(SCXML_TRIGGER) ∧ e ∈ SCXML_TRIGGER ⇒ Seq_content(s) ⊆ Seq_content(Seq_append(s ↦ e))" org.eventb.core.theorem="true"/>
 </org.eventb.core.contextFile>
