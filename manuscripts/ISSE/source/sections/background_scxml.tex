@@ -14,13 +14,17 @@ There are two kinds of triggers: internal triggers are raised by transitions and
 An external trigger may only be consumed when the internal trigger queue has been emptied.
 We chose \SCXML as our source language because it is relatively simple compared to some run to completion modelling languages yet has a well defined action language and simulation tool support.
 
-\begin{lstlisting}[caption=Pseudocode for 'run to completion',label={lst:scxml-r2c}, frame=single, float=h]
+\begin{lstlisting}[caption=Pseudocode for 'run to
+  completion',label={lst:scxml-r2c}, frame=single, float=h,
+  keywordstyle=\color{EventB@keywordcolour}\bfseries\sffamily,%
+  keywords={while, if, elseif, else, endif, endwhile},
+  ]
  while running:
  	while completion = false
  		if untriggered_enabled
  			execute(untriggered())
  		elseif IQ /= {}
- 			execute(internal(IQ.dequeue)) 
+ 			execute(IQ.dequeue)
  		else
  			completion = true
  		endif
