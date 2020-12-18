@@ -30,8 +30,8 @@ categories.
     |futureUntriggeredTransitionSet|.  The purpose of these events is
     to enable future introduction of more system details via refinement.
     
-  \item \emph{Dequeue External Trigger} (i.e.,
-    |dequeueExternalTriggered|): This event dequeue the head of the
+  \item \emph{Dequeue external trigger events} (i.e.,
+    |dequeueExternalTriggered|): These events dequeue the head of the
     external triggers queue (if any) and will start a run.
 
   \item \emph{Internal system events}: These events belong to the
@@ -39,25 +39,25 @@ categories.
     triggers.  These events can be seen in different groups as in
     Figure~\ref{fig:basis}.
     \begin{itemize}
-    \item \emph{Dequeue Internal Trigger} (i.e.,
-      |dequeueInternalTriggered|). This event dequeue the head of the
+    \item \emph{Dequeue internal trigger events} (i.e.,
+      |dequeueInternalTriggered|): These events dequeue the head of the
       internal triggers queue (if any) and will start a run.
     
-    \item \emph{Triggered}. Triggered events corresponding to the
-      dequeued (external or internal) trigger.
+    \item \emph{Triggered events}. These events corresponding to the
+      dequeued of (external or internal) triggers.
 
-    \item \emph{Discard Trigger}, i.e.,
-      |noTriggeredTransitionsEnabled|.  This event will move system
-      from the \emph{Firing Triggered} state to the \emph{Firing
-        Untriggered} state in the case where no triggered events are
-      enabled.
+    \item \emph{Discard Trigger} (i.e.,
+      |noTriggeredTransitionsEnabled|):  This event will move the system
+      from the |FIRIGIN TRIGGERED| state to the |FIRING UNTRIGGERED| state 
+      in the case where no triggered events are enabled.
     
-    \item \emph{Untriggered}.  Untriggered events in the systems.
+    \item \emph{Untriggered events}.  These are all the untriggered 
+    events in the systems.
 
-    \item \emph{Completion event}, i.e.,
-      |noUntriggeredTransitionsEnabled|. This event will move the
-      system from \emph{Firing Untriggered} state to the \emph{Ready
-        to De-queue} state in the case where no untriggered events are
+    \item \emph{Completion events} (i.e.,
+      |noUntriggeredTransitionsEnabled|): This event will move the
+      system from |FIRING UNTRIGGERED| state to the |READY TO DE-QUEUE|
+      state in the case where no untriggered events are
       enabled.
     \end{itemize}
   \end{itemize}
@@ -74,19 +74,19 @@ categories.
   This is based on the generation of our \EventB model (according to
   the basis structure as seen in Figure~\ref{fig:basis}).  In
   particular, we consider the different cases corresponding to the
-  different ``states'', i.e., \emph{Ready to De-queue}, \emph{Firing
-    Triggered}, and \emph{Firing Untriggered}.
+  different ``states'', i.e., |READY TO DE-QUEUE|, |FIRIGIN TRIGGERED|
+  , and |FIRING UNTRIGGERED|.
   \begin{itemize}
   \item When the system is in the \emph{Ready to De-queue} state, %
     |uc = TRUE & dt = {}|.  %
     according to our assumption, we have |iQ /= {}|, hence
     |dequeueInternalTrigger| event is enabled.
     
-  \item When the system is in the \emph{Firing Triggered} state,
+  \item When the system is in the |FIRIGIN TRIGGERED| state,
     either one of the triggered events is enabled or the
     |noTriggeredTransitionsEnabled| event is enabled.
     
-  \item Similarly, when the system is in the \emph{Firing Untriggered}
+  \item Similarly, when the system is in the |FIRING UNTRIGGERED|
       state, either one of the untriggered events is enabled or the
       |noUntriggeredTransitionsEnabled| event is enabled.  
   \end{itemize}
@@ -139,7 +139,7 @@ We first define the notion of event convergence.
 \end{definition}
 
 We start first by proving that it is always the case that the system
-will comeback to the \emph{Ready to De-queue} state and |iQ = {}|,
+will comeback to the |READY TO DE-QUEUE| state and |iQ = {}|,
 i.e., it is ready to dequeue an external trigger (if any).  This
 property is guaranteed under the assumption of internal event
 convergence.  This is stated as the following theorem.
@@ -297,7 +297,7 @@ in the Drone example are.
 \item |{CLIMB2, FALSE}|
 \end{itemize}
 
-This variant proof are available in the Rodin archive at \url{...}
+This variant proof are available in the Rodin archive associated with this study.
 \SonComment{To put the URL of the model}.
 
 
