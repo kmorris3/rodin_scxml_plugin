@@ -216,16 +216,17 @@ stated as the following theorem.
     eventually it will become the head of the queue and subsequently
     be processed eventually.
   \end{itemize}
+  \qed
 \end{proof}
 
 \subsubsection{Proof of Convergence and Anticipation}
 \label{sec:proof-convergence}
 The responsiveness to external triggers presented
 Theorem~\ref{thm:finite-internal-events} relies on the proof of
-convergence for internal system events and anticipation of external
-events. The proof of convergence will need to be done for each
-individual SCXML state chart as it does not hold priori.  We present a
-generic approach to reason about the proof of convergence relying on
+convergence for internal system events and anticipation for external
+events. These proof will need to be done for each individual SCXML
+statechart as they do not hold priori.  We present a generic approach
+to reason about the proof of convergence and anticipation relying on
 lexicographic as follow.
 
 A variant in \EventB can be a natural number (bounded bellow by |0|)
@@ -240,7 +241,7 @@ variants are supported in the latest Rodin (version 3.5).
 Our generic approach to construct a lexicographic variant is according
 to the following order and the rule for each variant.
 \begin{itemize}
-\item $V_{externalTriggered}$ = |dt /\ ExternalTrigger|.  This variant
+\item $V_{externalTrigger}$ = |dt /\ ExternalTrigger|.  This variant
   is used to prove the convergence for any externally triggered events
   (i.e., triggered event by some external trigger). These event remove
   the external trigger from |dt| hence ``decrease'' |dt| to the empty
@@ -250,7 +251,7 @@ to the following order and the rule for each variant.
   internally triggered events and untriggered events.  This depends on
   the SCXML diagram and we will illustrate this on the example later.
   
-\item $V_{dequeueInternalTriggered}$ = |length(iQ)|.  This variant is
+\item $V_{dequeueInternalTrigger}$ = |length(iQ)|.  This variant is
   used to prove the convergence of the |dequeueInternalTriggered| event.
   Since this event remove the head of the |iQ|, it decreases the
   length of the |iQ| trivially.  While other events might increase
@@ -315,8 +316,8 @@ in the Drone example are.
 \item |{CLIMB2, FALSE}|
 \end{itemize}
 
-This variant proof are available in the Rodin archive associated with this study.
-\SonComment{To put the URL of the model}.
+This variant proof are available in the Rodin archive at
+\url{https://tinyurl.com/ISSE-Drone}.
 
 
 \subsection{Correct Responses to External Triggers}
@@ -429,21 +430,22 @@ satisfies the following important \textbf{unless} property.
    we separate them into those that are outside the |BATTERY| state
    and those that are inside of the |BATTERY| state.
    \begin{itemize}
-   \item For those that are outside the |BATTERY| state, they
-     maintain the left handside of the unless property trivially. (by
-     not effecting the external queue or the relevant state, here
-     |BATTERY| or the |charge|
+   \item For those that are outside the |BATTERY| state, they maintain
+     the left handside of the unless property trivially (by leaving
+     external queue unchanged and does not alter the relevant state,
+     i.e., |BATTERY| or the |charge|).
      
    \item For the self-transition which is triggered by
-     |decreaseCharge|, the proof of the unless property is trivial,
-     since we assume the negation of the right-hand side of the unless
-     property, including that that |decreaseCharge| is not in |dt|.
-     
-   \item For the transition from |BATTERYOK| to |BATTERYLOW|, the
-     proof of the unless property is also trivial, since we assume the
-     left-hand side of the unless property, including that |charge > 20|.
+     |decreaseCharge| inside the |BATTERY| state, the proof of the
+     unless property is trivial, since we assume the negation of the
+     right-hand side of the unless property, including that that
+     |decreaseCharge| is not in |dt|. For the transition from
+     |BATTERYOK| to |BATTERYLOW|, the proof of the unless property is
+     also trivial, since we assume the left-hand side of the unless
+     property, including that |charge > 20|.
    \end{itemize}
  \end{itemize}
+ \qed
 \end{proof}
 Theorem~\ref{thm:unless} means that the system will continuously
 satisfies the following conditions:
@@ -468,16 +470,20 @@ satisfies the following conditions:
 \item |decreaseCharge| is in |dt|.
 \end{itemize}
 
-Coming back to our property and assume that
-|[ExternalTriggerEvent_decreaseCharge]| happens at the right time.
-According to Theorem~\ref{thm:resp-ext-trg}, eventually,
+Coming back to our correct-response property and assume that the
+system is at the right time and the
+|[ExternalTriggerEvent_decreaseCharge]| event happens.  Notice that at
+that particular moment, the left-hand side of the progress property in
+Theorem~\ref{thm:unless} is also satisfied.  According to
+Theorem~\ref{thm:resp-ext-trg}, eventually,
 |[dequeueExternalTrigger.decreaseCharge]| is fired (and %
 |dt = {decreaseCharge}|), %
 i.e., |decreaseCharge| is dequeued from the |eQ| into |dt|. And at
 that time, according to Theorem~\ref{thm:unless}, we also have
 |BATTERYOK = TRUE| and |charge > 20|.  That ensures the triggered
-transition event for |decreaseCharge| is enabled and will be
-eventually taken and decrease the |charge|'s value accordingly.
+transition event for |decreaseCharge| is enabled (and it is the only
+internal event enabled) and will be eventually taken, hence decrease
+the |charge|'s value accordingly.
 
 
 % \begin{center}
