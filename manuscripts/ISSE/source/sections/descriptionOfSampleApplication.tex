@@ -11,12 +11,12 @@ The structure of the state-chart for this model at each subsequent abstraction l
 This will allow us to prove properties of the model in a very strategic fashion, as properties proven of early abstraction levels are preserved in later refinements.
 
 The initial abstraction and first refinement of the model, shown in Figure~\ref{fig:drone1}, capture the basic functionality of the drone. 
-The model's initial state is |OFF| and as a result of the |on| and  |toTakeoff| external triggers it transitions to the |START| and |OPERATIONAL| states respectively\footnote{Transitions in Figures~\ref{fig:drone1}--\ref{fig:drone4} are labeled with trigger names
+The abstract model is shown in blue; the model's initial state is |OFF| and as a result of the |on| and  |toTakeoff| external triggers it transitions to the |START| and |OPERATIONAL| states respectively\footnote{Transitions in Figures~\ref{fig:drone1}--\ref{fig:drone4} are labeled with trigger names
 (e.g. toTakeoff, toFly) not with event names as it is in \UMLB.}. 
 The drone reacts to the |off| external trigger by shutting down and subsequently transitioning to the |OFF| state.
-In the first refinement, using \emph{Rule C}, details are added within the |OPERATIONAL| state as follows.
+The first refinement is constructed using \emph{Rule C}, which adds details within the |OPERATIONAL| state (gray states in figure~\ref{fig:drone1}).
 Within the |OPERATIONAL| state the drone will transition to |FLY| or |DESCEND| after the internal trigger |toFly| or |toLand| is raised, respectively. 
-In this abstraction, these internal triggers are raised non-deterministically in the system by functionality not currently defined.
+In refinement level one, these internal triggers are raised non-deterministically in the system by functionality not currently defined.
 As additional details are incorporated into the model in later refinements some of that non-determinism is 
 removed and replaced by transitions with actions that raised the previously defined internal triggers.
 A further external trigger, |landed|, directs the system to progress to the |LANDED| state.
@@ -60,7 +60,7 @@ This rule is inconsistent with our rules of refinement as it results in a concre
 	\label{fig:drone4}
 \end{figure} 
 
-Figure~\ref{fig:drone4} builds on Figure~\ref{fig:drone4} to show three more refinements to the drone model. 
+Figure~\ref{fig:drone4} builds on Figure~\ref{fig:drone1} to show three more refinements to the drone model. 
 % Figure~\ref{fig:drone4} shows two subsequent refinements to the drone model.
 The second refinement (shown in green in Figure~\ref{fig:drone4}) extends the capabilities within |OPERATIONAL| by using \emph{Rule C} to make it a parallel state that controls flying and battery related functionality. 
 This is the same as Rule 4 \emph{and-state rule} defined by Syriani et al.~\cite{Syriani_2019}.
@@ -94,7 +94,7 @@ The third refinement of the model (shown in beige) refines the state |TAKEOFF| b
 Under these rules we introduce child states and new model variables, similar to Rule 2 \emph{basic-to-or state rule} defined by Syriani et al.~\cite{Syriani_2019}
 As part of this refinement we introduced an untriggered transition responsible for raising the |toFly| internal trigger, and therefore removed some of the non-determinisms concerning this trigger.
 
-The fourth refinement of the drone model (shown) in lilac) uses \emph{Rule C} to introduce additional implementation details to 
+The fourth refinement of the drone model (shown in lilac) uses \emph{Rule C} to introduce additional implementation details to 
 allow a take-off to be cancelled in response to an external trigger |cancel|.
 %ensure that under special 
 %circumstances (e.g. sensing of adverse environment or unexpected battery dropped) the drone is able 
