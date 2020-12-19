@@ -226,7 +226,7 @@ The responsiveness to external triggers presented
 Theorem~\ref{thm:finite-internal-events} relies on the proof of
 convergence for internal system events and anticipation for external
 events. These proof will need to be done for each individual SCXML
-statechart as they do not hold priori.  We present a generic approach
+state-chart as they do not hold priori.  We present a generic approach
 to reason about the proof of convergence and anticipation relying on
 lexicographic as follow.
 
@@ -282,8 +282,8 @@ the actual state-chart as showed in Figure~\ref{fig:drone4}.  The
 variants are for the internally triggered events and untriggered
 events. The lexicographic order of the variant use to prove the
 convergence of the events depending (1) on the \emph{nested structure}
-of the statechart and (2) on the \emph{order of the transitions} with
-the same statechart.  For example, the variant for proving the
+of the state-chart and (2) on the \emph{order of the transitions} with
+the same state-chart.  For example, the variant for proving the
 convergence for the transition from |SHUTDOWN| to |OFF| will have a
 higher priority than the one for the transition from |TAKEOFF| to
 |FLY|, and this variant subsequently has higher priority than the one

@@ -3,11 +3,11 @@
 \label{sec:descr-sample-appl}
 
 To illustrate the development and analysis process of a design using the previously described 
-statechart semantics, we will discuss a quadrotor helicopter or quadrotor application similar to 
+state-chart semantics, we will discuss a quadrotor helicopter or quadrotor application similar to 
 the one presented by Syriani et al.~\cite{Syriani_2019}. 
 The application will focus on the incremental design of some of the drone's required functionality.
-The constructed model must obey statechart refinement rules listed in Section~\ref{sec:intro}, these rules are proven within the Rodin tool.
-The structure of the statechart for this model at each subsequent abstraction level restricts further the development of the model to refinements that obey the rules. 
+The constructed model must obey state-chart refinement rules listed in Section~\ref{sec:intro}, these rules are proven within the Rodin tool.
+The structure of the state-chart for this model at each subsequent abstraction level restricts further the development of the model to refinements that obey the rules. 
 This will allow us to prove properties of the model in a very strategic fashion, as properties proven of early abstraction levels are preserved in later refinements.
 
 The initial abstraction and first refinement of the model, shown in Figure~\ref{fig:drone1}, capture the basic functionality of the drone. 
@@ -30,7 +30,7 @@ This rule is inconsistent with our rules of refinement as it results in a concre
 	\vspace{-.4cm}
 	\centering
 	\includegraphics[width=0.90\textwidth, trim=0 40 0 0]{figures/Picture1.png}
-	\caption{Statechart of drone application. Abstract level including only generic start/shutdown behavior (shown in blue). The first refinement introducing main operational sub-states, is shown in gray. }
+	\caption{State-chart of drone application. Abstract level including only generic start/shutdown behavior (shown in blue). The first refinement introducing main operational sub-states, is shown in gray. }
 	\label{fig:drone1}
 	\vspace{-.4cm}
 \end{figure} 
@@ -45,7 +45,7 @@ This rule is inconsistent with our rules of refinement as it results in a concre
 % \begin{figure}[!h]
 % 	\centering
 % 	\includegraphics[width=0.95\textwidth]{figures/Picture2.png}
-% 	\caption{Statechart of drone application. Refinement level introducing details for take off.}
+% 	\caption{State-chart of drone application. Refinement level introducing details for take off.}
 % 	\label{fig:drone2}
 % \end{figure} 
 % \begin{figure}[!h]
@@ -53,7 +53,7 @@ This rule is inconsistent with our rules of refinement as it results in a concre
 \begin{figure}[]
 	\centering
 	\includegraphics[width=0.90\textwidth, trim=0 30 0 0]{figures/Picture5.png}
-	\caption{Statechart of drone application. 
+	\caption{State-chart of drone application. 
 		2nd refinement for battery monitoring functionality (shown in green).
 		3rd refinement introducing details for take off (shown in beige).
 		4th refinement level to allow cancelling during take-off (shown in lilac).}
@@ -73,20 +73,20 @@ This can be expressed as an invariant property:
 \begin{center}
 	|(BATTERYOK = TRUE) => charge > 20|\% .
 \end{center}
-When the monitored charge drops to 20\% or less, the |BATTERY| statechart raises the internal trigger |toLand|, which will cause a reaction in the |FLYOP| start-chart to bring it out of |TAKEOFF| or |FLY| and into |DESCEND| (hence removing some of the non-determinism concerning where |toLand| is raised).
+When the monitored charge drops to 20\% or less, the |BATTERY| state-chart raises the internal trigger |toLand|, which will cause a reaction in the |FLYOP| start-chart to bring it out of |TAKEOFF| or |FLY| and into |DESCEND| (hence removing some of the non-determinism concerning where |toLand| is raised).
 While in the |TAKEOFF| state we would expect the battery monitor to be in the |BATTERYOK| state or to have raised a |toLand| trigger.
 \begin{center}
 	|(TAKEOFF = TRUE) => (BATTERYOK = TRUE ∨ toLand)|~.
 \end{center}
 %The aforementioned trigger, is raised non-deterministically by some unspecified internal functionality .
-%Our statechart semantics supports transition refinement, which allows us to modify previously defined transitions, by adding guards \emph{Rule A} and/or actions \emph{Rule B} that modify new variables that contribute implementation details to the model. 
+%Our state-chart semantics supports transition refinement, which allows us to modify previously defined transitions, by adding guards \emph{Rule A} and/or actions \emph{Rule B} that modify new variables that contribute implementation details to the model. 
 To ensure the drone only enters |TAKEOFF| or |FLY| with enough battery power we strengthen the guards of transitions to the |FLY| and |TAKEOFF| states (\emph{Rule A}).
 We will discuss how these state invariant properties are verified in Section~\ref{sec:verificationSafety}.
 
 % \begin{figure}[!h]
 % 	\centering
 % 	\includegraphics[width=0.95\textwidth]{figures/Picture3.png}
-% 	\caption{Statechart of drone application.Refinement level for descending capabilities}
+% 	\caption{State-chart of drone application.Refinement level for descending capabilities}
 % 	\label{fig:drone3}
 % \end{figure} 
 
