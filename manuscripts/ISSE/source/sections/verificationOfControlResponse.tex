@@ -36,7 +36,7 @@ be separated into the following categories.
     refinement.
     
   \item \emph{The dequeue external trigger event} (i.e.,
-    |dequeueExternalTrigger|): These events dequeue the
+    |dequeueExternalTriggered|): These events dequeue the
     external trigger queue and will start a run.
 
   \item \emph{Internal system events}: These events belong to the
@@ -45,7 +45,7 @@ be separated into the following categories.
     Figure~\ref{fig:basis}.
     \begin{itemize}
     \item \emph{The dequeue internal trigger event} (i.e.,
-      |dequeueInternalTrigger|): These events dequeue the
+      |dequeueInternalTriggered|): These events dequeue the
       internal triggers queue and will start a run.
     
     \item \emph{Triggered events}: The events corresponding to the
@@ -90,7 +90,7 @@ deadlock-freeness properties for a different set of events.
     that %
     |uc = TRUE & dt = {}|.  %
     According to our assumption, we then have |iQ /= {}|, hence
-    |dequeueInternalTrigger| event is enabled.
+    |dequeueInternalTriggered| event is enabled.
     
   \item When the system is in the |FIRING TRIGGERED| state,
     either one of the triggered events is enabled or the
@@ -179,7 +179,7 @@ stated as the following theorem.
     |FG(iQ /= {} !or uc = FALSE !or dt /= {})|~.    
   \end{center}
   Notice that in the states satisfying this condition, the
-  |dequeueExternalTrigger| event is disabled.  Furthermore, according
+  |dequeueExternalTriggered| event is disabled.  Furthermore, according
   to Theorem~\ref{thm:Internal-DLF}, the internal events
   will always be deadlock-free, and as a result, at least one
   of the internal event is enabled infinitely often. According to
@@ -195,24 +195,24 @@ stated as the following theorem.
   \label{thm:resp-ext-trg}
   If an external trigger is raised, then eventually, it will be dequeue.
   \begin{center}
-    |G([externalTrigger.t] => F([dequeueExternalTrigger.t]))|~,
+    |G([externalTrigger.t] => F([dequeueExternalTriggered.t]))|~,
   \end{center}
   where we use |externalTrigger.t|
-  (resp. |[dequeueExternalTrigger.t]|) to denote the occurrence of
-  |externalTrigger| (resp. |dequeueExternalTrigger|) with parameter |t|.
+  (resp. |[dequeueExternalTriggered.t]|) to denote the occurrence of
+  |externalTrigger| (resp. |dequeueExternalTriggered|) with parameter |t|.
 \end{theorem}
 \begin{proof}
   Assuming that |[externalTrigger.t]| hence |t !: content(eQ)|, i.e.,
   |eQ /= {}|.  According to Theorem~\ref{thm:finite-internal-events},
-  we have that |dequeueExternalTrigger| is enabled infinitely often.
-  Since |dequeueExternalTrigger| is strongly fair
+  we have that |dequeueExternalTriggered| is enabled infinitely often.
+  Since |dequeueExternalTriggered| is strongly fair
   (Assumption~\ref{asm:SF}), it is taken eventually. We have two
   cases.
   \begin{itemize}
   \item If |t = head(eQ)|, it means we have
-    |[dequeueExternalTrigger.t]|
+    |[dequeueExternalTriggered.t]|
     
-  \item If |t /= head(eQ)|, an occurrence of |dequeueExternalTrigger|
+  \item If |t /= head(eQ)|, an occurrence of |dequeueExternalTriggered|
     will move |t| closer to be the head of the external queue |eQ| and
     eventually it will become the head of the queue and subsequently
     be processed eventually.
@@ -252,7 +252,7 @@ to the following order and the rule for each variant.
   internally triggered events and untriggered events.  This depends on
   the SCXML diagram and we will illustrate this on the example later.
   
-\item $V_{dequeueInternalTrigger}$ = |length(iQ)|.  This variant is
+\item $V_{dequeueInternalTriggered}$ = |length(iQ)|.  This variant is
   used to prove the convergence of the |dequeueInternalTriggered| event.
   Since this event remove the head of the |iQ|, it decreases the
   length of the |iQ| trivially.  While other events might increase
@@ -384,7 +384,7 @@ means that if |P| holds then it will hold continously unless |Q| hold.
 
 We restate the \emph{Unless rule} (Theorem 1
 in~\cite{hudon16:_unit_b_method}) here.
-\begin{theorem}{Unless rule}
+\begin{theorem}{Unless rule}:
   \label{thm:unless-rule}
   An event system satisfies the unless property |P| \textbf{unless}
   |Q|, if for every event, if it starts in a state satisfying %
@@ -397,7 +397,7 @@ Coming back to our example, we first prove that the \EventB model
 satisfies the following important \textbf{unless} property.
 \begin{theorem}
   \label{thm:unless}
-  The drone system satisfies the property the following \textbf{unless}
+  The drone system satisfies the following \textbf{unless}
   property.
 
   \begin{center}
@@ -413,7 +413,7 @@ satisfies the following important \textbf{unless} property.
  available from the Rodin archive. We informally explain why this
  property holds for different class of events below.
  \begin{itemize}
- \item \emph{External events}: The external events raise new external
+ \item \emph{External events}: The external events raise a new external
    trigger and append the new trigger to |eQ|. Given that
    |decreaseCharge| is already in |eQ|, even if the new trigger is
    |off|, this trigger cannot over take |decreaseCharge| in the queue,
@@ -426,7 +426,7 @@ satisfies the following important \textbf{unless} property.
    If it is not |decreaseCharge|, it also cannot be |off| (as any
    |off| trigger in |eQ| has to be behind a |decreaseCharge|
    trigger). As a result, the condition that |off| is behind
-   |decreaseCharge| in the remaining queue is maintained and also that
+   |decreaseCharge| in the remaining queue is maintained and
    |off| cannot be in |dt| after the event execution.
    
  \item \emph{Internal system events}: For the internal systems events,
@@ -451,7 +451,7 @@ satisfies the following important \textbf{unless} property.
  \qed
 \end{proof}
 Theorem~\ref{thm:unless} means that the system will continuously
-satisfies the following conditions:
+satisfy the following conditions:
 \begin{itemize}
 \item in the |BATTERYOK| state~,
   
@@ -479,7 +479,7 @@ that the system is at the right time and the
 that particular moment, the left-hand side of the progress property in
 Theorem~\ref{thm:unless} is also satisfied.  According to
 Theorem~\ref{thm:resp-ext-trg}, eventually,
-|[dequeueExternalTrigger.decreaseCharge]| is fired (and %
+|[dequeueExternalTriggered.decreaseCharge]| is fired (and %
 |dt = {decreaseCharge}|), %
 i.e., |decreaseCharge| is dequeued from the |eQ| into |dt|. And at
 that time, according to Theorem~\ref{thm:unless}, we also have
