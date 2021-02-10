@@ -2409,4 +2409,5 @@
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.mngHyp"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
     </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="merge_triggered/WD"/>
 </org.eventb.core.prFile>
