@@ -100,7 +100,7 @@ events
 	with
 		@abs_Step:				abs_Step = cnc_Step	//??
 		@abs_trigger: 			abs_trigger = cnc_trigger
-		@abs_raised_triggers:	abs_raised_triggers = cnc_raised_triggers ∩ abs_Triggers
+		@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_Triggers)
 	end
 	
 	// convert an untriggered transition to a triggered transition
@@ -111,7 +111,7 @@ events
 		@not_abs_trigger:		cnc_trigger ∉ abs_Triggers
 	with
 		@abs_Step:				abs_Step = cnc_Step	//??
-		@abs_raised_triggers:	abs_raised_triggers = cnc_raised_triggers ∩ abs_Triggers
+		@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_Triggers)
 	end
 
 	// introducing a completely new triggered transition
@@ -121,7 +121,7 @@ events
 		@cnc_Step:				cnc_Step ∉ abs_Steps
 		@not_abs_trigger:		cnc_trigger ∉ abs_Triggers
 	with
-		@abs_raised_triggers:	abs_raised_triggers = cnc_raised_triggers ∩ abs_Triggers
+		@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_Triggers)
 	end
 	
 	event old_untriggeredStep refines abs_untriggeredStep
@@ -131,7 +131,7 @@ events
 		@last_dequeue_trigger:	last_dequeue_trigger ⊆ abs_Triggers ∪ {nullTrigger}
 	with
 		@abs_Step:				abs_Step = cnc_Step	//??
-		@abs_raised_triggers:	abs_raised_triggers = cnc_raised_triggers ∩ abs_Triggers
+		@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_Triggers)
 	end
 	
 	event new_untriggeredStep refines abs_futureStep
@@ -140,7 +140,7 @@ events
 		@cnc_Step:				cnc_Step ∉ abs_Steps
 		@last_dequeue_trigger: 	last_dequeue_trigger ⊈ abs_Triggers ∪ {nullTrigger}
 	with
-		@abs_raised_triggers:	abs_raised_triggers = cnc_raised_triggers ∩ abs_Triggers
+		@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_Triggers)
 	end
 
 	event old_completion refines abs_completion
@@ -163,7 +163,7 @@ events
 	refines abs_futureStep
 	synchronises cnc_futureStep
 	with
-		@abs_raised_triggers:	abs_raised_triggers = cnc_raised_triggers ∩ abs_Triggers
+		@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_Triggers)
 	end
 	
 end
