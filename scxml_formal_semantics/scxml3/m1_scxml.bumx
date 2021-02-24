@@ -7,9 +7,9 @@ variables
 invariants
 	@last_dequeue_trigger: 		last_dequeue_trigger ∈ DeQueueType ∪ { {nullTrigger} }
 	//we only add new triggers to the internal queue
-	@internal_queue_glue: 		abs_internal_queue = cnc_internal_queue ∩ abs_Triggers	
+	@internal_queue_glue: 		abs_internal_queue = Seq_keep(cnc_internal_queue ↦ abs_Triggers)	
 	//we only add new triggers to the external queue	
-	@external_queue_glue: 		abs_external_queue = cnc_external_queue ∩ abs_Triggers 
+	@external_queue_glue: 		abs_external_queue = Seq_keep(cnc_external_queue ↦ abs_Triggers) 
 	//if the contents of the dequeued trigger is an old trigger, it is the same as the abstract dequeued trigger 
 	@cnc_dequeue_trigger_glue: 	cnc_dequeue_trigger ⊆ abs_Triggers ⇒ cnc_dequeue_trigger = abs_dequeue_trigger
 	//if the contents of the dequeued trigger is a new trigger, the abstract dequeued trigger is empty 
@@ -29,7 +29,7 @@ invariants
   	@xxx: 						last_dequeue_trigger ⊈ (abs_Triggers ∪ {nullTrigger}) ⇒ abs_completed = TRUE
   	@yyy: 						last_dequeue_trigger ⊆ abs_Triggers ∧ last_dequeue_trigger≠∅ ⇒ cnc_completed=abs_completed
  	//@cnc_completed_glue:  cnc_completed=TRUE ⇒ abs_completed=TRUE  // Doesn't prove GRD - untriggered transitions and completion are guarded by abs_completed=FALSE
- 	@zzz: last_dequeue_trigger={nullTrigger} ⇒ abs_completed = FALSE
+ 	@zzz: 						last_dequeue_trigger={nullTrigger} ⇒ abs_completed = FALSE
 
 events
 

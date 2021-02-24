@@ -4621,4 +4621,14 @@
         <org.eventb.core.prReas name="r4" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalPP:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="cnc_triggeredStep/completed/THM"/>
+    <org.eventb.core.prProof name="cnc_raiseExternalTrigger/external_queue_set/SIM"/>
+    <org.eventb.core.prProof name="cnc_dequeueExternalTrigger/dequeue_trigger_set/SIM"/>
+    <org.eventb.core.prProof name="cnc_dequeueExternalTrigger/external_queue_set/SIM"/>
+    <org.eventb.core.prProof name="cnc_dequeueInternalTrigger/dequeue_trigger_set/SIM"/>
+    <org.eventb.core.prProof name="cnc_dequeueInternalTrigger/external_queue_set/SIM"/>
+    <org.eventb.core.prProof name="cnc_triggeredStep/dequeue_trigger_set/SIM"/>
+    <org.eventb.core.prProof name="cnc_triggeredStep/internal_queue_set/SIM"/>
+    <org.eventb.core.prProof name="cnc_untriggeredStep/internal_queue_set/SIM"/>
+    <org.eventb.core.prProof name="cnc_futureStep/raised_triggers/GRD"/>
+    <org.eventb.core.prProof name="cnc_futureStep/internal_queue_set/SIM"/>
 </org.eventb.core.prFile>

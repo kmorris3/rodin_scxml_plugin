@@ -2994,4 +2994,17 @@
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r4" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
     </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="internal_queue/WD"/>
+    <org.eventb.core.prProof name="external_queue/WD"/>
+    <org.eventb.core.prProof name="abs_raiseExternalTrigger/external_queue_set/WD"/>
+    <org.eventb.core.prProof name="abs_dequeueExternalTrigger/trigger/WD"/>
+    <org.eventb.core.prProof name="abs_dequeueExternalTrigger/external_queue_set/WD"/>
+    <org.eventb.core.prProof name="abs_dequeueInternalTrigger/trigger/WD"/>
+    <org.eventb.core.prProof name="abs_dequeueInternalTrigger/external_queue_set/WD"/>
+    <org.eventb.core.prProof name="abs_triggeredStep/raised_triggers/WD"/>
+    <org.eventb.core.prProof name="abs_triggeredStep/internal_queue_set/WD"/>
+    <org.eventb.core.prProof name="abs_untriggeredStep/new_raised_trigger/WD"/>
+    <org.eventb.core.prProof name="abs_untriggeredStep/internal_queue_set/WD"/>
+    <org.eventb.core.prProof name="abs_futureStep/raised_triggers/WD"/>
+    <org.eventb.core.prProof name="abs_futureStep/internal_queue_set/WD"/>
 </org.eventb.core.prFile>
