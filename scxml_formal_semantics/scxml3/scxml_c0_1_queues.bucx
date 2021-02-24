@@ -8,11 +8,14 @@ extends scxml_c0_0_triggers
 
 constants
 	Seq			// Sequences of triggers
+	Seq_empty   // Empty sequence
+	Seq_content // Content of a sequence
 	Seq_length	// length of a sequence
 	Seq_append	// Append a trigger to a sequence
 	Seq_concat  // Concatenation a sequence to another sequence
 	Seq_head	// Head of sequences
 	Seq_tail	// Tail of sequences
+	Seq_keep	// Keep certain element from set in a sequence
 	InternalQueueType // The internal queues of triggers
 	ExternalQueueType // The external queues of triggers
 axioms
@@ -20,6 +23,14 @@ axioms
 	@Seq-def: Seq = (λT · T ⊆ TRIGGERS ∣ {n, s · n ∈ ℕ ∧ s ∈ 0 ‥ n − 1 → T ∣ s})
 	theorem @Seq-type: Seq ∈ ℙ(TRIGGERS) → ℙ(ℕ ⇸ TRIGGERS)
 	theorem @Seq-finite: ∀s · s ∈ Seq(TRIGGERS) ⇒ finite(s)
+	
+	// Definition of Seq_empty
+	@Seq_empty-def: Seq_empty = ∅ ⦂ ℙ(ℤ × TRIGGERS)
+	theorem @Seq_empty-type: ∀T·T ⊆TRIGGERS ⇒ Seq_empty ∈ Seq(T)
+	
+	// Definition of Seq_content
+	@Seq_content-def: Seq_content = (λs · s ∈ Seq(TRIGGERS) ∣ ran(s))
+	theorem @Seq_content-type: Seq_content ∈ Seq(TRIGGERS) → ℙ(TRIGGERS)
 	
 	// Definition of Seq_length
 	@Seq_length-def: Seq_length = (λs · s ∈ Seq(TRIGGERS) ∣ card(s))
@@ -53,7 +64,14 @@ axioms
 	)
 	theorem @Seq_tail-type: Seq_tail ∈ Seq(TRIGGERS) ∖ {∅} → Seq(TRIGGERS)
 	
-	
+	// Axiomatic definition of Seq_keep
+	@Seq_keep-type: Seq_keep ∈ Seq(TRIGGERS) × ℙ(TRIGGERS) → Seq(TRIGGERS)
+	theorem @Seq_keep-individual: ∀s, T · s ∈ Seq(TRIGGERS) ⇒
+		Seq_keep(s ↦ T) ∈ Seq(TRIGGERS)
+	@Seq_keep-content: ∀s, T· s ∈ Seq(TRIGGERS) ⇒
+		Seq_content(Seq_keep(s ↦ T)) ⊆ T
+	@Seq_keep-concat: ∀s1, s2, T · s1 ∈ Seq(TRIGGERS) ∧ s2 ∈ Seq(TRIGGERS) ⇒
+		Seq_keep(Seq_concat(s1 ↦ s2) ↦ T) = Seq_concat(Seq_keep(s1 ↦ T) ↦ Seq_keep(s2 ↦ T)) 
 	
 	@intQ: InternalQueueType = Seq(InternalTriggerType)
 	@extQ: ExternalQueueType = Seq(ExternalTriggerType)
