@@ -13,43 +13,43 @@ variables
 	completed // Flag indicating that a run has been completed
 
 invariants
-	@internal_queue: 			internal_queue ∈ Seq(InternalTriggers)
-	@external_queue: 			external_queue ∈ Seq(ExternalTriggers)
-	@dequeue_trigger: 			dequeue_trigger ∈ DeQueueType
-	@dequeue_triggerwd: 		dequeue_trigger ⊆ InternalTriggers ∪ ExternalTriggers
-	@typeof_completed: 			completed ∈ BOOL
+	@internal_queue: 				internal_queue ∈ Seq(InternalTriggers)
+	@external_queue: 				external_queue ∈ Seq(ExternalTriggers)
+	@dequeue_trigger: 				dequeue_trigger ∈ DeQueueType
+	@dequeue_triggerwd: 			dequeue_trigger ⊆ InternalTriggers ∪ ExternalTriggers
+	@typeof_completed: 				completed ∈ BOOL
 	
-	@firingTriggered: 			dequeue_trigger ≠ ∅ ⇒ completed=FALSE		//just a sanity check
+	@firingTriggered: 				dequeue_trigger ≠ ∅ ⇒ completed=FALSE		//just a sanity check
 	theorem @readyToDequeue:		completed=TRUE ⇒ dequeue_trigger = ∅		//just a sanity check
 		
 events
 
 	event INITIALISATION
 	then
-		@internal_queue_init:			internal_queue ≔ ∅ 
-		@external_queue_init: 			external_queue ≔ ∅
-		@dequeue_trigger_init:			dequeue_trigger ≔ ∅
-		@completed_init: 	completed ≔ FALSE
+		@internal_queue_init:		internal_queue ≔ ∅ 
+		@external_queue_init: 		external_queue ≔ ∅
+		@dequeue_trigger_init:		dequeue_trigger ≔ ∅
+		@completed_init: 			completed ≔ FALSE
 	end
 	
 	event raiseExternalTrigger
 	any trigger where
-		@trigger: 				trigger ∈ ExternalTriggers
+		@trigger: 					trigger ∈ ExternalTriggers
 	then
 		@external_queue_set:		external_queue ≔ Seq_append(external_queue ↦ trigger)
 	end
 	
 	event dequeueExternalTrigger
 	any trigger where 
-		@completed:		completed = TRUE
+		@completed:					completed = TRUE
 		theorem @dequeue_trigger:	dequeue_trigger = ∅	//sanity check
-		@external_queue-non_empty: external_queue ≠ ∅
+		@external_queue-non_empty: 	external_queue ≠ ∅
 		@trigger: 					trigger = Seq_head(external_queue)
-		@internal_queue:				internal_queue = ∅
+		@internal_queue:			internal_queue = ∅
 	then 
 		@dequeue_trigger_set: 		dequeue_trigger ≔ {trigger}
-		@external_queue_set:			external_queue ≔ Seq_tail(external_queue)
-		@completed_set:	completed ≔ FALSE
+		@external_queue_set:		external_queue ≔ Seq_tail(external_queue)
+		@completed_set:				completed ≔ FALSE
 	end
 	
 	event dequeueInternalTrigger
@@ -77,7 +77,7 @@ events
 		@raised_triggers:		raised_triggers ∈ Seq(InternalTriggers)
 	then 
 		@dequeue_trigger_set: 	dequeue_trigger ≔ dequeue_trigger ∖ {trigger}
-		@internal_queue_set:		internal_queue ≔ Seq_concat(internal_queue ↦ raised_triggers)		//raised triggers
+		@internal_queue_set:	internal_queue ≔ Seq_concat(internal_queue ↦ raised_triggers)		//raised triggers
 	end
 	
 
@@ -92,9 +92,9 @@ events
 	event untriggeredStep
 	any Step raised_triggers
 	where 
-		@step:					Step ∈ Steps
-		@dequeue_trigger: 		dequeue_trigger = ∅
-		@completed:				completed = FALSE		
+		@step:						Step ∈ Steps
+		@dequeue_trigger: 			dequeue_trigger = ∅
+		@completed:					completed = FALSE		
 		@new_raised_trigger:		raised_triggers ∈ Seq(InternalTriggers)
 	then 
 		@internal_queue_set:		internal_queue ≔ Seq_concat(internal_queue ↦ raised_triggers)		//raised triggers
@@ -102,10 +102,10 @@ events
 	
 	event completion
 	where
-		@dequeue_trigger: 	dequeue_trigger = ∅
-		@completed:			completed = FALSE
+		@dequeue_trigger: 			dequeue_trigger = ∅
+		@completed:					completed = FALSE
 	then
-		@completed_set:		completed ≔ TRUE
+		@completed_set:				completed ≔ TRUE
 	end
 	
 //	event futureDequeue	//needed to allow for future triggers starting a run
@@ -121,8 +121,8 @@ events
 	event futureStep 	
 	any raised_triggers
 	where 
-		@raised_triggers:		raised_triggers ∈ Seq(InternalTriggers)
-		@completed:				completed = TRUE		
+		@raised_triggers:			raised_triggers ∈ Seq(InternalTriggers)
+		@completed:					completed = TRUE		
 	then 
 		@internal_queue_set:		internal_queue ≔ Seq_concat(internal_queue ↦ raised_triggers)		//raised triggers
 	end
