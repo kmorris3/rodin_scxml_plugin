@@ -1,0 +1,14 @@
+
+\section{The semantics of refining an SCXML Run to Completion}
+
+To define the SCXML run to completion execution we first define the static elements involved: 
+Triggers are partitioned into either Internal or External triggers
+|partition (TRIGGERS, InternalTriggers, ExternalTriggers, {nullTrigger})|
+A null trigger |nullTrigger| is introduced for convenience to simplify the definition of the initial condition: the execution begins by firing untriggered transitions which is otherwise only done after a trigger is consumed. Hence the null Trigger is said to be consumed during initialisation.
+
+We define the internal and external trigger queues as subsets of internal, resp. external triggers
+|	InternalQueue = ℙ(InternalTriggers)|
+|	ExternalQueue = ℙ(ExternalTriggers)|
+
+\ColinInlineComment{THIS NEEDS COMPLETING}
+

@@ -1,0 +1,9 @@
+context gluing_scxml_ctx
+extends
+	abs_scxml_ctx
+	cnc_scxml_ctx
+axioms
+	@rit1: 	abs_InternalTriggers ⊆ cnc_InternalTriggers
+	@ret1: 	abs_ExternalTriggers ⊆  cnc_ExternalTriggers
+	@rs1:	abs_Steps ⊆ cnc_Steps
+end

@@ -1,0 +1,79 @@
+/*
+ * This context declares queues of triggers
+ * @author cfsnook - Initial model
+ * @author htson - Added sequence definitions
+ */
+context scxml_c0_1_queues 
+extends scxml_c0_0_triggers
+
+constants
+	Seq			// Sequences of triggers
+	Seq_empty   // Empty sequence
+	Seq_content // Content of a sequence
+	Seq_length	// length of a sequence
+	Seq_append	// Append a trigger to a sequence
+	Seq_concat  // Concatenation a sequence to another sequence
+	Seq_head	// Head of sequences
+	Seq_tail	// Tail of sequences
+	Seq_keep	// Keep certain element from set in a sequence
+	InternalQueueType // The internal queues of triggers
+	ExternalQueueType // The external queues of triggers
+axioms
+	// Definition of Seq
+	@Seq-def: Seq = (λT · T ⊆ TRIGGERS ∣ {n, s · n ∈ ℕ ∧ s ∈ 0 ‥ n − 1 → T ∣ s})
+	theorem @Seq-type: Seq ∈ ℙ(TRIGGERS) → ℙ(ℕ ⇸ TRIGGERS)
+	theorem @Seq-finite: ∀s · s ∈ Seq(TRIGGERS) ⇒ finite(s)
+	
+	// Definition of Seq_empty
+	@Seq_empty-def: Seq_empty = ∅ ⦂ ℙ(ℤ × TRIGGERS)
+	theorem @Seq_empty-type: ∀T·T ⊆TRIGGERS ⇒ Seq_empty ∈ Seq(T)
+	
+	// Definition of Seq_content
+	@Seq_content-def: Seq_content = (λs · s ∈ Seq(TRIGGERS) ∣ ran(s))
+	theorem @Seq_content-type: Seq_content ∈ Seq(TRIGGERS) → ℙ(TRIGGERS)
+	
+	// Definition of Seq_length
+	@Seq_length-def: Seq_length = (λs · s ∈ Seq(TRIGGERS) ∣ card(s))
+	theorem @Seq_length-type: Seq_length ∈ Seq(TRIGGERS) → ℕ
+	theorem @Seq_length-card: ∀n, s · n ∈ ℕ ∧ s ∈ 0 ‥ n − 1 → TRIGGERS ⇒ card(s) = n
+	
+	// Definition of Seq_append
+	@Seq_append-def: Seq_append = (λ s ↦ t · s ∈ Seq(TRIGGERS) ∧ t ∈ TRIGGERS ∣
+		{ i ↦ v ∣ i ∈ 0 ‥ Seq_length(s) ∧
+			(i < Seq_length(s) ⇒ v = s(i)) ∧
+			(i = Seq_length(s) ⇒ v = t)
+		}
+	)
+	theorem @Seq_append-type: Seq_append ∈ Seq(TRIGGERS) × TRIGGERS → Seq(TRIGGERS)
+
+	// Definition of Seq_concat
+	@Seq_concat-def: Seq_concat = (λ s1 ↦ s2 · s1 ∈ Seq(TRIGGERS) ∧ s2 ∈ Seq(TRIGGERS) ∣
+		{ i ↦ v ∣ i ∈ 0 ‥ Seq_length(s1) + Seq_length(s2) − 1 ∧
+			(i < Seq_length(s1) ⇒ v = s1(i)) ∧
+			(i ≥ Seq_length(s1) ⇒ v = s2(i − Seq_length(s1)))
+		}
+	)
+	theorem @Seq_concat-type: Seq_concat ∈ Seq(TRIGGERS) × Seq(TRIGGERS) → Seq(TRIGGERS)
+	
+	// Definition of Seq_head
+	@Seq_head-def: Seq_head = (λs · s ∈ Seq(TRIGGERS) ∧ s ≠ ∅ ∣ s(0))
+	theorem @Seq_head-type: Seq_head ∈ Seq(TRIGGERS) ∖ {∅} → TRIGGERS
+	
+	@Seq_tail-def: Seq_tail = (λs · s ∈ Seq(TRIGGERS) ∧ s ≠ ∅ ∣
+		{i ↦ v ∣ i ∈ 0 ‥ Seq_length(s) − 2 ∧ v = s(i+1)}
+	)
+	theorem @Seq_tail-type: Seq_tail ∈ Seq(TRIGGERS) ∖ {∅} → Seq(TRIGGERS)
+	
+	// Axiomatic definition of Seq_keep
+	@Seq_keep-type: Seq_keep ∈ Seq(TRIGGERS) × ℙ(TRIGGERS) → Seq(TRIGGERS)
+	theorem @Seq_keep-individual: ∀s, T · s ∈ Seq(TRIGGERS) ⇒
+		Seq_keep(s ↦ T) ∈ Seq(TRIGGERS)
+	@Seq_keep-content: ∀s, T· s ∈ Seq(TRIGGERS) ⇒
+		Seq_content(Seq_keep(s ↦ T)) ⊆ T
+	@Seq_keep-concat: ∀s1, s2, T · s1 ∈ Seq(TRIGGERS) ∧ s2 ∈ Seq(TRIGGERS) ⇒
+		Seq_keep(Seq_concat(s1 ↦ s2) ↦ T) = Seq_concat(Seq_keep(s1 ↦ T) ↦ Seq_keep(s2 ↦ T)) 
+	
+	@intQ: InternalQueueType = Seq(InternalTriggerType)
+	@extQ: ExternalQueueType = Seq(ExternalTriggerType)
+
+end
