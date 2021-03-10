@@ -1,0 +1,28 @@
+\section{The semantics of refining SCXML models}
+\ColinInlineComment{This is some old text.. needs updating for our latest approach}
+
+To model the complete \SCXML refinement semantics we now combine the previous two models. 
+That is, using the inclusion mechanism built into CamilleX, we combine our models of scxml execution with our models for state-machines.
+
+\subsection{M1 - refinement of combined scxml and state-machine }
+For this stage we include the corresponding M1 stages for SCXML and state-machine.
+
+The gluing context defines the needed refinement relationship between concrete and abstract parts of the model.
+\begin{enumerate}
+	\item \label{item:triggeredness} For transitions that refine abstract transitions, the transition is triggered if and only if its corresponding abstract transition is triggered.
+	\item For \emph{triggered} transitions that refine abstract transitions, the trigger is the same as that of the corresponding abstract transition.
+	\item For \emph{finalised} transitions that refine abstract \emph{finalised} transitions, the transition source is the same as that of the corresponding abstract transition. I.e. you cannot strengthen the source of an already finalised transition.
+	\item the abstract \emph{finalised} transitions are a subset of the abstract transitions that correspond to concrete finalised transitions. I.e. once transitions are finalised they stay finalised in refinements. 
+\end{enumerate}
+Initially, for item \ref{item:triggeredness} we defined a single axiom giving the equality of the domains of the abstract and concrete transition-trigger relationship.
+However, this was insufficient to prove the guard strengthening of the untriggered refined transitions because the |transition_link| relationship is not injective.
+(I.e. in general, an abstract transition could be refined by more than one concrete transition)
+Instead, we defined two axioms, universally quantifying over the set of refined transitions that are/are not triggered, with the consequent that the corresponding abstract transitions are/are not triggered.
+These axioms were sufficient to automatically discharge the guard strengthening POs for both triggered and untriggered refined transitions.
+
+\subsection{M2 - merging old and new events}
+We found a problem when we tried to merge the refined and new  transitions of the combined scxml and statechart semantics. 
+The problem occurs for merging both triggered and untriggered transitions.
+The problem is that we have not considered the case of merging a new state-machine transition with an old refined scxml triggered transition.
+Probably this is nonsensical and we should add guards to prevent it.
+Ok for triggered but for untriggered our way of distinguishing refined scxml untriggered transitions is via the disappearing variable dqaux

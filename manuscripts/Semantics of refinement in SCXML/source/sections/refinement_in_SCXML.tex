@@ -1,0 +1,18 @@
+\section{Refinement in SCXML}
+
+What can we do in a refinement
+\begin{itemize}
+	\item add nested state-machine
+	\item strengthen guard of transition to new sub-state
+	\item strengthen action of transition to new sub-state
+	\item add new external trigger
+	\item add new internal trigger (can be raised non-determinstically or by a transition
+	\item add new triggered or untriggered transition
+	\item 
+\end{itemize}
+
+what we can not do
+\begin{itemize}
+	\item cannot change the triggering of a refined transition - i.e. if it is untriggered it always will remain untriggered and if triggered, that trigger will never be changed.
+	\item refined transitions cannot raise more internal triggers except newly introduced ones. I.e. when the trigger is first introduced, transitions that do not raise it, never will. (has to do with finalisation)
+\end{itemize}
