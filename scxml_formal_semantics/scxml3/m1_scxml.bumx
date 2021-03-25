@@ -23,13 +23,12 @@ invariants
 	// set cnc_completed=FALSE
  	//@cnc_completed_glue: cnc_completed = abs_completed	//Doesn't prove INV - new dequeue events set cnc_completed to FALSE
  	//Also tried:
-	@uuu: 						cnc_completed = FALSE ⇔ last_dequeue_trigger ≠∅
-	@vvv: 						cnc_dequeue_trigger ≠∅ ⇒ cnc_dequeue_trigger = last_dequeue_trigger
-  	@www: 						last_dequeue_trigger=∅ ⇒ abs_completed=TRUE	
-  	@xxx: 						last_dequeue_trigger ⊈ (abs_Triggers ∪ {nullTrigger}) ⇒ abs_completed = TRUE
-  	@yyy: 						last_dequeue_trigger ⊆ abs_Triggers ∧ last_dequeue_trigger≠∅ ⇒ cnc_completed=abs_completed
- 	//@cnc_completed_glue:  cnc_completed=TRUE ⇒ abs_completed=TRUE  // Doesn't prove GRD - untriggered transitions and completion are guarded by abs_completed=FALSE
- 	@zzz: 						last_dequeue_trigger={nullTrigger} ⇒ abs_completed = FALSE
+	@lastDt_equiv_notCompleted: cnc_completed = FALSE ⇔ last_dequeue_trigger ≠∅
+	@cncDt_eq_lastDt: 	cnc_dequeue_trigger ≠∅ ⇒ cnc_dequeue_trigger = last_dequeue_trigger
+  	@lastDt_cleared: 	last_dequeue_trigger=∅ ⇒ abs_completed=TRUE	
+  	@new_r2c: 	last_dequeue_trigger ⊈ (abs_Triggers ∪ {nullTrigger}) ⇒ abs_completed = TRUE //new run to completion
+  	@refined_r2c: 	last_dequeue_trigger ⊆ abs_Triggers ∧ last_dequeue_trigger≠∅ ⇒ cnc_completed=abs_completed //refine run to completion
+ 	@initial_r2c: 	last_dequeue_trigger={nullTrigger} ⇒ abs_completed = FALSE  //initial untriggered steps
 
 events
 
