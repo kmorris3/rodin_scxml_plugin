@@ -1,7 +1,0 @@
-context scxml_c0_0_triggers_ProB
-extends scxml_c0_0_triggers
-
-axioms
-     @ExternalTriggerType-card: card(ExternalTriggerType) = 2
-     @InternalTriggerType-card: card(InternalTriggerType) = 2
-end
