@@ -10617,16 +10617,16 @@
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p31" org.eventb.core.predicate="Seq_append=(λs⦂ℙ(ℤ×TRIGGERS) ↦ t⦂TRIGGERS·s∈Seq(TRIGGERS) ∣ {i⦂ℤ,v⦂TRIGGERS·i∈0 ‥ Seq_length(s)∧(i&lt;Seq_length(s)⇒v=s(i))∧(i=Seq_length(s)⇒v=t) ∣ i ↦ v})"/>
         <org.eventb.core.prPred name="p34" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS)·T∈dom(Seq)"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
         <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="Seq_append-pres/THM" org.eventb.core.confidence="0" org.eventb.core.prFresh="s,T,t" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5" org.eventb.core.prSets="TRIGGERS">
         <org.eventb.core.lang name="L"/>
@@ -10870,13 +10870,13 @@
             <org.eventb.core.prIdent name="s" org.eventb.core.type="ℙ(ℤ×TRIGGERS)"/>
             <org.eventb.core.prIdent name="t" org.eventb.core.type="TRIGGERS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="Seq_tail-pres/WD" org.eventb.core.confidence="0" org.eventb.core.prFresh="s,T" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10" org.eventb.core.prSets="TRIGGERS">
         <org.eventb.core.lang name="L"/>
@@ -11359,16 +11359,16 @@
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p57" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS)·T∈dom(Seq)"/>
         <org.eventb.core.prPred name="p42" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS),t⦂TRIGGERS·T⊆TRIGGERS∧s∈Seq(T)∧t∈T⇒Seq_append(s ↦ t)∈Seq(T)"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
         <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="Seq_tail-pres/THM" org.eventb.core.confidence="0" org.eventb.core.prFresh="s,T" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8" org.eventb.core.prSets="TRIGGERS">
         <org.eventb.core.lang name="L"/>
@@ -11726,13 +11726,13 @@
             <org.eventb.core.prIdent name="s" org.eventb.core.type="ℙ(ℤ×TRIGGERS)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p39" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS),t⦂TRIGGERS·T⊆TRIGGERS∧s∈Seq(T)∧t∈T⇒Seq_append(s ↦ t)∈Seq(T)"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="Seq_concat-pres/WD" org.eventb.core.confidence="0" org.eventb.core.prFresh="T,s1,s2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8" org.eventb.core.prSets="TRIGGERS">
         <org.eventb.core.lang name="L"/>
@@ -12146,16 +12146,16 @@
             <org.eventb.core.prIdent name="T" org.eventb.core.type="ℙ(TRIGGERS)"/>
             <org.eventb.core.prIdent name="s1" org.eventb.core.type="ℙ(ℤ×TRIGGERS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
         <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="Seq_concat-pres/THM" org.eventb.core.confidence="0" org.eventb.core.prFresh="T,s1,s2" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6" org.eventb.core.prSets="TRIGGERS">
         <org.eventb.core.lang name="L"/>
@@ -12463,13 +12463,13 @@
             <org.eventb.core.prIdent name="s1" org.eventb.core.type="ℙ(ℤ×TRIGGERS)"/>
             <org.eventb.core.prIdent name="s2" org.eventb.core.type="ℙ(ℤ×TRIGGERS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="test/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="T" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5" org.eventb.core.prSets="TRIGGERS">
         <org.eventb.core.lang name="L"/>
@@ -12916,12 +12916,12 @@
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p30" org.eventb.core.predicate="Seq_append=(λs⦂ℙ(ℤ×TRIGGERS) ↦ t⦂TRIGGERS·s∈Seq(TRIGGERS) ∣ {i⦂ℤ,v⦂TRIGGERS·i∈0 ‥ Seq_length(s)∧(i&lt;Seq_length(s)⇒v=s(i))∧(i=Seq_length(s)⇒v=t) ∣ i ↦ v})"/>
         <org.eventb.core.prPred name="p25" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS),t⦂TRIGGERS·T⊆TRIGGERS∧s∈Seq(T)∧t∈T⇒Seq_append(s ↦ t)∈Seq(T)"/>
-        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="Seq_keep_Seq_append/WD" org.eventb.core.confidence="0" org.eventb.core.prFresh="s,T,t" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11" org.eventb.core.prSets="TRIGGERS">
         <org.eventb.core.lang name="L"/>
@@ -16430,16 +16430,16 @@
         <org.eventb.core.prPred name="p121" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS),t⦂TRIGGERS·(∃n⦂ℤ·n∈ℕ∧s∈0 ‥ n − 1 → T)∧t∈T⇒(∃n⦂ℤ·n∈ℕ∧Seq_append(s ↦ t)∈0 ‥ n − 1 → T)"/>
         <org.eventb.core.prPred name="p150" org.eventb.core.predicate="Seq_keep∈ℙ(ℤ × TRIGGERS) × ℙ(TRIGGERS) ⇸ ℙ(ℤ × TRIGGERS)"/>
         <org.eventb.core.prPred name="p43" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS),t⦂TRIGGERS·T⊆TRIGGERS∧s∈Seq(T)∧t∈T⇒Seq_append(s ↦ t)∈Seq(T)"/>
-        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
         <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
-        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="Seq_keep_append_d1/THM" org.eventb.core.confidence="0" org.eventb.core.prFresh="s,t,T" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8" org.eventb.core.prSets="TRIGGERS">
         <org.eventb.core.lang name="L"/>
@@ -16841,13 +16841,13 @@
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="Seq_head=(λs⦂ℙ(ℤ×TRIGGERS)·s∈Seq(TRIGGERS)∧s≠(∅ ⦂ ℙ(ℤ×TRIGGERS)) ∣ s(0))"/>
         <org.eventb.core.prPred name="p118" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS),t⦂TRIGGERS·(∃n⦂ℤ·n∈ℕ∧s∈0 ‥ n − 1 → T)∧t∈T⇒(∃n⦂ℤ·n∈ℕ∧Seq_append(s ↦ t)∈0 ‥ n − 1 → T)"/>
         <org.eventb.core.prPred name="p39" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS),t⦂TRIGGERS·T⊆TRIGGERS∧s∈Seq(T)∧t∈T⇒Seq_append(s ↦ t)∈Seq(T)"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="Seq_keep_append_d2/WD" org.eventb.core.confidence="0" org.eventb.core.prFresh="s,t,T" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12" org.eventb.core.prSets="TRIGGERS">
         <org.eventb.core.lang name="L"/>
@@ -17574,16 +17574,16 @@
         <org.eventb.core.prPred name="p125" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS),t⦂TRIGGERS·(∃n⦂ℤ·n∈ℕ∧s∈0 ‥ n − 1 → T)∧t∈T⇒(∃n⦂ℤ·n∈ℕ∧Seq_append(s ↦ t)∈0 ‥ n − 1 → T)"/>
         <org.eventb.core.prPred name="p152" org.eventb.core.predicate="Seq_keep∈ℙ(ℤ × TRIGGERS) × ℙ(TRIGGERS) ⇸ ℙ(ℤ × TRIGGERS)"/>
         <org.eventb.core.prPred name="p43" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS),t⦂TRIGGERS·T⊆TRIGGERS∧s∈Seq(T)∧t∈T⇒Seq_append(s ↦ t)∈Seq(T)"/>
-        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
         <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
         <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
-        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="Seq_keep_append_d2/THM" org.eventb.core.confidence="0" org.eventb.core.prFresh="s,t,T" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8" org.eventb.core.prSets="TRIGGERS">
         <org.eventb.core.lang name="L"/>
@@ -17999,12 +17999,12 @@
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="Seq_head=(λs⦂ℙ(ℤ×TRIGGERS)·s∈Seq(TRIGGERS)∧s≠(∅ ⦂ ℙ(ℤ×TRIGGERS)) ∣ s(0))"/>
         <org.eventb.core.prPred name="p123" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS),t⦂TRIGGERS·(∃n⦂ℤ·n∈ℕ∧s∈0 ‥ n − 1 → T)∧t∈T⇒(∃n⦂ℤ·n∈ℕ∧Seq_append(s ↦ t)∈0 ‥ n − 1 → T)"/>
         <org.eventb.core.prPred name="p40" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS),t⦂TRIGGERS·T⊆TRIGGERS∧s∈Seq(T)∧t∈T⇒Seq_append(s ↦ t)∈Seq(T)"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
     </org.eventb.core.prProof>
 </org.eventb.core.prFile>
