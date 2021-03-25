@@ -45,7 +45,8 @@ axioms
 		}
 	)
 	theorem @Seq_append-type: Seq_append ∈ Seq(TRIGGERS) × TRIGGERS → Seq(TRIGGERS)
-
+	theorem @Seq_append-pres: ∀T,s,t·T ⊆ TRIGGERS ∧ s ∈ Seq(T) ∧ t ∈ T ⇒ Seq_append(s ↦ t) ∈ Seq(T)
+	theorem @test: ∀T·T ∈ TRIGGERS ⇒ ( ∃ s·s ∈ Seq({T}))
 	// Definition of Seq_concat
 	@Seq_concat-def: Seq_concat = (λ s1 ↦ s2 · s1 ∈ Seq(TRIGGERS) ∧ s2 ∈ Seq(TRIGGERS) ∣
 		{ i ↦ v ∣ i ∈ 0 ‥ Seq_length(s1) + Seq_length(s2) − 1 ∧
@@ -54,7 +55,8 @@ axioms
 		}
 	)
 	theorem @Seq_concat-type: Seq_concat ∈ Seq(TRIGGERS) × Seq(TRIGGERS) → Seq(TRIGGERS)
-	
+	theorem @Seq_concat-pres:  ∀T,s1,s2·T ⊆ TRIGGERS ∧ s1 ∈ Seq(T) ∧ s2 ∈ Seq(T) ⇒ Seq_concat(s1↦s2) ∈ Seq(T)
+
 	// Definition of Seq_head
 	@Seq_head-def: Seq_head = (λs · s ∈ Seq(TRIGGERS) ∧ s ≠ ∅ ∣ s(0))
 	theorem @Seq_head-type: Seq_head ∈ Seq(TRIGGERS) ∖ {∅} → TRIGGERS
@@ -63,6 +65,7 @@ axioms
 		{i ↦ v ∣ i ∈ 0 ‥ Seq_length(s) − 2 ∧ v = s(i+1)}
 	)
 	theorem @Seq_tail-type: Seq_tail ∈ Seq(TRIGGERS) ∖ {∅} → Seq(TRIGGERS)
+	theorem @Seq_tail-pres: ∀T,s·T ⊆ TRIGGERS ∧ s ∈ Seq(T) ⇒ Seq_tail(s) ∈ Seq(T)
 	
 	// Axiomatic definition of Seq_keep
 	@Seq_keep-type: Seq_keep ∈ Seq(TRIGGERS) × ℙ(TRIGGERS) → Seq(TRIGGERS)
@@ -72,7 +75,10 @@ axioms
 		Seq_content(Seq_keep(s ↦ T)) ⊆ T
 	@Seq_keep-concat: ∀s1, s2, T · s1 ∈ Seq(TRIGGERS) ∧ s2 ∈ Seq(TRIGGERS) ⇒
 		Seq_keep(Seq_concat(s1 ↦ s2) ↦ T) = Seq_concat(Seq_keep(s1 ↦ T) ↦ Seq_keep(s2 ↦ T)) 
-	
+	theorem @Seq_keep_append_d1:	∀t,T,s·T ⊆ TRIGGERS ∧ t ∈ T ∧ s ∈ Seq(TRIGGERS) ⇒ 
+									Seq_keep(Seq_append(s↦t)↦T) = Seq_append(Seq_keep(s↦T)↦t)
+	theorem @Seq_keep_append_d2:	∀t,T,s·T ⊆ TRIGGERS ∧ t ∉ T ∧ s ∈ Seq(TRIGGERS) ⇒ Seq_keep(s↦T) = Seq_keep(Seq_append(s↦t)↦T)
+										
 	@intQ: InternalQueueType = Seq(InternalTriggerType)
 	@extQ: ExternalQueueType = Seq(ExternalTriggerType)
 
