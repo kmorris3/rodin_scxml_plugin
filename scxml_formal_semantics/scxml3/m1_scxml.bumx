@@ -120,7 +120,7 @@ events
 	where
 		@cnc_Step:				cnc_Step ∉ abs_Steps
 		@not_abs_trigger:		cnc_trigger ∉ abs_Triggers
-		@cnc_raised_triggers:	Seq_content(cnc_raised_triggers) ∩ abs_Triggers = ∅
+		@cnc_raised_triggers:	Seq_content(cnc_raised_triggers) ∩ abs_Triggers = ∅  //∅ = Seq_keep(cnc_raised_triggers ↦ abs_InternalTriggers) //
 	end
 	
 //	This is the other case (for merging the above 3 cases) of concrete triggered step
@@ -140,7 +140,6 @@ events
 	synchronises cnc_untriggeredStep
 	where
 		@cnc_Step:				cnc_Step ∈ abs_Steps
-		//@last_dequeue_trigger:	last_dequeue_trigger ⊆ abs_Triggers ∪ {nullTrigger}	
 	with
 		@abs_Step:				abs_Step = cnc_Step
 		@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_Triggers)
@@ -150,10 +149,9 @@ events
 	synchronises cnc_untriggeredStep
 	where
 		@cnc_Step:				cnc_Step ∉ abs_Steps
-		//@last_dequeue_trigger: 	last_dequeue_trigger ⊈ abs_Triggers ∪ {nullTrigger}
-		@cnc_raised_triggers:	Seq_content(cnc_raised_triggers) ∩ abs_Triggers = ∅
+		@cnc_raised_triggers:	Seq_content(cnc_raised_triggers) ∩ abs_Triggers = ∅  //∅ = Seq_keep(cnc_raised_triggers ↦ abs_Triggers) //
 	end
-
+ 
 	event old_completion refines abs_completion
 	synchronises cnc_completion
 	where
@@ -169,13 +167,6 @@ events
 	then
 		@last_dequeue_trigger_set: 	last_dequeue_trigger ≔ ∅
 	end
-	
-//	event cnc_futureStep	//needed if we allow adding raising of abstract internal triggers in later refinements
-//	refines abs_futureStep
-//	synchronises cnc_futureStep
-//	with
-//		@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_Triggers)
-//	end
 	
 end
 

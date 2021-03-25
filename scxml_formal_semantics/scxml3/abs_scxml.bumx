@@ -1,5 +1,5 @@
 /*
- * This context is a copy of scxml with every variables and constants prefixed with "abs_"
+ * This machine is a copy of scxml with every variable and event prefixed with "abs_"
  * Ideally, this should be done by an "instantiation+renaming" plug-in.
  * This machine is CORRECT-BY-CONSTRUCTION
  */
@@ -64,10 +64,6 @@ events
 		@completed_set:				abs_completed ≔ FALSE
 	end
 
-	// This is the scxml part of a triggered transition, however,
-	// since triggeredStep is not necessarily associated with a transition,
-	// it can also be used as the abstraction of a new transition that is triggered by an old trigger
-	// it may also raise old triggers even if it is a future triggered step	
 	event abs_triggeredStep
 	any abs_Step abs_trigger abs_raised_triggers
 	where 
@@ -98,17 +94,6 @@ events
 		@completed:					abs_completed = FALSE
 	then
 		@completed_set:				abs_completed ≔ TRUE
-	end
-	
-	//This is needed to allow new steps in the refinement to raise old triggers
-	//new steps are not part of an abstract 'run' hence must occur during completion	
-	event abs_futureStep
-	any abs_raised_triggers
-	where 
-		@raised_triggers:			abs_raised_triggers ∈ Seq(abs_InternalTriggers)
-		@completed:					abs_completed = TRUE		
-	then 
-		@internal_queue_set:		abs_internal_queue ≔ Seq_concat(abs_internal_queue ↦ abs_raised_triggers)		//raised triggers
 	end
 	
 end

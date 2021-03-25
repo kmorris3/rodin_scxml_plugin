@@ -64,10 +64,6 @@ events
 		@completed_set:				completed ≔ FALSE
 	end
 	
-	// This is the scxml part of a triggered transition, however,
-	// since triggeredStep is not necessarily associated with a transition,
-	// it can also be used as the abstraction of a new transition that is triggered by an old trigger
-	// it may also raise old triggers even if it is a future triggered step
 	event triggeredStep 
 	any Step trigger raised_triggers
 	where 
@@ -79,15 +75,6 @@ events
 		@dequeue_trigger_set: 	dequeue_trigger ≔ dequeue_trigger ∖ {trigger}
 		@internal_queue_set:	internal_queue ≔ Seq_concat(internal_queue ↦ raised_triggers)		//raised triggers
 	end
-	
-
-//	event discardTrigger
-//	any trigger where 
-//		@trigger: 						trigger ∈ dequeue_trigger
-//		theorem @completed:	completed = FALSE	//sanity check			 
-//	then 
-//		@dequeue_trigger_set: 			dequeue_trigger ≔ dequeue_trigger ∖ {trigger}
-//	end
 	
 	event untriggeredStep
 	any Step raised_triggers
@@ -106,25 +93,6 @@ events
 		@completed:					completed = FALSE
 	then
 		@completed_set:				completed ≔ TRUE
-	end
-	
-//	event futureDequeue	//needed to allow for future triggers starting a run
-//	where 
-//		@dequeue_trigger: 		dequeue_trigger = ∅
-//		@completed:			completed = TRUE		
-//	then 
-//		@internal_queue_set:		completed ≔ FALSE	
-//	end
-	
-	//This is needed to allow new steps in the refinement to raise old triggers
-	//new steps are not part of an abstract 'run' hence must occur during completion
-	event futureStep 	
-	any raised_triggers
-	where 
-		@raised_triggers:			raised_triggers ∈ Seq(InternalTriggers)
-		@completed:					completed = TRUE		
-	then 
-		@internal_queue_set:		internal_queue ≔ Seq_concat(internal_queue ↦ raised_triggers)		//raised triggers
 	end
 	
 end

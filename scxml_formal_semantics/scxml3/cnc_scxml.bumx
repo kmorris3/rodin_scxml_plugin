@@ -63,11 +63,7 @@ events
 		@external_queue_set:		cnc_internal_queue ≔ Seq_tail(cnc_internal_queue)
 		@completed_set:				cnc_completed ≔ FALSE
 	end
-
-	// This is the scxml part of a triggered transition, however,
-	// since triggeredStep is not necessarily associated with a transition,
-	// it can also be used as the abstraction of a new transition that is triggered by an old trigger
-	// it may also raise old triggers even if it is a future triggered step	
+	
 	event cnc_triggeredStep
 	any cnc_Step cnc_trigger cnc_raised_triggers
 	where 
@@ -98,17 +94,6 @@ events
 		@completed:					cnc_completed = FALSE
 	then
 		@completed_set:				cnc_completed ≔ TRUE
-	end
-	
-	//This is needed to allow new steps in the refinement to raise old triggers
-	//new steps are not part of an abstract 'run' hence must occur during completion	
-	event cnc_futureStep
-	any cnc_raised_triggers
-	where 
-		@raised_triggers:			cnc_raised_triggers ∈ Seq(cnc_InternalTriggers)
-		@completed:					cnc_completed = TRUE		
-	then 
-		@internal_queue_set:		cnc_internal_queue ≔ Seq_concat(cnc_internal_queue ↦ cnc_raised_triggers)		//raised triggers
 	end
 	
 end
