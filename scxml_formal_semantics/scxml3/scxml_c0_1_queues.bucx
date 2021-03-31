@@ -46,7 +46,6 @@ axioms
 	)
 	theorem @Seq_append-type: Seq_append ∈ Seq(TRIGGERS) × TRIGGERS → Seq(TRIGGERS)
 	theorem @Seq_append-pres: ∀T,s,t·T ⊆ TRIGGERS ∧ s ∈ Seq(T) ∧ t ∈ T ⇒ Seq_append(s ↦ t) ∈ Seq(T)
-	theorem @test: ∀T·T ∈ TRIGGERS ⇒ ( ∃ s·s ∈ Seq({T}))
 	// Definition of Seq_concat
 	@Seq_concat-def: Seq_concat = (λ s1 ↦ s2 · s1 ∈ Seq(TRIGGERS) ∧ s2 ∈ Seq(TRIGGERS) ∣
 		{ i ↦ v ∣ i ∈ 0 ‥ Seq_length(s1) + Seq_length(s2) − 1 ∧
