@@ -64,7 +64,7 @@ axioms
 		{i ↦ v ∣ i ∈ 0 ‥ Seq_length(s) − 2 ∧ v = s(i+1)}
 	)
 	theorem @Seq_tail-type: Seq_tail ∈ Seq(TRIGGERS) ∖ {∅} → Seq(TRIGGERS)
-	theorem @Seq_tail-pres: ∀T,s·T ⊆ TRIGGERS ∧ s ∈ Seq(T) ⇒ Seq_tail(s) ∈ Seq(T)
+	theorem @Seq_tail-pres: ∀T,s·T ⊆ TRIGGERS ∧ s ∈ Seq(T) ∧ s ≠ ∅ ⇒ Seq_tail(s) ∈ Seq(T)
 	
 	// Axiomatic definition of Seq_keep
 	@Seq_keep-type: Seq_keep ∈ Seq(TRIGGERS) × ℙ(TRIGGERS) → Seq(TRIGGERS)
