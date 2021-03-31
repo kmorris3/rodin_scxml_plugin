@@ -68,6 +68,7 @@ axioms
 	
 	// Axiomatic definition of Seq_keep
 	@Seq_keep-type: Seq_keep ∈ Seq(TRIGGERS) × ℙ(TRIGGERS) → Seq(TRIGGERS)
+	@Seq_keep-empty: ∀T·T⊆TRIGGERS⇒Seq_keep(∅↦T) = ∅
 	theorem @Seq_keep-individual: ∀s, T · s ∈ Seq(TRIGGERS) ⇒
 		Seq_keep(s ↦ T) ∈ Seq(TRIGGERS)
 	@Seq_keep-content: ∀s, T· s ∈ Seq(TRIGGERS) ⇒
