@@ -70,14 +70,15 @@ axioms
 	@Seq_keep-type: Seq_keep ∈ Seq(TRIGGERS) × ℙ(TRIGGERS) → Seq(TRIGGERS)
 	@Seq_keep-empty: ∀T·T⊆TRIGGERS⇒Seq_keep(∅↦T) = ∅
 	theorem @Seq_keep-individual: ∀s, T · s ∈ Seq(TRIGGERS) ⇒
-		Seq_keep(s ↦ T) ∈ Seq(TRIGGERS)
+									Seq_keep(s ↦ T) ∈ Seq(TRIGGERS)
 	@Seq_keep-content: ∀s, T· s ∈ Seq(TRIGGERS) ⇒
-		Seq_content(Seq_keep(s ↦ T)) ⊆ T
+									Seq_content(Seq_keep(s ↦ T)) ⊆ T
 	@Seq_keep-concat: ∀s1, s2, T · s1 ∈ Seq(TRIGGERS) ∧ s2 ∈ Seq(TRIGGERS) ⇒
-		Seq_keep(Seq_concat(s1 ↦ s2) ↦ T) = Seq_concat(Seq_keep(s1 ↦ T) ↦ Seq_keep(s2 ↦ T)) 
+									Seq_keep(Seq_concat(s1 ↦ s2) ↦ T) = Seq_concat(Seq_keep(s1 ↦ T) ↦ Seq_keep(s2 ↦ T)) 
 	theorem @Seq_keep_append_d1:	∀t,T,s·T ⊆ TRIGGERS ∧ t ∈ T ∧ s ∈ Seq(TRIGGERS) ⇒ 
 									Seq_keep(Seq_append(s↦t)↦T) = Seq_append(Seq_keep(s↦T)↦t)
-	theorem @Seq_keep_append_d2:	∀t,T,s·T ⊆ TRIGGERS ∧ t ∉ T ∧ s ∈ Seq(TRIGGERS) ⇒ Seq_keep(s↦T) = Seq_keep(Seq_append(s↦t)↦T)
+	theorem @Seq_keep_append_d2:	∀t,T,s·T ⊆ TRIGGERS ∧ t ∉ T ∧ s ∈ Seq(TRIGGERS) ⇒ 
+									Seq_keep(s↦T) = Seq_keep(Seq_append(s↦t)↦T)
 										
 	@intQ: InternalQueueType = Seq(InternalTriggerType)
 	@extQ: ExternalQueueType = Seq(ExternalTriggerType)
