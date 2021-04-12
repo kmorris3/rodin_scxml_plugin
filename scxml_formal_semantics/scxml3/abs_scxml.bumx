@@ -5,7 +5,7 @@
  */
 machine abs_scxml
 sees abs_scxml_ctx
-
+ 
 variables
 	abs_internal_queue
 	abs_external_queue
@@ -13,14 +13,14 @@ variables
 	abs_completed
 
 invariants
-	@internal_queue: 			abs_internal_queue ∈ Seq(abs_InternalTriggers)
-	@external_queue: 			abs_external_queue ∈ Seq(abs_ExternalTriggers)
-	@dequeue_trigger: 			abs_dequeue_trigger ∈ DeQueueType
-	@dequeue_triggerwd: 		abs_dequeue_trigger ⊆ abs_InternalTriggers ∪ abs_ExternalTriggers
-	@completed: 				abs_completed ∈ BOOL
+	@abs_internal_queue: 			abs_internal_queue ∈ Seq(abs_InternalTriggers)
+	@abs_external_queue: 			abs_external_queue ∈ Seq(abs_ExternalTriggers)
+	@abs_dequeue_trigger: 			abs_dequeue_trigger ∈ DeQueueType
+	@abs_dequeue_triggerwd: 		abs_dequeue_trigger ⊆ abs_InternalTriggers ∪ abs_ExternalTriggers
+	//@abs_completed: 				abs_completed ∈ BOOL
 	
-	@firingTriggered: 			abs_dequeue_trigger ≠ ∅ ⇒ abs_completed=FALSE		//just a sanity check
-	theorem @readyToDequeue:	abs_completed=TRUE ⇒ abs_dequeue_trigger = ∅		//just a sanity check
+	@abs_firingTriggered: 			abs_dequeue_trigger ≠ ∅ ⇒ abs_completed=FALSE		//just a sanity check
+	theorem @abs_readyToDequeue:	abs_completed=TRUE ⇒ abs_dequeue_trigger = ∅		//just a sanity check
 		
 events
 

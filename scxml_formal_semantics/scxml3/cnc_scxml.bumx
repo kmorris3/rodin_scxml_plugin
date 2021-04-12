@@ -13,14 +13,14 @@ variables
 	cnc_completed
 
 invariants
-	@internal_queue: 			cnc_internal_queue ∈ Seq(cnc_InternalTriggers)
-	@external_queue: 			cnc_external_queue ∈ Seq(cnc_ExternalTriggers)
-	@dequeue_trigger: 			cnc_dequeue_trigger ∈ DeQueueType
-	@dequeue_triggerwd: 		cnc_dequeue_trigger ⊆ cnc_InternalTriggers ∪ cnc_ExternalTriggers
-	@completed: 				cnc_completed ∈ BOOL
+	@cnc_internal_queue: 			cnc_internal_queue ∈ Seq(cnc_InternalTriggers)
+	@cnc_external_queue: 			cnc_external_queue ∈ Seq(cnc_ExternalTriggers)
+	@cnc_dequeue_trigger: 			cnc_dequeue_trigger ∈ DeQueueType
+	@cnc_dequeue_triggerwd: 		cnc_dequeue_trigger ⊆ cnc_InternalTriggers ∪ cnc_ExternalTriggers
+	@cnc_completed: 				cnc_completed ∈ BOOL
 	
-	@firingTriggered: 			cnc_dequeue_trigger ≠ ∅ ⇒ cnc_completed=FALSE		//just a sanity check
-	theorem @readyToDequeue:	cnc_completed=TRUE ⇒ cnc_dequeue_trigger = ∅		//just a sanity check
+	@cnc_firingTriggered: 			cnc_dequeue_trigger ≠ ∅ ⇒ cnc_completed=FALSE		//just a sanity check
+	theorem @cnc_readyToDequeue:	cnc_completed=TRUE ⇒ cnc_dequeue_trigger = ∅		//just a sanity check
 		
 events
 

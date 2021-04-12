@@ -2,7 +2,7 @@ machine m2_scxml
 refines m1_scxml
 includes cnc_scxml
 sees gluing_scxml_ctx
- 
+
 events
 
 	event INITIALISATION
