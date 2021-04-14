@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+    <org.eventb.core.prProof name="tree_structure/WD"/>
+    <org.eventb.core.prProof name="tree_structure/THM"/>
+    <org.eventb.core.prProof name="typeof-root/THM"/>
+    <org.eventb.core.prProof name="typeof-container/THM"/>
+    <org.eventb.core.prProof name="root-reachable/WD"/>
+    <org.eventb.core.prProof name="root-reachable/THM"/>
+    <org.eventb.core.prProof name="leaves_are_states/THM"/>
+    <org.eventb.core.prProof name="thm12-range_preservation/WD"/>
+    <org.eventb.core.prProof name="thm12-range_preservation/THM"/>
+    <org.eventb.core.prProof name="range-preservation/WD"/>
+    <org.eventb.core.prProof name="range-preservation/THM"/>
+    <org.eventb.core.prProof name="typeof-source/THM"/>
+    <org.eventb.core.prProof name="typeof-target/THM"/>
+    <org.eventb.core.prProof name="init-closure/WD"/>
+</org.eventb.core.prFile>

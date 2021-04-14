@@ -1,0 +1,74 @@
+machine cnc_scxml_statemachine
+
+/*
+ * This machine joins the scxml and statemachine models together.
+ * This means that we synchronise the scxml step events with the statemachine transition events.
+ * 
+ */
+  
+includes cnc_scxml
+includes cnc_statemachine
+
+sees cnc_scxml_statemachine_ctx c0_4_tree_prop
+ 
+events
+	event INITIALISATION
+	synchronises INITIALISATION
+	//synchronises INITIALISATION	// cannot synch since both events have the same name hence...
+	then
+		@update-active: cnc_active ≔ cnc_init					//copied from scxml_statemachine
+		@update-active_leaf: cnc_active_leaf ≔ cnc_init_leaf	//copied from scxml_statemachine
+	end
+
+	event cnc_raiseExternalTrigger
+	synchronises cnc_raiseExternalTrigger
+	end
+	
+	event cnc_dequeueExternalTrigger
+	synchronises cnc_dequeueExternalTrigger
+	end
+	
+	event cnc_dequeueInternalTrigger
+	synchronises cnc_dequeueInternalTrigger
+	end
+	
+	// a triggered transition synchronises a transition with a triggered step
+	event cnc_triggeredTransition
+	synchronises cnc_triggeredStep
+	synchronises cnc_transition
+	where 
+		@tr_st:		cnc_TransitionStep(cnc_transition) = cnc_Step 
+	end
+	
+	// discarding a trigger executes a triggered step without a transition
+	// no finalised transitions are active (TBD: we do not consider their other guards yet)
+	event cnc_discardTrigger
+	synchronises cnc_triggeredStep
+	where
+		@tr_st:		cnc_Step ∉ ran(cnc_TransitionStep)
+		@finalisedFired: cnc_source[cnc_finalisedTransitions] ∩ cnc_active = ∅ // how to check only triggered ones?
+	end
+	
+	// an untriggered transition synchronises a transition with an untriggered step
+	event cnc_untriggeredTransition
+	synchronises cnc_untriggeredStep
+	synchronises cnc_transition
+	where 
+		@tr_st:		cnc_TransitionStep(cnc_transition) = cnc_Step 
+	end
+
+	// a future transition executes an untriggered step without a transition
+	event cnc_futureUntriggeredTransition
+	synchronises cnc_untriggeredStep
+	where 
+		@tr_st:		cnc_Step ∉ ran(cnc_TransitionStep) 
+	end
+	
+	//for completion, no finalised transitions are active (TBD: we do not consider their other guards yet)
+	event cnc_completion
+	synchronises cnc_completion
+	where
+		@finalisedFired: cnc_source[cnc_finalisedTransitions] ∩ cnc_active = ∅		// how to check only untriggered ones?
+	end
+
+end

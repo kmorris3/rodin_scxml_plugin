@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+    <org.eventb.core.prProof name="def-Tree/WD"/>
+    <org.eventb.core.prProof name="typeof-Tree/THM"/>
+    <org.eventb.core.prProof name="func-Tree/WD"/>
+    <org.eventb.core.prProof name="func-Tree/THM"/>
+    <org.eventb.core.prProof name="all_node/WD"/>
+    <org.eventb.core.prProof name="all_node/THM"/>
+    <org.eventb.core.prProof name="induction-Tree/WD"/>
+    <org.eventb.core.prProof name="induction-Tree/THM"/>
+</org.eventb.core.prFile>

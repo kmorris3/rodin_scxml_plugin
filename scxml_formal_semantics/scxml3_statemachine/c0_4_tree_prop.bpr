@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+    <org.eventb.core.prProof name="no-cycles/WD"/>
+    <org.eventb.core.prProof name="no-cycles/THM"/>
+    <org.eventb.core.prProof name="closure_irreflexive/WD"/>
+    <org.eventb.core.prProof name="closure_irreflexive/THM"/>
+    <org.eventb.core.prProof name="linked_list/WD"/>
+    <org.eventb.core.prProof name="linked_list/THM"/>
+</org.eventb.core.prFile>

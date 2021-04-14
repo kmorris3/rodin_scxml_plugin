@@ -1,0 +1,12 @@
+context scxml_statemachine_ctx
+extends scxml_ctx statemachine_ctx
+
+constants
+	TransitionStep	//associate transitions with steps
+	triggeredTransitions // trigger - transition relationship
+	finalisedTransitions   // the transitions which can no longer be refined
+axioms
+	@transition_step:	TransitionStep ∈ transitions ↣ Steps
+	@tr_tr: 			triggeredTransitions ∈ transitions ⇸ Triggers //was TRIGGERS ?
+	@finalised_tr: 		finalisedTransitions ⊆ transitions
+end
