@@ -1,0 +1,100 @@
+/*
+ * This machine is a copy of scxml with every variable and event prefixed with "abs_"
+ * Ideally, this should be done by an "instantiation+renaming" plug-in.
+ * This machine is CORRECT-BY-CONSTRUCTION
+ */
+machine abs_scxml
+sees abs_scxml_ctx
+ 
+variables
+	abs_internal_queue
+	abs_external_queue
+	abs_dequeue_trigger
+	abs_completed
+
+invariants
+	@abs_internal_queue: 			abs_internal_queue ∈ Seq(abs_InternalTriggers)
+	@abs_external_queue: 			abs_external_queue ∈ Seq(abs_ExternalTriggers)
+	@abs_dequeue_trigger: 			abs_dequeue_trigger ∈ DeQueueType
+	@abs_dequeue_triggerwd: 		abs_dequeue_trigger ⊆ abs_InternalTriggers ∪ abs_ExternalTriggers
+	//@abs_completed: 				abs_completed ∈ BOOL
+	
+	@abs_firingTriggered: 			abs_dequeue_trigger ≠ ∅ ⇒ abs_completed=FALSE		//just a sanity check
+	theorem @abs_readyToDequeue:	abs_completed=TRUE ⇒ abs_dequeue_trigger = ∅		//just a sanity check
+		
+events
+
+	event INITIALISATION
+	then
+		@internal_queue_init:		abs_internal_queue ≔ ∅ 
+		@external_queue_init: 		abs_external_queue ≔ ∅
+		@dequeue_trigger_init:		abs_dequeue_trigger ≔ ∅
+		@completed_init: 			abs_completed ≔ FALSE
+	end
+	
+	event abs_raiseExternalTrigger
+	any abs_trigger where
+		@trigger: 					abs_trigger ∈ abs_ExternalTriggers
+	then
+		@external_queue_set:		abs_external_queue ≔ Seq_append(abs_external_queue ↦ abs_trigger)
+	end
+	
+	event abs_dequeueExternalTrigger
+	any abs_trigger where 
+		@completed:					abs_completed = TRUE
+		theorem @dequeue_trigger:	abs_dequeue_trigger = ∅	//sanity check
+		@external_queue-non_empty:  abs_external_queue ≠ ∅
+		@trigger: 					abs_trigger = Seq_head(abs_external_queue)
+		@internal_queue:			abs_internal_queue = ∅
+	then 
+		@dequeue_trigger_set: 		abs_dequeue_trigger ≔ {abs_trigger}
+		@external_queue_set:		abs_external_queue ≔ Seq_tail(abs_external_queue)
+		@completed_set:				abs_completed ≔ FALSE
+	end
+	
+	event abs_dequeueInternalTrigger
+	any abs_trigger where 
+		@completed:					abs_completed = TRUE
+		theorem @dequeue_trigger:	abs_dequeue_trigger = ∅	//sanity check
+		@internal_queue-non_empty:	abs_internal_queue ≠ ∅		
+		@trigger: 					abs_trigger = Seq_head(abs_internal_queue)
+	then 
+		@dequeue_trigger_set: 		abs_dequeue_trigger ≔ {abs_trigger}
+		@external_queue_set:		abs_internal_queue ≔ Seq_tail(abs_internal_queue)
+		@completed_set:				abs_completed ≔ FALSE
+	end
+
+	event abs_triggeredStep
+	any abs_Step abs_trigger abs_raised_triggers
+	where 
+		@step:						abs_Step ∈ abs_Steps
+		@trigger: 					abs_trigger ∈ abs_dequeue_trigger
+		theorem @completed:			abs_completed = FALSE	//sanity check
+		@raised_triggers:			abs_raised_triggers ∈ Seq(abs_InternalTriggers)
+	then 
+		@dequeue_trigger_set: 		abs_dequeue_trigger ≔ abs_dequeue_trigger ∖ {abs_trigger}
+		@internal_queue_set:		abs_internal_queue ≔ Seq_concat(abs_internal_queue ↦ abs_raised_triggers)		//raised triggers
+	end
+	
+	
+	event abs_untriggeredStep
+	any abs_Step abs_raised_triggers
+	where 
+		@step:						abs_Step ∈ abs_Steps
+		@dequeue_trigger: 			abs_dequeue_trigger = ∅
+		@completed:					abs_completed = FALSE		
+		@new_raised_trigger:		abs_raised_triggers ∈ Seq(abs_InternalTriggers)
+	then 
+		@internal_queue_set:		abs_internal_queue ≔ Seq_concat(abs_internal_queue ↦ abs_raised_triggers)		//raised triggers
+	end
+	
+	event abs_completion
+	where
+		@dequeue_trigger: 			abs_dequeue_trigger = ∅
+		@completed:					abs_completed = FALSE
+	then
+		@completed_set:				abs_completed ≔ TRUE
+	end
+	
+end
+

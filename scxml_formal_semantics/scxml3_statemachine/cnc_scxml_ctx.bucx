@@ -1,0 +1,19 @@
+/*
+ * This context is a copy of scxml_ctx with every constants prefixed with "cnc_"
+ * Ideally, this should be done by an "instantiation" plug-in.
+ * This context is CORRECT-BY-CONSTRUCTION
+ */
+context cnc_scxml_ctx
+extends scxml_c0_2_dequeue
+
+constants 
+	cnc_InternalTriggers
+	cnc_ExternalTriggers
+	cnc_Triggers
+	cnc_Steps
+axioms
+	@typeof_IT: cnc_InternalTriggers ⊆ InternalTriggerType
+	@typeof_XT: cnc_ExternalTriggers ⊆ ExternalTriggerType
+	@def_T: cnc_Triggers = cnc_InternalTriggers ∪ cnc_ExternalTriggers
+	@def_S: cnc_Steps ⊆ STEPS
+end

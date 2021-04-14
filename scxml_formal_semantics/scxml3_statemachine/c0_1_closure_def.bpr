@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+    <org.eventb.core.prProof name="def-cl/WD"/>
+    <org.eventb.core.prProof name="typeof-cl/THM"/>
+    <org.eventb.core.prProof name="thm1-cl_strengthen/WD"/>
+    <org.eventb.core.prProof name="thm1-cl_strengthen/THM"/>
+    <org.eventb.core.prProof name="thm2-cl_transitivity/WD"/>
+    <org.eventb.core.prProof name="thm2-cl_transitivity/THM"/>
+    <org.eventb.core.prProof name="thm3-cl_minimal/WD"/>
+    <org.eventb.core.prProof name="thm3-cl_minimal/THM"/>
+</org.eventb.core.prFile>
