@@ -37,7 +37,9 @@ events
 	synchronises triggeredStep
 	synchronises transition
 	where 
-		@tr_st:		TransitionStep(transition) = Step 
+		@tr_st:		TransitionStep(transition) = Step
+		@tr_isTriggered:	transition ∈ dom(triggeredTransitions)
+		@tr_trigger:	triggeredTransitions(transition) = trigger
 	end
 	
 	// discarding a trigger executes a triggered step without a transition
@@ -45,8 +47,8 @@ events
 	event discardTrigger
 	synchronises triggeredStep
 	where
-		@tr_st:		Step ∉ ran(TransitionStep)
-		@finalisedFired: source[finalisedTransitions] ∩ active = ∅ // how to check only triggered ones?
+		@tr_st:			Step ∉ ran(TransitionStep)
+		@finalisedFired: source[finalisedTransitions ∩ dom(triggeredTransitions) ] ∩ active = ∅
 	end
 	
 	// an untriggered transition synchronises a transition with an untriggered step
@@ -55,6 +57,7 @@ events
 	synchronises transition
 	where 
 		@tr_st:		TransitionStep(transition) = Step 
+		@tr_isUntriggered:	transition ∉ dom(triggeredTransitions)
 	end
 
 	// a future transition executes an untriggered step without a transition
@@ -68,7 +71,7 @@ events
 	event completion
 	synchronises completion
 	where
-		@finalisedFired: source[finalisedTransitions] ∩ active = ∅		// how to check only untriggered ones?
+		@finalisedFired: source[finalisedTransitions ∖ dom(triggeredTransitions)] ∩ active = ∅
 	end
 
 end
