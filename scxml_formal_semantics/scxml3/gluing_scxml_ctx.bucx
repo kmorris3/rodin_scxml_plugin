@@ -6,4 +6,8 @@ axioms
 	@rit1: 	abs_InternalTriggers ⊆ cnc_InternalTriggers
 	@ret1: 	abs_ExternalTriggers ⊆  cnc_ExternalTriggers
 	@rs1:	abs_Steps ⊆ cnc_Steps
+	@r_steptrigger1:	abs_StepTrigger ⊆ cnc_StepTrigger	//we can add new steps or convert untriggered to triggered
+	@r_stepraised1:		∀s· s ∈ cnc_Steps ∖ abs_Steps ⇒ Seq_content(cnc_StepRaised(s)) ∩ abs_InternalTriggers = ∅ //new steps cannot raise old triggers
+	@r_stepraised2:		∀s· s ∈ abs_Steps ⇒ abs_StepRaised(s) = Seq_keep(cnc_StepRaised(s) ↦ abs_Triggers)	//refined steps can only add new triggers into the old sequence
+
 end

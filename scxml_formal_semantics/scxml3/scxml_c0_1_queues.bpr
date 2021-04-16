@@ -21088,4 +21088,6 @@
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
     </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Seq-subset/WD"/>
+    <org.eventb.core.prProof name="Seq-subset/THM"/>
 </org.eventb.core.prFile>
