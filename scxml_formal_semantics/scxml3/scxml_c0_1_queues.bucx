@@ -80,7 +80,8 @@ axioms
 									Seq_keep(Seq_append(s↦t)↦T) = Seq_append(Seq_keep(s↦T)↦t)
 	theorem @Seq_keep_append_d2:	∀t,T,s·T ⊆ TRIGGERS ∧ t ∉ T ∧ s ∈ Seq(TRIGGERS) ⇒ 
 									Seq_keep(s↦T) = Seq_keep(Seq_append(s↦t)↦T)
-										
+	theorem @Seq_keep_tail_d1: 		∀T,s·T ⊆ TRIGGERS ∧ s ∈ Seq(TRIGGERS) ∧ Seq_head(s) ∉ T ⇒ 
+									Seq_keep(s↦T) = Seq_keep(Seq_tail(s)↦T)							
 	@intQ: InternalQueueType = Seq(InternalTriggerType)
 	@extQ: ExternalQueueType = Seq(ExternalTriggerType)
 

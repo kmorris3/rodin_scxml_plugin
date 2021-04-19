@@ -21090,4 +21090,6 @@
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="Seq-subset/WD"/>
     <org.eventb.core.prProof name="Seq-subset/THM"/>
+    <org.eventb.core.prProof name="Seq_keep_tail_d1/WD"/>
+    <org.eventb.core.prProof name="Seq_keep_tail_d1/THM"/>
 </org.eventb.core.prFile>
