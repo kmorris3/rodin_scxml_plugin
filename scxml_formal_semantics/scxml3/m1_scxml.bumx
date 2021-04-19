@@ -102,16 +102,15 @@ events
 		//@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_InternalTriggers)
 	end
 	
-//	// convert an untriggered transition to a triggered transition
-//	event converted_triggeredStep refines abs_untriggeredStep
-//	synchronises cnc_triggeredStep
-//	where
-//		@cnc_Step:				cnc_Step ∈ abs_Steps
-//		@not_abs_trigger:		cnc_trigger ∉ abs_Triggers
-//	with
-//		@abs_Step:				abs_Step = cnc_Step
-//		//@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_InternalTriggers)
-//	end
+	// convert an untriggered transition to a triggered transition
+	event converted_triggeredStep refines abs_untriggeredStep
+	synchronises cnc_triggeredStep
+	where
+		@cnc_Step:				cnc_Step ∈ abs_Steps
+	with
+		@abs_Step:				abs_Step = cnc_Step
+		//@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_InternalTriggers)
+	end
 
 	// introducing a completely new triggered transition
 	event new_triggeredStep 

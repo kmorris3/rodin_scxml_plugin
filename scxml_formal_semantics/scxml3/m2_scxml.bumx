@@ -21,7 +21,7 @@ events
 	synchronises cnc_dequeueInternalTrigger
 	end
 	
-	event cnc_triggeredStep refines old_triggeredStep new_triggeredStep //converted_triggeredStep
+	event cnc_triggeredStep refines old_triggeredStep new_triggeredStep converted_triggeredStep
 	synchronises cnc_triggeredStep
 //	when
 //		@cannotraiseoldtriggers: 	(cnc_Step ∉ abs_Steps) ⇒ (Seq_content(cnc_raised_triggers) ∩ abs_Triggers=∅)
