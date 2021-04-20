@@ -64,28 +64,25 @@ events
 		@completed_set:				cnc_completed ≔ FALSE
 	end
 	
-	event cnc_triggeredStep
-	any cnc_Step cnc_trigger cnc_raised_triggers
+	event cnc_triggeredStep 
+	any cnc_Step
 	where 
-		@step:						cnc_Step ∈ cnc_Steps
-		@trigger: 					cnc_trigger ∈ cnc_dequeue_trigger
-		theorem @completed:			cnc_completed = FALSE	//sanity check
-		@raised_triggers:			cnc_raised_triggers ∈ Seq(cnc_InternalTriggers)
+		@step:					cnc_Step ∈ dom(cnc_StepTrigger)		
+		@trigger_dequeued: 		cnc_StepTrigger(cnc_Step) ∈ cnc_dequeue_trigger
+		theorem @completed:		cnc_completed = FALSE	//sanity check
 	then 
-		@dequeue_trigger_set: 		cnc_dequeue_trigger ≔ cnc_dequeue_trigger ∖ {cnc_trigger}
-		@internal_queue_set:		cnc_internal_queue ≔ Seq_concat(cnc_internal_queue ↦ cnc_raised_triggers)		//raised triggers
+		@dequeue_trigger_set: 	cnc_dequeue_trigger ≔ cnc_dequeue_trigger ∖ {cnc_StepTrigger(cnc_Step)}
+		@internal_queue_set:	cnc_internal_queue ≔ Seq_concat(cnc_internal_queue ↦ cnc_StepRaised(cnc_Step))		//raised triggers
 	end
 	
-	
 	event cnc_untriggeredStep
-	any cnc_Step cnc_raised_triggers
+	any cnc_Step
 	where 
-		@step:						cnc_Step ∈ cnc_Steps
+		@step:						cnc_Step ∈ cnc_Steps ∖ dom(cnc_StepTrigger)	
 		@dequeue_trigger: 			cnc_dequeue_trigger = ∅
 		@completed:					cnc_completed = FALSE		
-		@new_raised_trigger:		cnc_raised_triggers ∈ Seq(cnc_InternalTriggers)
 	then 
-		@internal_queue_set:		cnc_internal_queue ≔ Seq_concat(cnc_internal_queue ↦ cnc_raised_triggers)		//raised triggers
+		@internal_queue_set:		cnc_internal_queue ≔ Seq_concat(cnc_internal_queue ↦ cnc_StepRaised(cnc_Step))		//raised triggers
 	end
 	
 	event cnc_completion

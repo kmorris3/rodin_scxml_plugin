@@ -46,7 +46,7 @@ events
 	synchronises abs_triggeredStep
 	where
 		@tr_st:		abs_Step ∉ ran(abs_TransitionStep)
-		@finalisedFired: abs_source[abs_finalisedTransitions] ∩ abs_active = ∅ // how to check only triggered ones?
+		@finalisedFired: abs_source[abs_finalisedTransitions ∩ abs_TransitionStep∼[dom(abs_StepTrigger)] ] ∩ abs_active = ∅ // how to check only triggered ones?
 	end
 	
 	// an untriggered transition synchronises a transition with an untriggered step
@@ -68,7 +68,7 @@ events
 	event abs_completion
 	synchronises abs_completion
 	where
-		@finalisedFired: abs_source[abs_finalisedTransitions] ∩ abs_active = ∅		// how to check only untriggered ones?
+		@finalisedFired: abs_source[abs_finalisedTransitions ∖ abs_TransitionStep∼[dom(abs_StepTrigger)] ] ∩ abs_active = ∅		// how to check only untriggered ones?
 	end
 
 end

@@ -1,0 +1,8 @@
+context gluing_scxml_statemachine_ctx
+extends
+	abs_scxml_statemachine_ctx
+	cnc_scxml_statemachine_ctx
+axioms
+	@TransitionStepGlue:	abs_TransitionStep ⊆ cnc_TransitionStep
+	@FinalisedGlue:			abs_finalisedTransitions ⊆ cnc_finalisedTransitions
+end

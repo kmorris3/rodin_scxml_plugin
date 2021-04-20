@@ -1,0 +1,128 @@
+machine m1_scxml_statemachine 
+refines m0_scxml_statemachine
+ 
+/*
+ * This machine represents the refinement of a joined scxml and statemachine model
+ * 
+ * Since we need the refinement stuff from the scxml and statemachines... 
+ * it has to use m1_scxml and m1_statemachine
+ */
+  
+includes m1_scxml
+includes m1_statemachine
+//includes cnc_scxml_statemachine
+
+sees 	
+		gluing_scxml_statemachine_ctx  
+		c0_4_tree_prop
+		gluing_statemachine
+		gluing_scxml_ctx
+ 
+events
+	event INITIALISATION
+	synchronises INITIALISATION
+	then
+		@update-active: cnc_active ≔ cnc_init
+		@update-active_leaf: cnc_active_leaf ≔ cnc_init_leaf
+	end
+
+	event old_raiseExternalTrigger refines abs_raiseExternalTrigger
+	synchronises old_raiseExternalTrigger
+	end
+	
+	event new_raiseExternalTrigger
+	synchronises new_raiseExternalTrigger
+	end
+	
+	event old_dequeueExternalTrigger refines abs_dequeueExternalTrigger
+	synchronises old_dequeueExternalTrigger
+	end
+	
+	event new_dequeueExternalTrigger
+	synchronises new_dequeueExternalTrigger
+	end
+	
+	event old_dequeueInternalTrigger refines abs_dequeueInternalTrigger
+	synchronises old_dequeueInternalTrigger
+	end
+	
+	event new_dequeueInternalTrigger
+	synchronises new_dequeueInternalTrigger
+	end
+	
+	event old_triggeredTransition refines abs_triggeredTransition
+	synchronises old_triggeredStep
+	synchronises old_transition 
+	where 
+		@tr_st:		cnc_TransitionStep(cnc_transition) = cnc_Step 
+	end
+	
+	event converted_triggeredTransition refines abs_untriggeredTransition
+	synchronises converted_triggeredStep
+	synchronises old_transition
+	where 
+		@tr_st:		cnc_TransitionStep(cnc_transition) = cnc_Step 
+	end
+	
+	event new_triggeredTransition refines abs_discardTrigger
+	synchronises new_triggeredStep
+	synchronises new_transition
+	where 
+		@tr_st:		cnc_TransitionStep(cnc_transition) = cnc_Step 
+	end
+	
+	event old_discardTrigger refines abs_discardTrigger
+	synchronises old_triggeredStep
+	where
+		@tr_st:		cnc_Step ∉ ran(cnc_TransitionStep)
+		@finalisedFired: cnc_source[cnc_finalisedTransitions ∩ cnc_TransitionStep∼[dom(cnc_StepTrigger)] ] ∩ cnc_active = ∅
+
+	end
+	
+	event new_discardTrigger
+	synchronises new_triggeredStep
+	where
+		@tr_st:		cnc_Step ∉ ran(cnc_TransitionStep)
+		@finalisedFired: cnc_source[cnc_finalisedTransitions ∩ cnc_TransitionStep∼[dom(cnc_StepTrigger)] ] ∩ cnc_active = ∅
+	end
+	
+	event old_untriggeredTransition refines abs_untriggeredTransition
+	synchronises old_untriggeredStep
+	synchronises old_transition
+	where 
+		@tr_st:		cnc_TransitionStep(cnc_transition) = cnc_Step 
+	end
+	
+	event new_untriggeredTransition refines abs_futureUntriggeredTransition
+	synchronises new_untriggeredStep
+	synchronises new_transition
+	where 
+		@tr_st:		cnc_TransitionStep(cnc_transition) = cnc_Step 
+	end
+	
+	event old_futureUntriggeredTransition refines abs_futureUntriggeredTransition
+	synchronises old_untriggeredStep
+	where 
+		@tr_st:		cnc_Step ∉ ran(cnc_TransitionStep) 
+	end
+	
+	//TODO: do we need this????
+	event new_futureUntriggeredTransition 
+	synchronises new_untriggeredStep
+	where 
+		@tr_st:		cnc_Step ∉ ran(cnc_TransitionStep) 
+	end
+	
+	event old_completion refines abs_completion
+	synchronises old_completion
+	where
+		@finalisedFired: cnc_source[cnc_finalisedTransitions ∖ cnc_TransitionStep∼[dom(cnc_StepTrigger)] ] ∩ cnc_active = ∅	
+	end
+	
+	event new_completion
+	synchronises new_completion
+	where
+		@finalisedFired: cnc_source[cnc_finalisedTransitions ∖ cnc_TransitionStep∼[dom(cnc_StepTrigger)] ] ∩ cnc_active = ∅	
+	end
+
+end

@@ -65,26 +65,24 @@ events
 	end
 	
 	event triggeredStep 
-	any Step trigger raised_triggers
+	any Step
 	where 
-		@step:					Step ∈ Steps
-		@trigger: 				trigger ∈ dequeue_trigger
+		@step:					Step ∈ dom(StepTrigger)		
+		@trigger_dequeued: 		StepTrigger(Step) ∈ dequeue_trigger
 		theorem @completed:		completed = FALSE	//sanity check
-		@raised_triggers:		raised_triggers ∈ Seq(InternalTriggers)
 	then 
-		@dequeue_trigger_set: 	dequeue_trigger ≔ dequeue_trigger ∖ {trigger}
-		@internal_queue_set:	internal_queue ≔ Seq_concat(internal_queue ↦ raised_triggers)		//raised triggers
+		@dequeue_trigger_set: 	dequeue_trigger ≔ dequeue_trigger ∖ {StepTrigger(Step)}
+		@internal_queue_set:	internal_queue ≔ Seq_concat(internal_queue ↦ StepRaised(Step))		//raised triggers
 	end
 	
 	event untriggeredStep
-	any Step raised_triggers
+	any Step
 	where 
-		@step:						Step ∈ Steps
+		@step:						Step ∈ Steps ∖ dom(StepTrigger)	
 		@dequeue_trigger: 			dequeue_trigger = ∅
 		@completed:					completed = FALSE		
-		@new_raised_trigger:		raised_triggers ∈ Seq(InternalTriggers)
 	then 
-		@internal_queue_set:		internal_queue ≔ Seq_concat(internal_queue ↦ raised_triggers)		//raised triggers
+		@internal_queue_set:		internal_queue ≔ Seq_concat(internal_queue ↦ StepRaised(Step))		//raised triggers
 	end
 	
 	event completion

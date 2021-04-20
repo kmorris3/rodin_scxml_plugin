@@ -11,9 +11,13 @@ constants
 	abs_ExternalTriggers
 	abs_Triggers
 	abs_Steps
+	abs_StepTrigger
+	abs_StepRaised
 axioms
 	@typeof_IT: abs_InternalTriggers ⊆ InternalTriggerType
 	@typeof_XT: abs_ExternalTriggers ⊆ ExternalTriggerType
 	@def_T: abs_Triggers = abs_InternalTriggers ∪ abs_ExternalTriggers
 	@def_S: abs_Steps ⊆ STEPS
+	@def_StepTrigger: abs_StepTrigger ∈ abs_Steps ⇸ abs_Triggers
+	@def_StepRaised: abs_StepRaised ∈ abs_Steps → Seq(abs_InternalTriggers)
 end

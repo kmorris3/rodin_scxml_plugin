@@ -12,8 +12,8 @@ events
 	synchronises INITIALISATION
 	end
 	
-	event old_transition refines transition 
-	synchronises transition // This is the concrete transition
+	event old_transition refines abs_transition 
+	synchronises cnc_transition // This is the concrete transition
 	where
 		@old_transition: cnc_transition ∈ dom(transition_link)
 	with
@@ -22,7 +22,7 @@ events
 	end
 
 	event new_transition
-	synchronises transition // This is the abstract transition
+	synchronises cnc_transition // This is the abstract transition
 	where
 		@new_transition: cnc_transition ∉ dom(transition_link)
 	end

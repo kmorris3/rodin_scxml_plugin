@@ -46,7 +46,7 @@ events
 	synchronises cnc_triggeredStep
 	where
 		@tr_st:		cnc_Step ∉ ran(cnc_TransitionStep)
-		@finalisedFired: cnc_source[cnc_finalisedTransitions] ∩ cnc_active = ∅ // how to check only triggered ones?
+		@finalisedFired: cnc_source[cnc_finalisedTransitions ∩ cnc_TransitionStep∼[dom(cnc_StepTrigger)] ] ∩ cnc_active = ∅ 
 	end
 	
 	// an untriggered transition synchronises a transition with an untriggered step
@@ -68,7 +68,7 @@ events
 	event cnc_completion
 	synchronises cnc_completion
 	where
-		@finalisedFired: cnc_source[cnc_finalisedTransitions] ∩ cnc_active = ∅		// how to check only untriggered ones?
+		@finalisedFired: cnc_source[cnc_finalisedTransitions ∖ cnc_TransitionStep∼[dom(cnc_StepTrigger)] ] ∩ cnc_active = ∅	
 	end
 
 end

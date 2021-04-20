@@ -3,10 +3,8 @@ extends cnc_scxml_ctx cnc_statemachine_ctx
 
 constants
 	cnc_TransitionStep	//associate transitions with steps
-	cnc_triggeredTransitions // trigger - transition relationship
 	cnc_finalisedTransitions   // the transitions which can no longer be refined
 axioms
 	@cnc_transition_step:	cnc_TransitionStep ∈ cnc_transitions ↣ cnc_Steps
-	@cnc_tr_tr: 			cnc_triggeredTransitions ∈ cnc_transitions ⇸ cnc_Triggers //was TRIGGERS ?
 	@cnc_finalised_tr: 		cnc_finalisedTransitions ⊆ cnc_transitions
 end

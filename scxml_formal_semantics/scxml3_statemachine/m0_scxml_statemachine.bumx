@@ -1,0 +1,50 @@
+machine m0_scxml_statemachine
+ 
+/*
+ * This machine represents the abstract refinement level of a joined scxml and statemachine model
+ * 
+ * Since we have already done the renamed join in abs_scxml_statemachine it is just a promotion of that machine
+ * 
+ */
+
+includes abs_scxml_statemachine
+sees abs_scxml_statemachine_ctx c0_4_tree_prop
+ 
+events
+	event INITIALISATION
+	synchronises INITIALISATION
+	end
+
+	event abs_raiseExternalTrigger
+	synchronises abs_raiseExternalTrigger
+	end
+	
+	event abs_dequeueExternalTrigger
+	synchronises abs_dequeueExternalTrigger
+	end
+	
+	event abs_dequeueInternalTrigger
+	synchronises abs_dequeueInternalTrigger
+	end
+	
+	event abs_triggeredTransition
+	synchronises abs_triggeredTransition
+	end
+	
+	event abs_discardTrigger
+	synchronises abs_discardTrigger
+	end
+	
+	event abs_untriggeredTransition
+	synchronises abs_untriggeredTransition
+	end
+	
+	event abs_futureUntriggeredTransition	
+	synchronises abs_futureUntriggeredTransition
+	end
+	
+	event abs_completion
+	synchronises abs_completion
+	end
+
+end

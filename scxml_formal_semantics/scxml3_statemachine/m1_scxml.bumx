@@ -95,11 +95,11 @@ events
 	synchronises cnc_triggeredStep
 	where
 		@cnc_Step:				cnc_Step ∈ abs_Steps
-		@abs_trigger:			cnc_trigger ∈ abs_Triggers
+		//@abs_trigger:			cnc_trigger ∈ abs_Triggers
 	with
 		@abs_Step:				abs_Step = cnc_Step	
-		@abs_trigger: 			abs_trigger = cnc_trigger	//we must not change the trigger
-		@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_InternalTriggers)
+		//@abs_trigger: 			abs_trigger = cnc_trigger	//we must not change the trigger
+		//@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_InternalTriggers)
 	end
 	
 	// convert an untriggered transition to a triggered transition
@@ -107,10 +107,9 @@ events
 	synchronises cnc_triggeredStep
 	where
 		@cnc_Step:				cnc_Step ∈ abs_Steps
-		@not_abs_trigger:		cnc_trigger ∉ abs_Triggers
 	with
 		@abs_Step:				abs_Step = cnc_Step
-		@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_InternalTriggers)
+		//@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_InternalTriggers)
 	end
 
 	// introducing a completely new triggered transition
@@ -118,8 +117,8 @@ events
 	synchronises cnc_triggeredStep
 	where
 		@cnc_Step:				cnc_Step ∉ abs_Steps
-		@not_abs_trigger:		cnc_trigger ∉ abs_Triggers
-		@cnc_raised_triggers:	Seq_content(cnc_raised_triggers) ∩ abs_Triggers = ∅  //∅ = Seq_keep(cnc_raised_triggers ↦ abs_InternalTriggers) //
+//		@not_abs_trigger:		cnc_trigger ∉ abs_Triggers
+//		@cnc_raised_triggers:	Seq_content(cnc_raised_triggers) ∩ abs_Triggers = ∅  //∅ = Seq_keep(cnc_raised_triggers ↦ abs_InternalTriggers) //
 	end
 	
 //	This is the other case (for merging the above 3 cases) of concrete triggered step
@@ -141,14 +140,14 @@ events
 		@cnc_Step:				cnc_Step ∈ abs_Steps
 	with
 		@abs_Step:				abs_Step = cnc_Step
-		@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_Triggers)
+		//@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_Triggers)
 	end
 	
 	event new_untriggeredStep 
 	synchronises cnc_untriggeredStep
 	where
 		@cnc_Step:				cnc_Step ∉ abs_Steps
-		@cnc_raised_triggers:	Seq_content(cnc_raised_triggers) ∩ abs_Triggers = ∅  //∅ = Seq_keep(cnc_raised_triggers ↦ abs_Triggers) //
+		//@cnc_raised_triggers:	Seq_content(cnc_raised_triggers) ∩ abs_Triggers = ∅  //∅ = Seq_keep(cnc_raised_triggers ↦ abs_Triggers) //
 	end
  
 	event old_completion refines abs_completion
