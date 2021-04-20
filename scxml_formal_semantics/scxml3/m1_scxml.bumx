@@ -98,7 +98,7 @@ events
 		//@abs_trigger:			cnc_trigger ∈ abs_Triggers
 	with
 		@abs_Step:				abs_Step = cnc_Step	
-		//@abs_trigger: 			abs_trigger = cnc_trigger	//we must not change the trigger
+		//@abs_trigger: 		abs_trigger = cnc_trigger	//we must not change the trigger
 		//@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_InternalTriggers)
 	end
 	
