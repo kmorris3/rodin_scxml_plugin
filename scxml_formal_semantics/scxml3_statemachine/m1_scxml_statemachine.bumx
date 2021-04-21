@@ -63,8 +63,15 @@ events
 	where 
 		@tr_st:		cnc_TransitionStep(cnc_transition) = cnc_Step 
 	end
-	
-	event new_triggeredTransition refines abs_discardTrigger
+	 
+	event new_triggeredTransition_oldStep refines abs_discardTrigger
+	synchronises old_triggeredStep
+	synchronises new_transition
+	where 
+		@tr_st:		cnc_TransitionStep(cnc_transition) = cnc_Step 
+	end
+
+	event new_triggeredTransition_newStep
 	synchronises new_triggeredStep
 	synchronises new_transition
 	where 
@@ -92,8 +99,15 @@ events
 	where 
 		@tr_st:		cnc_TransitionStep(cnc_transition) = cnc_Step 
 	end
-	
-	event new_untriggeredTransition refines abs_futureUntriggeredTransition
+ 
+	event converted_untriggeredTransition refines abs_futureUntriggeredTransition
+	synchronises old_untriggeredStep
+	synchronises new_transition
+	where 
+		@tr_st:		cnc_TransitionStep(cnc_transition) = cnc_Step 
+	end
+		
+	event new_untriggeredTransition
 	synchronises new_untriggeredStep
 	synchronises new_transition
 	where 

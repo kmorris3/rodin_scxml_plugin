@@ -4,7 +4,7 @@ refines m1_scxml_statemachine
 
 includes cnc_scxml_statemachine
 
-sees cnc_scxml_statemachine_ctx c0_4_tree_prop
+sees 	c0_4_tree_prop
 		gluing_scxml_statemachine_ctx  
 		gluing_statemachine
 		gluing_scxml_ctx
@@ -26,21 +26,22 @@ events
 	synchronises cnc_dequeueInternalTrigger
 	end
 	
-	event cnc_triggeredTransition refines old_triggeredTransition new_triggeredTransition converted_triggeredTransition
+	event cnc_triggeredTransition refines old_triggeredTransition converted_triggeredTransition new_triggeredTransition_oldStep  new_triggeredTransition_newStep
 	synchronises cnc_triggeredTransition
 	end
-
+ 
 	event cnc_discardTrigger refines old_discardTrigger new_discardTrigger
 	synchronises cnc_discardTrigger
+	end
+
+	event cnc_untriggeredTransition refines old_untriggeredTransition new_untriggeredTransition converted_untriggeredTransition
+	synchronises cnc_untriggeredTransition 
 	end
 	
 	event cnc_futureUntriggeredTransition refines old_futureUntriggeredTransition new_futureUntriggeredTransition
 	synchronises cnc_futureUntriggeredTransition
 	end
 
-	event cnc_untriggeredTransition refines old_untriggeredTransition new_untriggeredTransition
-	synchronises cnc_untriggeredTransition 
-	end
 
 	event cnc_completion refines old_completion new_completion
 	synchronises cnc_completion

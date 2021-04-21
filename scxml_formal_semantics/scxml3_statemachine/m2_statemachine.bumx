@@ -13,7 +13,7 @@ events
 	end
 	
 	event transition refines old_transition new_transition
-	synchronises transition // This is the concrete transition
+	synchronises cnc_transition // This is the concrete transition
 	end
-
+ 
 end
