@@ -1,4 +1,4 @@
-machine m1_scxml_statemachine 
+machine m1_scxml_statemachine
 refines m0_scxml_statemachine
  
 /*
@@ -13,7 +13,7 @@ includes m1_statemachine
 //includes cnc_scxml_statemachine
 
 sees 	
-		gluing_scxml_statemachine_ctx  
+		gluing_scxml_statemachine_ctx
 		c0_4_tree_prop
 		gluing_statemachine
 		gluing_scxml_ctx
@@ -75,8 +75,8 @@ events
 
 	end
 
-	//refine old triggeredstep with new transition	
-	event new_triggeredTransition_oldStep refines abs_discardTrigger
+	//convert old triggeredstep with new transition	
+	event converted_triggeredTransition_oldStep refines abs_discardTrigger
 	synchronises old_triggeredStep
 	synchronises new_transition
 	where 
@@ -108,7 +108,7 @@ events
 	end
 
 	//convert a future untriggered transition to discardtrigger with no transition
-	event converted_discardTrigger_noTransition refines abs_futureUntriggeredTransition
+	event converted_discardTrigger refines abs_futureUntriggeredTransition
 	synchronises converted_triggeredStep
 	where 
 		@tr_st:		cnc_Step ∉ ran(cnc_TransitionStep) 
@@ -143,6 +143,7 @@ events
 	end
 	
 	//TODO: do we need this????
+	// FIXME: Yes, we do
 	event new_futureUntriggeredTransition 
 	synchronises new_untriggeredStep
 	where 
