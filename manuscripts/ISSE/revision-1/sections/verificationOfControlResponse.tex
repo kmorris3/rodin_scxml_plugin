@@ -1,0 +1,542 @@
+% !TEX root = ../main.tex
+\section{Verification of Control Responses}
+\label{sec:verificationResponses}
+
+A model that has been proven to satisfy some safety (e.g., invariant)
+properties, may still not behave in a useful way.  Therefore, as well
+as verifying invariant properties, we would like to verify the
+system's liveness (e.g., responsive) properties. That is, we want to
+ensure that the controller responds to external triggers and makes
+appropriate modifications to the system variables.  These kind of
+liveness properties are difficult to prove via invariant preservation
+since they are temporal properties.  In this section, we present our
+approach to verify the responsive properties of the system.
+
+We first start with some generic properties of our generated \EventB
+model and the fairness assumption about the executions of the events.
+We then discuss the proof for termination of responses for external
+triggers in Section~\ref{sec:contr-rema-resp} and correctness of the
+responses for external triggers in Section~\ref{sec:corr-resp-extern}.
+
+\paragraph{Event Categories.} In our \EventB model, the events can
+be separated into the following categories.
+\begin{itemize}
+\item \emph{External events}: These events raise external triggers.
+  
+\item \emph{System events}: Events other than external events are
+  called system events. They are the events by which the system
+  responds to the external triggers (by creating different runs).
+  These events can be seen in Figure~\ref{fig:basis} and are further
+  categorised as follow.
+  \begin{itemize}
+  \item \emph{Future system events}: These events might raise internal
+    triggers, i.e., |futureTriggeredTransitionSet|, and
+    |futureUntriggeredTransitionSet|.  The purpose of these events is
+    to enable future introduction of more system details via
+    refinement.
+    
+  \item \emph{The dequeue external trigger event} (i.e.,
+    |dequeueExternalTriggered|): These events dequeue the
+    external trigger queue and will start a run.
+
+  \item \emph{Internal system events}: These events belong to the
+    internal behavior of the system to accommodate the runs for external
+    triggers.  These events can be seen in different groups as in
+    Figure~\ref{fig:basis}.
+    \begin{itemize}
+    \item \emph{The dequeue internal trigger event} (i.e.,
+      |dequeueInternalTriggered|): These events dequeue the
+      internal triggers queue and will start a run.
+    
+    \item \emph{Triggered events}: The events corresponding to the
+     event fired by (external or internal) triggers.
+
+    \item \emph{The discard trigger event} (i.e.,
+      |noTriggeredTransitionsEnabled|):  This event will move the system
+      from the |FIRING TRIGGERED| state to the |FIRING UNTRIGGERED| state 
+      in the case where no triggered transition events are enabled.
+    
+    \item \emph{Untriggered events}:  These are all the untriggered 
+    events in the systems.
+
+    \item \emph{The completion event} (i.e.,
+      |noUntriggeredTransitionsEnabled|): This event will move the
+      system from |FIRING UNTRIGGERED| state to the |READY TO DE-QUEUE|
+      state in the case where no untriggered transition events are
+      enabled.
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+Events from different categories have different roles in our reasoning
+about responsive properties.
+
+We are now present a theorem and a corollary related to (relative)
+deadlock-freeness properties for a different set of events.
+\begin{theorem}[Internal System Events are Relative Deadlock-Free]
+  \label{thm:Internal-DLF}
+  Under the condition that %
+  |iQ /= {} !or uc = FALSE !or dt /= {}|, %
+  the internal system events are deadlock-free, i.e., there must be
+  one internal system event enabled.
+\end{theorem}
+\begin{proof}
+  This is based on the generation of our \EventB model (according to
+  the basis structure as seen in Figure~\ref{fig:basis}).  In
+  particular, we consider the different cases corresponding to the
+  different ``states'', i.e., |READY TO DE-QUEUE|, |FIRING TRIGGERED|,
+  and |FIRING UNTRIGGERED|.
+  \begin{itemize}
+  \item When the system is in the |READY TO DE-QUEUE| state, we know
+    that %
+    |uc = TRUE & dt = {}|.  %
+    According to our assumption, we then have |iQ /= {}|, hence
+    |dequeueInternalTriggered| event is enabled.
+    
+  \item When the system is in the |FIRING TRIGGERED| state,
+    either one of the triggered events is enabled or the
+    |noTriggeredTransitionsEnabled| event is enabled.
+    
+  \item Similarly, when the system is in the |FIRING UNTRIGGERED|
+    state, either one of the untriggered events is enabled or the
+    |noUntriggeredTransitionsEnabled| event is enabled.  
+  \end{itemize}
+  \qed
+\end{proof}
+    
+\begin{corollary}[System Events are Relative Deadlock-Free]
+  Under the condition that %
+  |eQ /= {} !or iQ /= {} !or uc = FALSE !or dt /= {}|, %
+  the system events are deadlock-free, i.e., there must be
+  one system event enabled.
+\end{corollary}
+\begin{proof}
+  This is based on the generation of our \EventB model (according to
+  the basis structure as seen in Figure~\ref{fig:basis}) and
+  Theorem~\ref{thm:Internal-DLF}.
+  \begin{itemize}
+  \item In the case where |iQ /= {} !or uc = FALSE !or dt /= {}|,
+    according to Theorem~\ref{thm:Internal-DLF}, one of the internal
+    events is enabled.
+    
+  \item Otherwise, i.e., |iQ = {} & uc = TRUE & dt = {}|, according to
+    our assumption, |eQ /= {}|. In this case, the
+    |dequeueExternalTriggered| event is enabled.
+  \end{itemize}
+  \qed
+\end{proof}
+
+In order to reason about any liveness properties for an event system,
+we have to make assumptions about how often events will be fired.
+Here, we assume that all the system events are strongly fair.
+\begin{assumption}[Strongly Fair System Events]
+  \label{asm:SF}
+  We assume that all system events are strongly fair, i.e., if a system
+  event is enabled infinitely often, eventually, it will be eventually
+  fired.
+\end{assumption}
+This assumption will ensure that the system will response no matter
+how often the external triggers are raised by the external events.
+
+\subsection{Termination of Responses for External Triggers}
+\label{sec:contr-rema-resp}
+
+We first define the notion of event convergence and event
+anticipation.
+\begin{definition}[Event Convergence]
+  \label{def:conv}
+  A set of events is said to be convergent if they all \emph{decrease}
+  a variant according to some well-founded order.
+\end{definition}
+
+\begin{definition}[Event Anticipation]
+  \label{def:anticipated}
+  Given a set of convergent events with respect to a variant,
+  another set of events is anticipated with respect to the
+  same variant if they \emph{do not increase} the variant.
+\end{definition}
+
+We start first by stating the main theorem about termination of
+responses for external triggers: it is always the case that the system
+will comeback to the |READY TO DE-QUEUE| state and |iQ = {}|, i.e.,
+the system is ready to dequeue an external trigger (if any).  This is
+stated as the following theorem.
+\begin{theorem}[Termination of Internal System Events]
+  \label{thm:finite-internal-events}
+  Given that the internal events are convergent and the external
+  events are anticipated, the system's internal queue is always
+  eventually empty and the system transitions to the \emph{Ready to
+    De-queue} state, i.e.,
+  \begin{center}
+    |GF(iQ = {} & uc = TRUE & dt = {})|~.
+  \end{center}
+\end{theorem}
+\begin{proof}
+  Assuming that the properties is not satisfied, i.e., eventually,
+  it is always the case that %
+  |iQ /= {} !or  uc = FALSE !or dt /=  {}|.  %
+  This can be formalised as follows.
+  \begin{center}
+    |FG(iQ /= {} !or uc = FALSE !or dt /= {})|~.    
+  \end{center}
+  Notice that in the states satisfying this condition, the
+  |dequeueExternalTriggered| event is disabled.  Furthermore, according
+  to Theorem~\ref{thm:Internal-DLF}, the internal events
+  will always be deadlock-free, and as a result, at least one
+  of the internal event is enabled infinitely often. According to
+  Definition~\ref{def:conv}, the variant will be decreased infinitely
+  which violate the condition that the variant is defined on an
+  well-founded order.  Notice that the external events are
+  anticipated to ensure that the variant does not increase, hence
+  does not interfere with the convergence of the internal events.
+  \qed
+\end{proof}
+
+\begin{theorem}[Responsiveness to External Triggers]
+  \label{thm:resp-ext-trg}
+  If an external trigger is raised, then eventually, it will be dequeue.
+  \begin{center}
+    |G([externalTrigger.t] => F([dequeueExternalTriggered.t]))|~,
+  \end{center}
+  where we use |externalTrigger.t|
+  (resp. |[dequeueExternalTriggered.t]|) to denote the occurrence of
+  |externalTrigger| (resp. |dequeueExternalTriggered|) with parameter |t|.
+\end{theorem}
+\begin{proof}
+  Assuming that |[externalTrigger.t]| hence |t !: content(eQ)|, i.e.,
+  |eQ /= {}|.  According to Theorem~\ref{thm:finite-internal-events},
+  we have that |dequeueExternalTriggered| is enabled infinitely often.
+  Since |dequeueExternalTriggered| is strongly fair
+  (Assumption~\ref{asm:SF}), it is taken eventually. We have two
+  cases.
+  \begin{itemize}
+  \item If |t = head(eQ)|, it means we have
+    |[dequeueExternalTriggered.t]|
+    
+  \item If |t /= head(eQ)|, an occurrence of |dequeueExternalTriggered|
+    will move |t| closer to be the head of the external queue |eQ| and
+    eventually it will become the head of the queue and subsequently
+    be processed eventually.
+  \end{itemize}
+  \qed
+\end{proof}
+
+\subsubsection{Proof of Convergence and Anticipation}
+\label{sec:proof-convergence}
+The responsiveness to external triggers presented
+Theorem~\ref{thm:finite-internal-events} relies on the proof of
+convergence for internal system events and anticipation for external
+events. These proof will need to be done for each individual SCXML
+state-chart as they do not hold priori.  We present a generic approach
+to reason about the proof of convergence and anticipation relying on
+lexicographic as follow.
+
+A variant in \EventB can be a natural number (bounded bellow by |0|)
+or a finite set (bounded below by the empty set |{}|).  Moreover, for
+a set of events, the variants $V_1, V_2, ...$ are combined into a
+lexicographic variant, i.e., $(V_1, V_2, ...)$ with $V_1$ has a higher
+priority than $V_2$, etc. An event is said to decrease this
+lexicographic variant if it either decreases $V_1$ or if it keeps
+$V_1$ the same and decreases $V_2$, so on and so forth.  Lexicographic
+variants are supported in the latest Rodin (version 3.5).
+
+Our generic approach to construct a lexicographic variant is according
+to the following order and the rule for each variant.
+\begin{itemize}
+\item $V_{externalTrigger}$ = |dt /\ ExternalTrigger|.  This variant
+  is used to prove the convergence for any externally triggered events
+  (i.e., triggered event by some external trigger). These event remove
+  the external trigger from |dt| hence ``decrease'' |dt| to the empty
+  set.
+
+\item Variants based on the state machine to prove the convergence of
+  internally triggered events and untriggered events.  This depends on
+  the SCXML diagram and we will illustrate this on the example later.
+  
+\item $V_{dequeueInternalTriggered}$ = |length(iQ)|.  This variant is
+  used to prove the convergence of the |dequeueInternalTriggered| event.
+  Since this event remove the head of the |iQ|, it decreases the
+  length of the |iQ| trivially.  While other events might increase
+  |iQ|, by raising new internal triggers. However, these events should
+  have been proved to converge using higher-priority variants.
+  
+\item $V_{noTriggeredTransitionsEnabled}$ = |dt|.  This variant is used to
+  prove the convergence of the |noTriggeredTransitionsEnabled| event.
+  The event discard the trigger in |dt| hence ``decrease'' |dt| to the
+  empty set.
+  
+\item $V_{noUntriggeredTranstitionsEnabled}$ = |{uc, TRUE}|.  This variant is
+  used to prove the convergence of the
+  |noUntriggeredTransitionsEnabled| event.  The event changes |uc|
+  flag from |FALSE| to |TRUE|, hence ``decrease'' the variant from
+  |{FALSE, TRUE}| to |{TRUE}|.
+\end{itemize}
+The external events are anticipated accroding to the above variants
+trivially since they only modify the external queue |eQ|.  Note that
+we do not attempt to prove the convergence of any future events
+here. Instead, we assume that these future events will be prove to be
+convergence later.
+
+% Order of the variants
+We now discuss the specific variants for the Drone example based on
+the actual state-chart as showed in Figure~\ref{fig:drone4}.  The
+variants are for the internally triggered events and untriggered
+events. The lexicographic order of the variant use to prove the
+convergence of the events depending (1) on the \emph{nested structure}
+of the state-chart and (2) on the \emph{order of the transitions} with
+the same state-chart.  For example, the variant for proving the
+convergence for the transition from |SHUTDOWN| to |OFF| will have a
+higher priority than the one for the transition from |TAKEOFF| to
+|FLY|, and this variant subsequently has higher priority than the one
+for the transition from |CLIMB| to |HOVER|.  Furthermore, the variant
+for proving the convergence for the transition from |TAKEOFF| to |FLY|
+has higher priority than the one for the transition from |FLY| to
+|DESCEND|.
+
+% Shape of the variants
+The translation of SCXML state-chart into UML-B/\EventB represents each
+state by a Boolean variable, |TRUE| if the system in that state and
+|FALSE| otherwise. As a result, the variant for proving the convergence
+of an event going out of a state |S| can be |{S, FALSE}|: the
+transition ``decreases'' the value of the variant from |{TRUE, FALSE}|
+to |FALSE|.
+
+Based on the above analysis, the variants that we used for proving the
+convergence of the internally triggered events and untriggered events
+in the Drone example are.
+\begin{itemize}
+\item |{SHUTDOWN, FALSE}|
+
+\item |{TAKEOFF, FALSE}|
+
+\item |{FLY, FALSE}|
+
+\item |{BATTERYOK, FALSE}|
+
+\item |{CLIMB, FALSE}|
+
+\item |{CLIMB2, FALSE}|
+\end{itemize}
+
+This variant proof are available in the Rodin archive at
+\url{https://tinyurl.com/ISSE-Drone}.
+
+
+\subsection{Correct Responses to External Triggers}
+\label{sec:corr-resp-extern}
+In the previous section, we illustrate the reasoning about the
+responsiveness of the system to external triggers.  However, we also
+need to prove that the response to the external triggers is correct.
+In our conference paper~\cite{detect2020}, we illustrate the use of
+ProB model checker to reason about such a property.  Here, we show how
+we can prove such a property.
+
+%\SonInlineComment{We should probably move this to the discussion}
+% While \EventB refinements have also been shown to preserve some liveness properties under certain conditions~\cite{hoang2016ltl}, there are not yet efficient supporting tools for the technique.%
+% \SonComment{We probably need to move this to related work}
+% Instead, we can express the property in \LTL  and use the \PROB\footnote{ProB is an animator, constraint solver and model checker for the B-Method. https://www3.hhu.de/stups/prob} model checker to verify it.
+
+Once again, we assume that the system events are strongly fair as in
+Assumption~\ref{asm:SF}.  In general, our correct-response properties
+will have the following form:
+\begin{center}
+  |G([external_trigger_event] => F{predicate})|~,
+\end{center}
+where the predicate concerns variables |v| that the system maintains,
+and may refer to old values |old(v)| that existed when the external
+trigger occurred.  The translator generates a separate `branch'
+refinement for each \LTL property to be verified.  In this special
+refinement, history variables are added to record the value at the
+state when the external trigger occurs, of any variables that are
+referenced as `old' values.
+
+We illustrate the method with an example of a temporal property that
+we expect to hold in the drone \SCXML system.  The liveness property
+that we wish to verify is that, after an external trigger event
+|decreaseCharge|, the battery charge value should decrease in value, i.e.,
+\begin{center}
+  |G ([ExternalTriggerEvent_decreaseCharge] => F {charge < old(charge)})|~.
+\end{center}
+As discussed in~\cite{detect2020}, this above properties is too strong
+and does not hold for the SCXML drone model.  We have to weaken the
+property to state that the expected behaviour only achieved if the
+external trigger is raised at the right time as specified as %
+|{BATTERYOK=TRUE & charge>20}|, %
+and there are no external conflict triggers, here |off|, in processing
+or that has been raised, i.e., %
+|off /: dt \/ content{eQ}|.  %
+The property can be formalised as follows
+
+\begin{center}
+  |G([ExternalTriggerEvent_decreaseCharge] & |\\
+  |{BATTERYOK=TRUE & charge>20 & off/:dt & off /: content(eQ)}|\\
+  |=> F {charge < old(charge)})|~.
+\end{center}
+In order to prove the above property, we first recall the definition
+of \textbf{unless} property~\cite{hudon16:_unit_b_method}.
+\begin{definition}[Unless Properties]
+An \emph{unless property} of the
+following form
+\begin{center}
+  |P| \textbf{unless} |Q|
+\end{center}
+means that if |P| holds then it will hold continously unless |Q| hold.
+\end{definition}
+
+We restate the \emph{Unless rule} (Theorem 1
+in~\cite{hudon16:_unit_b_method}) here.
+\begin{theorem}{Unless rule}:
+  \label{thm:unless-rule}
+  An event system satisfies the unless property |P| \textbf{unless}
+  |Q|, if for every event, if it starts in a state satisfying %
+  |P & !not Q|, %
+  it will reach a state satisfying %
+  |P !or Q|.  %
+\end{theorem}
+
+Coming back to our example, we first prove that the \EventB model
+satisfies the following important \textbf{unless} property.
+\begin{theorem}
+  \label{thm:unless}
+  The drone system satisfies the following \textbf{unless}
+  property.
+
+  \begin{center}
+    |BATTERYOK = TRUE & charge > 20 & decreaseCharge !: content(eQ) & | \\
+    |off /: dt & (! i . eQ(i) = off => (#j. eQ(j) = decreaseCharge & j < i))|\\
+    \textbf{unless} \\
+    |BATTERYOK = TRUE & charge > 20 & dt = {decreaseCharge}|\\
+  \end{center}
+\end{theorem}
+\begin{proof}[Sketch]
+ The proof relies on Theorem~\ref{thm:unless-rule}, i.e.,
+ reasoning per event.  The encoding of the proof obligations are
+ available from the Rodin archive. We informally explain why this
+ property holds for different class of events below.
+ \begin{itemize}
+ \item \emph{External events}: The external events raise a new external
+   trigger and append the new trigger to |eQ|. Given that
+   |decreaseCharge| is already in |eQ|, even if the new trigger is
+   |off|, this trigger cannot over take |decreaseCharge| in the queue,
+   i.e., it is alway behind |decreaseCharge|. These external events
+   therefore maintains the left-hand side of the \textbf{unless} property.
+   
+ \item \emph{Dequeue external trigger}: If the dequeued external
+   trigger is |decreaseCharge|, we will have |dt = {decreaseCharge}|,
+   hence we establish the right-hand side of the unless property.
+   If it is not |decreaseCharge|, it also cannot be |off| (as any
+   |off| trigger in |eQ| has to be behind a |decreaseCharge|
+   trigger). As a result, the condition that |off| is behind
+   |decreaseCharge| in the remaining queue is maintained and
+   |off| cannot be in |dt| after the event execution.
+   
+ \item \emph{Internal system events}: For the internal systems events,
+   we separate them into those that are outside the |BATTERY| state
+   and those that are inside of the |BATTERY| state.
+   \begin{itemize}
+   \item For those that are outside the |BATTERY| state, they maintain
+     the left handside of the unless property trivially (by leaving
+     external queue unchanged and does not alter the relevant state,
+     i.e., |BATTERY| or the |charge|).
+     
+   \item For the self-transition which is triggered by
+     |decreaseCharge| inside the |BATTERY| state, the proof of the
+     unless property is trivial, since we assume the negation of the
+     right-hand side of the unless property, including that that
+     |decreaseCharge| is not in |dt|. For the transition from
+     |BATTERYOK| to |BATTERYLOW|, the proof of the unless property is
+     also trivial, since we assume the left-hand side of the unless
+     property, including that |charge > 20|.
+   \end{itemize}
+ \end{itemize}
+ \qed
+\end{proof}
+Theorem~\ref{thm:unless} means that the system will continuously
+satisfy the following conditions:
+\begin{itemize}
+\item in the |BATTERYOK| state~,
+  
+\item |charge| is more than |20|~,
+  
+\item |decreaseCharge| is in the external queue |eQ|~.
+  
+\item |off| is not in |dt|~.
+  
+\item if |off| is in the external queue |eQ| then it is behind a
+  |decreaseCharge| trigger~.
+\end{itemize}
+\textbf{unless} it reaches a state satisifying the following conditions:
+\begin{itemize}
+\item in the |BATTERYOK| state~,
+  
+\item |charge| is more than |20|~,
+  
+\item |decreaseCharge| is in |dt|.
+\end{itemize}
+
+Coming back to the proof for our correct-response property and assume
+that the system is at the right time and the
+|[ExternalTriggerEvent_decreaseCharge]| event happens.  Notice that at
+that particular moment, the left-hand side of the progress property in
+Theorem~\ref{thm:unless} is also satisfied.  According to
+Theorem~\ref{thm:resp-ext-trg}, eventually,
+|[dequeueExternalTriggered.decreaseCharge]| is fired (and %
+|dt = {decreaseCharge}|), %
+i.e., |decreaseCharge| is dequeued from the |eQ| into |dt|. And at
+that time, according to Theorem~\ref{thm:unless}, we also have
+|BATTERYOK = TRUE| and |charge > 20|.  That ensures the triggered
+transition event for |decreaseCharge| is enabled (and it is the only
+internal event enabled) and will be eventually taken, hence decrease
+the |charge|'s value accordingly.
+
+
+% \begin{center}
+%   |G([ExternalTriggerEvent_decreaseCharge] & {BATTERYOK=TRUE & charge>=10 &|
+%     |off/:dt\/content(eQ)}|
+%   |=> ({BATTERYOK=TRUE & charge>=10 & off /: dt & decreaseCharge :
+%     content(eQ) & (! i . eQ(i) = off => (#j . eQ(j) = decreaseCharge &
+%     j < i))} U {decreaseCharge =
+%   head(eQ)}|
+% \end{center}
+
+% To specify a liveness property to be verified, a special \LTL element is added to the \SCXML model with attributes, property (a string of the above form)  and refinement (an integer indicating the refinement level at which the property should be verified).
+
+% A text file is automatically generated containing the \LTL property to be checked. 
+% In this generated version, an assumption of strong fairness is added for all other events in the model.
+% Without this assumption, the system may never achieve the expected response to a trigger. 
+% Therefore it corresponds to a requirement that the system can always make satisfactory progress and not become live locked.
+%This assumption is stronger than necessary since some events will not affect the outcome, but is easier to generate and is sufficient for our verification aim. 
+% For simplicity we omit this assumption from the remaining examples.
+% \begin{center}
+%   |SF[e1] & SF[e2]... => G([external_trigger _event] => F[predicate])|
+% \end{center}
+% This property can be added into the ProB model checker LTL formula text field.
+
+% However, we could not verify this property.
+% The counter example traces that \PROB provided gave us a better understanding of the reasons why. 
+% The property as stated is too strong (i.e. not true) for our model; there are additional conditions that need to be considered and added as part of the antecedent.
+% \begin{itemize}
+% \item
+% Our model represented the trigger queues abstractly as sets which meant that the |decreaseCharge| trigger may never be dequeued.
+% The standalone version of \PROB allows strong fairness to be specified for particular parameter values but this does not work in the Rodin plug-in for \PROB. 
+% In any case, a more accurate (concrete) representation of the queue fixes the problem and improves our model.
+% \item 
+% The charge is not always decreased in response to the |decreaseCharge| trigger.
+% The controller only monitors battery charge while in the |BATTERYOK| state and discards the trigger in other states.
+% Also, the controller stops decreasing charge when it approaches 0. 
+% To cater for this we added a pre-condition %
+% |BATTERYOK = TRUE ∧ charge > 20| %
+% to the \LTL property.
+% \item
+% Even if this pre-condition is true when the trigger is raised, another trigger (e.g. |off|) may already be in the queue and take the controller out of |BATTERYOK| before the |decreaseCharge| trigger is dequeued.
+% Again we strengthen the pre-condition |off ∉ dt ∪ eQ| of the \LTL expression to avoid this situation.
+% \end{itemize}
+% After making these changes the final form of the \LTL property, which \PROB was able to exhaustively check and confirm was as follows:
+% \begin{center}
+% 	|G([ExternalTriggerEvent_decreaseCharge] & {BATTERYOK=TRUE & charge>=10 &|
+% 		|off/:SCXML_dt\/SCXML_eq} => F {charge < old(charge)})|~.
+% \end{center}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:
