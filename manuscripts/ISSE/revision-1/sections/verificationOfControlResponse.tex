@@ -241,7 +241,8 @@ variants are supported in the latest Rodin (version 3.5).
 
 Our generic approach to construct a lexicographic variant is according
 to the following order and the rule for each variant.
-\begin{itemize}
+\SonComment{We change this list to enumeration}
+\begin{enumerate}
 \item $V_{externalTrigger}$ = |dt /\ ExternalTrigger|.  This variant
   is used to prove the convergence for any externally triggered events
   (i.e., triggered event by some external trigger). These event remove
@@ -269,7 +270,8 @@ to the following order and the rule for each variant.
   |noUntriggeredTransitionsEnabled| event.  The event changes |uc|
   flag from |FALSE| to |TRUE|, hence ``decrease'' the variant from
   |{FALSE, TRUE}| to |{TRUE}|.
-\end{itemize}
+\end{enumerate}
+\SonAdded{Here}
 The external events are anticipated accroding to the above variants
 trivially since they only modify the external queue |eQ|.  Note that
 we do not attempt to prove the convergence of any future events
