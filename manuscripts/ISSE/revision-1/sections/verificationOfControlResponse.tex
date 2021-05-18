@@ -221,11 +221,14 @@ stated as the following theorem.
 \end{proof}
 
 \subsubsection{Proof of Convergence and Anticipation}
+\KarlaComment{SON: Could you please take a look just to make 
+sure I did not introduced mistakes with my changes}
 \label{sec:proof-convergence}
-The responsiveness to external triggers presented
-Theorem~\ref{thm:finite-internal-events} relies on the proof of
+The responsiveness to external triggers presented in
+Theorem~\ref{thm:resp-ext-trg} relies on the proof of
 convergence for internal system events and anticipation for external
-events. These proof will need to be done for each individual SCXML
+events, Theorem~\ref{thm:finite-internal-events}. These proof will 
+need to be done for each individual SCXML
 state-chart as they do not hold a priori.  We present a generic approach
 to reason about the proof of convergence and anticipation relying on
 lexicographic order as follow.
@@ -275,8 +278,8 @@ to the following order and the rule for each variant.
 The external events are anticipated according to the above variants
 trivially since they only modify the external queue |eQ|.  Note that
 we do not attempt to prove the convergence of any future events
-here. Instead, we assume that these future events will be prove to be
-convergence later.
+here. Instead, we assume that these future events will be proved to be
+convergent later.
 
 % Order of the variants
 We now discuss the specific variants for the Drone example based on
