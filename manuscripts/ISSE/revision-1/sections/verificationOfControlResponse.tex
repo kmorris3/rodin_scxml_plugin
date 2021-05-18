@@ -193,7 +193,7 @@ stated as the following theorem.
 
 \begin{theorem}[Responsiveness to External Triggers]
   \label{thm:resp-ext-trg}
-  If an external trigger is raised, then eventually, it will be dequeue.
+  If an external trigger is raised, then eventually, it will be dequeued.
   \begin{center}
     |G([externalTrigger.t] => F([dequeueExternalTriggered.t]))|~,
   \end{center}
@@ -226,9 +226,9 @@ The responsiveness to external triggers presented
 Theorem~\ref{thm:finite-internal-events} relies on the proof of
 convergence for internal system events and anticipation for external
 events. These proof will need to be done for each individual SCXML
-state-chart as they do not hold priori.  We present a generic approach
+state-chart as they do not hold a priori.  We present a generic approach
 to reason about the proof of convergence and anticipation relying on
-lexicographic as follow.
+lexicographic order as follow.
 
 A variant in \EventB can be a natural number (bounded bellow by |0|)
 or a finite set (bounded below by the empty set |{}|).  Moreover, for
