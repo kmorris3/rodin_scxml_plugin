@@ -15,7 +15,7 @@ Events may be annotated as \emph{internal} to indicate that, when enabled, they 
 Internal events may also be prioritised to give a simple representation of process order in the controller (even if it is left non-deterministic in the model).
 The user only has to select external events that trigger the controllers responses.
 Since our \SCXML derived models already contain an implementation of run to completion the support provided by the Scenario Checker is sufficient to validate this behaviour.
-If desired, internal variables that represent the controllers processing (e.g. the variables that model the \SCXML run to completion variables) can be annotated as \emph{private} so that only the application state is checked during replay.
+If desired, internal variables that represent the controllers processing (e.g.,the variables that model the \SCXML run to completion variables) can be annotated as \emph{private} so that only the application state is checked during replay.
 To help visualise the state of the model, the generated \UMLB state-machine is animated during the scenario validation.
 
 \begin{figure}[!th]
@@ -54,7 +54,7 @@ This is because the model allows for future raising of internal triggers in late
 \end{figure}
 
 Figure~\ref{fig:scenarioCheckerPlaybackDrone3} shows the scenario being played back at a later refinement where the raising of the |toFly| and |toLand| internal triggers has been defined. 
-While the scenario checker allows us to animate that the main expected run to completion behaviour is possible, recall that, unless the transitions have all been finalised (i.e. no further refinement is permitted),  other behaviours are possible due to the non-deterministic completion incorporated in case transition guards are later strengthened. 
+While the scenario checker allows us to animate that the main expected run to completion behaviour is possible, recall that, unless the transitions have all been finalised (i.e.,no further refinement is permitted),  other behaviours are possible due to the non-deterministic completion incorporated in case transition guards are later strengthened. 
  
 
 %%% Local Variables:

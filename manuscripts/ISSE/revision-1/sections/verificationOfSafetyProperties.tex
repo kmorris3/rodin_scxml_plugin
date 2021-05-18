@@ -59,7 +59,7 @@ The transitions that enter state |OPERATIONAL| and initialise the |BATTERY| regi
 The self transition that decreases charge (and hence could potentially falsify the consequent) is guarded by |uc = FALSE| since it is a triggered transition, and hence the disjunction in the consequent ensures it remains true.
 The completion event |NoUntriggeredTransitionsEnabled| of the basis machine resets |uc = TRUE| to indicate completion of the cycle and hence could potentially break the invariant. 
 However, finalising the transition |BATTERYOK_BATTERYLOW| (that leaves |BATTERYOK| when |charge>20| becomes false) means that  the negation of its guard is added to the completion event by the translation.
-Since this transition fires when |BATTERYOK = TRUE| (i.e. its source state) and |charge≤20| the completion event is guarded by |¬(BATTERYOK= TRUE ∧ charge≤20)| which means that it does not fire when it could break the invariant (i.e. forcing the untriggered reaction to fire first).
+Since this transition fires when |BATTERYOK = TRUE| (i.e.,its source state) and |charge≤20| the completion event is guarded by |¬(BATTERYOK= TRUE ∧ charge≤20)| which means that it does not fire when it could break the invariant (i.e.,forcing the untriggered reaction to fire first).
 
 \paragraph{System Subsequently Leaves the FLY or TAKEOFF States}
 The safety property of the |TAKEOFF| and |FLY| states can now be simply stated as |BATTERYOK = TRUE|. 
@@ -79,7 +79,7 @@ The transitions that enter |TAKEOFF| (which make the antecedent true) simultaneo
 The only transition that enters |FLY| (which makes the antecedent of the |FLY| invariant true) comes from the |TAKEOFF| state and hence the consequent is already true.
 The transition that leaves |BATTERYOK| (making the last disjunct of the consequent false) raises the |toLand| trigger making the first disjunct true.
 Some transitions leave the superstates of |BATTERYOK| but these either simultaneously leave |OPERATIONAL| (the superstate of |TAKEOFF| and |FLY|), or re-enter |BATTERYOK|.
-The basis contains an event to dequeue the internal triggers which preserves the overall consequent because establishes the second conjunct as it falsifies the first (i.e. it removes |toLand| from the |iQ| but simultaneously adds it to |dt|).
+The basis contains an event to dequeue the internal triggers which preserves the overall consequent because establishes the second conjunct as it falsifies the first (i.e.,it removes |toLand| from the |iQ| but simultaneously adds it to |dt|).
 The only events that falsify the second conjunct are the transitions triggered by |toLand| which leave the |TAKEOFF| or |FLY| states making the antecedent false.
 
 Hence, invariant properties that follow these suggested patterns are always automatically proven due to simple logic about the changes in state.
