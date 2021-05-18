@@ -8,11 +8,11 @@ Reactive \SCs are open systems capable of receiving potentially non-deterministi
 %This work exposes a shallow embedding of open \SCs~\cite{MoSn16,MoSnHo18,MoSnHo-ABZ2020} semantics in \EventB.
 \SCs provide a graphical language, generalized from state machines, that is popular with engineers.
 Variants appear in Matlab Simulink/Stateflow~\cite{MATLAB:2019} and the Ansys tools.  
-Particularly attractive is providing accessibility to abstraction/refinement via Rodin/\EventB which has an intuitive metaphor in the \SC semantics~\cite{MoSnHo18,MoSnHo-ABZ2020,detect2020}.  
+It is particularly attractive, to provide accessibility to abstraction/refinement via Rodin/\EventB which has an intuitive metaphor in the \SC semantics~\cite{MoSnHo18,MoSnHo-ABZ2020,detect2020}.  
 %The commercial tools have similar ideas expressed as encapsulation and composition but not entailing any formal guarantees. 
 The hope is that engineers can better understand the origin of proof obligations in refinements and achieve formal guarantees earlier in their designs where it is most tractable.
 %Other researchers have developed a number of refinement semantics for different purposes~\cite{Syriani_2019,Harel,Maraninchi91theargos}.  
-Our approach is focused on a mapping to \EventB where safety preservation is key.  
+Our approach is focused on a mapping to \EventB where safety properties preservation is key.  
 %\EventB provides not only a definition of refinement but a rubric for finding valid refinements and this is carried over into the \SCs work presented here. 
 In our version of \SC semantics, refinement means a subset of traces from an abstraction. 
 This has the beneficial effect of preserving safety properties from abstraction to refinement and permits proofs to be discharged at the highest tractable level of abstraction where they are the easiest to discharge.
@@ -23,7 +23,7 @@ Though these separate refinements have different goals, all of which may be attr
 %While these other forms of refinement cannot be said to conflict with the one presented here, 
 they will not always preserve safety properties.  
 From the \EventB vernacular it might be better to relabel these other approaches not as methods of model ``refinement'', but rather methods of model ``elaboration''.  
-Preservation of safety across refinement requires only a few restrictions to the original~\cite{Harel} \SCs (e.g. transitions cannot cross containment boundaries arbitrarily), but still allows for both parallel and hierarchical composition. 
+Preservation of safety properties across refinement requires only a few restrictions to the original~\cite{Harel} \SCs (e.g. transitions cannot cross containment boundaries arbitrarily), but still allows for both parallel and hierarchical composition. 
 %With these restrictions composition becomes a refinement, but not all refinements are compositions.  
 %Such a unification of composition and refinement can lead, not only to code reuse, but reuse of proofs.
 \input{sections/relatedWork}
