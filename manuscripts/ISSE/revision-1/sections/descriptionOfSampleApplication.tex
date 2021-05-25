@@ -6,9 +6,12 @@ To illustrate the development and analysis process of a design using the previou
 state-chart semantics, we will discuss a quadrotor helicopter or quadrotor application similar to 
 the one presented by Syriani et al.~\cite{Syriani_2019}. 
 The application will focus on the incremental design of some of the drone's required functionality.
-The constructed model must obey state-chart refinement rules listed in Section~\ref{sec:intro}, these rules are proven within the Rodin tool.
+The constructed model must obey state-chart refinement rules listed in Section~\ref{sec:refinement-rules}, these rules are proven within the Rodin tool.
 The structure of the state-chart for this model at each subsequent abstraction level restricts further the development of the model to refinements that obey the rules. 
 This will allow us to prove properties of the model in a very strategic fashion, as properties proven of early abstraction levels are preserved in later refinements.
+Unlike other case studies previously presented \cite{MoSn16,MoSnHo18,MoSnHo-ABZ2020}, this drone example
+illustrated the model construction and analysis of a more complex system with several parallel components 
+and refinement levels. 
 
 The initial abstraction and first refinement of the model, shown in Figure~\ref{fig:drone1}, capture the basic functionality of the drone. 
 The abstract model is shown in blue; the model's initial state is |OFF| and as a result of the |on| and  |toTakeoff| external triggers it transitions to the |START| and |OPERATIONAL| states respectively\footnote{Transitions in Figures~\ref{fig:drone1}--\ref{fig:drone4} are labeled with trigger names

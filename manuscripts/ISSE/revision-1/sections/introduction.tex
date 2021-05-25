@@ -17,20 +17,20 @@ Our approach is focused on a mapping to \EventB where safety properties preserva
 In our version of \SC semantics, refinement means a subset of traces from an abstraction. 
 This has the beneficial effect of preserving safety properties from abstraction to refinement and permits proofs to be discharged at the highest tractable level of abstraction where they are the easiest to discharge.
 
-Many incompatible definitions of refinement have been posed by others~\cite{Syriani_2019,Maraninchi91theargos} and that can lead to confusion.  
-Though these separate refinements have different goals, all of which may be attractive to systems designers in different ways,
+% Many incompatible definitions of refinement have been posed by others~\cite{Syriani_2019,Maraninchi91theargos} and that can lead to confusion.  
+% Though these separate refinements have different goals, all of which may be attractive to systems designers in different ways,
 % preservation of safety proofs is the goal here. 
 %While these other forms of refinement cannot be said to conflict with the one presented here, 
-they will not always preserve safety properties.  
-From the \EventB vernacular it might be better to relabel these other approaches not as methods of model ``refinement'', but rather methods of model ``elaboration''.  
-Preservation of safety properties across refinement requires only a few restrictions to the original~\cite{Harel} \SCs (e.g.,transitions cannot cross containment boundaries arbitrarily), but still allows for both parallel and hierarchical composition. 
+% they will not always preserve safety properties.  
+% From the \EventB vernacular it might be better to relabel these other approaches not as methods of model ``refinement'', but rather methods of model ``elaboration''.  
+% Preservation of safety properties across refinement requires only a few restrictions to the original~\cite{Harel} \SCs (e.g.,transitions cannot cross containment boundaries arbitrarily), but still allows for both parallel and hierarchical composition. 
 %With these restrictions composition becomes a refinement, but not all refinements are compositions.  
 %Such a unification of composition and refinement can lead, not only to code reuse, but reuse of proofs.
-\input{sections/relatedWork}
 
-%Section~\ref{sec:relatedWork} discusses related work on refinement and what are the different types.
+This manuscript is structure as follow; section~\ref{sec:relatedWork} discusses related work on refinement and what are the different types.
 Section~\ref{sec:background} provides background material. 
 Section~\ref{sec:run-completion} discusses the \SC concept of `run to completion' and how it can be specified in \EventB. 
+Section~\ref{sec:refinement-rules} states the different statechart refinement rules we use to construct models.
 Section~\ref{sec:descr-sample-appl} introduces our example case study; a drone. 
 Section~\ref{sec:translation} gives an outline of our translation from \SCXML to \EventB via \UMLB.
 Section~\ref{sec:validation} describes the use of \UMLB animation and Scenario Checking tools to validate translated \SCXML models.

@@ -13,6 +13,9 @@ Hence it is not necessary to re-prove any of the proof obligations associated wi
 	\item 
 Secondly, all possible combinations of each set of transitions that can fire together are calculated and corresponding events are generated, at appropriate refinement levels (given by the refinement annotations embedded in the \SCXML model), that refine the abstract basis events.
 The transitions that can fire together are those that are triggered by the same trigger (or are both untriggered) and are in different parallel (`and') sub-states.
+For example, the untriggered transitions shown in the parallel states |FLYOP| and |BATTERYOP| of
+figure~\ref{fig:drone4} are combined into an event in the \EventB representation of the model, 
+through a conjunction of the guards and actions of each of the transitions. 
 If these transitions raise internal triggers, a guard, |{i1, i2, ...} <: content(raisedTriggers)| (where |i1, i2, ...| have been added to the internal triggers set), is introduced to define the raised triggers parameter. 
 The subset used in the guard retains non-determinism to allow more triggers to be raised in later refinements.
 For triggered transitions, the trigger is specified by a guard that defines the value of the trigger parameter. 

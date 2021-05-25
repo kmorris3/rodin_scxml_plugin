@@ -77,7 +77,7 @@ Please could you comment?
 \end{comment}
 
 \begin{response}
-  ...
+  \KarlaInlineCommentTo{Son}{I need your input here}
   \begin{quote}
     `` ...
    ''
@@ -91,11 +91,9 @@ addresses statecharts.
 \end{comment}
 
 \begin{response}
-  ...
-  \begin{quote}
-    `` ...
-   ''
-  \end{quote}
+  To address other concerns we have added a "Statechart Refinement" section 
+  to the manuscript. Please refer to section 5 in the revised manuscript.
+  This section now states, and illustrates the refinement rules.
 \end{response}
 
 
@@ -115,10 +113,18 @@ events are generated, at appropriate refinement levels.
 \end{comment}
 
 \begin{response}
-  ...
+  The paragraph has been revised to include an example based on the drone model.
   \begin{quote}
-    `` ...
-   ''
+    `` Secondly, all possible combinations of each set of transitions that can
+    fire together are calculated and corresponding events are generated, at
+    appropriate refinement levels (given by the refinement annotations
+    embedded in the SCXML model), that refine the abstract basis events. The
+    transitions that can fire together are those that are triggered by the same
+    trigger (or are both untriggered) and are in different parallel (‘and’)
+    sub-states. For example, the untriggered transitions shown in the parallel
+    states FLYOP and BATTERYOP of figure 3 are combined into an event in the Event-B 
+    representation of the model, through a conjunction of the guards and actions 
+    of each of the transitions.  ''
   \end{quote}
 \end{response}
 
@@ -137,7 +143,7 @@ context of the proof obligation generator you have at hand.
 \end{comment}
 
 \begin{response}
-  ...
+  \KarlaInlineCommentTo{Son}{I need your input here}
   \begin{quote}
     `` ...
    ''
@@ -149,9 +155,12 @@ context of the proof obligation generator you have at hand.
 \end{comment}
 
 \begin{response}
-  ...
+  Run here refers to different simulation paths that can be generated to explore systems behaviors.
+  We have revised the text as shown below
   \begin{quote}
-    `` ...
+    ``System events: Events other than external events are called system events.
+    They are the events by which the system responds to the external triggers (by creating 
+    different runs or simulation paths). 
    ''
   \end{quote}
 \end{response}
@@ -175,7 +184,7 @@ strong fairness.
 \end{comment}
 
 \begin{response}
-  ...
+  \KarlaInlineCommentTo{Son}{I need your input here}
   \begin{quote}
     `` ...
    ''
@@ -188,7 +197,7 @@ of convergent events is necessary to recall just before?
 \end{comment}
 
 \begin{response}
-  ...
+  \KarlaInlineCommentTo{Son}{I need your input here}
   \begin{quote}
     `` ...
    ''
@@ -202,7 +211,7 @@ not be before because you use such arguments before just after stating Theorem
 \end{comment}
 
 \begin{response}
-  ...
+  \KarlaInlineCommentTo{Son}{I need your input here}
   \begin{quote}
     `` ...
    ''
@@ -225,7 +234,9 @@ not be before because you use such arguments before just after stating Theorem
 \end{comment}
 
 \begin{response}
-  ...
+  \KarlaInlineCommentTo{Son}{I need your input here, 
+  I found this https://prob.hhu.de/w/index.php?title=LTL_Model_Checking
+  but I am not I fully understand}
   \begin{quote}
     `` ...
    ''
@@ -286,7 +297,7 @@ interplay with the temporal properties you are concerned with.
 \end{comment}
 
 \begin{response}
-  ...
+  \KarlaInlineCommentTo{Son}{I need your input here}
   \begin{quote}
     `` ...
    ''
@@ -377,13 +388,13 @@ are required to validate the proposed approach.
 \end{comment}
 
 \begin{response}
-\KarlaInlineComment{Add references to previous case studies. Make a case that the case studies have grown in complexity and the thje drone in particular makes use of all the features for model construction and refinement. SecBot and Turnstile}
-  \begin{quote}
-    `` ...
-   ''
-  \end{quote}
+Although we agree with the reviewers point of view that a single case study is
+not enough for a full evaluation of the approach. We want to emphasize the fact
+we have describe other model in previous publication. We have clearly added
+references to this other models in the example section. The case studies have
+grown in complexity and the drone in particular makes use of all the features
+for model construction and refinement.
 \end{response}
-
 
 
 \begin{comment}{Reviewer \#2}
@@ -394,11 +405,8 @@ General comments:
 \end{comment}
 
 \begin{response}
-\KarlaInlineComment{Add section 3.2 for refinement rules}
-  \begin{quote}
-    `` ...
-   ''
-  \end{quote}
+A new section has been added to state and discuss the refinement rules. 
+Please refer to section 5 in the revised manuscript.
 \end{response}
 
 
@@ -419,13 +427,7 @@ General comments:
 \end{comment}
 
 \begin{response}
-A related work section has been added to the manuscript. Please see section 
-  \begin{quote}
-    \KarlaInlineComment{I cannot remember what we agree on doing for this. It seems that there are sections of the intro that need to be move to related work}
-
-    `` ...
-   ''
-  \end{quote}
+A related work section has been added to the manuscript. Please see section 2
 \end{response}
 
 

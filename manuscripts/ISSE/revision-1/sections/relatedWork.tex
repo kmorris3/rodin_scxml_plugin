@@ -1,25 +1,28 @@
 % !TEX root = ../main.tex
 
-%\section{Related Work}
-%\label{sec:relatedWork}
+\section{Related Work}
+\label{sec:relatedWork}
 
-The work we will present here includes three refinement rules.
-\begin{enumerate}
-\item  \emph{Rule A:} Guard conditions on a transition can be strengthened (but not weakened); 
-this can be done by adding textual guards to the transition, or
-changing the source of the transition to a nested state.
-\item \emph{Rule B:} Transitions can have additional actions, provided they do not
-  modify variables appearing in the abstraction; this can be 
-  accomplished by adding textual action to the transition 
-  or by changing the target to nested state.
-\item \emph{Rule C:} A state-chart can be embedded within a state of another
-  state-chart -- sometimes called hierarchical composition or
-  hierarchical refinement.
-\end{enumerate}
-Via the translation explained in Section~\ref{sec:translation}, these
-rules rely on the usual \EventB proof obligations to ensure that they
-do indeed yield refinements in the \EventB semantics.  If an \EventB
-model |B| can be shown (via the construction rules of the \EventB
+Many incompatible definitions of refinement have been posed by
+others~\cite{Syriani_2019,Maraninchi91theargos} and that can lead to confusion.
+Though these separate refinements have different goals, all of which may be
+attractive to systems designers in different ways,
+% preservation of safety proofs is the goal here. 
+%While these other forms of refinement cannot be said to conflict with the one presented here, 
+they will not always preserve safety properties.  
+From the \EventB vernacular it might be better to relabel these other approaches
+not as methods of model ``refinement'', but rather methods of model
+``elaboration''.  
+Preservation of safety properties across refinement requires only a few
+restrictions to the original~\cite{Harel} \SCs (e.g.,transitions cannot cross
+containment boundaries arbitrarily), but still allows for both parallel and
+hierarchical composition. 
+With these restrictions composition becomes a refinement, but not all
+refinements are compositions.  
+Such a unification of composition and refinement can lead, not only to code
+reuse, but reuse of proofs.
+
+If an \EventB\ model |B| can be shown (via the construction rules of the \EventB
 language as well as the proof obligations) to refine another \EventB
 model |A|, then we know that every behavior of |B| is also a behavior
 of |A|. This definition yields a useful principle of preservation of
@@ -41,6 +44,34 @@ model checker to verify it, as we have shown in previous
 work~\cite{detect2020}.  In this paper, we outline a proof of liveness
 properties that relies on reasoning about deadlock-freeness and event
 convergence.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% Previous work has developed a number of different semantics all with different purposes and outcomes~\cite{Syriani_2019,Harel,Maraninchi91theargos}.  
+% Because this work is focused on a mapping to \EventB, safety property preserving refinement is key.  
+% \EventB provides not only a definition of refinement but a rubric for finding valid refinements and this is carried over into the \SCs work presented here. 
+% In our version of \SC semantics, refinement means a subsetting of traces from an abstraction. 
+% This has the beneficial effect of preserving safety properties from abstraction to refinement and permits proofs to be
+% discharged at the highest tractable level of abstraction.
+% It is at the highest level of abstraction that proofs are presumably the easiest to discharge.
+
+% Many incompatible definitions of refinement have been posed by others~\cite{Syriani_2019,Maraninchi91theargos} and that can lead to confusion.  
+% Though these separate refinements have different goals, all of which may be attractive to systems designers in different ways, preservation of safety proofs is the goal here. 
+% While these other forms of refinement cannot be said to conflict with the one presented here, they will not always preserve safety properties.  
+% From the \EventB vernacular it might be better to relabel these other approaches not as methods of model ``refinement'', but rather methods
+% of model ``elaboration''.  
+
+
+% Preservation of safety across refinement requires only a few restrictions to the original~\cite{Harel} \SCs (e.g. transitions cannot
+% cross containment boundaries arbitrarily), but still allows for both parallel and hierarchical composition. 
+% With these restrictions composition becomes a refinement, but not all refinements are compositions.  
+% Such a unification of composition and refinement can lead, not only to code reuse, but reuse of proofs.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 
 % Although the autonomous drone example in this paper is based on the
