@@ -11,6 +11,8 @@
 .DS_Store
 .gradle
 ~$*.*
+*.fdb_latexmk
+*.fls
 manuscripts/FTSCS2018/source/SCXMLREF\.pdf
 
 manuscripts/DETECT2020/source/main.pdf
