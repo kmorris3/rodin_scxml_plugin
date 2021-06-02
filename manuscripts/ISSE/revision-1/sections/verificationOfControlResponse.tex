@@ -378,7 +378,8 @@ The property can be formalised as follows
   |=> F {charge < old(charge)})|~.
 \end{center}
 In order to prove the above property, we first recall the definition
-of \textbf{unless} property~\cite{hudon16:_unit_b_method}.
+of \textbf{unless}
+property~\cite{DBLP:books/daglib/0067338,hudon16:_unit_b_method}.
 \begin{definition}[Unless Properties]
 An \emph{unless property} of the
 following form
@@ -387,7 +388,6 @@ following form
 \end{center}
 means that if |P| holds then it will hold continuously unless |Q| hold.
 \end{definition}
-\SonComment{Add refence to Unless of Unity}
 We restate the \emph{Unless rule} (Theorem 1
 in~\cite{hudon16:_unit_b_method}) here.
 \begin{theorem}{Unless rule}:
@@ -407,8 +407,8 @@ satisfies the following important \textbf{unless} property.
   property.
 
   \begin{center}
-    |BATTERYOK = TRUE & charge > 20 & decreaseCharge !: content(eQ) & | \\
-    |off /: dt & (! i . eQ(i) = off => (#j. eQ(j) = decreaseCharge & j < i))|\\
+    |BATTERYOK = TRUE & charge > 20 & decreaseCharge !: content(eQ) & off /: dt &|\\
+    |(! i  !: dom(eQ) . eQ(i) = off => (#j !: dom(eQ) . eQ(j) = decreaseCharge & j < i))|\\
     \textbf{unless} \\
     |BATTERYOK = TRUE & charge > 20 & dt = {decreaseCharge}|\\
   \end{center}

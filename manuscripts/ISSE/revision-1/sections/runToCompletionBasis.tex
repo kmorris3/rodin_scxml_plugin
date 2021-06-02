@@ -168,7 +168,8 @@ Finalisation is also needed in order to remove non-deterministic behaviours when
  	END
 
  	futureTriggeredTransitionSet      	€\Comment{//basis of future event representing triggered transitions}€
- 		ANY trigger, raisedTriggers WHERE trigger ∈ dt & uc = FALSE & raisedTriggers ∈ Seq(FutureInternalTrigger)
+ 		ANY trigger, raisedTriggers WHERE
+ 		 	trigger ∈ dt & uc = FALSE & raisedTriggers ∈ Seq(FutureInternalTrigger)
  		THEN	dt, iQ ≔ ∅ , concat(iQ↦raisedTriggers)
  	END
 

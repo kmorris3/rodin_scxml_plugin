@@ -18,6 +18,10 @@ We chose \SCXML as our source language because it is relatively simple compared 
   completion',label={lst:scxml-r2c}, frame=single, float=h,
   keywordstyle=\color{EventB@keywordcolour}\bfseries\sffamily,%
   keywords={while, if, elseif, else, endif, endwhile},
+  literate= % Event-B mathematical symbols
+  {\{\}}{{$\emptyset$}}1% Empty set (note the backslashes)
+  {/=}{{$\neq$}}1% Inequality
+  , % End of Event-B mathematical symbols
   ]
  while running:
  	while completion = false
@@ -44,6 +48,7 @@ Our aim in this work is to support formal refinement of \SCXML models so that ve
 However, applying the refinement rules in the presence of the run to completion semantics is not straightforward.
 For example, if we apply Rule A (see Section~\ref{sec:intro}) to a transition, it is more easily disabled causing the run to complete earlier (i.e.,completion has a weaker guard), breaking Rule A.
 
+\SonInlineCommentTo{Colin}{Added some discussion about why SCXML is synchronous.}
 
 %%% Local Variables: 
 %%% mode: latex
