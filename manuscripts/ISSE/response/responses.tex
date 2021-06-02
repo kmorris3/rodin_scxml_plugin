@@ -9,6 +9,7 @@
 \newCTcontributor{Geoff}
 \newCTcontributor{Son}
 \newCTcontributor{Michael}
+\usepackage{lstEventB}
 
 \begin{document}
 
@@ -40,7 +41,7 @@
 \end{comment}
 
 \begin{response}
-  ...
+  \SonInlineComment{We need to justified run-to-completion here.}
   \begin{quote}
     `` ...
    ''
@@ -60,10 +61,27 @@ precise, comment your embedding?
 
 \begin{response}
   \KarlaInlineCommentTo{Son}{We were working on adding some text related to TLA. 
-  I think this can also be addressed exgtending on the that text}
+    I think this can also be addressed exgtending on the that text}
+  The trace semantics for Event-B models have been presented in some
+  existing work. Based on the semantics, proof obligations are
+  generated from the Event-B models accordingly. For example, the
+  invariant preversevation proof obligations are generated per event
+  to ensure that the invariant holds always, i.e., G(I). Here, we
+  ``extend'' the trace semantics with fairness assumption and reason
+  about progress properties using the combination of deadlock-freeness
+  and convergence event arguments (generated as proof obligations).
+
+  We added the following paragraph related to various proof oblgations
+  that we used to Section 3.2 (Event-B).
   \begin{quote}
-    `` ...
-   ''
+    ``Proof obligations are generated to ensure the consistency of
+  \mbox{\EventB} models.  An important proof obligation in
+  \mbox{\EventB} is invariant preservation to prove that safety
+  properties (encoded as invariants of the models) will not be violated
+  for any reachable states. In this paper, we also make use of other
+  proof obligations in \mbox{\EventB} such as (relative)
+  deadlock-freeness and (conditional) event convergence to construct
+  our proof of liveness properties under some fairness assumptions.''
   \end{quote}
 \end{response}
 
@@ -78,6 +96,7 @@ Please could you comment?
 
 \begin{response}
   \KarlaInlineCommentTo{Son}{I need your input here}
+  
   \begin{quote}
     `` ...
    ''
@@ -92,7 +111,7 @@ addresses statecharts.
 
 \begin{response}
   To address other concerns we have added a "Statechart Refinement" section 
-  to the manuscript. Please refer to section 5 in the revised manuscript.
+  to the manuscript. Please refer to Section 5 in the revised manuscript.
   This section now states, and illustrates the refinement rules.
 \end{response}
 
@@ -143,11 +162,18 @@ context of the proof obligation generator you have at hand.
 \end{comment}
 
 \begin{response}
-  \KarlaInlineCommentTo{Son}{Comments to address on the manuscript. }
-
+  We added the following paragraph related to various proof oblgations
+  that we used to Section 3.2 (\EventB), in particular stating that
+  safety properties are modelled as invariants in \EventB.
   \begin{quote}
-    `` ...
-   ''
+    ``Proof obligations are generated to ensure the consistency of
+  \mbox{\EventB} models.  An important proof obligation in
+  \mbox{\EventB} is invariant preservation to prove that safety
+  properties (encoded as invariants of the models) will not be violated
+  for any reachable states. In this paper, we also make use of other
+  proof obligations in \mbox{\EventB} such as (relative)
+  deadlock-freeness and (conditional) event convergence to construct
+  our proof of liveness properties under some fairness assumptions.''
   \end{quote}
 \end{response}
 
@@ -185,9 +211,30 @@ strong fairness.
 \end{comment}
 
 \begin{response}
-  \KarlaInlineCommentTo{Son}{I need your input here}
+  We added the following paragraph to Section 3.2 (\EventB).
   \begin{quote}
-    `` ...
+    ``  For the trace semantics corresponding to \mbox{\EventB} machines and
+  the intepreation of LTL properties over traces, we refer the readers
+  to \mbox{\cite{hoang2016ltl}}.  Here, we recall the notation for
+  fairness assumptions underlying event-based formalisms such as
+  \mbox{\EventB~\cite{lamport1977proving,hudon16:_unit_b_method}}. Given
+  an event \mbox{\EventBInline{e}}, a weak-fairness assumption
+  \mbox{\EventBInline{WF(e)}} states that if \mbox{\EventBInline{e}}
+  is enabled continually, then it must occur infinitely often.
+  Similarly, a strong-fairness assumption \mbox{\EventBInline{SF(e)}}
+  states that if \mbox{\EventBInline{e}} is enabled infinitely often,
+  then it must occur infinitely often. Formally,
+\begin{center}
+  \EventBInline{WF(a)  <=> (FG enabled(e) => GF [e])}, and
+
+  \EventBInline{SF(a)  <=> (GF enabled(e) => GF [e])},
+\end{center}
+  where \mbox{\EventBInline{G}} and \mbox{\EventBInline{F}} are the
+  temporal operators denoting \emph{globally} and \emph{finally},
+  respectively; and \mbox{\EventBInline{enabled(e)}} denotes that
+  event \mbox{\EventBInline{e}} is enabled and
+  \mbox{\EventBInline{[e]}} denotes an occurance of event
+  \mbox{\EventBInline{e}}.
    ''
   \end{quote}
 \end{response}
