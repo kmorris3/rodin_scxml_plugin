@@ -9,6 +9,7 @@
 \newCTcontributor{Geoff}
 \newCTcontributor{Son}
 \newCTcontributor{Michael}
+\usepackage{url}
 \usepackage{lstEventB}
 
 \begin{document}
@@ -282,9 +283,17 @@ not be before because you use such arguments before just after stating Theorem
 \end{comment}
 
 \begin{response}
-  \KarlaInlineCommentTo{Son}{Add the definition of strong fairnes and include the definition of the [] notation} 
+  We explain the |[]| notation as part of the explanation about
+  fairness assumptions (newly added). The explanation of the ``dot''
+  notation is in Theorem 3, that is |[e.t]| indicates an occurance of
+  event |e| with parameter value |t|.
   \begin{quote}
-    `` ...
+    ``where \mbox{\EventBInline{G}} and \mbox{\EventBInline{F}} are the
+  temporal operators denoting \emph{globally} and \emph{finally},
+  respectively; and \mbox{\EventBInline{enabled(e)}} denotes that
+  event \mbox{\EventBInline{e}} is enabled and
+  \mbox{\EventBInline{[e]}} denotes an occurance of event
+  \mbox{\EventBInline{e}}.
    ''
   \end{quote}
 \end{response}
@@ -343,11 +352,12 @@ interplay with the temporal properties you are concerned with.
 \end{comment}
 
 \begin{response}
-  \KarlaInlineCommentTo{Son}{Make explicit definition of strong fairness and its interaction with properties}
-  \begin{quote}
-    `` ...
-   ''
-  \end{quote}
+  The definition of fairness assumptions is now added in the new
+  paragraph in Section 3.2 (\EventB).  The specific (strong) fairness
+  assumption that we made is in Assumption 1 (Strongly Fair System
+  Events). This fairness assumption is used in the proof for Theorem 2
+  and Theorem 3 to prove the termination of repsonses for external
+  triggers.
 \end{response}
 
 
@@ -356,11 +366,9 @@ interplay with the temporal properties you are concerned with.
 \end{comment}
 
 \begin{response}
-\KarlaInlineCommentTo{Son}{Add refence to Unless of Unity}
-  \begin{quote}
-    `` ...
-   ''
-  \end{quote}
+  We have added a reference to ``Chandy, M., Misra, J.: Parallel
+  program design - a foundation. Addison-Wesley (1989)'' when
+  discussing Unless property.
 \end{response}
 
 
@@ -370,11 +378,8 @@ as legal in both quantifications.
 \end{comment}
 
 \begin{response}
-\KarlaInlineCommentTo{Son}{Please change in the manuscript}
-  \begin{quote}
-    `` ...
-   ''
-  \end{quote}
+  We added the condition that both indexes |i|, |j| must be in the
+  domain of eQ, i.e., |i !: dom(eQ)| and |j !: dom(eQ)|.
 \end{response}
 
 
@@ -388,8 +393,12 @@ temporal proofs (as well as refinements in a certain way)?
 
 \begin{response}
 \KarlaInlineCommentTo{Son}{Add some comments of the complexity of the models and and translating them to TLA}
+As explained above, the \EventB approaches to proving temporal properties is
+implicit via proof obligations. In TLA, the proving of temporal
+properties is more explicit compared to \EventB. The last time we check the TLA+ Proof
+System, it does not support reasoning about many temporal operators (\url{http://tla.msr-inria.inria.fr/tlaps/content/Documentation/Unsupported_features.html}).
 \KarlaInlineCommentTo{Son}{Add to manuscript in the related work section TLA}
-  \begin{quote}
+\begin{quote}
     `` ...
    ''
   \end{quote}
