@@ -129,15 +129,22 @@ deadlock-freeness properties for a different set of events.
 In order to reason about any liveness properties for an event system,
 we have to make assumptions about how often events will be fired.
 Here, we assume that all the system events are strongly fair.
-\begin{assumption}[Strongly Fair System Events]
+\begin{assumption}[Fair System Events]
   \label{asm:SF}
-  We assume that all system events are strongly fair, i.e., if a system
-  event is enabled infinitely often, eventually, it will be eventually
-  fired.
+  \SonChange{%
+    We assume that all system events are strongly fair, i.e., if a
+    system event is enabled infinitely often, eventually, it will be
+    eventually fired.%
+  }{%
+    We assume that all internal system event \mbox{\EventBInline{e}}
+    are strongly fair, i.e., \mbox{\EventBInline{SF(e)}}; and the
+    dequeue external trigger event is weakly fair,
+    i.e., \mbox{\EventBInline{WF(dequeueExternalTriggered)}}.%
+  }
 \end{assumption}
 This assumption will ensure that the system will response no matter
 how often the external triggers are raised by the external events.
-\SonComment{Make explicit definition of strong fairness and its interaction with properties}
+
 \subsection{Termination of Responses for External Triggers}
 \label{sec:contr-rema-resp}
 
@@ -155,6 +162,11 @@ anticipation.
   another set of events is anticipated with respect to the
   same variant if they \emph{do not increase} the variant.
 \end{definition}
+\SonAdd{%
+  Note that the anticipated events augment the set of convergent
+  events and respect the variant that are used to prove the
+  convergence property.% 
+}
 
 We start first by stating the main theorem about termination of
 responses for external triggers: it is always the case that the system
@@ -179,18 +191,24 @@ stated as the following theorem.
   \begin{center}
     |FG(iQ /= {} !or uc = FALSE !or dt /= {})|~.    
   \end{center}
-  Notice that in the states satisfying this condition, the
-  |dequeueExternalTriggered| event is disabled.  Furthermore, according
-  to Theorem~\ref{thm:Internal-DLF}, the internal events
-  will always be deadlock-free, and as a result, at least one
-  of the internal event is enabled infinitely often. According to
-  Definition~\ref{def:conv}, the variant will be decreased infinitely
-  which violate the condition that the variant is defined on an
-  well-founded order.  Notice that the external events are
-  anticipated to ensure that the variant does not increase, hence
-  does not interfere with the convergence of the internal events.
+  Observe that in the states satisfying this condition, the
+  |dequeueExternalTriggered| event is disabled.  Furthermore,
+  according to Theorem~\ref{thm:Internal-DLF}, the internal events
+  will always be deadlock-free, and as a result, at least one of the
+  internal event is enabled infinitely often\SonAdd{, hence under the
+    Assumption~\mbox{\ref{asm:SF}}, this event occure infinitely
+    often}. According to Definition~\ref{def:conv}, the variant will
+  be decreased infinitely which violate the condition that the variant
+  is defined on an well-founded order.  Here, the external events are
+  anticipated to ensure that the variant does not increase, hence does
+  not interfere with the convergence of the internal events.%
   \qed
 \end{proof}
+\SonAdd{%
+  Note that Theorem~\mbox{\ref{thm:finite-internal-events}} relies on
+  convergence of internal events and anticipation of external events,
+  which we will prove later.%
+}
 
 \begin{theorem}[Responsiveness to External Triggers]
   \label{thm:resp-ext-trg}
@@ -206,8 +224,8 @@ stated as the following theorem.
   Assuming that |[externalTrigger.t]| hence |t !: content(eQ)|, i.e.,
   |eQ /= {}|.  According to Theorem~\ref{thm:finite-internal-events},
   we have that |dequeueExternalTriggered| is enabled infinitely often.
-  Since |dequeueExternalTriggered| is strongly fair
-  (Assumption~\ref{asm:SF}), it is taken eventually. We have two
+  Since |dequeueExternalTriggered| is weakly-fair
+  (Assumption~\ref{asm:SF}), it is taken infinitely. We have two
   cases.
   \begin{itemize}
   \item If |t = head(eQ)|, it means we have
@@ -226,13 +244,13 @@ stated as the following theorem.
 sure I did not introduced mistakes with my changes}
 \label{sec:proof-convergence}
 The responsiveness to external triggers presented in
-Theorem~\ref{thm:resp-ext-trg} relies on the proof of
-convergence for internal system events and anticipation for external
-events, Theorem~\ref{thm:finite-internal-events}. These proof will 
-need to be done for each individual SCXML
-state-chart as they do not hold a priori.  We present a generic approach
-to reason about the proof of convergence and anticipation relying on
-lexicographic order as follow.
+Theorem~\ref{thm:resp-ext-trg} relies on
+Theorem~\ref{thm:finite-internal-events}, which in turn relies on the
+proof of convergence for internal system events and anticipation for
+external events.  These proof will need to be done for each individual
+SCXML state-chart as they do not hold a priori.  We present a
+systematic approach to reason about the proof of convergence and
+anticipation relying on lexicographic order as follow.
 
 A variant in \EventB can be a natural number (bounded bellow by |0|)
 or a finite set (bounded below by the empty set |{}|).  Moreover, for
@@ -245,7 +263,6 @@ variants are supported in the latest Rodin (version 3.5).
 
 Our generic approach to construct a lexicographic variant is according
 to the following order and the rule for each variant.
-\SonComment{We change this list to enumeration}
 \begin{enumerate}
 \item $V_{externalTrigger}$ = |dt /\ ExternalTrigger|.  This variant
   is used to prove the convergence for any externally triggered events
@@ -253,9 +270,10 @@ to the following order and the rule for each variant.
   the external trigger from |dt| hence ``decrease'' |dt| to the empty
   set.
 
-\item Variants based on the state machine to prove the convergence of
-  internally triggered events and untriggered events.  This depends on
-  the SCXML diagram and we will illustrate this on the example later.
+\item \label{variant:sm} Variants based on the state machine to prove
+  the convergence of internally triggered events and untriggered
+  events.  This depends on the SCXML diagram and we will illustrate
+  this on the example later.
   
 \item $V_{dequeueInternalTriggered}$ = |length(iQ)|.  This variant is
   used to prove the convergence of the |dequeueInternalTriggered| event.
@@ -275,7 +293,15 @@ to the following order and the rule for each variant.
   flag from |FALSE| to |TRUE|, hence ``decrease'' the variant from
   |{FALSE, TRUE}| to |{TRUE}|.
 \end{enumerate}
-% \SonAdded{Here}
+\SonAdd{%
+  Note that except the variant related to the internally triggered
+  events and untriggered events, i.e., \mbox{(\ref{variant:sm})}, all
+  other variants, i.e., $V_{externalTrigger}$,
+  $V_{dequeueInternalTriggered}$, $V_{noTriggeredTransitionsEnabled}$,
+  and $V_{noUntriggeredTranstitionsEnabled}$ are generic according to
+  the underlying run-to-completion semantics.%
+}
+
 The external events are anticipated according to the above variants
 trivially since they only modify the external queue |eQ|.  Note that
 we do not attempt to prove the convergence of any future events
