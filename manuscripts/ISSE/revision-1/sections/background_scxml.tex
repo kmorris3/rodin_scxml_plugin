@@ -12,6 +12,17 @@ Hence the set of parallel transitions that are enabled by a trigger is calculate
 Similarly, the set of parallel untriggered transitions to be fired is calculated at each iteration before any is fired.
 There are two kinds of triggers: internal triggers are raised by transitions and external triggers are raised by the environment (non-deterministicly for the purpose of our analysis). 
 An external trigger may only be consumed when the internal trigger queue has been emptied.
+
+\ColinAdd{
+State-charts, with `run to completion' semantics, are considered to be a synchronous language in the sense that the external triggering event waits for the behaviour that it enables to complete before making any further progress.
+In contrast, \mbox{\EventB} has an asynchronous semantics due to the non-deterministic selection of events to fire. 
+Of course, synchronous behaviour can be explicitly modelled by the addition of control variables that define the enabledness of events (i.e. remove the non-determinism).
+This is how we can define the translation suggested in this paper.
+\mbox{\UMLB} state-machines constrain the firing of transitions to some extent but, like \mbox{\EventB}, do not have an underlying fully synchronous semantics.
+The advantage of an asynchronous semantics is its flexibility.
+However, when we wish to model processes that are essentially synchronous in nature, the need to explicitly add the synchronous semantics to each model becomes a burden, obscuring the particular problem being modelled.
+Since many components (e.g. controllers) used in a system are based on synchronous behaviour, we are interested in adapting a modelling language with run to completion semantics to support \mbox{\EventB} style refinement.
+}
 We chose \SCXML as our source language because it is relatively simple compared to some run to completion modelling languages yet has a well defined action language and simulation tool support.
 
 \begin{lstlisting}[caption=Pseudocode for 'run to
@@ -48,7 +59,6 @@ Our aim in this work is to support formal refinement of \SCXML models so that ve
 However, applying the refinement rules in the presence of the run to completion semantics is not straightforward.
 For example, if we apply Rule A (see Section~\ref{sec:intro}) to a transition, it is more easily disabled causing the run to complete earlier (i.e.,completion has a weaker guard), breaking Rule A.
 
-\SonInlineCommentTo{Colin}{Added some discussion about why SCXML is synchronous.}
 
 %%% Local Variables: 
 %%% mode: latex

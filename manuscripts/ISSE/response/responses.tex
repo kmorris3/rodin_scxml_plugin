@@ -42,10 +42,17 @@
 \end{comment}
 
 \begin{response}
-  \SonInlineCommentTo{Colin}{We add some discussion about why SCXML
-    considered to be synchronous language.}
+  This is a good point related to the motivation hinted at in the abstract. We added the following para in the SCXML background section.
   \begin{quote}
-    `` ...
+    `` 
+    State-charts, with `run to completion' semantics, are considered to be a synchronous language in the sense that the external triggering event waits for the behaviour that it enables to complete before making any further progress.
+    In contrast, \mbox{\EventB} has an asynchronous semantics due to the non-deterministic selection of events to fire. 
+    Of course, synchronous behaviour can be explicitly modelled by the addition of control variables that define the enabledness of events (i.e. remove the non-determinism).
+    This is how we can define the translation suggested in this paper.
+    UML-B state-machines constrain the firing of transitions to some extent but, like \mbox{\EventB}, do not have an underlying fully synchronous semantics.
+    The advantage of an asynchronous semantics is its flexibility.
+    However, when we wish to model processes that are essentially synchronous in nature, the need to explicitly add the synchronous semantics to each model becomes a burden, obscuring the particular problem being modelled.
+	Since many components (e.g. controllers) used in a system are based on synchronous behaviour, we are interested in adapting a modelling language with run to completion semantics to support \mbox{\EventB} style refinement.
    ''
   \end{quote}
 \end{response}
