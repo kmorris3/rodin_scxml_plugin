@@ -62,19 +62,20 @@ precise, comment your embedding?
 \end{comment}
 
 \begin{response}
-  \KarlaInlineCommentTo{Son}{We were working on adding some text related to TLA. 
-    I think this can also be addressed exgtending on the that text}
-  The trace semantics for Event-B models have been presented in some
-  existing work. Based on the semantics, proof obligations are
-  generated from the Event-B models accordingly. For example, the
-  invariant preversevation proof obligations are generated per event
-  to ensure that the invariant holds always, i.e., G(I). Here, we
-  ``extend'' the trace semantics with fairness assumption and reason
+  The trace semantics for Event-B models have been presented in
+  existing
+  work~\cite{abrial10:_model_event_b,hoang2016ltl,hudon16:_unit_b_method}. Based
+  on the semantics, proof obligations are generated from the Event-B
+  models accordingly. For example, the invariant preversevation proof
+  obligations are generated per event to ensure that the invariant
+  holds always, i.e., |G(I)|, where |I| is the invariant. Here, we
+  consider the trace semantics with fairness assumption and reason
   about progress properties using the combination of deadlock-freeness
-  and convergence event arguments (generated as proof obligations).
-
-  We added the following paragraph related to various proof oblgations
-  that we used to Section 3.2 (Event-B).
+  and convergence event arguments (generated as proof obligations). In
+  other words, the trace semantics of \EventB is implicit and
+  represented by the set of proof obligations.  We added the following
+  paragraph related to various proof oblgations that we used to
+  Section 3.2 (Event-B).
   \begin{quote}
     ``Proof obligations are generated to ensure the consistency of
   \mbox{\EventB} models.  An important proof obligation in
@@ -97,11 +98,14 @@ Please could you comment?
 \end{comment}
 
 \begin{response}
-  \KarlaInlineCommentTo{Son}{I need your input here}
-  
+  You are right, we only need to have weakness assumption on the
+  dequeue external trigger event. We have changed the Assumption 1 to
+  the following.  
   \begin{quote}
-    `` ...
-   ''
+    ``We assume that all internal system event \mbox{\EventBInline{e}}
+    are strongly fair, i.e., \mbox{\EventBInline{SF(e)}}; and the
+    dequeue external trigger event is weakly fair, i.e.,
+    \mbox{\EventBInline{WF(dequeueExternalTriggered)}}.''
   \end{quote}
 \end{response}
 
@@ -247,10 +251,11 @@ of convergent events is necessary to recall just before?
 \end{comment}
 
 \begin{response}
-  \KarlaInlineCommentTo{Son}{Add explanation of why the variant is needed for anticipation}
+  We added the following sentence after the definition for anticipated events.
   \begin{quote}
-    `` ...
-   ''
+    ``Note that the anticipated events augment the set of convergent
+    events and respect the variant that are used to prove the
+    convergence property.''
   \end{quote}
 \end{response}
 
@@ -261,10 +266,13 @@ not be before because you use such arguments before just after stating Theorem
 \end{comment}
 
 \begin{response}
-  \KarlaInlineCommentTo{Son}{Highlight the the subproof will be done later}
+  We highlight the fact that we will prove the convergence and
+  anticipation property later by adding the following sentence after
+  Theorem 2.
   \begin{quote}
-    `` ...
-   ''
+    ``Note that Theorem 2 relies on convergence
+  of internal events and anticipation of external events, which we
+  will prove later.   ''
   \end{quote}
 \end{response}
 
@@ -392,15 +400,31 @@ temporal proofs (as well as refinements in a certain way)?
 \end{comment}
 
 \begin{response}
-\KarlaInlineCommentTo{Son}{Add some comments of the complexity of the models and and translating them to TLA}
-As explained above, the \EventB approaches to proving temporal properties is
-implicit via proof obligations. In TLA, the proving of temporal
-properties is more explicit compared to \EventB. The last time we check the TLA+ Proof
-System, it does not support reasoning about many temporal operators (\url{http://tla.msr-inria.inria.fr/tlaps/content/Documentation/Unsupported_features.html}).
-\KarlaInlineCommentTo{Son}{Add to manuscript in the related work section TLA}
+  As explained earlier, the \EventB approaches to proving temporal
+  properties is implicit via proof obligations. In TLA, the proving of
+  temporal properties is more explicit compared to \EventB. The last
+  time we check the TLA+ Proof System, it does not support reasoning
+  about many temporal operators
+  (\url{http://tla.msr-inria.inria.fr/tlaps/content/Documentation/Unsupported_features.html}).
+  We added the following paragraph to the related work section.
 \begin{quote}
-    `` ...
-   ''
+    ``A method that is closely related to \mbox{\EventB} and also supports
+  reasoning about safety and liveness properties is
+  TLA+~\mbox{\cite{DBLP:books/aw/Lamport2002}}. TLA+ is supported by
+  the TLA+ Toolbox~\mbox{\cite{DBLP:journals/corr/abs-1912-10633}}.
+  On the one hand, temporal properties (both safety and liveness) are
+  \emph{explicitly} stated as properties of the TLA+ models and
+  reasoning about them often requires applying proof rules related to
+  properties of traces. On the other hand, \mbox{\EventB} defines
+  proof obligations based on the underlying trace
+  semantics~\mbox{\cite{abrial10:_model_event_b,hoang2016ltl,hudon16:_unit_b_method}},
+  hence reasoning about \emph{implicitly} temporal properties in
+  \mbox{\EventB} simply involves discharging the relevant proof
+  obligations. Furthermore, at the time of writing, the TLA+ Proof
+  System (part of the TLA+ Toolbox) does not fully support the
+  reasoning with many temporal operators.%
+\footnote{\url{http://tla.msr-inria.inria.fr/tlaps/content/Documentation/Unsupported_features.html}
+  (accessed June 2021)}''
   \end{quote}
 \end{response}
 
@@ -408,21 +432,32 @@ System, it does not support reasoning about many temporal operators (\url{http:/
 \begin{comment}{Reviewer \#1}
 • It would be interesting to analyze if the proofs are specific to the ex-
 ample or to the underlying semantics?
-PS Could you put another zip version on the repository: I have had some
+\end{comment}
+
+\begin{response}
+  We added the following sentence to explain which variants are
+  generic.
+  \begin{quote}
+    ``Note that except the variant related to the internally
+    triggered events and untriggered events, i.e., (2), all other
+    variants, i.e., $V_{externalTrigger}$,
+    $V_{dequeueInternalTriggered}$,
+    $V_{noTriggeredTransitionsEnabled}$, and
+    $V_{noUntriggeredTranstitionsEnabled}$ are generic according to
+    the underlying run-to-completion semantics.''
+  \end{quote}
+\end{response}
+ 
+\begin{comment}{Reviewer \#1}
+  PS Could you put another zip version on the repository: I have had some
 strange problems (missing characters) with some machine files? For such
 files, I was not able to play again the proofs.
 \end{comment}
 
 \begin{response}
-\KarlaInlineCommentTo{Son}{Rephrace in page 23 second bullet point the fact that the variant is model specific. Add a couple of sentences on the semantic nature of the other variants}
-  \begin{quote}
-    `` ...
-   ''
-  \end{quote}
+  \SonInlineComment{To put the Rodin configuration as README
+    file. Probably use the Soton Bundle 2012.}
 \end{response}
- 
-
-
 
 \begin{comment}{Reviewer \#2}
 The paper introduces a technique for the refinement of `run to completion' 
@@ -562,5 +597,7 @@ properties"
   The requested change has been completed.
 \end{response}
 
+\bibliographystyle{plain}
+\bibliography{SCXMLREF}
 
 \end{document}
