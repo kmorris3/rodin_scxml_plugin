@@ -5,7 +5,7 @@
 \label{sec:verificationSafety}
 
 
-In a state-chart model we naturally wish to verify properties |P| that are expected to hold true in a particular state |S|.
+In a state-chart model we naturally wish to verify properties of the form; a property |P| that is expected to hold true in a particular state |S|.
 Hence, all of the safety properties that we consider \SonAdd{are captured as invariants} of the form: |S=TRUE ⇒ P|, where the antecedent is implicit from the containment of |P| within |S|.
 There are two kinds of properties that we might want to verify in an \SCXML state-chart;
 1) properties concerning the values of auxiliary data maintained by the system and 
@@ -80,10 +80,10 @@ The transitions that enter |TAKEOFF| (which make the antecedent true) simultaneo
 The only transition that enters |FLY| (which makes the antecedent of the |FLY| invariant true) comes from the |TAKEOFF| state and hence the consequent is already true.
 The transition that leaves |BATTERYOK| (making the last disjunct of the consequent false) raises the |toLand| trigger making the first disjunct true.
 Some transitions leave the superstates of |BATTERYOK| but these either simultaneously leave |OPERATIONAL| (the superstate of |TAKEOFF| and |FLY|), or re-enter |BATTERYOK|.
-The basis contains an event to dequeue the internal triggers which preserves the overall consequent because establishes the second conjunct as it falsifies the first (i.e.,it removes |toLand| from the |iQ| but simultaneously adds it to |dt|).
+The basis contains an event to dequeue the internal triggers which preserves the overall consequent because establishes the second conjunct as it falsifies the first (i.e., it removes |toLand| from the |iQ| but simultaneously adds it to |dt|).
 The only events that falsify the second conjunct are the transitions triggered by |toLand| which leave the |TAKEOFF| or |FLY| states making the antecedent false.
 
-Hence, invariant properties that follow these suggested patterns are always automatically proven due to simple logic about the changes in state.
+Hence, invariant properties that follow these suggested patterns are automatically proven due to simple logic about the changes in state.
 
 %%% Local Variables:
 %%% mode: latex

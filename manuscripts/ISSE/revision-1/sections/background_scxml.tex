@@ -13,7 +13,8 @@ Similarly, the set of parallel untriggered transitions to be fired is calculated
 There are two kinds of triggers: internal triggers are raised by transitions and external triggers are raised by the environment (non-deterministicly for the purpose of our analysis). 
 An external trigger may only be consumed when the internal trigger queue has been emptied.
 
-\ColinAdd{
+% \ColinAdd{
+\hl{
 State-charts, with `run to completion' semantics, are considered to be a synchronous language in the sense that the external triggering event waits for the behaviour that it enables to complete before making any further progress.
 In contrast, \mbox{\EventB} has an asynchronous semantics due to the non-deterministic selection of events to fire. 
 Of course, synchronous behaviour can be explicitly modelled by the addition of control variables that define the enabledness of events (i.e. remove the non-determinism).
@@ -57,7 +58,7 @@ Listing~\ref{lst:scxml-r2c} shows a pseudocode representation of the run to comp
 A single model contains all details to the finest level hence making it difficult to verify and validate that the model behaves safely and as intended.
 Our aim in this work is to support formal refinement of \SCXML models so that verification can be carried out at abstract levels before all details are present.
 However, applying the refinement rules in the presence of the run to completion semantics is not straightforward.
-For example, if we apply Rule A (see Section~\ref{sec:intro}) to a transition, it is more easily disabled causing the run to complete earlier (i.e.,completion has a weaker guard), breaking Rule A.
+For example, if we apply Rule A (see Section~\ref{sec:intro}) to a transition, it is more easily disabled causing the run to complete earlier (i.e., completion has a weaker guard), breaking Rule A.
 
 
 %%% Local Variables: 

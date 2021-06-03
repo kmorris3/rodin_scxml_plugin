@@ -42,7 +42,7 @@
 \end{comment}
 
 \begin{response}
-  This is a good point related to the motivation hinted at in the abstract. We added the following para in the SCXML background section.
+  This is a good point related to the motivation hinted at in the abstract. We added the following paragraph in the SCXML background section.
   \begin{quote}
     `` 
     State-charts, with `run to completion' semantics, are considered to be a synchronous language in the sense that the external triggering event waits for the behaviour that it enables to complete before making any further progress.
@@ -59,8 +59,8 @@
 
 
 \begin{comment}{Reviewer \#1}
-- Proof of temporal properties. Different temporal properties are con-
-sidered. Since the proof of such properties are outside (currently) the
+- Proof of temporal properties. Different temporal properties are considered. 
+Since the proof of such properties are outside (currently) the
 Event-B method they have considered other tools and methods.
 It would have been interesting to outline the frontier. As a matter of
 fact, it is not clear for me if the Event-B properties can be tackled
@@ -73,7 +73,7 @@ precise, comment your embedding?
   existing
   work~\cite{abrial10:_model_event_b,hoang2016ltl,hudon16:_unit_b_method}. Based
   on the semantics, proof obligations are generated from the Event-B
-  models accordingly. For example, the invariant preversevation proof
+  models accordingly. For example, the invariant preservation proof
   obligations are generated per event to ensure that the invariant
   holds always, i.e., |G(I)|, where |I| is the invariant. Here, we
   consider the trace semantics with fairness assumption and reason
@@ -81,7 +81,7 @@ precise, comment your embedding?
   and convergence event arguments (generated as proof obligations). In
   other words, the trace semantics of \EventB is implicit and
   represented by the set of proof obligations.  We added the following
-  paragraph related to various proof oblgations that we used to
+  paragraph related to various proof obligations that we used to
   Section 3.2 (Event-B).
   \begin{quote}
     ``Proof obligations are generated to ensure the consistency of
@@ -123,7 +123,7 @@ addresses statecharts.
 \end{comment}
 
 \begin{response}
-  To address other concerns we have added a "Statechart Refinement" section 
+  To address other concerns we have added a "State-chart Refinement" section 
   to the manuscript. Please refer to Section 5 in the revised manuscript.
   This section now states, and illustrates the refinement rules.
 \end{response}
@@ -175,7 +175,7 @@ context of the proof obligation generator you have at hand.
 \end{comment}
 
 \begin{response}
-  We added the following paragraph related to various proof oblgations
+  We added the following paragraph related to various proof obligations
   that we used to Section 3.2 (\EventB), in particular stating that
   safety properties are modelled as invariants in \EventB.
   \begin{quote}
@@ -246,7 +246,7 @@ strong fairness.
   temporal operators denoting \emph{globally} and \emph{finally},
   respectively; and \mbox{\EventBInline{enabled(e)}} denotes that
   event \mbox{\EventBInline{e}} is enabled and
-  \mbox{\EventBInline{[e]}} denotes an occurance of event
+  \mbox{\EventBInline{[e]}} denotes an occurrence of event
   \mbox{\EventBInline{e}}.
    ''
   \end{quote}
@@ -301,14 +301,14 @@ not be before because you use such arguments before just after stating Theorem
 \begin{response}
   We explain the |[]| notation as part of the explanation about
   fairness assumptions (newly added). The explanation of the ``dot''
-  notation is in Theorem 3, that is |[e.t]| indicates an occurance of
+  notation is in Theorem 3, that is |[e.t]| indicates an occurrence of
   event |e| with parameter value |t|.
   \begin{quote}
     ``where \mbox{\EventBInline{G}} and \mbox{\EventBInline{F}} are the
   temporal operators denoting \emph{globally} and \emph{finally},
   respectively; and \mbox{\EventBInline{enabled(e)}} denotes that
   event \mbox{\EventBInline{e}} is enabled and
-  \mbox{\EventBInline{[e]}} denotes an occurance of event
+  \mbox{\EventBInline{[e]}} denotes an occurrence of event
   \mbox{\EventBInline{e}}.
    ''
   \end{quote}
@@ -345,10 +345,10 @@ not be before because you use such arguments before just after stating Theorem
 \begin{comment}{Reviewer \#1}
 • The paragraph Proof of Convergence and Anticipation needs to
 be written again. There are many typos: this event removes, discards,
-decreases, accroding, . . .
+decreases, according, . . .
 Moreover the sentence
-The external events are anticipated accroding to the above variants triv-
-ially since they only modify the external queue eQ. Note that we do not
+The external events are anticipated according to the above variants 
+trivially since they only modify the external queue eQ. Note that we do not
 attempt to prove the convergence of any future events here. Instead, we
 assume that these future events will be prove to be convergence later.
 seems to me problematic. In your definition of anticipated you did not
@@ -371,7 +371,7 @@ interplay with the temporal properties you are concerned with.
   paragraph in Section 3.2 (\EventB).  The specific (strong) fairness
   assumption that we made is in Assumption 1 (Strongly Fair System
   Events). This fairness assumption is used in the proof for Theorem 2
-  and Theorem 3 to prove the termination of repsonses for external
+  and Theorem 3 to prove the termination of responses for external
   triggers.
 \end{response}
 
