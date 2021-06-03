@@ -162,7 +162,7 @@ anticipation.
   another set of events is anticipated with respect to the
   same variant if they \emph{do not increase} the variant.
 \end{definition}
-\SonAdd{%
+\hl{%
   Note that the anticipated events augment the set of convergent
   events and respect the variant that are used to prove the
   convergence property.% 
@@ -195,7 +195,7 @@ stated as the following theorem.
   |dequeueExternalTriggered| event is disabled.  Furthermore,
   according to Theorem~\ref{thm:Internal-DLF}, the internal events
   will always be deadlock-free, and as a result, at least one of the
-  internal event is enabled infinitely often\SonAdd{, hence under the
+  internal event is enabled infinitely often\hl{, hence under the
     Assumption~\mbox{\ref{asm:SF}}, this event occure infinitely
     often}. According to Definition~\ref{def:conv}, the variant will
   be decreased infinitely which violate the condition that the variant
@@ -204,7 +204,7 @@ stated as the following theorem.
   not interfere with the convergence of the internal events.%
   \qed
 \end{proof}
-\SonAdd{%
+\hl{%
   Note that Theorem~\mbox{\ref{thm:finite-internal-events}} relies on
   convergence of internal events and anticipation of external events,
   which we will prove later.%
@@ -240,8 +240,6 @@ stated as the following theorem.
 \end{proof}
 
 \subsubsection{Proof of Convergence and Anticipation}
-\KarlaComment{SON: Could you please take a look just to make 
-sure I did not introduced mistakes with my changes}
 \label{sec:proof-convergence}
 The responsiveness to external triggers presented in
 Theorem~\ref{thm:resp-ext-trg} relies on
@@ -293,7 +291,7 @@ to the following order and the rule for each variant.
   flag from |FALSE| to |TRUE|, hence ``decrease'' the variant from
   |{FALSE, TRUE}| to |{TRUE}|.
 \end{enumerate}
-\SonAdd{%
+\hl{%
   Note that except the variant related to the internally triggered
   events and untriggered events, i.e., \mbox{(\ref{variant:sm})}, all
   other variants, i.e., $V_{externalTrigger}$,
