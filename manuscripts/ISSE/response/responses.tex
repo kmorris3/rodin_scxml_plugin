@@ -82,7 +82,7 @@ precise, comment your embedding?
   other words, the trace semantics of \EventB is implicit and
   represented by the set of proof obligations.  We added the following
   paragraph related to various proof obligations that we used to
-  Section 3.2 (Event-B).
+  Section 3.1 (Event-B).
   \begin{quote}
     ``Proof obligations are generated to ensure the consistency of
   \mbox{\EventB} models.  An important proof obligation in
@@ -105,11 +105,11 @@ Please could you comment?
 \end{comment}
 
 \begin{response}
-  You are right, we only need to have weakness assumption on the
+  You are right, we only need to have weak fairness assumption on the
   dequeue external trigger event. We have changed the Assumption 1 to
   the following.  
   \begin{quote}
-    ``We assume that all internal system event \mbox{\EventBInline{e}}
+    ``We assume that all internal system events, \mbox{\EventBInline{e}}
     are strongly fair, i.e., \mbox{\EventBInline{SF(e)}}; and the
     dequeue external trigger event is weakly fair, i.e.,
     \mbox{\EventBInline{WF(dequeueExternalTriggered)}}.''
@@ -123,7 +123,7 @@ addresses statecharts.
 \end{comment}
 
 \begin{response}
-  To address other concerns we have added a "State-chart Refinement" section 
+  To address other concerns we have added a "Statechart Refinement" section 
   to the manuscript. Please refer to Section 5 in the revised manuscript.
   This section now states, and illustrates the refinement rules.
 \end{response}
@@ -176,7 +176,7 @@ context of the proof obligation generator you have at hand.
 
 \begin{response}
   We added the following paragraph related to various proof obligations
-  that we used to Section 3.2 (\EventB), in particular stating that
+  that we used to Section 3.1 (\EventB), in particular stating that
   safety properties are modelled as invariants in \EventB.
   \begin{quote}
     ``Proof obligations are generated to ensure the consistency of
@@ -224,10 +224,10 @@ strong fairness.
 \end{comment}
 
 \begin{response}
-  We added the following paragraph to Section 3.2 (\EventB).
+  We added the following paragraph to Section 3.1 (\EventB).
   \begin{quote}
     ``  For the trace semantics corresponding to \mbox{\EventB} machines and
-  the intepreation of LTL properties over traces, we refer the readers
+  the interpretation of LTL properties over traces, we refer the readers
   to \mbox{\cite{hoang2016ltl}}.  Here, we recall the notation for
   fairness assumptions underlying event-based formalisms such as
   \mbox{\EventB~\cite{lamport1977proving,hudon16:_unit_b_method}}. Given
@@ -444,7 +444,7 @@ ample or to the underlying semantics?
   We added the following sentence to explain which variants are
   generic.
   \begin{quote}
-    ``Note that except the variant related to the internally
+    ``Note that except for the variant related to the internally
     triggered events and untriggered events, i.e., (2), all other
     variants, i.e., $V_{externalTrigger}$,
     $V_{dequeueInternalTriggered}$,
@@ -513,7 +513,7 @@ Please refer to section 5 in the revised manuscript.
 \end{comment}
 
 \begin{response}
-  As suggested by the reviewer the paragraph has been moved to section 4. 
+  As suggested by the reviewer the paragraph has been moved to section 6. 
 \end{response}
 
 
