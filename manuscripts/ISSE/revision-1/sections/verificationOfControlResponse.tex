@@ -387,10 +387,10 @@ that we wish to verify is that, after an external trigger event
 \begin{center}
   |G ([ExternalTriggerEvent_decreaseCharge] => F {charge < old(charge)})|~.
 \end{center}
-As discussed in~\cite{detect2020}, this above properties is too strong
+As discussed in~\cite{detect2020}, this above property is too strong
 and does not hold for the SCXML drone model.  We have to weaken the
-property to state that the expected behaviour only achieved if the
-external trigger is raised at the right time as specified as %
+property to state that the expected behaviour is only achieved if the
+external trigger is raised at the right time specified as %
 |{BATTERYOK=TRUE & charge>20}|, %
 and there are no external conflict triggers, here |off|, in processing
 or that has been raised, i.e., %
