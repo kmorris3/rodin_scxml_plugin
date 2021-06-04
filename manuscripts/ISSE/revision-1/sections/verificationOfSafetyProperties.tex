@@ -60,7 +60,7 @@ The transitions that enter state |OPERATIONAL| and initialise the |BATTERY| regi
 The self transition that decreases charge (and hence could potentially falsify the consequent) is guarded by |uc = FALSE| since it is a triggered transition, and hence the disjunction in the consequent ensures it remains true.
 The completion event |NoUntriggeredTransitionsEnabled| of the basis machine resets |uc = TRUE| to indicate completion of the cycle and hence could potentially break the invariant. 
 However, finalising the transition |BATTERYOK_BATTERYLOW| (that leaves |BATTERYOK| when |charge>20| becomes false) means that  the negation of its guard is added to the completion event by the translation.
-Since this transition fires when |BATTERYOK = TRUE| (i.e.,its source state) and |charge≤20| the completion event is guarded by |¬(BATTERYOK= TRUE ∧ charge≤20)| which means that it does not fire when it could break the invariant (i.e.,forcing the untriggered reaction to fire first).
+Since this transition fires when |BATTERYOK = TRUE| (i.e., its source state) and |charge≤20| the completion event is guarded by |¬(BATTERYOK= TRUE ∧ charge≤20)| which means that it does not fire when it could break the invariant (i.e., forcing the untriggered reaction to fire first).
 
 \paragraph{System Subsequently Leaves the FLY or TAKEOFF States}
 The safety property of the |TAKEOFF| and |FLY| states can now be simply stated as |BATTERYOK = TRUE|. 

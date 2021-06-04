@@ -543,7 +543,7 @@ the |charge|'s value accordingly.
 
 % However, we could not verify this property.
 % The counter example traces that \PROB provided gave us a better understanding of the reasons why. 
-% The property as stated is too strong (i.e.,not true) for our model; there are additional conditions that need to be considered and added as part of the antecedent.
+% The property as stated is too strong (i.e., not true) for our model; there are additional conditions that need to be considered and added as part of the antecedent.
 % \begin{itemize}
 % \item
 % Our model represented the trigger queues abstractly as sets which meant that the |decreaseCharge| trigger may never be dequeued.
@@ -557,7 +557,7 @@ the |charge|'s value accordingly.
 % |BATTERYOK = TRUE ∧ charge > 20| %
 % to the \LTL property.
 % \item
-% Even if this pre-condition is true when the trigger is raised, another trigger (e.g.,|off|) may already be in the queue and take the controller out of |BATTERYOK| before the |decreaseCharge| trigger is dequeued.
+% Even if this pre-condition is true when the trigger is raised, another trigger (e.g., |off|) may already be in the queue and take the controller out of |BATTERYOK| before the |decreaseCharge| trigger is dequeued.
 % Again we strengthen the pre-condition |off ∉ dt ∪ eQ| of the \LTL expression to avoid this situation.
 % \end{itemize}
 % After making these changes the final form of the \LTL property, which \PROB was able to exhaustively check and confirm was as follows:
