@@ -131,11 +131,12 @@ we have to make assumptions about how often events will be fired.
 Here, we assume that all the system events are strongly fair.
 \begin{assumption}[Fair System Events]
   \label{asm:SF}
-  \SonChange{%
-    We assume that all system events are strongly fair, i.e., if a
-    system event is enabled infinitely often, eventually, it will be
-    eventually fired.%
-  }{%
+  % \SonChange{%
+  %   We assume that all system events are strongly fair, i.e., if a
+  %   system event is enabled infinitely often, eventually, it will be
+  %   eventually fired.%
+  % }{%
+  \hl{%
     We assume that all internal system event \mbox{\EventBInline{e}}
     are strongly fair, i.e., \mbox{\EventBInline{SF(e)}}; and the
     dequeue external trigger event is weakly fair,
