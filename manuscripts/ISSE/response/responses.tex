@@ -346,7 +346,15 @@ not be before because you use such arguments before just after stating Theorem
 • The paragraph Proof of Convergence and Anticipation needs to
 be written again. There are many typos: this event removes, discards,
 decreases, according, . . .
-Moreover the sentence
+\end{comment}
+
+\begin{response}
+  The entire Proof of Convergence and Anticipation subsection has been revised.
+  Please refer to the provided manuscript.
+\end{response}
+
+\begin{comment}{Reviewer \#1}
+ Moreover the sentence
 The external events are anticipated according to the above variants 
 trivially since they only modify the external queue eQ. Note that we do not
 attempt to prove the convergence of any future events here. Instead, we
@@ -356,8 +364,30 @@ say that these events should be proven convergent later?
 \end{comment}
 
 \begin{response}
-  The entire Proof of Convergence and Anticipation subsection has been revised.
-  Please refer to the provided manuscript.
+  The future events are excluded altoghether. Ultimately, the future
+  events will become the internal triggered and untriggered events and
+  will need to be proved to be convergent using variants based on the
+  state-machine. Anticipations does not work for these events, as they
+  are raising internal trigger and interfere with the variant
+  $V_{dequeInternalTriggered}$. At the moment, we do not have the
+  concept to deal with this type of event (with respect to convergence
+  argument): anticipation events with respect to only a subset of a
+  lexicographic variant. However, our convergence is still valid, under the
+  assumption that these future events will be proved to be convergent
+  using state-machine-based variants.
+
+  We have added the following text to the discussion in the paper.
+  \begin{quote}
+    ``While these future events raise new internal
+  triggers (hence will increase variant
+  $V_{dequeueInternalTriggered}$, ultimately, they will be converted
+to internal triggered and untriggered events.  These events will need
+to be proved to be convergent by state-machine based variants which
+has higher priority than $V_{dequeueInternalTriggered}$.  At the
+moment, we do not have the the notation of anticipation for a subset
+of a lexicographic variant. This can be introduced into Event-B in the
+future.''
+  \end{quote}
 \end{response}
 
 \begin{comment}{Reviewer \#1}
@@ -461,7 +491,9 @@ files, I was not able to play again the proofs.
 \end{comment}
 
 \begin{response}
-A README file, including the Rodin configuration, has been added to the repo.
+An instruction file including the Rodin configuration, has been added
+to the repo together with an updated archive of the project which has
+the configuration setup for proof.
 \end{response}
 
 \begin{comment}{Reviewer \#2}
