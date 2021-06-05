@@ -42,18 +42,25 @@
 \end{comment}
 
 \begin{response}
-  \SonInlineCommentTo{Colin}{We add some discussion about why SCXML
-    considered to be synchronous language.}
+  This is a good point related to the motivation hinted at in the abstract. We added the following paragraph in the SCXML background section.
   \begin{quote}
-    `` ...
+    `` 
+    State-charts, with `run to completion' semantics, are considered to be a synchronous language in the sense that the external triggering event waits for the behaviour that it enables to complete before making any further progress.
+    In contrast, \mbox{\EventB} has an asynchronous semantics due to the non-deterministic selection of events to fire. 
+    Of course, synchronous behaviour can be explicitly modelled by the addition of control variables that define the enabledness of events (i.e. remove the non-determinism).
+    This is how we can define the translation suggested in this paper.
+    UML-B state-machines constrain the firing of transitions to some extent but, like \mbox{\EventB}, do not have an underlying fully synchronous semantics.
+    The advantage of an asynchronous semantics is its flexibility.
+    However, when we wish to model processes that are essentially synchronous in nature, the need to explicitly add the synchronous semantics to each model becomes a burden, obscuring the particular problem being modelled.
+	Since many components (e.g. controllers) used in a system are based on synchronous behaviour, we are interested in adapting a modelling language with run to completion semantics to support \mbox{\EventB} style refinement.
    ''
   \end{quote}
 \end{response}
 
 
 \begin{comment}{Reviewer \#1}
-- Proof of temporal properties. Different temporal properties are con-
-sidered. Since the proof of such properties are outside (currently) the
+- Proof of temporal properties. Different temporal properties are considered. 
+Since the proof of such properties are outside (currently) the
 Event-B method they have considered other tools and methods.
 It would have been interesting to outline the frontier. As a matter of
 fact, it is not clear for me if the Event-B properties can be tackled
@@ -66,7 +73,7 @@ precise, comment your embedding?
   existing
   work~\cite{abrial10:_model_event_b,hoang2016ltl,hudon16:_unit_b_method}. Based
   on the semantics, proof obligations are generated from the Event-B
-  models accordingly. For example, the invariant preversevation proof
+  models accordingly. For example, the invariant preservation proof
   obligations are generated per event to ensure that the invariant
   holds always, i.e., |G(I)|, where |I| is the invariant. Here, we
   consider the trace semantics with fairness assumption and reason
@@ -74,8 +81,8 @@ precise, comment your embedding?
   and convergence event arguments (generated as proof obligations). In
   other words, the trace semantics of \EventB is implicit and
   represented by the set of proof obligations.  We added the following
-  paragraph related to various proof oblgations that we used to
-  Section 3.2 (Event-B).
+  paragraph related to various proof obligations that we used to
+  Section 3.1 (Event-B).
   \begin{quote}
     ``Proof obligations are generated to ensure the consistency of
   \mbox{\EventB} models.  An important proof obligation in
@@ -98,11 +105,11 @@ Please could you comment?
 \end{comment}
 
 \begin{response}
-  You are right, we only need to have weakness assumption on the
+  You are right, we only need to have weak fairness assumption on the
   dequeue external trigger event. We have changed the Assumption 1 to
   the following.  
   \begin{quote}
-    ``We assume that all internal system event \mbox{\EventBInline{e}}
+    ``We assume that all internal system events, \mbox{\EventBInline{e}}
     are strongly fair, i.e., \mbox{\EventBInline{SF(e)}}; and the
     dequeue external trigger event is weakly fair, i.e.,
     \mbox{\EventBInline{WF(dequeueExternalTriggered)}}.''
@@ -168,8 +175,8 @@ context of the proof obligation generator you have at hand.
 \end{comment}
 
 \begin{response}
-  We added the following paragraph related to various proof oblgations
-  that we used to Section 3.2 (\EventB), in particular stating that
+  We added the following paragraph related to various proof obligations
+  that we used to Section 3.1 (\EventB), in particular stating that
   safety properties are modelled as invariants in \EventB.
   \begin{quote}
     ``Proof obligations are generated to ensure the consistency of
@@ -217,10 +224,10 @@ strong fairness.
 \end{comment}
 
 \begin{response}
-  We added the following paragraph to Section 3.2 (\EventB).
+  We added the following paragraph to Section 3.1 (\EventB).
   \begin{quote}
     ``  For the trace semantics corresponding to \mbox{\EventB} machines and
-  the intepreation of LTL properties over traces, we refer the readers
+  the interpretation of LTL properties over traces, we refer the readers
   to \mbox{\cite{hoang2016ltl}}.  Here, we recall the notation for
   fairness assumptions underlying event-based formalisms such as
   \mbox{\EventB~\cite{lamport1977proving,hudon16:_unit_b_method}}. Given
@@ -239,7 +246,7 @@ strong fairness.
   temporal operators denoting \emph{globally} and \emph{finally},
   respectively; and \mbox{\EventBInline{enabled(e)}} denotes that
   event \mbox{\EventBInline{e}} is enabled and
-  \mbox{\EventBInline{[e]}} denotes an occurance of event
+  \mbox{\EventBInline{[e]}} denotes an occurrence of event
   \mbox{\EventBInline{e}}.
    ''
   \end{quote}
@@ -254,7 +261,7 @@ of convergent events is necessary to recall just before?
   We added the following sentence after the definition for anticipated events.
   \begin{quote}
     ``Note that the anticipated events augment the set of convergent
-    events and respect the variant that are used to prove the
+    events and respect the variant used to prove the
     convergence property.''
   \end{quote}
 \end{response}
@@ -294,14 +301,14 @@ not be before because you use such arguments before just after stating Theorem
 \begin{response}
   We explain the |[]| notation as part of the explanation about
   fairness assumptions (newly added). The explanation of the ``dot''
-  notation is in Theorem 3, that is |[e.t]| indicates an occurance of
+  notation is in Theorem 3, that is |[e.t]| indicates an occurrence of
   event |e| with parameter value |t|.
   \begin{quote}
     ``where \mbox{\EventBInline{G}} and \mbox{\EventBInline{F}} are the
   temporal operators denoting \emph{globally} and \emph{finally},
   respectively; and \mbox{\EventBInline{enabled(e)}} denotes that
   event \mbox{\EventBInline{e}} is enabled and
-  \mbox{\EventBInline{[e]}} denotes an occurance of event
+  \mbox{\EventBInline{[e]}} denotes an occurrence of event
   \mbox{\EventBInline{e}}.
    ''
   \end{quote}
@@ -338,10 +345,10 @@ not be before because you use such arguments before just after stating Theorem
 \begin{comment}{Reviewer \#1}
 • The paragraph Proof of Convergence and Anticipation needs to
 be written again. There are many typos: this event removes, discards,
-decreases, accroding, . . .
+decreases, according, . . .
 Moreover the sentence
-The external events are anticipated accroding to the above variants triv-
-ially since they only modify the external queue eQ. Note that we do not
+The external events are anticipated according to the above variants 
+trivially since they only modify the external queue eQ. Note that we do not
 attempt to prove the convergence of any future events here. Instead, we
 assume that these future events will be prove to be convergence later.
 seems to me problematic. In your definition of anticipated you did not
@@ -349,7 +356,6 @@ say that these events should be proven convergent later?
 \end{comment}
 
 \begin{response}
-  \KarlaInlineCommentTo{Son}{Could you please take a look just to make sure I did not introduced mistakes with my changes}
   The entire Proof of Convergence and Anticipation subsection has been revised.
   Please refer to the provided manuscript.
 \end{response}
@@ -364,7 +370,7 @@ interplay with the temporal properties you are concerned with.
   paragraph in Section 3.2 (\EventB).  The specific (strong) fairness
   assumption that we made is in Assumption 1 (Strongly Fair System
   Events). This fairness assumption is used in the proof for Theorem 2
-  and Theorem 3 to prove the termination of repsonses for external
+  and Theorem 3 to prove the termination of responses for external
   triggers.
 \end{response}
 
@@ -438,7 +444,7 @@ ample or to the underlying semantics?
   We added the following sentence to explain which variants are
   generic.
   \begin{quote}
-    ``Note that except the variant related to the internally
+    ``Note that except for the variant related to the internally
     triggered events and untriggered events, i.e., (2), all other
     variants, i.e., $V_{externalTrigger}$,
     $V_{dequeueInternalTriggered}$,
@@ -455,8 +461,7 @@ files, I was not able to play again the proofs.
 \end{comment}
 
 \begin{response}
-  \SonInlineComment{To put the Rodin configuration as README
-    file. Probably use the Soton Bundle 2012.}
+A README file, including the Rodin configuration, has been added to the repo.
 \end{response}
 
 \begin{comment}{Reviewer \#2}
@@ -508,7 +513,7 @@ Please refer to section 5 in the revised manuscript.
 \end{comment}
 
 \begin{response}
-  As suggested by the reviewer the paragraph has been moved to section 4. 
+  As suggested by the reviewer the paragraph has been moved to section 6. 
 \end{response}
 
 

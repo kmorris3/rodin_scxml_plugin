@@ -131,11 +131,12 @@ we have to make assumptions about how often events will be fired.
 Here, we assume that all the system events are strongly fair.
 \begin{assumption}[Fair System Events]
   \label{asm:SF}
-  \SonChange{%
-    We assume that all system events are strongly fair, i.e., if a
-    system event is enabled infinitely often, eventually, it will be
-    eventually fired.%
-  }{%
+  % \SonChange{%
+  %   We assume that all system events are strongly fair, i.e., if a
+  %   system event is enabled infinitely often, eventually, it will be
+  %   eventually fired.%
+  % }{%
+  \hl{%
     We assume that all internal system event \mbox{\EventBInline{e}}
     are strongly fair, i.e., \mbox{\EventBInline{SF(e)}}; and the
     dequeue external trigger event is weakly fair,
@@ -162,9 +163,9 @@ anticipation.
   another set of events is anticipated with respect to the
   same variant if they \emph{do not increase} the variant.
 \end{definition}
-\SonAdd{%
+\hl{%
   Note that the anticipated events augment the set of convergent
-  events and respect the variant that are used to prove the
+  events and respect the variant used to prove the
   convergence property.% 
 }
 
@@ -195,7 +196,7 @@ stated as the following theorem.
   |dequeueExternalTriggered| event is disabled.  Furthermore,
   according to Theorem~\ref{thm:Internal-DLF}, the internal events
   will always be deadlock-free, and as a result, at least one of the
-  internal event is enabled infinitely often\SonAdd{, hence under the
+  internal event is enabled infinitely often\hl{, hence under the
     Assumption~\mbox{\ref{asm:SF}}, this event occure infinitely
     often}. According to Definition~\ref{def:conv}, the variant will
   be decreased infinitely which violate the condition that the variant
@@ -204,7 +205,7 @@ stated as the following theorem.
   not interfere with the convergence of the internal events.%
   \qed
 \end{proof}
-\SonAdd{%
+\hl{%
   Note that Theorem~\mbox{\ref{thm:finite-internal-events}} relies on
   convergence of internal events and anticipation of external events,
   which we will prove later.%
@@ -240,8 +241,6 @@ stated as the following theorem.
 \end{proof}
 
 \subsubsection{Proof of Convergence and Anticipation}
-\KarlaComment{SON: Could you please take a look just to make 
-sure I did not introduced mistakes with my changes}
 \label{sec:proof-convergence}
 The responsiveness to external triggers presented in
 Theorem~\ref{thm:resp-ext-trg} relies on
@@ -293,8 +292,8 @@ to the following order and the rule for each variant.
   flag from |FALSE| to |TRUE|, hence ``decrease'' the variant from
   |{FALSE, TRUE}| to |{TRUE}|.
 \end{enumerate}
-\SonAdd{%
-  Note that except the variant related to the internally triggered
+\hl{%
+  Note that except for the variant related to the internally triggered
   events and untriggered events, i.e., \mbox{(\ref{variant:sm})}, all
   other variants, i.e., $V_{externalTrigger}$,
   $V_{dequeueInternalTriggered}$, $V_{noTriggeredTransitionsEnabled}$,
@@ -388,10 +387,10 @@ that we wish to verify is that, after an external trigger event
 \begin{center}
   |G ([ExternalTriggerEvent_decreaseCharge] => F {charge < old(charge)})|~.
 \end{center}
-As discussed in~\cite{detect2020}, this above properties is too strong
+As discussed in~\cite{detect2020}, this above property is too strong
 and does not hold for the SCXML drone model.  We have to weaken the
-property to state that the expected behaviour only achieved if the
-external trigger is raised at the right time as specified as %
+property to state that the expected behaviour is only achieved if the
+external trigger is raised at the right time, specified as %
 |{BATTERYOK=TRUE & charge>20}|, %
 and there are no external conflict triggers, here |off|, in processing
 or that has been raised, i.e., %
@@ -449,7 +448,7 @@ satisfies the following important \textbf{unless} property.
    trigger and append the new trigger to |eQ|. Given that
    |decreaseCharge| is already in |eQ|, even if the new trigger is
    |off|, this trigger cannot over take |decreaseCharge| in the queue,
-   i.e., it is alway behind |decreaseCharge|. These external events
+   i.e., it is always behind |decreaseCharge|. These external events
    therefore maintains the left-hand side of the \textbf{unless} property.
    
  \item \emph{Dequeue external trigger}: If the dequeued external
@@ -545,7 +544,7 @@ the |charge|'s value accordingly.
 
 % However, we could not verify this property.
 % The counter example traces that \PROB provided gave us a better understanding of the reasons why. 
-% The property as stated is too strong (i.e.,not true) for our model; there are additional conditions that need to be considered and added as part of the antecedent.
+% The property as stated is too strong (i.e., not true) for our model; there are additional conditions that need to be considered and added as part of the antecedent.
 % \begin{itemize}
 % \item
 % Our model represented the trigger queues abstractly as sets which meant that the |decreaseCharge| trigger may never be dequeued.
@@ -559,7 +558,7 @@ the |charge|'s value accordingly.
 % |BATTERYOK = TRUE ∧ charge > 20| %
 % to the \LTL property.
 % \item
-% Even if this pre-condition is true when the trigger is raised, another trigger (e.g.,|off|) may already be in the queue and take the controller out of |BATTERYOK| before the |decreaseCharge| trigger is dequeued.
+% Even if this pre-condition is true when the trigger is raised, another trigger (e.g., |off|) may already be in the queue and take the controller out of |BATTERYOK| before the |decreaseCharge| trigger is dequeued.
 % Again we strengthen the pre-condition |off ∉ dt ∪ eQ| of the \LTL expression to avoid this situation.
 % \end{itemize}
 % After making these changes the final form of the \LTL property, which \PROB was able to exhaustively check and confirm was as follows:

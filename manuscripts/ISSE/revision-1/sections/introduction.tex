@@ -23,14 +23,14 @@ This has the beneficial effect of preserving safety properties from abstraction 
 %While these other forms of refinement cannot be said to conflict with the one presented here, 
 % they will not always preserve safety properties.  
 % From the \EventB vernacular it might be better to relabel these other approaches not as methods of model ``refinement'', but rather methods of model ``elaboration''.  
-% Preservation of safety properties across refinement requires only a few restrictions to the original~\cite{Harel} \SCs (e.g.,transitions cannot cross containment boundaries arbitrarily), but still allows for both parallel and hierarchical composition. 
+% Preservation of safety properties across refinement requires only a few restrictions to the original~\cite{Harel} \SCs (e.g., transitions cannot cross containment boundaries arbitrarily), but still allows for both parallel and hierarchical composition. 
 %With these restrictions composition becomes a refinement, but not all refinements are compositions.  
 %Such a unification of composition and refinement can lead, not only to code reuse, but reuse of proofs.
 
 This manuscript is structure as follow; section~\ref{sec:relatedWork} discusses related work on refinement and what are the different types.
 Section~\ref{sec:background} provides background material. 
 Section~\ref{sec:run-completion} discusses the \SC concept of `run to completion' and how it can be specified in \EventB. 
-Section~\ref{sec:refinement-rules} states the different statechart refinement rules we use to construct models.
+Section~\ref{sec:refinement-rules} states the different state-chart refinement rules we use to construct models.
 Section~\ref{sec:descr-sample-appl} introduces our example case study; a drone. 
 Section~\ref{sec:translation} gives an outline of our translation from \SCXML to \EventB via \UMLB.
 Section~\ref{sec:validation} describes the use of \UMLB animation and Scenario Checking tools to validate translated \SCXML models.
@@ -45,12 +45,12 @@ Section~\ref{sec:conc} concludes.
 %% 	we could also build a Sirius tool that can show views at each refinement.
 
 %% proof forces us to finalise transitions..
-%% 	.. i.e.,to remove non-determinism that allows for some future refinement.
+%% 	.. i.e., to remove non-determinism that allows for some future refinement.
 %% 		(in usual event-b it is not built in to the 'engine' and is only checked when the next refinement is provided..
 %% 		.. we only have this finalisation because we needed to model the run to completion queueing mechanisms, hence new transitions modify old variables (queues))
 %% 	we have to limit what can be done in later refinements as some things could violate what is proved.
-%% 	e.g.,a response transition must come next (to make the invariant before completion) so we cannot strengthen its guards any more.
-%% 	e.g.,similarly a trigger raised as a response must be used in the way that preserves the invariant, so future transitions may not consume it.
+%% 	e.g., a response transition must come next (to make the invariant before completion) so we cannot strengthen its guards any more.
+%% 	e.g., similarly a trigger raised as a response must be used in the way that preserves the invariant, so future transitions may not consume it.
 
 %% Also section on how we arrived at the new translation.
 %% 	adding the invariant about only one dequeued trigger at a time - otherwise proof did not discharge about the future triggered transitions

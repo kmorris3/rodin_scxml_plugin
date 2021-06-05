@@ -15,7 +15,7 @@ and refinement levels.
 
 The initial abstraction and first refinement of the model, shown in Figure~\ref{fig:drone1}, capture the basic functionality of the drone. 
 The abstract model is shown in blue; the model's initial state is |OFF| and as a result of the |on| and  |toTakeoff| external triggers it transitions to the |START| and |OPERATIONAL| states respectively\footnote{Transitions in Figures~\ref{fig:drone1}--\ref{fig:drone4} are labeled with trigger names
-(e.g.,toTakeoff, toFly) not with event names as it is in \UMLB.}. 
+(e.g., toTakeoff, toFly) not with event names as it is in \UMLB.}. 
 The drone reacts to the |off| external trigger by shutting down and subsequently transitioning to the |OFF| state.
 The first refinement is constructed using \emph{Rule C}, which adds details within the |OPERATIONAL| state (gray states in Figure~\ref{fig:drone1}).
 Within the |OPERATIONAL| state the drone will transition to |FLY| or |DESCEND| after the internal trigger |toFly| or |toLand| is raised, respectively. 
@@ -100,7 +100,7 @@ As part of this refinement we introduced an untriggered transition responsible f
 The fourth refinement of the drone model (shown in lilac) uses \emph{Rule C} to introduce additional implementation details to 
 allow a take-off to be cancelled in response to an external trigger |cancel|.
 %ensure that under special 
-%circumstances (e.g.,sensing of adverse environment or unexpected battery dropped) the drone is able 
+%circumstances (e.g., sensing of adverse environment or unexpected battery dropped) the drone is able 
 %to circumvent flying and proceed to an emergency landing. The previously described requirement can be
 %expressed as
 %\begin{center}
@@ -124,7 +124,7 @@ with respect to sequences of inputs. However, this also allows the
 possibility of introducing new behaviors in the concrete model that
 the abstraction does not exhibit. While this notion of refinement
 seems useful in certain contexts, unlike refinement in \EventB it does
-not guarantee preservation of safety properties. Therefore it should
+not guarantee preservation of safety properties. Therefore, it should
 be considered less suited to development of safety-critical systems.
 
 % Syriani et al. refinement rules

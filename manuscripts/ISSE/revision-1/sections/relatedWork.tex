@@ -14,7 +14,7 @@ From the \EventB vernacular it might be better to relabel these other approaches
 not as methods of model ``refinement'', but rather methods of model
 ``elaboration''.  
 Preservation of safety properties across refinement requires only a few
-restrictions to the original~\cite{Harel} \SCs (e.g.,transitions cannot cross
+restrictions to the original~\cite{Harel} \SCs (e.g., transitions cannot cross
 containment boundaries arbitrarily), but still allows for both parallel and
 hierarchical composition. 
 With these restrictions composition becomes a refinement, but not all
@@ -45,7 +45,7 @@ work~\cite{detect2020}.  In this paper, we outline a proof of liveness
 properties that relies on reasoning about deadlock-freeness and event
 convergence.
 
-\SonAdd{%
+\hl{%
   A method that is closely related to \mbox{\EventB} and also supports
   reasoning about safety and liveness properties is
   TLA+~\mbox{\cite{DBLP:books/aw/Lamport2002}}. TLA+ is supported by
@@ -56,7 +56,7 @@ convergence.
   properties of traces. On the other hand, \mbox{\EventB} defines
   proof obligations based on the underlying trace
   semantics~\mbox{\cite{abrial10:_model_event_b,hoang2016ltl,hudon16:_unit_b_method}},
-  hence reasoning about \emph{implicitly} temporal properties in
+  hence reasoning about \emph{implicit} temporal properties in
   \mbox{\EventB} simply involves discharging the relevant proof
   obligations. Furthermore, at the time of writing, the TLA+ Proof
   System (part of the TLA+ Toolbox) does not fully support the
@@ -84,7 +84,7 @@ convergence.
 % of model ``elaboration''.  
 
 
-% Preservation of safety across refinement requires only a few restrictions to the original~\cite{Harel} \SCs (e.g. transitions cannot
+% Preservation of safety across refinement requires only a few restrictions to the original~\cite{Harel} \SCs (e.g., transitions cannot
 % cross containment boundaries arbitrarily), but still allows for both parallel and hierarchical composition. 
 % With these restrictions composition becomes a refinement, but not all refinements are compositions.  
 % Such a unification of composition and refinement can lead, not only to code reuse, but reuse of proofs.
