@@ -305,7 +305,15 @@ The external events are anticipated according to the above variants
 trivially since they only modify the external queue |eQ|.  Note that
 we do not attempt to prove the convergence of any future events
 here. Instead, we assume that these future events will be proved to be
-convergent later.
+convergent later.  \hl{While these future events raise new internal
+  triggers (hence will increase variant
+  $V_{dequeueInternalTriggered}$, ultimately, they will be converted
+to internal triggered and untriggered events.  These events will need
+to be proved to be convergent by state-machine based variants which
+has higher priority than $V_{dequeueInternalTriggered}$.  At the
+moment, we do not have the the notation of anticipation for a subset
+of a lexicographic variant. This can be introduced into Event-B in the
+future.}
 
 % Order of the variants
 We now discuss the specific variants for the Drone example based on
@@ -415,7 +423,7 @@ means that if |P| holds then it will hold continuously unless |Q| hold.
 \end{definition}
 We restate the \emph{Unless rule} (Theorem 1
 in~\cite{hudon16:_unit_b_method}) here.
-\begin{theorem}{Unless rule}:
+\begin{theorem}
   \label{thm:unless-rule}
   An event system satisfies the unless property |P| \textbf{unless}
   |Q|, if for every event, if it starts in a state satisfying %
@@ -454,7 +462,9 @@ satisfies the following important \textbf{unless} property.
  \item \emph{Dequeue external trigger}: If the dequeued external
    trigger is |decreaseCharge|, we will have |dt = {decreaseCharge}|,
    hence we establish the right-hand side of the unless property.
-   If it is not |decreaseCharge|, it also cannot be |off| (as any
+   If it is not |decreaseCharge| (that is
+     \EventBInline{descreaseCharge} is still in the queue), the
+   dequeued trigger also cannot be |off| (as any
    |off| trigger in |eQ| has to be behind a |decreaseCharge|
    trigger). As a result, the condition that |off| is behind
    |decreaseCharge| in the remaining queue is maintained and
