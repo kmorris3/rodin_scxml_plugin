@@ -2,12 +2,40 @@ context gluing_scxml_ctx
 extends
 	abs_scxml_ctx
 	cnc_scxml_ctx
+constants
+	step_link		// gives the abstract step corresponding to a refined concrete step
+	trigger_link 	// gives the abstract trigger corresponding to a refined concrete trigger
 axioms
-	@rit1: 	abs_InternalTriggers ⊆ cnc_InternalTriggers
-	@ret1: 	abs_ExternalTriggers ⊆  cnc_ExternalTriggers
-	@rs1:	abs_Steps ⊆ cnc_Steps
-	@r_steptrigger1:	abs_StepTrigger ⊆ cnc_StepTrigger	//we can add new steps or convert untriggered to triggered
-	@r_stepraised1:		∀s· s ∈ cnc_Steps ∖ abs_Steps ⇒ Seq_content(cnc_StepRaised(s)) ∩ abs_InternalTriggers = ∅ //new steps cannot raise old triggers
-	@r_stepraised2:		∀s· s ∈ abs_Steps ⇒ abs_StepRaised(s) = Seq_keep(cnc_StepRaised(s) ↦ abs_Triggers)	//refined steps can only add new triggers into the old sequence
+	//concrete to abstract steps is a bijection (we keep all abstract steps)
+	@linking-steps:		step_link ∈ cnc_Steps ⤖ abs_Steps	
+	//concrete to abstract triggers is a bijection (we keep all abstract triggers)
+	@linking-triggers:	trigger_link ∈ cnc_Triggers ⤖ abs_Triggers
+	//internal and external triggers do not change camp
+	@linking_internalTriggers: trigger_link[cnc_InternalTriggers] ⊆ abs_InternalTriggers
+	@linking_externalTriggers: trigger_link[cnc_ExternalTriggers] ⊆ abs_ExternalTriggers
+
+	// we keep the abstract step/trigger relationship unchanged
+	@refine_stepTrigger: ∀s,t·s↦t∈abs_StepTrigger ⇒ (step_link∼(s) ↦ trigger_link∼(t)) ∈ cnc_StepTrigger 
+	
+	//new steps cannot raise old triggers
+	@r_stepraised1:		∀s· s ∈ cnc_Steps ∖ dom(step_link) ⇒ Seq_content(cnc_StepRaised(s)) ∩ dom(trigger_link) = ∅ 
+	
+	// TODO: is there an easier way to express this!!
+	//refined steps can only add new triggers into the old sequence
+	//  i.e. 
+	//		the indexes of the abstract raised sequence of triggers and the concrete sequence if we only keep linked triggers, is the same
+	//  and 
+	//     for each trigger in the abstract sequence it linked by the corresponding concrete trigger in the kept concrete sequence 
+	@r_stepraised2:		∀s· s ∈ dom(step_link) ⇒ 
+		(
+			(
+				dom(abs_StepRaised(s)) = dom(Seq_keep( cnc_StepRaised(s) ↦ dom(trigger_link) )) 
+			)
+			∧ 
+			(
+				∀n·n∈dom(abs_StepRaised(s)) ⇒ 
+					abs_StepRaised(s)(n) = trigger_link( Seq_keep(cnc_StepRaised(s) ↦ dom(trigger_link))(n) )
+			)
+		)	
 
 end
