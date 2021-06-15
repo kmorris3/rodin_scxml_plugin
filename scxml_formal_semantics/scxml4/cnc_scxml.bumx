@@ -1,0 +1,97 @@
+/*
+ * This context is a copy of scxml with every variables and constants prefixed with "cnc_"
+ * Ideally, this should be done by an "instantiation+renaming" plug-in.
+ * This machine is CORRECT-BY-CONSTRUCTION
+ */
+machine cnc_scxml
+sees cnc_scxml_ctx
+
+variables
+	cnc_internal_queue
+	cnc_external_queue
+	cnc_dequeue_trigger
+	cnc_completed
+
+invariants
+	@cnc_internal_queue: 			cnc_internal_queue ∈ Seq(cnc_InternalTriggers)
+	@cnc_external_queue: 			cnc_external_queue ∈ Seq(cnc_ExternalTriggers)
+	@cnc_dequeue_trigger: 			cnc_dequeue_trigger ∈ DeQueueType
+	@cnc_dequeue_triggerwd: 		cnc_dequeue_trigger ⊆ cnc_InternalTriggers ∪ cnc_ExternalTriggers
+	@cnc_completed: 				cnc_completed ∈ BOOL
+	
+	@cnc_firingTriggered: 			cnc_dequeue_trigger ≠ ∅ ⇒ cnc_completed=FALSE		//just a sanity check
+	theorem @cnc_readyToDequeue:	cnc_completed=TRUE ⇒ cnc_dequeue_trigger = ∅		//just a sanity check
+		
+events
+
+	event INITIALISATION
+	then
+		@internal_queue_init:		cnc_internal_queue ≔ ∅ 
+		@external_queue_init: 		cnc_external_queue ≔ ∅
+		@dequeue_trigger_init:		cnc_dequeue_trigger ≔ ∅
+		@completed_init: 			cnc_completed ≔ FALSE
+	end
+	
+	event cnc_raiseExternalTrigger
+	any cnc_trigger where
+		@trigger: 					cnc_trigger ∈ cnc_ExternalTriggers
+	then
+		@external_queue_set:		cnc_external_queue ≔ Seq_append(cnc_external_queue ↦ cnc_trigger)
+	end
+	
+	event cnc_dequeueExternalTrigger
+	any cnc_trigger where 
+		@completed:					cnc_completed = TRUE
+		theorem @dequeue_trigger:	cnc_dequeue_trigger = ∅	//sanity check
+		@external_queue-non_empty:  cnc_external_queue ≠ ∅
+		@trigger: 					cnc_trigger = Seq_head(cnc_external_queue)
+		@internal_queue:			cnc_internal_queue = ∅
+	then 
+		@dequeue_trigger_set: 		cnc_dequeue_trigger ≔ {cnc_trigger}
+		@external_queue_set:		cnc_external_queue ≔ Seq_tail(cnc_external_queue)
+		@completed_set:				cnc_completed ≔ FALSE
+	end
+	
+	event cnc_dequeueInternalTrigger
+	any cnc_trigger where 
+		@completed:					cnc_completed = TRUE
+		theorem @dequeue_trigger:	cnc_dequeue_trigger = ∅	//sanity check
+		@internal_queue-non_empty:	cnc_internal_queue ≠ ∅		
+		@trigger: 					cnc_trigger = Seq_head(cnc_internal_queue)
+	then 
+		@dequeue_trigger_set: 		cnc_dequeue_trigger ≔ {cnc_trigger}
+		@external_queue_set:		cnc_internal_queue ≔ Seq_tail(cnc_internal_queue)
+		@completed_set:				cnc_completed ≔ FALSE
+	end
+	
+	event cnc_triggeredStep 
+	any cnc_Step
+	where 
+		@step:					cnc_Step ∈ dom(cnc_StepTrigger)		
+		@trigger_dequeued: 		cnc_StepTrigger(cnc_Step) ∈ cnc_dequeue_trigger
+		theorem @completed:		cnc_completed = FALSE	//sanity check
+	then 
+		@dequeue_trigger_set: 	cnc_dequeue_trigger ≔ cnc_dequeue_trigger ∖ {cnc_StepTrigger(cnc_Step)}
+		@internal_queue_set:	cnc_internal_queue ≔ Seq_concat(cnc_internal_queue ↦ cnc_StepRaised(cnc_Step))		//raised triggers
+	end
+	
+	event cnc_untriggeredStep
+	any cnc_Step
+	where 
+		@step:						cnc_Step ∈ cnc_Steps ∖ dom(cnc_StepTrigger)	
+		@dequeue_trigger: 			cnc_dequeue_trigger = ∅
+		@completed:					cnc_completed = FALSE		
+	then 
+		@internal_queue_set:		cnc_internal_queue ≔ Seq_concat(cnc_internal_queue ↦ cnc_StepRaised(cnc_Step))		//raised triggers
+	end
+	
+	event cnc_completion
+	where
+		@dequeue_trigger: 			cnc_dequeue_trigger = ∅
+		@completed:					cnc_completed = FALSE
+	then
+		@completed_set:				cnc_completed ≔ TRUE
+	end
+	
+end
+

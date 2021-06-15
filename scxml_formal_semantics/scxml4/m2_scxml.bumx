@@ -1,0 +1,42 @@
+machine m2_scxml
+refines m1_scxml
+includes cnc_scxml
+sees gluing_scxml_ctx
+
+events
+
+	event INITIALISATION
+	synchronises INITIALISATION
+	end
+	
+	event cnc_raiseExternalTrigger refines old_raiseExternalTrigger new_raiseExternalTrigger
+	synchronises cnc_raiseExternalTrigger
+	end
+	
+	event cnc_dequeueExternalTrigger refines old_dequeueExternalTrigger new_dequeueExternalTrigger
+	synchronises cnc_dequeueExternalTrigger
+	end
+	
+	event cnc_dequeueInternalTrigger refines old_dequeueInternalTrigger new_dequeueInternalTrigger
+	synchronises cnc_dequeueInternalTrigger
+	end
+	
+	event cnc_triggeredStep refines old_triggeredStep new_triggeredStep converted_triggeredStep
+	synchronises cnc_triggeredStep
+//	when
+//		@cannotraiseoldtriggers: 	(cnc_Step ∉ abs_Steps) ⇒ (Seq_content(cnc_raised_triggers) ∩ abs_Triggers=∅)
+//		@cannotbeoldtrigger:		cnc_Step ∉ abs_Steps ⇒ cnc_trigger ∉ abs_Triggers
+	end
+	
+	event cnc_untriggeredStep refines old_untriggeredStep new_untriggeredStep
+	synchronises cnc_untriggeredStep
+//	when
+//		@cannotraiseoldtriggers: (cnc_Step ∉ abs_Steps) ⇒ (Seq_content(cnc_raised_triggers) ∩ abs_Triggers=∅)
+	end
+
+	event cnc_completion refines old_completion new_completion
+	synchronises cnc_completion
+	end
+	
+end
+

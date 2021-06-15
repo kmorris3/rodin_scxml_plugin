@@ -1,0 +1,170 @@
+machine m1_scxml
+refines m0_scxml
+includes cnc_scxml
+sees gluing_scxml_ctx
+variables
+	last_dequeue_trigger
+invariants
+	@last_dequeue_trigger: 		last_dequeue_trigger ∈ DeQueueType ∪ { {nullTrigger} }
+	//we only add new triggers to the internal queue
+	@internal_queue_glue: 		abs_internal_queue = Seq_keep(cnc_internal_queue ↦ abs_InternalTriggers)	
+	//we only add new triggers to the external queue	
+	@external_queue_glue: 		abs_external_queue = Seq_keep(cnc_external_queue ↦ abs_ExternalTriggers) 
+	//if the contents of the dequeued trigger is an old trigger, it is the same as the abstract dequeued trigger 
+	@dequeue_trigger_glue: 	cnc_dequeue_trigger ⊆ abs_Triggers ⇒ cnc_dequeue_trigger = abs_dequeue_trigger
+	//if the contents of the dequeued trigger is a new trigger, the abstract dequeued trigger is empty 
+	@dequeue_trigger_glue2:	cnc_dequeue_trigger ⊈ abs_Triggers ⇒ abs_dequeue_trigger = ∅
+
+ 	// Due to transition guard strengthening, completion may occur earlier in refinements so is weaker
+ 	// 	(abs_completed=TRUE ⇒ cnc_completed=TRUE). 
+ 	// However, since this is the wrong way round for refinement, we allow for early completion in the
+ 	// abstraction by adding non-deterministic completions. Hence cnc_completed=abs_completed. 
+	// We also need non-deterministic future deQueue events to allow for the introduction of new events that 
+	// set cnc_completed=FALSE
+ 	//@cnc_completed_glue: cnc_completed = abs_completed	//Doesn't prove INV - new dequeue events set cnc_completed to FALSE
+ 	//Also tried:
+	@lastDt_equiv_notCompleted: cnc_completed = FALSE ⇔ last_dequeue_trigger ≠∅
+	@lastDt_eq_cncDt: 	cnc_dequeue_trigger ≠∅ ⇒ cnc_dequeue_trigger = last_dequeue_trigger
+  	@lastDt_cleared: 	last_dequeue_trigger=∅ ⇒ abs_completed=TRUE	
+  	@new_r2c: 	last_dequeue_trigger ⊈ (abs_Triggers ∪ {nullTrigger}) ⇒ abs_completed = TRUE //new run to completion
+  	@refined_r2c: 	last_dequeue_trigger ⊆ abs_Triggers ∧ last_dequeue_trigger≠∅ ⇒ cnc_completed=abs_completed //refine run to completion
+ 	@initial_r2c: 	last_dequeue_trigger={nullTrigger} ⇒ abs_completed = FALSE  //initial untriggered steps
+
+events
+
+	event INITIALISATION
+	synchronises INITIALISATION
+	begin
+		@aux_init: last_dequeue_trigger ≔ {nullTrigger}
+	end
+
+	event old_raiseExternalTrigger refines abs_raiseExternalTrigger
+	synchronises cnc_raiseExternalTrigger
+	where
+		@abs_trigger:	cnc_trigger ∈ abs_Triggers
+	with
+		@abs_trigger:	abs_trigger = cnc_trigger
+	end
+
+	event new_raiseExternalTrigger
+	synchronises cnc_raiseExternalTrigger
+	where
+		@not_abs_trigger:	cnc_trigger ∉ abs_Triggers
+	end
+
+	event old_dequeueExternalTrigger refines abs_dequeueExternalTrigger
+	synchronises cnc_dequeueExternalTrigger
+	where
+		@abs_trigger:				cnc_trigger ∈ abs_Triggers
+	then
+		@last_dequeue_trigger_set: 	last_dequeue_trigger ≔ {cnc_trigger}
+	with
+		@abs_trigger:				abs_trigger = cnc_trigger
+	end
+
+	event new_dequeueExternalTrigger
+	synchronises cnc_dequeueExternalTrigger
+	where
+		@not_abs_trigger:			cnc_trigger ∉ abs_Triggers
+	then
+		@last_dequeue_trigger_set: 	last_dequeue_trigger ≔ {cnc_trigger}
+	end
+
+	event old_dequeueInternalTrigger refines abs_dequeueInternalTrigger
+	synchronises cnc_dequeueInternalTrigger
+	where
+		@abs_trigger:				cnc_trigger ∈ abs_Triggers
+	then
+		@last_dequeue_trigger_set: 	last_dequeue_trigger ≔ {cnc_trigger}
+	with
+		@abs_trigger:				abs_trigger = cnc_trigger
+	end
+	
+	event new_dequeueInternalTrigger
+	synchronises cnc_dequeueInternalTrigger
+	where
+		@not_abs_trigger:			cnc_trigger ∉ abs_Triggers
+	then
+		@last_dequeue_trigger_set:	last_dequeue_trigger ≔ {cnc_trigger}
+	end
+
+	//this could be refinement of an old triggered transition 
+	//OR 
+	//a new transition triggered by an old trigger
+	event old_triggeredStep refines abs_triggeredStep
+	synchronises cnc_triggeredStep
+	where
+		@cnc_Step:				cnc_Step ∈ abs_Steps
+		//@abs_trigger:			cnc_trigger ∈ abs_Triggers
+	with
+		@abs_Step:				abs_Step = cnc_Step	
+		//@abs_trigger: 		abs_trigger = cnc_trigger	//we must not change the trigger
+		//@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_InternalTriggers)
+	end
+	
+	// convert an untriggered transition to a triggered transition
+	event converted_triggeredStep refines abs_untriggeredStep
+	synchronises cnc_triggeredStep
+	where
+		@cnc_Step:				cnc_Step ∈ abs_Steps
+	with
+		@abs_Step:				abs_Step = cnc_Step
+		//@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_InternalTriggers)
+	end
+
+	// introducing a completely new triggered transition
+	event new_triggeredStep 
+	synchronises cnc_triggeredStep
+	where
+		@cnc_Step:				cnc_Step ∉ abs_Steps
+//		@not_abs_trigger:		cnc_trigger ∉ abs_Triggers
+//		@cnc_raised_triggers:	Seq_content(cnc_raised_triggers) ∩ abs_Triggers = ∅  //∅ = Seq_keep(cnc_raised_triggers ↦ abs_InternalTriggers) //
+	end
+	
+//	This is the other case (for merging the above 3 cases) of concrete triggered step
+//	- this is not allowed because you cannot have a trigger that is not consumed because it would block the queue
+//	- (note that discarded triggers (not with a transition yet) are covered in the first case above)
+//
+//	event not_allowed_triggeredStep refines abs_futureStep
+//	synchronises cnc_triggeredStep
+//	where
+//		@cnc_Step:				cnc_Step ∉ abs_Steps
+//		@not_abs_trigger:		cnc_trigger ∈ abs_Triggers
+//	with
+//		@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_Triggers)
+//	end
+	
+	event old_untriggeredStep refines abs_untriggeredStep
+	synchronises cnc_untriggeredStep
+	where
+		@cnc_Step:				cnc_Step ∈ abs_Steps
+	with
+		@abs_Step:				abs_Step = cnc_Step
+		//@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_Triggers)
+	end
+	
+	event new_untriggeredStep 
+	synchronises cnc_untriggeredStep
+	where
+		@cnc_Step:				cnc_Step ∉ abs_Steps
+		//@cnc_raised_triggers:	Seq_content(cnc_raised_triggers) ∩ abs_Triggers = ∅  //∅ = Seq_keep(cnc_raised_triggers ↦ abs_Triggers) //
+	end
+ 
+	event old_completion refines abs_completion
+	synchronises cnc_completion
+	where
+		@last_dequeue_trigger: 		last_dequeue_trigger ⊆ abs_Triggers ∪ {nullTrigger}
+	then
+		@last_dequeue_trigger_set: 	last_dequeue_trigger ≔ ∅
+	end
+	
+	event new_completion
+	synchronises cnc_completion
+	where
+		@last_dequeue_trigger: 		last_dequeue_trigger ⊈ abs_Triggers ∪ {nullTrigger}
+	then
+		@last_dequeue_trigger_set: 	last_dequeue_trigger ≔ ∅
+	end
+	
+end
+
