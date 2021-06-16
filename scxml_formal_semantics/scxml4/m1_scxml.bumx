@@ -7,19 +7,11 @@ variables
 invariants
 	@last_dequeue_trigger: 		last_dequeue_trigger ∈ DeQueueType ∪ { {nullTrigger} }
 	//we only add new triggers to the internal queue
-	//was..@internal_queue_glue: 		abs_internal_queue = Seq_keep(cnc_internal_queue ↦ abs_InternalTriggers)
-	@internal_queue_glue1:	dom(abs_internal_queue) = dom(Seq_keep(cnc_internal_queue ↦ dom(trigger_link) )) 
- 	@internal_queue_glue2:	∀n·n∈dom(abs_internal_queue) ⇒ 
-					abs_internal_queue(n) = trigger_link( Seq_keep(cnc_internal_queue ↦ dom(trigger_link))(n) )
-		
+	@internal_queue_glue: 		abs_internal_queue = Seq_keep(cnc_internal_queue ↦ abs_InternalTriggers)	
 	//we only add new triggers to the external queue	
-	//was... @external_queue_glue: 		abs_external_queue = Seq_keep(cnc_external_queue ↦ abs_ExternalTriggers) 
-	@external_queue_glue1:	dom(abs_external_queue) = dom(Seq_keep(cnc_external_queue ↦ dom(trigger_link) )) 
- 	@external_queue_glue2:	∀n·n∈dom(abs_external_queue) ⇒ 
-					abs_external_queue(n) = trigger_link( Seq_keep(cnc_external_queue ↦ dom(trigger_link))(n) )
-	
+	@external_queue_glue: 		abs_external_queue = Seq_keep(cnc_external_queue ↦ abs_ExternalTriggers) 
 	//if the contents of the dequeued trigger is an old trigger, it is the same as the abstract dequeued trigger 
-	@dequeue_trigger_glue: 	cnc_dequeue_trigger ⊆ dom(trigger_link) ⇒ trigger_link[cnc_dequeue_trigger] = abs_dequeue_trigger
+	@dequeue_trigger_glue: 	cnc_dequeue_trigger ⊆ abs_Triggers ⇒ cnc_dequeue_trigger = abs_dequeue_trigger
 	//if the contents of the dequeued trigger is a new trigger, the abstract dequeued trigger is empty 
 	@dequeue_trigger_glue2:	cnc_dequeue_trigger ⊈ abs_Triggers ⇒ abs_dequeue_trigger = ∅
 
@@ -32,11 +24,11 @@ invariants
  	//@cnc_completed_glue: cnc_completed = abs_completed	//Doesn't prove INV - new dequeue events set cnc_completed to FALSE
  	//Also tried:
 	@lastDt_equiv_notCompleted: cnc_completed = FALSE ⇔ last_dequeue_trigger ≠∅
-	@lastDt_eq_cncDt: 			cnc_dequeue_trigger ≠∅ ⇒ cnc_dequeue_trigger = last_dequeue_trigger
-  	@lastDt_cleared: 			last_dequeue_trigger=∅ ⇒ abs_completed=TRUE	
-  	@new_r2c: 					trigger_link[last_dequeue_trigger] ⊈ (abs_Triggers ∪ {nullTrigger}) ⇒ abs_completed = TRUE //new run to completion
-  	@refined_r2c: 				trigger_link[last_dequeue_trigger] ⊆ abs_Triggers ∧ last_dequeue_trigger≠∅ ⇒ cnc_completed=abs_completed //refine run to completion
- 	@initial_r2c: 				last_dequeue_trigger={nullTrigger} ⇒ abs_completed = FALSE  //initial untriggered steps
+	@lastDt_eq_cncDt: 	cnc_dequeue_trigger ≠∅ ⇒ cnc_dequeue_trigger = last_dequeue_trigger
+  	@lastDt_cleared: 	last_dequeue_trigger=∅ ⇒ abs_completed=TRUE	
+  	@new_r2c: 	last_dequeue_trigger ⊈ (abs_Triggers ∪ {nullTrigger}) ⇒ abs_completed = TRUE //new run to completion
+  	@refined_r2c: 	last_dequeue_trigger ⊆ abs_Triggers ∧ last_dequeue_trigger≠∅ ⇒ cnc_completed=abs_completed //refine run to completion
+ 	@initial_r2c: 	last_dequeue_trigger={nullTrigger} ⇒ abs_completed = FALSE  //initial untriggered steps
 
 events
 
@@ -49,31 +41,31 @@ events
 	event old_raiseExternalTrigger refines abs_raiseExternalTrigger
 	synchronises cnc_raiseExternalTrigger
 	where
-		@abs_trigger:	cnc_trigger ∈ dom(trigger_link)
+		@abs_trigger:	cnc_trigger ∈ abs_Triggers
 	with
-		@abs_trigger:	abs_trigger = trigger_link(cnc_trigger)
+		@abs_trigger:	abs_trigger = cnc_trigger
 	end
 
 	event new_raiseExternalTrigger
 	synchronises cnc_raiseExternalTrigger
 	where
-		@not_abs_trigger:	cnc_trigger ∉ dom(trigger_link)
+		@not_abs_trigger:	cnc_trigger ∉ abs_Triggers
 	end
 
 	event old_dequeueExternalTrigger refines abs_dequeueExternalTrigger
 	synchronises cnc_dequeueExternalTrigger
 	where
-		@abs_trigger:				cnc_trigger ∈ dom(trigger_link)
+		@abs_trigger:				cnc_trigger ∈ abs_Triggers
 	then
 		@last_dequeue_trigger_set: 	last_dequeue_trigger ≔ {cnc_trigger}
 	with
-		@abs_trigger:				abs_trigger = trigger_link(cnc_trigger)
+		@abs_trigger:				abs_trigger = cnc_trigger
 	end
 
 	event new_dequeueExternalTrigger
 	synchronises cnc_dequeueExternalTrigger
 	where
-		@not_abs_trigger:			cnc_trigger ∉ dom(trigger_link)
+		@not_abs_trigger:			cnc_trigger ∉ abs_Triggers
 	then
 		@last_dequeue_trigger_set: 	last_dequeue_trigger ≔ {cnc_trigger}
 	end
@@ -81,17 +73,17 @@ events
 	event old_dequeueInternalTrigger refines abs_dequeueInternalTrigger
 	synchronises cnc_dequeueInternalTrigger
 	where
-		@abs_trigger:				cnc_trigger ∈ dom(trigger_link)
+		@abs_trigger:				cnc_trigger ∈ abs_Triggers
 	then
 		@last_dequeue_trigger_set: 	last_dequeue_trigger ≔ {cnc_trigger}
 	with
-		@abs_trigger:				abs_trigger = trigger_link(cnc_trigger)
+		@abs_trigger:				abs_trigger = cnc_trigger
 	end
 	
 	event new_dequeueInternalTrigger
 	synchronises cnc_dequeueInternalTrigger
 	where
-		@not_abs_trigger:			cnc_trigger ∉ dom(trigger_link)
+		@not_abs_trigger:			cnc_trigger ∉ abs_Triggers
 	then
 		@last_dequeue_trigger_set:	last_dequeue_trigger ≔ {cnc_trigger}
 	end
@@ -131,7 +123,9 @@ events
 //	synchronises cnc_triggeredStep
 //	where
 //		@cnc_Step:				cnc_Step ∉ dom(step_link)
-//		@not_abs_trigger:		cnc_trigger ∈ dom(trigger_link)
+//		@not_abs_trigger:		cnc_trigger ∈ abs_Triggers
+//	with
+//		@abs_raised_triggers:	abs_raised_triggers = Seq_keep(cnc_raised_triggers ↦ abs_Triggers)
 //	end
 	
 	event old_untriggeredStep refines abs_untriggeredStep
@@ -151,7 +145,7 @@ events
 	event old_completion refines abs_completion
 	synchronises cnc_completion
 	where
-		@last_dequeue_trigger: 		last_dequeue_trigger ⊆ dom(trigger_link) ∪ {nullTrigger}
+		@last_dequeue_trigger: 		last_dequeue_trigger ⊆ abs_Triggers ∪ {nullTrigger}
 	then
 		@last_dequeue_trigger_set: 	last_dequeue_trigger ≔ ∅
 	end
@@ -159,7 +153,7 @@ events
 	event new_completion
 	synchronises cnc_completion
 	where
-		@last_dequeue_trigger: 		last_dequeue_trigger ⊈ dom(trigger_link) ∪ {nullTrigger}
+		@last_dequeue_trigger: 		last_dequeue_trigger ⊈ abs_Triggers ∪ {nullTrigger}
 	then
 		@last_dequeue_trigger_set: 	last_dequeue_trigger ≔ ∅
 	end
