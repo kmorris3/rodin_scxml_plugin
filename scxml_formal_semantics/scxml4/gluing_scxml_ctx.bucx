@@ -8,18 +8,27 @@ constants
 axioms
 	/**
 	 * concrete to abstract steps is a partial surjective function.
-	 * - All abstract steps must be refined
+	 * - All abstract steps must be refined (by one or more concrete steps)
 	 * - Each concrete step has at most one abstract step
-	 * - There can be new concrete step (that does not correspond to any abstract step)
+	 * - There can be new concrete steps (those that do not correspond to any abstract step)
 	 */
 	@linking-steps:		step_link ∈ cnc_Steps ⤀ abs_Steps	
 	//concrete to abstract triggers is a bijection (we keep all abstract triggers)
 	//@linking-triggers:	trigger_link ∈ cnc_Triggers ⤖ abs_Triggers
 	//internal and external triggers do not change camp
-	// we keep the abstract step/trigger relationship unchanged
-	@linking_Triggers: ∀cnc_Step · cnc_Step ∈ dom(step_link) ∧ step_link(cnc_Step) ∈ dom(abs_StepTrigger)
+	
+	// If cnc_Step corresponds to an abstract triggered step then it has to be a concrete triggered step by the same trigger.
+	@linking_Triggers1: ∀cnc_Step · cnc_Step ∈ dom(step_link) ∧ step_link(cnc_Step) ∈ dom(abs_StepTrigger)
 		⇒ cnc_Step ∈ dom(cnc_StepTrigger) ∧ abs_StepTrigger(step_link(cnc_Step)) = cnc_StepTrigger(cnc_Step)
-	 
+	
+	// If cnc_Step corresponds to an abstract untriggered step then it can either be untriggered or it is triggered by a new concrete trigger.
+	@linking_Triggers2: ∀cnc_Step · cnc_Step ∈ dom(step_link) ∧ step_link(cnc_Step) ∉ dom(abs_StepTrigger)
+		∧ cnc_Step ∈ dom(cnc_StepTrigger) ⇒ cnc_StepTrigger(cnc_Step) ∉ abs_Triggers
+
+	// If cnc_Step is a new step then it can either be untriggered or it is triggered by a new concrete trigger.
+	@linking_Triggers3: ∀cnc_Step · cnc_Step ∉ dom(step_link)
+		∧ cnc_Step ∈ dom(cnc_StepTrigger) ⇒ cnc_StepTrigger(cnc_Step) ∉ abs_Triggers
+
 //	@linking_externalTriggers: trigger_link[cnc_ExternalTriggers] ⊆ abs_ExternalTriggers
 
 //	@refine_stepTrigger: ∀s,t·s↦t∈abs_StepTrigger ⇒ (step_link∼(s) ↦ trigger_link∼(t)) ∈ cnc_StepTrigger 
