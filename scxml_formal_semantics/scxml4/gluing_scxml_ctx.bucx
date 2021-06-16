@@ -4,21 +4,28 @@ extends
 	cnc_scxml_ctx
 constants
 	step_link		// gives the abstract step corresponding to a refined concrete step
-	trigger_link 	// gives the abstract trigger corresponding to a refined concrete trigger
+	//trigger_link 	// gives the abstract trigger corresponding to a refined concrete trigger
 axioms
-	//concrete to abstract steps is a bijection (we keep all abstract steps)
-	@linking-steps:		step_link ∈ cnc_Steps ⤖ abs_Steps	
+	/**
+	 * concrete to abstract steps is a partial surjective function.
+	 * - All abstract steps must be refined
+	 * - Each concrete step has at most one abstract step
+	 * - There can be new concrete step (that does not correspond to any abstract step)
+	 */
+	@linking-steps:		step_link ∈ cnc_Steps ⤀ abs_Steps	
 	//concrete to abstract triggers is a bijection (we keep all abstract triggers)
-	@linking-triggers:	trigger_link ∈ cnc_Triggers ⤖ abs_Triggers
+	//@linking-triggers:	trigger_link ∈ cnc_Triggers ⤖ abs_Triggers
 	//internal and external triggers do not change camp
-	@linking_internalTriggers: trigger_link[cnc_InternalTriggers] ⊆ abs_InternalTriggers
-	@linking_externalTriggers: trigger_link[cnc_ExternalTriggers] ⊆ abs_ExternalTriggers
-
 	// we keep the abstract step/trigger relationship unchanged
-	@refine_stepTrigger: ∀s,t·s↦t∈abs_StepTrigger ⇒ (step_link∼(s) ↦ trigger_link∼(t)) ∈ cnc_StepTrigger 
+	@linking_Triggers: ∀cnc_Step · cnc_Step ∈ dom(step_link) ∧ step_link(cnc_Step) ∈ dom(abs_StepTrigger)
+		⇒ cnc_Step ∈ dom(cnc_StepTrigger) ∧ abs_StepTrigger(step_link(cnc_Step)) = cnc_StepTrigger(cnc_Step)
+	 
+//	@linking_externalTriggers: trigger_link[cnc_ExternalTriggers] ⊆ abs_ExternalTriggers
+
+//	@refine_stepTrigger: ∀s,t·s↦t∈abs_StepTrigger ⇒ (step_link∼(s) ↦ trigger_link∼(t)) ∈ cnc_StepTrigger 
 	
 	//new steps cannot raise old triggers
-	@r_stepraised1:		∀s· s ∈ cnc_Steps ∖ dom(step_link) ⇒ Seq_content(cnc_StepRaised(s)) ∩ dom(trigger_link) = ∅ 
+	@r_stepraised1:		∀cnc_Step· cnc_Step ∈ cnc_Steps ∖ dom(step_link) ⇒ Seq_content(cnc_StepRaised(cnc_Step)) ∩ abs_Triggers = ∅ 
 	
 	// TODO: is there an easier way to express this!!
 	//refined steps can only add new triggers into the old sequence
@@ -26,16 +33,7 @@ axioms
 	//		the indexes of the abstract raised sequence of triggers and the concrete sequence if we only keep linked triggers, is the same
 	//  and 
 	//     for each trigger in the abstract sequence it linked by the corresponding concrete trigger in the kept concrete sequence 
-	@r_stepraised2:		∀s· s ∈ dom(step_link) ⇒ 
-		(
-			(
-				dom(abs_StepRaised(s)) = dom(Seq_keep( cnc_StepRaised(s) ↦ dom(trigger_link) )) 
-			)
-			∧ 
-			(
-				∀n·n∈dom(abs_StepRaised(s)) ⇒ 
-					abs_StepRaised(s)(n) = trigger_link( Seq_keep(cnc_StepRaised(s) ↦ dom(trigger_link))(n) )
-			)
-		)	
+	@r_stepraised2:		∀cnc_Step· cnc_Step ∈ dom(step_link) ⇒
+				abs_StepRaised(cnc_Step) = Seq_keep( cnc_StepRaised(cnc_Step) ↦ abs_Triggers) 
 
 end
