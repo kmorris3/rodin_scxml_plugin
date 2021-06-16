@@ -5,19 +5,19 @@
  */
 context cnc_scxml_ctx
 extends scxml_c0_2_dequeue
-
+sets
+	cnc_Steps
+	
 constants 
 	cnc_InternalTriggers
 	cnc_ExternalTriggers
 	cnc_Triggers
-	cnc_Steps
 	cnc_StepTrigger
 	cnc_StepRaised
 axioms
 	@typeof_IT: cnc_InternalTriggers ⊆ InternalTriggerType
 	@typeof_XT: cnc_ExternalTriggers ⊆ ExternalTriggerType
 	@def_T: cnc_Triggers = cnc_InternalTriggers ∪ cnc_ExternalTriggers
-	@def_S: cnc_Steps ⊆ STEPS
 	@def_StepTrigger: cnc_StepTrigger ∈ cnc_Steps ⇸ cnc_Triggers
 	@def_StepRaised: cnc_StepRaised ∈ cnc_Steps → Seq(cnc_InternalTriggers)
 end

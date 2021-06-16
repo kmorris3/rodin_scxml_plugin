@@ -26,7 +26,7 @@ axioms
 		∧ cnc_Step ∈ dom(cnc_StepTrigger) ⇒ cnc_StepTrigger(cnc_Step) ∉ abs_Triggers
 
 	// If cnc_Step is a new step then it can either be untriggered or it is triggered by a new concrete trigger.
-	@linking_Triggers3: ∀cnc_Step · cnc_Step ∉ dom(step_link)
+	@linking_Triggers3: ∀cnc_Step· cnc_Step ∈ cnc_Steps ∖ dom(step_link)
 		∧ cnc_Step ∈ dom(cnc_StepTrigger) ⇒ cnc_StepTrigger(cnc_Step) ∉ abs_Triggers
 
 //	@linking_externalTriggers: trigger_link[cnc_ExternalTriggers] ⊆ abs_ExternalTriggers
@@ -36,13 +36,8 @@ axioms
 	//new steps cannot raise old triggers
 	@r_stepraised1:		∀cnc_Step· cnc_Step ∈ cnc_Steps ∖ dom(step_link) ⇒ Seq_content(cnc_StepRaised(cnc_Step)) ∩ abs_Triggers = ∅ 
 	
-	// TODO: is there an easier way to express this!!
 	//refined steps can only add new triggers into the old sequence
-	//  i.e. 
-	//		the indexes of the abstract raised sequence of triggers and the concrete sequence if we only keep linked triggers, is the same
-	//  and 
-	//     for each trigger in the abstract sequence it linked by the corresponding concrete trigger in the kept concrete sequence 
 	@r_stepraised2:		∀cnc_Step· cnc_Step ∈ dom(step_link) ⇒
-				abs_StepRaised(cnc_Step) = Seq_keep( cnc_StepRaised(cnc_Step) ↦ abs_Triggers) 
+				abs_StepRaised(step_link(cnc_Step)) = Seq_keep( cnc_StepRaised(cnc_Step) ↦ abs_Triggers) 
 
 end

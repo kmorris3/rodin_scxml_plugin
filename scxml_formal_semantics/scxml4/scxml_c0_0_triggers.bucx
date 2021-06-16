@@ -4,7 +4,6 @@
  */
 context scxml_c0_0_triggers
 sets
-	STEPS //the set of steps
 	TRIGGERS // The set of triggers
 constants
 	InternalTriggerType ExternalTriggerType
