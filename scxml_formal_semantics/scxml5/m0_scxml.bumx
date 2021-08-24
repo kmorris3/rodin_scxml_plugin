@@ -1,0 +1,40 @@
+machine m0_scxml
+includes abs_scxml
+sees abs_scxml_ctx
+
+events
+
+	event INITIALISATION
+	synchronises INITIALISATION
+	end
+	
+	event abs_raiseExternalTrigger
+	synchronises abs_raiseExternalTrigger
+	end
+	
+	event abs_dequeueExternalTrigger
+	synchronises abs_dequeueExternalTrigger
+	end
+	
+	event abs_dequeueInternalTrigger
+	synchronises abs_dequeueInternalTrigger
+	end
+	
+	event abs_futureDequeue
+	synchronises abs_futureDequeue
+	end
+
+	event abs_triggeredStep
+	synchronises abs_triggeredStep
+	end
+	
+	event abs_untriggeredStep
+	synchronises abs_untriggeredStep
+	end
+	
+	event abs_completion
+	synchronises abs_completion
+	end
+	
+end
+
