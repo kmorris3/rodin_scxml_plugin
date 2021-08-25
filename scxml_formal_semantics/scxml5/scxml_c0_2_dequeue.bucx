@@ -1,0 +1,12 @@
+/*
+ * This context declares the type set for the dequeued triggers variable
+ * @author cfsnook
+ */
+context scxml_c0_2_dequeue 
+extends scxml_c0_1_queues
+constants
+	DeQueueType // dequeued triggers type
+axioms
+	@deQ_1: 		DeQueueType = {∅} ∪ {t · t ∈ TRIGGERS∖{nullTrigger} ∣ {t} }
+	theorem	@deQ_2: 		∅ ∈ DeQueueType 
+end
