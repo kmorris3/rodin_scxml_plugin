@@ -136,12 +136,12 @@ Here, we assume that all the system events are strongly fair.
   %   system event is enabled infinitely often, eventually, it will be
   %   eventually fired.%
   % }{%
-  \hl{%
+  % \hl{%
     We assume that all internal system event \mbox{\EventBInline{e}}
     are strongly fair, i.e., \mbox{\EventBInline{SF(e)}}; and the
     dequeue external trigger event is weakly fair,
     i.e., \mbox{\EventBInline{WF(dequeueExternalTriggered)}}.%
-  }
+  % }
 \end{assumption}
 This assumption will ensure that the system will response no matter
 how often the external triggers are raised by the external events.
@@ -163,11 +163,11 @@ anticipation.
   another set of events is anticipated with respect to the
   same variant if they \emph{do not increase} the variant.
 \end{definition}
-\hl{%
+% \hl{%
   Note that the anticipated events augment the set of convergent
   events and respect the variant used to prove the
   convergence property.% 
-}
+% }
 
 We start first by stating the main theorem about termination of
 responses for external triggers: it is always the case that the system
@@ -205,11 +205,11 @@ stated as the following theorem.
   not interfere with the convergence of the internal events.%
   \qed
 \end{proof}
-\hl{%
+% \hl{%
   Note that Theorem~\mbox{\ref{thm:finite-internal-events}} relies on
   convergence of internal events and anticipation of external events,
   which we will prove later.%
-}
+% }
 
 \begin{theorem}[Responsiveness to External Triggers]
   \label{thm:resp-ext-trg}
@@ -292,20 +292,20 @@ to the following order and the rule for each variant.
   flag from |FALSE| to |TRUE|, hence ``decrease'' the variant from
   |{FALSE, TRUE}| to |{TRUE}|.
 \end{enumerate}
-\hl{%
+% \hl{%
   Note that except for the variant related to the internally triggered
   events and untriggered events, i.e., \mbox{(\ref{variant:sm})}, all
   other variants, i.e., $V_{externalTrigger}$,
   $V_{dequeueInternalTriggered}$, $V_{noTriggeredTransitionsEnabled}$,
   and $V_{noUntriggeredTranstitionsEnabled}$ are generic according to
   the underlying run-to-completion semantics.%
-}
+% }
 
 The external events are anticipated according to the above variants
 trivially since they only modify the external queue |eQ|.  Note that
 we do not attempt to prove the convergence of any future events
 here. Instead, we assume that these future events will be proved to be
-convergent later.  \hl{While these future events raise new internal
+convergent later.  While these future events raise new internal
   triggers (hence will increase variant
   $V_{dequeueInternalTriggered}$, ultimately, they will be converted
 to internal triggered and untriggered events.  These events will need
@@ -313,7 +313,7 @@ to be proved to be convergent by state-machine based variants which
 has higher priority than $V_{dequeueInternalTriggered}$.  At the
 moment, we do not have the the notation of anticipation for a subset
 of a lexicographic variant. This can be introduced into Event-B in the
-future.}
+future.
 
 % Order of the variants
 We now discuss the specific variants for the Drone example based on
