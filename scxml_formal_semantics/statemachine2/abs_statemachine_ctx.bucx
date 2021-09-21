@@ -1,0 +1,49 @@
+/*
+ * This context is a copy of statemachine_ctx with every constants prefixed with "abs_"
+ * Ideally, this should be done by an "instantiation" plug-in.
+ * This context is CORRECT-BY-CONSTRUCTION
+ */
+context abs_statemachine_ctx
+extends c0_3_tree_def
+sets
+	abs_transitions // The set of transitions
+constants
+	abs_states // The set of states
+	abs_root // The root state
+	abs_container // The container relationship between states
+	
+	abs_leaves // The set of leaf states
+	abs_source // The source of each transition
+	abs_target // The target of each transition
+
+	abs_init // The initial states
+	abs_init_leaf // The initial leaf
+axioms	
+	// @states is a set of states
+	theorem @typeof-states: abs_states ⊆ STATE
+	
+	// @root and @container form a tree on @states
+	@tree_structure: abs_root ↦ abs_container ∈ Tree(abs_states)
+	
+	// Derivable properties from definition of Tree
+	theorem @typeof-root: abs_root ∈ abs_states
+	theorem @typeof-container: abs_container ∈ abs_states ∖ {abs_root} → abs_states
+	theorem @root-reachable: ∀ state · state ∈ abs_states ∖ {abs_root} ⇒ abs_root ∈ cl(abs_container)[{state}]
+	
+	// The set of leaf states are those in @states and
+	// does not contain any other state.
+	@def-leaves: abs_leaves = abs_states ∖ ran(abs_container)
+	theorem @leaves_are_states: abs_leaves ⊆ abs_states
+  	// Copy for automatic proofs
+  	theorem @thm12-range_preservation: ∀r· ran(r) = ran(cl(r))
+	theorem @range-preservation: ran(abs_container) = ran(cl(abs_container))
+	
+	// Transitions are relation between states
+	@typeof-source: abs_source ∈ abs_transitions → abs_states // The source can be any state (non-deterministic)
+	@typeof-target: abs_target ∈ abs_transitions → abs_leaves // The target must be a leaf state (deterministic)
+		
+	@typeof-init_leaf: abs_init_leaf ∈ abs_leaves
+	
+	@init-closure: abs_init = cl(abs_container)[{abs_init_leaf}] ∪ {abs_init_leaf}
+	theorem @typeof-init: abs_init ⊆ abs_states
+end
