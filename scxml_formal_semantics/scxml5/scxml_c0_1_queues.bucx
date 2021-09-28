@@ -93,7 +93,6 @@ axioms
 									Seq_tail(Seq_keep(s↦T)) = Seq_keep(Seq_tail(s)↦T)
 	@Seq_keep_empty: 		∀s,T·s ∈ Seq(TRIGGERS) ∧ Seq_content(s) ∩ T = ∅ 
 								⇒ Seq_keep(s ↦ T) = ∅
-									
 																
 	@intQ: InternalQueueType = Seq(InternalTriggerType)
 	@extQ: ExternalQueueType = Seq(ExternalTriggerType)

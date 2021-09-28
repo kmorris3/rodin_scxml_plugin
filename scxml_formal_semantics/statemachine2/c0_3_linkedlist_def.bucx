@@ -1,0 +1,40 @@
+/*
+ * This context defines the notion of linked lists on a (sub-)set of states
+ */
+context c0_3_linkedlist_def
+extends c0_1_closure_def
+
+constants
+	LinkedList
+axioms
+	/*
+	 * For each set @Sts, the set of trees on @Sts is the set of tuples 
+	 * the first element @fst, the last element @lst and the links between nodes @lnks satisfying:
+	 * - @fst is in @Sts
+	 * - @lst is in @Sts
+	 * - @lnks is a bijection from every node except @lst to every node except @fst
+	 * - @lst is an ancestor of @fst via @lnks
+	 */
+	@def-LinkedList: LinkedList = (
+		λ Sts · Sts ⊆ STATE ∣ {
+			fst ↦ lst ↦ lnks ∣
+			fst ∈ Sts ∧
+			lst ∈ Sts ∧
+			lnks ∈ Sts ∖ {lst} ⤖ Sts ∖ {fst} ∧
+			(fst ≠ lst ⇒ lst ∈ cl(lnks)[{fst}])
+		}
+	)
+
+	/* 
+	 * Typing information.
+	 */
+	theorem @typeof-LinkedList: LinkedList ∈ ℙ(STATE) → ℙ(STATE × STATE × (STATE ↔ STATE))
+	theorem @func-LinkedList: ∀ Sts · LinkedList(Sts) = {
+			fst ↦ lst ↦ lnks ∣
+			fst ∈ Sts ∧
+			lst ∈ Sts ∧
+			lnks ∈ Sts ∖ {lst} ⤖ Sts ∖ {fst} ∧
+			(fst ≠ lst ⇒ lst ∈ cl(lnks)[{fst}])
+		}
+		
+end

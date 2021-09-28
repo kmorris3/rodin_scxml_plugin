@@ -1,0 +1,46 @@
+/*
+ * This context declare the signature of a statemachine
+ */
+context statemachine_ctx
+extends c0_3_tree_def
+sets
+	transitions // The set of transitions
+constants
+	states // The set of states
+	root // The root state
+	container // The container relationship between states
+	source // The source of each transition
+	target // The target of each transition
+	init // The initial states
+	
+	// These are derived elements
+	leaves // The set of leaf states
+	init_leaf // The initial leaf
+axioms		
+	// @states is a set of states
+	theorem @typeof-states: states ⊆ STATE
+	
+	// @root and @container form a tree on @states
+	@tree_structure: root ↦ container ∈ Tree(states)
+	
+	// Derivable properties from definition of Tree
+	theorem @typeof-root: root ∈ states
+	theorem @typeof-container: container ∈ states ∖ {root} → states
+	theorem @root-reachable: ∀ state · state ∈ states ∖ {root} ⇒ root ∈ cl(container)[{state}]
+	
+	// The set of leaf states is defined as those in @states and
+	// does not contain any other states.
+	@def-leaves: leaves = states ∖ ran(container)
+	theorem @leaves_are_states: leaves ⊆ states
+	
+	// Transitions are relation between states
+	@typeof-source: source ∈ transitions → states // The source can be any state (non-deterministic)
+	@typeof-target: target ∈ transitions → leaves // The target must be a leaf state (deterministic)
+	
+	// The initial leaf is a leaf state.	
+	@typeof-init_leaf: init_leaf ∈ leaves
+
+	@init-closure: init = cl(container)[{init_leaf}] ∪ {init_leaf}
+	theorem @typeof-init: init ⊆ states
+	
+end

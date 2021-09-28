@@ -39,9 +39,10 @@ axioms
 	theorem @r_stepraised1_thm:		∀cnc_Step· cnc_Step ∈ cnc_Steps ∖ dom(step_link) ⇒ Seq_content(cnc_StepRaised(cnc_Step)) ∩ abs_InternalTriggers = ∅ 
 	
 	//refined steps can only add new triggers into the old sequence
+	// These might be subsume by the subsequent theorem
 	@r_stepraised2:		∀cnc_Step· cnc_Step ∈ dom(step_link) ⇒
 				abs_StepRaised(step_link(cnc_Step)) = Seq_keep( cnc_StepRaised(cnc_Step) ↦ abs_Triggers) 
 
-	theorem @r_stepraised2_thm:		∀cnc_Step· cnc_Step ∈ dom(step_link) ⇒
+	@r_stepraised2_thm:		∀cnc_Step· cnc_Step ∈ dom(step_link) ⇒
 				abs_StepRaised(step_link(cnc_Step)) = Seq_keep( cnc_StepRaised(cnc_Step) ↦ abs_InternalTriggers) 
 end

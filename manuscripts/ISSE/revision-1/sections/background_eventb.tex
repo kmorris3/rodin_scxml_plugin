@@ -46,43 +46,42 @@ found in~\cite{abrial10:_model_event_b}.
 facilities for modelling, verifying the consistency of models using theorem proving and model 
 checking techniques, and validating models with simulation-based approaches.})~\cite{abrial10:_rodin}.
 
-\hl{Proof obligations are generated to ensure the consistency of
-  \mbox{\EventB} models.  An important proof obligation in
-  \mbox{\EventB} is invariant preservation to prove that safety
-  properties (encoded as invariants of the models) will not be
-  violated for any reachable states.  In this paper, we also make use
-  of other proof obligations in \mbox{\EventB} such as (relative)
-  deadlock-freeness and (conditional) event convergence to construct
-  our proof of liveness properties under some fairness
-  assumptions.%
-}
+Proof obligations are generated to ensure the consistency of
+\mbox{\EventB} models.  An important proof obligation in
+\mbox{\EventB} is invariant preservation to prove that safety
+properties (encoded as invariants of the models) will not be
+violated for any reachable states.  In this paper, we also make use
+of other proof obligations in \mbox{\EventB} such as (relative)
+deadlock-freeness and (conditional) event convergence to construct
+our proof of liveness properties under some fairness
+assumptions.%
 
-\hl{%
-  For the trace semantics corresponding to \mbox{\EventB} machines and
-  the interpretation of LTL properties over traces, we refer the readers
-  to \mbox{\cite{hoang2016ltl}}.  Here, we recall the notation for
-  fairness assumptions underlying event-based formalisms such as
-  \mbox{\EventB~\cite{lamport1977proving,hudon16:_unit_b_method}}. Given
-  an event \mbox{\EventBInline{e}}, a weak-fairness assumption
-  \mbox{\EventBInline{WF(e)}} states that if \mbox{\EventBInline{e}}
-  is enabled continually, then it must occur infinitely often.
-  Similarly, a strong-fairness assumption \mbox{\EventBInline{SF(e)}}
-  states that if \mbox{\EventBInline{e}} is enabled infinitely often,
-  then it must occur infinitely often. Formally,
-}
+
+For the trace semantics corresponding to \mbox{\EventB} machines and
+the interpretation of LTL properties over traces, we refer the readers
+to \mbox{\cite{hoang2016ltl}}.  Here, we recall the notation for
+fairness assumptions underlying event-based formalisms such as
+\mbox{\EventB~\cite{lamport1977proving,hudon16:_unit_b_method}}. Given
+an event \mbox{\EventBInline{e}}, a weak-fairness assumption
+\mbox{\EventBInline{WF(e)}} states that if \mbox{\EventBInline{e}}
+is enabled continually, then it must occur infinitely often.
+Similarly, a strong-fairness assumption \mbox{\EventBInline{SF(e)}}
+states that if \mbox{\EventBInline{e}} is enabled infinitely often,
+then it must occur infinitely often. Formally,
+
 \begin{center}
   \EventBInline{WF(a)  <=> (FG enabled(e) => GF [e])}, and
 
   \EventBInline{SF(a)  <=> (GF enabled(e) => GF [e])},
 \end{center}
-\hl{%
+% \hl{%
   where \mbox{\EventBInline{G}} and \mbox{\EventBInline{F}} are the
   temporal operators denoting \emph{globally}, and \emph{finally},
   respectively; and \mbox{\EventBInline{enabled(e)}} denotes that
   event \mbox{\EventBInline{e}} is enabled and
   \mbox{\EventBInline{[e]}} denotes an occurrence of event
   \mbox{\EventBInline{e}}.
-}
+% }
 % In \EventB the run to completion pseudocode of Listing~\ref{lst:scxml-r2c} could be represented (somewhat abstractly) as shown in Listing~\ref{lst:eventb-r2c}.
 % \begin{lstlisting}[caption={Run to completion pseudocode in \EventB},label={lst:eventb-r2c}, language=Event-B, escapechar=|, frame=single, float=t]
 %  FireUntriggered // Fire  enabled un-triggered transitions

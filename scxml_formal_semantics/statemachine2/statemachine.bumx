@@ -1,0 +1,51 @@
+/*
+ * This machine captures the semantics of the statemachine as trace of active states.
+ */
+machine statemachine
+sees statemachine_ctx c0_4_tree_prop
+variables
+	active // The set of active states
+	
+	// The following are auxiliary variables to capture property of the statemachine
+	active_leaf // The current active leaf
+invariants
+	// @active is a set of states
+	@typeof-active: active ⊆ states
+	
+	// @active_leaf is a leaf state
+	@typeof-active_leaf: active_leaf ∈ leaves
+	
+	// Consistency between active and active_leaf	
+	@active-closure: active = cl(container)[{active_leaf}] ∪ {active_leaf}
+	
+	// Properties derive from the consistency invariant
+	theorem @LinkedList-active: active_leaf ↦ root ↦ (active ◁ container) ∈ LinkedList(active)
+	
+	// Two active states s1, s2 cannot have the same container
+	theorem @different_layer: 
+		∀ s1, s2 · s1 ∈ active ∖ {root} ∧ s2 ∈ active ∖ {root} ∧ s1 ≠ s2
+		⇒
+		container(s1) ≠ container(s2)
+
+	// If a non-root state is active then the container is also active
+	theorem @container_active:
+		∀ s · s ∈ active ∖ {root} ⇒ container(s) ∈ active
+				 
+events
+	event INITIALISATION
+	then
+		@update-active: active ≔ init
+		@update-active_leaf: active_leaf ≔ init_leaf
+	end
+	
+	event transition
+	any
+		transition
+	where
+		@typeof-transition: transition ∈ transitions
+		@source-active: source(transition) ∈ active
+	then
+		@update-active: active ≔ cl(container)[{target(transition)}] ∪ {target(transition)}
+		@update-active_leaf: active_leaf ≔ target(transition)
+	end
+end
