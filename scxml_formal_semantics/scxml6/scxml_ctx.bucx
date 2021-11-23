@@ -1,0 +1,20 @@
+context scxml_ctx
+extends scxml_c0_2_dequeue
+sets
+	Jumps
+constants
+	InternalTriggers
+	ExternalTriggers
+	Triggers
+	JumpTrigger
+	JumpRaised
+	Seq_merge
+axioms
+	@typeof_IT: InternalTriggers ⊆ InternalTriggerType
+	@typeof_XT: ExternalTriggers ⊆ ExternalTriggerType
+	@def_T: Triggers = InternalTriggers ∪ ExternalTriggers
+	@typeof-JumpTrigger: JumpTrigger ∈ Jumps ⇸ Triggers
+	@typeof-JumpRaised: JumpRaised ∈ Jumps → Seq(InternalTriggers)
+	@typeof-Seq_merge: Seq_merge ∈ (Jumps ⇸ Seq(InternalTriggers)) ↔ ℙ(Seq(InternalTriggers))
+	@Seq_merge-empty: Seq_merge[∅] = {∅}
+end

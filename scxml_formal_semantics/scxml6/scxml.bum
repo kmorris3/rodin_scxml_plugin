@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd;ac.soton.xeventb.xmachine.base" org.eventb.core.generated="false" version="5">
+    <org.eventb.core.seesContext name="_e5qmIEx1Eey0V5uO2Qy-qA" org.eventb.core.target="scxml_ctx"/>
+    <org.eventb.core.variable name="_e5r0QEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.identifier="internal_queue"/>
+    <org.eventb.core.variable name="_e5sbUEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.identifier="external_queue"/>
+    <org.eventb.core.variable name="_e5tCYEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.identifier="dequeue_trigger"/>
+    <org.eventb.core.variable name="_e5tCYUx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.identifier="completed"/>
+    <org.eventb.core.invariant name="_e5tpcEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="internal_queue" org.eventb.core.predicate="internal_queue ∈ Seq(InternalTriggers)"/>
+    <org.eventb.core.invariant name="_e5uQgEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="external_queue" org.eventb.core.predicate="external_queue ∈ Seq(ExternalTriggers)"/>
+    <org.eventb.core.invariant name="_e5u3kEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="dequeue_trigger" org.eventb.core.predicate="dequeue_trigger ∈ DeQueueType"/>
+    <org.eventb.core.invariant name="_e5veoEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="dequeue_triggerwd" org.eventb.core.predicate="dequeue_trigger ⊆ InternalTriggers ∪ ExternalTriggers"/>
+    <org.eventb.core.invariant name="_e5veoUx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="typeof_completed" org.eventb.core.predicate="completed ∈ BOOL"/>
+    <org.eventb.core.invariant name="_e5wFsEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="firingTriggered" org.eventb.core.predicate="dequeue_trigger ≠ ∅ ⇒ completed=FALSE"/>
+    <org.eventb.core.invariant name="_e5wswEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="readyToDequeue" org.eventb.core.predicate="completed=TRUE ⇒ dequeue_trigger = ∅" org.eventb.core.theorem="true"/>
+    <org.eventb.core.event name="_e5wswUx1Eey0V5uO2Qy-qA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_e5x64Ex1Eey0V5uO2Qy-qA" org.eventb.core.assignment="internal_queue ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="internal_queue_init"/>
+        <org.eventb.core.action name="_e5x64Ux1Eey0V5uO2Qy-qA" org.eventb.core.assignment="external_queue ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="external_queue_init"/>
+        <org.eventb.core.action name="_e5yh8Ex1Eey0V5uO2Qy-qA" org.eventb.core.assignment="dequeue_trigger ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="dequeue_trigger_init"/>
+        <org.eventb.core.action name="_e5yh8Ux1Eey0V5uO2Qy-qA" org.eventb.core.assignment="completed ≔ FALSE" org.eventb.core.generated="false" org.eventb.core.label="completed_init"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_e5yh8kx1Eey0V5uO2Qy-qA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="raiseExternalTrigger">
+        <org.eventb.core.parameter name="_e5zJAEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.identifier="trigger"/>
+        <org.eventb.core.guard name="_e5zJAUx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="trigger" org.eventb.core.predicate="trigger ∈ ExternalTriggers"/>
+        <org.eventb.core.action name="_e5zwEEx1Eey0V5uO2Qy-qA" org.eventb.core.assignment="external_queue ≔ Seq_append(external_queue ↦ trigger)" org.eventb.core.generated="false" org.eventb.core.label="external_queue_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_e5zwEUx1Eey0V5uO2Qy-qA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="dequeueExternalTrigger">
+        <org.eventb.core.parameter name="_e50XIEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.identifier="trigger"/>
+        <org.eventb.core.guard name="_e50XIUx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="completed" org.eventb.core.predicate="completed = TRUE"/>
+        <org.eventb.core.guard name="_e50-MEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="dequeue_trigger" org.eventb.core.predicate="dequeue_trigger = ∅" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_e50-MUx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="external_queue-non_empty" org.eventb.core.predicate="external_queue ≠ ∅"/>
+        <org.eventb.core.guard name="_e51lQEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="trigger" org.eventb.core.predicate="trigger = Seq_head(external_queue)"/>
+        <org.eventb.core.guard name="_e51lQUx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="internal_queue" org.eventb.core.predicate="internal_queue = ∅"/>
+        <org.eventb.core.action name="_e52MUEx1Eey0V5uO2Qy-qA" org.eventb.core.assignment="dequeue_trigger ≔ {trigger}" org.eventb.core.generated="false" org.eventb.core.label="dequeue_trigger_set"/>
+        <org.eventb.core.action name="_e52zYEx1Eey0V5uO2Qy-qA" org.eventb.core.assignment="external_queue ≔ Seq_tail(external_queue)" org.eventb.core.generated="false" org.eventb.core.label="external_queue_set"/>
+        <org.eventb.core.action name="_e52zYUx1Eey0V5uO2Qy-qA" org.eventb.core.assignment="completed ≔ FALSE" org.eventb.core.generated="false" org.eventb.core.label="completed_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_e53acEx1Eey0V5uO2Qy-qA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="dequeueInternalTrigger">
+        <org.eventb.core.parameter name="_e53acUx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.identifier="trigger"/>
+        <org.eventb.core.guard name="_e53ackx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="completed" org.eventb.core.predicate="completed = TRUE"/>
+        <org.eventb.core.guard name="_e54BgEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="dequeue_trigger" org.eventb.core.predicate="dequeue_trigger = ∅" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_e54BgUx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="internal_queue-non_empty" org.eventb.core.predicate="internal_queue ≠ ∅"/>
+        <org.eventb.core.guard name="_e54okEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="trigger" org.eventb.core.predicate="trigger = Seq_head(internal_queue)"/>
+        <org.eventb.core.action name="_e54okUx1Eey0V5uO2Qy-qA" org.eventb.core.assignment="dequeue_trigger ≔ {trigger}" org.eventb.core.generated="false" org.eventb.core.label="dequeue_trigger_set"/>
+        <org.eventb.core.action name="_e55PoEx1Eey0V5uO2Qy-qA" org.eventb.core.assignment="internal_queue ≔ Seq_tail(internal_queue)" org.eventb.core.generated="false" org.eventb.core.label="external_queue_set"/>
+        <org.eventb.core.action name="_e55PoUx1Eey0V5uO2Qy-qA" org.eventb.core.assignment="completed ≔ FALSE" org.eventb.core.generated="false" org.eventb.core.label="completed_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_e55Pokx1Eey0V5uO2Qy-qA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="futureDequeue">
+        <org.eventb.core.guard name="_e552sEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="completed" org.eventb.core.predicate="completed = TRUE"/>
+        <org.eventb.core.guard name="_e56dwEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="dequeue_trigger" org.eventb.core.predicate="dequeue_trigger = ∅" org.eventb.core.theorem="true"/>
+        <org.eventb.core.action name="_e57E0Ex1Eey0V5uO2Qy-qA" org.eventb.core.assignment="completed ≔ FALSE" org.eventb.core.generated="false" org.eventb.core.label="set_incompleted"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_e57E0Ux1Eey0V5uO2Qy-qA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="triggeredStep">
+        <org.eventb.core.parameter name="_e57r4Ex1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.identifier="jumps"/>
+        <org.eventb.core.parameter name="_e58S8Ex1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.identifier="raised"/>
+        <org.eventb.core.guard name="_e58S8Ux1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="jumps" org.eventb.core.predicate="jumps ⊆ dom(JumpTrigger)"/>
+        <org.eventb.core.guard name="_e58S8kx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="trigger_dequeued" org.eventb.core.predicate="JumpTrigger[jumps] = dequeue_trigger"/>
+        <org.eventb.core.guard name="_e586AEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="completed" org.eventb.core.predicate="completed = FALSE" org.eventb.core.theorem="true"/>
+        <org.eventb.core.guard name="_e59hEEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="raised" org.eventb.core.predicate="raised ∈ Seq_merge(jumps ◁ JumpRaised)"/>
+        <org.eventb.core.action name="_e5-IIEx1Eey0V5uO2Qy-qA" org.eventb.core.assignment="dequeue_trigger ≔ dequeue_trigger ∖ JumpTrigger[jumps]" org.eventb.core.generated="false" org.eventb.core.label="dequeue_trigger_set"/>
+        <org.eventb.core.action name="_e5-vMEx1Eey0V5uO2Qy-qA" org.eventb.core.assignment="internal_queue ≔ Seq_concat(internal_queue ↦ raised)" org.eventb.core.generated="false" org.eventb.core.label="internal_queue_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_e5_WQEx1Eey0V5uO2Qy-qA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="untriggeredStep">
+        <org.eventb.core.parameter name="_e5_WQUx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.identifier="jumps"/>
+        <org.eventb.core.parameter name="_e5_9UEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.identifier="raised"/>
+        <org.eventb.core.guard name="_e6AkYEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="jumps" org.eventb.core.predicate="jumps ⊆ Jumps ∖ dom(JumpTrigger)"/>
+        <org.eventb.core.guard name="_e6BLcEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="non-empty" org.eventb.core.predicate="jumps ≠ ∅"/>
+        <org.eventb.core.guard name="_e6BLcUx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="dequeue_trigger" org.eventb.core.predicate="dequeue_trigger = ∅"/>
+        <org.eventb.core.guard name="_e6BygEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="completed" org.eventb.core.predicate="completed = FALSE"/>
+        <org.eventb.core.guard name="_e6CZkEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="raised" org.eventb.core.predicate="raised ∈ Seq_merge(jumps ◁ JumpRaised)"/>
+        <org.eventb.core.action name="_e6DAoEx1Eey0V5uO2Qy-qA" org.eventb.core.assignment="internal_queue ≔ Seq_concat(internal_queue ↦ raised)" org.eventb.core.generated="false" org.eventb.core.label="internal_queue_set"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="_e6DnsEx1Eey0V5uO2Qy-qA" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="completion">
+        <org.eventb.core.guard name="_e6EOwEx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="dequeue_trigger" org.eventb.core.predicate="dequeue_trigger = ∅"/>
+        <org.eventb.core.guard name="_e6EOwUx1Eey0V5uO2Qy-qA" org.eventb.core.generated="false" org.eventb.core.label="completed" org.eventb.core.predicate="completed = FALSE"/>
+        <org.eventb.core.action name="_e6E10Ex1Eey0V5uO2Qy-qA" org.eventb.core.assignment="completed ≔ TRUE" org.eventb.core.generated="false" org.eventb.core.label="completed_set"/>
+    </org.eventb.core.event>
+</org.eventb.core.machineFile>
