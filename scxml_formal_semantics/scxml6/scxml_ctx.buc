@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;ac.soton.xeventb.xcontext.base" org.eventb.core.generated="false" version="3">
+    <org.eventb.core.extendsContext name="_6XFaAEx0EeycQYqdHJ3W1g" org.eventb.core.target="scxml_c0_2_dequeue"/>
+    <org.eventb.core.carrierSet name="_6XFaAUx0EeycQYqdHJ3W1g" org.eventb.core.generated="false" org.eventb.core.identifier="Jumps"/>
+    <org.eventb.core.constant name="_6XFaAkx0EeycQYqdHJ3W1g" org.eventb.core.generated="false" org.eventb.core.identifier="InternalTriggers"/>
+    <org.eventb.core.constant name="_6XFaA0x0EeycQYqdHJ3W1g" org.eventb.core.generated="false" org.eventb.core.identifier="ExternalTriggers"/>
+    <org.eventb.core.constant name="_6XFaBEx0EeycQYqdHJ3W1g" org.eventb.core.generated="false" org.eventb.core.identifier="Triggers"/>
+    <org.eventb.core.constant name="_6XFaBUx0EeycQYqdHJ3W1g" org.eventb.core.generated="false" org.eventb.core.identifier="JumpTrigger"/>
+    <org.eventb.core.constant name="_6XFaBkx0EeycQYqdHJ3W1g" org.eventb.core.generated="false" org.eventb.core.identifier="JumpRaised"/>
+    <org.eventb.core.constant name="_6XFaB0x0EeycQYqdHJ3W1g" org.eventb.core.generated="false" org.eventb.core.identifier="Seq_merge"/>
+    <org.eventb.core.axiom name="_6XFaCEx0EeycQYqdHJ3W1g" org.eventb.core.generated="false" org.eventb.core.label="typeof_IT" org.eventb.core.predicate="InternalTriggers ⊆ InternalTriggerType"/>
+    <org.eventb.core.axiom name="_6XGBEEx0EeycQYqdHJ3W1g" org.eventb.core.generated="false" org.eventb.core.label="typeof_XT" org.eventb.core.predicate="ExternalTriggers ⊆ ExternalTriggerType"/>
+    <org.eventb.core.axiom name="_6XGBEUx0EeycQYqdHJ3W1g" org.eventb.core.generated="false" org.eventb.core.label="def_T" org.eventb.core.predicate="Triggers = InternalTriggers ∪ ExternalTriggers"/>
+    <org.eventb.core.axiom name="_6XGBEkx0EeycQYqdHJ3W1g" org.eventb.core.generated="false" org.eventb.core.label="typeof-JumpTrigger" org.eventb.core.predicate="JumpTrigger ∈ Jumps ⇸ Triggers"/>
+    <org.eventb.core.axiom name="_6XGBE0x0EeycQYqdHJ3W1g" org.eventb.core.generated="false" org.eventb.core.label="typeof-JumpRaised" org.eventb.core.predicate="JumpRaised ∈ Jumps → Seq(InternalTriggers)"/>
+    <org.eventb.core.axiom name="_6XGBFEx0EeycQYqdHJ3W1g" org.eventb.core.generated="false" org.eventb.core.label="typeof-Seq_merge" org.eventb.core.predicate="Seq_merge ∈ (Jumps ⇸ Seq(InternalTriggers)) ↔ ℙ(Seq(InternalTriggers))"/>
+    <org.eventb.core.axiom name="_6XGBFUx0EeycQYqdHJ3W1g" org.eventb.core.generated="false" org.eventb.core.label="Seq_merge-empty" org.eventb.core.predicate="Seq_merge[∅] = {∅}"/>
+</org.eventb.core.contextFile>

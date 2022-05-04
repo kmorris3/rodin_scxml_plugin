@@ -1,0 +1,40 @@
+/*
+ * This machine captures the semantics of the statemachine as trace of active states.
+ */
+machine m1_statemachine
+refines m0_statemachine
+includes cnc_statemachine
+sees c0_4_tree_prop gluing_statemachine
+invariants
+	@gluing-active_leaf: {abs_active_leaf} = (cnc_container[{cnc_active_leaf}] ∪ {cnc_active_leaf}) ∩ abs_states
+	theorem @gluing-active: abs_active = cnc_active ∩ abs_states				 
+events
+	event INITIALISATION
+	synchronises INITIALISATION
+	end
+	
+//	event old_transition refines transition 
+//	synchronises transition // This is the concrete transition
+//	where
+//		@old_transition: cnc_transition ∈ dom(transition_link)
+//	with
+//		@abs_transition: abs_transition = transition_link(cnc_transition)
+//	end
+//
+//	event new_transition
+//	synchronises transition // This is the abstract transition
+//	where
+//		@new_transition: cnc_transition ∉ dom(transition_link)
+//	end
+	
+	event transition refines transition
+	any old_tr new_tr
+	synchronises transition // This is the concrete transition
+	where
+		@old_transition: old_tr = cnc_trs ∩ dom(transition_link)
+		@new_transition: new_tr = cnc_trs ∖ dom(transition_link)
+		theorem @partition_transition: partition(cnc_trs, old_tr, new_tr)
+	with
+		@abs_transition: abs_trs = transition_link[old_tr]
+	end
+end

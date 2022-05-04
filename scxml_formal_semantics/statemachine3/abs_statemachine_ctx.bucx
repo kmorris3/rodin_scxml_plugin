@@ -1,0 +1,135 @@
+/*
+ * This context declare the signature of a statemachine
+ */
+context abs_statemachine_ctx
+extends c0_3_tree_def
+sets
+	abs_transitions // The set of transitions
+constants
+	abs_states // The set of states
+	abs_root // The abs_root state
+	abs_container // The abs_container relationship between states
+	abs_source // The abs_source of each transition
+	abs_target // The abs_target of each transition
+	abs_regions // The region (parallel states)
+	abs_init_leaves // The initial leaf
+	
+	// These are derived elements
+	abs_leaves // The set of leaf states
+	abs_init // The initial states
+	abs_ancestry // ancestors and the node itself
+    abs_successor // descendants and yourself
+	abs_common_ancestry 
+    abs_first_common_ancestry
+    
+    
+    abs_exit
+    abs_enter
+axioms		
+	// @states is a set of states
+	theorem @typeof-abs_states: abs_states ⊆ STATE
+	
+	// @abs_root and @abs_container form a tree on @abs_states
+	@tree_structure: abs_states ↦ abs_root ↦ abs_container ↦ abs_leaves ∈ Tree
+	
+	// abs_regions partition the abs_states
+	@region_type: abs_regions ⊆ ℙ(abs_states)
+	@region_disjoint: ∀r1, r2 · r1 ∈ abs_regions ∧ r2 ∈ abs_regions ∧ r1 ≠ r2 ⇒ r1 ∩ r2 = ∅
+	@region_complete: union(abs_regions) = abs_states ∖ {abs_root}
+	// all the states in the same region have the same parent
+	@region_same_parent: ∀ region · region ∈ abs_regions ⇒ (∃parent · abs_container[region] = {parent})
+	
+	// For a node n, a[{n}] is the set of the ancestors of n and n itself.
+	@abs_ancestry_def: abs_ancestry = cl(abs_container) ∪ (abs_states ◁ id)
+	theorem @abs_ancestry_type: abs_ancestry ∈ abs_states ↔ abs_states
+	
+	// For a node n, d[{n}] is the set of the descendants of n and n itself.
+	@abs_successor_def: abs_successor = cl(abs_container∼) ∪ (abs_states ◁ id)
+	theorem @abs_successor_type: abs_successor ∈ abs_states ↔ abs_states
+
+	// For two nodes n1, n2, abs_common_ancestry(n1 ↦ n2) is the common ancestors of n1 and n2 (including n1, n2 themselves)
+	@abs_common_ancestry_def: abs_common_ancestry = (λns · ns ∈ ℙ1(abs_states) ∣ (⋂n · n ∈ ns ∣ abs_ancestry[{n}]))
+	theorem @abs_common_ancestry_type: abs_common_ancestry ∈ ℙ1(abs_states) → ℙ(abs_states)
+	
+	@abs_first_common_ancestry_type: abs_first_common_ancestry ∈ ℙ1(abs_states) → abs_states
+	@abs_first_common_ancestry_prop1: ∀ns · ns ∈ ℙ1(abs_states) ⇒ abs_first_common_ancestry(ns) ∈ abs_common_ancestry(ns)
+	@abs_first_common_ancestry_prop2: ∀ns, oa · ns ∈ ℙ1(abs_states) ∧ oa ∈ abs_common_ancestry(ns) ⇒ oa ↦ abs_first_common_ancestry(ns) ∉ cl(abs_container)
+	
+	// Derivable properties from definition of Tree
+	theorem @typeof-abs_root: abs_root ∈ abs_states
+	theorem @typeof-abs_container: abs_container ∈ abs_states ∖ {abs_root} → abs_states
+	theorem @abs_root-reachable: ∀ state · state ∈ abs_states ∖ {abs_root} ⇒ abs_root ∈ cl(abs_container)[{state}]
+	
+	// The set of leaf states is defined as those in @abs_states and
+	// does not contain any other states.
+	theorem @def-abs_leaves: abs_leaves = abs_states ∖ ran(abs_container)
+	theorem @leaves_are_states: abs_leaves ⊆ abs_states
+	
+	// Transitions are relation between states
+	@typeof-abs_source: abs_source ∈ abs_transitions → ℙ(abs_states) // The abs_source can be any state (non-deterministic)
+	@typeof-abs_target: abs_target ∈ abs_transitions → ℙ(abs_leaves) // The abs_target must be a leaf state (deterministic)
+    
+    // We do not take the descendants of the abs_enter state as the abs_targets are leaves and
+    // they must be deterministic. (?????)
+    // Take first common ancestor of the set of abs_targets f,
+    // get all the descendants (including f) of f which are the ancestors (including self) of the abs_targets
+    @abs_enter-def: abs_enter = (λt · t ∈ abs_transitions ∣ abs_successor [{abs_first_common_ancestry(abs_target(t))}] ∩ abs_ancestry[abs_target(t)] )     
+    theorem @abs_enter-type: abs_enter ∈ abs_transitions → ℙ(abs_states)
+
+	// Take first common ancestor of the set of abs_sources f,
+	// add the first common ancestor of the set of abs_targets if it is an ancestor of the abs_sources.
+	// take the descendants of the result. 
+	@abs_exit-def: abs_exit = (λt · t ∈ abs_transitions ∣ abs_successor [abs_source(t)] ∪ abs_successor [ (abs_ancestry[abs_source(t)] ∖ abs_ancestry[abs_target(t)]) ∪ ({abs_first_common_ancestry(abs_target(t))} ∩ abs_ancestry[abs_source(t)]) ] )
+	//    @abs_exit-def: abs_exit = (λt · t ∈ abs_transitions ∣ abs_successor[a[abs_source(t)] ∖ a[abs_target(t)]] )
+    theorem @abs_exit-type: abs_exit ∈ abs_transitions → ℙ(abs_states)
+    
+    
+	// abs_sources have to be in different region? of the first common ancestor??
+	@valid-abs_sources: ∀t, s1, s2· t ∈ abs_transitions ∧ s1 ∈ abs_source(t) ∧ s2 ∈ abs_source(t) ∧ s1 ≠ s2 ⇒ 
+	(∃r1, r2 · abs_container[r1] = {abs_first_common_ancestry({s1,s2})} ∧ abs_container[r2] = {abs_first_common_ancestry({s1, s2})} ∧ r1 ≠ r2 ∧ s1 ∈ abs_successor[r1] ∧ s2 ∈ abs_successor[r2])   
+	// abs_targets have to be in different region? of the first common ancestor??
+	@valid-abs_targets: ∀t, t1, t2· t ∈ abs_transitions ∧ t1 ∈ abs_source(t) ∧ t2 ∈ abs_source(t) ∧ t1 ≠ t2 ⇒ // different abs_regions of the first common ancestor   
+	(∃r1, r2 · r1 ∈ abs_regions ∧ r2 ∈ abs_regions ∧ abs_container[r1] = {abs_first_common_ancestry({t1, t2})} ∧ abs_container[r2] = {abs_first_common_ancestry({t1, t2})} ∧ r1 ≠ r2 ∧ t1 ∈ abs_successor[r1] ∧ t2 ∈ abs_successor[r2])   
+	// Valid internal transition
+	// @cfs: abs_source and abs_target have to in the same region of the first common ancestor
+	@valid_internal_transition:
+	∀tr, s, r ·
+		tr ∈ abs_transitions ∧			// tr is a transition
+	    s ∈ abs_enter(tr) ∧				// s is a abs_entering state
+	    abs_container(s) ∉ abs_enter(tr) ∧	// but the abs_container of s is not an abs_entering state
+	    r ∈ abs_regions ∧ s ∈ r			// r is the region containing s
+	⇒
+		abs_exit(tr) ⊆ abs_successor[r]			// all exiting states are "descendant" of r 
+
+	// if a transition "abs_enters" a multiple-region state, the transition should abs_target exactly one in each region.
+	@tr-exactly_one_per_region:
+		∀tr, ps, r ·
+			tr ∈ abs_transitions ∧		// tr is a transition
+		 	ps ∈ abs_enter(tr) ∧ 		// ps is a parent abs_entering state
+		 	r ∈ abs_regions ∧ abs_container[r] = {ps}	// r is a region of ps
+		 ⇒ 
+			(∃s · r ∩ abs_enter(tr) = {s})		// There exists exactly 1 entering state s in r
+	
+	// The initial leaf is a leaf state.	
+	@typeof-init_leaf: abs_init_leaves ∈ ℙ(abs_leaves)
+
+	@def-init: abs_init = cl(abs_container)[abs_init_leaves] ∪ abs_init_leaves
+	theorem @typeof-init: abs_init ⊆ abs_states
+		// At most one active in the same region
+	@init-region-unique: ∀region, state1, state2 ·
+		state1 ∈ region ∩ abs_init ∧ state2 ∈ region ∩ abs_init ⇒ state1 = state2 
+
+	// All parallel abs_regions are inactive (hence active) at the same time
+	@init-region-parallel: ∀region1, region2 ·
+		abs_container[region1] = abs_container[region2] ∧ region1 ∩ abs_init = ∅ ⇒ region2 ∩ abs_init = ∅
+	
+	//@typeof-parallel_transition: parallel_abs_transitions ⊆ ℙ(transitions)
+	// More properties about parallel_transition
+	// - They "belong" to different parallel abs_regions
+	//   @cfs: abs_sources of parallel transitions have to be contained within different abs_regions of the first common ancestor
+	//   @cfs: "different" abs_targets of parallel transitions have to be contained within
+	//         different abs_regions of the first common ancestor
+	//         !prs, tr1, tr2, abs_first_common_ancestry . prs : parallel_transitions & tr1 /= tr2 & {tr1, tr2} <: prs & 
+	//             abs_target(tr1) /= abs_target(tr2) & abs_first_common_ancestry = first_common_ancestor(abs_target(tr1), abs_target(tr2)) =>
+	//                     region(abs_first_common_ancestry, abs_target(tr1)) /= region(abs_first_common_ancestry, abs_target(tr2))    
+end

@@ -1,0 +1,67 @@
+/*
+ * This machine captures the semantics of the statemachine as trace of abs_active states.
+ */
+machine abs_statemachine
+sees abs_statemachine_ctx c0_4_tree_prop
+variables
+	abs_active // The set of abs_active states
+	
+	// The following are auxiliary variables to capture property of the statemachine
+	abs_active_leaves // The current abs_active leaf
+invariants
+	// @abs_active is a set of states
+	@typeof-abs_active: abs_active ⊆ abs_states
+	
+	// @abs_active_leaf is a set of leaves
+	@typeof-abs_active_leaf: abs_active_leaves ⊆ abs_leaves
+	
+	// Consistency between abs_active and abs_active_leaf	
+	@abs_active-closure: abs_active = abs_ancestry[abs_active_leaves]
+	
+	// At most one abs_active in the same region
+	@abs_active-region-unique: ∀region, state1, state2 ·
+		state1 ∈ region ∩ abs_active ∧ state2 ∈ region ∩ abs_active ⇒ state1 = state2 
+
+	// All parallel regions are inabs_active (hence abs_active) at the same time
+	@abs_active-region-parallel: ∀region1, region2 ·
+		abs_container[region1] = abs_container[region2] ∧ region1 ∩ abs_active = ∅ ⇒ region2 ∩ abs_active = ∅
+	
+	// This is a consequence of @abs_active-region-parallel
+	theorem @abs_active-region-parallel-equiv: ∀region1, region2 ·
+		abs_container[region1] = abs_container[region2] ⇒ (region1 ∩ abs_active = ∅ ⇔ region2 ∩ abs_active = ∅)
+
+	// Properties derive from the consistency invariant ???? (to be reproved)
+	theorem @LinkedList-abs_active: ∀abs_active_leaf· abs_active_leaf ∈ abs_active_leaves ⇒ abs_active_leaf ↦ abs_root ↦ (abs_ancestry[{abs_active_leaf}] ◁ abs_container) ∈ LinkedList(abs_active)
+	
+	// If a non-root state is abs_active then the container is also abs_active
+	// These should/might be the consequence of @LinkedList-abs_active using property of LinkedList
+	theorem @container_abs_active:
+		∀ s · s ∈ abs_active ∖ {abs_root} ⇒ abs_container(s) ∈ abs_active
+	theorem @content_abs_active:
+		∀ s · s ∈ ran(abs_container) ∧ s ∈ abs_active ⇒ abs_container∼[{s}] ∩ abs_active ≠ ∅
+		 
+events
+	event INITIALISATION
+	then
+		@update-abs_active: abs_active ≔ abs_init
+		@update-abs_active_leaf: abs_active_leaves ≔ abs_init_leaves
+	end
+	
+	event stm_transition
+	any
+		abs_trs // the set of transitions that will be executed in parallel, they could be empty
+	where
+		@typeof-transition: abs_trs ⊆ abs_transitions
+		@source-abs_active: ∀t · t ∈ abs_trs ⇒ abs_source(t) ⊆ abs_active
+		@non-conflict: ∀ t1, t2· t1 ∈ abs_trs ∧ t2 ∈ abs_trs ∧ t1 ≠ t2 ⇒ (abs_exit(t1) ∪ abs_enter(t1)) ∩ (abs_exit(t2) ∪ abs_enter(t2)) = ∅
+		// theorem @disjoint-enter: ∀ t1, t2· t1 ∈ trs ∧ t2 ∈ trs ∧ t1 ≠ t2 ⇒ enter(t1) ∩ enter(t2) = ∅  // Is this true?
+		// theorem @disjoint-exit-enter: ∀ t1, t2· t1 ∈ trs ∧ t2 ∈ trs ∧ t1 ≠ t2 ⇒ exit(t1) ∩ enter(t2) = ∅  // Is this true?
+	then
+		//@update-abs_active: abs_active ≔ cl(container)[{target(transition)}] ∪ {target(transition)}
+		@update-abs_active: abs_active ≔ (abs_active ∖ union(abs_exit[abs_trs])) ∪ union(abs_enter[abs_trs])
+		
+		// abs_active := (abs_active \ exit(t1)) \/ enter(t1)  \ exit(t2) \/ enter(t2) .... 
+		// Exit all the leaves associated with the sources and enter the target leaves.
+		@update-abs_active_leaf: abs_active_leaves ≔ abs_leaves ∩ ((abs_active_leaves ∖ union(abs_exit[abs_trs])) ∪ union(abs_enter[abs_trs]))
+	end
+end
