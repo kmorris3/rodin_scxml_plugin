@@ -1,0 +1,67 @@
+/*
+ * This machine captures the semantics of the statemachine as trace of active states.
+ */
+machine statemachine
+sees statemachine_ctx c0_4_tree_prop
+variables
+	active // The set of active states
+	
+	// The following are auxiliary variables to capture property of the statemachine
+	active_leaves // The current active leaf
+invariants
+	// @active is a set of states
+	@typeof-active: active ⊆ states
+	
+	// @active_leaf is a set of leaves
+	@typeof-active_leaf: active_leaves ⊆ leaves
+	
+	// Consistency between active and active_leaf	
+	@active-closure: active = ancestry[active_leaves]
+	
+	// At most one active in the same region
+	@active-region-unique: ∀region, state1, state2 ·
+		state1 ∈ region ∩ active ∧ state2 ∈ region ∩ active ⇒ state1 = state2 
+
+	// All parallel regions are inactive (hence active) at the same time
+	@active-region-parallel: ∀region1, region2 ·
+		container[region1] = container[region2] ∧ region1 ∩ active = ∅ ⇒ region2 ∩ active = ∅
+	
+	// This is a consequence of @active-region-parallel
+	theorem @active-region-parallel-equiv: ∀region1, region2 ·
+		container[region1] = container[region2] ⇒ (region1 ∩ active = ∅ ⇔ region2 ∩ active = ∅)
+
+	// Properties derive from the consistency invariant ???? (to be reproved)
+	theorem @LinkedList-active: ∀active_leaf· active_leaf ∈ active_leaves ⇒ active_leaf ↦ root ↦ (ancestry[{active_leaf}] ◁ container) ∈ LinkedList(active)
+	
+	// If a non-root state is active then the container is also active
+	// These should/might be the consequence of @LinkedList-active using property of LinkedList
+	theorem @container_active:
+		∀ s · s ∈ active ∖ {root} ⇒ container(s) ∈ active
+	theorem @content_active:
+		∀ s · s ∈ ran(container) ∧ s ∈ active ⇒ container∼[{s}] ∩ active ≠ ∅
+		 
+events
+	event INITIALISATION
+	then
+		@update-active: active ≔ init
+		@update-active_leaf: active_leaves ≔ init_leaves
+	end
+	
+	event stm_transition
+	any
+		trs // the set of transitions that will be executed in parallel, they could be empty
+	where
+		@typeof-transition: trs ⊆ transitions
+		@source-active: ∀t · t ∈ trs ⇒ source(t) ⊆ active
+		@non-conflict: ∀ t1, t2· t1 ∈ trs ∧ t2 ∈ trs ∧ t1 ≠ t2 ⇒ (exit(t1) ∪ enter(t1)) ∩ (exit(t2) ∪ enter(t2)) = ∅
+		// theorem @disjoint-enter: ∀ t1, t2· t1 ∈ trs ∧ t2 ∈ trs ∧ t1 ≠ t2 ⇒ enter(t1) ∩ enter(t2) = ∅  // Is this true?
+		// theorem @disjoint-exit-enter: ∀ t1, t2· t1 ∈ trs ∧ t2 ∈ trs ∧ t1 ≠ t2 ⇒ exit(t1) ∩ enter(t2) = ∅  // Is this true?
+	then
+		//@update-active: active ≔ cl(container)[{target(transition)}] ∪ {target(transition)}
+		@update-active: active ≔ (active ∖ union(exit[trs])) ∪ union(enter[trs])
+		
+		// active := (active \ exit(t1)) \/ enter(t1)  \ exit(t2) \/ enter(t2) .... 
+		// Exit all the leaves associated with the sources and enter the target leaves.
+		@update-active_leaf: active_leaves ≔ leaves ∩ ((active_leaves ∖ union(exit[trs])) ∪ union(enter[trs]))
+	end
+end

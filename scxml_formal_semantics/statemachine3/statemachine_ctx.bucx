@@ -1,0 +1,135 @@
+/*
+ * This context declare the signature of a statemachine
+ */
+context statemachine_ctx
+extends c0_3_tree_def
+sets
+	transitions // The set of transitions
+constants
+	states // The set of states
+	root // The root state
+	container // The container relationship between states
+	source // The source of each transition
+	target // The target of each transition
+	regions // The region (parallel states)
+	init_leaves // The initial leaf
+	
+	// These are derived elements
+	leaves // The set of leaf states
+	init // The initial states
+	ancestry // ancestors and the node itself
+    successor // descendants and yourself
+	common_ancestry 
+    first_common_ancestry
+    
+    
+    exit
+    enter
+axioms		
+	// @states is a set of states
+	theorem @typeof-states: states ⊆ STATE
+	
+	// @root and @container form a tree on @states
+	@tree_structure: states ↦ root ↦ container ↦ leaves ∈ Tree
+	
+	// regions partition the states
+	@region_type: regions ⊆ ℙ(states)
+	@region_disjoint: ∀r1, r2 · r1 ∈ regions ∧ r2 ∈ regions ∧ r1 ≠ r2 ⇒ r1 ∩ r2 = ∅
+	@region_complete: union(regions) = states ∖ {root}
+	// all the states in the same region have the same parent
+	@region_same_parent: ∀ region · region ∈ regions ⇒ (∃parent · container[region] = {parent})
+	
+	// For a node n, a[{n}] is the set of the ancestors of n and n itself.
+	@ancestry_def: ancestry = cl(container) ∪ (states ◁ id)
+	theorem @ancestry_type: ancestry ∈ states ↔ states
+	
+	// For a node n, d[{n}] is the set of the descendants of n and n itself.
+	@successor_def: successor = cl(container∼) ∪ (states ◁ id)
+	theorem @successor_type: successor ∈ states ↔ states
+
+	// For two nodes n1, n2, common_ancestry(n1 ↦ n2) is the common ancestors of n1 and n2 (including n1, n2 themselves)
+	@common_ancestry_def: common_ancestry = (λns · ns ∈ ℙ1(states) ∣ (⋂n · n ∈ ns ∣ ancestry[{n}]))
+	theorem @common_ancestry_type: common_ancestry ∈ ℙ1(states) → ℙ(states)
+	
+	@first_common_ancestry_type: first_common_ancestry ∈ ℙ1(states) → states
+	@first_common_ancestry_prop1: ∀ns · ns ∈ ℙ1(states) ⇒ first_common_ancestry(ns) ∈ common_ancestry(ns)
+	@first_common_ancestry_prop2: ∀ns, oa · ns ∈ ℙ1(states) ∧ oa ∈ common_ancestry(ns) ⇒ oa ↦ first_common_ancestry(ns) ∉ cl(container)
+	
+	// Derivable properties from definition of Tree
+	theorem @typeof-root: root ∈ states
+	theorem @typeof-container: container ∈ states ∖ {root} → states
+	theorem @root-reachable: ∀ state · state ∈ states ∖ {root} ⇒ root ∈ cl(container)[{state}]
+	
+	// The set of leaf states is defined as those in @states and
+	// does not contain any other states.
+	theorem @def-leaves: leaves = states ∖ ran(container)
+	theorem @leaves_are_states: leaves ⊆ states
+	
+	// Transitions are relation between states
+	@typeof-source: source ∈ transitions → ℙ(states) // The source can be any state (non-deterministic)
+	@typeof-target: target ∈ transitions → ℙ(leaves) // The target must be a leaf state (deterministic)
+    
+    // We do not take the descendants of the enter state as the targets are leaves and
+    // they must be deterministic. (?????)
+    // Take first common ancestor of the set of targets f,
+    // get all the descendants (including f) of f which are the ancestors (including self) of the targets
+    @enter-def: enter = (λt · t ∈ transitions ∣ successor [{first_common_ancestry(target(t))}] ∩ ancestry[target(t)] )     
+    theorem @enter-type: enter ∈ transitions → ℙ(states)
+
+	// Take first common ancestor of the set of sources f,
+	// add the first common ancestor of the set of targets if it is an ancestor of the sources.
+	// take the descendants of the result. 
+	@exit-def: exit = (λt · t ∈ transitions ∣ successor [source(t)] ∪ successor [ (ancestry[source(t)] ∖ ancestry[target(t)]) ∪ ({first_common_ancestry(target(t))} ∩ ancestry[source(t)]) ] )
+	//    @exit-def: exit = (λt · t ∈ transitions ∣ successor[a[source(t)] ∖ a[target(t)]] )
+    theorem @exit-type: exit ∈ transitions → ℙ(states)
+    
+    
+	// sources have to be in different region? of the first common ancestor??
+	@valid-sources: ∀t, s1, s2· t ∈ transitions ∧ s1 ∈ source(t) ∧ s2 ∈ source(t) ∧ s1 ≠ s2 ⇒ 
+	(∃r1, r2 · container[r1] = {first_common_ancestry({s1,s2})} ∧ container[r2] = {first_common_ancestry({s1, s2})} ∧ r1 ≠ r2 ∧ s1 ∈ successor[r1] ∧ s2 ∈ successor[r2])   
+	// targets have to be in different region? of the first common ancestor??
+	@valid-targets: ∀t, t1, t2· t ∈ transitions ∧ t1 ∈ source(t) ∧ t2 ∈ source(t) ∧ t1 ≠ t2 ⇒ // different regions of the first common ancestor   
+	(∃r1, r2 · r1 ∈ regions ∧ r2 ∈ regions ∧ container[r1] = {first_common_ancestry({t1, t2})} ∧ container[r2] = {first_common_ancestry({t1, t2})} ∧ r1 ≠ r2 ∧ t1 ∈ successor[r1] ∧ t2 ∈ successor[r2])   
+	// Valid internal transition
+	// @cfs: source and target have to in the same region of the first common ancestor
+	@valid_internal_transition:
+	∀tr, s, r ·
+		tr ∈ transitions ∧			// tr is a transition
+	    s ∈ enter(tr) ∧				// s is a entering state
+	    container(s) ∉ enter(tr) ∧	// but the container of s is not an entering state
+	    r ∈ regions ∧ s ∈ r			// r is the region containing s
+	⇒
+		exit(tr) ⊆ successor[r]			// all exiting states are "descendant" of r 
+
+	// if a transition "enters" a multiple-region state, the transition should target exactly one in each region.
+	@tr-exactly_one_per_region:
+		∀tr, ps, r ·
+			tr ∈ transitions ∧		// tr is a transition
+		 	ps ∈ enter(tr) ∧ 		// ps is a parent entering state
+		 	r ∈ regions ∧ container[r] = {ps}	// r is a region of ps
+		 ⇒ 
+			(∃s · r ∩ enter(tr) = {s})		// There exists exactly 1 entering state s in r
+	
+	// The initial leaf is a leaf state.	
+	@typeof-init_leaf: init_leaves ∈ ℙ(leaves)
+
+	@def-init: init = cl(container)[init_leaves] ∪ init_leaves
+	theorem @typeof-init: init ⊆ states
+		// At most one active in the same region
+	@init-region-unique: ∀region, state1, state2 ·
+		state1 ∈ region ∩ init ∧ state2 ∈ region ∩ init ⇒ state1 = state2 
+
+	// All parallel regions are inactive (hence active) at the same time
+	@init-region-parallel: ∀region1, region2 ·
+		container[region1] = container[region2] ∧ region1 ∩ init = ∅ ⇒ region2 ∩ init = ∅
+	
+	//@typeof-parallel_transition: parallel_transitions ⊆ ℙ(transitions)
+	// More properties about parallel_transition
+	// - They "belong" to different parallel regions
+	//   @cfs: sources of parallel transitions have to be contained within different regions of the first common ancestor
+	//   @cfs: "different" targets of parallel transitions have to be contained within
+	//         different regions of the first common ancestor
+	//         !prs, tr1, tr2, first_common_ancestry . prs : parallel_transitions & tr1 /= tr2 & {tr1, tr2} <: prs & 
+	//             target(tr1) /= target(tr2) & first_common_ancestry = first_common_ancestor(target(tr1), target(tr2)) =>
+	//                     region(first_common_ancestry, target(tr1)) /= region(first_common_ancestry, target(tr2))    
+end

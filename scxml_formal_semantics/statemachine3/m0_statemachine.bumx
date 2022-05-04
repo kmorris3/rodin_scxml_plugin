@@ -1,0 +1,17 @@
+/*
+ * This machine wrap the abs_statemachine.
+ * This machine is CORRECT-BY-CONSTRUCTION as there are no new variables nor invariants.
+ */
+machine m0_statemachine
+sees abs_statemachine_ctx c0_4_tree_prop
+includes abs_statemachine
+
+events
+	event INITIALISATION
+	synchronises INITIALISATION
+	end
+
+	event transition
+	synchronises stm_transition
+	end
+end
