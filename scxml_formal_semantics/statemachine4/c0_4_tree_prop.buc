@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;ac.soton.xeventb.xcontext.base" org.eventb.core.generated="false" version="3">
+    <org.eventb.core.extendsContext name="_HfdRMB45Ee2l09xnvQGYbQ" org.eventb.core.target="c0_3_tree_def"/>
+    <org.eventb.core.extendsContext name="_Hfd4QB45Ee2l09xnvQGYbQ" org.eventb.core.target="c0_3_linkedlist_def"/>
+    <org.eventb.core.constant name="_Hfd4QR45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.identifier="SubTree"/>
+    <org.eventb.core.axiom name="_Hfd4Qh45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="no-cycles" org.eventb.core.predicate="∀ Sts, rt, prn, lvs · Sts ↦ rt ↦ prn ↦ lvs ∈ Tree ⇒ (∀ T · T ⊆ Sts ∧ T ⊆ prn∼[T] ⇒ T = ∅)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_HfefUB45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="closure_irreflexive" org.eventb.core.predicate="∀ Sts, rt, prn, lvs · Sts ↦ rt ↦ prn ↦ lvs ∈ Tree ⇒ cl(prn) ∩ id = ∅" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_HfefUR45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="linked_list" org.eventb.core.predicate="∀ Sts, rt, prn, lvs · Sts ↦ rt ↦ prn ↦ lvs ∈ Tree ⇒ (∀ f, sts · f ∈ Sts ∧ sts = cl(prn)[{f}] ∪ {f} ⇒ f ↦ rt ↦ sts ◁ prn ∈ LinkedList(sts))" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_HfefUh45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="def-SubTree" org.eventb.core.predicate="SubTree = {(Sts1 ↦ rt1 ↦ prn1 ↦ lvs1) ↦ (Sts2 ↦ rt2 ↦ prn2 ↦ lvs2) ∣ Sts1 ↦ rt1 ↦ prn1 ↦ lvs1 ∈ Tree ∧ Sts2 ↦ rt2 ↦ prn2 ↦ lvs2 ∈ Tree ∧ Sts1 ⊆ Sts2 ∧ rt1 = rt2 ∧ prn1 ⊆ prn2 }"/>
+    <org.eventb.core.axiom name="_HffGYB45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="SubTree-leave" org.eventb.core.predicate="∀Sts1, rt1, prn1, lvs1, Sts2, rt2, prn2, lvs2, l1, l2 · (Sts1 ↦ rt1 ↦ prn1 ↦ lvs1) ↦ (Sts2 ↦ rt2 ↦ prn2 ↦ lvs2) ∈ SubTree ∧ l2 ∈ lvs2 ∧ {l1} = (prn2[{l2}] ∪ {l2}) ∩ lvs1 ⇒ (prn2[{l2}] ∪ {l2}) ∩ Sts1 = (prn1[{l1}] ∪ {l1}) ∩ Sts1"/>
+</org.eventb.core.contextFile>
