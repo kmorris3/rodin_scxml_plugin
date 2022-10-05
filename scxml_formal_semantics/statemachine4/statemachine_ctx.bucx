@@ -102,6 +102,8 @@ axioms
     	⇒
     		exiting(trf) ∩ r = {s} ∨ r ⊆ exiting(trf) 
     
+    
+    // if the container state s of a region r is an exiting state, there must some exiting state in r.
     @exiting-contained_region:
     	∀trf, s, r ·
     		trf ∈ transformations ∧
@@ -111,6 +113,7 @@ axioms
     	⇒
     		exiting(trf) ∩ r ≠ ∅
     
+    // if s is an enabling state in a region r then s is the unique exiting state in r.
     @enabling-unique_exiting_states_in_a_region:
     	∀trf, s, r · trf ∈ transformations ∧ 
     		s ∈ enabling(trf) ∧
@@ -170,8 +173,23 @@ axioms
 			entering(trf) ∩ container[r] = ∅
 		⇒
 			container[r] ⊆ enabling(trf) ∖ exiting(trf)
-	
-	
+
+// @TODO htson: We need some axioms linking exiting and entering
+// Without this axiom, we can have the following invalid configuration
+// root <− [Y]
+// exiting = {Y}
+// active = {Y, root}
+// enabling = {Y, root}
+// entering = ∅	
+	 @entering-you_must_go_somewhere:
+		∀trf, r ·
+    		trf ∈ transformations ∧
+			r ∈ regions ∧
+			container[r] ∩ exiting(trf) = ∅ ∧
+			exiting(trf) ∩ r ≠ ∅
+		⇒
+			entering(trf) ∩ r ≠ ∅  // You must go somewhere within r
+
 //	@entering-enter_within_state2:
 //		∀trf, r ·
 //    		trf ∈ transformations ∧
