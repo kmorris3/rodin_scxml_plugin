@@ -37,7 +37,6 @@ axioms
 	@region_complete: union(regions) = states ∖ {root}
 	// all the states in the same region have the same parent
 	@region_same_parent: ∀ region · region ∈ regions ⇒ (∃parent · container[region] = {parent})
-	
 	// For a node n, a[{n}] is the set of the ancestors of n and n itself.
 //	@ancestry_def: ancestry = cl(container) ∪ (states ◁ id)
 //	theorem @ancestry_type: ancestry ∈ states ↔ states
@@ -58,6 +57,11 @@ axioms
 	theorem @typeof-root: root ∈ states
 	theorem @typeof-container: container ∈ states ∖ {root} → states
 	theorem @root-reachable: ∀ state · state ∈ states ∖ {root} ⇒ root ∈ cl(container)[{state}]
+	
+	// If a region r contains a child of s then every state in r must have s as its container
+	theorem @region-unique_container: ∀r, s · r ∈ regions ∧ r ∩ container∼[{s}] ≠ ∅ ⇒ r ◁ container = r × {s}
+	theorem @region-unique_container2: ∀s · s ∈ ran(container) ⇒ (∃r·r ∈ regions ∧ r ◁ container = r × {s})
+	
 	
 	// The set of leaf states is defined as those in @states and
 	// does not contain any other states.
@@ -152,6 +156,8 @@ axioms
     	⇒
     		entering(trf) ∩ r = {s} 
 
+	// If a trf enters a container of a region r
+	// the trf must enter some states in r
     @entering-contained_region:
     	∀trf, r ·
     		trf ∈ transformations ∧
@@ -173,7 +179,26 @@ axioms
 			entering(trf) ∩ container[r] = ∅
 		⇒
 			container[r] ⊆ enabling(trf) ∖ exiting(trf)
-
+	/*
+	 * If the container of a region r is a enabling state and there are some entering state in r
+	 * then there must be some exiting state in r.
+	 * I.e., you must exiting r before reentering r.
+	 * Counterexample (leads to this axiom)
+	 * container = {x ↦ S1, s ↦ S1, ‥}
+     * r = {S11, S12}
+	 * exiting = ∅
+     * enabling = {S1}
+     * entering = {S12}
+     * active = {S11, S1}
+	 */
+	@entering-reentering_exiting_region:
+	∀trf, r ·
+    		trf ∈ transformations ∧
+			r ∈ regions ∧
+			container[r] ⊆ enabling(trf) ∧
+			entering(trf) ∩ r ≠ ∅
+		⇒
+			exiting(trf) ∩ r ≠ ∅
 // @TODO htson: We need some axioms linking exiting and entering
 // Without this axiom, we can have the following invalid configuration
 // root <− [Y]

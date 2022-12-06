@@ -1,4 +1,7 @@
- s a non−root state, 
+Proof of INV @container_active
+==============================
+
+s a non−root state, 
    and either (1) s is active but none−exiting state, OR
               (2) s is an entering state
 then
@@ -7,9 +10,6 @@ then
  (G2) the container of s is an entering state
 
 Since s is a non−root state, there exists a region r containing s·
-
-
-
 
 Proof−by−case
 (1) s is active but none−exiting state
@@ -49,3 +49,43 @@ Proof−by−case
    		so the container of s is enabling but NOT exiting state
         - Since all enabling state has to be active the transformation to occur,
            it means that the container of s is active but none−existing state (G1)
+
+
+Proof of INV @content_active
+==============================
+ For all s where 
+      (H1) s is a container state and
+       s is (H2·1) active and NOT exiting state OR
+            (H2·2) s is an entering state
+  then
+      there exists a child state of s which is either
+       (G1) active and NOT existing state OR
+       (G2) an entering state
+
+Consider proof by cases for (H2·1) and (H2·2)
+
+(H2·1), i·e·, s is active and NOT exiting state
+  − Instantiate INV @content_active, we have
+    there exist a child state of s which is active, call this child state x
+  − Consider proof by case on x is an exiting state OR ¬
+    (a) x is an exiting state
+        + We first prove that there exists a child state of s which is an entering state
+           −− There exists a region r contains x
+              ==== TBA ====
+           −− r ◁ container=r × {s}, i.e., every state in r must have
+          s as its container.
+              === TBA ===
+           −− Instantiating @entering−you_must_go*somewhere with r, we
+           obtain that there must be an entering state within r
+        + Let's call this child state x0, which is an entering state·
+           x0 is a candidate for (G2)
+    (b) x is NOT an exiting state
+        x would be a candidate for (G1)
+ 
+(H2·2) i·e·, s is an entering state
+   − There exists a region r contained in s, i·e·, ∃ r   · r∈regions ∧r ◁ container=r × {s}
+          ==== TBA ====
+   − Instantiate AXM @entering−contained*region,
+       we obtain that there is an entering state in r, i·e·, entering(trf) ∩ r ≠ ∅
+       we call this entering state in r x and 
+       we will prove that x is a candidate for either (G1) OR (G2)

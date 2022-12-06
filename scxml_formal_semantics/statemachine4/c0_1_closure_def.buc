@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;ac.soton.xeventb.xcontext.base" org.eventb.core.generated="false" version="3">
-    <org.eventb.core.extendsContext name="_HfXxoB45Ee2l09xnvQGYbQ" org.eventb.core.target="c0_0_states"/>
-    <org.eventb.core.constant name="_HfXxoR45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.identifier="cl"/>
-    <org.eventb.core.axiom name="_HfYYsB45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="def-cl" org.eventb.core.predicate="cl = (λ r · r ∈ STATE ↔ STATE ∣ inter({p ∣ r ⊆ p ∧ p;p ⊆ p}))"/>
-    <org.eventb.core.axiom name="_HfYYsR45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="typeof-cl" org.eventb.core.predicate="cl ∈ (STATE ↔ STATE) → (STATE ↔ STATE)" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_HfYYsh45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="thm1-cl_strengthen" org.eventb.core.predicate="∀ r· r ⊆ cl(r)" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_HfY_wB45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="thm2-cl_transitivity" org.eventb.core.predicate="∀ r·cl(r);cl(r) ⊆ cl(r)" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_HfY_wR45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="thm3-cl_minimal" org.eventb.core.predicate="∀ r·(∀ p· r⊆p ∧ p;p⊆p ⇒ cl(r)⊆p)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.extendsContext name="_bcRqEE-_Ee2cqfqcWjJJMQ" org.eventb.core.target="c0_0_states"/>
+    <org.eventb.core.constant name="_bcSRIE-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.identifier="cl"/>
+    <org.eventb.core.axiom name="_bcSRIU-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="def-cl" org.eventb.core.predicate="cl = (λ r · r ∈ STATE ↔ STATE ∣ inter({p ∣ r ⊆ p ∧ p;p ⊆ p}))"/>
+    <org.eventb.core.axiom name="_bcSRIk-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="typeof-cl" org.eventb.core.predicate="cl ∈ (STATE ↔ STATE) → (STATE ↔ STATE)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_bcSRI0-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="thm1-cl_strengthen" org.eventb.core.predicate="∀ r· r ⊆ cl(r)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_bcS4ME-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="thm2-cl_transitivity" org.eventb.core.predicate="∀ r·cl(r);cl(r) ⊆ cl(r)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_bcS4MU-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="thm3-cl_minimal" org.eventb.core.predicate="∀ r·(∀ p· r⊆p ∧ p;p⊆p ⇒ cl(r)⊆p)" org.eventb.core.theorem="true"/>
 </org.eventb.core.contextFile>

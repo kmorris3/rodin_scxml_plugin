@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;ac.soton.xeventb.xcontext.base" org.eventb.core.generated="false" version="3">
-    <org.eventb.core.extendsContext name="_Hf9AcB45Ee2l09xnvQGYbQ" org.eventb.core.target="c0_1_closure_def"/>
-    <org.eventb.core.axiom name="_Hf-1oB45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="thm1-cl_strengthen" org.eventb.core.predicate="∀ r· r ⊆ cl(r)" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_HgAq0B45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="thm2-cl_transitivity" org.eventb.core.predicate="∀ r·cl(r);cl(r) ⊆ cl(r)" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_HgAq0R45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="thm3-cl_minimal" org.eventb.core.predicate="∀ r·(∀ p· r⊆p ∧ p;p⊆p ⇒ cl(r)⊆p)" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_HgBR4B45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="thm4-⊆_monotonic" org.eventb.core.predicate="∀ r,p·r⊆p ⇒ cl(r) ⊆ cl(p)" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_HgBR4R45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="thm5-right_maximal" org.eventb.core.predicate="∀ r·cl(r);r ⊆ cl(r)" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_HgB48B45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="thm6-left_maximal" org.eventb.core.predicate="∀ r·r;cl(r) ⊆ cl(r)" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_HgB48R45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="thm7-head_recursion" org.eventb.core.predicate="∀r·cl(r) = r ∪ (r;cl(r))" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_HgCgAB45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="thm8-tail_recursion" org.eventb.core.predicate="∀r·cl(r) = (cl(r);r) ∪ r" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_HgCgAR45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="thm9-induction" org.eventb.core.predicate="∀r,T· r[T]⊆T ⇒ cl(r)[T]⊆T" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_HgDHEB45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="thm10-converse" org.eventb.core.predicate="∀r·cl(r∼) = cl(r)∼" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_HgDHER45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="thm11-domain_preservation" org.eventb.core.predicate="∀r· dom(r) = dom(cl(r))" org.eventb.core.theorem="true"/>
-    <org.eventb.core.axiom name="_HgDuIB45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="thm12-range_preservation" org.eventb.core.predicate="∀r· ran(r) = ran(cl(r))" org.eventb.core.theorem="true"/>
+    <org.eventb.core.extendsContext name="_bcH5EE-_Ee2cqfqcWjJJMQ" org.eventb.core.target="c0_1_closure_def"/>
+    <org.eventb.core.axiom name="_bcH5EU-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="thm1-cl_strengthen" org.eventb.core.predicate="∀ r· r ⊆ cl(r)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_bcIgIE-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="thm2-cl_transitivity" org.eventb.core.predicate="∀ r·cl(r);cl(r) ⊆ cl(r)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_bcIgIU-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="thm3-cl_minimal" org.eventb.core.predicate="∀ r·(∀ p· r⊆p ∧ p;p⊆p ⇒ cl(r)⊆p)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_bcIgIk-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="thm4-⊆_monotonic" org.eventb.core.predicate="∀ r,p·r⊆p ⇒ cl(r) ⊆ cl(p)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_bcIgI0-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="thm5-right_maximal" org.eventb.core.predicate="∀ r·cl(r);r ⊆ cl(r)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_bcIgJE-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="thm6-left_maximal" org.eventb.core.predicate="∀ r·r;cl(r) ⊆ cl(r)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_bcJHME-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="thm7-head_recursion" org.eventb.core.predicate="∀r·cl(r) = r ∪ (r;cl(r))" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_bcJHMU-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="thm8-tail_recursion" org.eventb.core.predicate="∀r·cl(r) = (cl(r);r) ∪ r" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_bcJuQE-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="thm9-induction" org.eventb.core.predicate="∀r,T· r[T]⊆T ⇒ cl(r)[T]⊆T" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_bcJuQU-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="thm10-converse" org.eventb.core.predicate="∀r·cl(r∼) = cl(r)∼" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_bcJuQk-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="thm11-domain_preservation" org.eventb.core.predicate="∀r· dom(r) = dom(cl(r))" org.eventb.core.theorem="true"/>
+    <org.eventb.core.axiom name="_bcKVUE-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="thm12-range_preservation" org.eventb.core.predicate="∀r· ran(r) = ran(cl(r))" org.eventb.core.theorem="true"/>
 </org.eventb.core.contextFile>

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd;ac.soton.xeventb.xmachine.base" org.eventb.core.generated="false" version="5">
-    <org.eventb.core.seesContext name="_RRXQIB45Ee2l09xnvQGYbQ" org.eventb.core.target="statemachine_ctx"/>
-    <org.eventb.core.seesContext name="_RRXQIR45Ee2l09xnvQGYbQ" org.eventb.core.target="c0_4_tree_prop"/>
-    <org.eventb.core.variable name="_RRXQIh45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.identifier="active"/>
-    <org.eventb.core.invariant name="_RRX3MB45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="typeof-active" org.eventb.core.predicate="active ⊆ states"/>
-    <org.eventb.core.invariant name="_RRX3MR45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="container_active" org.eventb.core.predicate="∀ s · s ∈ active ∖ {root} ⇒ container(s) ∈ active"/>
-    <org.eventb.core.invariant name="_RRYeQB45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="content_active" org.eventb.core.predicate="∀ s · s ∈ ran(container) ∧ s ∈ active ⇒ container∼[{s}] ∩ active ≠ ∅"/>
-    <org.eventb.core.invariant name="_RRYeQR45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="active-region-unique" org.eventb.core.predicate="∀r, s · r ∈ regions ∧ s ∈ r ∩ active ⇒ r ∩ active ⊆ {s}"/>
-    <org.eventb.core.invariant name="_RRYeQh45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="active-region" org.eventb.core.predicate="∀r, s · r ∈ regions ∧ s ∈ r ∩ active ⇒ r ∩ active = {s}" org.eventb.core.theorem="true"/>
-    <org.eventb.core.invariant name="_RRZFUB45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="active-region-parallel" org.eventb.core.predicate="∀region1, region2 · region1 ∈ regions ∧ region2 ∈ regions ∧ container[region1] = container[region2] ∧ region1 ∩ active = ∅ ⇒ region2 ∩ active = ∅"/>
-    <org.eventb.core.invariant name="_RRZFUR45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="active-region-parallel-equiv" org.eventb.core.predicate="∀region1, region2 · region1 ∈ regions ∧ region2 ∈ regions ∧ container[region1] = container[region2] ⇒ (region1 ∩ active = ∅ ⇔ region2 ∩ active = ∅)" org.eventb.core.theorem="true"/>
-    <org.eventb.core.event name="_RRZsYB45Ee2l09xnvQGYbQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
-        <org.eventb.core.action name="_RRZsYR45Ee2l09xnvQGYbQ" org.eventb.core.assignment="active ≔ init" org.eventb.core.generated="false" org.eventb.core.label="update-active"/>
+    <org.eventb.core.seesContext name="_bb7r0E-_Ee2cqfqcWjJJMQ" org.eventb.core.target="statemachine_ctx"/>
+    <org.eventb.core.seesContext name="_bb7r0U-_Ee2cqfqcWjJJMQ" org.eventb.core.target="c0_4_tree_prop"/>
+    <org.eventb.core.variable name="_bb8S4E-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.identifier="active"/>
+    <org.eventb.core.invariant name="_bb8S4U-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="typeof-active" org.eventb.core.predicate="active ⊆ states"/>
+    <org.eventb.core.invariant name="_bb8S4k-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="container_active" org.eventb.core.predicate="∀ s · s ∈ active ∖ {root} ⇒ container(s) ∈ active"/>
+    <org.eventb.core.invariant name="_bb8S40-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="content_active" org.eventb.core.predicate="∀ s · s ∈ ran(container) ∧ s ∈ active ⇒ container∼[{s}] ∩ active ≠ ∅"/>
+    <org.eventb.core.invariant name="_bb858E-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="active-region-unique" org.eventb.core.predicate="∀r, s · r ∈ regions ∧ s ∈ r ∩ active ⇒ r ∩ active ⊆ {s}"/>
+    <org.eventb.core.invariant name="_bb858U-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="active-region" org.eventb.core.predicate="∀r, s · r ∈ regions ∧ s ∈ r ∩ active ⇒ r ∩ active = {s}" org.eventb.core.theorem="true"/>
+    <org.eventb.core.invariant name="_bb858k-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="active-region-parallel" org.eventb.core.predicate="∀region1, region2 · region1 ∈ regions ∧ region2 ∈ regions ∧ container[region1] = container[region2] ∧ region1 ∩ active = ∅ ⇒ region2 ∩ active = ∅"/>
+    <org.eventb.core.invariant name="_bb9hAE-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="active-region-parallel-equiv" org.eventb.core.predicate="∀region1, region2 · region1 ∈ regions ∧ region2 ∈ regions ∧ container[region1] = container[region2] ⇒ (region1 ∩ active = ∅ ⇔ region2 ∩ active = ∅)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.event name="_bb9hAU-_Ee2cqfqcWjJJMQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="_bb9hAk-_Ee2cqfqcWjJJMQ" org.eventb.core.assignment="active ≔ init" org.eventb.core.generated="false" org.eventb.core.label="update-active"/>
     </org.eventb.core.event>
-    <org.eventb.core.event name="_RRaTcB45Ee2l09xnvQGYbQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="stm_transform">
-        <org.eventb.core.parameter name="_RRaTcR45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.identifier="trf"/>
-        <org.eventb.core.guard name="_RRa6gB45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="typeof-trf" org.eventb.core.predicate="trf ∈ transformations"/>
-        <org.eventb.core.guard name="_RRa6gR45Ee2l09xnvQGYbQ" org.eventb.core.generated="false" org.eventb.core.label="active-enabling" org.eventb.core.predicate="enabling(trf) ⊆ active"/>
-        <org.eventb.core.action name="_RRbhkB45Ee2l09xnvQGYbQ" org.eventb.core.assignment="active ≔ (active ∖ exiting(trf)) ∪ entering(trf)" org.eventb.core.generated="false" org.eventb.core.label="update-active"/>
+    <org.eventb.core.event name="_bb9hA0-_Ee2cqfqcWjJJMQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="stm_transform">
+        <org.eventb.core.parameter name="_bb-IEE-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.identifier="trf"/>
+        <org.eventb.core.guard name="_bb-IEU-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="typeof-trf" org.eventb.core.predicate="trf ∈ transformations"/>
+        <org.eventb.core.guard name="_bb-IEk-_Ee2cqfqcWjJJMQ" org.eventb.core.generated="false" org.eventb.core.label="active-enabling" org.eventb.core.predicate="enabling(trf) ⊆ active"/>
+        <org.eventb.core.action name="_bb-IE0-_Ee2cqfqcWjJJMQ" org.eventb.core.assignment="active ≔ (active ∖ exiting(trf)) ∪ entering(trf)" org.eventb.core.generated="false" org.eventb.core.label="update-active"/>
     </org.eventb.core.event>
 </org.eventb.core.machineFile>
