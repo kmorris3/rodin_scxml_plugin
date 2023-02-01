@@ -1,0 +1,17 @@
+context r2c_ctx
+extends r2c_c0_2_dequeue 
+sets
+	Steps
+constants
+	InternalTriggers
+	ExternalTriggers
+	Triggers
+	StepTrigger
+	StepRaised
+axioms
+	@typeof_IT: InternalTriggers ⊆ InternalTriggerType
+	@typeof_XT: ExternalTriggers ⊆ ExternalTriggerType
+	@def_T: Triggers = InternalTriggers ∪ ExternalTriggers
+	@def_StepTrigger: StepTrigger ∈ Steps ⇸ Triggers
+	@def_StepRaised: StepRaised ∈ Steps → Seq(InternalTriggers)
+end

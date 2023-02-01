@@ -1,0 +1,106 @@
+/*
+ * This machine models the semantics for a SCXML model.
+ *  
+ * @author cfs
+ */
+machine r2c
+sees r2c_ctx
+
+variables
+	internal_queue // The queue of raised internal triggers
+	external_queue // The queue of raised external triggers
+	dequeue_trigger // The current dequeue trigger or none
+	completed // Flag indicating that a run has been completed
+
+invariants
+	@internal_queue: 				internal_queue ∈ Seq(InternalTriggers)
+	@external_queue: 				external_queue ∈ Seq(ExternalTriggers)
+	@dequeue_trigger: 				dequeue_trigger ∈ DeQueueType
+	@dequeue_triggerwd: 			dequeue_trigger ⊆ InternalTriggers ∪ ExternalTriggers
+	@typeof_completed: 				completed ∈ BOOL
+	
+	@firingTriggered: 				dequeue_trigger ≠ ∅ ⇒ completed=FALSE		//just a sanity check
+	theorem @readyToDequeue:		completed=TRUE ⇒ dequeue_trigger = ∅		//just a sanity check
+		
+events
+
+	event INITIALISATION
+	then
+		@internal_queue_init:		internal_queue ≔ ∅ 
+		@external_queue_init: 		external_queue ≔ ∅
+		@dequeue_trigger_init:		dequeue_trigger ≔ ∅
+		@completed_init: 			completed ≔ FALSE
+	end
+	
+	event raiseExternalTrigger
+	any trigger where
+		@trigger: 					trigger ∈ ExternalTriggers
+	then
+		@external_queue_set:		external_queue ≔ Seq_append(external_queue ↦ trigger)
+	end
+	
+	event dequeueExternalTrigger
+	any trigger where 
+		@completed:					completed = TRUE
+		theorem @dequeue_trigger:	dequeue_trigger = ∅	//sanity check
+		@external_queue-non_empty: 	external_queue ≠ ∅
+		@trigger: 					trigger = Seq_head(external_queue)
+		@internal_queue:			internal_queue = ∅
+	then 
+		@dequeue_trigger_set: 		dequeue_trigger ≔ {trigger}
+		@external_queue_set:		external_queue ≔ Seq_tail(external_queue)
+		@completed_set:				completed ≔ FALSE
+	end
+	
+	event dequeueInternalTrigger
+	any trigger where 
+		@completed:					completed = TRUE
+		theorem @dequeue_trigger:	dequeue_trigger = ∅	//sanity check
+		@internal_queue-non_empty:	internal_queue ≠ ∅
+		@trigger: 					trigger = Seq_head(internal_queue)
+	then 
+		@dequeue_trigger_set: 		dequeue_trigger ≔ {trigger}
+		@external_queue_set:		internal_queue ≔ Seq_tail(internal_queue) 
+		@completed_set:				completed ≔ FALSE
+	end
+
+	event futureDequeue
+	when
+		@completed: completed = TRUE
+		theorem @dequeue_trigger:	dequeue_trigger = ∅	//sanity check
+	then
+		@set_incompleted: completed ≔ FALSE
+	end
+
+	
+	event triggeredStep 
+	any Step
+	where 
+		@step:					Step ∈ dom(StepTrigger)		
+		@trigger_dequeued: 		StepTrigger(Step) ∈ dequeue_trigger
+		theorem @completed:		completed = FALSE	//sanity check
+	then 
+		@dequeue_trigger_set: 	dequeue_trigger ≔ dequeue_trigger ∖ {StepTrigger(Step)}
+		@internal_queue_set:	internal_queue ≔ Seq_concat(internal_queue ↦ StepRaised(Step))		//raised triggers
+	end
+	
+	event untriggeredStep
+	any Step
+	where 
+		@step:						Step ∈ Steps ∖ dom(StepTrigger)	
+		@dequeue_trigger: 			dequeue_trigger = ∅
+		@completed:					completed = FALSE		
+	then 
+		@internal_queue_set:		internal_queue ≔ Seq_concat(internal_queue ↦ StepRaised(Step))		//raised triggers
+	end
+	
+	event completion
+	where
+		@dequeue_trigger: 			dequeue_trigger = ∅
+		@completed:					completed = FALSE
+	then
+		@completed_set:				completed ≔ TRUE
+	end
+	
+end
+
