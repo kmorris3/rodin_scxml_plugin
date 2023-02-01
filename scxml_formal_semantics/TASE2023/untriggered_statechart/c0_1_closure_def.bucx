@@ -1,0 +1,35 @@
+/*
+ * This context define transitive closure of STATEs and its basic properties.
+ */
+context c0_1_closure_def
+extends c0_0_states
+constants
+	cl
+axioms
+	/*
+	 * Definition for (irreflexive) transitive closure:
+	 * The transitive closure of r is the intersection of 
+	 * all transitive relation containing r
+	 * The intersection is well-defined (def-cl/WD) since
+	 * There exists a transitive relation containing r which is
+	 * the Cartesian product of STATE and STATE
+	 */
+	@def-cl: cl = (λ r · r ∈ STATE ↔ STATE ∣ inter({p ∣ r ⊆ p ∧ p;p ⊆ p})) 
+	
+	/*
+	 * Typing information:
+	 * The transitive closure of a relation between STATEs
+	 * is also a relation between STATEs
+	 */
+	theorem @typeof-cl: cl ∈ (STATE ↔ STATE) → (STATE ↔ STATE)
+	
+	// Transitive closure is ⊆-strengthening
+	theorem @thm1-cl_strengthen: ∀ r· r ⊆ cl(r)
+
+	// Transitive closure is transitive
+  	theorem @thm2-cl_transitivity: ∀ r·cl(r);cl(r) ⊆ cl(r)
+  	
+  	// Transitive closure is minimal
+  	theorem @thm3-cl_minimal: ∀ r·(∀ p· r⊆p ∧ p;p⊆p ⇒ cl(r)⊆p)
+
+end
