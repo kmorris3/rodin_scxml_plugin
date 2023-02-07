@@ -1,8 +1,8 @@
 /*
  * This context defines the notion of linked lists on a (sub-)set of states
  */
-context c0_3_linkedlist_def
-extends c0_1_closure_def
+context utstc_c0_3_linkedlist_def
+extends utstc_c0_1_closure_def
 
 constants
 	LinkedList

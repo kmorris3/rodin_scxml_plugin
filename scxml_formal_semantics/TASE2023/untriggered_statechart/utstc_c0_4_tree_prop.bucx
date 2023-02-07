@@ -1,5 +1,5 @@
-context c0_4_tree_prop
-extends c0_3_tree_def c0_3_linkedlist_def
+context utstc_c0_4_tree_prop
+extends utstc_c0_3_tree_def utstc_c0_3_linkedlist_def
 
 constants
 	SubTree // Sub-tree binary relationships

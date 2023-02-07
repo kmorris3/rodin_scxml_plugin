@@ -1,8 +1,8 @@
 /*
  * This context declare the signature of a statemachine
  */
-context statemachine_ctx
-extends c0_3_tree_def
+context utstc_ctx
+extends utstc_c0_3_tree_def
 sets
 	transformations // The set of transformations
 constants
