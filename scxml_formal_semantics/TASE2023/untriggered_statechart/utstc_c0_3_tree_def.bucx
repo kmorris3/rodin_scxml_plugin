@@ -1,8 +1,8 @@
 /*
  * This context defines the notion of trees on a (sub-)set of states
  */
-context c0_3_tree_def
-extends c0_2_closure_prop
+context utstc_c0_3_tree_def
+extends utstc_c0_2_closure_prop
 
 constants
 	Tree

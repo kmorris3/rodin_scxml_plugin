@@ -1,8 +1,8 @@
 /*
  * This machine captures the semantics of the statemachine as trace of active states.
  */
-machine statemachine
-sees statemachine_ctx c0_4_tree_prop
+machine utstc
+sees utstc_ctx utstc_c0_4_tree_prop
 variables
 	active // The set of active states
 	

@@ -1,8 +1,8 @@
 /*
  * This context define transitive closure of STATEs and its basic properties.
  */
-context c0_1_closure_def
-extends c0_0_states
+context utstc_c0_1_closure_def
+extends utstc_c0_0_states
 constants
 	cl
 axioms
