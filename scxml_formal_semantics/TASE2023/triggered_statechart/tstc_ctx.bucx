@@ -1,0 +1,7 @@
+context tstc_ctx
+extends r2c_ctx utstc_ctx
+constants
+	triggeredTransitions // trigger - transition relationship
+axioms
+	@typeof-triggergedTransitions: triggeredTransitions ∈ transformations ⇸ Steps
+end

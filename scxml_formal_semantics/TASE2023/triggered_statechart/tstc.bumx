@@ -1,0 +1,44 @@
+machine tstc
+sees tstc_ctx
+includes r2c as r2c
+includes utstc as utstc
+
+
+events
+	event INITIALISATION
+	synchronises r2c.INITIALISATION
+	synchronises utstc.INITIALISATION
+	end
+
+	event raiseExternalTrigger
+	synchronises r2c.raiseExternalTrigger
+	end
+	
+	event dequeueExternalTrigger
+	synchronises r2c.dequeueExternalTrigger
+	end
+	
+	event dequeueInternalTrigger
+	synchronises r2c.dequeueInternalTrigger
+	end
+	
+	event triggeredTransition
+	synchronises r2c.triggeredStep
+	synchronises utstc.stm_transform
+	where 
+		@is_triggered:	utstc_trf ∈ dom(triggeredTransitions)
+		@this_trigger:	triggeredTransitions(utstc_trf) = r2c_Step 
+	end
+
+	event untriggeredTransition
+	synchronises r2c.untriggeredStep
+	synchronises utstc.stm_transform
+	where 
+		@not_triggered: utstc_trf ∉ dom(triggeredTransitions)
+	end
+
+	event completion
+	synchronises r2c.completion
+	end
+
+end
