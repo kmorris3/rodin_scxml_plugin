@@ -6,9 +6,13 @@ includes utstc as utstc
 invariants
 	// Run-to-completion
 	// completion => no untriggered transformations enabled.
-	@completion: r2c_completed = TRUE ⇒
+	@completion-no_enabled_untriggered_transformation:
+	r2c_completed = TRUE ⇒
 		(∀trf· transitions(trf) ∉ dom(StepTrigger) ⇒ ¬enabling(trf) ⊆ utstc_active)
 	// dequeue_trigger not empty => no untriggered transformations enabled.
+	@dequeue-no_enabled_untriggered_transformation:
+	r2c_dequeue_trigger ≠ ∅ ⇒
+		(∀trf· transitions(trf) ∉ dom(StepTrigger) ⇒ ¬enabling(trf) ⊆ utstc_active)
 
 events
 	event INITIALISATION
@@ -60,6 +64,9 @@ events
 	event completion
 	synchronises r2c.completion
 	where
+		// This theorem is useful for discharging no_enabling/WD PO
+		theorem @COPY-typeof-transitions: transitions∈transformations ⤖ Steps ∖ discardSteps
+
 	 	// For all untriggered step r2c_Step, the corresponding transformation, 
 		// i.e., transitions∼(r2c_Step) is not enabled.
 		@no_enabling: 

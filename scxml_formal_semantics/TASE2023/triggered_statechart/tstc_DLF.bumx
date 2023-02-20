@@ -8,10 +8,14 @@ variables
 	r2c_dequeue_trigger
 	r2c_completed
 invariants
+	// This theorem is useful for proving theorem below
+	theorem @COPY-typeof-transitions: transitions∈transformations ⤖ Steps ∖ discardSteps
 	theorem @DLF:
 		r2c_completed = FALSE
 	⇒
-	    (// or, en(discardTriggered)
+	    (// either, en(discardTriggered)
+	     // There is a discard step for trigger "trigger" and for all transformations 
+	     // which is triggered by the same "trigger"  are all disabled.
 	    	∃ r2c_Step, trigger ·
 	    		r2c_Step ∈ dom(StepTrigger) ∧
 	    		StepTrigger(r2c_Step) ∈ r2c_dequeue_trigger ∧
@@ -21,6 +25,7 @@ invariants
 				(∀trf · transitions(trf) ∈ StepTrigger∼[{trigger}] ⇒ ¬enabling(trf) ⊆ utstc_active)
 	    )
 	    ∨ (// or, en(triggeredTransition)
+	       // There is a triggered step and its associated transformation is enabled 
 	    	∃ utstc_trf, r2c_Step ·
 	    		utstc_trf ∈ transformations ∧ 
 	    		enabling(utstc_trf) ⊆ utstc_active ∧
@@ -30,6 +35,7 @@ invariants
 	    		transitions(utstc_trf) = r2c_Step
 	    )
 	    ∨ (// or, en(untriggeredTransition)
+	       // There is no dequeued triggered there is an untriggered step and its associated transformation is enabled.
 	    	∃ utstc_trf, r2c_Step ·
 	    		utstc_trf ∈ transformations ∧ 
 	    		enabling(utstc_trf) ⊆ utstc_active ∧
@@ -39,6 +45,7 @@ invariants
 	    		transitions(utstc_trf) = r2c_Step
 	    )
 	    ∨ ( // or, en(completion)
+	        // There is no dequeue trigger and all untriggered step is is disabled.
 	    	r2c_dequeue_trigger = ∅ ∧
 	    	r2c_completed = FALSE ∧
 	    	(
