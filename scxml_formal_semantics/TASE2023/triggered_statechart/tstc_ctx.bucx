@@ -1,7 +1,10 @@
 context tstc_ctx
 extends r2c_ctx utstc_ctx
 constants
-	triggeredTransitions // trigger - transition relationship
+	transitions // transition: link between transformation and Steps (both triggered and untriggered)
+	discardSteps // steps for discard trigger
 axioms
-	@typeof-triggergedTransitions: triggeredTransitions ∈ transformations ⇸ Steps
+	@typeof-transitions: transitions ∈ transformations ⤖ Steps ∖ discardSteps
+	@discardSteps-Triggers: discardSteps ◁ StepTrigger ∈ Steps ⤖ Triggers
+	@discardSteps-Raised: StepRaised[discardSteps] = { ∅ }
 end

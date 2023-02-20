@@ -1,0 +1,76 @@
+machine tstc_DLF
+refines tstc
+sees tstc_ctx
+variables
+	utstc_active
+	r2c_internal_queue
+	r2c_external_queue
+	r2c_dequeue_trigger
+	r2c_completed
+invariants
+	theorem @DLF:
+		r2c_completed = FALSE
+	⇒
+	    (// or, en(discardTriggered)
+	    	∃ r2c_Step, trigger · 
+	    		r2c_Step ∈ dom(StepTrigger) ∧
+	    		StepTrigger(r2c_Step) ∈ r2c_dequeue_trigger ∧
+	    		r2c_completed = FALSE ∧
+	    		r2c_Step ∈ discardSteps ∧
+	    		trigger = StepTrigger(r2c_Step) ∧
+				(∀trf · transitions(trf) ∈ StepTrigger∼[{trigger}] ⇒ ¬enabling(trf) ⊆ utstc_active)
+	    )
+	    ∨ (// or, en(triggeredTransition)
+	    	∃ utstc_trf, r2c_Step ·
+	    		utstc_trf ∈ transformations ∧ 
+	    		enabling(utstc_trf) ⊆ utstc_active ∧
+	    		r2c_Step ∈ dom(StepTrigger) ∧
+	    		StepTrigger(r2c_Step) ∈ r2c_dequeue_trigger ∧
+	    		r2c_completed = FALSE ∧
+	    		transitions(utstc_trf) = r2c_Step
+	    )
+	    ∨ (// or, en(untriggeredTransition)
+	    	∃ utstc_trf, r2c_Step ·
+	    		utstc_trf ∈ transformations ∧ 
+	    		enabling(utstc_trf) ⊆ utstc_active ∧
+	    		r2c_Step ∈ Steps ∖ dom(StepTrigger) ∧
+	    		r2c_dequeue_trigger = ∅ ∧
+	    		r2c_completed = FALSE ∧
+	    		transitions(utstc_trf) = r2c_Step
+	    )
+	    ∨ ( // or, en(completion)
+	    	r2c_dequeue_trigger = ∅ ∧
+	    	r2c_completed = FALSE ∧
+	    	(
+	    		∀ r2c_Step · r2c_Step ∈ Steps ∖ dom(StepTrigger)
+			⇒
+				¬ (enabling(transitions∼(r2c_Step)) ⊆ utstc_active)
+			)
+	    ) 
+
+events
+	event INITIALISATION extends INITIALISATION
+	end
+
+	event raiseExternalTrigger extends raiseExternalTrigger
+	end
+
+	event dequeueExternalTrigger extends dequeueExternalTrigger
+	end
+
+	event dequeueInternalTrigger extends dequeueInternalTrigger
+	end
+
+	event discardTriggered extends discardTriggered
+	end
+
+	event triggeredTransition extends triggeredTransition
+	end
+
+	event untriggeredTransition extends untriggeredTransition
+	end
+
+	event completion extends completion
+	end
+
+end
