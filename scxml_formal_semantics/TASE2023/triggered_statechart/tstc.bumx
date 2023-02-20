@@ -3,13 +3,12 @@ sees tstc_ctx
 includes r2c as r2c
 includes utstc as utstc
 
-
-// Prove DLF
 invariants
 	// Run-to-completion
 	// completion => no untriggered transformations enabled.
+	@completion: r2c_completed = TRUE ⇒
+		(∀trf· transitions(trf) ∉ dom(StepTrigger) ⇒ ¬enabling(trf) ⊆ utstc_active)
 	// dequeue_trigger not empty => no untriggered transformations enabled.
-
 
 events
 	event INITIALISATION
@@ -30,7 +29,6 @@ events
 	end
 	
 	
-	// DLF
 	event discardTriggered
 	any trigger
 	synchronises r2c.triggeredStep

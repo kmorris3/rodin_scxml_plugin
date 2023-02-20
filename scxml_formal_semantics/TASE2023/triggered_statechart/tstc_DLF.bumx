@@ -12,7 +12,7 @@ invariants
 		r2c_completed = FALSE
 	⇒
 	    (// or, en(discardTriggered)
-	    	∃ r2c_Step, trigger · 
+	    	∃ r2c_Step, trigger ·
 	    		r2c_Step ∈ dom(StepTrigger) ∧
 	    		StepTrigger(r2c_Step) ∈ r2c_dequeue_trigger ∧
 	    		r2c_completed = FALSE ∧
