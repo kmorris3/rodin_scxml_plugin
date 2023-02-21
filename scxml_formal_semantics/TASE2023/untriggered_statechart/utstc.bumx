@@ -22,8 +22,7 @@ invariants
 	@container_active:
 		∀ s · s ∈ active ∖ {root} ⇒ container(s) ∈ active
 
-	// we will need to say that if we exit a state within the region but not the parent,
-	// then we must re-enter another state in that region
+	// If a container is active then there must be an active sub-state
 	@content_active:
 		∀ s · s ∈ ran(container) ∧ s ∈ active ⇒ container∼[{s}] ∩ active ≠ ∅
 		
@@ -53,7 +52,7 @@ events
 //		@update-active_leaf: active_leaves ≔ init_leaves
 	end
 	
-	event stm_transform
+	event transformation
 	any
 		trf // the set of transitions that will be executed in parallel, they could be empty
 	where
