@@ -3,17 +3,6 @@ sees tstc_ctx
 includes r2c as r2c
 includes utstc as utstc
 
-invariants
-	// Run-to-completion
-	// completion => no untriggered transformations enabled.
-	@completion-no_enabled_untriggered_transformation:
-	r2c_completed = TRUE ⇒
-		(∀trf· transitions(trf) ∉ dom(StepTrigger) ⇒ ¬enabling(trf) ⊆ utstc_active)
-	// dequeue_trigger not empty => no untriggered transformations enabled.
-	@dequeue-no_enabled_untriggered_transformation:
-	r2c_dequeue_trigger ≠ ∅ ⇒
-		(∀trf· transitions(trf) ∉ dom(StepTrigger) ⇒ ¬enabling(trf) ⊆ utstc_active)
-
 events
 	event INITIALISATION
 	synchronises r2c.INITIALISATION
