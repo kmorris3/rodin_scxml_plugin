@@ -3,7 +3,6 @@ sees tstc_ctx
 includes r2c as r2c
 includes utstc as utstc
 
-
 events
 	event INITIALISATION
 	synchronises r2c.INITIALISATION
@@ -22,23 +21,47 @@ events
 	synchronises r2c.dequeueInternalTrigger
 	end
 	
+	
+	event discardTriggered
+	any trigger
+	synchronises r2c.triggeredStep
+	where
+		// r2c_Step is a discard step
+		@Step-discard: r2c_Step ∈ discardSteps
+		// trigger is the discard trigger
+		@trigger-def: trigger = StepTrigger(r2c_Step)
+		
+		// for all transformation @trf that is triggered by @trigger is disabled,
+		// i.e., not all enabling states of @trf is active.
+		@no_enabling: ∀trf · transitions(trf) ∈ StepTrigger∼[{trigger}] ⇒ ¬enabling(trf) ⊆ utstc_active  
+	end
+
 	event triggeredTransition
 	synchronises r2c.triggeredStep
-	synchronises utstc.stm_transform
+	synchronises utstc.transformation
 	where 
-		@is_triggered:	utstc_trf ∈ dom(triggeredTransitions)
-		@this_trigger:	triggeredTransitions(utstc_trf) = r2c_Step 
+		@this_trigger:	transitions(utstc_trf) = r2c_Step 
 	end
 
 	event untriggeredTransition
 	synchronises r2c.untriggeredStep
-	synchronises utstc.stm_transform
+	synchronises utstc.transformation
 	where 
-		@not_triggered: utstc_trf ∉ dom(triggeredTransitions)
+		@this_trigger:	transitions(utstc_trf) = r2c_Step 
 	end
 
 	event completion
 	synchronises r2c.completion
+	where
+		// This theorem is useful for discharging no_enabling/WD PO
+		theorem @COPY-typeof-transitions: transitions∈transformations ⤖ Steps ∖ discardSteps
+
+	 	// For all untriggered step r2c_Step, the corresponding transformation, 
+		// i.e., transitions∼(r2c_Step) is not enabled.
+		@no_enabling: 
+			∀ r2c_Step · r2c_Step ∈ Steps ∖ dom(StepTrigger)
+		⇒
+			¬ (enabling(transitions∼(r2c_Step)) ⊆ utstc_active)
 	end
 
 end
