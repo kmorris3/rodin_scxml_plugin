@@ -1,0 +1,101 @@
+machine tree_checker_impl
+refines tree_checker
+sees tree_checker_ctx
+
+variables
+	result
+	visited
+invariants
+	@typeof-visited: root ∈ visited
+	@vitited: ∀n· n ∈ visited ∖ {root} ⇒ root ∈ cl(container)[{n}]
+	theorem @DLF: result = running ⇒
+		// Guard of simple check
+		 (¬(finite(states) ∧ 
+			root ∈ states ∧
+			container ∈ states ∖ {root} → states ∧
+			leaves = states ∖ ran(container)
+			) ∧ result = running)
+		∨ // Guard of progress
+		 (finite(states) ∧
+			root ∈ states ∧
+			container ∈ states ∖ {root} → states ∧
+			leaves = states ∖ ran(container)
+			∧ container∼[visited] ∖ visited ≠ ∅
+			∧ result = running)
+		∨ // Guard of check_failed
+		 (finite(states) ∧ 
+			root ∈ states ∧
+			container ∈ states ∖ {root} → states ∧
+			leaves = states ∖ ran(container)
+			∧ container∼[visited] ∖ visited = ∅
+			∧ states ∖ visited ≠ ∅
+			∧ result = running)
+		∨ // Guard of check_success
+		 (finite(states) ∧ 
+			root ∈ states ∧
+			container ∈ states ∖ {root} → states ∧
+			leaves = states ∖ ran(container)
+			∧ container∼[visited] ∖ visited = ∅
+			∧ states ∖ visited = ∅
+			∧ result = running)
+variants
+	@var: ({FALSE} ∖ {bool(finite(states))}) × (states ∖ visited) // This should be generated per convergent event.
+
+events
+	event INITIALISATION extends INITIALISATION
+	begin
+		@init-visited: visited ≔ {root}
+	end
+
+	convergent event simple_check_failed
+	refines check_failed
+	when
+		@grd1: ¬(finite(states) ∧ // finite tree
+			root ∈ states ∧
+			container ∈ states ∖ {root} → states ∧
+			leaves = states ∖ ran(container)
+			)
+		@grd2: result = running
+	then
+		@act1: result ≔ failed
+	end
+
+	convergent event progress
+	when
+		@grd1: finite(states) ∧ // finite tree
+			root ∈ states ∧
+			container ∈ states ∖ {root} → states ∧
+			leaves = states ∖ ran(container)
+		@grd2: container∼[visited] ∖ visited ≠ ∅
+		@grd3: result = running
+	then
+		@act: visited ≔ visited ∪ container∼[visited]
+	end
+	
+	convergent event check_failed refines check_failed
+	when
+		@grd1: finite(states) ∧ // finite tree
+			root ∈ states ∧
+			container ∈ states ∖ {root} → states ∧
+			leaves = states ∖ ran(container)
+		@grd2: container∼[visited] ∖ visited = ∅
+		@grd3: states ∖ visited ≠ ∅
+		@grd4: result = running
+	then
+		@result: result ≔ failed
+	end
+
+	convergent event check_success refines check_success
+	when
+		@grd1: finite(states) ∧ // finite tree
+			root ∈ states ∧
+			container ∈ states ∖ {root} → states ∧
+			leaves = states ∖ ran(container)
+		@grd2: container∼[visited] ∖ visited = ∅
+		@grd3: states ∖ visited = ∅
+		@grd4: result = running
+	then
+		@result: result ≔ success 
+	end
+
+end

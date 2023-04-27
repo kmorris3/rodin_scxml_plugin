@@ -1,0 +1,32 @@
+machine tree_checker
+sees tree_checker_ctx
+
+variables
+	result
+invariants
+	@typeof-result: result ∈ RESULT
+variants
+	@variant: {failed, success} ∖ {result}
+events
+	event INITIALISATION
+	begin
+		@init-result: result ≔ running
+	end
+	
+	convergent event check_failed
+	when
+		@grd1: result = running
+		@grd2: states ↦ root ↦ container ↦ leaves ∉ Tree
+	then
+		@result-def: result ≔ failed
+	end
+
+	convergent event check_success
+	when
+		@grd1: result = running
+		@grd2: states ↦ root ↦ container ↦ leaves ∈ Tree
+	then
+		@result-def: result ≔ success
+	end
+
+end
