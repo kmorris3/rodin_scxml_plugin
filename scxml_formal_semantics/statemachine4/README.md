@@ -89,3 +89,49 @@ Consider proof by cases for (H2·1) and (H2·2)
        we obtain that there is an entering state in r, i·e·, entering(trf) ∩ r ≠ ∅
        we call this entering state in r x and 
        we will prove that x is a candidate for either (G1) OR (G2)
+
+Proof of INV @active_region_unique
+==============================
+
+r is a region
+s is a state in r
+s is (active and not-exiting state) (H1) or is an entering state (H2)
+then
+s is the unique state in r that is active and not-exiting state) or is
+an entering state
+
+Rephrase as
+
+r is a region
+s is a state in r
+s is (active and not-exiting state) (H1) or is an entering state (H2)
+x is (active and not-exiting state) (H3) or is an entering state (H4)
+then
+x = s (G)
+
+We have 4 cases:
+(1) s and x are both active and not-exiting states (H1 & H3)
+This is trivial according to @active_region_unique: s and x are within
+the same region and both are active so they have to be the same (G)
+
+(2) s is active and not-exiting state and x is an entering state (H1 &
+H4)
+- (???) First prove that s is NOT an enabling state. (????)
+
+- We can prove that there are no exiting states in r.
+    ==> container of r is also not exiting.
+
+- We consider two cases whether or not s is an entering state
+
+(2.1) s is an entering state => similar to (4)
+
+(2.2) s is NOT entering state
+
+
+(3) H2 & H3 <-- symmetry to (2)
+
+(4) s and x are both entering states (H2 & H4)
+This is trivial because according to
+@entering-at_most_one_in_a_region: s and x are within the same region
+and both are entering states so they have to be the same (G)
+

@@ -14,13 +14,13 @@ constants
 	exiting // The exiting states of each transformation
 	entering // The entering states of each transformation
 	
-	init_leaves // The initial leaf TODO Is this better to define init_states 
+//	init_leaves // The initial leaf TODO Is this better to define init_states 
 	
 	// These are derived elements
 	leaves // The set of leaf states
-	init // The initial states
+//	init // The initial states
 	// FIXME Commented these out for now (not so sure if we are going to need them later)
-	//ancestry // ancestors and the node itself
+	ancestry // ancestors and the node itself
     //successor // descendants and yourself
 	//common_ancestry 
     //first_common_ancestry
@@ -37,9 +37,11 @@ axioms
 	@region_complete: union(regions) = states ∖ {root}
 	// all the states in the same region have the same parent
 	@region_same_parent: ∀ region · region ∈ regions ⇒ (∃parent · container[region] = {parent})
+	//
+	theorem @region_non-empty: ∀ region · region ∈ regions ⇒ region ≠ ∅
 	// For a node n, a[{n}] is the set of the ancestors of n and n itself.
-//	@ancestry_def: ancestry = cl(container) ∪ (states ◁ id)
-//	theorem @ancestry_type: ancestry ∈ states ↔ states
+	@ancestry_def: ancestry = cl(container) ∪ (states ◁ id)
+	theorem @ancestry_type: ancestry ∈ states ↔ states
 	
 	// For a node n, d[{n}] is the set of the descendants of n and n itself.
 //	@successor_def: successor = cl(container∼) ∪ (states ◁ id)
@@ -78,24 +80,27 @@ axioms
     // get all the descendants (including f) of f which are the ancestors (including self) of the targets
 	// @enter-def: enter = (λt · t ∈ transformations ∣ successor [{first_common_ancestry(target(t))}] ∩ ancestry[target(t)] )     
 
-	// Relationship between enabling and source states "enabling = a(container)[source]"
-	@enabling-type: enabling ∈ transformations → ℙ(states)
+	// >>>> [WRONG] Relationship between enabling and source states "enabling = a(container)[source]"
+	// NO, we should only use source states as enabling states.
+	@enabling-type: enabling ∈ transformations → ℙ1(states)
 	
-	@enabling-container: ∀trf, s · s ∈ enabling(trf) ∧ s ≠ root ⇒ container(s) ∈ enabling(trf)
+	// This axiom is no longer valid as we consider only the source states are enabling states.
+	// @enabling-container: ∀trf, s · s ∈ enabling(trf) ∧ s ≠ root ⇒ container(s) ∈ enabling(trf)
 	
-	@enabling-unique_region: 
-		∀trf, s1, s2, r · trf ∈ transformations ∧
-		s1 ∈ enabling(trf) ∧
-		s2 ∈ enabling(trf) ∧
-		s1 ≠ s2 ∧
-		r ∈ regions ∧
-		s1 ∈ r
-	⇒
-		s2 ∉ r 
+	// There is a unique enabling state or an ancestor of an enabling state in a region
+//	@enabling-unique_region: 
+//		∀trf, s1, s2, r · trf ∈ transformations ∧
+//		s1 ∈ ancestry[enabling(trf)] ∧
+//		s2 ∈ ancestry[enabling(trf)] ∧
+//		r ∈ regions ∧
+//		s1 ∈ r ∧
+//		s2 ∈ r
+//	⇒
+//		s1 = s2 
 
 	// We are now just take entering states as the difference between the target's ancestry and the source's ancestry
 //	@enter-def: enter = (λt · t ∈ transformations ∣ ancestry[target(t)] ∖ ancestry[source(t)])
-    @exiting-type: exiting ∈ transformations → ℙ(states)
+    @exiting-type: exiting ∈ transformations → ℙ1(states)
     
     @exiting-either_one_or_all_in_a_region: 
     	∀trf, s, r ·
@@ -145,7 +150,7 @@ axioms
     // exit: if exiting a parent state ex then has to exit the children of ex
 	//@valid-exit: ∀tf, ex · tf ∈ transformations ∧ ex ∈ exiting(tf) ⇒ container∼[{ex}] ⊆ exiting(tf)
 
-    @entering-type: entering ∈ transformations → ℙ(states)
+    @entering-type: entering ∈ transformations → ℙ1(states)
     
     @entering-at_most_one_in_a_region: 
     	∀trf, s, r ·
@@ -169,16 +174,17 @@ axioms
 	/*
 	 * For all transformation trf and a region r,
 	 *   if trf is entering r but not the container of r
-	 *   then the container of r is trf's enabling but not exiting state. 
+	 *   then the container of r is not an exiting state of trf 
 	 */
 	@entering-stay_within_state:
-		∀trf, r ·
+		∀trf, r, c ·
     		trf ∈ transformations ∧
 			r ∈ regions ∧
+			container[r] = {c} ∧
 			entering(trf) ∩ r ≠ ∅ ∧
 			entering(trf) ∩ container[r] = ∅
 		⇒
-			container[r] ⊆ enabling(trf) ∖ exiting(trf)
+			c ∉ exiting(trf)
 	/*
 	 * If the container of a region r is a enabling state and there are some entering state in r
 	 * then there must be some exiting state in r.
@@ -186,7 +192,7 @@ axioms
 	 * Counterexample (leads to this axiom)
 	 * container = {S11 ↦ S1, S12 ↦ S1, ‥}
      * r = {S11, S12}
-	 * exiting = ∅
+	 * exiting = {S1, S11, S12}
      * enabling = {S1}
      * entering = {S12}
      * active = {S11, S1}
@@ -195,19 +201,22 @@ axioms
      * BUT THIS does not cover this case 
      * container = {S11 ↦ S1, S12 ↦ S1, ..}
      * r = {S11, S12}
-	 * exiting = ∅
-     * enabling = ∅
-     * entering = {S1, S12}
+	 * exiting = {S1}
+     * enabling = {S1}
+     * entering = {S12}
      * active = {S11, S1}
      */
-	@entering-reentering_exiting_region:
-	∀trf, r ·
-    		trf ∈ transformations ∧
-			r ∈ regions ∧
-			container[r] ⊆ enabling(trf) ∧
-			entering(trf) ∩ r ≠ ∅
-		⇒
-			exiting(trf) ∩ r ≠ ∅
+     /*
+      * Son: I don't think we need this anymore
+      */
+//	@entering-reentering_exiting_region:
+//	∀trf, r ·
+//    		trf ∈ transformations ∧
+//			r ∈ regions ∧
+//			container[r] ⊆ enabling(trf) ∧
+//			entering(trf) ∩ r ≠ ∅
+//		⇒
+//			exiting(trf) ∩ r ≠ ∅
 // @TODO htson: We need some axioms linking exiting and entering
 // Without this axiom, we can have the following invalid configuration
 // root <− [Y]
@@ -269,17 +278,17 @@ axioms
 //			(∃s · r ∩ enter(tr) = {s})		// There exists exactly 1 entering state s in r
 	
 	// The initial leaf is a leaf state.	
-	@typeof-init_leaf: init_leaves ∈ ℙ(leaves)
+//	@typeof-init_leaf: init_leaves ∈ ℙ(leaves)
 
-	@def-init: init = cl(container)[init_leaves] ∪ init_leaves
-	theorem @typeof-init: init ⊆ states
+//	@def-init: init = cl(container)[init_leaves] ∪ init_leaves
+//	theorem @typeof-init: init ⊆ states
 		// At most one active in the same region
-	@init-region-unique: ∀region, state1, state2 ·
-		state1 ∈ region ∩ init ∧ state2 ∈ region ∩ init ⇒ state1 = state2 
+//	@init-region-unique: ∀region, state1, state2 ·
+//		state1 ∈ region ∩ init ∧ state2 ∈ region ∩ init ⇒ state1 = state2 
 
 	// All parallel regions are inactive (hence active) at the same time
-	@init-region-parallel: ∀region1, region2 ·
-		container[region1] = container[region2] ∧ region1 ∩ init = ∅ ⇒ region2 ∩ init = ∅
+//	@init-region-parallel: ∀region1, region2 ·
+//		container[region1] = container[region2] ∧ region1 ∩ init = ∅ ⇒ region2 ∩ init = ∅
 	
 	//@typeof-parallel_transformation: parallel_transformations ⊆ ℙ(transformations)
 	// More properties about parallel_transformation
