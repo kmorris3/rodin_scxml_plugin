@@ -1,27 +1,30 @@
-machine tree_checker_impl
-refines tree_checker
-sees tree_checker_ctx
+machine utstc_checker0_tree1
+refines utstc_checker0_tree0
+sees utstc_ctx0 utstc_c0_3_tree_def
 
 variables
-	result
-	visited
+	finished	// Indication that the check has finish
+	result		// The result of the check
+
+	visited		// The set of visited states
+
 invariants
 	@typeof-visited: root ∈ visited
 	@vitited: ∀n· n ∈ visited ∖ {root} ⇒ root ∈ cl(container)[{n}]
-	theorem @DLF: result = running ⇒
+	theorem @DLF: finished = FALSE ⇒
 		// Guard of simple check
 		 (¬(finite(states) ∧ 
 			root ∈ states ∧
 			container ∈ states ∖ {root} → states ∧
 			leaves = states ∖ ran(container)
-			) ∧ result = running)
+			) ∧ finished = FALSE)
 		∨ // Guard of progress
 		 (finite(states) ∧
 			root ∈ states ∧
 			container ∈ states ∖ {root} → states ∧
 			leaves = states ∖ ran(container)
 			∧ container∼[visited] ∖ visited ≠ ∅
-			∧ result = running)
+			∧ finished = FALSE)
 		∨ // Guard of check_failed
 		 (finite(states) ∧ 
 			root ∈ states ∧
@@ -29,7 +32,7 @@ invariants
 			leaves = states ∖ ran(container)
 			∧ container∼[visited] ∖ visited = ∅
 			∧ states ∖ visited ≠ ∅
-			∧ result = running)
+			∧ finished = FALSE)
 		∨ // Guard of check_success
 		 (finite(states) ∧ 
 			root ∈ states ∧
@@ -37,7 +40,7 @@ invariants
 			leaves = states ∖ ran(container)
 			∧ container∼[visited] ∖ visited = ∅
 			∧ states ∖ visited = ∅
-			∧ result = running)
+			∧ finished = FALSE)
 variants
 	@var: ({FALSE} ∖ {bool(finite(states))}) × (states ∖ visited) // This should be generated per convergent event.
 
@@ -47,17 +50,84 @@ events
 		@init-visited: visited ≔ {root}
 	end
 
-	convergent event simple_check_failed
-	refines check_failed
+	convergent event finiteStates_CheckFailed
+	refines checkFailed
 	when
-		@grd1: ¬(finite(states) ∧ // finite tree
-			root ∈ states ∧
-			container ∈ states ∖ {root} → states ∧
-			leaves = states ∖ ran(container)
-			)
-		@grd2: result = running
+		@grd1: finished = FALSE
+		@grd2: ¬ finite(states)
+		// Copy the definition for automatic proof
+//		theorem @def-Tree: Tree = {
+//			Sts ↦ rt ↦ prn ↦ lvs ∣
+//			Sts ⊆ STATE ∧
+//			finite(Sts) ∧
+//			rt ∈ Sts ∧
+//			prn ∈ Sts ∖ {rt} → Sts ∧
+//			(∀ n · n ∈ Sts ∖ {rt} ⇒ rt ∈ cl(prn)[{n}]) ∧
+//			lvs = Sts ∖ ran(prn)
+//		}
 	then
-		@act1: result ≔ failed
+		@act1: finished ≔ TRUE
+		@act2: result ≔ FALSE
+	end
+		
+	convergent event rootState_CheckFailed
+	refines checkFailed
+	when
+		@grd1: finished = FALSE
+		@grd2: root ∉ states
+		// Copy the definition for automatic proof
+//		theorem @def-Tree: Tree = {
+//			Sts ↦ rt ↦ prn ↦ lvs ∣
+//			Sts ⊆ STATE ∧
+//			finite(Sts) ∧
+//			rt ∈ Sts ∧
+//			prn ∈ Sts ∖ {rt} → Sts ∧
+//			(∀ n · n ∈ Sts ∖ {rt} ⇒ rt ∈ cl(prn)[{n}]) ∧
+//			lvs = Sts ∖ ran(prn)
+//		}
+	then
+		@act1: finished ≔ TRUE
+		@act2: result ≔ FALSE
+	end
+
+	convergent event containerType_CheckFailed
+	refines checkFailed
+	when
+		@grd1: finished = FALSE
+		@grd2: container ∉ states ∖ {root} → states
+		// Copy the definition for automatic proof
+//		theorem @def-Tree: Tree = {
+//			Sts ↦ rt ↦ prn ↦ lvs ∣
+//			Sts ⊆ STATE ∧
+//			finite(Sts) ∧
+//			rt ∈ Sts ∧
+//			prn ∈ Sts ∖ {rt} → Sts ∧
+//			(∀ n · n ∈ Sts ∖ {rt} ⇒ rt ∈ cl(prn)[{n}]) ∧
+//			lvs = Sts ∖ ran(prn)
+//		}
+	then
+		@act1: finished ≔ TRUE
+		@act2: result ≔ FALSE
+	end
+
+	convergent event leavseDefinition_CheckFailed
+	refines checkFailed
+	when
+		@grd1: finished = FALSE
+		@grd2: leaves ≠ states ∖ ran(container)
+		// Copy the definition for automatic proof
+//		theorem @def-Tree: Tree = {
+//			Sts ↦ rt ↦ prn ↦ lvs ∣
+//			Sts ⊆ STATE ∧
+//			finite(Sts) ∧
+//			rt ∈ Sts ∧
+//			prn ∈ Sts ∖ {rt} → Sts ∧
+//			(∀ n · n ∈ Sts ∖ {rt} ⇒ rt ∈ cl(prn)[{n}]) ∧
+//			lvs = Sts ∖ ran(prn)
+//		}
+	then
+		@act1: finished ≔ TRUE
+		@act2: result ≔ FALSE
 	end
 
 	convergent event progress
@@ -67,12 +137,12 @@ events
 			container ∈ states ∖ {root} → states ∧
 			leaves = states ∖ ran(container)
 		@grd2: container∼[visited] ∖ visited ≠ ∅
-		@grd3: result = running
+		@grd3: finished = FALSE
 	then
-		@act: visited ≔ visited ∪ container∼[visited]
+		@act1: visited ≔ visited ∪ container∼[visited]
 	end
 	
-	convergent event check_failed refines check_failed
+	convergent event reachabilityCheckFailed refines checkFailed
 	when
 		@grd1: finite(states) ∧ // finite tree
 			root ∈ states ∧
@@ -80,12 +150,13 @@ events
 			leaves = states ∖ ran(container)
 		@grd2: container∼[visited] ∖ visited = ∅
 		@grd3: states ∖ visited ≠ ∅
-		@grd4: result = running
+		@grd4: finished = FALSE
 	then
-		@result: result ≔ failed
+		@act1: finished ≔ TRUE
+		@act2: result ≔ FALSE
 	end
 
-	convergent event check_success refines check_success
+	convergent event checkSuccessful refines checkSuccessful
 	when
 		@grd1: finite(states) ∧ // finite tree
 			root ∈ states ∧
@@ -93,9 +164,20 @@ events
 			leaves = states ∖ ran(container)
 		@grd2: container∼[visited] ∖ visited = ∅
 		@grd3: states ∖ visited = ∅
-		@grd4: result = running
+		@grd4: finished = FALSE
+		// Copy the definition for automatic proof
+//		theorem @def-Tree: Tree = {
+//			Sts ↦ rt ↦ prn ↦ lvs ∣
+//			Sts ⊆ STATE ∧
+//			finite(Sts) ∧
+//			rt ∈ Sts ∧
+//			prn ∈ Sts ∖ {rt} → Sts ∧
+//			(∀ n · n ∈ Sts ∖ {rt} ⇒ rt ∈ cl(prn)[{n}]) ∧
+//			lvs = Sts ∖ ran(prn)
+//		}
 	then
-		@result: result ≔ success 
+		@act1: finished ≔ TRUE
+		@act2: result ≔ TRUE
 	end
 
 end

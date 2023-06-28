@@ -21,6 +21,9 @@ invariants
 	// container[entering] \ entering <: enabling \ exiting
 	@container_active:
 		∀ s · s ∈ active ∖ {root} ⇒ container(s) ∈ active
+	
+	theorem @ancestor_active:
+		∀ s · s ∈ active ⇒ cl(container)[{s}] ⊆ active
 
 	// If a container is active then there must be an active sub-state
 	@content_active:

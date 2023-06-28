@@ -1,86 +1,6 @@
-/*
- * This context declare the signature of a statemachine
- */
-context utstc_ctx
-extends utstc_c0_3_tree_def
-sets
-	transformations // The set of transformations
-constants
-	states // The set of states
-	root // The root state
-	container // The container relationship between states
-
-	regions // The region (parallel states)
-	enabling // The enabling states of each transformation
-	exiting // The exiting states of each transformation
-	entering // The entering states of each transformation
-	
-//	init_leaves // The initial leaf TODO Is this better to define init_states 
-	
-	// These are derived elements
-	leaves // The set of leaf states
-//	init // The initial states
-	// FIXME Commented these out for now (not so sure if we are going to need them later)
-	ancestry // ancestors and the node itself
-    //successor // descendants and yourself
-	//common_ancestry 
-    //first_common_ancestry
-axioms		
-	// @states is a set of states
-	theorem @typeof-states: states ⊆ STATE
-	
-	// @root and @container form a tree on @states
-	@tree_structure: states ↦ root ↦ container ↦ leaves ∈ Tree
-	
-	// regions partition the states
-	@region_type: regions ⊆ ℙ(states)
-	@region_disjoint: ∀r1, r2 · r1 ∈ regions ∧ r2 ∈ regions ∧ r1 ≠ r2 ⇒ r1 ∩ r2 = ∅
-	@region_complete: union(regions) = states ∖ {root}
-	// all the states in the same region have the same parent
-	@region_same_parent: ∀ region · region ∈ regions ⇒ (∃parent · container[region] = {parent})
-	//
-	theorem @region_non-empty: ∀ region · region ∈ regions ⇒ region ≠ ∅
-	// For a node n, a[{n}] is the set of the ancestors of n and n itself.
-	@ancestry_def: ancestry = cl(container) ∪ (states ◁ id)
-	theorem @ancestry_type: ancestry ∈ states ↔ states
-	
-	// For a node n, d[{n}] is the set of the descendants of n and n itself.
-//	@successor_def: successor = cl(container∼) ∪ (states ◁ id)
-//	theorem @successor_type: successor ∈ states ↔ states
-
-	// For two nodes n1, n2, common_ancestry(n1 ↦ n2) is the common ancestors of n1 and n2 (including n1, n2 themselves)
-//	@common_ancestry_def: common_ancestry = (λns · ns ∈ ℙ1(states) ∣ (⋂n · n ∈ ns ∣ ancestry[{n}]))
-//	theorem @common_ancestry_type: common_ancestry ∈ ℙ1(states) → ℙ(states)
-//	
-//	@first_common_ancestry_type: first_common_ancestry ∈ ℙ1(states) → states
-//	@first_common_ancestry_prop1: ∀ns · ns ∈ ℙ1(states) ⇒ first_common_ancestry(ns) ∈ common_ancestry(ns)
-//	@first_common_ancestry_prop2: ∀ns, oa · ns ∈ ℙ1(states) ∧ oa ∈ common_ancestry(ns) ⇒ oa ↦ first_common_ancestry(ns) ∉ cl(container)
-	
-	// Derivable properties from definition of Tree
-	theorem @typeof-root: root ∈ states
-	theorem @typeof-container: container ∈ states ∖ {root} → states
-	theorem @root-reachable: ∀ state · state ∈ states ∖ {root} ⇒ root ∈ cl(container)[{state}]
-	
-	// If a region r contains a child of s then every state in r must have s as its container
-	theorem @region-unique_container: ∀r, s · r ∈ regions ∧ r ∩ container∼[{s}] ≠ ∅ ⇒ r ◁ container = r × {s}
-	theorem @region-unique_container2: ∀s · s ∈ ran(container) ⇒ (∃r·r ∈ regions ∧ r ◁ container = r × {s})
-	
-	
-	// The set of leaf states is defined as those in @states and
-	// does not contain any other states.
-	theorem @def-leaves: leaves = states ∖ ran(container)
-	theorem @leaves_are_states: leaves ⊆ states
-	
-	// transformations are relation between states
-//	@typeof-source: source ∈ transformations → ℙ(states) // The source can be any state (non-deterministic)
-//	@typeof-target: target ∈ transformations → ℙ(leaves) // The target must be a leaf state (deterministic)
-    
-    // We do not take the descendants of the enter state as the targets are leaves and
-    // they must be deterministic. (?????)
-    // Take first common ancestor of the set of targets f,
-    // get all the descendants (including f) of f which are the ancestors (including self) of the targets
-	// @enter-def: enter = (λt · t ∈ transformations ∣ successor [{first_common_ancestry(target(t))}] ∩ ancestry[target(t)] )     
-
+context utstc_ctx2_transformation
+extends utstc_ctx2
+axioms
 	// >>>> [WRONG] Relationship between enabling and source states "enabling = a(container)[source]"
 	// NO, we should only use source states as enabling states.
 	@enabling-type: enabling ∈ transformations → ℙ1(states)
@@ -185,7 +105,7 @@ axioms
 			entering(trf) ∩ r ≠ ∅ ∧
 			entering(trf) ∩ container[r] = ∅
 		⇒
-			enabling(trf) ∩ cl(container)∼[{c}] ≠ ∅ ∧ c ∉ exiting(trf) 
+			c ∉ exiting(trf)
 	/*
 	 * If the container of a region r is a enabling state and there are some entering state in r
 	 * then there must be some exiting state in r.

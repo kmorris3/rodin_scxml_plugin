@@ -1,0 +1,18 @@
+context utstc_ctx1_region
+extends utstc_ctx1
+axioms
+	// regions partition the states accept root
+	@region_type: regions ⊆ ℙ(states)
+	@region_disjoint: ∀r1, r2 · r1 ∈ regions ∧ r2 ∈ regions ∧ r1 ≠ r2 ⇒ r1 ∩ r2 = ∅
+	@region_complete: union(regions) = states ∖ {root}
+
+	// all the states in the same region have the same parent
+	@region_same_parent: ∀ region · region ∈ regions ⇒ (∃parent · container[region] = {parent})
+
+	// every region is non-empty
+	theorem @region_non-empty: ∀ region · region ∈ regions ⇒ region ≠ ∅
+
+	// If a region r contains a child of s then every state in r must have s as its container
+	theorem @region-unique_container: ∀r, s · r ∈ regions ∧ r ∩ container∼[{s}] ≠ ∅ ⇒ r ◁ container = r × {s}
+	theorem @region-unique_container2: ∀s · s ∈ ran(container) ⇒ (∃r·r ∈ regions ∧ r ◁ container = r × {s})
+end

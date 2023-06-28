@@ -1,0 +1,26 @@
+machine utstc_checker1_region2_parallelFork
+refines utstc_checker1_region1
+sees utstc_ctx1_parallelFork
+variables
+	finished
+	result
+events
+	event INITIALISATION extends INITIALISATION
+	end
+
+	convergent event regionType_CheckFailed extends regionType_CheckFailed
+	end
+
+	convergent event regionDisjoint_CheckFailed extends regionDisjoint_CheckFailed
+	end
+
+	convergent event regionComplete_CheckFailed extends regionComplete_CheckFailed
+	end
+
+	convergent event regionSameParent_CheckFailed extends regionSameParent_CheckFailed
+	end
+
+	convergent event checkSuccessful extends checkSuccessful
+	end
+
+end

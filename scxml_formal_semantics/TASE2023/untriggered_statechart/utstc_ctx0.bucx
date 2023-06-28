@@ -1,23 +1,13 @@
-context tree_checker_ctx
-extends utstc_c0_3_tree_def
-
-sets
-	RESULT
+context utstc_ctx0
+extends utstc_c0_0_states
 
 constants
-	running
-	failed
-	success
-	init
-	
 	states // The set of states
 	root // The root state
 	container // The container relationship between states
 	leaves // The set of leaf states
 
 axioms		
-	// @states is a set of states
-	@RESULT-def: partition(RESULT, {init}, {running}, {failed}, {success})
 	theorem @typeof-states: states ⊆ STATE	
 	theorem @typeof-root: root ∈ STATE
 	theorem @typeof-context: container ∈ STATE ↔ STATE

@@ -1,32 +1,26 @@
-machine tree_checker
-sees tree_checker_ctx
+machine utstc_checker0_tree0
+refines utstc_checker
+sees utstc_ctx0 utstc_c0_3_tree_def
 
 variables
-	result
+	finished	// Indication that the check has finish
+	result		// The result of the check
+
 invariants
-	@typeof-result: result ∈ RESULT
-variants
-	@variant: {failed, success} ∖ {result}
+	@result: finished = TRUE ⇒ result = bool(states ↦ root ↦ container ↦ leaves ∈ Tree)
+
 events
-	event INITIALISATION
-	begin
-		@init-result: result ≔ running
+	event INITIALISATION extends INITIALISATION
 	end
 	
-	convergent event check_failed
+	convergent event checkFailed extends checkFailed
 	when
-		@grd1: result = running
 		@grd2: states ↦ root ↦ container ↦ leaves ∉ Tree
-	then
-		@result-def: result ≔ failed
 	end
 
-	convergent event check_success
+	convergent event checkSuccessful extends checkSuccessful
 	when
-		@grd1: result = running
 		@grd2: states ↦ root ↦ container ↦ leaves ∈ Tree
-	then
-		@result-def: result ≔ success
 	end
 
 end
