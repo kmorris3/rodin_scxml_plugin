@@ -41,6 +41,11 @@ invariants
 	theorem @active-region-parallel-equiv: ∀region1, region2 · region1 ∈ regions ∧ region2 ∈ regions ∧
 		container[region1] = container[region2] ⇒ (region1 ∩ active = ∅ ⇔ region2 ∩ active = ∅)
 
+	// If a container of a region is active then the region must be active
+	// Use in transformation/active-region-parallel/INV
+	theorem @region_active:
+		∀ r · r ∈ regions ∧ container[r] ⊆ active ⇒ r ∩ active ≠ ∅
+		
 	// Properties derive from the consistency invariant ???? (to be reproved)
 //	theorem @LinkedList-active: ∀active_leaf· active_leaf ∈ active_leaves ⇒ active_leaf ↦ root ↦ (ancestry[{active_leaf}] ◁ container) ∈ LinkedList(active)
 	
