@@ -192,3 +192,72 @@ We proof this using induction on tree.
 	We can now assume the right-hand side of Gx0), i.e., for any
     region r1 containg x0, there are no entering state in r1. However,
     since x0 is also an entering state, this lead to contradiction.
+
+Proof of INV @active-region-parallel
+---------------------------------
+We have to proof that given two regions region1 and region2 that have
+the same container (let's call the container "parent") and
+  (H1) any active state in region1 is exiting
+  (H2) there are no entering state in region1
+then
+  (G1) any active state in region2 is exiting
+  (G2) there are no entering state in region2
+  
+- From (H2) and @entering-contained_region, we can prove that "parent"
+is not an entering state (H3)
+
+We consider whether or not region1 has active state
+
+(1) region1 has no active states.
+- From @active-region-parallel, region2 also has no active states.
+- (G1) trivial
+- region1 has no active states so parent is also not an active (G4)
+  state. (theorem @region_active)
+- We prove (G2) by contradiction, i.e. assume that there is an
+  entering state in region2.
+   + Instantiate @entering-stay_within_state with "region2" and
+     "parent", we have that there must be an enabling state which is a
+     descendant of "parent", let's call this "x"
+   + since x is enabling then x is active
+   + since x is a decendent of parent, parent is active which is
+     contradict with (G4).
+
+(2) region1 has an active state, let's call this x. Note that x is a
+non-root state.
+
+- From @active-region-parallel, region2 has an active state, let's
+  call this x0
+- "parent" is an active state according to invariant @container_active 
+- parent is also an exiting state according to
+  @entering-you_must_go_somewhere (instantiation with region1). (G5)
+- Instantiating @exiting-contained_region with "parent" and "region2",
+  we have that region2 must have some exiting state, let's call this
+  x1.
+
+Proof of (G1)
+- Instantiate @exiting-either_one_or_all_in_a_region with x1 and
+  region2, we have that either x1 is the unique exiting state in
+  region2 or all states in  region2 are exiting state.
+  (2.1) if x1 is the unique exiting state in region2, we consider 2
+  cases:
+     (2.1.1) if x1 is the only state in region2. In this case x0 is
+  the same as x1 hence x0 is also an exiting state, hence G1 is
+  proved
+     (2.1.2) if x1 is not the only state in region2,
+	   + applying @exiting-unique_enabling_states_in_a_region, we have the x1 is the
+  unique enabling state in region2.
+       + x1 is an active state according to the guard of
+         @tranformation
+	   + x0 is the same as x1 according to invariant
+         @active-region-unique
+	   + Hence x0 is an existing state, hence (G1) is proved
+ (2.2) if all states in region2 are exiting states, all active states in
+ region2 must also be exiting states, hence (G1) is proved.
+ 
+Proof of (G2)
+We proof (G2) by contradiction, i.e., assuming that there is an
+entering state in region2.
+- Instantiating @entering-stay_within_state with "region2", "parent",
+  we have that "parent" not exiting state, which contradict with (G5)
+
+  
