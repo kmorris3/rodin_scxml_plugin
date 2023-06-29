@@ -1,0 +1,21 @@
+context utstc_ctx0_turnstile
+extends utstc_ctx0
+constants
+	OFF
+	ON
+	// GATE
+	BLOCKED
+	UNBLOCKED
+	TIMEOUT
+	// CARD_READER
+	READY
+	READING
+	ACCEPT
+axioms
+	@def-STATE: partition(STATE, {root}, {OFF}, {ON})
+	@def-states: states = STATE
+	@def-container: container = {OFF ↦ root, ON ↦ root, BLOCKED ↦ ON, UNBLOCKED ↦ ON,
+		TIMEOUT ↦ ON, READY ↦ ON, READING ↦ ON, ACCEPT ↦ ON
+	}
+	@def-leaves: leaves = {BLOCKED, UNBLOCKED, TIMEOUT, READY, READING, ACCEPT, OFF}
+end

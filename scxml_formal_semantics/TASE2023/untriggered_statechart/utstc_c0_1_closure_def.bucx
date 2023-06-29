@@ -14,7 +14,7 @@ axioms
 	 * There exists a transitive relation containing r which is
 	 * the Cartesian product of STATE and STATE
 	 */
-	@def-cl: cl = (λ r · r ∈ STATE ↔ STATE ∣ inter({p ∣ r ⊆ p ∧ p;p ⊆ p})) 
+	@def-cl: cl = (λ r · r ∈ STATE ↔ STATE ∣ inter({p ∣ r ⊆ p ∧ p;p ⊆ p}))
 	
 	/*
 	 * Typing information:

@@ -1,0 +1,14 @@
+context utstc_ctx0_parallelFork
+extends utstc_ctx0
+
+constants
+	S1
+	S2
+	S2A1
+	S2B1
+axioms
+	@def-STATE: partition(STATE, {root}, {S1}, {S2}, {S2A1}, {S2B1})
+	@def-states: states = STATE
+	@def-container: container = {S1 ↦ root, S2 ↦ root, S2A1 ↦ S2, S2B1 ↦ S2}
+	@def-leaves: leaves = {S1, S2A1, S2B1}
+end
