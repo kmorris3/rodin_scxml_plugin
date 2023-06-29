@@ -1,0 +1,19 @@
+context utstc_ctx_model1
+extends utstc_ctx
+
+constants
+	S1
+	S11
+	T1
+axioms
+	@def-STATE: partition(STATE, {root}, {S1}, {S11})
+	@def-states: states = STATE
+	@def-container: container = {S1 ↦ root, S11 ↦ S1}
+	@def-leaves: leaves = {S11}
+	@def-regions: regions = {{S1}, {S11}}
+	@def-transformations: transformations = {T1}
+	@def-enabling: enabling = {T1 ↦ {S1}}
+	@def-exiting: exiting = {T1 ↦ {S1, S11}}
+	@def-entering: entering = {T1 ↦ {S11, S1}}
+	
+end

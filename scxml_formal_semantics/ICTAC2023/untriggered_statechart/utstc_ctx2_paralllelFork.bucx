@@ -1,0 +1,10 @@
+context utstc_ctx2_paralllelFork
+extends utstc_ctx2 utstc_ctx1_parallelFork
+constants
+	T1
+axioms
+	@def-transformations: partition(transformations, {T1})
+	@def-enabling: enabling = {T1 ↦ {S1}}
+	@def-exiting: exiting = {T1 ↦ {S1}}
+	@def-entering: entering = {T1 ↦ {S2, S2A1, S2B1}}
+end
