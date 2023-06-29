@@ -128,9 +128,9 @@ This is trivial because according to
 @entering-at_most_one_in_a_region: s and x are within the same region
 and both are entering states so they have to be the same (G)
 
-Proof of INV @active-no-exit-no-enter
+Proof of theorem @active-no-exit-no-enter
 ----------------------------------
-(This is a THEOREM of the machine)
+(This is a THEOREM of the @tranformation event)
 
 For all s where 
   x is a non-root state, active and non-exiting state, for
