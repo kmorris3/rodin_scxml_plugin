@@ -1,0 +1,7 @@
+context utstc_ctx1
+extends utstc_ctx0
+constants
+	regions // The region (parallel states)
+axioms
+	theorem @region_type: regions ⊆ ℙ(STATE)
+end

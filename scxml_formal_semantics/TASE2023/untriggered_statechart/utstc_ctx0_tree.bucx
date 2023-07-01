@@ -1,0 +1,17 @@
+context utstc_ctx0_tree
+extends
+	utstc_ctx0
+	utstc_c0_3_tree_def
+axioms
+	// @root, @leaves and @container form a tree on @states
+	@tree_structure: states ↦ root ↦ container ↦ leaves ∈ Tree
+
+	// Derivable properties from definition of Tree
+	theorem @typeof-root: root ∈ states
+	theorem @typeof-container: container ∈ states ∖ {root} → states
+	theorem @root-reachable: ∀ state · state ∈ states ∖ {root} ⇒ root ∈ cl(container)[{state}]
+	// The set of leaf states is defined as those in @states and
+	// does not contain any other states.
+	theorem @def-leaves: leaves = states ∖ ran(container)
+	theorem @leaves_are_states: leaves ⊆ states
+end

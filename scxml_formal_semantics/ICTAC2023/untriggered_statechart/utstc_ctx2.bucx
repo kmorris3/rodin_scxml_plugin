@@ -1,0 +1,13 @@
+context utstc_ctx2
+extends utstc_ctx1
+sets
+	transformations // The set of transformations
+constants
+	enabling // The enabling states of each transformation
+	exiting // The exiting states of each transformation
+	entering // The entering states of each transformation
+axioms
+	theorem @typeof-enabling: enabling ∈ transformations ↔ ℙ(STATE)
+	theorem @typeof-exiting: exiting ∈ transformations ↔ ℙ(STATE)
+	theorem @typeof-entering: entering ∈ transformations ↔ ℙ(STATE)
+end

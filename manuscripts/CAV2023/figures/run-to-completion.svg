@@ -7,7 +7,7 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg8"
-   inkscape:version="1.2.1 (9c6d41e, 2022-07-14)"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
    sodipodi:docname="run-to-completion.svg"
    inkscape:export-filename="/Users/knmorri/Documents/Collaborators/Armstrong/Contracts/ColinSCXML/rodin_scxml_plugin/manuscripts/CPP2020/source/figures/basis.png"
    inkscape:export-xdpi="96"
@@ -236,7 +236,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.39598416"
-     inkscape:cx="303.04242"
+     inkscape:cx="116.16626"
      inkscape:cy="265.16212"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -246,10 +246,10 @@
      inkscape:snap-intersection-paths="true"
      inkscape:snap-to-guides="false"
      inkscape:snap-grids="false"
-     inkscape:window-width="2312"
+     inkscape:window-width="1652"
      inkscape:window-height="1260"
-     inkscape:window-x="275"
-     inkscape:window-y="25"
+     inkscape:window-x="251"
+     inkscape:window-y="148"
      inkscape:window-maximized="0"
      inkscape:showpageshadow="2"
      inkscape:pagecheckerboard="0"
@@ -349,7 +349,7 @@
          id="tspan12876"
          x="32.206509"
          y="12.835911"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.264583">Firing Transitions</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.264583">Firing Steps</tspan></text>
     <text
        id="text12936"
        y="264.01959"
@@ -431,15 +431,15 @@
          id="tspan13146"
          style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.525px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;opacity:0.8"
          x="73.06189"
-         y="32.072449">Fire Triggered</tspan><tspan
+         y="32.072449">TriggeredStep</tspan><tspan
          sodipodi:role="line"
          id="tspan13148"
          x="73.06189"
-         y="45.475105">[UC=FALSE &amp; dt≠∅]</tspan><tspan
+         y="45.301575">[UC=FALSE &amp; dt≠∅]</tspan><tspan
          sodipodi:role="line"
          id="tspan13150"
          x="73.06189"
-         y="58.877758">/dt:=∅</tspan></text>
+         y="58.648933">/dt:=∅</tspan></text>
     <text
        id="text13238"
        y="79.379211"
@@ -455,20 +455,20 @@
          y="79.379211">No Triggered Enabled</tspan><tspan
          sodipodi:role="line"
          id="tspan13234"
-         x="83.571083"
-         y="92.781868">[UC=FALSE &amp; dt≠∅ &amp; </tspan><tspan
+         x="81.886429"
+         y="92.608337">[UC=FALSE &amp; dt≠∅ &amp; </tspan><tspan
          sodipodi:role="line"
-         x="83.571075"
-         y="106.01103"
+         x="81.886429"
+         y="105.9557"
          id="tspan13958">conj of negated guards of </tspan><tspan
          sodipodi:role="line"
          x="81.886429"
-         y="119.2402"
-         id="tspan13960">all transitions triggered by dt]</tspan><tspan
+         y="119.18482"
+         id="tspan13960">all steps triggered by dt]</tspan><tspan
          sodipodi:role="line"
          id="tspan13236"
          x="81.886429"
-         y="132.64285">/dt:=∅</tspan></text>
+         y="132.41394">/dt:=∅</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -524,19 +524,19 @@
          style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;opacity:0.8"
          id="tspan13610"
          sodipodi:role="line">Completion</tspan><tspan
-         y="186.33788"
+         y="186.16435"
          x="276.15277"
          id="tspan13612"
          sodipodi:role="line">[UC=FALSE &amp; dt=∅ &amp;</tspan><tspan
-         y="199.56705"
-         x="277.83743"
-         sodipodi:role="line"
-         id="tspan971">conj of negated guards of </tspan><tspan
-         y="212.79622"
+         y="199.51172"
          x="276.15277"
          sodipodi:role="line"
-         id="tspan938">all untriggered transitions]</tspan><tspan
-         y="226.02538"
+         id="tspan971">conj of negated guards of </tspan><tspan
+         y="212.74084"
+         x="276.15277"
+         sodipodi:role="line"
+         id="tspan938">all untriggered steps]</tspan><tspan
+         y="225.96996"
          x="276.15277"
          id="tspan13614"
          sodipodi:role="line">/UC:=TRUE</tspan></text>
@@ -552,11 +552,11 @@
          id="tspan13938"
          style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Italic';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;opacity:0.8"
          x="316.37766"
-         y="85.954124">Fire Untriggered</tspan><tspan
+         y="85.954124">UntriggeredStep</tspan><tspan
          sodipodi:role="line"
          id="tspan13942"
          x="316.37766"
-         y="99.356781">[UC=FALSE &amp; dt=∅]</tspan></text>
+         y="99.18325">[UC=FALSE &amp; dt=∅]</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -620,6 +620,7 @@
        id="path917"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-ydpi="96"
+       inkscape:export-filename="run-to-completion.png" />
   </g>
 </svg>

@@ -1,0 +1,33 @@
+machine utstc_checker0_tree2_parallelFork
+refines utstc_checker0_tree1
+sees utstc_ctx0_parallelFork utstc_c0_3_tree_def
+variables
+	finished
+	result
+	visited
+events
+	event INITIALISATION extends INITIALISATION
+	end
+
+	convergent event finiteStates_CheckFailed extends finiteStates_CheckFailed
+	end
+
+	convergent event rootState_CheckFailed extends rootState_CheckFailed
+	end
+
+	convergent event containerType_CheckFailed extends containerType_CheckFailed
+	end
+
+	convergent event leavseDefinition_CheckFailed extends leavseDefinition_CheckFailed
+	end
+
+	convergent event progress extends progress
+	end
+
+	convergent event reachabilityCheckFailed extends reachabilityCheckFailed
+	end
+
+	convergent event checkSuccessful extends checkSuccessful
+	end
+
+end

@@ -26,8 +26,8 @@ events
 
 	event INITIALISATION
 	then
-		@internal_queue_init:		internal_queue ≔ ∅ 
-		@external_queue_init: 		external_queue ≔ ∅
+		@internal_queue_init:		internal_queue ≔ Seq_empty
+		@external_queue_init: 		external_queue ≔ Seq_empty
 		@dequeue_trigger_init:		dequeue_trigger ≔ ∅
 		@completed_init: 			completed ≔ FALSE
 	end
@@ -79,6 +79,7 @@ events
 		@step:					Step ∈ dom(StepTrigger)		
 		@trigger_dequeued: 		StepTrigger(Step) ∈ dequeue_trigger
 		theorem @completed:		completed = FALSE	//sanity check
+		theorem @unique_trigger: dequeue_trigger = {StepTrigger(Step)}
 	then 
 		@dequeue_trigger_set: 	dequeue_trigger ≔ dequeue_trigger ∖ {StepTrigger(Step)}
 		@internal_queue_set:	internal_queue ≔ Seq_concat(internal_queue ↦ StepRaised(Step))		//raised triggers

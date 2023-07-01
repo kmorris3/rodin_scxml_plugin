@@ -1,0 +1,13 @@
+context tstc_ctx
+extends r2c_ctx utstc_ctx
+constants
+	transitions // transition: link between transformation and Steps (both triggered and untriggered)
+	discardSteps // steps for discarding triggers
+axioms
+	// Bijection between transformation and non-discard steps
+	@typeof-transitions: transitions ∈ transformations ⤖ Steps ∖ discardSteps
+	// Bijection between discardSteps and triggers (For each trigger there is exactly one and only one discard step and vice-versa
+	@discardSteps-Triggers: discardSteps ◁ StepTrigger ∈ discardSteps ⤖ Triggers
+	// Discard steps cannot raise any triggers
+	@discardSteps-Raised: StepRaised[discardSteps] = { ∅ }
+end
