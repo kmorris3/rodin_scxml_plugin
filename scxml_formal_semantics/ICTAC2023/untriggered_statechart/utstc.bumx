@@ -12,16 +12,11 @@ invariants
 	// @active is a set of states
 	@typeof-active: active ⊆ states
 	
-	// @active_leaf is a set of leaves
-//	@typeof-active_leaf: active_leaves ⊆ leaves
-	
-	// Consistency between active and active_leaf	
-//	@active-closure: active = ancestry[active_leaves]
-
-	// container[entering] \ entering <: enabling \ exiting
+	// If a non-root state is active then its container is also active
 	@container_active:
 		∀ s · s ∈ active ∖ {root} ⇒ container(s) ∈ active
 	
+	// If a state is active then all of its ancestor is active
 	theorem @ancestor_active:
 		∀ s · s ∈ active ⇒ cl(container)[{s}] ⊆ active
 
