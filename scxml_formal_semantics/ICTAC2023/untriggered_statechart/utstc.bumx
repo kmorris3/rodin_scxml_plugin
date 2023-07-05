@@ -6,8 +6,6 @@ sees utstc_ctx utstc_c0_4_tree_prop
 variables
 	active // The set of active states
 	
-	// The following are auxiliary variables to capture property of the statemachine
-//	active_leaves // The current active leaf
 invariants
 	// @active is a set of states
 	@typeof-active: active ⊆ states
@@ -40,18 +38,11 @@ invariants
 	// Use in transformation/active-region-parallel/INV
 	theorem @region_active:
 		∀ r · r ∈ regions ∧ container[r] ⊆ active ⇒ r ∩ active ≠ ∅
-		
-	// Properties derive from the consistency invariant ???? (to be reproved)
-//	theorem @LinkedList-active: ∀active_leaf· active_leaf ∈ active_leaves ⇒ active_leaf ↦ root ↦ (ancestry[{active_leaf}] ◁ container) ∈ LinkedList(active)
-	
-	// If a non-root state is active then the container is also active
-	// These should/might be the consequence of @LinkedList-active using property of LinkedList
 	
 events
 	event INITIALISATION
 	then
 		@update-active: active ≔ init_active
-//		@update-active_leaf: active_leaves ≔ init_leaves
 	end
 	
 	event transformation
@@ -60,18 +51,12 @@ events
 	where
 		@typeof-trf: trf ∈ transformations
 		@active-enabling: enabling(trf) ⊆ active
-	// This theorem is intended to be use in proving
-	// transformation/active-region-unique/INV
-	theorem @active-no-exit-no-enter:
-		∀s · s ∈ states ∖ {root} ∧ s ∈ active ∧ s ∉ exiting(trf) ⇒
-			(∀r · r ∈ regions ∧ s ∈ r ⇒ r ∩ entering(trf) = ∅)
-				 
+		// This theorem is intended to be use in proving
+		// transformation/active-region-unique/INV
+		theorem @active-no-exit-no-enter:
+			∀s · s ∈ states ∖ {root} ∧ s ∈ active ∧ s ∉ exiting(trf) ⇒
+				(∀r · r ∈ regions ∧ s ∈ r ⇒ r ∩ entering(trf) = ∅) 
 	then
-		//@update-active: active ≔ cl(container)[{target(transition)}] ∪ {target(transition)}
 		@update-active: active ≔ (active ∖ exiting(trf)) ∪ entering(trf)
-		
-		// active := (active \ exit(t1)) \/ enter(t1)  \ exit(t2) \/ enter(t2) .... 
-		// Exit all the leaves associated with the sources and enter the target leaves.
-//		@update-active_leaf: active_leaves ≔ leaves ∩ ((active_leaves ∖ union(exit[trs])) ∪ union(enter[trs]))
 	end
 end

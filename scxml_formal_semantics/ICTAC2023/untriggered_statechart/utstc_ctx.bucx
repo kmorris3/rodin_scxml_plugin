@@ -1,5 +1,5 @@
 /*
- * This context declare the signature of a statemachine
+ * This context declare the initialisation of the active states.
  */
 context utstc_ctx
 extends utstc_ctx2_transformation
@@ -13,7 +13,5 @@ axioms
 		∀ s · s ∈ ran(container) ∧ s ∈ init_active ⇒ container∼[{s}] ∩ init_active ≠ ∅
 	@init_active-region-unique: ∀r, s · r ∈ regions ∧ s ∈ r ∩ init_active ⇒ r ∩ init_active ⊆ {s}
 	@init_active-region-parallel: ∀region1, region2 · region1 ∈ regions ∧ region2 ∈ regions ∧
-		container[region1] = container[region2] ∧ region1 ∩ init_active = ∅ ⇒ region2 ∩ init_active = ∅
-
-	
+		container[region1] = container[region2] ∧ region1 ∩ init_active = ∅ ⇒ region2 ∩ init_active = ∅	
 end
