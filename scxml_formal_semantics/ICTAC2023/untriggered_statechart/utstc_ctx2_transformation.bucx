@@ -3,7 +3,7 @@
  * "enabling" states, "exiting" states, "entering" states.
  */
 context utstc_ctx2_transformation
-extends utstc_ctx2
+extends utstc_ctx2 utstc_ctx1_region
 axioms
 	// We should only use source states as enabling states.
 	@enabling-type: enabling ∈ transformations → ℙ1(states)
@@ -94,7 +94,7 @@ axioms
 			entering(trf) ∩ r ≠ ∅ ∧
 			entering(trf) ∩ container[r] = ∅
 		⇒
-			c ∉ exiting(trf)
+			enabling(trf) ∩ cl(container)∼[{c}] ≠ ∅ ∧ c ∉ exiting(trf)
 	/*
 	 * If the container of a region r is a enabling state and there are some entering state in r
 	 * then there must be some exiting state in r.
@@ -142,6 +142,19 @@ axioms
 			exiting(trf) ∩ r ≠ ∅
 		⇒
 			entering(trf) ∩ r ≠ ∅  // You must go somewhere within r
+
+    // NEW
+	@enter-through-parent-or-within-region:
+		∀trf, r ·
+			trf ∈ transformations ∧
+			r ∈ regions ∧
+			entering(trf) ∩ r ≠ ∅ ∧
+			exiting(trf) ∩ r = ∅
+		⇒
+			entering(trf) ∩ container[r] ≠ ∅
+
+	// Do we ever consider root to be an exiting/entering state?
+	@root-not-entering: ∀trf · trf ∈ transformations ⇒ root ∉ entering(trf)
 
 //	@entering-enter_within_state2:
 //		∀trf, r ·

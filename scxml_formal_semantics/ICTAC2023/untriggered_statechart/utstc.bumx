@@ -50,7 +50,7 @@ invariants
 events
 	event INITIALISATION
 	then
-		@update-active: active ≔ init
+		@update-active: active ≔ init_active
 //		@update-active_leaf: active_leaves ≔ init_leaves
 	end
 	
