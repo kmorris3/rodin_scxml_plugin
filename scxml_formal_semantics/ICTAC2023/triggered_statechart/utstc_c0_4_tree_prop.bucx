@@ -1,0 +1,56 @@
+context utstc_c0_4_tree_prop
+extends utstc_c0_3_tree_def
+
+//constants
+//	SubTree // Sub-tree binary relationships
+
+axioms
+	/*
+	 * For a tree represented by @rt and @prn on a set of states @Sts,
+	 * there are no cycles.
+	 * 
+	 * Proof:
+	 * Instantiate tree's @induction-Tree with Sts <- Sts, rt <- rt, 
+	 * prn <- prn, and T <- (Sts \ T) \/ {rt}. Then do case "rt is in T" or not.
+	 */
+	theorem @no-cycles: ∀ Sts, rt, prn, lvs · Sts ↦ rt ↦ prn ↦ lvs ∈ Tree ⇒
+		(∀ T · T ⊆ Sts ∧ T ⊆ prn∼[T] ⇒ T = ∅)
+
+	/*
+	 * For a tree represented by @rt and @prn on a set of states @Sts, the
+	 * transitive closure of @prn is irreflexive.
+	 * 
+	 * Proof:
+	 * Instantiate @no-cycles with Sts <- Sts, rt <- rt, prn <- prn.
+	 * Continue the proof by contradiction, i.e. assuming that there is a state
+	 * x where x |-> x is cl(prn).
+	 * Instantiate @no-cylces with T <- cl(prn)~[{x}]
+	 */
+	theorem @closure_irreflexive: ∀ Sts, rt, prn, lvs · Sts ↦ rt ↦ prn ↦ lvs ∈ Tree ⇒
+		cl(prn) ∩ id = ∅
+		
+//	theorem @linked_list: ∀ Sts, rt, prn, lvs · Sts ↦ rt ↦ prn ↦ lvs ∈ Tree ⇒
+//		(∀ f, sts · f ∈ Sts ∧ sts = cl(prn)[{f}] ∪ {f} ⇒ f ↦ rt ↦ sts ◁ prn ∈ LinkedList(sts))
+	
+	// Definition for Tree1 (represented by Sts1 ↦ rt1 ↦ prn1 ↦ lvs1) is a sub-tree
+	// of Tree2 (represented by Sts2 ↦ rt2 ↦ prn2 ↦ lvs2)
+//	@def-SubTree: SubTree = {(Sts1 ↦ rt1 ↦ prn1 ↦ lvs1) ↦ (Sts2 ↦ rt2 ↦ prn2 ↦ lvs2) ∣
+//		Sts1 ↦ rt1 ↦ prn1 ↦ lvs1 ∈ Tree ∧
+//		Sts2 ↦ rt2 ↦ prn2 ↦ lvs2 ∈ Tree ∧
+//		Sts1 ⊆ Sts2 ∧
+//		rt1 = rt2 ∧
+//		prn1 ⊆ prn2
+//	}
+
+	/*
+	 * Below are some properties of SubTree (declared as axioms at the moment)
+	 */
+//	@SubTree-leave: ∀Sts1, rt1, prn1, lvs1, Sts2, rt2, prn2, lvs2, l1, l2 ·
+//		(Sts1 ↦ rt1 ↦ prn1 ↦ lvs1) ↦ (Sts2 ↦ rt2 ↦ prn2 ↦ lvs2) ∈ SubTree ∧
+//		l2 ∈ lvs2 ∧ // l2 is a leave node in Tree2
+//		{l1} = (prn2[{l2}] ∪ {l2}) ∩ lvs1 // l1 is a leave node in Tree1 and is a parent of 
+//	⇒
+//		(prn2[{l2}] ∪ {l2}) ∩ Sts1 = (prn1[{l1}] ∪ {l1}) ∩ Sts1
+
+
+end

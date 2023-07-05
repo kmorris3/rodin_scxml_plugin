@@ -1,5 +1,5 @@
 context utstc_ctx1_region
-extends utstc_ctx1
+extends utstc_ctx1 utstc_ctx0_tree
 axioms
 	// regions partition the states accept root
 	@region_type: regions ⊆ ℙ(states)

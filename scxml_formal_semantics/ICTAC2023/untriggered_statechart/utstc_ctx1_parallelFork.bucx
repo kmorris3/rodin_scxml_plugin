@@ -1,9 +1,0 @@
-context utstc_ctx1_parallelFork
-extends utstc_ctx1 utstc_ctx0_parallelFork
-axioms
-	@def-regions: regions = {
-		{S1, S2},
-		{S2A1}, 
-		{S2B1}
-	}
-end

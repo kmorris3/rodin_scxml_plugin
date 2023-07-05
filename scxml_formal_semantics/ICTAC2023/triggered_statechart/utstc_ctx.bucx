@@ -1,0 +1,303 @@
+/*
+ * This context declare the signature of a statemachine
+ */
+context utstc_ctx
+extends utstc_c0_3_tree_def
+sets
+	transformations // The set of transformations
+constants
+	states // The set of states
+	root // The root state
+	container // The container relationship between states
+
+	regions // The region (parallel states)
+	enabling // The enabling states of each transformation
+	exiting // The exiting states of each transformation
+	entering // The entering states of each transformation
+	
+//	init_leaves // The initial leaf TODO Is this better to define init_states 
+	
+	// These are derived elements
+	leaves // The set of leaf states
+//	init // The initial states
+	// FIXME Commented these out for now (not so sure if we are going to need them later)
+	ancestry // ancestors and the node itself
+    //successor // descendants and yourself
+	//common_ancestry 
+    //first_common_ancestry
+axioms		
+	// @states is a set of states
+	theorem @typeof-states: states ⊆ STATE
+	
+	// @root and @container form a tree on @states
+	@tree_structure: states ↦ root ↦ container ↦ leaves ∈ Tree
+	
+	// regions partition the states
+	@region_type: regions ⊆ ℙ(states)
+	@region_disjoint: ∀r1, r2 · r1 ∈ regions ∧ r2 ∈ regions ∧ r1 ≠ r2 ⇒ r1 ∩ r2 = ∅
+	@region_complete: union(regions) = states ∖ {root}
+	// all the states in the same region have the same parent
+	@region_same_parent: ∀ region · region ∈ regions ⇒ (∃parent · container[region] = {parent})
+	//
+	theorem @region_non-empty: ∀ region · region ∈ regions ⇒ region ≠ ∅
+	// For a node n, a[{n}] is the set of the ancestors of n and n itself.
+	@ancestry_def: ancestry = cl(container) ∪ (states ◁ id)
+	theorem @ancestry_type: ancestry ∈ states ↔ states
+	
+	// For a node n, d[{n}] is the set of the descendants of n and n itself.
+//	@successor_def: successor = cl(container∼) ∪ (states ◁ id)
+//	theorem @successor_type: successor ∈ states ↔ states
+
+	// For two nodes n1, n2, common_ancestry(n1 ↦ n2) is the common ancestors of n1 and n2 (including n1, n2 themselves)
+//	@common_ancestry_def: common_ancestry = (λns · ns ∈ ℙ1(states) ∣ (⋂n · n ∈ ns ∣ ancestry[{n}]))
+//	theorem @common_ancestry_type: common_ancestry ∈ ℙ1(states) → ℙ(states)
+//	
+//	@first_common_ancestry_type: first_common_ancestry ∈ ℙ1(states) → states
+//	@first_common_ancestry_prop1: ∀ns · ns ∈ ℙ1(states) ⇒ first_common_ancestry(ns) ∈ common_ancestry(ns)
+//	@first_common_ancestry_prop2: ∀ns, oa · ns ∈ ℙ1(states) ∧ oa ∈ common_ancestry(ns) ⇒ oa ↦ first_common_ancestry(ns) ∉ cl(container)
+	
+	// Derivable properties from definition of Tree
+	theorem @typeof-root: root ∈ states
+	theorem @typeof-container: container ∈ states ∖ {root} → states
+	theorem @root-reachable: ∀ state · state ∈ states ∖ {root} ⇒ root ∈ cl(container)[{state}]
+	
+	// If a region r contains a child of s then every state in r must have s as its container
+	theorem @region-unique_container: ∀r, s · r ∈ regions ∧ r ∩ container∼[{s}] ≠ ∅ ⇒ r ◁ container = r × {s}
+	theorem @region-unique_container2: ∀s · s ∈ ran(container) ⇒ (∃r·r ∈ regions ∧ r ◁ container = r × {s})
+	
+	
+	// The set of leaf states is defined as those in @states and
+	// does not contain any other states.
+	theorem @def-leaves: leaves = states ∖ ran(container)
+	theorem @leaves_are_states: leaves ⊆ states
+	
+	// transformations are relation between states
+//	@typeof-source: source ∈ transformations → ℙ(states) // The source can be any state (non-deterministic)
+//	@typeof-target: target ∈ transformations → ℙ(leaves) // The target must be a leaf state (deterministic)
+    
+    // We do not take the descendants of the enter state as the targets are leaves and
+    // they must be deterministic. (?????)
+    // Take first common ancestor of the set of targets f,
+    // get all the descendants (including f) of f which are the ancestors (including self) of the targets
+	// @enter-def: enter = (λt · t ∈ transformations ∣ successor [{first_common_ancestry(target(t))}] ∩ ancestry[target(t)] )     
+
+	// >>>> [WRONG] Relationship between enabling and source states "enabling = a(container)[source]"
+	// NO, we should only use source states as enabling states.
+	@enabling-type: enabling ∈ transformations → ℙ1(states)
+	
+	// This axiom is no longer valid as we consider only the source states are enabling states.
+	// @enabling-container: ∀trf, s · s ∈ enabling(trf) ∧ s ≠ root ⇒ container(s) ∈ enabling(trf)
+	
+	// There is a unique enabling state or an ancestor of an enabling state in a region
+//	@enabling-unique_region: 
+//		∀trf, s1, s2, r · trf ∈ transformations ∧
+//		s1 ∈ ancestry[enabling(trf)] ∧
+//		s2 ∈ ancestry[enabling(trf)] ∧
+//		r ∈ regions ∧
+//		s1 ∈ r ∧
+//		s2 ∈ r
+//	⇒
+//		s1 = s2 
+
+	// We are now just take entering states as the difference between the target's ancestry and the source's ancestry
+//	@enter-def: enter = (λt · t ∈ transformations ∣ ancestry[target(t)] ∖ ancestry[source(t)])
+    @exiting-type: exiting ∈ transformations → ℙ1(states)
+    
+    @exiting-either_one_or_all_in_a_region: 
+    	∀trf, s, r ·
+    		trf ∈ transformations ∧
+    		s ∈ exiting(trf) ∧
+    		r ∈ regions ∧ 
+    		s ∈ r
+    	⇒
+    		exiting(trf) ∩ r = {s} ∨ r ⊆ exiting(trf) 
+    
+    
+    // if the container state s of a region r is an exiting state, there must some exiting state in r.
+    @exiting-contained_region:
+    	∀trf, s, r ·
+    		trf ∈ transformations ∧
+    		s ∈ exiting(trf) ∧
+    		r ∈ regions ∧
+    		container[r] = {s}
+    	⇒
+    		exiting(trf) ∩ r ≠ ∅
+    
+    // if s is an enabling state in a region r then s is the unique exiting state in r.
+    @enabling-unique_exiting_states_in_a_region:
+    	∀trf, s, r · trf ∈ transformations ∧ 
+    		s ∈ enabling(trf) ∧
+    		r ∈ regions ∧
+    		s ∈ r
+    	⇒
+    		exiting(trf) ∩ r = {s}
+    		
+    // @FIXME htson: This needs to be strengthen to state when the enabling state is empty and when it is not
+//    @exiting-unique_enabling_states_in_a_region:
+//    	∀trf, s, r · trf ∈ transformations ∧ 
+//    		r ∈ regions ∧
+//    		exiting(trf) ∩ r = {s}  // Either deterministically exiting r or (nondeterministically exiting r and r has one state)
+//    	⇒
+//			enabling(trf) ∩ r ⊆ {s}  // Allowed for non-deterministic exit of a single-state region  			
+    
+      @exiting-unique_enabling_states_in_a_region:
+    	∀trf, s, r · trf ∈ transformations ∧ 
+    		r ∈ regions ∧
+    		exiting(trf) ∩ r = {s} ∧  // Either deterministically exiting r or (nondeterministically exiting r and r has one state)
+    		r ≠ {s}                   // r has more than one state (hence deterministically exiting
+    	⇒
+			enabling(trf) ∩ r = {s}  // s is the single enabling state in the region  			
+
+    // exit: if exiting a parent state ex then has to exit the children of ex
+	//@valid-exit: ∀tf, ex · tf ∈ transformations ∧ ex ∈ exiting(tf) ⇒ container∼[{ex}] ⊆ exiting(tf)
+
+    @entering-type: entering ∈ transformations → ℙ1(states)
+    
+    @entering-at_most_one_in_a_region: 
+    	∀trf, s, r ·
+    		trf ∈ transformations ∧
+    		s ∈ entering(trf) ∧
+    		r ∈ regions ∧ 
+    		s ∈ r
+    	⇒
+    		entering(trf) ∩ r = {s} 
+
+	// If a trf enters a container of a region r
+	// the trf must enter some states in r
+    @entering-contained_region:
+    	∀trf, r ·
+    		trf ∈ transformations ∧
+    		r ∈ regions ∧
+    		container[r] ⊆ entering(trf) 
+    	⇒
+    		entering(trf) ∩ r ≠ ∅
+
+	/*
+	 * For all transformation trf and a region r,
+	 *   if trf is entering r but not the container of r
+	 *   then the container of r is not an exiting state of trf 
+	 */
+	@entering-stay_within_state:
+		∀trf, r, c ·
+    		trf ∈ transformations ∧
+			r ∈ regions ∧
+			container[r] = {c} ∧
+			entering(trf) ∩ r ≠ ∅ ∧
+			entering(trf) ∩ container[r] = ∅
+		⇒
+			enabling(trf) ∩ cl(container)∼[{c}] ≠ ∅ ∧ c ∉ exiting(trf) 
+	/*
+	 * If the container of a region r is a enabling state and there are some entering state in r
+	 * then there must be some exiting state in r.
+	 * I.e., you must exiting r before reentering r.
+	 * Counterexample (leads to this axiom)
+	 * container = {S11 ↦ S1, S12 ↦ S1, ‥}
+     * r = {S11, S12}
+	 * exiting = {S1, S11, S12}
+     * enabling = {S1}
+     * entering = {S12}
+     * active = {S11, S1}
+	 */
+	/*
+     * BUT THIS does not cover this case 
+     * container = {S11 ↦ S1, S12 ↦ S1, ..}
+     * r = {S11, S12}
+	 * exiting = {S1}
+     * enabling = {S1}
+     * entering = {S12}
+     * active = {S11, S1}
+     */
+     /*
+      * Son: I don't think we need this anymore
+      */
+//	@entering-reentering_exiting_region:
+//	∀trf, r ·
+//    		trf ∈ transformations ∧
+//			r ∈ regions ∧
+//			container[r] ⊆ enabling(trf) ∧
+//			entering(trf) ∩ r ≠ ∅
+//		⇒
+//			exiting(trf) ∩ r ≠ ∅
+// @TODO htson: We need some axioms linking exiting and entering
+// Without this axiom, we can have the following invalid configuration
+// root <− [Y]
+// exiting = {Y}
+// active = {Y, root}
+// enabling = {Y, root}
+// entering = ∅	
+	 @entering-you_must_go_somewhere:
+		∀trf, r ·
+    		trf ∈ transformations ∧
+			r ∈ regions ∧
+			container[r] ∩ exiting(trf) = ∅ ∧
+			exiting(trf) ∩ r ≠ ∅
+		⇒
+			entering(trf) ∩ r ≠ ∅  // You must go somewhere within r
+
+//	@entering-enter_within_state2:
+//		∀trf, r ·
+//    		trf ∈ transformations ∧
+//			r ∈ regions ∧
+//			entering(trf) ∩ r ≠ ∅ ∧
+//			¬(container[r] ⊆ enabling(trf) ∖ exiting(trf))
+//		⇒
+//			entering(trf) ∩ container[r] ≠ ∅
+	// Take first common ancestor of the set of sources f,
+	// add the first common ancestor of the set of targets if it is an ancestor of the sources.
+	// take the descendants of the result. 
+	// @exit-def: exit = (λt · t ∈ transformations ∣ successor [source(t)] ∪ successor [ (ancestry[source(t)] ∖ ancestry[target(t)]) ∪ ({first_common_ancestry(target(t))} ∩ ancestry[source(t)]) ] )
+	//    
+
+	// We are now just take entering states as the difference between the target's ancestry and the source's ancestry
+//	@exit-def: exit = (λt · t ∈ transformations ∣ successor[ancestry[source(t)] ∖ ancestry[target(t)]] )
+    
+	// sources have to be in different region? of the first common ancestor??
+//	@valid-sources: ∀t, s1, s2· t ∈ transformations ∧ s1 ∈ source(t) ∧ s2 ∈ source(t) ∧ s1 ≠ s2 ⇒ 
+//	(∃r1, r2 · container[r1] = {first_common_ancestry({s1,s2})} ∧ container[r2] = {first_common_ancestry({s1, s2})} ∧ r1 ≠ r2 ∧ s1 ∈ successor[r1] ∧ s2 ∈ successor[r2])   
+	// targets have to be in different region? of the first common ancestor??
+//	@valid-targets: ∀t, t1, t2· t ∈ transformations ∧ t1 ∈ source(t) ∧ t2 ∈ source(t) ∧ t1 ≠ t2 ⇒ // different regions of the first common ancestor   
+//	(∃r1, r2 · r1 ∈ regions ∧ r2 ∈ regions ∧ container[r1] = {first_common_ancestry({t1, t2})} ∧ container[r2] = {first_common_ancestry({t1, t2})} ∧ r1 ≠ r2 ∧ t1 ∈ successor[r1] ∧ t2 ∈ successor[r2])   
+	// Valid internal transformation
+	// @cfs: source and target have to in the same region of the first common ancestor
+//	@valid_internal_transformation:
+//	∀tr, s, r ·
+//		tr ∈ transformations ∧			// tr is a transformation
+//	    s ∈ enter(tr) ∧				// s is a entering state
+//	    container(s) ∉ enter(tr) ∧	// but the container of s is not an entering state
+//	    r ∈ regions ∧ s ∈ r			// r is the region containing s
+//	⇒
+//		(∃ex · {ex} = exit(tr) ∩ r)			// There exists exactly 1 existing state ex in r 
+
+    // enter: if entering a parent then has to enter all regions
+	// if a transformation "enters" a multiple-region state, the transformation should target exactly one in each region.
+//	@tr-exactly_one_per_region:
+//		∀tr, ps, r ·
+//			tr ∈ transformations ∧		// tr is a transformation
+//		 	ps ∈ enter(tr) ∧ 		// ps is a parent entering state
+//		 	r ∈ regions ∧ container[r] = {ps}	// r is a region of ps
+//		 ⇒ 
+//			(∃s · r ∩ enter(tr) = {s})		// There exists exactly 1 entering state s in r
+	
+	// The initial leaf is a leaf state.	
+//	@typeof-init_leaf: init_leaves ∈ ℙ(leaves)
+
+//	@def-init: init = cl(container)[init_leaves] ∪ init_leaves
+//	theorem @typeof-init: init ⊆ states
+		// At most one active in the same region
+//	@init-region-unique: ∀region, state1, state2 ·
+//		state1 ∈ region ∩ init ∧ state2 ∈ region ∩ init ⇒ state1 = state2 
+
+	// All parallel regions are inactive (hence active) at the same time
+//	@init-region-parallel: ∀region1, region2 ·
+//		container[region1] = container[region2] ∧ region1 ∩ init = ∅ ⇒ region2 ∩ init = ∅
+	
+	//@typeof-parallel_transformation: parallel_transformations ⊆ ℙ(transformations)
+	// More properties about parallel_transformation
+	// - They "belong" to different parallel regions
+	//   @cfs: sources of parallel transformations have to be contained within different regions of the first common ancestor
+	//   @cfs: "different" targets of parallel transformations have to be contained within
+	//         different regions of the first common ancestor
+	//         !prs, tr1, tr2, first_common_ancestry . prs : parallel_transformations & tr1 /= tr2 & {tr1, tr2} <: prs & 
+	//             target(tr1) /= target(tr2) & first_common_ancestry = first_common_ancestor(target(tr1), target(tr2)) =>
+	//                     region(first_common_ancestry, target(tr1)) /= region(first_common_ancestry, target(tr2))    
+end
