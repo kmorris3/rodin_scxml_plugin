@@ -1,0 +1,66 @@
+context utstc_c0_2_closure_prop
+extends utstc_c0_1_closure_def
+axioms
+	/*
+	 * Copy of the theorems from c0_closure_def.
+	 * The extra properties in this context is derivable from these theorems
+	 */
+	// Transitive closure is ⊆-strengthening
+	theorem @thm1-cl_strengthen: ∀ r· r ⊆ cl(r)
+
+	// Transitive closure is transitive
+  	theorem @thm2-cl_transitivity: ∀ r·cl(r);cl(r) ⊆ cl(r)
+  	
+  	// Transitive closure is minimal
+  	theorem @thm3-cl_minimal: ∀ r·(∀ p· r⊆p ∧ p;p⊆p ⇒ cl(r)⊆p)
+
+	/*
+	 * Extra properties for transitive closure
+	 */
+	// Transitive closure is ⊆-monotonic
+	// Proof: instantiate @thm3-cl_minimal with r <- r and p <- cl(p)
+	theorem @thm4-⊆_monotonic: ∀ r,p·r⊆p ⇒ cl(r) ⊆ cl(p) 
+	
+	// Transitive closure right maximal
+	// Proof: Consequence of @thm1-cl_strengthen and @thm2-cl_transitivity
+  	theorem @thm5-right_maximal: ∀ r·cl(r);r ⊆ cl(r)
+  	
+  	// Transitive closure left maximal
+	// Proof: Consequence of @thm1-cl_strengthen and @thm2-cl_transitivity  	 
+  	theorem @thm6-left_maximal: ∀ r·r;cl(r) ⊆ cl(r)
+
+	// Head recursion
+	// Proof: 
+	// - LHS is included in RHS: Instantiate @thm3-cl_minimal with r <- r and p <- r ∪ (r;cl(r))
+	// then consequence of @thm1-cl_strengthen, @thm6-left_maximal and @thm2-cl_transitivity
+	// - RHS is included in LHS: Consequence of @thm1-cl_strengthen and @thm6-left_maximal
+  	theorem @thm7-head_recursion: ∀r·cl(r) = r ∪ (r;cl(r))
+
+	// Tail recursion
+	// Proof: 
+	// - LHS is included in RHS: Instantiate @thm3-cl_minimal with r <- r and p <- (cl(r);r) ∪ r
+	// then consequence of @thm6-right_maximal, @thm2-cl_transitivity, and @thm1-cl_strengthen
+	// - RHS is included in LHS: Consequence of @thm6-right_maximal and @thm1-cl_strengthen
+  	theorem @thm8-tail_recursion: ∀r·cl(r) = (cl(r);r) ∪ r
+
+	// Induction principle
+	// Proof: Instantiate @thm3-cl_minimal with r <- r and p <- (T × T) ∪ ((STATE ∖ T) × )
+  	theorem @thm9-induction: ∀r,T· r[T]⊆T ⇒ cl(r)[T]⊆T
+
+	// Converse
+	// Proof:
+	// - LHS is included in RHS: Instantiate @thm3-cl_minimal with r <- r∼ and p <- cl(r)∼,
+	// then consequence of @thm1-cl_strengthening and @thm2-cl_transitivit
+	// - RHS is included in LHS: Instantiate @thm3-cl_minimal with r <- r and p <- cl(r∼)∼,
+	// then consequence of @thm1-cl_strengthening (r <- r∼)and @thm2-cl_transitivity (r <- r∼)
+  	theorem @thm10-converse: ∀r·cl(r∼) = cl(r)∼
+  	
+  	// Transitive closure preserves domain
+  	// Proof: Consequence of @thm7-head_recursion
+  	theorem @thm11-domain_preservation: ∀r· dom(r) = dom(cl(r))
+  	
+  	// Transitive closure preserves range
+  	// Proof: Consequence of @thm8-tail_recursion
+  	theorem @thm12-range_preservation: ∀r· ran(r) = ran(cl(r))
+	
+end
