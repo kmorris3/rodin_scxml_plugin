@@ -7,7 +7,7 @@
    viewBox="0 0 744.09448819 1052.3622047"
    id="svg3364"
    version="1.1"
-   inkscape:version="1.2.1 (9c6d41e, 2022-07-14)"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
    sodipodi:docname="Turnstile.svg"
    inkscape:export-filename="Turnstile.png"
    inkscape:export-xdpi="96"
@@ -342,6 +342,48 @@
          d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
          transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
     </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker13901-4-7"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path13903-8-9"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker13901-4-3"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path13903-8-98"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker13901-4-78"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path13903-8-8"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -350,16 +392,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="844"
-     inkscape:cy="189"
+     inkscape:zoom="0.28686929"
+     inkscape:cx="432.25261"
+     inkscape:cy="284.10151"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="2319"
-     inkscape:window-height="1361"
-     inkscape:window-x="950"
-     inkscape:window-y="25"
+     inkscape:window-width="864"
+     inkscape:window-height="1051"
+     inkscape:window-x="29"
+     inkscape:window-y="38"
      inkscape:window-maximized="0"
      showguides="false"
      inkscape:showpageshadow="2"
@@ -836,5 +878,21 @@
          x="1297.1387"
          y="619.83337"
          style="font-size:37.5px;line-height:1.25;font-family:sans-serif">ACCEPT</tspan></text>
+    <g
+       id="g4952"
+       transform="rotate(180,1163.5078,675.39779)"
+       inkscape:export-filename="Turnstile.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.70635;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker13901-4-78)"
+         d="m 1161.9496,1004.702 v 81.2161 h -58.7637"
+         id="path13757-0-8"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:3.125;stroke-dasharray:none;stroke-opacity:1"
+         d="m 1162.18,1003.4543 -64.2568,0.012"
+         id="path4138-1" />
+    </g>
   </g>
 </svg>
