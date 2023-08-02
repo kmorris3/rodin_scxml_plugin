@@ -7,7 +7,7 @@ extends utstc_ctx2 utstc_ctx1_region
 axioms
 	@enabling-type: enabling ∈ transformations → ℙ1(states)
 	
-    @exiting-type: exiting ∈ transformations → ℙ1(states)
+    @exiting-type: exiting ∈ transformations → ℙ(states)
     
     @exiting-either_one_or_all_in_a_region: 
     	∀trf, s, r ·
@@ -33,6 +33,7 @@ axioms
     @enabling-unique_exiting_states_in_a_region:
     	∀trf, s, r · trf ∈ transformations ∧ 
     		s ∈ enabling(trf) ∧
+    		exiting(trf) ∩ r ≠ ∅ ∧// This to allowed the transformation where only enabling states are defined.
     		r ∈ regions ∧
     		s ∈ r
     	⇒
@@ -46,7 +47,7 @@ axioms
     	⇒
 			enabling(trf) ∩ r = {s}  // s is the single enabling state in the region  			
 
-    @entering-type: entering ∈ transformations → ℙ1(states)
+    @entering-type: entering ∈ transformations → ℙ(states)
     
     @entering-at_most_one_in_a_region: 
     	∀trf, s, r ·
