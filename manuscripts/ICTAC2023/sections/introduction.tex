@@ -1,0 +1,32 @@
+\section{Introduction}
+\label{sec:introduction}
+
+% We formalise the semantics of refinement in SCXML by modelling, in Event-B,
+% \begin{itemize}
+% 	\item the structure and behaviour of abstract SCXML models,
+% 	\item the structure, behaviour of refined SCXML models and their relationship to abstract models.
+% 	\item We then refine the latter to remove verification artifacts and show that it is no different to the abstract model and hence SCXML refinement can be applied iteratively.
+% \end{itemize}
+
+\paragraph{Motivation.} Statechart notations, with event-triggered, '\emph{run-to-completion}' semantics~\cite{HAREL1987231,harel1996executable}, provide an intuitive and visual modelling interface with which engineers can design and communicate.  
+SCXML~\cite{scxmlwebsite} is an  example of such a statechart notation.
+Formal refinement, as in  Event-B~\cite{abrial10:_model_event_b}, provides a safe way to abstract important properties and introduce detail in a manageable way.
+Hence we have proposed the introduction of refinement into SCXML in previous work~\cite{Morris2018,Morris2020,DBLP:journals/isse/MorrisSHHAB22}. 
+In order to define our proposals for refinement in SCXML more precisely, we first need to formally specify the  semantics of SCXML itself. 
+In this paper, we focus on the formalization of SCXML semantics using Event-B. 
+SCXML can be viewed as 2 superimposed behaviours:  a) the underlying behaviour of how the statechart is structured and how it changes its active state and  b) the run-to-completion schedule that dictates the order in which enabled  transitions should be fired.
+We  approach the formalisation by addressing these issues as separate Event-B models and then compose them using the CamilleX extension~\cite{DBLP:conf/sefm/HoangSDFB22} to obtain the complete formalisation of the SCXML semantics.
+
+% Since SCXML consists of a state-chart behaviour superimposed with a 'run to completion' execution semantics, we formalise the refinement of these two parts separately and then compose the two definitions to obtain the complete refinement semantics for our modeling language, triggered enable statecharts with a run-to-completion scheduling (or triggered statechart). 
+
+\paragraph{Constribution.} Our contributions are as follows.
+\begin{itemize}
+    \item We provide a formalization of the run-to-completion  semantics of SCXML statecharts in Event-B. Although we  refer to SCXML as  an example, we believe that it is  typical of  other similar statechart  notations and we have not  relied on specific SCXML  definitions. 
+    \item The work illustrates how Event-B with its automatic proof obligation generators and theorem provers can be used to  define  formal  semantics of  notations. Here we  explain the Event-B models  and outline the more interesting proofs  that  required manual intervention.
+    \item The work also illustrates how the composition feature of CamilleX can be used to structure such semantics definitions into more  manageable sub-issues.
+\end{itemize}
+As far as we know, this is the first tool-supported semantics model for SCXML statecharts supporting features such as parallel regions.
+
+\paragraph{Structure.} In Section~\ref{sec:background}, we provide a high-level description of statecharts, and the run-to-completion execution model, as well as, the Event-B modeling method used to formalized the semantics of our triggered statechart modeling language. Section~\ref{sec:example} introduces a turnstile running example which will be used in subsequent sections to illustrate the construction and analysis of a system using our formalized semantics.  We develop the semantics model of the run-to-completion statecharts in three separate steps: (1) first, we model the semantics the untriggered statecharts (Section~\ref{sec:utsc}); and (2) we then specify the run-to-completion triggering mechanism (Section~\ref{sec:r2c}); and (3) we compose the two individual semantics models to construct the triggered statechart semantics (Section~\ref{sec:tstc}).
+%The following subsections describe in some detailed the formalization of each component in the language, including a couple of the proofs that were discharged. 
+A summary of our findings and concluding remarks are discussed in Section~\ref{sec:conclusions}.

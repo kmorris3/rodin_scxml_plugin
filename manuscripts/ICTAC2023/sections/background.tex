@@ -1,0 +1,58 @@
+\section{Background}
+\label{sec:background}
+
+
+\subsection{Statecharts}
+\label{sec:statecharts}
+
+Statecharts have been used for visual representation in the specification and design of complex systems for several decades. Different statechart formalizations exist depending on the features supported and specific characteristics of the modeled systems \cite{HAREL1987231,harel1996executable}. These diagrams provide a compact representation for modeling hierarchy, concurrency and communication in a systems design.
+Statecharts were originally developed to addressed unbounded modeling complexity in other state diagrams. 
+
+\subsection{Run-to-Completion and SCXML}
+\label{sec:run-to-completion}
+
+State Chart eXtensible Markup Language (SCXML)~\cite{scxmlwebsite} is a 
+general-purpose event-based statemachine language that combines concepts 
+from Call Control eXtensible Markup Language (CCXML) and Harel State Tables. 
+Harel State Tables are included in the Unified Modeling Language (UML). 
+The concrete syntax for SCXML is based on XML. Hence, SCXML is an XML 
+notation for UML style state-machines extended with an action language 
+that is intended for call control features in voice applications. SCXML 
+uses a run-to-completion semantics, also known as macro-step/micro-step 
+semantics. This means that trigger events may be needed to enable transitions. 
+Trigger events are queued when they are raised, and then one is de-queued and
+consumed by firing all the transitions that it enables, followed by any 
+(un-triggered) transitions that then become enabled due to the change of 
+state caused by the initial transition firing. This is repeated until no 
+transitions are enabled, and then the next trigger is de-queued and consumed. 
+There are two kinds of triggers: internal triggers are raised by transitions
+and external triggers are raised non-deterministically by the environment. An external trigger may only be consumed 
+when the internal trigger queue has been emptied. This means that an external 
+trigger is only consumed when no transition can be taken without doing so.
+
+\subsection{Event-B}
+\label{sec:event-b}
+Event-B~\cite{abrial10:_model_event_b} is a formal method used to
+design and model software systems, of which certain properties must
+hold, such as safety properties. This method is useful in modelling
+safety-critical systems, using mathematical proofs to show consistency
+of models in adhering to its specification. Models consist of
+constructs known as machines and contexts. A \emph{context} is the
+static part of a model, such as \emph{carrier sets} (which are
+conceptually similar to types), \emph{constants}, and \emph{axioms}.
+Axioms are properties of carrier sets and constants which always hold.  A context can \emph{extend} one or more contexts by adding more carrier sets, constants and axioms.  \emph{Machines} describe the dynamic part of the model, that is, how
+the state of the model changes. The state is represented by the
+current values of the \emph{variables}, which may change values as the
+state changes.  \emph{Invariants} are declared in the machine, stating
+properties of variables which should always be true, regardless of the
+state.  \emph{Events} in the machine describe state changes.  Events
+can have \emph{parameters} and \emph{guards} (predicates on variables and event
+parameters); the guard must hold true for event execution.  Each
+event has a set of \emph{actions} which happen simultaneously,
+changing the values of the variables, and hence the state. Every
+machine has an initialisation event which sets initial variable
+values. Contexts can be extended and machines can be refined to introduce details of the formal model gradually. We utilise context extension in this paper, but not event extension. An important set of proof obligations are invariant
+preservation.  They are generated and required to be discharged to
+show that no event can potentially change the state to one which
+breaks any invariant, a potentially unsafe state. \EventB is supported by the extensible Rodin platform~\cite{abrial10:_rodin}. Extension of \EventB and Rodin such as CamilleX~\cite{DBLP:conf/sefm/HoangSDFB22} allows the composition of models.
+

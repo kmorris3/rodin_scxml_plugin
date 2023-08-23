@@ -1,0 +1,179 @@
+\section{Formalization of Triggered Statecharts}
+\label{sec:tstc}
+
+The triggered statecharts is an unified statechart model representation based 
+on SCXML ~\cite{scxmlwebsite}. To formalize the complete semantics we compose the previous two models, of the untriggered statechart (Sections~\ref{sec:utsc}) and of the run-to-completion schedule (Section~\ref{sec:r2c}).
+The composition is performed by, using the inclusion mechanism built into the CamilleX extension~\cite{DBLP:conf/sefm/HoangSDFB22} of the Rodin platform.
+
+\subsection{Triggered Statechart Syntactic Elements}
+\label{sec:tstc-syntax}
+Since the a triggered statechart is a combination of its untriggered statechart and the run-to-completion schedule, the syntactic elements of triggered statechart extend the syntactic elements of the untriggered statechart and the run-to-completion (Listing~\ref{lst:tstc_ctx}). We introduce some syntactic elements \emph{gluing} the sub-context together, namely, the link between untriggered statechart's transformations and run-to-completion's steps, to form |transitions|.
+
+At the same time, when we combine the two sub-models, we need to ensure an important aspect of triggered statecharts which is their responsiveness. In particular, if a trigger (internal or external) is de-queued, but no enabled transformation that can consume the trigger, we need to ensure that the system can still progress. More precisely, the system will need to \emph{discard} the problematic trigger in order to continue. Constants |discardSteps| are introduced to capture the special steps that discarding triggers.
+
+Axiom |@typeof-transitions| specifies that |transitions| is a one-to-one correspondence between transformations and non-discarding steps (|⤖| is the symbol for bijective functions). Axioms |@discardSteps-Triggers| and |@discardSteps-Raised| ensure that there is a discard step for every trigger and the discard steps do not raise any trigger.
+\begin{lstlisting}[language=Event-B, caption = {Context for Triggered Statecart}, label = {lst:tstc_ctx}]
+context tstc_ctx
+extends r2c_ctx utstc_ctx
+constants transitions discardSteps
+axioms
+	@typeof-transitions: transitions ∈ transformations ⤖ Steps ∖ discardSteps
+	@discardSteps-Triggers: discardSteps ◁ StepTrigger ∈ discardSteps ⤖ Triggers
+	@discardSteps-Raised: StepRaised[discardSteps] = { ∅ }
+end
+\end{lstlisting}
+
+\subsection{Triggered Statechart Semantics}
+\label{sec:tstc-semantics}
+The semantics of a triggered statechart is capture by a machine that includes both the untriggered statechart and the run-to-completion schedule. We also use prefixing mechanism, e.g., |as r2c|, so that all modelling elements of the included machine are prefixed accordingly.
+\begin{EventBcode}
+machine tstc sees tstc_ctx
+includes r2c as r2c
+includes utstc as utstc
+\end{EventBcode}
+The following events are \emph{lifted} from the run-to-completion machine (unchanged): |raiseExternalTrigger|, |dequeueExternalTrigger|, |dequeueInternalTrigger|. Essentially, they only concern the management of trigger queues and do not relate to the statechart's status.
+
+Events to model the transitions (|triggeredTransition| and |untriggeredTransition|) \emph{synchronises} with the events from the untriggered statechart and the run-to-complete schedule. The additional guard of the events ensure that the chosen tranformation (from the untriggered statechart) and the step (from the run-to-completion model) corresponds with each other.
+\begin{center}
+    \begin{minipage}{0.48\textwidth}
+\begin{EventBcode}
+event triggeredTransition
+synchronises r2c.triggeredStep
+synchronises utstc.transformation
+where 
+	@grd1: transitions(utstc_trf) = r2c_Step 
+end
+\end{EventBcode}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+\begin{EventBcode}
+event untriggeredTransition
+synchronises r2c.untriggeredStep
+synchronises utstc.transformation
+where 
+	@grd1: transitions(utstc_trf) = r2c_Step 
+end    
+\end{EventBcode}
+    \end{minipage}
+\end{center}
+
+As discussed before, we need to introduce the events to discard triggers |discardTrigger| (in the case where |triggeredTransition| is not available). This condition is formalised as  |discardTrigger|'s |grd3|. We also strengthen the guard of |completion| to ensure that the system will complete a run only when |untriggedTransition| is not available (see |completion|'s |grd1|.
+\begin{center}
+    \begin{minipage}[t]{0.50\textwidth}
+\begin{EventBcode}
+event discardTriggered
+any trigger
+synchronises r2c.triggeredStep
+where
+    @grd1: r2c_Step ∈ discardSteps
+    @grd2: trigger = StepTrigger(r2c_Step)
+    @grd3: ∀trf · transitions(trf) ∈ StepTrigger∼[{trigger}] ⇒ ¬enabling(trf) ⊆ utstc_active  
+end
+\end{EventBcode}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+\begin{EventBcode}
+event completion
+synchronises r2c.completion
+where
+    @grd1: 
+        ∀ r2c_Step · r2c_Step ∈ Steps ∖ dom(StepTrigger)
+	⇒
+    ¬ (enabling(transitions∼(r2c_Step)) ⊆ utstc_active)
+	end
+\end{EventBcode}
+    \end{minipage}
+\end{center}
+
+Using composition via inclusion mechanism means that the triggered statechart semantics inherit the invariants from the sub-machines without the need to prove them (correct-by-construction).
+
+% \subsection{Machine 1: Composition of SCXML and statemachine }
+% For this stage we include the corresponding M1 stages for SCXML and state-machine.
+
+% The gluing context defines the needed refinement relationship between concrete and abstract parts of the model.
+% \begin{enumerate}
+% 	\item \label{item:triggeredness} For transitions that refine abstract transitions, the transition is triggered if and only if its corresponding abstract transition is triggered.
+% 	\item For \emph{triggered} transitions that refine abstract transitions, the trigger is the same as that of the corresponding abstract transition.
+% 	\item For \emph{finalized} transitions that refine abstract \emph{finalized} transitions, the transition source is the same as that of the corresponding abstract transition. I.e. you cannot strengthen the source of an already finalised transition.
+% 	\item the abstract \emph{finalised} transitions are a subset of the abstract transitions that correspond to concrete finalized transitions. I.e. once transitions are finalized they stay finalized in refinements. 
+% \end{enumerate}
+% Initially, for item \ref{item:triggeredness} we defined a single axiom giving the equality of the domains of the abstract and concrete transition-trigger relationship.
+% However, this was insufficient to prove the guard strengthening of the untriggered refined transitions because the \emph{transition\_link} relationship is not injective. In general, an abstract transition could be refined by more than one concrete transition. We defined two axioms, universally quantifying over the set of refined transitions that are/are not triggered, with the consequent that the corresponding abstract transitions are/are not triggered.
+% These axioms were sufficient to automatically discharge the guard strengthening POs for both triggered and untriggered refined transitions.
+
+% \subsection{Machine 2: Merging Abstract and Concrete Events}
+% We found a problem when we tried to merge the refined and new  transitions of the combined scxml and statechart semantics. 
+% The problem occurs for merging both triggered and untriggered transitions.
+% The problem is that we have not considered the case of merging a new state-machine transition with an old refined scxml triggered transition.
+% Probably this is nonsensical and we should add guards to prevent it.
+% Ok for triggered but for untriggered our way of distinguishing refined scxml untriggered transitions is via the disappearing variable dqaux
+
+% \begin{EventBcode}\caption{Machine for Triggered Statechart Semantics} \label{lst:trigger_stm_mach}
+% machine tstc
+% sees tstc_ctx
+% includes r2c as r2c
+% includes utstc as utstc
+
+% events
+% 	event INITIALISATION
+% 	synchronises r2c.INITIALISATION
+% 	synchronises utstc.INITIALISATION
+% 	end
+
+% 	event raiseExternalTrigger
+% 	synchronises r2c.raiseExternalTrigger
+% 	end
+	
+% 	event dequeueExternalTrigger
+% 	synchronises r2c.dequeueExternalTrigger
+% 	end
+	
+% 	event dequeueInternalTrigger
+% 	synchronises r2c.dequeueInternalTrigger
+% 	end
+	
+	
+% 	event discardTriggered
+% 	any trigger
+% 	synchronises r2c.triggeredStep
+% 	where
+% 		// r2c_Step is a discard step
+% 		@Step-discard: r2c_Step ∈ discardSteps
+% 		// trigger is the discard trigger
+% 		@trigger-def: trigger = StepTrigger(r2c_Step)
+		
+% 		// for all transformation @trf that is triggered by @trigger is disabled,
+% 		// i.e., not all enabling states of @trf is active.
+% 		@no_enabling: ∀trf · transitions(trf) ∈ StepTrigger∼[{trigger}] ⇒ ¬enabling(trf) ⊆ utstc_active  
+% 	end
+
+% 	event triggeredTransition
+% 	synchronises r2c.triggeredStep
+% 	synchronises utstc.transformation
+% 	where 
+% 		@this_trigger:	transitions(utstc_trf) = r2c_Step 
+% 	end
+
+% 	event untriggeredTransition
+% 	synchronises r2c.untriggeredStep
+% 	synchronises utstc.transformation
+% 	where 
+% 		@this_trigger:	transitions(utstc_trf) = r2c_Step 
+% 	end
+
+% 	event completion
+% 	synchronises r2c.completion
+% 	where
+% 		// This theorem is useful for discharging no_enabling/WD PO
+% 		theorem @COPY-typeof-transitions: transitions∈transformations ⤖ Steps ∖ discardSteps
+
+% 	 	// For all untriggered step r2c_Step, the corresponding transformation, 
+% 		// i.e., transitions∼(r2c_Step) is not enabled.
+% 		@no_enabling: 
+% 			∀ r2c_Step · r2c_Step ∈ Steps ∖ dom(StepTrigger)
+% 		⇒
+% 			¬ (enabling(transitions∼(r2c_Step)) ⊆ utstc_active)
+% 	end
+% \end{EventBcode}
