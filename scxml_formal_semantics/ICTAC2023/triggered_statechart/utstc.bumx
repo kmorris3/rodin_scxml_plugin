@@ -6,22 +6,15 @@ sees utstc_ctx utstc_c0_4_tree_prop
 variables
 	active // The set of active states
 	
-	// The following are auxiliary variables to capture property of the statemachine
-//	active_leaves // The current active leaf
 invariants
 	// @active is a set of states
 	@typeof-active: active ⊆ states
 	
-	// @active_leaf is a set of leaves
-//	@typeof-active_leaf: active_leaves ⊆ leaves
-	
-	// Consistency between active and active_leaf	
-//	@active-closure: active = ancestry[active_leaves]
-
-	// container[entering] \ entering <: enabling \ exiting
+	// If a non-root state is active then its container is also active
 	@container_active:
 		∀ s · s ∈ active ∖ {root} ⇒ container(s) ∈ active
 	
+	// If a state is active then all of its ancestor is active
 	theorem @ancestor_active:
 		∀ s · s ∈ active ⇒ cl(container)[{s}] ⊆ active
 
@@ -41,18 +34,15 @@ invariants
 	theorem @active-region-parallel-equiv: ∀region1, region2 · region1 ∈ regions ∧ region2 ∈ regions ∧
 		container[region1] = container[region2] ⇒ (region1 ∩ active = ∅ ⇔ region2 ∩ active = ∅)
 
-	// Properties derive from the consistency invariant ???? (to be reproved)
-//	theorem @LinkedList-active: ∀active_leaf· active_leaf ∈ active_leaves ⇒ active_leaf ↦ root ↦ (ancestry[{active_leaf}] ◁ container) ∈ LinkedList(active)
+	// If a container of a region is active then the region must be active
+	// Use in transformation/active-region-parallel/INV
+	theorem @region_active:
+		∀ r · r ∈ regions ∧ container[r] ⊆ active ⇒ r ∩ active ≠ ∅
 	
-	// If a non-root state is active then the container is also active
-	// These should/might be the consequence of @LinkedList-active using property of LinkedList
-	
-		 
 events
 	event INITIALISATION
 	then
-		@update-active: active ≔ init
-//		@update-active_leaf: active_leaves ≔ init_leaves
+		@update-active: active ≔ init_active
 	end
 	
 	event transformation
@@ -61,12 +51,12 @@ events
 	where
 		@typeof-trf: trf ∈ transformations
 		@active-enabling: enabling(trf) ⊆ active
+		// This theorem is intended to be use in proving
+		// transformation/active-region-unique/INV
+		theorem @active-no-exit-no-enter:
+			∀s · s ∈ states ∖ {root} ∧ s ∈ active ∧ s ∉ exiting(trf) ⇒
+				(∀r · r ∈ regions ∧ s ∈ r ⇒ r ∩ entering(trf) = ∅) 
 	then
-		//@update-active: active ≔ cl(container)[{target(transition)}] ∪ {target(transition)}
 		@update-active: active ≔ (active ∖ exiting(trf)) ∪ entering(trf)
-		
-		// active := (active \ exit(t1)) \/ enter(t1)  \ exit(t2) \/ enter(t2) .... 
-		// Exit all the leaves associated with the sources and enter the target leaves.
-//		@update-active_leaf: active_leaves ≔ leaves ∩ ((active_leaves ∖ union(exit[trs])) ∪ union(enter[trs]))
 	end
 end

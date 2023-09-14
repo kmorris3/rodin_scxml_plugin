@@ -1,0 +1,8 @@
+context utstc_ctx1_turnstile
+extends utstc_ctx0_turnstile utstc_ctx1_region
+axioms
+	@regions-def: regions = { {ON, OFF},
+		{BLOCKED, UNBLOCKED, TIMEOUT}, // GATE
+		{READY, READING, ACCEPT}	// CARD_READER region
+	}
+end

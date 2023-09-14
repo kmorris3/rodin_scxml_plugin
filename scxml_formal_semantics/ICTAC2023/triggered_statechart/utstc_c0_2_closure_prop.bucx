@@ -44,13 +44,13 @@ axioms
   	theorem @thm8-tail_recursion: ∀r·cl(r) = (cl(r);r) ∪ r
 
 	// Induction principle
-	// Proof: Instantiate @thm3-cl_minimal with r <- r and p <- (T × T) ∪ ((STATE ∖ T) × )
+	// Proof: Instantiate @thm3-cl_minimal with r <- r and p <- (T × T) ∪ ((STATE ∖ T) × STATE)
   	theorem @thm9-induction: ∀r,T· r[T]⊆T ⇒ cl(r)[T]⊆T
 
 	// Converse
 	// Proof:
 	// - LHS is included in RHS: Instantiate @thm3-cl_minimal with r <- r∼ and p <- cl(r)∼,
-	// then consequence of @thm1-cl_strengthening and @thm2-cl_transitivit
+	// then consequence of @thm1-cl_strengthening and @thm2-cl_transitivity
 	// - RHS is included in LHS: Instantiate @thm3-cl_minimal with r <- r and p <- cl(r∼)∼,
 	// then consequence of @thm1-cl_strengthening (r <- r∼)and @thm2-cl_transitivity (r <- r∼)
   	theorem @thm10-converse: ∀r·cl(r∼) = cl(r)∼
