@@ -8,10 +8,11 @@
 % 	\item We then refine the latter to remove verification artifacts and show that it is no different to the abstract model and hence SCXML refinement can be applied iteratively.
 % \end{itemize}
 
-\paragraph{Motivation.} Statechart notations, with event-triggered, '\emph{run-to-completion}' semantics~\cite{HAREL1987231,harel1996executable}, provide an intuitive and visual modelling interface with which engineers can design and communicate.  
+\paragraph{Motivation.} Statechart notations, with event-triggered, '\emph{run-to-completion}' semantics~\cite{HAREL1987231,harel1996executable,10.1145/357474.355062}, provide an intuitive and visual modelling interface with which engineers can design and communicate.  
 SCXML~\cite{scxmlwebsite} is an  example of such a statechart notation.
-Formal refinement, as in  Event-B~\cite{abrial10:_model_event_b}, provides a safe way to abstract important properties and introduce detail in a manageable way.
+Formal refinement, as in  Event-B~\cite{abrial10:_model_event_b}, provides a safe way to abstract important properties and introduce details in a manageable way.
 Hence we have proposed the introduction of refinement into SCXML in previous work~\cite{Morris2018,Morris2020,DBLP:journals/isse/MorrisSHHAB22}. 
+These case studies presented examples of systems modeled using this proposed semantics. The focus then was on illustrating the incremental model construction process, the support of a divide and conquer approach for the verification of model properties leveraging refinement rules as defined in Event-B, and the translation from SCXML to Event-B.  
 In order to define our proposals for refinement in SCXML more precisely, we first need to formally specify the  semantics of SCXML itself. 
 In this paper, we focus on the formalization of SCXML semantics using Event-B. 
 SCXML can be viewed as 2 superimposed behaviours:  a) the underlying behaviour of how the statechart is structured and how it changes its active state and  b) the run-to-completion schedule that dictates the order in which enabled  transitions should be fired.

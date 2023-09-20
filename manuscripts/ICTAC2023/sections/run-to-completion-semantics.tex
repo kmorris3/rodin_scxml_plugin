@@ -5,7 +5,7 @@ Similar to the previous section, the formalization is done using an \EventB cont
 \subsection{Formalization of the Run-to-completion Syntactic Elements}
 \label{sec:r2c-syntax}
 To define run to completion execution we first specify the  syntactic elements involved. 
-Triggers, are partitioned into either  Internal or External triggers.
+Triggers are partitioned into either internal or external triggers.
 %\begin{center}
 %    \EventBInline{partition (TRIGGERS, InternalTriggersType, ExternalTriggerType, {nullTrigger})}
 %\end{center}
@@ -15,25 +15,24 @@ We define the internal and external trigger queues as sequences of internal and 
 %definition of the initial condition. As shown in 
 %Figure~\ref{fig:run-to-completion} shows the execution begins by taking untriggered steps which is otherwise only done after a trigger is consumed. Hence the |nullTrigger| is said to be consumed during initialization.
 Figure~\ref{fig:run-to-completion} shows the state machine for the run-to-completion schedule. 
-From the \emph{Ready to de-queue} state, an internal or (if internal queue empty) external trigger is de-queued from the corresponding queues and the system moves to the \emph{Firing Triggered} state.
+From the \emph{Ready to de-queue} state, an internal or (if internal queue is empty) external trigger is de-queued from the corresponding queues and the system moves to the \emph{Firing Triggered} state.
 A trigger step that consumes the dequeued trigger is then fired and the system moves to the \emph{Firing Untriggered} state. 
 From this state, untriggered steps can be fired repeatedly or the system moves back to the \emph{Ready to de-queue} state. 
 Both triggered and untriggered steps can raise more internal triggers, which will need to be handled in the future runs.
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.7\textwidth]{figures/run-to-completion.png}
+\includegraphics[width=0.9\textwidth]{figures/run-to-completion.png}
 \caption{State diagram for run to completion scheduling}
 \label{fig:run-to-completion}
 \end{figure}
 
 The context defining the syntactic elements for a run to completion is shown in Listing~\ref{lst:r2c_ctx}. 
 An important notion for the run to completion schedule are steps.  
-A triggered  step is taken when an internal or external trigger is consumed and a non-deterministic number of untriggered steps may be taken after a triggered step. 
-In the next section we will show how these steps relate to triggered and untriggered transitions  
+A triggered  step is taken when an internal/external trigger is consumed and a non-deterministic number of untriggered steps may be taken subsequently. 
+We will show how these steps relate to triggered/untriggered transitions later.  
 
 \begin{lstlisting}[language=Event-B, caption = {Context for Run-to-Completion Semantics}, label = {lst:r2c_ctx}]
-context r2c_ctx
-extends r2c_c0_2_dequeue 
+context r2c_ctx extends r2c_c0_2_dequeue 
 sets Steps
 constants InternalTriggers ExternalTriggers Triggers StepTrigger StepRaised
 axioms
@@ -48,7 +47,7 @@ Here |StepTrigger| (as a partial function) defines the required trigger for a St
 
 \subsection{Formalization of the Run-to-Completion Semantics}
 \label{sec:r2c-semantics}
-Given the syntactic elements defined earlier, the machine defining the semantics for the run-to-completion schedule models the trigger queues in the system according to Figure~\ref{fig:run-to-completion}. The dynamic status of the run-to-completion schedule is represented by the variables |int_q|, |ext_q|, |dt| (dequeue trigger), and |completion| with the following invariants.
+Given the syntactic elements defined earlier, the machine defining the semantics for the run-to-completion schedule models the trigger queues in the system according to Figure~\ref{fig:run-to-completion}. The dynamic status of the run-to-completion schedule is represented by the variables |int_q|, |ext_q|, |dt| (dequeue trigger), and |completed| with the following invariants.
 \begin{EventBcode}
 	@int_q: int_q ∈ Seq(InternalTriggers)
 	@ext_q: ext_q ∈ Seq(ExternalTriggers)
@@ -56,9 +55,7 @@ Given the syntactic elements defined earlier, the machine defining the semantics
 	@dequeue_triggerwd:	dt ⊆ InternalTriggers ∪ ExternalTriggers
 	@firingTriggered: dt ≠ ∅ ⇒ completed=FALSE
 \end{EventBcode}
-Where |int_q| and |ext_q| represent the sequences of internal and external triggers that need to be handled, |dt| keeps track of the trigger that has been removed from the queues (de-queue) to be consumed by a |TriggeredStep|. Note that |dt| is a singleton set of trigger when the system is in the \emph{Firing Triggered} state and empty otherwise (this is also the definition of |DeQueueType|). Finally, variable |complete| (denoted as |UC| in Figure~\ref{fig:run-to-completion}) is |TRUE| indicates that the system is in the \emph{Ready to de-queue} state.
-
-Starting from the \emph{Ready to de-queue} state (where |completed = TRUE|), the system will de-queue an internal/external trigger if there are any. Note that an external trigger is only de-queued when the internal queue is empty. After that the system moves to the \emph{Firing triggered} state (where |completed = FALSE| and |dt| is no longer empty).
+Where |int_q| and |ext_q| represent the sequences of internal and external triggers that need to be handled, |dt| keeps track of the trigger that has been removed from the queues (de-queue) to be consumed by a \emph{TriggeredStep}. Note that |dt| is a singleton set of trigger when the system is in the \emph{Firing Triggered} state and empty otherwise (this is also the definition of |DeQueueType|). Finally, variable |completed| (denoted as |UC| in Figure~\ref{fig:run-to-completion}) is |TRUE| indicates that the system is in the \emph{Ready to de-queue} state.
 \begin{center}
 \begin{minipage}[t]{0.48\textwidth}
 \begin{EventBcode}
@@ -91,6 +88,8 @@ end
 \end{EventBcode}
 \end{minipage}
 \end{center}
+Starting from the \emph{Ready to de-queue} state (where |completed = TRUE|), the system will de-queue an internal/external trigger if there are any. Note that an external trigger is only de-queued when the internal queue is empty. The system then moves to the \emph{Firing triggered} state (where |completed = FALSE| and |dt| is not empty).
+
 
 The behaviour of the \emph{TriggeredStep} and \emph{UntriggeredStep} are formalised by the corresponding events as follows. Both events can raise a sequence of internal triggers which is concatenated to the the internal queue.
 \begin{center}

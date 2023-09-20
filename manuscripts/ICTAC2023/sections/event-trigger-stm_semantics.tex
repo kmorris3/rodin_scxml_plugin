@@ -1,20 +1,16 @@
 \section{Formalization of Triggered Statecharts}
 \label{sec:tstc}
 
-The triggered statecharts is an unified statechart model representation based 
+The triggered statecharts are a unified statechart model representation based 
 on SCXML ~\cite{scxmlwebsite}. To formalize the complete semantics we compose the previous two models, of the untriggered statechart (Sections~\ref{sec:utsc}) and of the run-to-completion schedule (Section~\ref{sec:r2c}).
 The composition is performed by, using the inclusion mechanism built into the CamilleX extension~\cite{DBLP:conf/sefm/HoangSDFB22} of the Rodin platform.
 
 \subsection{Triggered Statechart Syntactic Elements}
 \label{sec:tstc-syntax}
-Since the a triggered statechart is a combination of its untriggered statechart and the run-to-completion schedule, the syntactic elements of triggered statechart extend the syntactic elements of the untriggered statechart and the run-to-completion (Listing~\ref{lst:tstc_ctx}). We introduce some syntactic elements \emph{gluing} the sub-context together, namely, the link between untriggered statechart's transformations and run-to-completion's steps, to form |transitions|.
+Since a \emph{triggered} statechart is a combination of an \emph{untriggered} one and a run-to-completion schedule, the former is a syntactic extension of the latter (Listing~\ref{lst:tstc_ctx}). We introduce some syntactic elements \emph{connecting} the sub-context together. Namely, relationships linking untriggered statechart transformations and run-to-completion steps, to form |transitions|.
 
-At the same time, when we combine the two sub-models, we need to ensure an important aspect of triggered statecharts which is their responsiveness. In particular, if a trigger (internal or external) is de-queued, but no enabled transformation that can consume the trigger, we need to ensure that the system can still progress. More precisely, the system will need to \emph{discard} the problematic trigger in order to continue. Constants |discardSteps| are introduced to capture the special steps that discarding triggers.
-
-Axiom |@typeof-transitions| specifies that |transitions| is a one-to-one correspondence between transformations and non-discarding steps (|⤖| is the symbol for bijective functions). Axioms |@discardSteps-Triggers| and |@discardSteps-Raised| ensure that there is a discard step for every trigger and the discard steps do not raise any trigger.
-\begin{lstlisting}[language=Event-B, caption = {Context for Triggered Statecart}, label = {lst:tstc_ctx}]
-context tstc_ctx
-extends r2c_ctx utstc_ctx
+\begin{lstlisting}[language=Event-B, caption = {Context for Triggered Statechart}, label = {lst:tstc_ctx}]
+context tstc_ctx extends r2c_ctx utstc_ctx
 constants transitions discardSteps
 axioms
 	@typeof-transitions: transitions ∈ transformations ⤖ Steps ∖ discardSteps
@@ -23,17 +19,18 @@ axioms
 end
 \end{lstlisting}
 
+At the same time, when we combine the two sub-models, we need to ensure an important aspect of triggered statecharts which is their responsiveness. In particular, if a trigger (internal or external) is de-queued, but no enabled transformation that can consume the trigger, we need to ensure that the system can still progress. More precisely, the system will need to \emph{discard} the problematic trigger in order to continue. Constants |discardSteps| are introduced to capture the special steps that discarding triggers.
+
+Axiom |@typeof-transitions| specifies that |transitions| is a one-to-one correspondence between transformations and non-discarding steps (|⤖| is the symbol for bijective functions). Axioms |@discardSteps-Triggers| and |@discardSteps-Raised| ensure that there is a discard step for every trigger and the discard steps do not raise any trigger (|◁| is the symbol for domain restriction, |[..]| is a relational image, and |{ ∅ }| the singleton set of the empty set).
+
 \subsection{Triggered Statechart Semantics}
 \label{sec:tstc-semantics}
-The semantics of a triggered statechart is capture by a machine that includes both the untriggered statechart and the run-to-completion schedule. We also use prefixing mechanism, e.g., |as r2c|, so that all modelling elements of the included machine are prefixed accordingly.
-\begin{EventBcode}
-machine tstc sees tstc_ctx
-includes r2c as r2c
-includes utstc as utstc
-\end{EventBcode}
-The following events are \emph{lifted} from the run-to-completion machine (unchanged): |raiseExternalTrigger|, |dequeueExternalTrigger|, |dequeueInternalTrigger|. Essentially, they only concern the management of trigger queues and do not relate to the statechart's status.
+The semantics of a triggered statechart is captured by a machine that includes both the untriggered statechart and the run-to-completion schedule. We also use prefixing mechanism, e.g., |includes r2c as r2c|, so that all modelling elements of the included machine are prefixed accordingly.
+%\begin{EventBcode}
+%\quad\quad\quad|machine tstc, sees tstc_ctx, includes r2c as r2c, includes utstc as utstc|
+%\end{EventBcode}
 
-Events to model the transitions (|triggeredTransition| and |untriggeredTransition|) \emph{synchronises} with the events from the untriggered statechart and the run-to-complete schedule. The additional guard of the events ensure that the chosen tranformation (from the untriggered statechart) and the step (from the run-to-completion model) corresponds with each other.
+The following events are \emph{lifted} from the run-to-completion machine (unchanged): |raiseExternalTrigger|, |dequeueExternalTrigger|, |dequeueInternalTrigger|. Essentially, they only concern the management of trigger queues and do not relate to the statechart's status.
 \begin{center}
     \begin{minipage}{0.48\textwidth}
 \begin{EventBcode}
@@ -57,8 +54,9 @@ end
 \end{EventBcode}
     \end{minipage}
 \end{center}
+Events to model the transitions (|triggeredTransition| and |untriggeredTransition|) \emph{synchronises} with the events from the untriggered statechart and the run-to-complete schedule. The additional guard of the events ensure that the chosen transformation (from the untriggered statechart) and the step (from the run-to-completion model) corresponds with each other.
 
-As discussed before, we need to introduce the events to discard triggers |discardTrigger| (in the case where |triggeredTransition| is not available). This condition is formalised as  |discardTrigger|'s |grd3|. We also strengthen the guard of |completion| to ensure that the system will complete a run only when |untriggedTransition| is not available (see |completion|'s |grd1|.
+As discussed before, we need to introduce the events to discard triggers |discardTrigger| (in the case where |triggeredTransition| is not available). This condition is formalised as  |discardTrigger|'s |grd3|. We also strengthen the guard of |completion| to ensure that the system will complete a run only when |untriggeredTransition| is not available (see |completion|'s |grd1|).
 \begin{center}
     \begin{minipage}[t]{0.50\textwidth}
 \begin{EventBcode}
@@ -87,7 +85,7 @@ where
     \end{minipage}
 \end{center}
 
-Using composition via inclusion mechanism means that the triggered statechart semantics inherit the invariants from the sub-machines without the need to prove them (correct-by-construction).
+The use of composition as supported by the inclusion mechanism in Rodin results in the triggered statechart semantics inheriting the invariants from the sub-machines without the need to prove them as they are correct-by-construction.
 
 % \subsection{Machine 1: Composition of SCXML and statemachine }
 % For this stage we include the corresponding M1 stages for SCXML and state-machine.

@@ -31,15 +31,15 @@ An important derived property of a tree-shaped structured (proved as a theorem) 
     \end{enumerate}
     then every state in the tree satisfies |P|.
 \end{theorem}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{figures/TreeShapedStates}
-    \caption{The states and regions structure for the turnstile example}
-    \label{fig:turnstile-tree-shaped}
-\end{figure}
+%\begin{figure}
+%    \centering
+%    \includegraphics[width=0.8\textwidth]{figures/TreeShapedStates}
+%    \caption{The states and regions structure for the turnstile example}
+%    \label{fig:turnstile-tree-shaped}
+%\end{figure}
 
 \begin{example}[Turnstile Example. Tree-shaped Structure States]
-    The tree-shaped structure of states in the turnstile example can be seen in Figure~\ref{fig:turnstile-tree-shaped}.
+%    The tree-shaped structure of states in the turnstile example can be seen in Figure~\ref{fig:turnstile-tree-shaped}.
     Formally, we have the following definitions.   
 \begin{EventBcode}
 // All states of the turnstile examples
@@ -51,6 +51,8 @@ container = {OFF ↦ root, ON ↦ root, BLOCKED ↦ ON, UNBLOCKED ↦ ON,
 // leaf states
 leaves = {BLOCKED, UNBLOCKED, TIMEOUT, READY, READING, ACCEPT, OFF}
 \end{EventBcode}
+
+The |partition| operator defines an enumerated set, |states|, where all the elements are explicitly given.
 \end{example}
 
 \subsubsection{Regions} Untriggered statecharts support the parallel composition of two or more nested statechart regions. 
@@ -89,9 +91,10 @@ Every region has a unique container state. Here |container[region]| is the image
 \end{axiom}
 
 \begin{example}[Turnstile Example. Regions]
-    The parallel regions for the turnstile example can be seen in Figure~\ref{fig:turnstile-tree-shaped}. Formally, we have three regions as follows.
+   % The parallel regions for the turnstile example can be seen in Figure~\ref{fig:turnstile-tree-shaped}.
+    Formally, we have three regions as follows.
 \begin{EventBcode}
-regions = { {ON, OFF},
+regions = { {ON, OFF}, // TURNSTILE region
 	{BLOCKED, UNBLOCKED, TIMEOUT}, // GATE region
 	{READY, READING, ACCEPT}	// CARD_READER region
 }
@@ -109,21 +112,21 @@ To model all transformation types, we formalise each transformation by three set
 \item |enabling|: A transformation is enabled (i.e., can be executed)
   if its (non-empty) set of enabling states are active.
   
-\item |exiting|: The non-empty set of states that the transformation
+\item |exiting|: The (possibly empty) set of states that the transformation
   will exit upon execution.
   
-\item |entering|: The non-empty set of states the transformation will enter upon
+\item |entering|: The (possibly empty) set of states the transformation will enter upon
   execution.
 \end{itemize}
 Formally, these notions are formalised as constants as follows.
 \begin{EventBcode}
 enabling ∈ transformations → ℙ1(states)
-exiting ∈ transformations → ℙ1(states)
-entering ∈ transformations → ℙ1(states)
+exiting ∈ transformations → ℙ(states)
+entering ∈ transformations → ℙ(states)
 \end{EventBcode}
 
 \begin{example}[Turnstile Example. Transformation]
-We give the enabling, exiting, and entering states of the following example transformations.
+We give the enabling, exiting, entering and active states of the following example transformations.
 \begin{itemize}
     \item Consider the transformation from the |BLOCKED| state to the |UNBLOCKED| state, we call this |BLOCKED_2_UNBLOCKED|. We have
 \begin{EventBcode}
@@ -153,7 +156,7 @@ entering(ON_2_OFF) = {OFF}
 There are several additional constraints (well-definedness conditions) relating the enabling, exiting, and entering states for a transformation. We identified some of the constraints directly. For instance, the following axioms related to |exiting| states.
 \begin{axiom}[Exiting a contained region]
 \label{axm:@exiting-contained_region}
-If the container of a region is an exiting state, there must be an exiting state within that region.
+If the container of a region is an exiting state, there must be an exiting state within that region. Here |container[r]|, is the image of the relation container applying to region |r|.
 \begin{EventBcode}
 @exiting-contained_region:
     ∀trf, s, r · trf ∈ transformations ∧ s ∈ exiting(trf) ∧ r ∈ regions ∧ container[r] = {s}
@@ -174,20 +177,20 @@ If a region |r| has an exiting state |s| then either |s| is the unique exiting s
 The following axioms linking |exiting| and |enabling| states was ``discovered'' during the proof of the invariant preservation proof obligations (see Theorem~\ref{po:transformation/active_container/INV}).
 \begin{axiom}[Exiting a unique enabling state in a region]
 \label{axm:@exiting-unique_enabling_state_in_a_region}
-Given a region |r| and an exiting state |s| in |r|, if |r| has states other than |s|, |s| must the unique enabling state in |r|.
+Given a region |r| and an exiting state |s| in |r|, if |r| has states other than |s|, |s| must be the unique enabling state in |r|.
 \begin{EventBcode}
 @exiting-unique_enabling_state_in_a_region:
     ∀trf, s, r · trf ∈ transformations ∧ r ∈ regions ∧ exiting(trf) ∩ r = {s} ∧ r ≠ {s}
         ⇒ enabling(trf) ∩ r = {s}
 \end{EventBcode}
 \end{axiom}
-\begin{axiom}[An enabling state is the unique exiting state]
+\begin{axiom}[Enabling state is the unique exiting state]
 \label{axm:@enabling-unique_exiting_state_in_a_region}
-Given a region |r| and an enabling state |s| in |r|, |s| must the unique exiting state in |r|.
+Given a region |r| with some exiting state, an enabling state |s| in |r|, |s| must the unique exiting state in |r|.
 \begin{EventBcode}
 @enabling-unique_exiting_state_in_a_region:
-    ∀trf, s, r · trf ∈ transformations ∧ s ∈ enabling(trf) ∧ r ∈ regions ∧ s ∈ r
-        ⇒ exiting(trf) ∩ r = {s}
+    ∀trf, s, r · trf ∈ transformations ∧ s ∈ enabling(trf) ∧
+    exiting(trf) ∩ r ≠ ∅ ∧ r ∈ regions ∧ s ∈ r ⇒ exiting(trf) ∩ r = {s}
 \end{EventBcode}
 \end{axiom}
 
@@ -243,6 +246,7 @@ If a container state is active then one of its sub-state must be active.
 \EventBInline{@content_active: ∀ s · s ∈ ran(container) ∧ s ∈ active ⇒}\\
 \EventBInline{container∼[\{s\}] ∩ active ≠ ∅}
 \end{center}
+where |ran(container)| is the range of the container relation
 \end{invariant}
 \begin{invariant}[Unique active state within a region]
 \label{inv:active-region-unique}
@@ -259,7 +263,7 @@ All parallel regions are inactive (hence active) at the same time.
 \EventBInline{container[r1] = container[r2] ∧ r1 ∩ active = ∅ ⇒ r2 ∩ active = ∅}
 \end{center}
 \end{invariant}
-As a consequence of Invariant~\ref{inv:container_active}, we can prove the following machine theorem.
+As a consequence of Invariant~\ref{inv:container_active}, we can prove the following machine theorem. Note that all proofs related to this work were discharged semi-automatically within Rodin using the Proving Perspective. We present the general structure of a selected subset of these proofs.
 \begin{theorem}[Ancestors active]
 \label{thm:@ancestor_active}
 If a state |s| is active then all ancestors of |s| are also active.
@@ -283,47 +287,54 @@ The proof obligation for ensuring that invariant |@active_container| is maintain
 \label{po:transformation/active_container/INV}
 Given a non-root state |s| such that either (1) |s| is active but non−exiting state, or (2) |s| is an entering state, then either (G1) |container(s)| is active but non-exiting state, or (G2) |container(s)| is an entering state.
 \end{theorem}
+
 \begin{proof}
-Since |s| is a non-root state, there exists a region |r| containing |s| (follows from Axiom~\ref{axm:@region_complete} |@region_complete|). 
+ Since |s| is a non-root state, there exists a region |r| containing |s| (follows from Axiom~\ref{axm:@region_complete} |@region_complete|). 
 We continue the proof by considering Cases~\ref{container_active:case1} and Case~\ref{container_active:case2}.
 \begin{case}[\EventBInline{s} is active but non-exiting state]
 \label{container_active:case1}
+We discharge (G1) by proving that (G1-1) |container(s)| is an active state, and (G1-2) |container(s)| is a non-exiting state.
 \begin{itemize}
-    \item According to Axiom~\ref{axm:@enabling-unique_exiting_state_in_a_region} (|@enabling-unique_exiting_state_in_a_region|), |s| cannot be an enabling state since |s| is a non-exiting state.
+\item \emph{Proof of (G1-1)}. According to Invariant~\ref{inv:container_active} (|@container_active|), since |s| is an active state, |container(s)| is an active state.
 
-    \item We discharge (G1) by proving that (G1-1) |container(s)| is an active state, and (G1-2) |container(s)| is a non-exiting state.
+\item \emph{Proof of (G1-2)}. We proceed by considering if |r| contains any exiting states.
     \begin{itemize}
-        \item \emph{Proof of (G1-1)}. According to Invariant~\ref{inv:container_active} (|@container_active|), since |s| is an active state, |container(s)| is an active state
+        \item \emph{Case 1.1 (\EventBInline{r} does not contain any exiting states)} Using the contraposition of Axiom~\ref{axm:@exiting-contained_region}, we can conclude that |container(s)| (which is also the container of the region |r|) must not be an exiting state, which conclude the proof of (G1-2).
 
-        \item \emph{Proof of (G1-2)}. We prove this by contradiction, i.e., assuming that |container(s)| is an exiting state.
-        \begin{itemize}
-            \item According to Axiom~\ref{axm:@exiting-contained_region} (|@exiting−contained_region|), there must be an exiting state in the region |r| since the state containing |r| (in this case |container(s)|) is an exiting state, let us call this state |x|.
+        \item \emph{Case 1.2 (\EventBInline{r} contains some exiting states)} The proof continue as follows.
+            \begin{itemize}
+            \item According to Axiom~\ref{axm:@enabling-unique_exiting_state_in_a_region} (|@enabling-unique_exiting_state_in_a_region|), |s| cannot be an enabling state since |s| is a non-exiting state.
 
-            \item According to Axiom~\ref{axm:@exiting-either_one_or_all_in_a_region} (|@exiting-either_one_or_all_in_a_region|, either |x| is the unique exiting state in |r| or all states in |r| are exiting states.
+            \item We prove this by contradiction, i.e., assuming that |container(s)| is an exiting state.
+                \begin{itemize}
+                    \item According to Axiom~\ref{axm:@exiting-contained_region} (|@exiting−contained_region|), there must be an exiting state in the region |r| since the state containing |r| (in this case |container(s)|) is an exiting state, let us call this state |x|.
 
-            \item Since |s| is a non-exiting state, |x| must be |r|'s unique exiting state.
+                    \item According to Axiom~\ref{axm:@exiting-either_one_or_all_in_a_region} (|@exiting-either_one_or_all_in_a_region|, either |x| is the unique exiting state in |r| or all states in |r| are exiting states.
 
-            \item From Axiom~\ref{axm:@exiting-unique_enabling_state_in_a_region} (|@exiting-unique_enabling_state_in_a_region|), |x| is the unique enabling state in |r|.
+                    \item Since |s| is a non-exiting state, |x| must be |r|'s unique exiting state.
 
-            \item According to guard |@active-enabling| of |transformation|, |x| (being an enabling state) must be an active state.
+                    \item From Axiom~\ref{axm:@exiting-unique_enabling_state_in_a_region} (|@exiting-unique_enabling_state_in_a_region|), |x| is the unique enabling state in |r|.
 
-            \item We now have two distinct active states |x| and |s| in |r|, which contradicts Invariant~\ref{inv:active-region-unique} (|@active-region-unique|).
+                    \item According to guard |@active-enabling| of |transformation|, |x| (being an enabling state) must be an active state.
+
+                    \item We now have two distinct active states |x| and |s| in |r|, which contradicts Invariant~\ref{inv:active-region-unique} (|@active-region-unique|).
+                \end{itemize}
+            \end{itemize}
         \end{itemize}
     \end{itemize}
-\end{itemize}
 \end{case}
 
 \begin{case}[\EventBInline{s} is an entering state]
 \label{container_active:case2}
 In this case, we proceed with the proof by assuming that (G2) does not hold (i.e., |container(s)| is not a container state) and prove (G1).  
 \begin{itemize}
-    \item According to Axiom~\ref{axm:@entering-stay_within_state}, the transformation entering region |r| but not the container of |r| (i.e., |container(s)|, hence |container(s)| is not an exiting state and has a enabling descendant state, let us call this |x|.
+    \item According to Axiom~\ref{axm:@entering-stay_within_state}, the transformation entering region |r| but not the container of |r| (i.e., |container(s)|), hence |container(s)| is not an exiting state and has a enabling descendant state, let us call this |x|.
 
     \item According to guard |@active-enabling| of |transformation|, |x| (being an enabling state) must be an active state.
     
     \item According to Theorem~\ref{thm:@ancestor_active}, |container(s)| (being an ancestor of |x|) must be an active state. 
 
-    \item We therefore has |container(s)| is active but non-exiting state (G1).    
+    \item We therefore have |container(s)| is active but non-exiting state (G1).    
 \end{itemize}
 \end{case}
 \qed
@@ -372,7 +383,7 @@ In this case, we proceed with the proof by assuming that (G2) does not hold (i.e
 %The untriggered statechart component of the turnstile example consists of a Event-B context which includes constants for all states in the model and hierarchical information is capture via axioms that define container relations and leaves states in the design (see context utstc\_ctx0\_turnstile in ~\cite{supporting-data}).
 
 We omit the proof of the preservation of other Invariants~\ref{inv:content_active}, \ref{inv:active-region-unique}, and \ref{inv:active-region-parallel} due to limited space. 
-The proofs are done manually utilising several axioms and the tree induction theorem (Theorem~\ref{thm:tree-induction}). 
+The proofs is done within the Rodin tool utilising several axioms and the tree induction theorem (Theorem~\ref{thm:tree-induction}). 
 Details can be found in~\cite{Hoang2023:SCXMLSemanticsModel}.
 
 %%% Local Variables:

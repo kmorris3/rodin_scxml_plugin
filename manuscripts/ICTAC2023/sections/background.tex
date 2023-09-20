@@ -5,18 +5,18 @@
 \subsection{Statecharts}
 \label{sec:statecharts}
 
-Statecharts have been used for visual representation in the specification and design of complex systems for several decades. Different statechart formalizations exist depending on the features supported and specific characteristics of the modeled systems \cite{HAREL1987231,harel1996executable}. These diagrams provide a compact representation for modeling hierarchy, concurrency and communication in a systems design.
-Statecharts were originally developed to addressed unbounded modeling complexity in other state diagrams. 
+Statecharts have been used for visual representation in the specification and design of complex systems for several decades. Different statechart formalizations exist depending on the features supported and specific characteristics of the modeled systems \cite{HAREL1987231,harel1996executable,Eshuis_2009}. These diagrams provide a compact representation for modeling hierarchy, concurrency and communication in a systems design.
+Statecharts were originally developed to address unbounded modeling complexity in other state diagrams. 
 
 \subsection{Run-to-Completion and SCXML}
 \label{sec:run-to-completion}
 
-State Chart eXtensible Markup Language (SCXML)~\cite{scxmlwebsite} is a 
+State Chart eXtensible Markup Language (SCXML)~\cite{Barnett2017,scxmlwebsite} is a 
 general-purpose event-based statemachine language that combines concepts 
 from Call Control eXtensible Markup Language (CCXML) and Harel State Tables. 
 Harel State Tables are included in the Unified Modeling Language (UML). 
 The concrete syntax for SCXML is based on XML. Hence, SCXML is an XML 
-notation for UML style state-machines extended with an action language 
+notation for UML style statemachines extended with an action language 
 that is intended for call control features in voice applications. SCXML 
 uses a run-to-completion semantics, also known as macro-step/micro-step 
 semantics. This means that trigger events may be needed to enable transitions. 
@@ -40,7 +40,15 @@ of models in adhering to its specification. Models consist of
 constructs known as machines and contexts. A \emph{context} is the
 static part of a model, such as \emph{carrier sets} (which are
 conceptually similar to types), \emph{constants}, and \emph{axioms}.
-Axioms are properties of carrier sets and constants which always hold.  A context can \emph{extend} one or more contexts by adding more carrier sets, constants and axioms.  \emph{Machines} describe the dynamic part of the model, that is, how
+Axioms are properties of carrier sets and constants which always hold.  A context can \emph{extend} one or more contexts by adding more carrier sets, constants and axioms. The following listing shows the context for a simple systems with two states.
+\begin{EventBcode}
+context c
+constants SA SB
+sets states
+axioms @def-states: partition(states, {SA}, {SB})
+\end{EventBcode}
+
+\emph{Machines} describe the dynamic part of the model, that is, how
 the state of the model changes. The state is represented by the
 current values of the \emph{variables}, which may change values as the
 state changes.  \emph{Invariants} are declared in the machine, stating
@@ -51,8 +59,23 @@ parameters); the guard must hold true for event execution.  Each
 event has a set of \emph{actions} which happen simultaneously,
 changing the values of the variables, and hence the state. Every
 machine has an initialisation event which sets initial variable
-values. Contexts can be extended and machines can be refined to introduce details of the formal model gradually. We utilise context extension in this paper, but not event extension. An important set of proof obligations are invariant
+values. The listing below shows a machine example with a single variable |st|. 
+\begin{EventBcode}
+machine m, sees c
+variables st // state
+invariants @typeof-st: st ∈ {SA, SB}
+events
+	event INITIALISATION
+	then @init-st: st ≔ SA
+	end
+	event t1
+	where @source: st = SA   // event t1 guard
+	then @target-st: st ≔ SB  // event t1 action
+end 
+\end{EventBcode} Contexts can be extended and machines can be refined to introduce details of the formal model gradually. 
+Event extensions enable refinement of abstract events, the refined event will implicitly have all the parameters, guards and actions of the abstract event. We utilise context and event extension in this paper.
+An important set of proof obligations are invariant
 preservation.  They are generated and required to be discharged to
 show that no event can potentially change the state to one which
-breaks any invariant, a potentially unsafe state. \EventB is supported by the extensible Rodin platform~\cite{abrial10:_rodin}. Extension of \EventB and Rodin such as CamilleX~\cite{DBLP:conf/sefm/HoangSDFB22} allows the composition of models.
+breaks any invariant, a potentially unsafe state. \EventB is supported by the extensible Rodin platform~\cite{abrial10:_rodin}. Extensions of \EventB and Rodin such as CamilleX~\cite{DBLP:conf/sefm/HoangSDFB22} facilitate development of complex systems by allowing composition of existing models, and the reuse of modelling and proving efforts. This model composition capability enables machine inclusion with refinement and correct-by-construction proofs~\cite{ICECCS2017-CamilleX}.  For example, when machine |A| includes another machine |B|, |A| will inherit all the invariants and discharged proofs of |B| (without the need for reproving).  |A| can only modify the state variables of |B| by ``synchronizing'' with |B|'s events. Direct modification of |B|'s variables in |A| will introduce inconsistencies that result in unprovable proof obligations.
 
