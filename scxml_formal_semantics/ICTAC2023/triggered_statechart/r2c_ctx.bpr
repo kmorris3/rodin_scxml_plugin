@@ -37,33 +37,38 @@
                                         <org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p49" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p50"/>
                                         <org.eventb.core.prHypAction name="REWRITE6" org.eventb.core.prHidden="p51" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p52"/>
                                         <org.eventb.core.prHypAction name="REWRITE7" org.eventb.core.prHidden="p53" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p54"/>
-                                        <org.eventb.core.prHypAction name="HIDE8" org.eventb.core.prHyps="p55"/>
-                                        <org.eventb.core.prHypAction name="REWRITE9" org.eventb.core.prHidden="p28" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p56"/>
-                                        <org.eventb.core.prHypAction name="REWRITE10" org.eventb.core.prHidden="p30" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p57"/>
-                                        <org.eventb.core.prHypAction name="REWRITE11" org.eventb.core.prHidden="p32" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p58"/>
-                                        <org.eventb.core.prHypAction name="REWRITE12" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p59"/>
+                                        <org.eventb.core.prHypAction name="REWRITE8" org.eventb.core.prHidden="p55" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p56"/>
+                                        <org.eventb.core.prHypAction name="REWRITE9" org.eventb.core.prHidden="p57" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p58"/>
+                                        <org.eventb.core.prHypAction name="REWRITE10" org.eventb.core.prHidden="p59" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p60"/>
+                                        <org.eventb.core.prHypAction name="REWRITE11" org.eventb.core.prHidden="p28" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p61"/>
+                                        <org.eventb.core.prHypAction name="REWRITE12" org.eventb.core.prHidden="p30" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p62"/>
+                                        <org.eventb.core.prHypAction name="REWRITE13" org.eventb.core.prHidden="p32" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p63"/>
+                                        <org.eventb.core.prHypAction name="REWRITE14" org.eventb.core.prHidden="p34" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p64"/>
                                         <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
                                             <org.eventb.core.prAnte name="'">
-                                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p42" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p60"/>
-                                                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p44" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p61"/>
-                                                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p46" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p62"/>
-                                                <org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p48" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p63"/>
-                                                <org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p50" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p64"/>
-                                                <org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p52" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p65"/>
-                                                <org.eventb.core.prHypAction name="REWRITE6" org.eventb.core.prHidden="p54" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p66"/>
-                                                <org.eventb.core.prHypAction name="REWRITE7" org.eventb.core.prHidden="p56" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p67"/>
-                                                <org.eventb.core.prHypAction name="REWRITE8" org.eventb.core.prHidden="p57" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p68"/>
-                                                <org.eventb.core.prHypAction name="REWRITE9" org.eventb.core.prHidden="p58" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p69"/>
-                                                <org.eventb.core.prHypAction name="REWRITE10" org.eventb.core.prHidden="p59" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p70"/>
+                                                <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p42" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p65"/>
+                                                <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p44" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p66"/>
+                                                <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p46" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p67"/>
+                                                <org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p48" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p68"/>
+                                                <org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p50" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p69"/>
+                                                <org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p52" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p70"/>
+                                                <org.eventb.core.prHypAction name="REWRITE6" org.eventb.core.prHidden="p54" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p71"/>
+                                                <org.eventb.core.prHypAction name="REWRITE7" org.eventb.core.prHidden="p56" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p72"/>
+                                                <org.eventb.core.prHypAction name="REWRITE8" org.eventb.core.prHidden="p58" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p73"/>
+                                                <org.eventb.core.prHypAction name="REWRITE9" org.eventb.core.prHidden="p60" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p74"/>
+                                                <org.eventb.core.prHypAction name="REWRITE10" org.eventb.core.prHidden="p61" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p75"/>
+                                                <org.eventb.core.prHypAction name="REWRITE11" org.eventb.core.prHidden="p62" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p76"/>
+                                                <org.eventb.core.prHypAction name="REWRITE12" org.eventb.core.prHidden="p63" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p77"/>
+                                                <org.eventb.core.prHypAction name="REWRITE13" org.eventb.core.prHidden="p64" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p78"/>
                                                 <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with Triggers=InternalTriggers∪ExternalTriggers" org.eventb.core.prHyps="p3">
                                                     <org.eventb.core.prAnte name="'">
-                                                        <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p71" org.eventb.core.prInfHyps="p72"/>
-                                                        <org.eventb.core.prHypAction name="DESELECT1" org.eventb.core.prHyps="p71"/>
+                                                        <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p79" org.eventb.core.prInfHyps="p80"/>
+                                                        <org.eventb.core.prHypAction name="DESELECT1" org.eventb.core.prHyps="p79"/>
                                                         <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p38" org.eventb.core.prHyps="p2">
-                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p73">
-                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prGoal="p73" org.eventb.core.prHyps="">
-                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p74">
-                                                                        <org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p74" org.eventb.core.prHyps=""/>
+                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p81">
+                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prGoal="p81" org.eventb.core.prHyps="">
+                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p82">
+                                                                        <org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p82" org.eventb.core.prHyps=""/>
                                                                     </org.eventb.core.prAnte>
                                                                 </org.eventb.core.prRule>
                                                             </org.eventb.core.prAnte>
@@ -88,8 +93,16 @@
         <org.eventb.core.prIdent name="Seq" org.eventb.core.type="ℙ(ℙ(TRIGGERS)×ℙ(ℙ(ℤ×TRIGGERS)))"/>
         <org.eventb.core.prIdent name="Triggers" org.eventb.core.type="ℙ(TRIGGERS)"/>
         <org.eventb.core.prPred name="p39" org.eventb.core.predicate="Seq=(λT⦂ℙ(TRIGGERS)·T⊆TRIGGERS ∣ {n⦂ℤ,s⦂ℙ(ℤ×TRIGGERS)·n∈ℕ∧s∈0 ‥ n − 1 → T ∣ s})"/>
-        <org.eventb.core.prPred name="p56" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·⊤∧s∈Seq(T)∧¬s=(∅ ⦂ ℙ(ℤ×TRIGGERS))⇒Seq_tail(s)∈Seq(T)">
+        <org.eventb.core.prPred name="p60" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·⊤∧s∈Seq(TRIGGERS)∧Seq_head(s)∈T⇒Seq_tail(Seq_keep(s ↦ T))=Seq_keep(Seq_tail(s) ↦ T)">
+            <org.eventb.core.prIdent name="Seq_head" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS)"/>
+            <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
             <org.eventb.core.prIdent name="Seq_tail" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p61" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·⊤∧s∈Seq(T)∧¬s=(∅ ⦂ ℙ(ℤ×TRIGGERS))⇒Seq_tail(s)∈Seq(T)">
+            <org.eventb.core.prIdent name="Seq_tail" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p70" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·s∈Seq(T)⇒Seq_concat(s ↦ (∅ ⦂ ℙ(ℤ×TRIGGERS)))=s">
+            <org.eventb.core.prIdent name="Seq_concat" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(ℤ×TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p25" org.eventb.core.predicate="Seq_tail=(λs⦂ℙ(ℤ×TRIGGERS)·s∈Seq(TRIGGERS)∧s≠(∅ ⦂ ℙ(ℤ×TRIGGERS)) ∣ {i⦂ℤ,v⦂TRIGGERS·i∈0 ‥ Seq_length(s) − 2∧v=s(i+1) ∣ i ↦ v})">
             <org.eventb.core.prIdent name="Seq_length" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℤ)"/>
@@ -111,7 +124,7 @@
         <org.eventb.core.prPred name="p44" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS)·⊤⇒Seq_empty∈Seq(T)">
             <org.eventb.core.prIdent name="Seq_empty" org.eventb.core.type="ℙ(ℤ×TRIGGERS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p68" org.eventb.core.predicate="∀t⦂TRIGGERS,T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·¬t∈T∧s∈Seq(TRIGGERS)⇒Seq_keep(s ↦ T)=Seq_keep(Seq_append(s ↦ t) ↦ T)">
+        <org.eventb.core.prPred name="p76" org.eventb.core.predicate="∀t⦂TRIGGERS,T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·¬t∈T∧s∈Seq(TRIGGERS)⇒Seq_keep(s ↦ T)=Seq_keep(Seq_append(s ↦ t) ↦ T)">
             <org.eventb.core.prIdent name="Seq_append" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS×ℙ(ℤ×TRIGGERS))"/>
             <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
@@ -120,9 +133,8 @@
             <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p17" org.eventb.core.predicate="∀s⦂ℙ(ℤ×TRIGGERS)·⊤∧⊤∧(s∈Seq(TRIGGERS)∧s≠(∅ ⦂ ℙ(ℤ×TRIGGERS))⇒0∈dom(s)∧s∈ℤ ⇸ TRIGGERS)"/>
-        <org.eventb.core.prPred name="p55" org.eventb.core.predicate="Steps⊆STEPS">
-            <org.eventb.core.prIdent name="STEPS" org.eventb.core.type="ℙ(STEPS)"/>
-            <org.eventb.core.prIdent name="Steps" org.eventb.core.type="ℙ(STEPS)"/>
+        <org.eventb.core.prPred name="p51" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·T⊆TRIGGERS∧s∈Seq(T)⇒Seq_concat(s ↦ (∅ ⦂ ℙ(ℤ×TRIGGERS)))=s">
+            <org.eventb.core.prIdent name="Seq_concat" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(ℤ×TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p10" org.eventb.core.predicate="∀s⦂ℙ(ℤ×TRIGGERS)·⊤∧⊤∧(s∈Seq(TRIGGERS)⇒finite(s))"/>
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="Seq∈ℙ(TRIGGERS) → ℙ(ℕ ⇸ TRIGGERS)"/>
@@ -130,7 +142,7 @@
             <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
             <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p53" org.eventb.core.predicate="∀t⦂TRIGGERS,T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·T⊆TRIGGERS∧t∈T∧s∈Seq(TRIGGERS)⇒Seq_keep(Seq_append(s ↦ t) ↦ T)=Seq_append(Seq_keep(s ↦ T) ↦ t)">
+        <org.eventb.core.prPred name="p55" org.eventb.core.predicate="∀t⦂TRIGGERS,T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·T⊆TRIGGERS∧t∈T∧s∈Seq(TRIGGERS)⇒Seq_keep(Seq_append(s ↦ t) ↦ T)=Seq_append(Seq_keep(s ↦ T) ↦ t)">
             <org.eventb.core.prIdent name="Seq_append" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS×ℙ(ℤ×TRIGGERS))"/>
             <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
@@ -139,11 +151,11 @@
             <org.eventb.core.prIdent name="Seq_append" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS×ℙ(ℤ×TRIGGERS))"/>
             <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p54" org.eventb.core.predicate="∀t⦂TRIGGERS,T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·⊤∧t∈T∧s∈Seq(TRIGGERS)⇒Seq_keep(Seq_append(s ↦ t) ↦ T)=Seq_append(Seq_keep(s ↦ T) ↦ t)">
+        <org.eventb.core.prPred name="p56" org.eventb.core.predicate="∀t⦂TRIGGERS,T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·⊤∧t∈T∧s∈Seq(TRIGGERS)⇒Seq_keep(Seq_append(s ↦ t) ↦ T)=Seq_append(Seq_keep(s ↦ T) ↦ t)">
             <org.eventb.core.prIdent name="Seq_append" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS×ℙ(ℤ×TRIGGERS))"/>
             <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p66" org.eventb.core.predicate="∀t⦂TRIGGERS,T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·t∈T∧s∈Seq(TRIGGERS)⇒Seq_keep(Seq_append(s ↦ t) ↦ T)=Seq_append(Seq_keep(s ↦ T) ↦ t)">
+        <org.eventb.core.prPred name="p72" org.eventb.core.predicate="∀t⦂TRIGGERS,T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·t∈T∧s∈Seq(TRIGGERS)⇒Seq_keep(Seq_append(s ↦ t) ↦ T)=Seq_append(Seq_keep(s ↦ T) ↦ t)">
             <org.eventb.core.prIdent name="Seq_append" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS×ℙ(ℤ×TRIGGERS))"/>
             <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
@@ -165,7 +177,7 @@
             <org.eventb.core.prIdent name="Seq_append" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS×ℙ(ℤ×TRIGGERS))"/>
             <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p63" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS),t⦂TRIGGERS·s∈Seq(T)∧t∈T⇒Seq_append(s ↦ t)∈Seq(T)">
+        <org.eventb.core.prPred name="p68" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS),t⦂TRIGGERS·s∈Seq(T)∧t∈T⇒Seq_append(s ↦ t)∈Seq(T)">
             <org.eventb.core.prIdent name="Seq_append" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p37" org.eventb.core.predicate="∀s⦂ℙ(ℤ×TRIGGERS)·s∈Seq(TRIGGERS)∧¬s=(∅ ⦂ ℙ(ℤ×TRIGGERS))⇒s∈dom(Seq_length)∧Seq_length∈ℙ(ℤ × TRIGGERS) ⇸ ℤ∧(∀i⦂ℤ·i∈0 ‥ Seq_length(s) − 2⇒i+1∈dom(s)∧s∈ℤ ⇸ TRIGGERS)">
@@ -175,43 +187,55 @@
             <org.eventb.core.prIdent name="Seq_length" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℤ)"/>
             <org.eventb.core.prIdent name="Seq_tail" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p57" org.eventb.core.predicate="∀t⦂TRIGGERS,T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·⊤∧¬t∈T∧s∈Seq(TRIGGERS)⇒Seq_keep(s ↦ T)=Seq_keep(Seq_append(s ↦ t) ↦ T)">
+        <org.eventb.core.prPred name="p62" org.eventb.core.predicate="∀t⦂TRIGGERS,T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·⊤∧¬t∈T∧s∈Seq(TRIGGERS)⇒Seq_keep(s ↦ T)=Seq_keep(Seq_append(s ↦ t) ↦ T)">
             <org.eventb.core.prIdent name="Seq_append" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS×ℙ(ℤ×TRIGGERS))"/>
+            <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p57" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·T⊆TRIGGERS∧s∈Seq(TRIGGERS)∧Seq_head(s)∈T⇒Seq_head(s)=Seq_head(Seq_keep(s ↦ T))">
+            <org.eventb.core.prIdent name="Seq_head" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS)"/>
             <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p12" org.eventb.core.predicate="∀s⦂ℙ(ℤ×TRIGGERS),t⦂TRIGGERS·TRIGGERS∈dom(Seq)∧Seq∈ℙ(TRIGGERS) ⇸ ℙ(ℙ(ℤ × TRIGGERS))∧(s∈Seq(TRIGGERS)∧t∈TRIGGERS⇒(∀i⦂ℤ·s∈dom(Seq_length)∧Seq_length∈ℙ(ℤ × TRIGGERS) ⇸ ℤ∧(i∈0 ‥ Seq_length(s)∧i&lt;Seq_length(s)⇒i∈dom(s)∧s∈ℤ ⇸ TRIGGERS)))">
             <org.eventb.core.prIdent name="Seq_length" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℤ)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p59" org.eventb.core.predicate="∀s⦂ℙ(ℤ×TRIGGERS)·s∈Seq(TRIGGERS)∧⊤⇒s∈dom(Seq_length)∧Seq_length∈ℙ(ℤ × TRIGGERS) ⇸ ℤ∧(∀i⦂ℤ·i∈0 ‥ Seq_length(s)∧i&lt;Seq_length(s)⇒i∈dom(s)∧s∈ℤ ⇸ TRIGGERS)">
+        <org.eventb.core.prPred name="p64" org.eventb.core.predicate="∀s⦂ℙ(ℤ×TRIGGERS)·s∈Seq(TRIGGERS)∧⊤⇒s∈dom(Seq_length)∧Seq_length∈ℙ(ℤ × TRIGGERS) ⇸ ℤ∧(∀i⦂ℤ·i∈0 ‥ Seq_length(s)∧i&lt;Seq_length(s)⇒i∈dom(s)∧s∈ℤ ⇸ TRIGGERS)">
             <org.eventb.core.prIdent name="Seq_length" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℤ)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p61" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS)·Seq_empty∈Seq(T)">
+        <org.eventb.core.prPred name="p66" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS)·Seq_empty∈Seq(T)">
             <org.eventb.core.prIdent name="Seq_empty" org.eventb.core.type="ℙ(ℤ×TRIGGERS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p67" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·s∈Seq(T)∧¬s=(∅ ⦂ ℙ(ℤ×TRIGGERS))⇒Seq_tail(s)∈Seq(T)">
+        <org.eventb.core.prPred name="p75" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·s∈Seq(T)∧¬s=(∅ ⦂ ℙ(ℤ×TRIGGERS))⇒Seq_tail(s)∈Seq(T)">
             <org.eventb.core.prIdent name="Seq_tail" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p65" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS)·Seq_keep((∅ ⦂ ℙ(ℤ×TRIGGERS)) ↦ T)=(∅ ⦂ ℙ(ℤ×TRIGGERS))">
+        <org.eventb.core.prPred name="p71" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS)·Seq_keep((∅ ⦂ ℙ(ℤ×TRIGGERS)) ↦ T)=(∅ ⦂ ℙ(ℤ×TRIGGERS))">
             <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p41" org.eventb.core.predicate="∀s⦂ℙ(ℤ×TRIGGERS),S⦂ℙ(TRIGGERS)·S⊆TRIGGERS∧s∈Seq(S)⇒s∈Seq(TRIGGERS)"/>
+        <org.eventb.core.prPred name="p74" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·s∈Seq(TRIGGERS)∧Seq_head(s)∈T⇒Seq_tail(Seq_keep(s ↦ T))=Seq_keep(Seq_tail(s) ↦ T)">
+            <org.eventb.core.prIdent name="Seq_head" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS)"/>
+            <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
+            <org.eventb.core.prIdent name="Seq_tail" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p58" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·⊤∧s∈Seq(TRIGGERS)∧Seq_head(s)∈T⇒Seq_head(s)=Seq_head(Seq_keep(s ↦ T))">
+            <org.eventb.core.prIdent name="Seq_head" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS)"/>
+            <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
+        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p32" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·T⊆TRIGGERS∧s∈Seq(TRIGGERS)∧¬Seq_head(s)∈T⇒Seq_keep(s ↦ T)=Seq_keep(Seq_tail(s) ↦ T)">
             <org.eventb.core.prIdent name="Seq_head" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS)"/>
             <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
             <org.eventb.core.prIdent name="Seq_tail" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p33" org.eventb.core.predicate="∀s⦂ℙ(ℤ×TRIGGERS)·s∈Seq(TRIGGERS)⇒finite(s)"/>
-        <org.eventb.core.prPred name="p58" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·⊤∧s∈Seq(TRIGGERS)∧¬Seq_head(s)∈T⇒Seq_keep(s ↦ T)=Seq_keep(Seq_tail(s) ↦ T)">
+        <org.eventb.core.prPred name="p63" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·⊤∧s∈Seq(TRIGGERS)∧¬Seq_head(s)∈T⇒Seq_keep(s ↦ T)=Seq_keep(Seq_tail(s) ↦ T)">
             <org.eventb.core.prIdent name="Seq_head" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS)"/>
             <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
             <org.eventb.core.prIdent name="Seq_tail" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p36" org.eventb.core.predicate="∀s⦂ℙ(ℤ×TRIGGERS)·s∈Seq(TRIGGERS)∧¬s=(∅ ⦂ ℙ(ℤ×TRIGGERS))⇒0∈dom(s)∧s∈ℤ ⇸ TRIGGERS"/>
         <org.eventb.core.prPred name="p42" org.eventb.core.predicate="∀s⦂ℙ(ℤ×TRIGGERS),S⦂ℙ(TRIGGERS)·⊤∧s∈Seq(S)⇒s∈Seq(TRIGGERS)"/>
-        <org.eventb.core.prPred name="p71" org.eventb.core.predicate="StepTrigger∈Steps ⇸ Triggers">
-            <org.eventb.core.prIdent name="STEPS" org.eventb.core.type="ℙ(STEPS)"/>
-            <org.eventb.core.prIdent name="StepTrigger" org.eventb.core.type="ℙ(STEPS×TRIGGERS)"/>
-            <org.eventb.core.prIdent name="Steps" org.eventb.core.type="ℙ(STEPS)"/>
+        <org.eventb.core.prPred name="p79" org.eventb.core.predicate="StepTrigger∈Steps ⇸ Triggers">
+            <org.eventb.core.prIdent name="StepTrigger" org.eventb.core.type="ℙ(Steps×TRIGGERS)"/>
+            <org.eventb.core.prIdent name="Steps" org.eventb.core.type="ℙ(Steps)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p31" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·T⊆TRIGGERS∧s∈Seq(TRIGGERS)∧Seq_head(s)∉T⇒Seq_keep(s ↦ T)=Seq_keep(Seq_tail(s) ↦ T)">
             <org.eventb.core.prIdent name="Seq_head" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS)"/>
@@ -225,17 +249,16 @@
         <org.eventb.core.prPred name="p43" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS)·T⊆TRIGGERS⇒Seq_empty∈Seq(T)">
             <org.eventb.core.prIdent name="Seq_empty" org.eventb.core.type="ℙ(ℤ×TRIGGERS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p72" org.eventb.core.predicate="StepTrigger∈Steps ⇸ InternalTriggers∪ExternalTriggers">
-            <org.eventb.core.prIdent name="STEPS" org.eventb.core.type="ℙ(STEPS)"/>
-            <org.eventb.core.prIdent name="StepTrigger" org.eventb.core.type="ℙ(STEPS×TRIGGERS)"/>
-            <org.eventb.core.prIdent name="Steps" org.eventb.core.type="ℙ(STEPS)"/>
+        <org.eventb.core.prPred name="p80" org.eventb.core.predicate="StepTrigger∈Steps ⇸ InternalTriggers∪ExternalTriggers">
+            <org.eventb.core.prIdent name="StepTrigger" org.eventb.core.type="ℙ(Steps×TRIGGERS)"/>
+            <org.eventb.core.prIdent name="Steps" org.eventb.core.type="ℙ(Steps)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p15" org.eventb.core.predicate="∀s1⦂ℙ(ℤ×TRIGGERS),s2⦂ℙ(ℤ×TRIGGERS)·⊤∧⊤∧(s1∈Seq(TRIGGERS)∧s2∈Seq(TRIGGERS)⇒(∀i⦂ℤ,v⦂TRIGGERS·s1∈dom(Seq_length)∧Seq_length∈ℙ(ℤ × TRIGGERS) ⇸ ℤ∧s2∈dom(Seq_length)∧(i∈0 ‥ Seq_length(s1)+Seq_length(s2) − 1⇒(i&lt;Seq_length(s1)⇒i∈dom(s1)∧s1∈ℤ ⇸ TRIGGERS)∧((i&lt;Seq_length(s1)⇒v=s1(i))∧i≥Seq_length(s1)⇒i − Seq_length(s1)∈dom(s2)∧s2∈ℤ ⇸ TRIGGERS))))">
             <org.eventb.core.prIdent name="Seq_length" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℤ)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="InternalTriggers∈dom(Seq)∧Seq∈ℙ(TRIGGERS) ⇸ ℙ(ℙ(ℤ × TRIGGERS))"/>
         <org.eventb.core.prPred name="p16" org.eventb.core.predicate="∀s⦂ℙ(ℤ×TRIGGERS)·TRIGGERS∈dom(Seq)∧Seq∈ℙ(TRIGGERS) ⇸ ℙ(ℙ(ℤ × TRIGGERS))∧(s∈Seq(TRIGGERS)∧s≠(∅ ⦂ ℙ(ℤ×TRIGGERS))⇒0∈dom(s)∧s∈ℤ ⇸ TRIGGERS)"/>
-        <org.eventb.core.prPred name="p64" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s1⦂ℙ(ℤ×TRIGGERS),s2⦂ℙ(ℤ×TRIGGERS)·s1∈Seq(T)∧s2∈Seq(T)⇒Seq_concat(s1 ↦ s2)∈Seq(T)">
+        <org.eventb.core.prPred name="p69" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s1⦂ℙ(ℤ×TRIGGERS),s2⦂ℙ(ℤ×TRIGGERS)·s1∈Seq(T)∧s2∈Seq(T)⇒Seq_concat(s1 ↦ s2)∈Seq(T)">
             <org.eventb.core.prIdent name="Seq_concat" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(ℤ×TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p19" org.eventb.core.predicate="∀s⦂ℙ(ℤ×TRIGGERS)·⊤∧⊤∧(s∈Seq(TRIGGERS)∧s≠(∅ ⦂ ℙ(ℤ×TRIGGERS))⇒(∀i⦂ℤ·s∈dom(Seq_length)∧Seq_length∈ℙ(ℤ × TRIGGERS) ⇸ ℤ∧(i∈0 ‥ Seq_length(s) − 2⇒i+1∈dom(s)∧s∈ℤ ⇸ TRIGGERS)))">
@@ -259,14 +282,17 @@
             <org.eventb.core.prIdent name="Seq_length" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℤ)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p9" org.eventb.core.predicate="∀s⦂ℙ(ℤ×TRIGGERS)·TRIGGERS∈dom(Seq)∧Seq∈ℙ(TRIGGERS) ⇸ ℙ(ℙ(ℤ × TRIGGERS))∧(s∈Seq(TRIGGERS)⇒finite(s))"/>
-        <org.eventb.core.prPred name="p73" org.eventb.core.predicate="InternalTriggers∈ℙ(TRIGGERS)"/>
+        <org.eventb.core.prPred name="p81" org.eventb.core.predicate="InternalTriggers∈ℙ(TRIGGERS)"/>
+        <org.eventb.core.prPred name="p52" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·⊤∧s∈Seq(T)⇒Seq_concat(s ↦ (∅ ⦂ ℙ(ℤ×TRIGGERS)))=s">
+            <org.eventb.core.prIdent name="Seq_concat" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(ℤ×TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
+        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="TRIGGERS=InternalTriggerType∪ExternalTriggerType∪{nullTrigger}">
             <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
             <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
             <org.eventb.core.prIdent name="nullTrigger" org.eventb.core.type="TRIGGERS"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p74" org.eventb.core.predicate="⊤"/>
-        <org.eventb.core.prPred name="p70" org.eventb.core.predicate="∀s⦂ℙ(ℤ×TRIGGERS)·s∈Seq(TRIGGERS)⇒s∈dom(Seq_length)∧Seq_length∈ℙ(ℤ × TRIGGERS) ⇸ ℤ∧(∀i⦂ℤ·i∈0 ‥ Seq_length(s)∧i&lt;Seq_length(s)⇒i∈dom(s)∧s∈ℤ ⇸ TRIGGERS)">
+        <org.eventb.core.prPred name="p82" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prPred name="p78" org.eventb.core.predicate="∀s⦂ℙ(ℤ×TRIGGERS)·s∈Seq(TRIGGERS)⇒s∈dom(Seq_length)∧Seq_length∈ℙ(ℤ × TRIGGERS) ⇸ ℤ∧(∀i⦂ℤ·i∈0 ‥ Seq_length(s)∧i&lt;Seq_length(s)⇒i∈dom(s)∧s∈ℤ ⇸ TRIGGERS)">
             <org.eventb.core.prIdent name="Seq_length" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℤ)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p27" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·T⊆TRIGGERS∧s∈Seq(T)∧s≠(∅ ⦂ ℙ(ℤ×TRIGGERS))⇒Seq_tail(s)∈Seq(T)">
@@ -287,32 +313,41 @@
             <org.eventb.core.prIdent name="ExternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
             <org.eventb.core.prIdent name="InternalTriggerType" org.eventb.core.type="ℙ(TRIGGERS)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p51" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS)·T⊆TRIGGERS⇒Seq_keep((∅ ⦂ ℙ(ℤ×TRIGGERS)) ↦ T)=(∅ ⦂ ℙ(ℤ×TRIGGERS))">
+        <org.eventb.core.prPred name="p53" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS)·T⊆TRIGGERS⇒Seq_keep((∅ ⦂ ℙ(ℤ×TRIGGERS)) ↦ T)=(∅ ⦂ ℙ(ℤ×TRIGGERS))">
             <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p62" org.eventb.core.predicate="Seq_append=(λs⦂ℙ(ℤ×TRIGGERS) ↦ t⦂TRIGGERS·s∈Seq(TRIGGERS) ∣ {i⦂ℤ,v⦂TRIGGERS·i∈0 ‥ Seq_length(s)∧(i&lt;Seq_length(s)⇒v=s(i))∧(i=Seq_length(s)⇒v=t) ∣ i ↦ v})">
+        <org.eventb.core.prPred name="p67" org.eventb.core.predicate="Seq_append=(λs⦂ℙ(ℤ×TRIGGERS) ↦ t⦂TRIGGERS·s∈Seq(TRIGGERS) ∣ {i⦂ℤ,v⦂TRIGGERS·i∈0 ‥ Seq_length(s)∧(i&lt;Seq_length(s)⇒v=s(i))∧(i=Seq_length(s)⇒v=t) ∣ i ↦ v})">
             <org.eventb.core.prIdent name="Seq_append" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS×ℙ(ℤ×TRIGGERS))"/>
             <org.eventb.core.prIdent name="Seq_length" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℤ)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p52" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS)·⊤⇒Seq_keep((∅ ⦂ ℙ(ℤ×TRIGGERS)) ↦ T)=(∅ ⦂ ℙ(ℤ×TRIGGERS))">
+        <org.eventb.core.prPred name="p54" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS)·⊤⇒Seq_keep((∅ ⦂ ℙ(ℤ×TRIGGERS)) ↦ T)=(∅ ⦂ ℙ(ℤ×TRIGGERS))">
             <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p60" org.eventb.core.predicate="∀s⦂ℙ(ℤ×TRIGGERS),S⦂ℙ(TRIGGERS)·s∈Seq(S)⇒s∈Seq(TRIGGERS)"/>
+        <org.eventb.core.prPred name="p59" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·T⊆TRIGGERS∧s∈Seq(TRIGGERS)∧Seq_head(s)∈T⇒Seq_tail(Seq_keep(s ↦ T))=Seq_keep(Seq_tail(s) ↦ T)">
+            <org.eventb.core.prIdent name="Seq_head" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS)"/>
+            <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
+            <org.eventb.core.prIdent name="Seq_tail" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p65" org.eventb.core.predicate="∀s⦂ℙ(ℤ×TRIGGERS),S⦂ℙ(TRIGGERS)·s∈Seq(S)⇒s∈Seq(TRIGGERS)"/>
         <org.eventb.core.prPred name="p47" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS),t⦂TRIGGERS·T⊆TRIGGERS∧s∈Seq(T)∧t∈T⇒Seq_append(s ↦ t)∈Seq(T)">
             <org.eventb.core.prIdent name="Seq_append" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p69" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·s∈Seq(TRIGGERS)∧¬Seq_head(s)∈T⇒Seq_keep(s ↦ T)=Seq_keep(Seq_tail(s) ↦ T)">
+        <org.eventb.core.prPred name="p73" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·s∈Seq(TRIGGERS)∧Seq_head(s)∈T⇒Seq_head(s)=Seq_head(Seq_keep(s ↦ T))">
+            <org.eventb.core.prIdent name="Seq_head" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS)"/>
+            <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p77" org.eventb.core.predicate="∀T⦂ℙ(TRIGGERS),s⦂ℙ(ℤ×TRIGGERS)·s∈Seq(TRIGGERS)∧¬Seq_head(s)∈T⇒Seq_keep(s ↦ T)=Seq_keep(Seq_tail(s) ↦ T)">
             <org.eventb.core.prIdent name="Seq_head" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×TRIGGERS)"/>
             <org.eventb.core.prIdent name="Seq_keep" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
             <org.eventb.core.prIdent name="Seq_tail" org.eventb.core.type="ℙ(ℙ(ℤ×TRIGGERS)×ℙ(ℤ×TRIGGERS))"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prExpr name="e0" org.eventb.core.expression="ℙ(TRIGGERS)"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
         <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.totalDom:2"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
     </org.eventb.core.prProof>
 </org.eventb.core.prFile>
