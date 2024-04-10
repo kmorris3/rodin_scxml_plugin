@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.theory.core.theoryRoot org.eventb.core.configuration="org.eventb.theory.core.thy">
+    <org.eventb.theory.core.proofRulesBlock name="'" org.eventb.core.label="closure recursion">
+        <org.eventb.theory.core.rewriteRule name="element1" org.eventb.core.label="head_recursion" org.eventb.theory.core.applicability="interactive" org.eventb.theory.core.complete="false" org.eventb.theory.core.desc="Closure head recursion" org.eventb.theory.core.formula="closure(r)">
+            <org.eventb.theory.core.rewriteRuleRHS name="'" org.eventb.core.label="rhs1" org.eventb.core.predicate="⊤" org.eventb.theory.core.formula="r ∪ (r;closure(r))"/>
+        </org.eventb.theory.core.rewriteRule>
+        <org.eventb.theory.core.rewriteRule name="element2" org.eventb.core.label="tail_recursion" org.eventb.theory.core.applicability="interactive" org.eventb.theory.core.complete="false" org.eventb.theory.core.desc="Closure tail recursion" org.eventb.theory.core.formula="closure(r)">
+            <org.eventb.theory.core.rewriteRuleRHS name="'" org.eventb.core.label="rhs1" org.eventb.core.predicate="⊤" org.eventb.theory.core.formula="(closure(r);r) ∪ r"/>
+        </org.eventb.theory.core.rewriteRule>
+        <org.eventb.theory.core.metaVariable name="element3" org.eventb.core.identifier="r" org.eventb.theory.core.type="S ↔ S"/>
+    </org.eventb.theory.core.proofRulesBlock>
+    <org.eventb.theory.core.importTheoryProject name="(" org.eventb.theory.core.importTheoryProject="/Closure">
+        <org.eventb.theory.core.importTheory name="'" org.eventb.theory.core.importTheory="/Closure/closure_prop.dtf|org.eventb.theory.core.deployedTheoryRoot#closure_prop"/>
+    </org.eventb.theory.core.importTheoryProject>
+    <org.eventb.theory.core.typeParameter name=")" org.eventb.core.identifier="S"/>
+</org.eventb.theory.core.theoryRoot>

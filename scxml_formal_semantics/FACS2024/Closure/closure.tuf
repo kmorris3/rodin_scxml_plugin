@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.theory.core.theoryRoot org.eventb.core.configuration="org.eventb.theory.core.thy">
+    <org.eventb.theory.core.typeParameter name="'" org.eventb.core.identifier="S"/>
+    <org.eventb.theory.core.newOperatorDefinition name="(" org.eventb.core.label="closure" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="true" org.eventb.theory.core.notationType="PREFIX">
+        <org.eventb.theory.core.directOperatorDefinition name="'" org.eventb.theory.core.formula="(λ r · r ∈ S ↔ S ∣ inter({p ∣ r ⊆ p ∧ p;p ⊆ p}))"/>
+    </org.eventb.theory.core.newOperatorDefinition>
+    <org.eventb.theory.core.theorem name=")" org.eventb.core.label="typeof-closure" org.eventb.core.predicate="closure ∈ (S ↔ S) → (S ↔ S)"/>
+    <org.eventb.theory.core.theorem name="*" org.eventb.core.label="closure_strengthen" org.eventb.core.predicate="∀r · r ∈ S ↔ S ⇒ r ⊆ closure(r)"/>
+    <org.eventb.theory.core.theorem name="+" org.eventb.core.label="closure_transitivity" org.eventb.core.predicate="∀r · r ∈ S ↔ S ⇒ closure(r);closure(r) ⊆ closure(r)"/>
+    <org.eventb.theory.core.theorem name="," org.eventb.core.label="closure_minimal" org.eventb.core.predicate="∀r · r ∈ S ↔ S ⇒ (∀p · p ∈ S ↔ S ∧ r ⊆ p ∧ p;p ⊆ p ⇒ closure(r) ⊆ p)"/>
+    <org.eventb.theory.core.proofRulesBlock name="-" org.eventb.core.label="closure">
+        <org.eventb.theory.core.metaVariable name="'" org.eventb.core.identifier="r" org.eventb.theory.core.type="ℙ(S × S)"/>
+        <org.eventb.theory.core.metaVariable name="*" org.eventb.core.identifier="p" org.eventb.theory.core.type="ℙ(S × S)"/>
+        <org.eventb.theory.core.inferenceRule name="," org.eventb.core.comment="This is useful for WD proof" org.eventb.core.label="closure_⇸-inf" org.eventb.theory.core.applicability="automatic" org.eventb.theory.core.desc="Closure partial function inference">
+            <org.eventb.theory.core.infer name="'" org.eventb.core.predicate="closure ∈ ℙ(S × S) ⇸ ℙ(S × S)"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.inferenceRule name="-" org.eventb.core.label="⊆_strengthening-inf" org.eventb.theory.core.applicability="both" org.eventb.theory.core.desc="Closure ⊆-strengthening inference">
+            <org.eventb.theory.core.infer name="'" org.eventb.core.predicate="r ⊆ closure(r)"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.inferenceRule name="/" org.eventb.core.comment="This is useful for WD proof" org.eventb.core.label="domain_closure-inf" org.eventb.theory.core.applicability="automatic" org.eventb.theory.core.desc="Domain closure is complete">
+            <org.eventb.theory.core.infer name="'" org.eventb.core.predicate="r ∈ dom(closure)"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.inferenceRule name="0" org.eventb.core.label="closure_transitivity-inf" org.eventb.theory.core.applicability="automatic" org.eventb.theory.core.desc="Closure transitivity inference">
+            <org.eventb.theory.core.infer name="'" org.eventb.core.predicate="closure(r);closure(r) ⊆ closure(r)"/>
+        </org.eventb.theory.core.inferenceRule>
+    </org.eventb.theory.core.proofRulesBlock>
+</org.eventb.theory.core.theoryRoot>
