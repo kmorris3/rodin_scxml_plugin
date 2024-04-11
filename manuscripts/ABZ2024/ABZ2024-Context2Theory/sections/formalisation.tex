@@ -1,0 +1,62 @@
+\section{Formalisation using Contexts/Machines vs Theories}
+\label{sec:formalisation}
+
+In this section, we present an attempt to formalise the semantics of statemachines using theories, in comparison with the contexts/machines as in~\cite{DBLP:conf/ictac/WrightHSB23}. Figure~\ref{fig:scxml-thy-form} show our strategy for developing a semantics of statecharts using theories.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/SCXML_thy_form.jpg}
+    \caption{Formalisation of statemachines: contexts/machines vs theories}
+    \label{fig:scxml-thy-form}
+\end{figure}
+
+\subsection{Formalisation of \texttt{closure}}
+In~\cite{DBLP:conf/ictac/WrightHSB23}, the (irreflexive) transitive closure is formalised as a constant with an axiom defining its value. Various theorems capturing the properties of |closure| are derived from the axiom. Here |STATE| is a carrier set defining the set of states in the statemachines.
+\begin{EventBcode}
+constants closure
+axioms
+	@def-closure: closure = (λ r · r ∈ STATE ↔ STATE ∣ inter({p ∣ r ⊆ p ∧ p;p ⊆ p}))
+	theorem @typeof-closure: closure ∈ (STATE ↔ STATE) → (STATE ↔ STATE)	
+	theorem @closure_strengthen: ∀ r· r ⊆ closure(r)
+	theorem @closure_transitivity: ∀ r·closure(r);closure(r) ⊆ closure(r) 	
+	theorem @closure_minimal: ∀ r·(∀ p· r⊆p ∧ p;p⊆p ⇒ closure(r)⊆p)
+\end{EventBcode}
+Using the Theory plug-in, |closure| is defined as an operator in a theory for type parameter |S|. This operator is polymorphic with respect to this type parameter and hence can be utilised in different contexts (compared with the constant defined in the context for a specific |STATE| set).
+\begin{center}
+    \includegraphics[width=0.9\textwidth]{figures/cl_thy.jpg}
+\end{center}
+
+\subsection{Formalisation of \texttt{tree}}
+Using context, the definition of trees is defined as a constant |Tree| with its value defined using set comprehension and utilising transitive closure. In this definition, |Sts| represents the set of nodes in a tree, |rt| represents the root of the tree, and |prn| is the parent relationship of the tree.
+\begin{EventBcode}
+axioms @def-Tree: Tree = {Sts ↦ rt ↦ prn ∣
+			Sts ⊆ STATE ∧ rt ∈ Sts ∧ prn ∈ Sts ∖ {rt} → Sts ∧ (∀ n · n ∈ Sts ∖ {rt} ⇒ rt ∈ cl(prn)[{n}])}
+\end{EventBcode}
+Following the EB4EB framework~\cite{DBLP:conf/nfm/RiviereSAD23}, we formalise tree as a datatype with a well-definedness operator. The datatype is polymorphic with a type parameter |NODE| and  operator |TreeWD| stating similar conditions in the axiom |@def-Tree|.
+\begin{center}
+    \includegraphics[width=0.7\textwidth]{figures/tree_thy.jpg}
+\end{center}
+
+\subsection{Formalisation of the Statechart Syntactical Elements}
+The syntactical elements of the statecharts are captured in three contexts to introduce the different aspects gradually: (1) tree-shape structure (2) parallel regions, and (3) transformations (an abstraction of transitions between states, including enabling, entering, and exiting states for each transformation). We will not present the details of the formalisation here, but refer the readers to~\cite{DBLP:conf/ictac/WrightHSB23}.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/sc_data_thy.jpg}
+    \caption{Statechart datatype}
+    \label{fig:sc-data-thy}
+\end{figure}
+Using the Theory plugin, we define the |STATECHART| datatype as in Figure~\ref{fig:sc-data-thy}. Notice that we decide to define the |STATECHART| datatype all at once rather than gradually introducing its aspects. Datatypes in the Theory plugin are closed and hence cannot be extended. An example is the use of the |Tree| datatype for part of the |STATECHART| datatype resulting in a ``nesting'' effect. This result in the following operators to define the well-definedness for |Regions| of a statechart. In order to get to the states of a statechart |st|, one need to use |States(Tree(st))| due to this nesting effect.
+\begin{center}
+    \includegraphics[width=0.9\textwidth]{figures/regions_wd_thy.jpg}
+\end{center}
+
+\subsection{Formalisation of the Statechart Semantical Elements}
+In~\cite{DBLP:conf/ictac/WrightHSB23}, the semantical elements of the statecharts are captured in a machine with a variable representing the active states of the statechart. Invariants capture properties, such as there is always an active state and if a child state is active then its parent state must be active.
+
+Using the Theory plugin, we define a datatype |ACTIVE_STATECHART| for this purpose (we omit some details for spacing reason). This datatype wraps the |STATECHART| datatype together with the active states. The well-definedness operator |ActiveStatechartWD| captures the properties that we want to impose on the statechart semantics.
+\begin{center}
+    \includegraphics[width=1.0\textwidth]{figures/asc_thy.jpg}
+\end{center}
+We define the |transformation| operator and state the following theorem (to be proved). The theorem says that any transformation of an active statechart preserves the well-definedness of the active statechart.
+\begin{center}
+    \includegraphics[width=1.0\textwidth]{figures/asc_wd_thy.jpg}
+\end{center}

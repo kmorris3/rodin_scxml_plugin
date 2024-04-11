@@ -1,0 +1,26 @@
+\section{Background}
+\label{sec:background}
+
+In this section, we briefly review the \EventB modelling method, the Theory plugin, and the formalisation of SCXML using \EventB models.
+
+\paragraph{\EventB} is a formal modelling method for system development~\cite{abrial10}. An \EventB model contains two types of components: \emph{contexts} and \emph{machines}.  Contexts represent the static part of an \EventB model and can contains carrier sets (types), constants and axioms constraining them. Machines capture the dynamic part of an \EventB model as transition systems where the states are represented by variables and the transitions are expressed as guarded events. An important feature of a machine is invariants which are safety properties that must be satisfied in all reachable states. Proof obligations are generated to ensure that the invariants are indeed established and maintained by the \EventB machines. To cope with system complexity, contexts can be extended by further contexts (adding more carrier sets, constants, or axioms), and machines can be refined. Consistent refinement in \EventB guarantees that safety properties (e.g, invariants) are maintained through the refinement process.
+
+\paragraph{The Theory plugin}
+ for Rodin~\cite{DBLP:conf/birthday/ButlerM13} enables developers to define new polymorphic data types and operators upon those data types. These additional modelling concepts (datatypes and operators) might be defined axiomatically or directly (including inductive definitions). Not only restricted in the modelling capability, the Theory plugin also offers the developers the opportunity of extending the reasoning capacity by writing automatic/interactive inference rules or rewrite rules.
+
+\paragraph{A Formalisation of SCXML in \EventB} is presented in~\cite{DBLP:conf/ictac/WrightHSB23}.
+SCXML~\cite{Barnett2017} describes UML-style statemachines with run-to-completion semantics. SCXML diagrams provide a compact representation for modelling hierarchy, concurrency and communication in systems design. In~\cite{DBLP:conf/ictac/WrightHSB23}, we develop a formalisation of the semantics of SCXML by separately modelling statemachines (untriggered statecharts) and the run-to-completion semantics (triggered mechanism), and combine them together using the inclusion mechanism~\cite{DBLP:conf/iceccs/HoangDSB17}. 
+Figure~\ref{fig:SCMXL_ctx_form} summarises the formalisation as in~\cite{DBLP:conf/ictac/WrightHSB23}. Here, the purple rectangles correspond to \EventB contexts and the light-blue ovals represent \EventB machines.  The labelled arrows capture the relationship between the different constructs    including context extension (|extends|), machines see contexts (|sees|), and machine inclusion (|includes|). The two grey boxes indicate the two separate models of the statemachines and of the run-to-completion semantics.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.65\textwidth]{figures/SCXML_ctx_form.jpg}
+    \caption{Formalisation of SCXML using \EventB contexts and machines}
+    \label{fig:SCMXL_ctx_form}
+\end{figure}
+\begin{itemize}
+    \item \emph{Statemachines.} The model of the statemachines relies on the mathematical definition of irreflexive transitive closure (in context |closure|) and of a tree-shape structure (in context |tree|). The syntactical elements of statemachines are captured in three separate contexts (each one extending the other in order) named |tree_structure|, |regions|, and |transformations|. Machine |active_states| essentially specifies the semantics of the statemachines, captured as the set of active states.
+    \item \emph{Run-to-completion.} The model of the run-to-completion semantics relies on the notion of sequences (context |sequences|). The syntactic elements of the run-to-completion are captured in context |triggers| and the semantics are capture in machine |triggers_queues|. More specifically, the dynamic state of the run-to-completion represented by the external and internal queues modelled as sequences of triggers.
+
+    \item \emph{Triggered Statecharts.} A triggered statechart is a combination of the untriggered statechart and the run-to-completion semantic. In particular, machine |triggered_statechart| includes both machine |active_states| and |triggers_queues|.
+\end{itemize}
+

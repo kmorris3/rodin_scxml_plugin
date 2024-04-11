@@ -1,0 +1,10 @@
+\section{Introduction}
+
+% Context
+Previously, \EventB~\cite{abrial10} has been used to formalise the semantics of modelling languages such as Time Mobility (TiMo)~\cite{DBLP:conf/iceccs/CiobanuHS14} or State Chart XML (SCXML)~\cite{DBLP:conf/ictac/WrightHSB23}. Essentially, the semantics of the languages are captured as discrete transition systems represented by the \EventB models. An advantage of this approach is that the generic properties of the semantics can be captured as invariants of the \EventB models while the syntactical constraints are expressed as the axioms, to ensure the correctness of the semantics. Recent work on the Theory plug-in for Rodin~\cite{DBLP:journals/corr/HoangVSBWB17} enabled the formalisation of the \EventB method within the EB4EB framework~\cite{DBLP:conf/nfm/RiviereSAD23}.
+
+% Motivation and contribution
+Our motivation for this paper is to explore the use of the Theory plugin for capturing the semantics of other modelling languages. In particular, we want to compare the pros and cons of the two modelling styles, using \EventB models and the Theory plugin. We will use the SCXML as the example of the language to be modelled, in particular, focusing on the untriggered state machine fragment.
+
+% Paper structure
+The structure of the paper is as follows. Section~\ref{sec:background} gives some background information about \EventB, the Theory plugin, and the formalisation of SCXML semantics using \EventB standard constructs, i.e., contexts and machines. Section~\ref{sec:formalisation} gives some comparison in formalising of the SCXML semantics using the Theory plugin and using \EventB standard constructs. Section~\ref{sec:summary} gives a summary of the paper.

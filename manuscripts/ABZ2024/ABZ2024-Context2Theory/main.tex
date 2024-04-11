@@ -1,0 +1,81 @@
+\documentclass[runningheads]{llncs}
+\usepackage[utf8]{inputenc}
+
+% Package for abbreviation
+\usepackage{abbrev-list}
+% Package for colours
+\usepackage{colourSoton}
+% Package for hyper-references
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor = sotonDarkCyan,
+  urlcolor = sotonDeepSkyBlue,
+  citecolor = sotonRed
+}
+
+\usepackage{chgtrk}
+\newCTcontributor{Son}
+
+% Package for listing Event-B code
+\usepackage[colour]{lstEventB}
+% Package for subfig
+\usepackage{graphicx}
+% \usepackage{subcaption}
+% table multiple rows
+\usepackage{multirow}
+
+\usepackage{float}
+% \usepackage{amssymb}
+
+\usepackage{hyperref}
+
+
+%
+\title{Semantics Formalisation -- From Event-B Contexts to Theories}
+
+%
+%\titlerunning{Intervention Timing Pattern}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+%
+\author{
+    Thai Son Hoang\inst{1}\orcidID{0000-0003-4095-0732}
+    \and Laurent Voisin \inst{2}\orcidID{0000-0002-2426-0101}
+    \and Karla Vanessa Morris Wright\inst{3}\orcidID{0000-0002-0146-3176}
+    \and Colin Snook\inst{1}\orcidID{0000-0002-0210-0983}
+    \and Michael Butler\inst{1}\orcidID{0000-0003-4642-5373}
+}
+%
+\authorrunning{T.S. Hoang et al.}
+
+\institute{%
+  ECS, University of Southampton,
+  Southampton SO17 1BJ, United Kingdom\\
+  \email{\{t.s.hoang,cfs,m.j.butler\}@soton.ac.uk}
+  \and
+  Systerel, 1115 rue Ren\'e Descartes, 13100 Aix-en-Provence, France\\
+  \email{laurent.voisin@systerel.fr}
+  \and
+  Sandia National Laboratories, 
+  7011 East Avenue Livermore, California 94550, USA\\
+  \email{knmorri@sandia.gov}
+}
+\begin{document}
+% title
+\maketitle
+% abstract
+\input{sections/abstract}
+
+\input{sections/intro}
+
+\input{sections/background}
+
+\input{sections/formalisation}
+
+\input{sections/conclusion}
+
+% ---- Bibliography ----
+\bibliographystyle{splncs04}
+\bibliography{paper}
+\end{document}
