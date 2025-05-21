@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.theory.core.theoryRoot org.eventb.core.configuration="org.eventb.theory.core.thy">
+    <org.eventb.theory.core.proofRulesBlock name="'" org.eventb.core.label="Tree properties">
+        <org.eventb.theory.core.inferenceRule name="element1" org.eventb.core.comment="Tree states are the root and its descendants" org.eventb.core.label="all_nodes-inf" org.eventb.theory.core.applicability="interactive" org.eventb.theory.core.desc="Tree states inference">
+            <org.eventb.theory.core.given name="'" org.eventb.core.predicate="TreeWD(tr)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.infer name="(" org.eventb.core.predicate="States(tr) = closure(Parent(tr)∼)[{Root(tr)}] ∪ {Root(tr)}"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.metaVariable name="element2" org.eventb.core.identifier="tr" org.eventb.theory.core.type="TREE(NODE)"/>
+        <org.eventb.theory.core.rewriteRule name="element3" org.eventb.core.label="all_nodes-rew" org.eventb.theory.core.applicability="interactive" org.eventb.theory.core.complete="false" org.eventb.theory.core.desc="Tree states rewrite" org.eventb.theory.core.formula="States(tr)">
+            <org.eventb.theory.core.rewriteRuleRHS name="'" org.eventb.core.label="rhs1" org.eventb.core.predicate="TreeWD(tr)" org.eventb.theory.core.formula="closure(Parent(tr)∼)[{Root(tr)}] ∪ {Root(tr)}"/>
+        </org.eventb.theory.core.rewriteRule>
+    </org.eventb.theory.core.proofRulesBlock>
+    <org.eventb.theory.core.typeParameter name="(" org.eventb.core.identifier="NODE"/>
+    <org.eventb.theory.core.theorem name="*" org.eventb.core.label="all_nodes" org.eventb.core.predicate="∀tr · tr ∈ TREE(NODE) ∧ TreeWD(tr) ⇒ States(tr) = closure(Parent(tr)∼)[{Root(tr)}] ∪ {Root(tr)}"/>
+    <org.eventb.theory.core.importTheoryProject name="+" org.eventb.theory.core.importTheoryProject="/Tree">
+        <org.eventb.theory.core.importTheory name="'" org.eventb.theory.core.importTheory="/Tree/Tree.dtf|org.eventb.theory.core.deployedTheoryRoot#Tree"/>
+    </org.eventb.theory.core.importTheoryProject>
+</org.eventb.theory.core.theoryRoot>

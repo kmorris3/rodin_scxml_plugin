@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.theory.core.theoryRoot org.eventb.core.configuration="org.eventb.theory.core.thy">
+    <org.eventb.theory.core.theorem name="element1" org.eventb.core.label="induction" org.eventb.core.predicate="∀tr · tr ∈ TREE(NODE) ∧ TreeWD(tr) ⇒ (∀T · Root(tr) ∈ T ∧ Parent(tr)∼[T] ⊆ T ⇒ States(tr) ⊆ T)"/>
+    <org.eventb.theory.core.typeParameter name="element3" org.eventb.core.identifier="NODE"/>
+    <org.eventb.theory.core.importTheoryProject name="element4" org.eventb.theory.core.importTheoryProject="/Tree_props">
+        <org.eventb.theory.core.importTheory name="'" org.eventb.theory.core.importTheory="/Tree_props/Tree_prop1.dtf|org.eventb.theory.core.deployedTheoryRoot#Tree_prop1"/>
+    </org.eventb.theory.core.importTheoryProject>
+</org.eventb.theory.core.theoryRoot>
