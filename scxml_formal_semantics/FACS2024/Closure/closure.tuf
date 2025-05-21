@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.theory.core.theoryRoot org.eventb.core.configuration="org.eventb.theory.core.thy">
+<org.eventb.theory.core.theoryRoot org.eventb.core.comment="This theory define the transitive closure and some basic properties including &quot;strengthening&quot;,&#10;&quot;transitivity&quot;, and &quot;minimality&quot;.&#10;The proof automatic with expanding definitions, expanding membership and inclusion automatically." org.eventb.core.configuration="org.eventb.theory.core.thy">
     <org.eventb.theory.core.typeParameter name="'" org.eventb.core.identifier="S"/>
-    <org.eventb.theory.core.newOperatorDefinition name="(" org.eventb.core.label="closure" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="true" org.eventb.theory.core.notationType="PREFIX">
+    <org.eventb.theory.core.newOperatorDefinition name="(" org.eventb.core.comment="Definition for (irreflexive) transitive closure:&#10;The transitive closure of r is the intersection of &#10;all transitive relation containing r.&#10;The intersection is well-defined (closure/Op-WD) since&#10;there exists a transitive relation containing r which is&#10;the Cartesian product of S and S." org.eventb.core.label="closure" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="true" org.eventb.theory.core.notationType="PREFIX">
         <org.eventb.theory.core.directOperatorDefinition name="'" org.eventb.theory.core.formula="(λ r · r ∈ S ↔ S ∣ inter({p ∣ r ⊆ p ∧ p;p ⊆ p}))"/>
     </org.eventb.theory.core.newOperatorDefinition>
-    <org.eventb.theory.core.theorem name=")" org.eventb.core.label="typeof-closure" org.eventb.core.predicate="closure ∈ (S ↔ S) → (S ↔ S)"/>
-    <org.eventb.theory.core.theorem name="*" org.eventb.core.label="closure_strengthen" org.eventb.core.predicate="∀r · r ∈ S ↔ S ⇒ r ⊆ closure(r)"/>
-    <org.eventb.theory.core.theorem name="+" org.eventb.core.label="closure_transitivity" org.eventb.core.predicate="∀r · r ∈ S ↔ S ⇒ closure(r);closure(r) ⊆ closure(r)"/>
-    <org.eventb.theory.core.theorem name="," org.eventb.core.label="closure_minimal" org.eventb.core.predicate="∀r · r ∈ S ↔ S ⇒ (∀p · p ∈ S ↔ S ∧ r ⊆ p ∧ p;p ⊆ p ⇒ closure(r) ⊆ p)"/>
+    <org.eventb.theory.core.theorem name=")" org.eventb.core.comment="Typing information" org.eventb.core.label="typeof-closure" org.eventb.core.predicate="closure ∈ (S ↔ S) → (S ↔ S)"/>
+    <org.eventb.theory.core.theorem name="*" org.eventb.core.comment="Transitive closure of a relation is ⊆-strengthening" org.eventb.core.label="closure_strengthen" org.eventb.core.predicate="∀r · r ∈ S ↔ S ⇒ r ⊆ closure(r)"/>
+    <org.eventb.theory.core.theorem name="+" org.eventb.core.comment="Transitive closure of a relation is transitive" org.eventb.core.label="closure_transitivity" org.eventb.core.predicate="∀r · r ∈ S ↔ S ⇒ closure(r);closure(r) ⊆ closure(r)"/>
+    <org.eventb.theory.core.theorem name="," org.eventb.core.comment="Transitive closure of a relation r is smallest&#10;transitive relation containing r" org.eventb.core.label="closure_minimal" org.eventb.core.predicate="∀r · r ∈ S ↔ S ⇒ (∀p · p ∈ S ↔ S ∧ r ⊆ p ∧ p;p ⊆ p ⇒ closure(r) ⊆ p)"/>
     <org.eventb.theory.core.proofRulesBlock name="-" org.eventb.core.label="closure">
         <org.eventb.theory.core.metaVariable name="'" org.eventb.core.identifier="r" org.eventb.theory.core.type="ℙ(S × S)"/>
         <org.eventb.theory.core.metaVariable name="*" org.eventb.core.identifier="p" org.eventb.theory.core.type="ℙ(S × S)"/>
-        <org.eventb.theory.core.inferenceRule name="," org.eventb.core.comment="This is useful for WD proof" org.eventb.core.label="closure_⇸-inf" org.eventb.theory.core.applicability="automatic" org.eventb.theory.core.desc="Closure partial function inference">
+        <org.eventb.theory.core.inferenceRule name="," org.eventb.core.comment="This is useful for WD proof." org.eventb.core.label="closure_⇸-inf" org.eventb.theory.core.applicability="automatic" org.eventb.theory.core.desc="Closure partial function inference">
             <org.eventb.theory.core.infer name="'" org.eventb.core.predicate="closure ∈ ℙ(S × S) ⇸ ℙ(S × S)"/>
-        </org.eventb.theory.core.inferenceRule>
-        <org.eventb.theory.core.inferenceRule name="-" org.eventb.core.label="⊆_strengthening-inf" org.eventb.theory.core.applicability="both" org.eventb.theory.core.desc="Closure ⊆-strengthening inference">
-            <org.eventb.theory.core.infer name="'" org.eventb.core.predicate="r ⊆ closure(r)"/>
         </org.eventb.theory.core.inferenceRule>
         <org.eventb.theory.core.inferenceRule name="/" org.eventb.core.comment="This is useful for WD proof" org.eventb.core.label="domain_closure-inf" org.eventb.theory.core.applicability="automatic" org.eventb.theory.core.desc="Domain closure is complete">
             <org.eventb.theory.core.infer name="'" org.eventb.core.predicate="r ∈ dom(closure)"/>
         </org.eventb.theory.core.inferenceRule>
-        <org.eventb.theory.core.inferenceRule name="0" org.eventb.core.label="closure_transitivity-inf" org.eventb.theory.core.applicability="automatic" org.eventb.theory.core.desc="Closure transitivity inference">
+        <org.eventb.theory.core.inferenceRule name="-" org.eventb.core.comment="We define an inference rule corresponding to&#10;the @closure-strengthen theorem. This proof rule will help&#10;to discharge the goal of the form r ⊆ closure(r) automatically.&#10;Often, one will use the &quot;CUT&quot; rules to add a hypothesis r ⊆ closure(r)" org.eventb.core.label="⊆_strengthening-inf" org.eventb.theory.core.applicability="both" org.eventb.theory.core.desc="Closure ⊆-strengthening inference">
+            <org.eventb.theory.core.infer name="'" org.eventb.core.predicate="r ⊆ closure(r)"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.inferenceRule name="0" org.eventb.core.comment="We define an inference rule corresponding to&#10;the @closure-transitivity theorem. This proof rule will help&#10;to discharge the goal of the form closure(r);closure(r) ⊆ closure(r) automatically.&#10;Often, one will use the &quot;CUT&quot; rules to add a hypothesis closure(r);closure(r) ⊆ closure(r)" org.eventb.core.label="closure_transitivity-inf" org.eventb.theory.core.applicability="automatic" org.eventb.theory.core.desc="Closure transitivity inference">
             <org.eventb.theory.core.infer name="'" org.eventb.core.predicate="closure(r);closure(r) ⊆ closure(r)"/>
         </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.rewriteRule name="1" org.eventb.core.comment="Interactive rewrite rule only" org.eventb.core.label="cl_strengthen_rw" org.eventb.theory.core.applicability="interactive" org.eventb.theory.core.complete="true" org.eventb.theory.core.desc="closure strengthening" org.eventb.theory.core.formula="r ⊆ closure(r)">
+            <org.eventb.theory.core.rewriteRuleRHS name="'" org.eventb.core.label="rhs1" org.eventb.core.predicate="⊤" org.eventb.theory.core.formula="⊤"/>
+        </org.eventb.theory.core.rewriteRule>
     </org.eventb.theory.core.proofRulesBlock>
+    <org.eventb.theory.core.importTheoryProject name="." org.eventb.theory.core.importTheoryProject="/Closure">
+        <org.eventb.theory.core.importTheory name="'" org.eventb.theory.core.importTheory="/Closure/transitivity.dtf|org.eventb.theory.core.deployedTheoryRoot#transitivity"/>
+    </org.eventb.theory.core.importTheoryProject>
 </org.eventb.theory.core.theoryRoot>
