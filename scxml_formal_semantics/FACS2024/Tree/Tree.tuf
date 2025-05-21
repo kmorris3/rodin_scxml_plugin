@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.theory.core.theoryRoot org.eventb.core.configuration="org.eventb.theory.core.thy">
+    <org.eventb.theory.core.typeParameter name="(" org.eventb.core.identifier="NODE"/>
+    <org.eventb.theory.core.newOperatorDefinition name=")" org.eventb.core.label="TreeWD" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="false" org.eventb.theory.core.notationType="PREFIX">
+        <org.eventb.theory.core.operatorArgument name="(" org.eventb.core.expression="TREE(NODE)" org.eventb.core.identifier="tr"/>
+        <org.eventb.theory.core.directOperatorDefinition name="+" org.eventb.theory.core.formula="Root(tr) ∈ States(tr) ∧ &#10;Parent(tr) ∈ States(tr) ∖ {Root(tr)} → States(tr) &#10;∧ (∀ n · n ∈ States(tr) ∖ {Root(tr)} ⇒ Root(tr) ∈ closure(Parent(tr))[{n}])"/>
+    </org.eventb.theory.core.newOperatorDefinition>
+    <org.eventb.theory.core.datatypeDefinition name="," org.eventb.core.identifier="TREE">
+        <org.eventb.theory.core.datatypeConstructor name="'" org.eventb.core.identifier="Cons_TREE">
+            <org.eventb.theory.core.constructorArgument name="'" org.eventb.core.identifier="States" org.eventb.theory.core.type="ℙ(NODE)"/>
+            <org.eventb.theory.core.constructorArgument name="(" org.eventb.core.identifier="Root" org.eventb.theory.core.type="NODE"/>
+            <org.eventb.theory.core.constructorArgument name=")" org.eventb.core.identifier="Parent" org.eventb.theory.core.type="ℙ(NODE × NODE)"/>
+        </org.eventb.theory.core.datatypeConstructor>
+        <org.eventb.theory.core.typeArgument name="(" org.eventb.theory.core.givenType="NODE"/>
+    </org.eventb.theory.core.datatypeDefinition>
+    <org.eventb.theory.core.proofRulesBlock name="-" org.eventb.core.label="tree">
+        <org.eventb.theory.core.metaVariable name="(" org.eventb.core.identifier="tr" org.eventb.theory.core.type="TREE(NODE)"/>
+        <org.eventb.theory.core.inferenceRule name=")" org.eventb.core.label="Root_type-inf" org.eventb.theory.core.applicability="automatic" org.eventb.theory.core.desc="Tree Root type inference">
+            <org.eventb.theory.core.given name="'" org.eventb.core.predicate="TreeWD(tr)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.infer name="(" org.eventb.core.predicate="Root(tr) ∈ States(tr)"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.inferenceRule name="element1" org.eventb.core.label="Parent_type-inf" org.eventb.theory.core.applicability="automatic" org.eventb.theory.core.desc="Tree Parent type inference">
+            <org.eventb.theory.core.given name="'" org.eventb.core.predicate="TreeWD(tr)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.infer name="(" org.eventb.core.predicate="Parent(tr) ∈ States(tr) ∖ {Root(tr)} → States(tr)"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.inferenceRule name="element2" org.eventb.core.label="Root_reachability-inf" org.eventb.theory.core.applicability="automatic" org.eventb.theory.core.desc="Tree Root reachability">
+            <org.eventb.theory.core.given name="'" org.eventb.core.predicate="TreeWD(tr)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.infer name="(" org.eventb.core.predicate="Root(tr) ∈ closure(Parent(tr))[{n}]"/>
+            <org.eventb.theory.core.given name=")" org.eventb.core.predicate="n ∈ States(tr) ∖ {Root(tr)}" org.eventb.theory.core.hyp="false"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.metaVariable name="element2" org.eventb.core.identifier="n" org.eventb.theory.core.type="NODE"/>
+    </org.eventb.theory.core.proofRulesBlock>
+    <org.eventb.theory.core.importTheoryProject name="." org.eventb.theory.core.importTheoryProject="/Closure_props">
+        <org.eventb.theory.core.importTheory name="'" org.eventb.theory.core.importTheory="/Closure_props/closure_prop3.dtf|org.eventb.theory.core.deployedTheoryRoot#closure_prop3"/>
+    </org.eventb.theory.core.importTheoryProject>
+    <org.eventb.theory.core.theorem name="/" org.eventb.core.label="tree-induction" org.eventb.core.predicate="∀ tr · TreeWD(tr) ⇒ &#10;   (∀ T · T ⊆ NODE ∧ Root(tr) ∈ T ∧ Parent(tr)∼[T] ⊆ T ⇒ States(tr) ⊆ T)"/>
+</org.eventb.theory.core.theoryRoot>
