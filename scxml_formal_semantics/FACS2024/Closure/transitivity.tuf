@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.theory.core.theoryRoot org.eventb.core.comment="Utility theory for the useful rules to prove well-definedness of transitive closure" org.eventb.core.configuration="org.eventb.theory.core.thy">
+    <org.eventb.theory.core.typeParameter name="'" org.eventb.core.identifier="S"/>
+    <org.eventb.theory.core.proofRulesBlock name="(" org.eventb.core.comment="Proof rules related to transitivity" org.eventb.core.label="transitivity">
+        <org.eventb.theory.core.metaVariable name="'" org.eventb.core.identifier="r" org.eventb.theory.core.type="ℙ(S × S)"/>
+        <org.eventb.theory.core.inferenceRule name="(" org.eventb.core.comment="This is often used in WD for transitive closure" org.eventb.core.label="transitivity_existence" org.eventb.theory.core.applicability="both" org.eventb.theory.core.desc="Existence of transitive relation">
+            <org.eventb.theory.core.infer name="'" org.eventb.core.predicate="∃p· r ⊆ p ∧ p;p ⊆ p"/>
+        </org.eventb.theory.core.inferenceRule>
+    </org.eventb.theory.core.proofRulesBlock>
+</org.eventb.theory.core.theoryRoot>
