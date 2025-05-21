@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.theory.core.theoryRoot org.eventb.core.configuration="org.eventb.theory.core.thy">
+    <org.eventb.theory.core.importTheoryProject name="'" org.eventb.theory.core.importTheoryProject="/Closure">
+        <org.eventb.theory.core.importTheory name="'" org.eventb.theory.core.importTheory="/Closure/closure.dtf|org.eventb.theory.core.deployedTheoryRoot#closure"/>
+    </org.eventb.theory.core.importTheoryProject>
+    <org.eventb.theory.core.typeParameter name="(" org.eventb.core.identifier="S"/>
+    <org.eventb.theory.core.proofRulesBlock name="*" org.eventb.core.label="closure properties">
+        <org.eventb.theory.core.metaVariable name="'" org.eventb.core.identifier="r" org.eventb.theory.core.type="S ↔ S"/>
+        <org.eventb.theory.core.metaVariable name="(" org.eventb.core.identifier="p" org.eventb.theory.core.type="S ↔ S"/>
+        <org.eventb.theory.core.inferenceRule name=")" org.eventb.core.comment="Declare ⊆_monotonic as an inference rules with the given hypothesis.&#10;This ensure that the rule can be applied forwardly to generate the fact" org.eventb.core.label="⊆_monotonic-inf" org.eventb.theory.core.applicability="both" org.eventb.theory.core.desc="closure is ⊆-monotonic">
+            <org.eventb.theory.core.infer name="(" org.eventb.core.predicate="closure(r) ⊆ closure(p)"/>
+            <org.eventb.theory.core.given name=")" org.eventb.core.predicate="r ⊆ p" org.eventb.theory.core.hyp="false"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.inferenceRule name="*" org.eventb.core.label="right_maximal-inf" org.eventb.theory.core.applicability="both" org.eventb.theory.core.desc="closure(r);r ⊆ closure(r)">
+            <org.eventb.theory.core.infer name="'" org.eventb.core.predicate="closure(r);r ⊆ closure(r)"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.inferenceRule name="element1" org.eventb.core.label="left_maximal-inf" org.eventb.theory.core.applicability="both" org.eventb.theory.core.desc="r;closure(r) ⊆ closure(r)">
+            <org.eventb.theory.core.infer name="'" org.eventb.core.predicate="r;closure(r) ⊆ closure(r)"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.rewriteRule name="element2" org.eventb.core.comment="Declare @converse as a rewriting rule, but interactive as&#10;it is not always the case that we want to normalise this." org.eventb.core.label="converse-rew" org.eventb.theory.core.applicability="interactive" org.eventb.theory.core.complete="true" org.eventb.theory.core.desc="Converse closure" org.eventb.theory.core.formula="closure(r∼)">
+            <org.eventb.theory.core.rewriteRuleRHS name="'" org.eventb.core.label="rhs1" org.eventb.core.predicate="⊤" org.eventb.theory.core.formula="closure(r)∼"/>
+        </org.eventb.theory.core.rewriteRule>
+    </org.eventb.theory.core.proofRulesBlock>
+    <org.eventb.theory.core.theorem name="element1" org.eventb.core.comment="Proof: instantiate @closure_minimal with r &lt;- r and p &lt;- cl(p)" org.eventb.core.label="⊆_monotonic" org.eventb.core.predicate="∀r,p · r ∈ S ↔ S ∧ r ⊆ p ⇒ closure(r) ⊆ closure(p)"/>
+    <org.eventb.theory.core.theorem name="element2" org.eventb.core.comment="Proof: Consequence of @closure_strengthen and @closure_transitivity&#10;Instantiate the theorems or using cut to add the properties" org.eventb.core.label="right_maximal" org.eventb.core.predicate="∀r · r ∈ S ↔ S ⇒ closure(r);r ⊆ closure(r)"/>
+    <org.eventb.theory.core.theorem name="element3" org.eventb.core.comment="Proof: Consequence of @closure_strengthen and @closure_transitivity&#10;Instantiate the theorems or using cut to add the properties" org.eventb.core.label="left_maximal" org.eventb.core.predicate="∀r · r ∈ S ↔ S ⇒ r;closure(r) ⊆ closure(r)"/>
+    <org.eventb.theory.core.theorem name="+" org.eventb.core.comment="Proof: Instantiate @closure_minimal with r &lt;- r and p &lt;- (T × T) ∪ ((STATE ∖ T) × STATE)" org.eventb.core.label="induction" org.eventb.core.predicate="∀r, T · r ∈ S ↔ S ∧ r[T] ⊆ T ⇒ closure(r)[T] ⊆ T"/>
+    <org.eventb.theory.core.theorem name="," org.eventb.core.comment="Proof:&#10;- LHS is included in RHS: Instantiate @closure_minimal with r &lt;- r∼ and p &lt;- cl(r)∼,&#10;then consequence of @closure_strengthening and @closure_transitivity&#10;- RHS is included in LHS: Instantiate @closure_minimal with r &lt;- r and p &lt;- cl(r∼)∼,&#10;then consequence of @closure_strengthening (r &lt;- r∼)and @closure_transitivity (r &lt;- r∼)" org.eventb.core.label="converse" org.eventb.core.predicate="∀r · r ∈ S ↔ S ⇒ closure(r∼) = closure(r)∼"/>
+</org.eventb.theory.core.theoryRoot>
