@@ -33,5 +33,4 @@
     <org.eventb.theory.core.importTheoryProject name="." org.eventb.theory.core.importTheoryProject="/Closure_props">
         <org.eventb.theory.core.importTheory name="'" org.eventb.theory.core.importTheory="/Closure_props/closure_prop3.dtf|org.eventb.theory.core.deployedTheoryRoot#closure_prop3"/>
     </org.eventb.theory.core.importTheoryProject>
-    <org.eventb.theory.core.theorem name="/" org.eventb.core.label="tree-induction" org.eventb.core.predicate="∀ tr · TreeWD(tr) ⇒ &#10;   (∀ T · T ⊆ NODE ∧ Root(tr) ∈ T ∧ Parent(tr)∼[T] ⊆ T ⇒ States(tr) ⊆ T)"/>
 </org.eventb.theory.core.theoryRoot>
