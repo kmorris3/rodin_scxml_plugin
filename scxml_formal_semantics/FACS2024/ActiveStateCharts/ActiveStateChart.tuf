@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.theory.core.theoryRoot org.eventb.core.configuration="org.eventb.theory.core.thy">
+    <org.eventb.theory.core.datatypeDefinition name="(" org.eventb.core.identifier="ACTIVE_STATECHART">
+        <org.eventb.theory.core.typeArgument name="'" org.eventb.theory.core.givenType="STATE"/>
+        <org.eventb.theory.core.datatypeConstructor name="(" org.eventb.core.identifier="Cons_ActiveStatechart">
+            <org.eventb.theory.core.constructorArgument name="'" org.eventb.core.identifier="Active" org.eventb.theory.core.type="ℙ(STATE)"/>
+        </org.eventb.theory.core.datatypeConstructor>
+    </org.eventb.theory.core.datatypeDefinition>
+    <org.eventb.theory.core.typeParameter name=")" org.eventb.core.identifier="STATE"/>
+    <org.eventb.theory.core.newOperatorDefinition name="*" org.eventb.core.label="ActiveStatechartWD" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="false" org.eventb.theory.core.notationType="PREFIX">
+        <org.eventb.theory.core.operatorArgument name="(" org.eventb.core.expression="STATECHART(STATE, TRANSFORMATION)" org.eventb.core.identifier="sc"/>
+        <org.eventb.theory.core.directOperatorDefinition name=")" org.eventb.theory.core.formula="Root(Tree(sc)) ∈ Active(asc)&#10;∧ Active(asc) ⊆ States(Tree(sc))&#10;∧ (∀ s · s ∈ Active(asc) ∖ {Root(Tree(sc))} ⇒ Parent(Tree(sc))(s) ∈ Active(asc))&#10;∧ (∀ s · s ∈ ran(Parent(Tree(sc))) ∧ s ∈ Active(asc) ⇒ Parent(Tree(sc))∼[{s}] ∩ Active(asc) ≠ ∅)&#10;∧ (∀r, s · r ∈ Regions(sc) ∧ s ∈ r ∩ Active(asc) ⇒ r ∩ Active(asc) ⊆ {s})&#10;∧ (∀r1, r2 · r1 ∈ Regions(sc) ∧ r2 ∈ Regions(sc) ∧&#10;    Parent(Tree(sc))[r1] = Parent(Tree(sc))[r2] ∧ r1 ∩ Active(asc) = ∅ ⇒ r2 ∩ Active(asc) = ∅)"/>
+        <org.eventb.theory.core.operatorWDcondition name="*" org.eventb.core.predicate="StatechartWD(sc)"/>
+        <org.eventb.theory.core.operatorArgument name="'" org.eventb.core.expression="ACTIVE_STATECHART(STATE)" org.eventb.core.identifier="asc"/>
+    </org.eventb.theory.core.newOperatorDefinition>
+    <org.eventb.theory.core.typeParameter name="+" org.eventb.core.identifier="TRANSFORMATION"/>
+    <org.eventb.theory.core.importTheoryProject name="," org.eventb.theory.core.importTheoryProject="/StateCharts">
+        <org.eventb.theory.core.importTheory name="'" org.eventb.theory.core.importTheory="/StateCharts/StateChart.dtf|org.eventb.theory.core.deployedTheoryRoot#StateChart"/>
+    </org.eventb.theory.core.importTheoryProject>
+    <org.eventb.theory.core.importTheoryProject name="-" org.eventb.theory.core.importTheoryProject="/ProofSupport">
+        <org.eventb.theory.core.importTheory name="'" org.eventb.theory.core.importTheory="/ProofSupport/SetTheorySupport.dtf|org.eventb.theory.core.deployedTheoryRoot#SetTheorySupport"/>
+    </org.eventb.theory.core.importTheoryProject>
+    <org.eventb.theory.core.proofRulesBlock name="." org.eventb.core.label="rulesBlock1">
+        <org.eventb.theory.core.inferenceRule name="element1" org.eventb.core.label="Unique_active_state" org.eventb.theory.core.applicability="interactive" org.eventb.theory.core.desc="Unique active state">
+            <org.eventb.theory.core.given name="element1" org.eventb.core.predicate="StatechartWD(sc)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="element2" org.eventb.core.predicate="ActiveStatechartWD(sc, asc)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="element3" org.eventb.core.predicate="tr ∈ Transformation(sc)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="element4" org.eventb.core.predicate="r ∈ Regions(sc)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="element5" org.eventb.core.predicate="s ∈ r" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="element6" org.eventb.core.predicate="s ∈ Active(asc)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.infer name="element7" org.eventb.core.predicate="r ∩ Active(asc) = {s}"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.metaVariable name="element4" org.eventb.core.identifier="sc" org.eventb.theory.core.type="STATECHART(STATE, TRANSFORMATION)"/>
+        <org.eventb.theory.core.metaVariable name="element5" org.eventb.core.identifier="asc" org.eventb.theory.core.type="ACTIVE_STATECHART(STATE)"/>
+        <org.eventb.theory.core.metaVariable name="element6" org.eventb.core.identifier="tr" org.eventb.theory.core.type="TRANSFORMATION"/>
+        <org.eventb.theory.core.metaVariable name="element7" org.eventb.core.identifier="r" org.eventb.theory.core.type="ℙ(STATE)"/>
+        <org.eventb.theory.core.metaVariable name="element8" org.eventb.core.identifier="s" org.eventb.theory.core.type="STATE"/>
+        <org.eventb.theory.core.inferenceRule name="element9" org.eventb.core.label="thm2" org.eventb.theory.core.applicability="both" org.eventb.theory.core.desc="Theorem 2">
+            <org.eventb.theory.core.given name="element1" org.eventb.core.predicate="StatechartWD(sc)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="element2" org.eventb.core.predicate="ActiveStatechartWD(sc, asc)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="element3" org.eventb.core.predicate="x ∈ Active(asc)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="element4" org.eventb.core.predicate="x ↦ s ∈ closure(Parent(Tree(sc)))" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.infer name="element5" org.eventb.core.predicate="s ∈ Active(asc)"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.inferenceRule name="element10" org.eventb.core.label="thm3" org.eventb.theory.core.applicability="both" org.eventb.theory.core.desc="Theorem 3">
+            <org.eventb.theory.core.given name="element1" org.eventb.core.predicate="StatechartWD(sc)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="element2" org.eventb.core.predicate="ActiveStatechartWD(sc, asc)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.infer name="element5" org.eventb.core.predicate="Parent(Tree(sc))(s) ∈ Active(asc)"/>
+            <org.eventb.theory.core.given name="element6" org.eventb.core.predicate="s ≠ Root(Tree(sc))" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="element3" org.eventb.core.predicate="s ∈ Active(asc)" org.eventb.theory.core.hyp="true"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.inferenceRule name="element11" org.eventb.core.label="entering_contained_region" org.eventb.theory.core.applicability="both" org.eventb.theory.core.desc="Entering contained region">
+            <org.eventb.theory.core.given name="element1" org.eventb.core.predicate="StatechartWD(sc)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="element2" org.eventb.core.predicate="ActiveStatechartWD(sc, asc)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.infer name="element5" org.eventb.core.predicate="Entering(sc)(tr) ∩ r ≠ ∅"/>
+            <org.eventb.theory.core.given name="element6" org.eventb.core.predicate="tr ∈ Transformation(sc)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="element3" org.eventb.core.predicate="r ∈ Regions(sc)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="element7" org.eventb.core.predicate="Parent(Tree(sc))[r] ⊆ Entering(sc)(tr) " org.eventb.theory.core.hyp="false"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.inferenceRule name="element12" org.eventb.core.label="entering_go_somewhere" org.eventb.theory.core.applicability="both" org.eventb.theory.core.desc="Go back to a region">
+            <org.eventb.theory.core.given name="element1" org.eventb.core.predicate="StatechartWD(sc)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.infer name="element5" org.eventb.core.predicate="Entering(sc)(tr) ∩ r ≠ ∅"/>
+            <org.eventb.theory.core.given name="element6" org.eventb.core.predicate="tr ∈ Transformation(sc)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="element3" org.eventb.core.predicate="r ∈ Regions(sc)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="element7" org.eventb.core.predicate="Parent(Tree(sc))[r] ∩ Exiting(sc)(tr) = ∅ " org.eventb.theory.core.hyp="true"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.metaVariable name="element:" org.eventb.core.identifier="x" org.eventb.theory.core.type="STATE"/>
+    </org.eventb.theory.core.proofRulesBlock>
+</org.eventb.theory.core.theoryRoot>

@@ -1,0 +1,1000 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+    <org.eventb.core.prProof name="ActiveStatechartWD/Op-WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="sc,asc,s" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="STATE,TRANSFORMATION">
+        <org.eventb.core.lang name="L">
+            <org.eventb.theory.core.scNewOperatorDefinition name="closure" org.eventb.core.label="closure" org.eventb.core.predicate="⊤" org.eventb.core.source="/Closure/closure.tuf|org.eventb.theory.core.theoryRoot#closure|org.eventb.theory.core.newOperatorDefinition#(" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="true" org.eventb.theory.core.groupID="org.eventb.core.ast.atomicExpr" org.eventb.theory.core.hasError="false" org.eventb.theory.core.notationType="PREFIX" org.eventb.theory.core.type="ℙ(ℙ(S×S)×ℙ(S×S))" org.eventb.theory.core.wd="∀r⦂ℙ(S×S)·r∈S ↔ S⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(S×S)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(S×S)))">
+                <org.eventb.theory.core.scDirectOperatorDefinition name="'" org.eventb.core.source="/Closure/closure.tuf|org.eventb.theory.core.theoryRoot#closure|org.eventb.theory.core.newOperatorDefinition#(|org.eventb.theory.core.directOperatorDefinition#'" org.eventb.theory.core.formula="λr⦂ℙ(S×S)·r∈S ↔ S ∣ inter({p⦂ℙ(S×S)·r⊆p∧p;p⊆p ∣ p})"/>
+            </org.eventb.theory.core.scNewOperatorDefinition>
+            <org.eventb.theory.core.scDatatypeDefinition name="TREE">
+                <org.eventb.theory.core.scTypeArgument name="NODE" org.eventb.theory.core.givenType="NODE"/>
+                <org.eventb.theory.core.scDatatypeConstructor name="Cons_TREE">
+                    <org.eventb.theory.core.scConstructorArgument name="States" org.eventb.core.type="ℙ(NODE)"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Root" org.eventb.core.type="NODE"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Parent" org.eventb.core.type="ℙ(NODE×NODE)"/>
+                </org.eventb.theory.core.scDatatypeConstructor>
+            </org.eventb.theory.core.scDatatypeDefinition>
+            <org.eventb.theory.core.scNewOperatorDefinition name="TreeWD" org.eventb.core.label="TreeWD" org.eventb.core.predicate="⊤" org.eventb.core.source="/Tree/Tree.tuf|org.eventb.theory.core.theoryRoot#Tree|org.eventb.theory.core.newOperatorDefinition#)" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="false" org.eventb.theory.core.groupID="org.eventb.core.ast.closed" org.eventb.theory.core.hasError="false" org.eventb.theory.core.notationType="PREFIX" org.eventb.theory.core.wd="(Root(tr)∈States(tr)∧Parent(tr)∈States(tr) ∖ {Root(tr)} → States(tr)∧(∀n⦂NODE·¬n∈States(tr) ∖ {Root(tr)}∨((∀r⦂ℙ(NODE×NODE)·r∈NODE ↔ NODE⇒(∀p⦂ℙ(NODE×NODE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(NODE×NODE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(NODE×NODE))))∧Parent(tr)∈dom(closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))∧(closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))∈ℙ(NODE × NODE) ⇸ ℙ(NODE × NODE)∧Root(tr)∈((closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))(Parent(tr)))[{n}])))∨¬Root(tr)∈States(tr)∨¬Parent(tr)∈States(tr) ∖ {Root(tr)} → States(tr)∨(∃n⦂NODE·n∈States(tr) ∖ {Root(tr)}∧(∀r⦂ℙ(NODE×NODE)·r∈NODE ↔ NODE⇒(∀p⦂ℙ(NODE×NODE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(NODE×NODE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(NODE×NODE))))∧Parent(tr)∈dom(closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))∧(closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))∈ℙ(NODE × NODE) ⇸ ℙ(NODE × NODE)∧¬Root(tr)∈((closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))(Parent(tr)))[{n}])">
+                <org.eventb.theory.core.scOperatorArgument name="tr" org.eventb.core.source="/Tree/Tree.tuf|org.eventb.theory.core.theoryRoot#Tree|org.eventb.theory.core.newOperatorDefinition#)|org.eventb.theory.core.operatorArgument#(" org.eventb.core.type="TREE(NODE)"/>
+                <org.eventb.theory.core.scDirectOperatorDefinition name="+" org.eventb.core.source="/Tree/Tree.tuf|org.eventb.theory.core.theoryRoot#Tree|org.eventb.theory.core.newOperatorDefinition#)|org.eventb.theory.core.directOperatorDefinition#+" org.eventb.theory.core.formula="Root(tr)∈States(tr)∧Parent(tr)∈States(tr) ∖ {Root(tr)} → States(tr)∧(∀n⦂NODE·n∈States(tr) ∖ {Root(tr)}⇒Root(tr)∈((closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))(Parent(tr)))[{n}])"/>
+            </org.eventb.theory.core.scNewOperatorDefinition>
+            <org.eventb.theory.core.scDatatypeDefinition name="STATECHART">
+                <org.eventb.theory.core.scTypeArgument name="STATE" org.eventb.theory.core.givenType="STATE"/>
+                <org.eventb.theory.core.scTypeArgument name="TRANSFORMATION" org.eventb.theory.core.givenType="TRANSFORMATION"/>
+                <org.eventb.theory.core.scDatatypeConstructor name="Cons_STATECHART">
+                    <org.eventb.theory.core.scConstructorArgument name="Tree" org.eventb.core.type="TREE(STATE)"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Regions" org.eventb.core.type="ℙ(ℙ(STATE))"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Transformation" org.eventb.core.type="ℙ(TRANSFORMATION)"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Enabling" org.eventb.core.type="ℙ(TRANSFORMATION×ℙ(STATE))"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Exiting" org.eventb.core.type="ℙ(TRANSFORMATION×ℙ(STATE))"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Entering" org.eventb.core.type="ℙ(TRANSFORMATION×ℙ(STATE))"/>
+                </org.eventb.theory.core.scDatatypeConstructor>
+            </org.eventb.theory.core.scDatatypeDefinition>
+            <org.eventb.theory.core.scNewOperatorDefinition name="RegionsWD" org.eventb.core.label="RegionsWD" org.eventb.core.predicate="⊤" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#-" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="false" org.eventb.theory.core.groupID="org.eventb.core.ast.closed" org.eventb.theory.core.hasError="false" org.eventb.theory.core.notationType="PREFIX" org.eventb.theory.core.wd="(Regions(st)⊆ℙ(States(Tree(st)))∧(∀r1⦂ℙ(STATE),r2⦂ℙ(STATE)·¬r1∈Regions(st)∨¬r2∈Regions(st)∨¬r1≠r2∨r1∩r2=(∅ ⦂ ℙ(STATE)))∧union(Regions(st))=States(Tree(st)) ∖ {Root(Tree(st))}∧(∀r⦂ℙ(STATE)·¬r∈Regions(st)∨(∃p⦂STATE·p∈States(Tree(st))∧Parent(Tree(st))[r]={p})))∨¬Regions(st)⊆ℙ(States(Tree(st)))∨(∃r1⦂ℙ(STATE),r2⦂ℙ(STATE)·r1∈Regions(st)∧r2∈Regions(st)∧r1≠r2∧¬r1∩r2=(∅ ⦂ ℙ(STATE)))∨¬union(Regions(st))=States(Tree(st)) ∖ {Root(Tree(st))}∨(∃r⦂ℙ(STATE)·r∈Regions(st)∧(∀p⦂STATE·¬p∈States(Tree(st))∨¬Parent(Tree(st))[r]={p}))">
+                <org.eventb.theory.core.scOperatorArgument name="st" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#-|org.eventb.theory.core.operatorArgument#'" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+                <org.eventb.theory.core.scDirectOperatorDefinition name="(" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#-|org.eventb.theory.core.directOperatorDefinition#(" org.eventb.theory.core.formula="Regions(st)⊆ℙ(States(Tree(st)))∧(∀r1⦂ℙ(STATE),r2⦂ℙ(STATE)·r1∈Regions(st)∧r2∈Regions(st)∧r1≠r2⇒r1∩r2=(∅ ⦂ ℙ(STATE)))∧union(Regions(st))=States(Tree(st)) ∖ {Root(Tree(st))}∧(∀r⦂ℙ(STATE)·r∈Regions(st)⇒(∃p⦂STATE·p∈States(Tree(st))∧Parent(Tree(st))[r]={p}))"/>
+            </org.eventb.theory.core.scNewOperatorDefinition>
+            <org.eventb.theory.core.scNewOperatorDefinition name="TransformationsWD" org.eventb.core.label="TransformationsWD" org.eventb.core.predicate="⊤" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#." org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="false" org.eventb.theory.core.groupID="org.eventb.core.ast.closed" org.eventb.theory.core.hasError="false" org.eventb.theory.core.notationType="PREFIX" org.eventb.theory.core.wd="(Enabling(st)∈Transformation(st) → ℙ1(States(Tree(st)))∧Exiting(st)∈Transformation(st) → ℙ(States(Tree(st)))∧Entering(st)∈Transformation(st) → ℙ(States(Tree(st)))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·¬trf∈Transformation(st)∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬s∈Exiting(st)(trf))∨¬r∈Regions(st)∨¬Parent(Tree(st))[r]={s}∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Exiting(st)(trf)∩r≠(∅ ⦂ ℙ(STATE))))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·¬trf∈Transformation(st)∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬s∈Exiting(st)(trf))∨¬r∈Regions(st)∨¬s∈r∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Exiting(st)(trf)∩r={s})∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧r⊆Exiting(st)(trf)))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·¬trf∈Transformation(st)∨¬r∈Regions(st)∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Exiting(st)(trf)∩r={s})∨¬r≠{s}∨(trf∈dom(Enabling(st))∧Enabling(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Enabling(st)(trf)∩r={s}))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·¬trf∈Transformation(st)∨(trf∈dom(Enabling(st))∧Enabling(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬s∈Enabling(st)(trf))∨¬r∈Regions(st)∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Exiting(st)(trf)∩r≠(∅ ⦂ ℙ(STATE)))∨¬s∈r∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Exiting(st)(trf)∩r={s}))∧(∀trf⦂TRANSFORMATION,c⦂STATE,r⦂ℙ(STATE)·¬trf∈Transformation(st)∨¬r∈Regions(st)∨¬Parent(Tree(st))[r]={c}∨(trf∈dom(Entering(st))∧Entering(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Entering(st)(trf)∩r≠(∅ ⦂ ℙ(STATE)))∨(trf∈dom(Entering(st))∧Entering(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Entering(st)(trf)∩Parent(Tree(st))[r]=(∅ ⦂ ℙ(STATE)))∨(trf∈dom(Enabling(st))∧Enabling(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧(∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∀p⦂ℙ(STATE×STATE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE))))∧Parent(Tree(st))∈dom(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∧(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧Enabling(st)(trf)∩((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))∼[{c}]≠(∅ ⦂ ℙ(STATE))∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧c∉Exiting(st)(trf))))∨¬Enabling(st)∈Transformation(st) → ℙ1(States(Tree(st)))∨¬Exiting(st)∈Transformation(st) → ℙ(States(Tree(st)))∨¬Entering(st)∈Transformation(st) → ℙ(States(Tree(st)))∨(∃trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧s∈Exiting(st)(trf)∧r∈Regions(st)∧Parent(Tree(st))[r]={s}∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Exiting(st)(trf)∩r≠(∅ ⦂ ℙ(STATE)))∨(∃trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧s∈Exiting(st)(trf)∧r∈Regions(st)∧s∈r∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Exiting(st)(trf)∩r={s}∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬r⊆Exiting(st)(trf))∨(∃trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧r∈Regions(st)∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Exiting(st)(trf)∩r={s}∧r≠{s}∧trf∈dom(Enabling(st))∧Enabling(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Enabling(st)(trf)∩r={s})∨(∃trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧trf∈dom(Enabling(st))∧Enabling(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧s∈Enabling(st)(trf)∧r∈Regions(st)∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Exiting(st)(trf)∩r≠(∅ ⦂ ℙ(STATE))∧s∈r∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Exiting(st)(trf)∩r={s})∨(∃trf⦂TRANSFORMATION,c⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧r∈Regions(st)∧Parent(Tree(st))[r]={c}∧trf∈dom(Entering(st))∧Entering(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Entering(st)(trf)∩r≠(∅ ⦂ ℙ(STATE))∧trf∈dom(Entering(st))∧Entering(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Entering(st)(trf)∩Parent(Tree(st))[r]=(∅ ⦂ ℙ(STATE))∧((trf∈dom(Enabling(st))∧Enabling(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧(∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∀p⦂ℙ(STATE×STATE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE))))∧Parent(Tree(st))∈dom(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∧(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧¬Enabling(st)(trf)∩((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))∼[{c}]≠(∅ ⦂ ℙ(STATE)))∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬c∉Exiting(st)(trf))))">
+                <org.eventb.theory.core.scOperatorArgument name="st" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#.|org.eventb.theory.core.operatorArgument#'" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+                <org.eventb.theory.core.scDirectOperatorDefinition name="(" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#.|org.eventb.theory.core.directOperatorDefinition#(" org.eventb.theory.core.formula="Enabling(st)∈Transformation(st) → ℙ1(States(Tree(st)))∧Exiting(st)∈Transformation(st) → ℙ(States(Tree(st)))∧Entering(st)∈Transformation(st) → ℙ(States(Tree(st)))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧s∈Exiting(st)(trf)∧r∈Regions(st)∧Parent(Tree(st))[r]={s}⇒Exiting(st)(trf)∩r≠(∅ ⦂ ℙ(STATE)))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧s∈Exiting(st)(trf)∧r∈Regions(st)∧s∈r⇒Exiting(st)(trf)∩r={s}∨r⊆Exiting(st)(trf))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧r∈Regions(st)∧Exiting(st)(trf)∩r={s}∧r≠{s}⇒Enabling(st)(trf)∩r={s})∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧s∈Enabling(st)(trf)∧r∈Regions(st)∧Exiting(st)(trf)∩r≠(∅ ⦂ ℙ(STATE))∧s∈r⇒Exiting(st)(trf)∩r={s})∧(∀trf⦂TRANSFORMATION,c⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧r∈Regions(st)∧Parent(Tree(st))[r]={c}∧Entering(st)(trf)∩r≠(∅ ⦂ ℙ(STATE))∧Entering(st)(trf)∩Parent(Tree(st))[r]=(∅ ⦂ ℙ(STATE))⇒Enabling(st)(trf)∩((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))∼[{c}]≠(∅ ⦂ ℙ(STATE))∧c∉Exiting(st)(trf))"/>
+            </org.eventb.theory.core.scNewOperatorDefinition>
+            <org.eventb.theory.core.scNewOperatorDefinition name="StatechartWD" org.eventb.core.label="StatechartWD" org.eventb.core.predicate="⊤" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#*" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="false" org.eventb.theory.core.groupID="org.eventb.core.ast.closed" org.eventb.theory.core.hasError="false" org.eventb.theory.core.notationType="PREFIX" org.eventb.theory.core.wd="(((Root(Tree(st))∈States(Tree(st))∧Parent(Tree(st))∈States(Tree(st)) ∖ {Root(Tree(st))} → States(Tree(st))∧(∀n⦂STATE·¬n∈States(Tree(st)) ∖ {Root(Tree(st))}∨((∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∀p⦂ℙ(STATE×STATE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE))))∧Parent(Tree(st))∈dom(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∧(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧Root(Tree(st))∈((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))[{n}])))∨¬Root(Tree(st))∈States(Tree(st))∨¬Parent(Tree(st))∈States(Tree(st)) ∖ {Root(Tree(st))} → States(Tree(st))∨(∃n⦂STATE·n∈States(Tree(st)) ∖ {Root(Tree(st))}∧(∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∀p⦂ℙ(STATE×STATE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE))))∧Parent(Tree(st))∈dom(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∧(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧¬Root(Tree(st))∈((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))[{n}]))∧TreeWD(Tree(st))∧RegionsWD(st)∧TransformationsWD(st))∨(((Root(Tree(st))∈States(Tree(st))∧Parent(Tree(st))∈States(Tree(st)) ∖ {Root(Tree(st))} → States(Tree(st))∧(∀n⦂STATE·¬n∈States(Tree(st)) ∖ {Root(Tree(st))}∨((∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∀p⦂ℙ(STATE×STATE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE))))∧Parent(Tree(st))∈dom(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∧(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧Root(Tree(st))∈((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))[{n}])))∨¬Root(Tree(st))∈States(Tree(st))∨¬Parent(Tree(st))∈States(Tree(st)) ∖ {Root(Tree(st))} → States(Tree(st))∨(∃n⦂STATE·n∈States(Tree(st)) ∖ {Root(Tree(st))}∧(∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∀p⦂ℙ(STATE×STATE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE))))∧Parent(Tree(st))∈dom(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∧(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧¬Root(Tree(st))∈((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))[{n}]))∧¬TreeWD(Tree(st)))∨¬RegionsWD(st)∨¬TransformationsWD(st)">
+                <org.eventb.theory.core.scOperatorArgument name="st" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#*|org.eventb.theory.core.operatorArgument#(" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+                <org.eventb.theory.core.scDirectOperatorDefinition name="'" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#*|org.eventb.theory.core.directOperatorDefinition#'" org.eventb.theory.core.formula="TreeWD(Tree(st))∧RegionsWD(st)∧TransformationsWD(st)"/>
+            </org.eventb.theory.core.scNewOperatorDefinition>
+            <org.eventb.theory.core.scDatatypeDefinition name="ACTIVE_STATECHART">
+                <org.eventb.theory.core.scTypeArgument name="STATE" org.eventb.theory.core.givenType="STATE"/>
+                <org.eventb.theory.core.scDatatypeConstructor name="Cons_ActiveStatechart">
+                    <org.eventb.theory.core.scConstructorArgument name="Active" org.eventb.core.type="ℙ(STATE)"/>
+                </org.eventb.theory.core.scDatatypeConstructor>
+            </org.eventb.theory.core.scDatatypeDefinition>
+            <org.eventb.theory.core.scNewOperatorDefinition name="ActiveStatechartWD" org.eventb.core.label="ActiveStatechartWD" org.eventb.core.predicate="StatechartWD(sc)" org.eventb.core.source="/ActiveStateCharts/ActiveStateChart.tuf|org.eventb.theory.core.theoryRoot#ActiveStateChart|org.eventb.theory.core.newOperatorDefinition#*" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="false" org.eventb.theory.core.groupID="org.eventb.core.ast.closed" org.eventb.theory.core.hasError="false" org.eventb.theory.core.notationType="PREFIX" org.eventb.theory.core.wd="(Root(Tree(sc))∈Active(asc)∧Active(asc)⊆States(Tree(sc))∧(∀s⦂STATE·¬s∈Active(asc) ∖ {Root(Tree(sc))}∨(s∈dom(Parent(Tree(sc)))∧Parent(Tree(sc))∈STATE ⇸ STATE∧Parent(Tree(sc))(s)∈Active(asc)))∧(∀s⦂STATE·¬s∈ran(Parent(Tree(sc)))∨¬s∈Active(asc)∨Parent(Tree(sc))∼[{s}]∩Active(asc)≠(∅ ⦂ ℙ(STATE)))∧(∀r⦂ℙ(STATE),s⦂STATE·¬r∈Regions(sc)∨¬s∈r∩Active(asc)∨r∩Active(asc)⊆{s})∧(∀r1⦂ℙ(STATE),r2⦂ℙ(STATE)·¬r1∈Regions(sc)∨¬r2∈Regions(sc)∨¬Parent(Tree(sc))[r1]=Parent(Tree(sc))[r2]∨¬r1∩Active(asc)=(∅ ⦂ ℙ(STATE))∨r2∩Active(asc)=(∅ ⦂ ℙ(STATE))))∨¬Root(Tree(sc))∈Active(asc)∨¬Active(asc)⊆States(Tree(sc))∨(∃s⦂STATE·s∈Active(asc) ∖ {Root(Tree(sc))}∧s∈dom(Parent(Tree(sc)))∧Parent(Tree(sc))∈STATE ⇸ STATE∧¬Parent(Tree(sc))(s)∈Active(asc))∨(∃s⦂STATE·s∈ran(Parent(Tree(sc)))∧s∈Active(asc)∧¬Parent(Tree(sc))∼[{s}]∩Active(asc)≠(∅ ⦂ ℙ(STATE)))∨(∃r⦂ℙ(STATE),s⦂STATE·r∈Regions(sc)∧s∈r∩Active(asc)∧¬r∩Active(asc)⊆{s})∨(∃r1⦂ℙ(STATE),r2⦂ℙ(STATE)·r1∈Regions(sc)∧r2∈Regions(sc)∧Parent(Tree(sc))[r1]=Parent(Tree(sc))[r2]∧r1∩Active(asc)=(∅ ⦂ ℙ(STATE))∧¬r2∩Active(asc)=(∅ ⦂ ℙ(STATE)))">
+                <org.eventb.theory.core.scOperatorArgument name="sc" org.eventb.core.source="/ActiveStateCharts/ActiveStateChart.tuf|org.eventb.theory.core.theoryRoot#ActiveStateChart|org.eventb.theory.core.newOperatorDefinition#*|org.eventb.theory.core.operatorArgument#(" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+                <org.eventb.theory.core.scOperatorArgument name="asc" org.eventb.core.source="/ActiveStateCharts/ActiveStateChart.tuf|org.eventb.theory.core.theoryRoot#ActiveStateChart|org.eventb.theory.core.newOperatorDefinition#*|org.eventb.theory.core.operatorArgument#'" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+                <org.eventb.theory.core.scDirectOperatorDefinition name=")" org.eventb.core.source="/ActiveStateCharts/ActiveStateChart.tuf|org.eventb.theory.core.theoryRoot#ActiveStateChart|org.eventb.theory.core.newOperatorDefinition#*|org.eventb.theory.core.directOperatorDefinition#)" org.eventb.theory.core.formula="Root(Tree(sc))∈Active(asc)∧Active(asc)⊆States(Tree(sc))∧(∀s⦂STATE·s∈Active(asc) ∖ {Root(Tree(sc))}⇒Parent(Tree(sc))(s)∈Active(asc))∧(∀s⦂STATE·s∈ran(Parent(Tree(sc)))∧s∈Active(asc)⇒Parent(Tree(sc))∼[{s}]∩Active(asc)≠(∅ ⦂ ℙ(STATE)))∧(∀r⦂ℙ(STATE),s⦂STATE·r∈Regions(sc)∧s∈r∩Active(asc)⇒r∩Active(asc)⊆{s})∧(∀r1⦂ℙ(STATE),r2⦂ℙ(STATE)·r1∈Regions(sc)∧r2∈Regions(sc)∧Parent(Tree(sc))[r1]=Parent(Tree(sc))[r2]∧r1∩Active(asc)=(∅ ⦂ ℙ(STATE))⇒r2∩Active(asc)=(∅ ⦂ ℙ(STATE)))"/>
+            </org.eventb.theory.core.scNewOperatorDefinition>
+        </org.eventb.core.lang>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees sc,asc)" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p1">
+                <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+                <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p1" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p3" org.eventb.core.prHyps="p2">
+                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p3" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="p4,p5">
+                                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees s)" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="">
+                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p7">
+                                        <org.eventb.core.prIdent name="s" org.eventb.core.type="STATE"/>
+                                        <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p7" org.eventb.core.prHyps="">
+                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9" org.eventb.core.prHyps="p8">
+                                                <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps="">
+                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p10">
+                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Statechart WD includes Tree WD (auto forward)" org.eventb.core.prHyps="p2">
+                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                            </org.eventb.core.prAnte>
+                                                            <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p11,p12">
+                                                                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p12"/>
+                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Statechart WD includes Regions WD (auto forward)" org.eventb.core.prHyps="p2">
+                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                    </org.eventb.core.prAnte>
+                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p11,p13">
+                                                                        <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p13"/>
+                                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Statechart WD includes Transformations WD (auto forward)" org.eventb.core.prHyps="p2">
+                                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                            </org.eventb.core.prAnte>
+                                                                            <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p11,p14">
+                                                                                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p14"/>
+                                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Regions are set of states (auto forward)" org.eventb.core.prHyps="p13">
+                                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                                    </org.eventb.core.prAnte>
+                                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p11,p15">
+                                                                                        <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p15"/>
+                                                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Non-root state must belong to a region (auto forward)" org.eventb.core.prHyps="p8,p2">
+                                                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                                            </org.eventb.core.prAnte>
+                                                                                            <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p11,p16">
+                                                                                                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p16"/>
+                                                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Every transformation has some enabling states (auto forward)" org.eventb.core.prHyps="p14,p2">
+                                                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                                                    </org.eventb.core.prAnte>
+                                                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p11,p17">
+                                                                                                        <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p17"/>
+                                                                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Every transformation has some enabling states (auto forward)" org.eventb.core.prHyps="p14,p2">
+                                                                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                                                            </org.eventb.core.prAnte>
+                                                                                                            <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p18,p11">
+                                                                                                                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p18,p11"/>
+                                                                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Every transformation has some enabling states (auto forward)" org.eventb.core.prHyps="p14,p2">
+                                                                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p11,p19">
+                                                                                                                        <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p19"/>
+                                                                                                                        <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+                                                                                                                            <org.eventb.core.prAnte name="'">
+                                                                                                                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p11"/>
+                                                                                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Tree Root type inference (auto forward)" org.eventb.core.prHyps="p12">
+                                                                                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p11,p20">
+                                                                                                                                        <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p20"/>
+                                                                                                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Tree Parent type inference (auto forward)" org.eventb.core.prHyps="p12">
+                                                                                                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                                                                                            </org.eventb.core.prAnte>
+                                                                                                                                            <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p21,p11">
+                                                                                                                                                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p21,p11"/>
+                                                                                                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="SetTheory2 (auto forward)" org.eventb.core.prHyps="p21,p5,p8">
+                                                                                                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                                                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p11,p10">
+                                                                                                                                                        <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p10"/>
+                                                                                                                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="SetTheory2 (auto backward) on goal" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p21,p5,p8">
+                                                                                                                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                                                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                                                                                                            </org.eventb.core.prAnte>
+                                                                                                                                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="ProofSupport"/>
+                                                                                                                                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="SetTheorySupport"/>
+                                                                                                                                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="SetTheory2"/>
+                                                                                                                                                            <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="backward"/>
+                                                                                                                                                        </org.eventb.core.prRule>
+                                                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="ProofSupport"/>
+                                                                                                                                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="SetTheorySupport"/>
+                                                                                                                                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="SetTheory2"/>
+                                                                                                                                                    <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                                                                                </org.eventb.core.prRule>
+                                                                                                                                            </org.eventb.core.prAnte>
+                                                                                                                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="Tree"/>
+                                                                                                                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="Tree"/>
+                                                                                                                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="Parent_type-inf"/>
+                                                                                                                                            <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                                                                        </org.eventb.core.prRule>
+                                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="Tree"/>
+                                                                                                                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="Tree"/>
+                                                                                                                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="Root_type-inf"/>
+                                                                                                                                    <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                                                                </org.eventb.core.prRule>
+                                                                                                                            </org.eventb.core.prAnte>
+                                                                                                                        </org.eventb.core.prRule>
+                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                                                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                                                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="transformation_wd_inf_3"/>
+                                                                                                                    <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                                                </org.eventb.core.prRule>
+                                                                                                            </org.eventb.core.prAnte>
+                                                                                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="transformation_wd_inf_2"/>
+                                                                                                            <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                                        </org.eventb.core.prRule>
+                                                                                                    </org.eventb.core.prAnte>
+                                                                                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="transformation_wd_inf_1"/>
+                                                                                                    <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                                </org.eventb.core.prRule>
+                                                                                            </org.eventb.core.prAnte>
+                                                                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="regions_wd_inf_3"/>
+                                                                                            <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                        </org.eventb.core.prRule>
+                                                                                    </org.eventb.core.prAnte>
+                                                                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="region_type_inf"/>
+                                                                                    <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                </org.eventb.core.prRule>
+                                                                            </org.eventb.core.prAnte>
+                                                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="statechart_wd_transformation-inf"/>
+                                                                            <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                        </org.eventb.core.prRule>
+                                                                    </org.eventb.core.prAnte>
+                                                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="statechart_wd_regions-inf"/>
+                                                                    <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                </org.eventb.core.prRule>
+                                                            </org.eventb.core.prAnte>
+                                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="statechart_wd_tree-inf"/>
+                                                            <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                        </org.eventb.core.prRule>
+                                                    </org.eventb.core.prAnte>
+                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p22">
+                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Statechart WD includes Tree WD (auto forward)" org.eventb.core.prHyps="p2">
+                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                            </org.eventb.core.prAnte>
+                                                            <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p11,p12">
+                                                                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p12"/>
+                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Statechart WD includes Regions WD (auto forward)" org.eventb.core.prHyps="p2">
+                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                    </org.eventb.core.prAnte>
+                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p11,p13">
+                                                                        <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p13"/>
+                                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Statechart WD includes Transformations WD (auto forward)" org.eventb.core.prHyps="p2">
+                                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                            </org.eventb.core.prAnte>
+                                                                            <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p11,p14">
+                                                                                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p14"/>
+                                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Regions are set of states (auto forward)" org.eventb.core.prHyps="p13">
+                                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                                    </org.eventb.core.prAnte>
+                                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p11,p15">
+                                                                                        <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p15"/>
+                                                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Non-root state must belong to a region (auto forward)" org.eventb.core.prHyps="p8,p2">
+                                                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                                            </org.eventb.core.prAnte>
+                                                                                            <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p11,p16">
+                                                                                                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p16"/>
+                                                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Every transformation has some enabling states (auto forward)" org.eventb.core.prHyps="p14,p2">
+                                                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                                                    </org.eventb.core.prAnte>
+                                                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p11,p17">
+                                                                                                        <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p17"/>
+                                                                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Every transformation has some enabling states (auto forward)" org.eventb.core.prHyps="p14,p2">
+                                                                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                                                            </org.eventb.core.prAnte>
+                                                                                                            <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p18,p11">
+                                                                                                                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p18,p11"/>
+                                                                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Every transformation has some enabling states (auto forward)" org.eventb.core.prHyps="p14,p2">
+                                                                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p11,p19">
+                                                                                                                        <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p19"/>
+                                                                                                                        <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+                                                                                                                            <org.eventb.core.prAnte name="'">
+                                                                                                                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p11"/>
+                                                                                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Tree Root type inference (auto forward)" org.eventb.core.prHyps="p12">
+                                                                                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p11,p20">
+                                                                                                                                        <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p20"/>
+                                                                                                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Tree Parent type inference (auto forward)" org.eventb.core.prHyps="p12">
+                                                                                                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                                                                                            </org.eventb.core.prAnte>
+                                                                                                                                            <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p21,p11">
+                                                                                                                                                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p21,p11"/>
+                                                                                                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="SetTheory2 (auto forward)" org.eventb.core.prHyps="p21,p5,p8">
+                                                                                                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+                                                                                                                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+                                                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p11,p10">
+                                                                                                                                                        <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p11,p10"/>
+                                                                                                                                                        <org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p22" org.eventb.core.prHyps="p21"/>
+                                                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="ProofSupport"/>
+                                                                                                                                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="SetTheorySupport"/>
+                                                                                                                                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="SetTheory2"/>
+                                                                                                                                                    <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                                                                                </org.eventb.core.prRule>
+                                                                                                                                            </org.eventb.core.prAnte>
+                                                                                                                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="Tree"/>
+                                                                                                                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="Tree"/>
+                                                                                                                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="Parent_type-inf"/>
+                                                                                                                                            <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                                                                        </org.eventb.core.prRule>
+                                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="Tree"/>
+                                                                                                                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="Tree"/>
+                                                                                                                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="Root_type-inf"/>
+                                                                                                                                    <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                                                                </org.eventb.core.prRule>
+                                                                                                                            </org.eventb.core.prAnte>
+                                                                                                                        </org.eventb.core.prRule>
+                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                                                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                                                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="transformation_wd_inf_3"/>
+                                                                                                                    <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                                                </org.eventb.core.prRule>
+                                                                                                            </org.eventb.core.prAnte>
+                                                                                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="transformation_wd_inf_2"/>
+                                                                                                            <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                                        </org.eventb.core.prRule>
+                                                                                                    </org.eventb.core.prAnte>
+                                                                                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="transformation_wd_inf_1"/>
+                                                                                                    <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                                </org.eventb.core.prRule>
+                                                                                            </org.eventb.core.prAnte>
+                                                                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="regions_wd_inf_3"/>
+                                                                                            <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                        </org.eventb.core.prRule>
+                                                                                    </org.eventb.core.prAnte>
+                                                                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="region_type_inf"/>
+                                                                                    <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                </org.eventb.core.prRule>
+                                                                            </org.eventb.core.prAnte>
+                                                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="statechart_wd_transformation-inf"/>
+                                                                            <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                        </org.eventb.core.prRule>
+                                                                    </org.eventb.core.prAnte>
+                                                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="statechart_wd_regions-inf"/>
+                                                                    <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                </org.eventb.core.prRule>
+                                                            </org.eventb.core.prAnte>
+                                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="statechart_wd_tree-inf"/>
+                                                            <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                        </org.eventb.core.prRule>
+                                                    </org.eventb.core.prAnte>
+                                                </org.eventb.core.prRule>
+                                            </org.eventb.core.prAnte>
+                                        </org.eventb.core.prRule>
+                                    </org.eventb.core.prAnte>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="StatechartWD(sc)⇒(Root(Tree(sc))∈Active(asc)∧Active(asc)⊆States(Tree(sc))⇒(∀s⦂STATE·s∈Active(asc) ∖ {Root(Tree(sc))}⇒s∈dom(Parent(Tree(sc)))∧Parent(Tree(sc))∈STATE ⇸ STATE))">
+            <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="Active(asc)⊆States(Tree(sc))">
+            <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="s∈dom(Parent(Tree(sc)))∧Parent(Tree(sc))∈STATE ⇸ STATE">
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="STATE"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="s∈dom(Parent(Tree(sc)))">
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="STATE"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="∀s⦂STATE·s∈Active(asc) ∖ {Root(Tree(sc))}⇒s∈dom(Parent(Tree(sc)))∧Parent(Tree(sc))∈STATE ⇸ STATE">
+            <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="Root(Tree(sc))∈Active(asc)">
+            <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="TreeWD(Tree(sc))">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p22" org.eventb.core.predicate="Parent(Tree(sc))∈STATE ⇸ STATE">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="Exiting(sc)∈Transformation(sc) → ℙ(States(Tree(sc)))">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="Parent(Tree(sc))∈States(Tree(sc)) ∖ {Root(Tree(sc))} → States(Tree(sc))">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="s∈Active(asc) ∖ {Root(Tree(sc))}">
+            <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="STATE"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="Root(Tree(sc))∈States(Tree(sc))">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀sc⦂STATECHART(STATE,TRANSFORMATION),asc⦂ACTIVE_STATECHART(STATE)·StatechartWD(sc)⇒(Root(Tree(sc))∈Active(asc)∧Active(asc)⊆States(Tree(sc))⇒(∀s⦂STATE·s∈Active(asc) ∖ {Root(Tree(sc))}⇒s∈dom(Parent(Tree(sc)))∧Parent(Tree(sc))∈STATE ⇸ STATE))"/>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="Regions(sc)⊆ℙ(States(Tree(sc)))">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="TransformationsWD(sc)">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="∃region⦂ℙ(STATE)·region∈Regions(sc)∧s∈region">
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="STATE"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="StatechartWD(sc)">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="RegionsWD(sc)">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="Enabling(sc)∈Transformation(sc) → ℙ1(States(Tree(sc)))">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="s∈Active(asc) ∖ {Root(Tree(sc))}⇒s∈dom(Parent(Tree(sc)))∧Parent(Tree(sc))∈STATE ⇸ STATE">
+            <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="STATE"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="Root(Tree(sc))∈Active(asc)∧Active(asc)⊆States(Tree(sc))⇒(∀s⦂STATE·s∈Active(asc) ∖ {Root(Tree(sc))}⇒s∈dom(Parent(Tree(sc)))∧Parent(Tree(sc))∈STATE ⇸ STATE)">
+            <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="Entering(sc)∈Transformation(sc) → ℙ(States(Tree(sc)))">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.theory.rbp.autoInferenceReasoner:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="inf1/S-INF" org.eventb.core.confidence="1000" org.eventb.core.prFresh="s,t,u,v" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="STATE">
+        <org.eventb.core.lang name="L">
+            <org.eventb.theory.core.scNewOperatorDefinition name="closure" org.eventb.core.label="closure" org.eventb.core.predicate="⊤" org.eventb.core.source="/Closure/closure.tuf|org.eventb.theory.core.theoryRoot#closure|org.eventb.theory.core.newOperatorDefinition#(" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="true" org.eventb.theory.core.groupID="org.eventb.core.ast.atomicExpr" org.eventb.theory.core.hasError="false" org.eventb.theory.core.notationType="PREFIX" org.eventb.theory.core.type="ℙ(ℙ(S×S)×ℙ(S×S))" org.eventb.theory.core.wd="∀r⦂ℙ(S×S)·r∈S ↔ S⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(S×S)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(S×S)))">
+                <org.eventb.theory.core.scDirectOperatorDefinition name="'" org.eventb.core.source="/Closure/closure.tuf|org.eventb.theory.core.theoryRoot#closure|org.eventb.theory.core.newOperatorDefinition#(|org.eventb.theory.core.directOperatorDefinition#'" org.eventb.theory.core.formula="λr⦂ℙ(S×S)·r∈S ↔ S ∣ inter({p⦂ℙ(S×S)·r⊆p∧p;p⊆p ∣ p})"/>
+            </org.eventb.theory.core.scNewOperatorDefinition>
+            <org.eventb.theory.core.scDatatypeDefinition name="TREE">
+                <org.eventb.theory.core.scTypeArgument name="NODE" org.eventb.theory.core.givenType="NODE"/>
+                <org.eventb.theory.core.scDatatypeConstructor name="Cons_TREE">
+                    <org.eventb.theory.core.scConstructorArgument name="States" org.eventb.core.type="ℙ(NODE)"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Root" org.eventb.core.type="NODE"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Parent" org.eventb.core.type="ℙ(NODE×NODE)"/>
+                </org.eventb.theory.core.scDatatypeConstructor>
+            </org.eventb.theory.core.scDatatypeDefinition>
+            <org.eventb.theory.core.scNewOperatorDefinition name="TreeWD" org.eventb.core.label="TreeWD" org.eventb.core.predicate="⊤" org.eventb.core.source="/Tree/Tree.tuf|org.eventb.theory.core.theoryRoot#Tree|org.eventb.theory.core.newOperatorDefinition#)" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="false" org.eventb.theory.core.groupID="org.eventb.core.ast.closed" org.eventb.theory.core.hasError="false" org.eventb.theory.core.notationType="PREFIX" org.eventb.theory.core.wd="(Root(tr)∈States(tr)∧Parent(tr)∈States(tr) ∖ {Root(tr)} → States(tr)∧(∀n⦂NODE·¬n∈States(tr) ∖ {Root(tr)}∨((∀r⦂ℙ(NODE×NODE)·r∈NODE ↔ NODE⇒(∀p⦂ℙ(NODE×NODE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(NODE×NODE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(NODE×NODE))))∧Parent(tr)∈dom(closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))∧(closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))∈ℙ(NODE × NODE) ⇸ ℙ(NODE × NODE)∧Root(tr)∈((closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))(Parent(tr)))[{n}])))∨¬Root(tr)∈States(tr)∨¬Parent(tr)∈States(tr) ∖ {Root(tr)} → States(tr)∨(∃n⦂NODE·n∈States(tr) ∖ {Root(tr)}∧(∀r⦂ℙ(NODE×NODE)·r∈NODE ↔ NODE⇒(∀p⦂ℙ(NODE×NODE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(NODE×NODE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(NODE×NODE))))∧Parent(tr)∈dom(closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))∧(closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))∈ℙ(NODE × NODE) ⇸ ℙ(NODE × NODE)∧¬Root(tr)∈((closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))(Parent(tr)))[{n}])">
+                <org.eventb.theory.core.scOperatorArgument name="tr" org.eventb.core.source="/Tree/Tree.tuf|org.eventb.theory.core.theoryRoot#Tree|org.eventb.theory.core.newOperatorDefinition#)|org.eventb.theory.core.operatorArgument#(" org.eventb.core.type="TREE(NODE)"/>
+                <org.eventb.theory.core.scDirectOperatorDefinition name="+" org.eventb.core.source="/Tree/Tree.tuf|org.eventb.theory.core.theoryRoot#Tree|org.eventb.theory.core.newOperatorDefinition#)|org.eventb.theory.core.directOperatorDefinition#+" org.eventb.theory.core.formula="Root(tr)∈States(tr)∧Parent(tr)∈States(tr) ∖ {Root(tr)} → States(tr)∧(∀n⦂NODE·n∈States(tr) ∖ {Root(tr)}⇒Root(tr)∈((closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))(Parent(tr)))[{n}])"/>
+            </org.eventb.theory.core.scNewOperatorDefinition>
+            <org.eventb.theory.core.scDatatypeDefinition name="STATECHART">
+                <org.eventb.theory.core.scTypeArgument name="STATE" org.eventb.theory.core.givenType="STATE"/>
+                <org.eventb.theory.core.scTypeArgument name="TRANSFORMATION" org.eventb.theory.core.givenType="TRANSFORMATION"/>
+                <org.eventb.theory.core.scDatatypeConstructor name="Cons_STATECHART">
+                    <org.eventb.theory.core.scConstructorArgument name="Tree" org.eventb.core.type="TREE(STATE)"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Regions" org.eventb.core.type="ℙ(ℙ(STATE))"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Transformation" org.eventb.core.type="ℙ(TRANSFORMATION)"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Enabling" org.eventb.core.type="ℙ(TRANSFORMATION×ℙ(STATE))"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Exiting" org.eventb.core.type="ℙ(TRANSFORMATION×ℙ(STATE))"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Entering" org.eventb.core.type="ℙ(TRANSFORMATION×ℙ(STATE))"/>
+                </org.eventb.theory.core.scDatatypeConstructor>
+            </org.eventb.theory.core.scDatatypeDefinition>
+            <org.eventb.theory.core.scNewOperatorDefinition name="RegionsWD" org.eventb.core.label="RegionsWD" org.eventb.core.predicate="⊤" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#-" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="false" org.eventb.theory.core.groupID="org.eventb.core.ast.closed" org.eventb.theory.core.hasError="false" org.eventb.theory.core.notationType="PREFIX" org.eventb.theory.core.wd="(Regions(st)⊆ℙ(States(Tree(st)))∧(∀r1⦂ℙ(STATE),r2⦂ℙ(STATE)·¬r1∈Regions(st)∨¬r2∈Regions(st)∨¬r1≠r2∨r1∩r2=(∅ ⦂ ℙ(STATE)))∧union(Regions(st))=States(Tree(st)) ∖ {Root(Tree(st))}∧(∀r⦂ℙ(STATE)·¬r∈Regions(st)∨(∃p⦂STATE·p∈States(Tree(st))∧Parent(Tree(st))[r]={p})))∨¬Regions(st)⊆ℙ(States(Tree(st)))∨(∃r1⦂ℙ(STATE),r2⦂ℙ(STATE)·r1∈Regions(st)∧r2∈Regions(st)∧r1≠r2∧¬r1∩r2=(∅ ⦂ ℙ(STATE)))∨¬union(Regions(st))=States(Tree(st)) ∖ {Root(Tree(st))}∨(∃r⦂ℙ(STATE)·r∈Regions(st)∧(∀p⦂STATE·¬p∈States(Tree(st))∨¬Parent(Tree(st))[r]={p}))">
+                <org.eventb.theory.core.scOperatorArgument name="st" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#-|org.eventb.theory.core.operatorArgument#'" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+                <org.eventb.theory.core.scDirectOperatorDefinition name="(" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#-|org.eventb.theory.core.directOperatorDefinition#(" org.eventb.theory.core.formula="Regions(st)⊆ℙ(States(Tree(st)))∧(∀r1⦂ℙ(STATE),r2⦂ℙ(STATE)·r1∈Regions(st)∧r2∈Regions(st)∧r1≠r2⇒r1∩r2=(∅ ⦂ ℙ(STATE)))∧union(Regions(st))=States(Tree(st)) ∖ {Root(Tree(st))}∧(∀r⦂ℙ(STATE)·r∈Regions(st)⇒(∃p⦂STATE·p∈States(Tree(st))∧Parent(Tree(st))[r]={p}))"/>
+            </org.eventb.theory.core.scNewOperatorDefinition>
+            <org.eventb.theory.core.scNewOperatorDefinition name="TransformationsWD" org.eventb.core.label="TransformationsWD" org.eventb.core.predicate="⊤" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#." org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="false" org.eventb.theory.core.groupID="org.eventb.core.ast.closed" org.eventb.theory.core.hasError="false" org.eventb.theory.core.notationType="PREFIX" org.eventb.theory.core.wd="(Enabling(st)∈Transformation(st) → ℙ1(States(Tree(st)))∧Exiting(st)∈Transformation(st) → ℙ(States(Tree(st)))∧Entering(st)∈Transformation(st) → ℙ(States(Tree(st)))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·¬trf∈Transformation(st)∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬s∈Exiting(st)(trf))∨¬r∈Regions(st)∨¬Parent(Tree(st))[r]={s}∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Exiting(st)(trf)∩r≠(∅ ⦂ ℙ(STATE))))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·¬trf∈Transformation(st)∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬s∈Exiting(st)(trf))∨¬r∈Regions(st)∨¬s∈r∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Exiting(st)(trf)∩r={s})∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧r⊆Exiting(st)(trf)))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·¬trf∈Transformation(st)∨¬r∈Regions(st)∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Exiting(st)(trf)∩r={s})∨¬r≠{s}∨(trf∈dom(Enabling(st))∧Enabling(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Enabling(st)(trf)∩r={s}))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·¬trf∈Transformation(st)∨(trf∈dom(Enabling(st))∧Enabling(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬s∈Enabling(st)(trf))∨¬r∈Regions(st)∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Exiting(st)(trf)∩r≠(∅ ⦂ ℙ(STATE)))∨¬s∈r∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Exiting(st)(trf)∩r={s}))∧(∀trf⦂TRANSFORMATION,c⦂STATE,r⦂ℙ(STATE)·¬trf∈Transformation(st)∨¬r∈Regions(st)∨¬Parent(Tree(st))[r]={c}∨(trf∈dom(Entering(st))∧Entering(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Entering(st)(trf)∩r≠(∅ ⦂ ℙ(STATE)))∨(trf∈dom(Entering(st))∧Entering(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Entering(st)(trf)∩Parent(Tree(st))[r]=(∅ ⦂ ℙ(STATE)))∨(trf∈dom(Enabling(st))∧Enabling(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧(∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∀p⦂ℙ(STATE×STATE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE))))∧Parent(Tree(st))∈dom(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∧(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧Enabling(st)(trf)∩((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))∼[{c}]≠(∅ ⦂ ℙ(STATE))∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧c∉Exiting(st)(trf))))∨¬Enabling(st)∈Transformation(st) → ℙ1(States(Tree(st)))∨¬Exiting(st)∈Transformation(st) → ℙ(States(Tree(st)))∨¬Entering(st)∈Transformation(st) → ℙ(States(Tree(st)))∨(∃trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧s∈Exiting(st)(trf)∧r∈Regions(st)∧Parent(Tree(st))[r]={s}∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Exiting(st)(trf)∩r≠(∅ ⦂ ℙ(STATE)))∨(∃trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧s∈Exiting(st)(trf)∧r∈Regions(st)∧s∈r∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Exiting(st)(trf)∩r={s}∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬r⊆Exiting(st)(trf))∨(∃trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧r∈Regions(st)∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Exiting(st)(trf)∩r={s}∧r≠{s}∧trf∈dom(Enabling(st))∧Enabling(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Enabling(st)(trf)∩r={s})∨(∃trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧trf∈dom(Enabling(st))∧Enabling(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧s∈Enabling(st)(trf)∧r∈Regions(st)∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Exiting(st)(trf)∩r≠(∅ ⦂ ℙ(STATE))∧s∈r∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Exiting(st)(trf)∩r={s})∨(∃trf⦂TRANSFORMATION,c⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧r∈Regions(st)∧Parent(Tree(st))[r]={c}∧trf∈dom(Entering(st))∧Entering(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Entering(st)(trf)∩r≠(∅ ⦂ ℙ(STATE))∧trf∈dom(Entering(st))∧Entering(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Entering(st)(trf)∩Parent(Tree(st))[r]=(∅ ⦂ ℙ(STATE))∧((trf∈dom(Enabling(st))∧Enabling(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧(∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∀p⦂ℙ(STATE×STATE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE))))∧Parent(Tree(st))∈dom(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∧(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧¬Enabling(st)(trf)∩((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))∼[{c}]≠(∅ ⦂ ℙ(STATE)))∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬c∉Exiting(st)(trf))))">
+                <org.eventb.theory.core.scOperatorArgument name="st" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#.|org.eventb.theory.core.operatorArgument#'" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+                <org.eventb.theory.core.scDirectOperatorDefinition name="(" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#.|org.eventb.theory.core.directOperatorDefinition#(" org.eventb.theory.core.formula="Enabling(st)∈Transformation(st) → ℙ1(States(Tree(st)))∧Exiting(st)∈Transformation(st) → ℙ(States(Tree(st)))∧Entering(st)∈Transformation(st) → ℙ(States(Tree(st)))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧s∈Exiting(st)(trf)∧r∈Regions(st)∧Parent(Tree(st))[r]={s}⇒Exiting(st)(trf)∩r≠(∅ ⦂ ℙ(STATE)))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧s∈Exiting(st)(trf)∧r∈Regions(st)∧s∈r⇒Exiting(st)(trf)∩r={s}∨r⊆Exiting(st)(trf))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧r∈Regions(st)∧Exiting(st)(trf)∩r={s}∧r≠{s}⇒Enabling(st)(trf)∩r={s})∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧s∈Enabling(st)(trf)∧r∈Regions(st)∧Exiting(st)(trf)∩r≠(∅ ⦂ ℙ(STATE))∧s∈r⇒Exiting(st)(trf)∩r={s})∧(∀trf⦂TRANSFORMATION,c⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧r∈Regions(st)∧Parent(Tree(st))[r]={c}∧Entering(st)(trf)∩r≠(∅ ⦂ ℙ(STATE))∧Entering(st)(trf)∩Parent(Tree(st))[r]=(∅ ⦂ ℙ(STATE))⇒Enabling(st)(trf)∩((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))∼[{c}]≠(∅ ⦂ ℙ(STATE))∧c∉Exiting(st)(trf))"/>
+            </org.eventb.theory.core.scNewOperatorDefinition>
+            <org.eventb.theory.core.scNewOperatorDefinition name="StatechartWD" org.eventb.core.label="StatechartWD" org.eventb.core.predicate="⊤" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#*" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="false" org.eventb.theory.core.groupID="org.eventb.core.ast.closed" org.eventb.theory.core.hasError="false" org.eventb.theory.core.notationType="PREFIX" org.eventb.theory.core.wd="(((Root(Tree(st))∈States(Tree(st))∧Parent(Tree(st))∈States(Tree(st)) ∖ {Root(Tree(st))} → States(Tree(st))∧(∀n⦂STATE·¬n∈States(Tree(st)) ∖ {Root(Tree(st))}∨((∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∀p⦂ℙ(STATE×STATE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE))))∧Parent(Tree(st))∈dom(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∧(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧Root(Tree(st))∈((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))[{n}])))∨¬Root(Tree(st))∈States(Tree(st))∨¬Parent(Tree(st))∈States(Tree(st)) ∖ {Root(Tree(st))} → States(Tree(st))∨(∃n⦂STATE·n∈States(Tree(st)) ∖ {Root(Tree(st))}∧(∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∀p⦂ℙ(STATE×STATE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE))))∧Parent(Tree(st))∈dom(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∧(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧¬Root(Tree(st))∈((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))[{n}]))∧TreeWD(Tree(st))∧RegionsWD(st)∧TransformationsWD(st))∨(((Root(Tree(st))∈States(Tree(st))∧Parent(Tree(st))∈States(Tree(st)) ∖ {Root(Tree(st))} → States(Tree(st))∧(∀n⦂STATE·¬n∈States(Tree(st)) ∖ {Root(Tree(st))}∨((∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∀p⦂ℙ(STATE×STATE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE))))∧Parent(Tree(st))∈dom(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∧(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧Root(Tree(st))∈((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))[{n}])))∨¬Root(Tree(st))∈States(Tree(st))∨¬Parent(Tree(st))∈States(Tree(st)) ∖ {Root(Tree(st))} → States(Tree(st))∨(∃n⦂STATE·n∈States(Tree(st)) ∖ {Root(Tree(st))}∧(∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∀p⦂ℙ(STATE×STATE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE))))∧Parent(Tree(st))∈dom(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∧(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧¬Root(Tree(st))∈((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))[{n}]))∧¬TreeWD(Tree(st)))∨¬RegionsWD(st)∨¬TransformationsWD(st)">
+                <org.eventb.theory.core.scOperatorArgument name="st" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#*|org.eventb.theory.core.operatorArgument#(" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+                <org.eventb.theory.core.scDirectOperatorDefinition name="'" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#*|org.eventb.theory.core.directOperatorDefinition#'" org.eventb.theory.core.formula="TreeWD(Tree(st))∧RegionsWD(st)∧TransformationsWD(st)"/>
+            </org.eventb.theory.core.scNewOperatorDefinition>
+            <org.eventb.theory.core.scDatatypeDefinition name="ACTIVE_STATECHART">
+                <org.eventb.theory.core.scTypeArgument name="STATE" org.eventb.theory.core.givenType="STATE"/>
+                <org.eventb.theory.core.scDatatypeConstructor name="Cons_ActiveStatechart">
+                    <org.eventb.theory.core.scConstructorArgument name="Active" org.eventb.core.type="ℙ(STATE)"/>
+                </org.eventb.theory.core.scDatatypeConstructor>
+            </org.eventb.theory.core.scDatatypeDefinition>
+            <org.eventb.theory.core.scNewOperatorDefinition name="ActiveStatechartWD" org.eventb.core.label="ActiveStatechartWD" org.eventb.core.predicate="StatechartWD(sc)" org.eventb.core.source="/ActiveStateCharts/ActiveStateChart.tuf|org.eventb.theory.core.theoryRoot#ActiveStateChart|org.eventb.theory.core.newOperatorDefinition#*" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="false" org.eventb.theory.core.groupID="org.eventb.core.ast.closed" org.eventb.theory.core.hasError="false" org.eventb.theory.core.notationType="PREFIX" org.eventb.theory.core.wd="(Root(Tree(sc))∈Active(asc)∧Active(asc)⊆States(Tree(sc))∧(∀s⦂STATE·¬s∈Active(asc) ∖ {Root(Tree(sc))}∨(s∈dom(Parent(Tree(sc)))∧Parent(Tree(sc))∈STATE ⇸ STATE∧Parent(Tree(sc))(s)∈Active(asc)))∧(∀s⦂STATE·¬s∈ran(Parent(Tree(sc)))∨¬s∈Active(asc)∨Parent(Tree(sc))∼[{s}]∩Active(asc)≠(∅ ⦂ ℙ(STATE)))∧(∀r⦂ℙ(STATE),s⦂STATE·¬r∈Regions(sc)∨¬s∈r∩Active(asc)∨r∩Active(asc)⊆{s})∧(∀r1⦂ℙ(STATE),r2⦂ℙ(STATE)·¬r1∈Regions(sc)∨¬r2∈Regions(sc)∨¬Parent(Tree(sc))[r1]=Parent(Tree(sc))[r2]∨¬r1∩Active(asc)=(∅ ⦂ ℙ(STATE))∨r2∩Active(asc)=(∅ ⦂ ℙ(STATE))))∨¬Root(Tree(sc))∈Active(asc)∨¬Active(asc)⊆States(Tree(sc))∨(∃s⦂STATE·s∈Active(asc) ∖ {Root(Tree(sc))}∧s∈dom(Parent(Tree(sc)))∧Parent(Tree(sc))∈STATE ⇸ STATE∧¬Parent(Tree(sc))(s)∈Active(asc))∨(∃s⦂STATE·s∈ran(Parent(Tree(sc)))∧s∈Active(asc)∧¬Parent(Tree(sc))∼[{s}]∩Active(asc)≠(∅ ⦂ ℙ(STATE)))∨(∃r⦂ℙ(STATE),s⦂STATE·r∈Regions(sc)∧s∈r∩Active(asc)∧¬r∩Active(asc)⊆{s})∨(∃r1⦂ℙ(STATE),r2⦂ℙ(STATE)·r1∈Regions(sc)∧r2∈Regions(sc)∧Parent(Tree(sc))[r1]=Parent(Tree(sc))[r2]∧r1∩Active(asc)=(∅ ⦂ ℙ(STATE))∧¬r2∩Active(asc)=(∅ ⦂ ℙ(STATE)))">
+                <org.eventb.theory.core.scOperatorArgument name="sc" org.eventb.core.source="/ActiveStateCharts/ActiveStateChart.tuf|org.eventb.theory.core.theoryRoot#ActiveStateChart|org.eventb.theory.core.newOperatorDefinition#*|org.eventb.theory.core.operatorArgument#(" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+                <org.eventb.theory.core.scOperatorArgument name="asc" org.eventb.core.source="/ActiveStateCharts/ActiveStateChart.tuf|org.eventb.theory.core.theoryRoot#ActiveStateChart|org.eventb.theory.core.newOperatorDefinition#*|org.eventb.theory.core.operatorArgument#'" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+                <org.eventb.theory.core.scDirectOperatorDefinition name=")" org.eventb.core.source="/ActiveStateCharts/ActiveStateChart.tuf|org.eventb.theory.core.theoryRoot#ActiveStateChart|org.eventb.theory.core.newOperatorDefinition#*|org.eventb.theory.core.directOperatorDefinition#)" org.eventb.theory.core.formula="Root(Tree(sc))∈Active(asc)∧Active(asc)⊆States(Tree(sc))∧(∀s⦂STATE·s∈Active(asc) ∖ {Root(Tree(sc))}⇒Parent(Tree(sc))(s)∈Active(asc))∧(∀s⦂STATE·s∈ran(Parent(Tree(sc)))∧s∈Active(asc)⇒Parent(Tree(sc))∼[{s}]∩Active(asc)≠(∅ ⦂ ℙ(STATE)))∧(∀r⦂ℙ(STATE),s⦂STATE·r∈Regions(sc)∧s∈r∩Active(asc)⇒r∩Active(asc)⊆{s})∧(∀r1⦂ℙ(STATE),r2⦂ℙ(STATE)·r1∈Regions(sc)∧r2∈Regions(sc)∧Parent(Tree(sc))[r1]=Parent(Tree(sc))[r2]∧r1∩Active(asc)=(∅ ⦂ ℙ(STATE))⇒r2∩Active(asc)=(∅ ⦂ ℙ(STATE)))"/>
+            </org.eventb.theory.core.scNewOperatorDefinition>
+        </org.eventb.core.lang>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p1">
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees s,t,u,v)" org.eventb.core.prGoal="p1" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p2">
+                        <org.eventb.core.prIdent name="s" org.eventb.core.type="STATE"/>
+                        <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(STATE)"/>
+                        <org.eventb.core.prIdent name="u" org.eventb.core.type="ℙ(STATE)"/>
+                        <org.eventb.core.prIdent name="v" org.eventb.core.type="ℙ(STATE)"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p2" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="p3,p4">
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="p3,p4">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1;2;3:2000"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀s⦂STATE,t⦂ℙ(STATE),u⦂ℙ(STATE),v⦂ℙ(STATE)·⊤⇒(s∈t∧s∉u⇒s∈(t ∖ u)∪v)"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="s∈(t ∖ u)∪v">
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="STATE"/>
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="u" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="v" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="∀s⦂STATE,t⦂ℙ(STATE),u⦂ℙ(STATE),v⦂ℙ(STATE)·s∈t∧¬s∈u⇒s∈(t ∖ u)∪v"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬s∈u">
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="STATE"/>
+            <org.eventb.core.prIdent name="u" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="s∈t∧¬s∈u⇒s∈(t ∖ u)∪v">
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="STATE"/>
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="u" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="v" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="s∈t">
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="STATE"/>
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(STATE)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Unique_active_state/S-INF"/>
+    <org.eventb.core.prProof name="thm2/S-INF"/>
+    <org.eventb.core.prProof name="thm3/S-INF"/>
+    <org.eventb.core.prProof name="entering_contained_region/S-INF" org.eventb.core.confidence="0" org.eventb.core.prFresh="asc,sc,r,tr" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="STATE,TRANSFORMATION">
+        <org.eventb.core.lang name="L">
+            <org.eventb.theory.core.scNewOperatorDefinition name="closure" org.eventb.core.label="closure" org.eventb.core.predicate="⊤" org.eventb.core.source="/Closure/closure.tuf|org.eventb.theory.core.theoryRoot#closure|org.eventb.theory.core.newOperatorDefinition#(" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="true" org.eventb.theory.core.groupID="org.eventb.core.ast.atomicExpr" org.eventb.theory.core.hasError="false" org.eventb.theory.core.notationType="PREFIX" org.eventb.theory.core.type="ℙ(ℙ(S×S)×ℙ(S×S))" org.eventb.theory.core.wd="∀r⦂ℙ(S×S)·r∈S ↔ S⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(S×S)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(S×S)))">
+                <org.eventb.theory.core.scDirectOperatorDefinition name="'" org.eventb.core.source="/Closure/closure.tuf|org.eventb.theory.core.theoryRoot#closure|org.eventb.theory.core.newOperatorDefinition#(|org.eventb.theory.core.directOperatorDefinition#'" org.eventb.theory.core.formula="λr⦂ℙ(S×S)·r∈S ↔ S ∣ inter({p⦂ℙ(S×S)·r⊆p∧p;p⊆p ∣ p})"/>
+            </org.eventb.theory.core.scNewOperatorDefinition>
+            <org.eventb.theory.core.scDatatypeDefinition name="TREE">
+                <org.eventb.theory.core.scTypeArgument name="NODE" org.eventb.theory.core.givenType="NODE"/>
+                <org.eventb.theory.core.scDatatypeConstructor name="Cons_TREE">
+                    <org.eventb.theory.core.scConstructorArgument name="States" org.eventb.core.type="ℙ(NODE)"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Root" org.eventb.core.type="NODE"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Parent" org.eventb.core.type="ℙ(NODE×NODE)"/>
+                </org.eventb.theory.core.scDatatypeConstructor>
+            </org.eventb.theory.core.scDatatypeDefinition>
+            <org.eventb.theory.core.scNewOperatorDefinition name="TreeWD" org.eventb.core.label="TreeWD" org.eventb.core.predicate="⊤" org.eventb.core.source="/Tree/Tree.tuf|org.eventb.theory.core.theoryRoot#Tree|org.eventb.theory.core.newOperatorDefinition#)" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="false" org.eventb.theory.core.groupID="org.eventb.core.ast.closed" org.eventb.theory.core.hasError="false" org.eventb.theory.core.notationType="PREFIX" org.eventb.theory.core.wd="(Root(tr)∈States(tr)∧Parent(tr)∈States(tr) ∖ {Root(tr)} → States(tr)∧(∀n⦂NODE·¬n∈States(tr) ∖ {Root(tr)}∨((∀r⦂ℙ(NODE×NODE)·r∈NODE ↔ NODE⇒(∀p⦂ℙ(NODE×NODE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(NODE×NODE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(NODE×NODE))))∧Parent(tr)∈dom(closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))∧(closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))∈ℙ(NODE × NODE) ⇸ ℙ(NODE × NODE)∧Root(tr)∈((closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))(Parent(tr)))[{n}])))∨¬Root(tr)∈States(tr)∨¬Parent(tr)∈States(tr) ∖ {Root(tr)} → States(tr)∨(∃n⦂NODE·n∈States(tr) ∖ {Root(tr)}∧(∀r⦂ℙ(NODE×NODE)·r∈NODE ↔ NODE⇒(∀p⦂ℙ(NODE×NODE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(NODE×NODE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(NODE×NODE))))∧Parent(tr)∈dom(closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))∧(closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))∈ℙ(NODE × NODE) ⇸ ℙ(NODE × NODE)∧¬Root(tr)∈((closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))(Parent(tr)))[{n}])">
+                <org.eventb.theory.core.scOperatorArgument name="tr" org.eventb.core.source="/Tree/Tree.tuf|org.eventb.theory.core.theoryRoot#Tree|org.eventb.theory.core.newOperatorDefinition#)|org.eventb.theory.core.operatorArgument#(" org.eventb.core.type="TREE(NODE)"/>
+                <org.eventb.theory.core.scDirectOperatorDefinition name="+" org.eventb.core.source="/Tree/Tree.tuf|org.eventb.theory.core.theoryRoot#Tree|org.eventb.theory.core.newOperatorDefinition#)|org.eventb.theory.core.directOperatorDefinition#+" org.eventb.theory.core.formula="Root(tr)∈States(tr)∧Parent(tr)∈States(tr) ∖ {Root(tr)} → States(tr)∧(∀n⦂NODE·n∈States(tr) ∖ {Root(tr)}⇒Root(tr)∈((closure ⦂ ℙ(ℙ(NODE×NODE)×ℙ(NODE×NODE)))(Parent(tr)))[{n}])"/>
+            </org.eventb.theory.core.scNewOperatorDefinition>
+            <org.eventb.theory.core.scDatatypeDefinition name="STATECHART">
+                <org.eventb.theory.core.scTypeArgument name="STATE" org.eventb.theory.core.givenType="STATE"/>
+                <org.eventb.theory.core.scTypeArgument name="TRANSFORMATION" org.eventb.theory.core.givenType="TRANSFORMATION"/>
+                <org.eventb.theory.core.scDatatypeConstructor name="Cons_STATECHART">
+                    <org.eventb.theory.core.scConstructorArgument name="Tree" org.eventb.core.type="TREE(STATE)"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Regions" org.eventb.core.type="ℙ(ℙ(STATE))"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Transformation" org.eventb.core.type="ℙ(TRANSFORMATION)"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Enabling" org.eventb.core.type="ℙ(TRANSFORMATION×ℙ(STATE))"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Exiting" org.eventb.core.type="ℙ(TRANSFORMATION×ℙ(STATE))"/>
+                    <org.eventb.theory.core.scConstructorArgument name="Entering" org.eventb.core.type="ℙ(TRANSFORMATION×ℙ(STATE))"/>
+                </org.eventb.theory.core.scDatatypeConstructor>
+            </org.eventb.theory.core.scDatatypeDefinition>
+            <org.eventb.theory.core.scNewOperatorDefinition name="RegionsWD" org.eventb.core.label="RegionsWD" org.eventb.core.predicate="⊤" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#-" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="false" org.eventb.theory.core.groupID="org.eventb.core.ast.closed" org.eventb.theory.core.hasError="false" org.eventb.theory.core.notationType="PREFIX" org.eventb.theory.core.wd="(Regions(st)⊆ℙ(States(Tree(st)))∧(∀r1⦂ℙ(STATE),r2⦂ℙ(STATE)·¬r1∈Regions(st)∨¬r2∈Regions(st)∨¬r1≠r2∨r1∩r2=(∅ ⦂ ℙ(STATE)))∧union(Regions(st))=States(Tree(st)) ∖ {Root(Tree(st))}∧(∀r⦂ℙ(STATE)·¬r∈Regions(st)∨(∃p⦂STATE·p∈States(Tree(st))∧Parent(Tree(st))[r]={p})))∨¬Regions(st)⊆ℙ(States(Tree(st)))∨(∃r1⦂ℙ(STATE),r2⦂ℙ(STATE)·r1∈Regions(st)∧r2∈Regions(st)∧r1≠r2∧¬r1∩r2=(∅ ⦂ ℙ(STATE)))∨¬union(Regions(st))=States(Tree(st)) ∖ {Root(Tree(st))}∨(∃r⦂ℙ(STATE)·r∈Regions(st)∧(∀p⦂STATE·¬p∈States(Tree(st))∨¬Parent(Tree(st))[r]={p}))">
+                <org.eventb.theory.core.scOperatorArgument name="st" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#-|org.eventb.theory.core.operatorArgument#'" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+                <org.eventb.theory.core.scDirectOperatorDefinition name="(" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#-|org.eventb.theory.core.directOperatorDefinition#(" org.eventb.theory.core.formula="Regions(st)⊆ℙ(States(Tree(st)))∧(∀r1⦂ℙ(STATE),r2⦂ℙ(STATE)·r1∈Regions(st)∧r2∈Regions(st)∧r1≠r2⇒r1∩r2=(∅ ⦂ ℙ(STATE)))∧union(Regions(st))=States(Tree(st)) ∖ {Root(Tree(st))}∧(∀r⦂ℙ(STATE)·r∈Regions(st)⇒(∃p⦂STATE·p∈States(Tree(st))∧Parent(Tree(st))[r]={p}))"/>
+            </org.eventb.theory.core.scNewOperatorDefinition>
+            <org.eventb.theory.core.scNewOperatorDefinition name="TransformationsWD" org.eventb.core.label="TransformationsWD" org.eventb.core.predicate="⊤" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#." org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="false" org.eventb.theory.core.groupID="org.eventb.core.ast.closed" org.eventb.theory.core.hasError="false" org.eventb.theory.core.notationType="PREFIX" org.eventb.theory.core.wd="(Enabling(st)∈Transformation(st) → ℙ1(States(Tree(st)))∧Exiting(st)∈Transformation(st) → ℙ(States(Tree(st)))∧Entering(st)∈Transformation(st) → ℙ(States(Tree(st)))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·¬trf∈Transformation(st)∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬s∈Exiting(st)(trf))∨¬r∈Regions(st)∨¬Parent(Tree(st))[r]={s}∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Exiting(st)(trf)∩r≠(∅ ⦂ ℙ(STATE))))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·¬trf∈Transformation(st)∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬s∈Exiting(st)(trf))∨¬r∈Regions(st)∨¬s∈r∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Exiting(st)(trf)∩r={s})∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧r⊆Exiting(st)(trf)))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·¬trf∈Transformation(st)∨¬r∈Regions(st)∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Exiting(st)(trf)∩r={s})∨¬r≠{s}∨(trf∈dom(Enabling(st))∧Enabling(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Enabling(st)(trf)∩r={s}))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·¬trf∈Transformation(st)∨(trf∈dom(Enabling(st))∧Enabling(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬s∈Enabling(st)(trf))∨¬r∈Regions(st)∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Exiting(st)(trf)∩r≠(∅ ⦂ ℙ(STATE)))∨¬s∈r∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Exiting(st)(trf)∩r={s}))∧(∀trf⦂TRANSFORMATION,c⦂STATE,r⦂ℙ(STATE)·¬trf∈Transformation(st)∨¬r∈Regions(st)∨¬Parent(Tree(st))[r]={c}∨(trf∈dom(Entering(st))∧Entering(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Entering(st)(trf)∩r≠(∅ ⦂ ℙ(STATE)))∨(trf∈dom(Entering(st))∧Entering(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Entering(st)(trf)∩Parent(Tree(st))[r]=(∅ ⦂ ℙ(STATE)))∨(trf∈dom(Enabling(st))∧Enabling(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧(∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∀p⦂ℙ(STATE×STATE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE))))∧Parent(Tree(st))∈dom(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∧(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧Enabling(st)(trf)∩((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))∼[{c}]≠(∅ ⦂ ℙ(STATE))∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧c∉Exiting(st)(trf))))∨¬Enabling(st)∈Transformation(st) → ℙ1(States(Tree(st)))∨¬Exiting(st)∈Transformation(st) → ℙ(States(Tree(st)))∨¬Entering(st)∈Transformation(st) → ℙ(States(Tree(st)))∨(∃trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧s∈Exiting(st)(trf)∧r∈Regions(st)∧Parent(Tree(st))[r]={s}∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Exiting(st)(trf)∩r≠(∅ ⦂ ℙ(STATE)))∨(∃trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧s∈Exiting(st)(trf)∧r∈Regions(st)∧s∈r∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Exiting(st)(trf)∩r={s}∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬r⊆Exiting(st)(trf))∨(∃trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧r∈Regions(st)∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Exiting(st)(trf)∩r={s}∧r≠{s}∧trf∈dom(Enabling(st))∧Enabling(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Enabling(st)(trf)∩r={s})∨(∃trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧trf∈dom(Enabling(st))∧Enabling(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧s∈Enabling(st)(trf)∧r∈Regions(st)∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Exiting(st)(trf)∩r≠(∅ ⦂ ℙ(STATE))∧s∈r∧trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬Exiting(st)(trf)∩r={s})∨(∃trf⦂TRANSFORMATION,c⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧r∈Regions(st)∧Parent(Tree(st))[r]={c}∧trf∈dom(Entering(st))∧Entering(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Entering(st)(trf)∩r≠(∅ ⦂ ℙ(STATE))∧trf∈dom(Entering(st))∧Entering(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧Entering(st)(trf)∩Parent(Tree(st))[r]=(∅ ⦂ ℙ(STATE))∧((trf∈dom(Enabling(st))∧Enabling(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧(∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∀p⦂ℙ(STATE×STATE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE))))∧Parent(Tree(st))∈dom(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∧(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧¬Enabling(st)(trf)∩((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))∼[{c}]≠(∅ ⦂ ℙ(STATE)))∨(trf∈dom(Exiting(st))∧Exiting(st)∈TRANSFORMATION ⇸ ℙ(STATE)∧¬c∉Exiting(st)(trf))))">
+                <org.eventb.theory.core.scOperatorArgument name="st" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#.|org.eventb.theory.core.operatorArgument#'" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+                <org.eventb.theory.core.scDirectOperatorDefinition name="(" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#.|org.eventb.theory.core.directOperatorDefinition#(" org.eventb.theory.core.formula="Enabling(st)∈Transformation(st) → ℙ1(States(Tree(st)))∧Exiting(st)∈Transformation(st) → ℙ(States(Tree(st)))∧Entering(st)∈Transformation(st) → ℙ(States(Tree(st)))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧s∈Exiting(st)(trf)∧r∈Regions(st)∧Parent(Tree(st))[r]={s}⇒Exiting(st)(trf)∩r≠(∅ ⦂ ℙ(STATE)))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧s∈Exiting(st)(trf)∧r∈Regions(st)∧s∈r⇒Exiting(st)(trf)∩r={s}∨r⊆Exiting(st)(trf))∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧r∈Regions(st)∧Exiting(st)(trf)∩r={s}∧r≠{s}⇒Enabling(st)(trf)∩r={s})∧(∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧s∈Enabling(st)(trf)∧r∈Regions(st)∧Exiting(st)(trf)∩r≠(∅ ⦂ ℙ(STATE))∧s∈r⇒Exiting(st)(trf)∩r={s})∧(∀trf⦂TRANSFORMATION,c⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(st)∧r∈Regions(st)∧Parent(Tree(st))[r]={c}∧Entering(st)(trf)∩r≠(∅ ⦂ ℙ(STATE))∧Entering(st)(trf)∩Parent(Tree(st))[r]=(∅ ⦂ ℙ(STATE))⇒Enabling(st)(trf)∩((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))∼[{c}]≠(∅ ⦂ ℙ(STATE))∧c∉Exiting(st)(trf))"/>
+            </org.eventb.theory.core.scNewOperatorDefinition>
+            <org.eventb.theory.core.scNewOperatorDefinition name="StatechartWD" org.eventb.core.label="StatechartWD" org.eventb.core.predicate="⊤" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#*" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="false" org.eventb.theory.core.groupID="org.eventb.core.ast.closed" org.eventb.theory.core.hasError="false" org.eventb.theory.core.notationType="PREFIX" org.eventb.theory.core.wd="(((Root(Tree(st))∈States(Tree(st))∧Parent(Tree(st))∈States(Tree(st)) ∖ {Root(Tree(st))} → States(Tree(st))∧(∀n⦂STATE·¬n∈States(Tree(st)) ∖ {Root(Tree(st))}∨((∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∀p⦂ℙ(STATE×STATE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE))))∧Parent(Tree(st))∈dom(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∧(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧Root(Tree(st))∈((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))[{n}])))∨¬Root(Tree(st))∈States(Tree(st))∨¬Parent(Tree(st))∈States(Tree(st)) ∖ {Root(Tree(st))} → States(Tree(st))∨(∃n⦂STATE·n∈States(Tree(st)) ∖ {Root(Tree(st))}∧(∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∀p⦂ℙ(STATE×STATE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE))))∧Parent(Tree(st))∈dom(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∧(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧¬Root(Tree(st))∈((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))[{n}]))∧TreeWD(Tree(st))∧RegionsWD(st)∧TransformationsWD(st))∨(((Root(Tree(st))∈States(Tree(st))∧Parent(Tree(st))∈States(Tree(st)) ∖ {Root(Tree(st))} → States(Tree(st))∧(∀n⦂STATE·¬n∈States(Tree(st)) ∖ {Root(Tree(st))}∨((∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∀p⦂ℙ(STATE×STATE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE))))∧Parent(Tree(st))∈dom(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∧(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧Root(Tree(st))∈((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))[{n}])))∨¬Root(Tree(st))∈States(Tree(st))∨¬Parent(Tree(st))∈States(Tree(st)) ∖ {Root(Tree(st))} → States(Tree(st))∨(∃n⦂STATE·n∈States(Tree(st)) ∖ {Root(Tree(st))}∧(∀r⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE⇒(∀p⦂ℙ(STATE×STATE)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(STATE×STATE))))∧Parent(Tree(st))∈dom(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∧(closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))∈ℙ(STATE × STATE) ⇸ ℙ(STATE × STATE)∧¬Root(Tree(st))∈((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(st))))[{n}]))∧¬TreeWD(Tree(st)))∨¬RegionsWD(st)∨¬TransformationsWD(st)">
+                <org.eventb.theory.core.scOperatorArgument name="st" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#*|org.eventb.theory.core.operatorArgument#(" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+                <org.eventb.theory.core.scDirectOperatorDefinition name="'" org.eventb.core.source="/StateCharts/StateChart.tuf|org.eventb.theory.core.theoryRoot#StateChart|org.eventb.theory.core.newOperatorDefinition#*|org.eventb.theory.core.directOperatorDefinition#'" org.eventb.theory.core.formula="TreeWD(Tree(st))∧RegionsWD(st)∧TransformationsWD(st)"/>
+            </org.eventb.theory.core.scNewOperatorDefinition>
+            <org.eventb.theory.core.scDatatypeDefinition name="ACTIVE_STATECHART">
+                <org.eventb.theory.core.scTypeArgument name="STATE" org.eventb.theory.core.givenType="STATE"/>
+                <org.eventb.theory.core.scDatatypeConstructor name="Cons_ActiveStatechart">
+                    <org.eventb.theory.core.scConstructorArgument name="Active" org.eventb.core.type="ℙ(STATE)"/>
+                </org.eventb.theory.core.scDatatypeConstructor>
+            </org.eventb.theory.core.scDatatypeDefinition>
+            <org.eventb.theory.core.scNewOperatorDefinition name="ActiveStatechartWD" org.eventb.core.label="ActiveStatechartWD" org.eventb.core.predicate="StatechartWD(sc)" org.eventb.core.source="/ActiveStateCharts/ActiveStateChart.tuf|org.eventb.theory.core.theoryRoot#ActiveStateChart|org.eventb.theory.core.newOperatorDefinition#*" org.eventb.theory.core.associative="false" org.eventb.theory.core.commutative="false" org.eventb.theory.core.formulaType="false" org.eventb.theory.core.groupID="org.eventb.core.ast.closed" org.eventb.theory.core.hasError="false" org.eventb.theory.core.notationType="PREFIX" org.eventb.theory.core.wd="(Root(Tree(sc))∈Active(asc)∧Active(asc)⊆States(Tree(sc))∧(∀s⦂STATE·¬s∈Active(asc) ∖ {Root(Tree(sc))}∨(s∈dom(Parent(Tree(sc)))∧Parent(Tree(sc))∈STATE ⇸ STATE∧Parent(Tree(sc))(s)∈Active(asc)))∧(∀s⦂STATE·¬s∈ran(Parent(Tree(sc)))∨¬s∈Active(asc)∨Parent(Tree(sc))∼[{s}]∩Active(asc)≠(∅ ⦂ ℙ(STATE)))∧(∀r⦂ℙ(STATE),s⦂STATE·¬r∈Regions(sc)∨¬s∈r∩Active(asc)∨r∩Active(asc)⊆{s})∧(∀r1⦂ℙ(STATE),r2⦂ℙ(STATE)·¬r1∈Regions(sc)∨¬r2∈Regions(sc)∨¬Parent(Tree(sc))[r1]=Parent(Tree(sc))[r2]∨¬r1∩Active(asc)=(∅ ⦂ ℙ(STATE))∨r2∩Active(asc)=(∅ ⦂ ℙ(STATE))))∨¬Root(Tree(sc))∈Active(asc)∨¬Active(asc)⊆States(Tree(sc))∨(∃s⦂STATE·s∈Active(asc) ∖ {Root(Tree(sc))}∧s∈dom(Parent(Tree(sc)))∧Parent(Tree(sc))∈STATE ⇸ STATE∧¬Parent(Tree(sc))(s)∈Active(asc))∨(∃s⦂STATE·s∈ran(Parent(Tree(sc)))∧s∈Active(asc)∧¬Parent(Tree(sc))∼[{s}]∩Active(asc)≠(∅ ⦂ ℙ(STATE)))∨(∃r⦂ℙ(STATE),s⦂STATE·r∈Regions(sc)∧s∈r∩Active(asc)∧¬r∩Active(asc)⊆{s})∨(∃r1⦂ℙ(STATE),r2⦂ℙ(STATE)·r1∈Regions(sc)∧r2∈Regions(sc)∧Parent(Tree(sc))[r1]=Parent(Tree(sc))[r2]∧r1∩Active(asc)=(∅ ⦂ ℙ(STATE))∧¬r2∩Active(asc)=(∅ ⦂ ℙ(STATE)))">
+                <org.eventb.theory.core.scOperatorArgument name="sc" org.eventb.core.source="/ActiveStateCharts/ActiveStateChart.tuf|org.eventb.theory.core.theoryRoot#ActiveStateChart|org.eventb.theory.core.newOperatorDefinition#*|org.eventb.theory.core.operatorArgument#(" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+                <org.eventb.theory.core.scOperatorArgument name="asc" org.eventb.core.source="/ActiveStateCharts/ActiveStateChart.tuf|org.eventb.theory.core.theoryRoot#ActiveStateChart|org.eventb.theory.core.newOperatorDefinition#*|org.eventb.theory.core.operatorArgument#'" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+                <org.eventb.theory.core.scDirectOperatorDefinition name=")" org.eventb.core.source="/ActiveStateCharts/ActiveStateChart.tuf|org.eventb.theory.core.theoryRoot#ActiveStateChart|org.eventb.theory.core.newOperatorDefinition#*|org.eventb.theory.core.directOperatorDefinition#)" org.eventb.theory.core.formula="Root(Tree(sc))∈Active(asc)∧Active(asc)⊆States(Tree(sc))∧(∀s⦂STATE·s∈Active(asc) ∖ {Root(Tree(sc))}⇒Parent(Tree(sc))(s)∈Active(asc))∧(∀s⦂STATE·s∈ran(Parent(Tree(sc)))∧s∈Active(asc)⇒Parent(Tree(sc))∼[{s}]∩Active(asc)≠(∅ ⦂ ℙ(STATE)))∧(∀r⦂ℙ(STATE),s⦂STATE·r∈Regions(sc)∧s∈r∩Active(asc)⇒r∩Active(asc)⊆{s})∧(∀r1⦂ℙ(STATE),r2⦂ℙ(STATE)·r1∈Regions(sc)∧r2∈Regions(sc)∧Parent(Tree(sc))[r1]=Parent(Tree(sc))[r2]∧r1∩Active(asc)=(∅ ⦂ ℙ(STATE))⇒r2∩Active(asc)=(∅ ⦂ ℙ(STATE)))"/>
+            </org.eventb.theory.core.scNewOperatorDefinition>
+        </org.eventb.core.lang>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p1">
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees asc,r,sc,tr)" org.eventb.core.prGoal="p1" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p2">
+                        <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+                        <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(STATE)"/>
+                        <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+                        <org.eventb.core.prIdent name="tr" org.eventb.core.type="TRANSFORMATION"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p2" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p8" org.eventb.core.prHyps="p3,p4,p5,p6,p7">
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Statechart WD includes Tree WD (auto forward)" org.eventb.core.prHyps="p3">
+                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps=""/>
+                                    </org.eventb.core.prAnte>
+                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p9,p10">
+                                        <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p9,p10"/>
+                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Statechart WD includes Regions WD (auto forward)" org.eventb.core.prHyps="p3">
+                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps=""/>
+                                            </org.eventb.core.prAnte>
+                                            <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p9,p11">
+                                                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p9,p11"/>
+                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Statechart WD includes Transformations WD (auto forward)" org.eventb.core.prHyps="p3">
+                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps=""/>
+                                                    </org.eventb.core.prAnte>
+                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p9,p12">
+                                                        <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p9,p12"/>
+                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Regions are set of states (auto forward)" org.eventb.core.prHyps="p11">
+                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps=""/>
+                                                            </org.eventb.core.prAnte>
+                                                            <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p9,p13">
+                                                                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p9,p13"/>
+                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Every transformation has some enabling states (auto forward)" org.eventb.core.prHyps="p12,p3">
+                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+                                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps=""/>
+                                                                    </org.eventb.core.prAnte>
+                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p9,p14">
+                                                                        <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p9,p14"/>
+                                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Every transformation has some enabling states (auto forward)" org.eventb.core.prHyps="p12,p3">
+                                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+                                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps=""/>
+                                                                            </org.eventb.core.prAnte>
+                                                                            <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p15,p9">
+                                                                                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p15,p9"/>
+                                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Every transformation has some enabling states (auto forward)" org.eventb.core.prHyps="p12,p3">
+                                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+                                                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps=""/>
+                                                                                    </org.eventb.core.prAnte>
+                                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p9,p16">
+                                                                                        <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p9,p16"/>
+                                                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Root is not an exiting state (auto forward)" org.eventb.core.prHyps="p12,p3,p5">
+                                                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+                                                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps=""/>
+                                                                                            </org.eventb.core.prAnte>
+                                                                                            <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p9,p17">
+                                                                                                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p9,p17"/>
+                                                                                                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+                                                                                                    <org.eventb.core.prAnte name="'">
+                                                                                                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p9"/>
+                                                                                                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p18"/>
+                                                                                                        <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Tree Root type inference (auto forward)" org.eventb.core.prHyps="p10">
+                                                                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+                                                                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps=""/>
+                                                                                                            </org.eventb.core.prAnte>
+                                                                                                            <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p9,p19">
+                                                                                                                <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p9,p19"/>
+                                                                                                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Tree Parent type inference (auto forward)" org.eventb.core.prHyps="p10">
+                                                                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+                                                                                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps=""/>
+                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p20,p9">
+                                                                                                                        <org.eventb.core.prHypAction name="SELECT0" org.eventb.core.prHyps="p20,p9"/>
+                                                                                                                        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+                                                                                                                            <org.eventb.core.prAnte name="'">
+                                                                                                                                <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p9"/>
+                                                                                                                                <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="TreeWD expansion (exp. def.)" org.eventb.core.prHyps="">
+                                                                                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+                                                                                                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps=""/>
+                                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p9">
+                                                                                                                                        <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p10" org.eventb.core.prInfHyps="p19,p20,p21"/>
+                                                                                                                                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p10"/>
+                                                                                                                                        <org.eventb.core.prHypAction name="SELECT2" org.eventb.core.prHyps="p9"/>
+                                                                                                                                        <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="RegionsWD expansion (exp. def.)" org.eventb.core.prHyps="">
+                                                                                                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+                                                                                                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps=""/>
+                                                                                                                                            </org.eventb.core.prAnte>
+                                                                                                                                            <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p9">
+                                                                                                                                                <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p11" org.eventb.core.prInfHyps="p13,p22,p23,p24"/>
+                                                                                                                                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p11"/>
+                                                                                                                                                <org.eventb.core.prHypAction name="SELECT2" org.eventb.core.prHyps="p9"/>
+                                                                                                                                                <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="TransformationsWD expansion (exp. def.)" org.eventb.core.prHyps="">
+                                                                                                                                                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+                                                                                                                                                        <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps=""/>
+                                                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p9">
+                                                                                                                                                        <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p12" org.eventb.core.prInfHyps="p14,p15,p16,p25,p26,p27,p28,p29"/>
+                                                                                                                                                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p12"/>
+                                                                                                                                                        <org.eventb.core.prHypAction name="SELECT2" org.eventb.core.prHyps="p9"/>
+                                                                                                                                                        <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ActiveStatechartWD expansion (exp. def.)" org.eventb.core.prHyps="">
+                                                                                                                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+                                                                                                                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps=""/>
+                                                                                                                                                            </org.eventb.core.prAnte>
+                                                                                                                                                            <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p9">
+                                                                                                                                                                <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p4" org.eventb.core.prInfHyps="p30,p31,p32,p33,p34,p35"/>
+                                                                                                                                                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p4"/>
+                                                                                                                                                                <org.eventb.core.prHypAction name="SELECT2" org.eventb.core.prHyps="p9"/>
+                                                                                                                                                                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+                                                                                                                                                                    <org.eventb.core.prAnte name="'">
+                                                                                                                                                                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p9"/>
+                                                                                                                                                                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p22" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p36"/>
+                                                                                                                                                                        <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p25" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37"/>
+                                                                                                                                                                        <org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p27" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
+                                                                                                                                                                        <org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p28" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
+                                                                                                                                                                        <org.eventb.core.prHypAction name="REWRITE5" org.eventb.core.prHidden="p29" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p40"/>
+                                                                                                                                                                        <org.eventb.core.prHypAction name="REWRITE6" org.eventb.core.prHidden="p33" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p41"/>
+                                                                                                                                                                        <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="closure expansion (exp. def.)" org.eventb.core.prHyps="">
+                                                                                                                                                                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
+                                                                                                                                                                                <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p9" org.eventb.core.prHyps=""/>
+                                                                                                                                                                            </org.eventb.core.prAnte>
+                                                                                                                                                                            <org.eventb.core.prAnte name="(" org.eventb.core.prHyps="p9">
+                                                                                                                                                                                <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p21" org.eventb.core.prInfHyps="p42"/>
+                                                                                                                                                                                <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p21"/>
+                                                                                                                                                                                <org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p40" org.eventb.core.prInfHyps="p43"/>
+                                                                                                                                                                                <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p40"/>
+                                                                                                                                                                                <org.eventb.core.prHypAction name="SELECT4" org.eventb.core.prHyps="p9"/>
+                                                                                                                                                                                <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+                                                                                                                                                                                    <org.eventb.core.prAnte name="'">
+                                                                                                                                                                                        <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p9"/>
+                                                                                                                                                                                        <org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p42" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p44"/>
+                                                                                                                                                                                        <org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p43" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p45"/>
+                                                                                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                                                                                </org.eventb.core.prRule>
+                                                                                                                                                                            </org.eventb.core.prAnte>
+                                                                                                                                                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="Closure"/>
+                                                                                                                                                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="closure"/>
+                                                                                                                                                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="closure.closure"/>
+                                                                                                                                                                        </org.eventb.core.prRule>
+                                                                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                                                                </org.eventb.core.prRule>
+                                                                                                                                                            </org.eventb.core.prAnte>
+                                                                                                                                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="ActiveStateCharts"/>
+                                                                                                                                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="ActiveStateChart"/>
+                                                                                                                                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="ActiveStateChart.ActiveStatechartWD"/>
+                                                                                                                                                        </org.eventb.core.prRule>
+                                                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                                                                                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                                                                                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="StateChart.TransformationsWD"/>
+                                                                                                                                                </org.eventb.core.prRule>
+                                                                                                                                            </org.eventb.core.prAnte>
+                                                                                                                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                                                                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                                                                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="StateChart.RegionsWD"/>
+                                                                                                                                        </org.eventb.core.prRule>
+                                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="Tree"/>
+                                                                                                                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="Tree"/>
+                                                                                                                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="Tree.TreeWD"/>
+                                                                                                                                </org.eventb.core.prRule>
+                                                                                                                            </org.eventb.core.prAnte>
+                                                                                                                        </org.eventb.core.prRule>
+                                                                                                                    </org.eventb.core.prAnte>
+                                                                                                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="Tree"/>
+                                                                                                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="Tree"/>
+                                                                                                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="Parent_type-inf"/>
+                                                                                                                    <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                                                </org.eventb.core.prRule>
+                                                                                                            </org.eventb.core.prAnte>
+                                                                                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="Tree"/>
+                                                                                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="Tree"/>
+                                                                                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="Root_type-inf"/>
+                                                                                                            <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                                        </org.eventb.core.prRule>
+                                                                                                    </org.eventb.core.prAnte>
+                                                                                                </org.eventb.core.prRule>
+                                                                                            </org.eventb.core.prAnte>
+                                                                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="transformation_wd_inf_4"/>
+                                                                                            <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                        </org.eventb.core.prRule>
+                                                                                    </org.eventb.core.prAnte>
+                                                                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="transformation_wd_inf_3"/>
+                                                                                    <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                                </org.eventb.core.prRule>
+                                                                            </org.eventb.core.prAnte>
+                                                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="transformation_wd_inf_2"/>
+                                                                            <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                        </org.eventb.core.prRule>
+                                                                    </org.eventb.core.prAnte>
+                                                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="transformation_wd_inf_1"/>
+                                                                    <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                                </org.eventb.core.prRule>
+                                                            </org.eventb.core.prAnte>
+                                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="region_type_inf"/>
+                                                            <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                        </org.eventb.core.prRule>
+                                                    </org.eventb.core.prAnte>
+                                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="statechart_wd_transformation-inf"/>
+                                                    <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                                </org.eventb.core.prRule>
+                                            </org.eventb.core.prAnte>
+                                            <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                            <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                            <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="statechart_wd_regions-inf"/>
+                                            <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                        </org.eventb.core.prRule>
+                                    </org.eventb.core.prAnte>
+                                    <org.eventb.core.prString name=".ThyProject" org.eventb.core.prSValue="StateCharts"/>
+                                    <org.eventb.core.prString name=".Thy" org.eventb.core.prSValue="StateChart"/>
+                                    <org.eventb.core.prString name=".Rule" org.eventb.core.prSValue="statechart_wd_tree-inf"/>
+                                    <org.eventb.core.prString name=".isForward" org.eventb.core.prSValue="forward"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p27" org.eventb.core.predicate="∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(sc)∧r∈Regions(sc)∧Exiting(sc)(trf)∩r={s}∧r≠{s}⇒Enabling(sc)(trf)∩r={s}">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p24" org.eventb.core.predicate="∀r⦂ℙ(STATE)·r∈Regions(sc)⇒(∃p⦂STATE·p∈States(Tree(sc))∧Parent(Tree(sc))[r]={p})">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p44" org.eventb.core.predicate="∀n⦂STATE·n∈States(Tree(sc)) ∖ {Root(Tree(sc))}⇒Root(Tree(sc))∈inter({p⦂ℙ(STATE×STATE)·Parent(Tree(sc))⊆p∧p;p⊆p ∣ p})[{n}]">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p41" org.eventb.core.predicate="∀s⦂STATE·s∈ran(Parent(Tree(sc)))∧s∈Active(asc)⇒¬Parent(Tree(sc))∼[{s}]∩Active(asc)=(∅ ⦂ ℙ(STATE))">
+            <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="TreeWD(Tree(sc))">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p30" org.eventb.core.predicate="Root(Tree(sc))∈Active(asc)">
+            <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p15" org.eventb.core.predicate="Exiting(sc)∈Transformation(sc) → ℙ(States(Tree(sc)))">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p38" org.eventb.core.predicate="∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(sc)∧r∈Regions(sc)∧Exiting(sc)(trf)∩r={s}∧¬r={s}⇒Enabling(sc)(trf)∩r={s}">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p39" org.eventb.core.predicate="∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(sc)∧s∈Enabling(sc)(trf)∧r∈Regions(sc)∧¬Exiting(sc)(trf)∩r=(∅ ⦂ ℙ(STATE))∧s∈r⇒Exiting(sc)(trf)∩r={s}">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p36" org.eventb.core.predicate="∀r1⦂ℙ(STATE),r2⦂ℙ(STATE)·r1∈Regions(sc)∧r2∈Regions(sc)∧¬r1=r2⇒r1∩r2=(∅ ⦂ ℙ(STATE))">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p42" org.eventb.core.predicate="∀n⦂STATE·n∈States(Tree(sc)) ∖ {Root(Tree(sc))}⇒Root(Tree(sc))∈((λr⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE ∣ inter({p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}))(Parent(Tree(sc))))[{n}]">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬Entering(sc)(tr)∩r=(∅ ⦂ ℙ(STATE))">
+            <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+            <org.eventb.core.prIdent name="tr" org.eventb.core.type="TRANSFORMATION"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p45" org.eventb.core.predicate="∀trf⦂TRANSFORMATION,c⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(sc)∧r∈Regions(sc)∧Parent(Tree(sc))[r]={c}∧¬Entering(sc)(trf)∩r=(∅ ⦂ ℙ(STATE))∧Entering(sc)(trf)∩Parent(Tree(sc))[r]=(∅ ⦂ ℙ(STATE))⇒¬Enabling(sc)(trf)∩inter({p⦂ℙ(STATE×STATE)·Parent(Tree(sc))⊆p∧p;p⊆p ∣ p})∼[{c}]=(∅ ⦂ ℙ(STATE))∧¬c∈Exiting(sc)(trf)">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p23" org.eventb.core.predicate="union(Regions(sc))=States(Tree(sc)) ∖ {Root(Tree(sc))}">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="ActiveStatechartWD(sc,asc)">
+            <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="Enabling(sc)∈Transformation(sc) → ℙ1(States(Tree(sc)))">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p28" org.eventb.core.predicate="∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(sc)∧s∈Enabling(sc)(trf)∧r∈Regions(sc)∧Exiting(sc)(trf)∩r≠(∅ ⦂ ℙ(STATE))∧s∈r⇒Exiting(sc)(trf)∩r={s}">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="Entering(sc)∈Transformation(sc) → ℙ(States(Tree(sc)))">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p34" org.eventb.core.predicate="∀r⦂ℙ(STATE),s⦂STATE·r∈Regions(sc)∧s∈r∩Active(asc)⇒r∩Active(asc)⊆{s}">
+            <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p29" org.eventb.core.predicate="∀trf⦂TRANSFORMATION,c⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(sc)∧r∈Regions(sc)∧Parent(Tree(sc))[r]={c}∧Entering(sc)(trf)∩r≠(∅ ⦂ ℙ(STATE))∧Entering(sc)(trf)∩Parent(Tree(sc))[r]=(∅ ⦂ ℙ(STATE))⇒Enabling(sc)(trf)∩((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(sc))))∼[{c}]≠(∅ ⦂ ℙ(STATE))∧c∉Exiting(sc)(trf)">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="StatechartWD(sc)∧ActiveStatechartWD(sc,asc)∧tr∈Transformation(sc)∧r∈Regions(sc)∧Parent(Tree(sc))[r]⊆Entering(sc)(tr)⇒¬Entering(sc)(tr)∩r=(∅ ⦂ ℙ(STATE))">
+            <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+            <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+            <org.eventb.core.prIdent name="tr" org.eventb.core.type="TRANSFORMATION"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p25" org.eventb.core.predicate="∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(sc)∧s∈Exiting(sc)(trf)∧r∈Regions(sc)∧Parent(Tree(sc))[r]={s}⇒Exiting(sc)(trf)∩r≠(∅ ⦂ ℙ(STATE))">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p31" org.eventb.core.predicate="Active(asc)⊆States(Tree(sc))">
+            <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prPred name="p43" org.eventb.core.predicate="∀trf⦂TRANSFORMATION,c⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(sc)∧r∈Regions(sc)∧Parent(Tree(sc))[r]={c}∧¬Entering(sc)(trf)∩r=(∅ ⦂ ℙ(STATE))∧Entering(sc)(trf)∩Parent(Tree(sc))[r]=(∅ ⦂ ℙ(STATE))⇒¬Enabling(sc)(trf)∩((λr⦂ℙ(STATE×STATE)·r∈STATE ↔ STATE ∣ inter({p⦂ℙ(STATE×STATE)·r⊆p∧p;p⊆p ∣ p}))(Parent(Tree(sc))))∼[{c}]=(∅ ⦂ ℙ(STATE))∧¬c∈Exiting(sc)(trf)">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀asc⦂ACTIVE_STATECHART(STATE),r⦂ℙ(STATE),sc⦂STATECHART(STATE,TRANSFORMATION),tr⦂TRANSFORMATION·⊤⇒(StatechartWD(sc)∧ActiveStatechartWD(sc,asc)∧tr∈Transformation(sc)∧r∈Regions(sc)∧Parent(Tree(sc))[r]⊆Entering(sc)(tr)⇒Entering(sc)(tr)∩r≠(∅ ⦂ ℙ(STATE)))"/>
+        <org.eventb.core.prPred name="p21" org.eventb.core.predicate="∀n⦂STATE·n∈States(Tree(sc)) ∖ {Root(Tree(sc))}⇒Root(Tree(sc))∈((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(sc))))[{n}]">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p32" org.eventb.core.predicate="∀s⦂STATE·s∈Active(asc) ∖ {Root(Tree(sc))}⇒Parent(Tree(sc))(s)∈Active(asc)">
+            <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p22" org.eventb.core.predicate="∀r1⦂ℙ(STATE),r2⦂ℙ(STATE)·r1∈Regions(sc)∧r2∈Regions(sc)∧r1≠r2⇒r1∩r2=(∅ ⦂ ℙ(STATE))">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p20" org.eventb.core.predicate="Parent(Tree(sc))∈States(Tree(sc)) ∖ {Root(Tree(sc))} → States(Tree(sc))">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p19" org.eventb.core.predicate="Root(Tree(sc))∈States(Tree(sc))">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p35" org.eventb.core.predicate="∀r1⦂ℙ(STATE),r2⦂ℙ(STATE)·r1∈Regions(sc)∧r2∈Regions(sc)∧Parent(Tree(sc))[r1]=Parent(Tree(sc))[r2]∧r1∩Active(asc)=(∅ ⦂ ℙ(STATE))⇒r2∩Active(asc)=(∅ ⦂ ℙ(STATE))">
+            <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="Parent(Tree(sc))[r]⊆Entering(sc)(tr)">
+            <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+            <org.eventb.core.prIdent name="tr" org.eventb.core.type="TRANSFORMATION"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p37" org.eventb.core.predicate="∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(sc)∧s∈Exiting(sc)(trf)∧r∈Regions(sc)∧Parent(Tree(sc))[r]={s}⇒¬Exiting(sc)(trf)∩r=(∅ ⦂ ℙ(STATE))">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p33" org.eventb.core.predicate="∀s⦂STATE·s∈ran(Parent(Tree(sc)))∧s∈Active(asc)⇒Parent(Tree(sc))∼[{s}]∩Active(asc)≠(∅ ⦂ ℙ(STATE))">
+            <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="r∈Regions(sc)">
+            <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(STATE)"/>
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="Regions(sc)⊆ℙ(States(Tree(sc)))">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="∀asc⦂ACTIVE_STATECHART(STATE),r⦂ℙ(STATE),sc⦂STATECHART(STATE,TRANSFORMATION),tr⦂TRANSFORMATION·StatechartWD(sc)∧ActiveStatechartWD(sc,asc)∧tr∈Transformation(sc)∧r∈Regions(sc)∧Parent(Tree(sc))[r]⊆Entering(sc)(tr)⇒¬Entering(sc)(tr)∩r=(∅ ⦂ ℙ(STATE))"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="TransformationsWD(sc)">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="StatechartWD(sc)">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p40" org.eventb.core.predicate="∀trf⦂TRANSFORMATION,c⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(sc)∧r∈Regions(sc)∧Parent(Tree(sc))[r]={c}∧¬Entering(sc)(trf)∩r=(∅ ⦂ ℙ(STATE))∧Entering(sc)(trf)∩Parent(Tree(sc))[r]=(∅ ⦂ ℙ(STATE))⇒¬Enabling(sc)(trf)∩((closure ⦂ ℙ(ℙ(STATE×STATE)×ℙ(STATE×STATE)))(Parent(Tree(sc))))∼[{c}]=(∅ ⦂ ℙ(STATE))∧¬c∈Exiting(sc)(trf)">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="RegionsWD(sc)">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p18" org.eventb.core.predicate="¬Root(Tree(sc))∈Exiting(sc)(tr)">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+            <org.eventb.core.prIdent name="tr" org.eventb.core.type="TRANSFORMATION"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p17" org.eventb.core.predicate="Root(Tree(sc))∉Exiting(sc)(tr)">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+            <org.eventb.core.prIdent name="tr" org.eventb.core.type="TRANSFORMATION"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p26" org.eventb.core.predicate="∀trf⦂TRANSFORMATION,s⦂STATE,r⦂ℙ(STATE)·trf∈Transformation(sc)∧s∈Exiting(sc)(trf)∧r∈Regions(sc)∧s∈r⇒Exiting(sc)(trf)∩r={s}∨r⊆Exiting(sc)(trf)">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="tr∈Transformation(sc)">
+            <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
+            <org.eventb.core.prIdent name="tr" org.eventb.core.type="TRANSFORMATION"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.theory.rbp.autoInferenceReasoner:1"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.theory.rbp.reduceToClassicLanguageReasoner"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="entering_go_somewhere/S-INF"/>
+</org.eventb.core.prFile>
