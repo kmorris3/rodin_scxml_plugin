@@ -23,7 +23,7 @@
                                                             <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11" org.eventb.core.prHyps="p7,p8,p9,p10">
                                                                 <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ah (r∪(r;closure(r))=closure(r))" org.eventb.core.prHyps="">
                                                                     <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p12">
-                                                                        <org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p12" org.eventb.core.prHyps="p9,p7">
+                                                                        <org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p12" org.eventb.core.prHyps="p7,p8">
                                                                             <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p13">
                                                                                 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p13" org.eventb.core.prHyps="">
                                                                                     <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p14">
@@ -33,7 +33,7 @@
                                                                             </org.eventb.core.prAnte>
                                                                         </org.eventb.core.prRule>
                                                                     </org.eventb.core.prAnte>
-                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p15" org.eventb.core.prHyps="p9,p7">
+                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p15" org.eventb.core.prHyps="p7,p8">
                                                                         <org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Closure head recursion on goal" org.eventb.core.prGoal="p15" org.eventb.core.prHyps="">
                                                                             <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p14">
                                                                                 <org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p14" org.eventb.core.prHyps=""/>
@@ -53,8 +53,8 @@
                                                                             <org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
                                                                         </org.eventb.core.prRule>
                                                                     </org.eventb.core.prAnte>
-                                                                    <org.eventb.core.prAnte name=")" org.eventb.core.prHyps="p9,p15,p7">
-                                                                        <org.eventb.core.prRule name="r9" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP" org.eventb.core.prGoal="p11" org.eventb.core.prHyps="p7,p8,p9,p10,p15">
+                                                                    <org.eventb.core.prAnte name=")" org.eventb.core.prHyps="p7,p15,p8">
+                                                                        <org.eventb.core.prRule name="r9" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP" org.eventb.core.prGoal="p11" org.eventb.core.prHyps="p7,p8,p9,p15,p10">
                                                                             <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R30000"/>
                                                                         </org.eventb.core.prRule>
                                                                     </org.eventb.core.prAnte>
@@ -76,45 +76,45 @@
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
         </org.eventb.core.prRule>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·r∈S ↔ S⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∃p⦂ℙ(S×S)·¬¬(r⊆p∧p;p⊆p)))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒dom((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=dom(r)"/>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="⊤∧⊤"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="⊤"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)"/>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="(∀r⦂ℙ(S×S),p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∀r⦂ℙ(S×S)·∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p)∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒dom((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=dom(r)">
-            <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·⊤⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒dom((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=dom(r)"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="∀r⦂ℙ(S×S),p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p"/>
         <org.eventb.core.prPred name="p12" org.eventb.core.predicate="r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)">
             <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
         </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="⊤∧⊤"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="⊤"/>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·r∈S ↔ S⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(S×S)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(S×S))))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒dom((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=dom(r)"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·r∈S ↔ S⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∃p⦂ℙ(S×S)·¬¬(r⊆p∧p;p⊆p)))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒dom((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=dom(r)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·⊤⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒dom((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=dom(r)"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="∀r⦂ℙ(S×S),p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p"/>
         <org.eventb.core.prPred name="p11" org.eventb.core.predicate="dom((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=dom(r)">
-            <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))">
             <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p16" org.eventb.core.predicate="r∪(r;(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=r∪(r;(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))">
             <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S),p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∀r⦂ℙ(S×S)·∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p)∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒dom((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=dom(r)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))">
+            <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="(∀r⦂ℙ(S×S),p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∀r⦂ℙ(S×S)·∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p)∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒dom((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=dom(r)">
+            <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="∀r⦂ℙ(S×S)·∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·r∈S ↔ S⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧¬(∀p⦂ℙ(S×S)·¬(r⊆p∧p;p⊆p)))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒dom((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=dom(r)"/>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="∀r⦂ℙ(S×S)·∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p"/>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·r∈S ↔ S⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒dom((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=dom(r)"/>
         <org.eventb.core.prPred name="p15" org.eventb.core.predicate="r∪(r;(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r)">
             <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalPP:1"/>
-        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.cut"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
-        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.theory.rbp.manualRewriteReasoner"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·r∈S ↔ S⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒dom((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=dom(r)"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL4"/>
         <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.cut"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:1"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalPP:1"/>
+        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.theory.rbp.manualRewriteReasoner"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL4"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="ran_preservation/S/rhs1" org.eventb.core.confidence="1000" org.eventb.core.prFresh="r" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="S" org.eventb.core.psManual="true">
         <org.eventb.core.lang name="L">
@@ -139,7 +139,7 @@
                                                             <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11" org.eventb.core.prHyps="p7,p8,p9,p10">
                                                                 <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ah ((closure(r);r)∪r=closure(r))" org.eventb.core.prHyps="">
                                                                     <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p12">
-                                                                        <org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p12" org.eventb.core.prHyps="p9,p7">
+                                                                        <org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p12" org.eventb.core.prHyps="p7,p8">
                                                                             <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p13">
                                                                                 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p13" org.eventb.core.prHyps="">
                                                                                     <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p14">
@@ -149,7 +149,7 @@
                                                                             </org.eventb.core.prAnte>
                                                                         </org.eventb.core.prRule>
                                                                     </org.eventb.core.prAnte>
-                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p15" org.eventb.core.prHyps="p9,p7">
+                                                                    <org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p15" org.eventb.core.prHyps="p7,p8">
                                                                         <org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Closure tail recursion on goal" org.eventb.core.prGoal="p15" org.eventb.core.prHyps="">
                                                                             <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p14">
                                                                                 <org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p14" org.eventb.core.prHyps=""/>
@@ -169,8 +169,8 @@
                                                                             <org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
                                                                         </org.eventb.core.prRule>
                                                                     </org.eventb.core.prAnte>
-                                                                    <org.eventb.core.prAnte name=")" org.eventb.core.prHyps="p9,p15,p7">
-                                                                        <org.eventb.core.prRule name="r9" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP" org.eventb.core.prGoal="p11" org.eventb.core.prHyps="p7,p8,p9,p10,p15">
+                                                                    <org.eventb.core.prAnte name=")" org.eventb.core.prHyps="p7,p15,p8">
+                                                                        <org.eventb.core.prRule name="r9" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP" org.eventb.core.prGoal="p11" org.eventb.core.prHyps="p7,p8,p15,p9,p10">
                                                                             <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R30000"/>
                                                                         </org.eventb.core.prRule>
                                                                     </org.eventb.core.prAnte>
@@ -192,44 +192,44 @@
                 </org.eventb.core.prRule>
             </org.eventb.core.prAnte>
         </org.eventb.core.prRule>
-        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="⊤∧⊤"/>
-        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="⊤"/>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)"/>
-        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·r∈S ↔ S⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧¬(∀p⦂ℙ(S×S)·¬(r⊆p∧p;p⊆p)))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒ran((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=ran(r)"/>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·r∈S ↔ S⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(S×S)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(S×S))))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒ran((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=ran(r)"/>
-        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S),p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∀r⦂ℙ(S×S)·∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p)∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒ran((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=ran(r)"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="∀r⦂ℙ(S×S),p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p"/>
-        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·r∈S ↔ S⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∃p⦂ℙ(S×S)·¬¬(r⊆p∧p;p⊆p)))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒ran((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=ran(r)"/>
-        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)">
-            <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·r∈S ↔ S⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒ran((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=ran(r)"/>
-        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r);r)∪r=((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r);r)∪r">
-            <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))">
-            <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="(∀r⦂ℙ(S×S),p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∀r⦂ℙ(S×S)·∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p)∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒ran((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=ran(r)">
-            <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
-        </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="∀r⦂ℙ(S×S)·∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p"/>
         <org.eventb.core.prPred name="p11" org.eventb.core.predicate="ran((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=ran(r)">
             <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·⊤⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒ran((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=ran(r)"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)">
+            <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="⊤∧⊤"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)"/>
+        <org.eventb.core.prPred name="p14" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S),p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∀r⦂ℙ(S×S)·∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p)∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒ran((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=ran(r)"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·r∈S ↔ S⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧¬(∀p⦂ℙ(S×S)·¬(r⊆p∧p;p⊆p)))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒ran((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=ran(r)"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="(∀r⦂ℙ(S×S),p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∀r⦂ℙ(S×S)·∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p)∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒ran((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=ran(r)">
+            <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p16" org.eventb.core.predicate="((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r);r)∪r=((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r);r)∪r">
+            <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·r∈S ↔ S⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒ran((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=ran(r)"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="∀r⦂ℙ(S×S),p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))">
+            <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
+        </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p15" org.eventb.core.predicate="((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r);r)∪r=(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r)">
             <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalPP:1"/>
-        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.cut"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
-        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.theory.rbp.manualRewriteReasoner"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·r∈S ↔ S⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧{p⦂ℙ(S×S)·r⊆p∧p;p⊆p ∣ p}≠(∅ ⦂ ℙ(ℙ(S×S))))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒ran((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=ran(r)"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·r∈S ↔ S⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∃p⦂ℙ(S×S)·¬¬(r⊆p∧p;p⊆p)))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒ran((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=ran(r)"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="∀r⦂ℙ(S×S)·∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·⊤⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒ran((closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r))=ran(r)"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL4"/>
         <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.cut"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:1"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalPP:1"/>
+        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.theory.rbp.manualRewriteReasoner"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL4"/>
     </org.eventb.core.prProof>
 </org.eventb.core.prFile>
