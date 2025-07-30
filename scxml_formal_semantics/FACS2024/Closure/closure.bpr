@@ -54,10 +54,10 @@
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="∀r⦂ℙ(S×S)·r∈S ↔ S⇒¬(∀p⦂ℙ(S×S)·¬(r⊆p∧p;p⊆p))"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
         <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.theory.rbp.autoInferenceReasoner:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="typeof-closure/S-THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="x,x0,x1" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="S">
         <org.eventb.core.lang name="L">
@@ -295,17 +295,17 @@
         <org.eventb.core.prPred name="p11" org.eventb.core.predicate="∀x⦂ℙ(S×S),x0⦂ℙ(S×S)·x ↦ x0∈(λr⦂ℙ(S×S)·⊤ ∣ inter({p⦂ℙ(S×S)·(∀x⦂S,x0⦂S·x ↦ x0∈r⇒x ↦ x0∈p)∧p;p⊆p ∣ p}))⇒x⊆S × S∧x0⊆S × S"/>
         <org.eventb.core.prPred name="p27" org.eventb.core.predicate="∀x⦂ℙ(S×S),x0⦂ℙ(S×S),x1⦂ℙ(S×S)·inter({p⦂ℙ(S×S)·(∀x0⦂S,x1⦂S·x0 ↦ x1∈x⇒x0 ↦ x1∈p)∧(∀x⦂S,x0⦂S·(∃x1⦂S·x ↦ x1∈p∧x1 ↦ x0∈p)⇒x ↦ x0∈p) ∣ p})=x0∧inter({p⦂ℙ(S×S)·(∀x0⦂S,x1⦂S·x0 ↦ x1∈x⇒x0 ↦ x1∈p)∧(∀x⦂S,x0⦂S·(∃x1⦂S·x ↦ x1∈p∧x1 ↦ x0∈p)⇒x ↦ x0∈p) ∣ p})=x1⇒x0=x1"/>
         <org.eventb.core.prPred name="p15" org.eventb.core.predicate="∀x⦂ℙ(S×S),x0⦂ℙ(S×S)·x ↦ x0∈(λr⦂ℙ(S×S)·⊤ ∣ inter({p⦂ℙ(S×S)·(∀x⦂S,x0⦂S·x ↦ x0∈r⇒x ↦ x0∈p)∧(∀x⦂S,x0⦂S·(∃x1⦂S·x ↦ x1∈p∧x1 ↦ x0∈p)⇒x ↦ x0∈p) ∣ p}))⇒(∀x0⦂S,x1⦂S·x0 ↦ x1∈x⇒x0∈S∧x1∈S)∧x0⊆S × S"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
-        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r10" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalPP:1"/>
-        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.heL1:1"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.theory.rbp.reduceToClassicLanguageReasoner"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:1"/>
+        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.heL1:1"/>
+        <org.eventb.core.prReas name="r10" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalPP:1"/>
+        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="closure_strengthen/S-THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="r,s,x,x0" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="S">
         <org.eventb.core.lang name="L">
@@ -459,13 +459,13 @@
         </org.eventb.core.prPred>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
-        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.theory.rbp.reduceToClassicLanguageReasoner"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:1"/>
+        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="closure_strengthen/WD-THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="r,x,x0,x1" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="S">
         <org.eventb.core.lang name="L">
@@ -723,15 +723,15 @@
         <org.eventb.core.prPred name="p21" org.eventb.core.predicate="∀x⦂ℙ(S×S),x0⦂ℙ(S×S)·x ↦ x0∈(λr⦂ℙ(S×S)·⊤ ∣ inter({p⦂ℙ(S×S)·(∀x⦂S,x0⦂S·x ↦ x0∈r⇒x ↦ x0∈p)∧(∀x⦂S,x0⦂S·(∃x1⦂S·x ↦ x1∈p∧x1 ↦ x0∈p)⇒x ↦ x0∈p) ∣ p}))⇒(∀x0⦂S,x1⦂S·x0 ↦ x1∈x⇒x0∈S∧x1∈S)∧x0⊆S × S"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
-        <org.eventb.core.prReas name="r10" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.heL1:1"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
         <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.theory.rbp.reduceToClassicLanguageReasoner"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
+        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:1"/>
+        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.heL1:1"/>
+        <org.eventb.core.prReas name="r10" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="closure_transitivity/S-THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="r,s,x,x0" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="S">
         <org.eventb.core.lang name="L">
@@ -958,13 +958,13 @@
         </org.eventb.core.prPred>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
-        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.theory.rbp.reduceToClassicLanguageReasoner"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:1"/>
+        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="closure_transitivity/WD-THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="r,x,x0,x1" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="S">
         <org.eventb.core.lang name="L">
@@ -1222,15 +1222,15 @@
         <org.eventb.core.prPred name="p21" org.eventb.core.predicate="∀x⦂ℙ(S×S),x0⦂ℙ(S×S)·x ↦ x0∈(λr⦂ℙ(S×S)·⊤ ∣ inter({p⦂ℙ(S×S)·(∀x⦂S,x0⦂S·x ↦ x0∈r⇒x ↦ x0∈p)∧(∀x⦂S,x0⦂S·(∃x1⦂S·x ↦ x1∈p∧x1 ↦ x0∈p)⇒x ↦ x0∈p) ∣ p}))⇒(∀x0⦂S,x1⦂S·x0 ↦ x1∈x⇒x0∈S∧x1∈S)∧x0⊆S × S"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
-        <org.eventb.core.prReas name="r10" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.heL1:1"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
         <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.theory.rbp.reduceToClassicLanguageReasoner"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
+        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:1"/>
+        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.heL1:1"/>
+        <org.eventb.core.prReas name="r10" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="closure_minimal/S-THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="p,r,x,x0" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="S">
         <org.eventb.core.lang name="L">
@@ -1275,7 +1275,7 @@
                                                                                                                 <org.eventb.core.prIdent name="x0" org.eventb.core.type="S"/>
                                                                                                                 <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p16" org.eventb.core.prHyps="">
                                                                                                                     <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p18" org.eventb.core.prHyps="p17">
-                                                                                                                        <org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP" org.eventb.core.prGoal="p18" org.eventb.core.prHyps="p4,p5,p17">
+                                                                                                                        <org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP" org.eventb.core.prGoal="p18" org.eventb.core.prHyps="p17,p4,p5">
                                                                                                                             <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R500"/>
                                                                                                                         </org.eventb.core.prRule>
                                                                                                                     </org.eventb.core.prAnte>
@@ -1383,13 +1383,13 @@
         </org.eventb.core.prPred>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalPP:1"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
         <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.theory.rbp.reduceToClassicLanguageReasoner"/>
+        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:1"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalPP:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="closure_minimal/WD-THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="p,r,x,x0,x1" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="S">
         <org.eventb.core.lang name="L">
@@ -1665,15 +1665,15 @@
         <org.eventb.core.prPred name="p2" org.eventb.core.predicate="∀r⦂ℙ(S×S),p⦂ℙ(S×S)·r⊆p∧p;p⊆p⇒r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
-        <org.eventb.core.prReas name="r10" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.heL1:1"/>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.theory.rbp.reduceToClassicLanguageReasoner"/>
+        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
+        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:1"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.heL1:1"/>
+        <org.eventb.core.prReas name="r10" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="closure_⇸-inf/S-INF" org.eventb.core.confidence="1000" org.eventb.core.prFresh="x,x0,x1" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="S">
         <org.eventb.core.lang name="L">
@@ -1881,16 +1881,16 @@
         <org.eventb.core.prPred name="p11" org.eventb.core.predicate="∀x⦂ℙ(S×S),x0⦂ℙ(S×S)·x ↦ x0∈(λr⦂ℙ(S×S)·⊤ ∣ inter({p⦂ℙ(S×S)·(∀x⦂S,x0⦂S·x ↦ x0∈r⇒x ↦ x0∈p)∧p;p⊆p ∣ p}))⇒x⊆S × S∧x0⊆S × S"/>
         <org.eventb.core.prPred name="p27" org.eventb.core.predicate="∀x⦂ℙ(S×S),x0⦂ℙ(S×S),x1⦂ℙ(S×S)·inter({p⦂ℙ(S×S)·(∀x0⦂S,x1⦂S·x0 ↦ x1∈x⇒x0 ↦ x1∈p)∧(∀x⦂S,x0⦂S·(∃x1⦂S·x ↦ x1∈p∧x1 ↦ x0∈p)⇒x ↦ x0∈p) ∣ p})=x0∧inter({p⦂ℙ(S×S)·(∀x0⦂S,x1⦂S·x0 ↦ x1∈x⇒x0 ↦ x1∈p)∧(∀x⦂S,x0⦂S·(∃x1⦂S·x ↦ x1∈p∧x1 ↦ x0∈p)⇒x ↦ x0∈p) ∣ p})=x1⇒x0=x1"/>
         <org.eventb.core.prPred name="p15" org.eventb.core.predicate="∀x⦂ℙ(S×S),x0⦂ℙ(S×S)·x ↦ x0∈(λr⦂ℙ(S×S)·⊤ ∣ inter({p⦂ℙ(S×S)·(∀x⦂S,x0⦂S·x ↦ x0∈r⇒x ↦ x0∈p)∧(∀x⦂S,x0⦂S·(∃x1⦂S·x ↦ x1∈p∧x1 ↦ x0∈p)⇒x ↦ x0∈p) ∣ p}))⇒(∀x0⦂S,x1⦂S·x0 ↦ x1∈x⇒x0∈S∧x1∈S)∧x0⊆S × S"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
-        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.heL1:1"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.theory.rbp.reduceToClassicLanguageReasoner"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:1"/>
+        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.heL1:1"/>
+        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="⊆_strengthening-inf/S-INF" org.eventb.core.confidence="1000" org.eventb.core.prFresh="r,s,x,x0" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="S">
         <org.eventb.core.lang name="L">
@@ -2038,13 +2038,13 @@
             <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
-        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.theory.rbp.reduceToClassicLanguageReasoner"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:1"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="domain_closure-inf/S-INF" org.eventb.core.confidence="1000" org.eventb.core.prFresh="r" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="S">
         <org.eventb.core.lang name="L">
@@ -2094,11 +2094,11 @@
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀r⦂ℙ(S×S)·⊤⇒(⊤⇒r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S))))"/>
         <org.eventb.core.prPred name="p1" org.eventb.core.predicate="∀r⦂ℙ(S×S)·r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.theory.rbp.reduceToClassicLanguageReasoner"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:1"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="closure_transitivity-inf/S-INF" org.eventb.core.confidence="1000" org.eventb.core.prFresh="r,s,x,x0" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="S">
         <org.eventb.core.lang name="L">
@@ -2319,13 +2319,13 @@
             <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
-        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.theory.rbp.reduceToClassicLanguageReasoner"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:1"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="cl_strengthen_rw/S/rhs1" org.eventb.core.confidence="1000" org.eventb.core.prFresh="r,s,x,x0" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="S">
         <org.eventb.core.lang name="L">
@@ -2353,10 +2353,10 @@
                                                                         <org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p12" org.eventb.core.prHyps=""/>
                                                                     </org.eventb.core.prAnte>
                                                                     <org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p15" org.eventb.core.prHyps="p12">
-                                                                        <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p9" org.eventb.core.prInfHyps="p13"/>
-                                                                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p9"/>
-                                                                        <org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p10" org.eventb.core.prInfHyps="p14"/>
-                                                                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p10"/>
+                                                                        <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p7" org.eventb.core.prInfHyps="p13"/>
+                                                                        <org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p7"/>
+                                                                        <org.eventb.core.prHypAction name="FORWARD_INF2" org.eventb.core.prHyps="p8" org.eventb.core.prInfHyps="p14"/>
+                                                                        <org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p8"/>
                                                                         <org.eventb.core.prHypAction name="SELECT4" org.eventb.core.prHyps="p12"/>
                                                                         <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p15" org.eventb.core.prHyps="">
                                                                             <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p17">
@@ -2389,7 +2389,7 @@
                                                                                                                                                                 <org.eventb.core.prIdent name="s" org.eventb.core.type="ℙ(S×S)"/>
                                                                                                                                                                 <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p28" org.eventb.core.prHyps="">
                                                                                                                                                                     <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p31" org.eventb.core.prHyps="p29,p30">
-                                                                                                                                                                        <org.eventb.core.prRule name="r9" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p31" org.eventb.core.prHyps="p7,p8,p18,p26,p29,p30">
+                                                                                                                                                                        <org.eventb.core.prRule name="r9" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p31" org.eventb.core.prHyps="p18,p9,p29,p26,p10,p30">
                                                                                                                                                                             <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
                                                                                                                                                                         </org.eventb.core.prRule>
                                                                                                                                                                     </org.eventb.core.prAnte>
@@ -2449,7 +2449,7 @@
             <org.eventb.core.prIdent name="x" org.eventb.core.type="S"/>
             <org.eventb.core.prIdent name="x0" org.eventb.core.type="S"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="∀r⦂ℙ(S×S),p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="∀r⦂ℙ(S×S),p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p"/>
         <org.eventb.core.prPred name="p30" org.eventb.core.predicate="∀x⦂S,x0⦂S·(∃x1⦂S·x ↦ x1∈s∧x1 ↦ x0∈s)⇒x ↦ x0∈s">
             <org.eventb.core.prIdent name="s" org.eventb.core.type="ℙ(S×S)"/>
         </org.eventb.core.prPred>
@@ -2478,7 +2478,7 @@
         <org.eventb.core.prPred name="p13" org.eventb.core.predicate="r∈dom(λr⦂ℙ(S×S)·r∈S ↔ S ∣ inter({p⦂ℙ(S×S)·r⊆p∧p;p⊆p ∣ p}))">
             <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="∀r⦂ℙ(S×S)·∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="∀r⦂ℙ(S×S)·∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p"/>
         <org.eventb.core.prPred name="p29" org.eventb.core.predicate="∀x⦂S,x0⦂S·x ↦ x0∈r⇒x ↦ x0∈s">
             <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
             <org.eventb.core.prIdent name="s" org.eventb.core.type="ℙ(S×S)"/>
@@ -2493,7 +2493,7 @@
             <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p5" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S),p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∀r⦂ℙ(S×S)·∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p)∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒r⊆(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r)"/>
-        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)"/>
         <org.eventb.core.prPred name="p12" org.eventb.core.predicate="⊤"/>
         <org.eventb.core.prPred name="p15" org.eventb.core.predicate="r⊆(λr⦂ℙ(S×S)·r∈S ↔ S ∣ inter({p⦂ℙ(S×S)·r⊆p∧p;p⊆p ∣ p}))(r)">
             <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
@@ -2508,7 +2508,7 @@
         <org.eventb.core.prPred name="p22" org.eventb.core.predicate="∀x⦂S,x0⦂S·x ↦ x0∈r⇒(∀s⦂ℙ(S×S)·s∈{p⦂ℙ(S×S)·(∀x⦂S,x0⦂S·x ↦ x0∈r⇒x ↦ x0∈p)∧(∀x⦂S,x0⦂S·x ↦ x0∈p;p⇒x ↦ x0∈p) ∣ p}⇒x ↦ x0∈s)">
             <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))">
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))">
             <org.eventb.core.prIdent name="r" org.eventb.core.type="ℙ(S×S)"/>
         </org.eventb.core.prPred>
         <org.eventb.core.prPred name="p3" org.eventb.core.predicate="∀r⦂ℙ(S×S)·(∀r⦂ℙ(S×S)·r∈S ↔ S⇒(∀p⦂ℙ(S×S)·(r⊆p∧p;p⊆p)∨¬r⊆p∨¬p;p⊆p)∧(∃p⦂ℙ(S×S)·r⊆p∧p;p⊆p))∧r∈dom(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∧(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))∈ℙ(S × S) ⇸ ℙ(S × S)⇒r⊆(closure ⦂ ℙ(ℙ(S×S)×ℙ(S×S)))(r)"/>
@@ -2528,13 +2528,13 @@
         </org.eventb.core.prPred>
         <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
         <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
-        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
-        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
         <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.theory.rbp.reduceToClassicLanguageReasoner"/>
+        <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.rmL1"/>
+        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.ri"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.rn"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:1"/>
+        <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
     </org.eventb.core.prProof>
 </org.eventb.core.prFile>
