@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.theory.core.theoryRoot org.eventb.core.configuration="org.eventb.theory.core.thy">
+    <org.eventb.theory.core.proofRulesBlock name="'" org.eventb.core.label="ProofSupport">
+        <org.eventb.theory.core.inferenceRule name="element1" org.eventb.core.label="SetTheory1" org.eventb.theory.core.applicability="automatic" org.eventb.theory.core.desc="SetTheory1">
+            <org.eventb.theory.core.given name="'" org.eventb.core.predicate="s ∈ t" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="(" org.eventb.core.predicate="s ∉ u" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.infer name=")" org.eventb.core.predicate="s ∈ (t ∖ u) ∪ v"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.inferenceRule name="element2" org.eventb.core.label="SetTheory2" org.eventb.theory.core.applicability="automatic" org.eventb.theory.core.desc="SetTheory2">
+            <org.eventb.theory.core.given name="'" org.eventb.core.predicate="f ∈ (t ∖ u) → x" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="(" org.eventb.core.predicate="s ∈ v ∖ u" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.infer name=")" org.eventb.core.predicate="s ∈ dom(f)"/>
+            <org.eventb.theory.core.given name="*" org.eventb.core.predicate="v ⊆ t" org.eventb.theory.core.hyp="true"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.inferenceRule name="element3" org.eventb.core.label="SetTheory3" org.eventb.theory.core.applicability="automatic" org.eventb.theory.core.desc="SetTheory3">
+            <org.eventb.theory.core.given name="'" org.eventb.core.predicate="t ⊆ v" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.infer name=")" org.eventb.core.predicate="t ∖ u ⊆ v"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.inferenceRule name="element4" org.eventb.core.label="SetTheory4" org.eventb.theory.core.applicability="automatic" org.eventb.theory.core.desc="SetTheory4">
+            <org.eventb.theory.core.given name="'" org.eventb.core.predicate="g ∈ t → ℙ(x)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.infer name=")" org.eventb.core.predicate="g(s) ⊆ x"/>
+            <org.eventb.theory.core.given name="*" org.eventb.core.predicate="s ∈ t" org.eventb.theory.core.hyp="false"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.metaVariable name="element2" org.eventb.core.identifier="s" org.eventb.theory.core.type="U"/>
+        <org.eventb.theory.core.metaVariable name="element3" org.eventb.core.identifier="t" org.eventb.theory.core.type="ℙ(U)"/>
+        <org.eventb.theory.core.metaVariable name="element4" org.eventb.core.identifier="u" org.eventb.theory.core.type="ℙ(U)"/>
+        <org.eventb.theory.core.metaVariable name="element5" org.eventb.core.identifier="v" org.eventb.theory.core.type="ℙ(U)"/>
+        <org.eventb.theory.core.metaVariable name="element6" org.eventb.core.identifier="f" org.eventb.theory.core.type="ℙ(U × V)"/>
+        <org.eventb.theory.core.metaVariable name="element7" org.eventb.core.identifier="x" org.eventb.theory.core.type="ℙ(V)"/>
+        <org.eventb.theory.core.metaVariable name="element8" org.eventb.core.identifier="g" org.eventb.theory.core.type="ℙ(U × ℙ(V))"/>
+        <org.eventb.theory.core.inferenceRule name="element9" org.eventb.core.label="SetTheory5" org.eventb.theory.core.applicability="automatic" org.eventb.theory.core.desc="SetTheory5">
+            <org.eventb.theory.core.infer name="element3" org.eventb.core.predicate="y ∈ x"/>
+            <org.eventb.theory.core.given name="element5" org.eventb.core.predicate="y ∈ (a ∖ b) ∪ g(s)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="element1" org.eventb.core.predicate="g ∈ t → ℙ(x)" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="element2" org.eventb.core.predicate="s ∈ t" org.eventb.theory.core.hyp="true"/>
+            <org.eventb.theory.core.given name="element4" org.eventb.core.predicate="a ⊆ x" org.eventb.theory.core.hyp="true"/>
+        </org.eventb.theory.core.inferenceRule>
+        <org.eventb.theory.core.metaVariable name="element:" org.eventb.core.identifier="a" org.eventb.theory.core.type="ℙ(V)"/>
+        <org.eventb.theory.core.metaVariable name="element;" org.eventb.core.identifier="b" org.eventb.theory.core.type="ℙ(V)"/>
+        <org.eventb.theory.core.metaVariable name="element=" org.eventb.core.identifier="y" org.eventb.theory.core.type="V"/>
+    </org.eventb.theory.core.proofRulesBlock>
+    <org.eventb.theory.core.typeParameter name="(" org.eventb.core.identifier="U"/>
+    <org.eventb.theory.core.typeParameter name=")" org.eventb.core.identifier="V"/>
+</org.eventb.theory.core.theoryRoot>

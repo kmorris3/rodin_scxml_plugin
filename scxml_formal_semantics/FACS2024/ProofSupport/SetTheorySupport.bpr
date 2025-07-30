@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+    <org.eventb.core.prProof name="SetTheory1/S-INF" org.eventb.core.confidence="1000" org.eventb.core.prFresh="s,t,u,v" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="U">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p1">
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees s,t,u,v)" org.eventb.core.prGoal="p1" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p2">
+                        <org.eventb.core.prIdent name="s" org.eventb.core.type="U"/>
+                        <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+                        <org.eventb.core.prIdent name="u" org.eventb.core.type="ℙ(U)"/>
+                        <org.eventb.core.prIdent name="v" org.eventb.core.type="ℙ(U)"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p2" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="p3,p4">
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="p3,p4">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀s⦂U,t⦂ℙ(U),u⦂ℙ(U),v⦂ℙ(U)·⊤⇒(s∈t∧s∉u⇒s∈(t ∖ u)∪v)"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="s∈(t ∖ u)∪v">
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="U"/>
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="u" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="v" org.eventb.core.type="ℙ(U)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="∀s⦂U,t⦂ℙ(U),u⦂ℙ(U),v⦂ℙ(U)·s∈t∧¬s∈u⇒s∈(t ∖ u)∪v"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬s∈u">
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="U"/>
+            <org.eventb.core.prIdent name="u" org.eventb.core.type="ℙ(U)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="s∈t∧¬s∈u⇒s∈(t ∖ u)∪v">
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="U"/>
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="u" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="v" org.eventb.core.type="ℙ(U)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="s∈t">
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="U"/>
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="SetTheory2/S-INF" org.eventb.core.confidence="1000" org.eventb.core.prFresh="s,t,u,f,v,x" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="U,V">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p1">
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees f,s,t,u,v,x)" org.eventb.core.prGoal="p1" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p2">
+                        <org.eventb.core.prIdent name="f" org.eventb.core.type="ℙ(U×V)"/>
+                        <org.eventb.core.prIdent name="s" org.eventb.core.type="U"/>
+                        <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+                        <org.eventb.core.prIdent name="u" org.eventb.core.type="ℙ(U)"/>
+                        <org.eventb.core.prIdent name="v" org.eventb.core.type="ℙ(U)"/>
+                        <org.eventb.core.prIdent name="x" org.eventb.core.type="ℙ(V)"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p2" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="p3,p4,p5">
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p6" org.eventb.core.prHyps="p3,p4,p5">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="v⊆t">
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="v" org.eventb.core.type="ℙ(U)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="∀f⦂ℙ(U×V),s⦂U,t⦂ℙ(U),u⦂ℙ(U),v⦂ℙ(U),x⦂ℙ(V)·f∈t ∖ u → x∧s∈v ∖ u∧v⊆t⇒s∈dom(f)"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="s∈v ∖ u">
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="U"/>
+            <org.eventb.core.prIdent name="u" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="v" org.eventb.core.type="ℙ(U)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="f∈t ∖ u → x∧s∈v ∖ u∧v⊆t⇒s∈dom(f)">
+            <org.eventb.core.prIdent name="f" org.eventb.core.type="ℙ(U×V)"/>
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="U"/>
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="u" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="v" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="x" org.eventb.core.type="ℙ(V)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="f∈t ∖ u → x">
+            <org.eventb.core.prIdent name="f" org.eventb.core.type="ℙ(U×V)"/>
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="u" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="x" org.eventb.core.type="ℙ(V)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀f⦂ℙ(U×V),s⦂U,t⦂ℙ(U),u⦂ℙ(U),v⦂ℙ(U),x⦂ℙ(V)·⊤⇒(f∈t ∖ u → x∧s∈v ∖ u∧v⊆t⇒s∈dom(f))"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="s∈dom(f)">
+            <org.eventb.core.prIdent name="f" org.eventb.core.type="ℙ(U×V)"/>
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="U"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="SetTheory3/S-INF" org.eventb.core.confidence="1000" org.eventb.core.prFresh="t,u,v" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="U">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p1">
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees t,u,v)" org.eventb.core.prGoal="p1" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p2">
+                        <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+                        <org.eventb.core.prIdent name="u" org.eventb.core.type="ℙ(U)"/>
+                        <org.eventb.core.prIdent name="v" org.eventb.core.type="ℙ(U)"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p2" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p4" org.eventb.core.prHyps="p3">
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p4" org.eventb.core.prHyps="p3">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀t⦂ℙ(U),u⦂ℙ(U),v⦂ℙ(U)·⊤⇒(t⊆v⇒t ∖ u⊆v)"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="∀t⦂ℙ(U),u⦂ℙ(U),v⦂ℙ(U)·t⊆v⇒t ∖ u⊆v"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="t⊆v">
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="v" org.eventb.core.type="ℙ(U)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="t⊆v⇒t ∖ u⊆v">
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="u" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="v" org.eventb.core.type="ℙ(U)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="t ∖ u⊆v">
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="u" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="v" org.eventb.core.type="ℙ(U)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="SetTheory4/S-INF" org.eventb.core.confidence="1000" org.eventb.core.prFresh="s,t,g,x" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="U,V">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p1">
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees g,s,t,x)" org.eventb.core.prGoal="p1" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p2">
+                        <org.eventb.core.prIdent name="g" org.eventb.core.type="ℙ(U×ℙ(V))"/>
+                        <org.eventb.core.prIdent name="s" org.eventb.core.type="U"/>
+                        <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+                        <org.eventb.core.prIdent name="x" org.eventb.core.type="ℙ(V)"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p2" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="p3,p4">
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p5" org.eventb.core.prHyps="p3,p4">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀g⦂ℙ(U×ℙ(V)),s⦂U,t⦂ℙ(U),x⦂ℙ(V)·⊤⇒(g∈t → ℙ(x)∧s∈t⇒g(s)⊆x)"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="g∈t → ℙ(x)">
+            <org.eventb.core.prIdent name="g" org.eventb.core.type="ℙ(U×ℙ(V))"/>
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="x" org.eventb.core.type="ℙ(V)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="g∈t → ℙ(x)∧s∈t⇒g(s)⊆x">
+            <org.eventb.core.prIdent name="g" org.eventb.core.type="ℙ(U×ℙ(V))"/>
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="U"/>
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="x" org.eventb.core.type="ℙ(V)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="g(s)⊆x">
+            <org.eventb.core.prIdent name="g" org.eventb.core.type="ℙ(U×ℙ(V))"/>
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="U"/>
+            <org.eventb.core.prIdent name="x" org.eventb.core.type="ℙ(V)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="∀g⦂ℙ(U×ℙ(V)),s⦂U,t⦂ℙ(U),x⦂ℙ(V)·g∈t → ℙ(x)∧s∈t⇒g(s)⊆x"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="s∈t">
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="U"/>
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="SetTheory5/S-INF" org.eventb.core.confidence="1000" org.eventb.core.prFresh="a,b,s,t,g,x,y" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="U,V">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p1">
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∀ goal (frees a,b,g,s,t,x,y)" org.eventb.core.prGoal="p1" org.eventb.core.prHyps="">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p2">
+                        <org.eventb.core.prIdent name="a" org.eventb.core.type="ℙ(V)"/>
+                        <org.eventb.core.prIdent name="b" org.eventb.core.type="ℙ(V)"/>
+                        <org.eventb.core.prIdent name="g" org.eventb.core.type="ℙ(U×ℙ(V))"/>
+                        <org.eventb.core.prIdent name="s" org.eventb.core.type="U"/>
+                        <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+                        <org.eventb.core.prIdent name="x" org.eventb.core.type="ℙ(V)"/>
+                        <org.eventb.core.prIdent name="y" org.eventb.core.type="V"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p2" org.eventb.core.prHyps="">
+                            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p7" org.eventb.core.prHyps="p3,p4,p5,p6">
+                                <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="PP" org.eventb.core.prGoal="p7" org.eventb.core.prHyps="p3,p4,p5,p6">
+                                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="R500"/>
+                                </org.eventb.core.prRule>
+                            </org.eventb.core.prAnte>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="y∈(a ∖ b)∪g(s)∧g∈t → ℙ(x)∧s∈t∧a⊆x⇒y∈x">
+            <org.eventb.core.prIdent name="a" org.eventb.core.type="ℙ(V)"/>
+            <org.eventb.core.prIdent name="b" org.eventb.core.type="ℙ(V)"/>
+            <org.eventb.core.prIdent name="g" org.eventb.core.type="ℙ(U×ℙ(V))"/>
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="U"/>
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="x" org.eventb.core.type="ℙ(V)"/>
+            <org.eventb.core.prIdent name="y" org.eventb.core.type="V"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀a⦂ℙ(V),b⦂ℙ(V),g⦂ℙ(U×ℙ(V)),s⦂U,t⦂ℙ(U),x⦂ℙ(V),y⦂V·⊤⇒(y∈(a ∖ b)∪g(s)∧g∈t → ℙ(x)∧s∈t∧a⊆x⇒y∈x)"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="y∈x">
+            <org.eventb.core.prIdent name="x" org.eventb.core.type="ℙ(V)"/>
+            <org.eventb.core.prIdent name="y" org.eventb.core.type="V"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="∀a⦂ℙ(V),b⦂ℙ(V),g⦂ℙ(U×ℙ(V)),s⦂U,t⦂ℙ(U),x⦂ℙ(V),y⦂V·y∈(a ∖ b)∪g(s)∧g∈t → ℙ(x)∧s∈t∧a⊆x⇒y∈x"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="g∈t → ℙ(x)">
+            <org.eventb.core.prIdent name="g" org.eventb.core.type="ℙ(U×ℙ(V))"/>
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+            <org.eventb.core.prIdent name="x" org.eventb.core.type="ℙ(V)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="s∈t">
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="U"/>
+            <org.eventb.core.prIdent name="t" org.eventb.core.type="ℙ(U)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="a⊆x">
+            <org.eventb.core.prIdent name="a" org.eventb.core.type="ℙ(V)"/>
+            <org.eventb.core.prIdent name="x" org.eventb.core.type="ℙ(V)"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="y∈(a ∖ b)∪g(s)">
+            <org.eventb.core.prIdent name="a" org.eventb.core.type="ℙ(V)"/>
+            <org.eventb.core.prIdent name="b" org.eventb.core.type="ℙ(V)"/>
+            <org.eventb.core.prIdent name="g" org.eventb.core.type="ℙ(U×ℙ(V))"/>
+            <org.eventb.core.prIdent name="s" org.eventb.core.type="U"/>
+            <org.eventb.core.prIdent name="y" org.eventb.core.type="V"/>
+        </org.eventb.core.prPred>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalPP:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+    </org.eventb.core.prProof>
+</org.eventb.core.prFile>
