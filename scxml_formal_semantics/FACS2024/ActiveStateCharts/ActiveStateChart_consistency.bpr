@@ -492,7 +492,7 @@
             <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
             <org.eventb.core.prIdent name="tr" org.eventb.core.type="TRANSFORMATION"/>
         </org.eventb.core.prPred>
-        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀asc⦂ACTIVE_STATECHART(STATE),sc⦂STATECHART(STATE,TRANSFORMATION),tr⦂TRANSFORMATION·sc∈STATECHART(STATE,TRANSFORMATION)∧asc∈ACTIVE_STATECHART(STATE)∧StatechartWD(sc)∧ActiveStatechartWD(sc,asc)∧tr∈Transformation(sc)∧Enabling(sc)(tr)⊆Active(asc)⇒ActiveStatechartWD(sc,transform(sc,asc,tr))"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="∀asc⦂ACTIVE_STATECHART(STATE),sc⦂STATECHART(STATE,TRANSFORMATION),tr⦂TRANSFORMATION·sc∈(STATECHART(STATE,TRANSFORMATION) ⦂ ℙ(STATECHART(STATE,TRANSFORMATION)))∧asc∈(ACTIVE_STATECHART(STATE) ⦂ ℙ(ACTIVE_STATECHART(STATE)))∧StatechartWD(sc)∧ActiveStatechartWD(sc,asc)∧tr∈Transformation(sc)∧Enabling(sc)(tr)⊆Active(asc)⇒ActiveStatechartWD(sc,transform(sc,asc,tr))"/>
         <org.eventb.core.prPred name="p31" org.eventb.core.predicate="∀r⦂ℙ(STATE),s⦂STATE·r∈Regions(sc)∧s∈r∩Active(Cons_ActiveStatechart((Active(asc) ∖ Exiting(sc)(tr))∪Entering(sc)(tr)))⇒r∩Active(Cons_ActiveStatechart((Active(asc) ∖ Exiting(sc)(tr))∪Entering(sc)(tr)))⊆{s}">
             <org.eventb.core.prIdent name="asc" org.eventb.core.type="ACTIVE_STATECHART(STATE)"/>
             <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
@@ -790,18 +790,18 @@
         <org.eventb.core.prExpr name="e0" org.eventb.core.expression="Transformation(sc)">
             <org.eventb.core.prIdent name="sc" org.eventb.core.type="STATECHART(STATE,TRANSFORMATION)"/>
         </org.eventb.core.prExpr>
-        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
-        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
-        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.theory.rbp.reduceToClassicLanguageReasoner"/>
-        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL5:0"/>
         <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.theory.rbp.autoInferenceReasoner:1"/>
         <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
-        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
         <org.eventb.core.prReas name="r10" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
-        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.totalDom:2"/>
-        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
-        <org.eventb.core.prReas name="r11" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL4"/>
         <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+        <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
+        <org.eventb.core.prReas name="r11" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL4"/>
+        <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.theory.rbp.reduceToClassicLanguageReasoner"/>
+        <org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.totalDom:2"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.allI"/>
+        <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
     </org.eventb.core.prProof>
     <org.eventb.core.prProof name="Consistency/WD-THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="asc,sc,tr" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="STATE,TRANSFORMATION">
         <org.eventb.core.lang name="L">
