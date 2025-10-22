@@ -1,5 +1,8 @@
 Order of deployment
 
+0. Proof Support
+   - SetTheory
+
 1. Closure
    - transitivity
    - closure
@@ -26,3 +29,12 @@ Order of deployment
    
 7. 
 
+
+
+XD (Definition expansion) -- Can this be in the hierarchy of the
+definitions?
+
+StateChart/not_exiting_region_1/S-INF (Atelier-B fails with
+abstraction of the datatype)
+
+transform_inf_4/S-INF/ seems 

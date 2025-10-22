@@ -62,4 +62,5 @@
             <org.eventb.theory.core.given name="+" org.eventb.core.predicate="Enabling(sc)(tr) ⊆ Active(asc)" org.eventb.theory.core.hyp="true"/>
         </org.eventb.theory.core.inferenceRule>
     </org.eventb.theory.core.proofRulesBlock>
+    <org.eventb.theory.core.theorem name="element7" org.eventb.core.label="@region_active" org.eventb.core.predicate="∀asc, sc, p, r · sc ∈ STATECHART(STATE, TRANSFORMATION)&#10; ∧ asc ∈ ACTIVE_STATECHART(STATE)&#10; ∧ StatechartWD(sc) ∧ ActiveStatechartWD(sc, asc) ∧ p ∈ States(Tree(sc)) ∧ r ∈ Regions(sc) ∧ Parent(Tree(sc))[r] = {p} &#10; ∧ p ∈ Active(asc)&#10;⇒&#10; r ∩ Active(asc) ≠ ∅ &#10; "/>
 </org.eventb.theory.core.theoryRoot>
