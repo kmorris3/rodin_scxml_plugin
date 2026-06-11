@@ -71,7 +71,7 @@ Record Statemachine : Type :=
 *)
 
 Section Tree.
-Context (A B : Set).
+Context (A : Set).
 
 Inductive tree : Set := node : A -> forest -> tree
 with forest : Set :=
@@ -97,9 +97,9 @@ End Tree.
 
 Check tree.
 
-Goal forall (A B : Set) (P : tree A B -> Set) (P0 : forest A B -> Set) (t : tree A B), P t.
+Goal forall (A : Prop) (P : tree A -> Prop) (P0 : forest A -> Prop) (P1 : region A -> Prop) (t : tree A), P t.
   intros.
-  apply (forest_tree_rec A B P P0).
+  apply (tree_forest_rec A P P0 P1).
 
 
 (*Inductive List : Set :=
