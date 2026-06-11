@@ -76,20 +76,22 @@ Context (A B : Set).
 Inductive tree : Set := node : A -> forest -> tree
 with forest : Set :=
 | empty : forest
-| f_cons : region -> forest -> forest.
-with region : Set :=
-  | single : tree -> region
-  | r_cons : tree -> region -> region
+| f_cons : region -> forest -> forest
+  with region : Set :=
+     | single : tree -> region
+     | r_cons : tree -> region -> region.
 
 Check tree_ind.
 
 Set Printing Universes.
 
 Scheme tree_forest_rec := Induction for tree Sort Prop
-  with forest_tree_rec := Induction for forest Sort Prop.
+  with forest_region_rec := Induction for forest Sort Prop
+  with region_forest_rec := Induction for region Sort Prop.
 
 Check tree_forest_rec.
-Check forest_tree_rec.
+Check forest_region_rec.
+Check region_forest_rec.
 
 End Tree.
 
