@@ -93,14 +93,51 @@ Check tree_forest_rec.
 Check forest_region_rec.
 Check region_forest_rec.
 
+Inductive tree_nodes : tree -> list A :=
+    
+  
+
 End Tree.
 
-Check tree.
+Definition my_tree : (tree nat) := (node nat) 1 
+  ((f_cons nat) ((single nat) ((node nat) 2 (empty nat))) (empty nat))
 
-Goal forall (A : Prop) (P : tree A -> Prop) (P0 : forest A -> Prop) (P1 : region A -> Prop) (t : tree A), P t.
+(*((node nat) 1 (f_cons nat region1 region2 (empty nat)))
+  with region1 := (single nat)((node nat) 2 (empty nat)).*)
+
+.
+
+
+
+Section TreeUsingList.
+Context (A : Set).
+
+(*                   N1
+    {N2       N3}     {N8                N9}
+  {L4 L5}   {L6  L7}  {L10}  {L11}        {L12}
+*)
+
+
+
+Inductive tree_list : Set := node_list : A -> list region_list -> tree_list
+(*with forest : Set :=
+| empty : forest
+| f_cons : region -> forest -> forest*)
+  with region_list : Set :=
+     | single_list : tree_list -> region_list
+     | r_cons_list : tree_list -> region_list -> region_list.
+
+Check tree_list_ind.
+
+Scheme tree_forest_rec_list := Induction for tree_list Sort Prop
+  with region_tree_rec_list := Induction for region_list Sort Prop.
+
+Check tree_forest_rec_list.
+
+Goal forall (P : list nat -> Prop) (t : list nat), P t.
+  induction t.
   intros.
-  apply (tree_forest_rec A P P0 P1).
-
+  apply (tree_forest_rec P P0 P1).
 
 (*Inductive List : Set :=
   | empty : List
